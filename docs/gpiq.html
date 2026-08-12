@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f5f0">
-<meta name="description" content="Ten transparent market signals - volatility, credit stress, sentiment, yield vs cash, trend - scored daily to answer one question: is today a better- or worse-than-average day to buy GPIX?">
+<meta name="description" content="Eleven transparent market signals - Nasdaq volatility, tech fear premium, credit stress, sentiment, yield vs cash, trend - scored daily to answer one question: is today a better- or worse-than-average day to buy GPIQ?">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23004225'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%23f6f5f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<title>Should I buy GPIX today?</title>
+<title>Should I buy GPIQ today?</title>
 <style>
   :root {
     /* Light theme, British racing green */
@@ -84,6 +84,12 @@
   .meter .zlabels { display: flex; margin-top: 7px; font-size: 11.5px; color: var(--faint); }
   .meter .zlabels span:last-child { text-align: right; }
 
+  .knowbox {
+    margin-top: 14px; padding: 14px 18px; font-size: 13.5px; color: var(--muted);
+    background: var(--surface2); border-left: 3px solid var(--brg); border-radius: 0 10px 10px 0;
+  }
+  .knowbox b { color: var(--text); }
+
   h2 { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 34px 0 6px; }
   .h2sub { color: var(--faint); font-size: 13px; margin-bottom: 14px; }
 
@@ -155,13 +161,13 @@
 <body>
 <div class="wrap">
   <nav class="fundtoggle" aria-label="Choose fund">
-    <a href="./" class="active">GPIX <small>S&amp;P 500</small></a>
-    <a href="gpiq.html">GPIQ <small>Nasdaq 100</small></a>
+    <a href="./">GPIX <small>S&amp;P 500</small></a>
+    <a href="gpiq.html" class="active">GPIQ <small>Nasdaq 100</small></a>
   </nav>
   <header>
     <div>
-      <h1>Should I buy GPIX today?</h1>
-      <div class="sub">Ten market signals - volatility, credit, sentiment, yield, trend - scored every weekday morning into one answer.</div>
+      <h1>Should I buy GPIQ today?</h1>
+      <div class="sub">Eleven market signals - Nasdaq volatility, tech fear premium, credit, sentiment, yield, trend - scored every weekday morning into one answer.</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -169,10 +175,11 @@
   <div id="app"></div>
 
   <footer>
-    Not financial advice; a personal decision aid. The rules are transparent (volatility, discount
-    from highs, trend, Fed calendar) and deliberately boring, because boring is what works. If the
-    experiment above shows anything consistently, it's that a scheduled buy you actually make beats
-    a clever buy you wait for. Data: Yahoo Finance, Google News, Federal Reserve calendar.
+    Not financial advice; a personal decision aid. The rules are transparent (Nasdaq volatility,
+    tech fear premium, discount from highs, trend, Fed calendar) and deliberately boring, because
+    boring is what works. If the experiment above shows anything consistently, it's that a
+    scheduled buy you actually make beats a clever buy you wait for. Data: Yahoo Finance, FRED,
+    CNN, Google News, Federal Reserve calendar.
   </footer>
 </div>
 
@@ -208,7 +215,7 @@ function renderChart(series, sma50) {
 
   box.innerHTML = `
   <div class="chartwrap">
-  <svg id="pxchart" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="GPIX closing price with 50-day average, last ${series.length} trading days">
+  <svg id="pxchart" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="GPIQ closing price with 50-day average, last ${series.length} trading days">
     ${gridVals.map(v => `<line x1="${L}" x2="${W-R}" y1="${yv(v)}" y2="${yv(v)}" stroke="#e4e7dd" stroke-width="1"/>
       <text x="2" y="${yv(v)+4}">$${fmt2(v)}</text>`).join("")}
     <path d="${area}" fill="rgba(0,66,37,0.07)"/>
@@ -251,11 +258,11 @@ function renderChart(series, sma50) {
   svg.addEventListener("pointercancel", hide);
 }
 
-fetch("data.json").then(r => r.json()).then(d => {
+fetch("data-gpiq.json").then(r => r.json()).then(d => {
   const g = d.fund, v = d.verdict, bt = d.backtest;
   // Meter range comes from the data (each fund has a different signal count).
-  const METER_MIN = d.meter ? d.meter.min : -7;
-  const METER_MAX = d.meter ? d.meter.max : 14;
+  const METER_MIN = d.meter ? d.meter.min : -8;
+  const METER_MAX = d.meter ? d.meter.max : 16;
   // Zone boundaries between verdict bands: -1.5, 1.5, 4.5.
   const zw = [(-1.5 - METER_MIN), 3, 3, (METER_MAX - 4.5)];
   const chg = g.day_change_pct ?? 0;
@@ -280,8 +287,14 @@ fetch("data.json").then(r => r.json()).then(d => {
       </div>
     </div>
 
+    <div class="knowbox"><b>Know what you own:</b> GPIQ is GPIX's Nasdaq-100 sibling — same
+    covered-call engine, hotter fuel. Tech options are pricier, so the payout runs ~10% instead
+    of ~8%, but the top ten holdings are roughly half the fund and tech drawdowns cut deeper.
+    The extra signal below (tech fear premium) exists because Nasdaq fear and S&amp;P fear
+    often diverge — and that divergence is where GPIQ's timing edge lives.</div>
+
     <h2>Why</h2>
-    <div class="h2sub">Ten checks each morning: volatility pricing, credit stress, sentiment, yield vs cash, trend, and the event calendar. Green = tilts toward buying today, orange = works against you.</div>
+    <div class="h2sub">Eleven checks each morning: Nasdaq volatility pricing, the tech fear premium, credit stress, sentiment, yield vs cash, trend, and the event calendar. Green = tilts toward buying today, orange = works against you.</div>
     <div class="signals">
       ${d.signals.map(s => `
         <div class="sig">
@@ -300,7 +313,7 @@ fetch("data.json").then(r => r.json()).then(d => {
     </ul></div>
 
     <h2>Price context</h2>
-    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it).${d.income && d.income.ttm_yield_pct != null && d.income.tbill_3mo != null ? ` GPIX has paid ${d.income.ttm_yield_pct.toFixed(1)}% over the trailing year vs ${d.income.tbill_3mo.toFixed(1)}% on 3-month T-bills.` : ""}</div>
+    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it).${d.income && d.income.ttm_yield_pct != null && d.income.tbill_3mo != null ? ` GPIQ has paid ${d.income.ttm_yield_pct.toFixed(1)}% over the trailing year vs ${d.income.tbill_3mo.toFixed(1)}% on 3-month T-bills.` : ""}</div>
     <div class="card" id="chartcard"></div>
 
     <h2>Does waiting even work? A running experiment</h2>
@@ -316,7 +329,7 @@ fetch("data.json").then(r => r.json()).then(d => {
       <div class="lane ${dcaWins ? "" : "winner"}">
         ${dcaWins ? "" : '<span class="crown">ahead</span>'}
         <div class="who">The dip-waiter</div>
-        <div class="how">Saves cash and only buys when GPIX is ≥${bt.dip_threshold_pct}% off its high. Got ${bt.dip_buy_days} chances so far.</div>
+        <div class="how">Saves cash and only buys when GPIQ is ≥${bt.dip_threshold_pct}% off its high. Got ${bt.dip_buy_days} chances so far.</div>
         <div class="flow">${fmt$(bt.invested)} in → <b>${fmt$(bt.dip_value)}</b></div>
         <div class="ret">+${bt.dip_return_pct}% total return${bt.dip_cash_uninvested > 0 ? " · " + fmt$(bt.dip_cash_uninvested) + " still waiting in cash" : ""}</div>
       </div>

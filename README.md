@@ -4,6 +4,12 @@ A tiny GitHub Pages tool that answers one question every weekday morning: is tod
 better-or-worse-than-average day to buy [GPIX](https://am.gs.com/en-us/advisors/funds/detail/PV109746/38151J286/goldman-sachs-s-p-500-core-premium-income-etf)
 (Goldman Sachs S&P 500 Premium Income ETF)?
 
+A sister page (`gpiq.html`) answers the same question for GPIQ, the Nasdaq-100 version
+of the fund. It swaps in Nasdaq-specific inputs - VXN instead of VIX, QQQ instead of
+SPY, payout bands calibrated to GPIQ's higher (~10%) distribution - and adds one signal
+of its own: the **tech fear premium** (VXN/VIX ratio ranked against its own past year),
+which measures when fear is concentrated in tech rather than the broad market.
+
 ## How it decides
 
 A GitHub Action runs every weekday morning, pulls data from Yahoo Finance, FRED, CNN's
@@ -24,8 +30,9 @@ Fear & Greed feed, and Google News, and scores ten transparent signals:
 
 Each non-core source is individually guarded - if an endpoint is down, its signal shows
 as skipped (score 0) instead of breaking the daily build. The verdict maps the total
-score (range roughly -7 to +12) to one of four honest answers, from "better-than-usual
-entry" (score >= +5) to "no discount today" (score <= -2).
+score (GPIX: -7..+14 across ten signals; GPIQ: -8..+16 across eleven) to one of four
+honest answers, from "better-than-usual entry" (score >= +5) to "no discount today"
+(score <= -2).
 
 ## The point of the backtest
 
@@ -36,11 +43,11 @@ most of the time, the no-timing strategy wins, and the page says so out loud.
 ## Development
 
 ```bash
-python3 scripts/build_data.py   # regenerates docs/data.json (stdlib only, no deps)
+python3 scripts/build_data.py   # regenerates docs/data.json + docs/data-gpiq.json (stdlib only)
 python3 -m http.server -d docs  # view locally at http://localhost:8000
 ```
 
 Pages serves from the `docs/` folder on `main`. The workflow in
-`.github/workflows/update-data.yml` refreshes `docs/data.json` each weekday at 13:35 UTC.
+`.github/workflows/update-data.yml` refreshes both data files each weekday at 13:35 UTC.
 
 Not financial advice. Built as a personal decision aid.

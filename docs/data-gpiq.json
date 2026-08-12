@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-08-12T03:58:44+00:00",
- "ticker": "GPIX",
+ "generated_at": "2026-08-12T03:58:45+00:00",
+ "ticker": "GPIQ",
  "verdict": {
-  "tone": "rich",
-  "label": "No discount today",
-  "summary": "You'd be paying full price with thin premiums. If today is your scheduled buy day, buy anyway - the backtest below shows why skipping rarely helps. If it's not, there is no signal pulling you in early.",
-  "score": -2
+  "tone": "ok",
+  "label": "Mild tailwind - fine day to buy",
+  "summary": "Conditions tilt slightly in your favor. Nothing dramatic, but no reason to wait either.",
+  "score": 2
  },
  "meter": {
-  "min": -7,
-  "max": 14
+  "min": -8,
+  "max": 16
  },
  "signals": [
   {
-   "name": "VIX vs its own past year",
-   "value": "15.3 (p13)",
-   "score": -1,
-   "note": "S&P 500 volatility near the bottom of its 1-year range - the income engine is running lean."
+   "name": "VXN vs its own past year",
+   "value": "22.4 (p40)",
+   "score": 0,
+   "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary."
   },
   {
    "name": "VIX term structure (1mo/3mo)",
@@ -25,28 +25,34 @@
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear."
   },
   {
+   "name": "Tech fear premium (VXN/VIX)",
+   "value": "1.46x (p81)",
+   "score": 1,
+   "note": "Tech fear running above its norm vs the broad market - Nasdaq premiums a touch richer than usual."
+  },
+  {
    "name": "Are call-sellers overpaid?",
-   "value": "+1.2 pts",
-   "score": 0,
-   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep."
+   "value": "-2.5 pts",
+   "score": -1,
+   "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling is underpaid in this tape."
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.2%",
-   "score": -1,
-   "note": "At/near the 52-week high - you are paying full price."
+   "value": "4.3%",
+   "score": 1,
+   "note": "Modest discount from the 52-week high."
   },
   {
-   "name": "GPIX vs 50-day average",
-   "value": "+1.8%",
-   "score": 0,
-   "note": "Close to its 50-day average."
+   "name": "GPIQ vs 50-day average",
+   "value": "-0.5%",
+   "score": 1,
+   "note": "Below its 50-day average - short-term weakness favors the buyer."
   },
   {
-   "name": "S&P 500 regime",
+   "name": "Nasdaq-100 regime",
    "value": "uptrend",
    "score": 0,
-   "note": "S&P 500 in a healthy uptrend (above its 200-day average)."
+   "note": "Nasdaq-100 in a healthy uptrend (above its 200-day average)."
   },
   {
    "name": "Credit stress (junk-bond spreads)",
@@ -56,9 +62,9 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "8.0% vs 3.9% cash",
+   "value": "9.9% vs 3.9% cash",
    "score": 0,
-   "note": "GPIX yields comfortably more than cash - the normal state of affairs."
+   "note": "GPIQ yields comfortably more than cash - the normal state of affairs."
   },
   {
    "name": "Fear & Greed index",
@@ -74,319 +80,319 @@
   }
  ],
  "fund": {
-  "price": 56.27,
-  "day_change_pct": -0.25,
-  "sma50": 55.28,
-  "high52w": 56.41,
-  "drawdown_pct": 0.2,
+  "price": 56.97,
+  "day_change_pct": -0.33,
+  "sma50": 57.28,
+  "high52w": 59.52,
+  "drawdown_pct": 4.3,
   "series": [
    {
     "d": "2025-11-20",
-    "c": 50.73
+    "c": 50.59
    },
    {
     "d": "2025-11-21",
-    "c": 51.22
+    "c": 51.01
    },
    {
     "d": "2025-11-24",
-    "c": 51.92
+    "c": 52.23
    },
    {
     "d": "2025-11-25",
-    "c": 52.35
+    "c": 52.55
    },
    {
     "d": "2025-11-26",
-    "c": 52.67
-   },
-   {
-    "d": "2025-11-28",
-    "c": 52.93
-   },
-   {
-    "d": "2025-12-01",
-    "c": 52.36
-   },
-   {
-    "d": "2025-12-02",
-    "c": 52.44
-   },
-   {
-    "d": "2025-12-03",
-    "c": 52.59
-   },
-   {
-    "d": "2025-12-04",
-    "c": 52.63
-   },
-   {
-    "d": "2025-12-05",
-    "c": 52.71
-   },
-   {
-    "d": "2025-12-08",
-    "c": 52.61
-   },
-   {
-    "d": "2025-12-09",
-    "c": 52.57
-   },
-   {
-    "d": "2025-12-10",
-    "c": 52.86
-   },
-   {
-    "d": "2025-12-11",
-    "c": 52.96
-   },
-   {
-    "d": "2025-12-12",
-    "c": 52.52
-   },
-   {
-    "d": "2025-12-15",
-    "c": 52.48
-   },
-   {
-    "d": "2025-12-16",
-    "c": 52.35
-   },
-   {
-    "d": "2025-12-17",
-    "c": 51.88
-   },
-   {
-    "d": "2025-12-18",
-    "c": 52.23
-   },
-   {
-    "d": "2025-12-19",
-    "c": 52.66
-   },
-   {
-    "d": "2025-12-22",
-    "c": 52.96
-   },
-   {
-    "d": "2025-12-23",
-    "c": 53.13
-   },
-   {
-    "d": "2025-12-24",
-    "c": 53.28
-   },
-   {
-    "d": "2025-12-26",
-    "c": 53.28
-   },
-   {
-    "d": "2025-12-29",
-    "c": 53.15
-   },
-   {
-    "d": "2025-12-30",
-    "c": 53.11
-   },
-   {
-    "d": "2025-12-31",
-    "c": 52.8
-   },
-   {
-    "d": "2026-01-02",
-    "c": 52.53
-   },
-   {
-    "d": "2026-01-05",
-    "c": 52.8
-   },
-   {
-    "d": "2026-01-06",
-    "c": 53.06
-   },
-   {
-    "d": "2026-01-07",
-    "c": 52.93
-   },
-   {
-    "d": "2026-01-08",
-    "c": 52.95
-   },
-   {
-    "d": "2026-01-09",
-    "c": 53.22
-   },
-   {
-    "d": "2026-01-12",
-    "c": 53.28
-   },
-   {
-    "d": "2026-01-13",
-    "c": 53.2
-   },
-   {
-    "d": "2026-01-14",
-    "c": 53.02
-   },
-   {
-    "d": "2026-01-15",
-    "c": 53.11
-   },
-   {
-    "d": "2026-01-16",
-    "c": 53.11
-   },
-   {
-    "d": "2026-01-20",
-    "c": 52.19
-   },
-   {
-    "d": "2026-01-21",
-    "c": 52.72
-   },
-   {
-    "d": "2026-01-22",
     "c": 52.97
    },
    {
-    "d": "2026-01-23",
-    "c": 53.01
+    "d": "2025-11-28",
+    "c": 53.33
    },
    {
-    "d": "2026-01-26",
-    "c": 53.24
+    "d": "2025-12-01",
+    "c": 52.7
    },
    {
-    "d": "2026-01-27",
-    "c": 53.41
+    "d": "2025-12-02",
+    "c": 53.06
    },
    {
-    "d": "2026-01-28",
-    "c": 53.4
+    "d": "2025-12-03",
+    "c": 53.17
    },
    {
-    "d": "2026-01-29",
+    "d": "2025-12-04",
+    "c": 53.15
+   },
+   {
+    "d": "2025-12-05",
     "c": 53.34
    },
    {
-    "d": "2026-01-30",
-    "c": 53.23
+    "d": "2025-12-08",
+    "c": 53.25
    },
    {
-    "d": "2026-02-02",
-    "c": 53.09
+    "d": "2025-12-09",
+    "c": 53.33
    },
    {
-    "d": "2026-02-03",
-    "c": 52.72
+    "d": "2025-12-10",
+    "c": 53.5
    },
    {
-    "d": "2026-02-04",
-    "c": 52.48
+    "d": "2025-12-11",
+    "c": 53.39
    },
    {
-    "d": "2026-02-05",
-    "c": 51.89
-   },
-   {
-    "d": "2026-02-06",
-    "c": 52.81
-   },
-   {
-    "d": "2026-02-09",
-    "c": 53.04
-   },
-   {
-    "d": "2026-02-10",
-    "c": 52.95
-   },
-   {
-    "d": "2026-02-11",
-    "c": 52.93
-   },
-   {
-    "d": "2026-02-12",
-    "c": 52.23
-   },
-   {
-    "d": "2026-02-13",
-    "c": 52.26
-   },
-   {
-    "d": "2026-02-17",
-    "c": 52.36
-   },
-   {
-    "d": "2026-02-18",
+    "d": "2025-12-12",
     "c": 52.6
    },
    {
-    "d": "2026-02-19",
-    "c": 52.46
+    "d": "2025-12-15",
+    "c": 52.4
    },
    {
-    "d": "2026-02-20",
+    "d": "2025-12-16",
+    "c": 52.51
+   },
+   {
+    "d": "2025-12-17",
+    "c": 51.63
+   },
+   {
+    "d": "2025-12-18",
+    "c": 52.34
+   },
+   {
+    "d": "2025-12-19",
+    "c": 52.94
+   },
+   {
+    "d": "2025-12-22",
+    "c": 53.16
+   },
+   {
+    "d": "2025-12-23",
+    "c": 53.37
+   },
+   {
+    "d": "2025-12-24",
+    "c": 53.52
+   },
+   {
+    "d": "2025-12-26",
+    "c": 53.51
+   },
+   {
+    "d": "2025-12-29",
+    "c": 53.32
+   },
+   {
+    "d": "2025-12-30",
+    "c": 53.22
+   },
+   {
+    "d": "2025-12-31",
     "c": 52.87
    },
    {
-    "d": "2026-02-23",
-    "c": 52.39
+    "d": "2026-01-02",
+    "c": 52.31
    },
    {
-    "d": "2026-02-24",
-    "c": 52.76
+    "d": "2026-01-05",
+    "c": 52.69
    },
    {
-    "d": "2026-02-25",
+    "d": "2026-01-06",
+    "c": 53.08
+   },
+   {
+    "d": "2026-01-07",
     "c": 53.12
    },
    {
-    "d": "2026-02-26",
+    "d": "2026-01-08",
     "c": 52.9
    },
    {
-    "d": "2026-02-27",
+    "d": "2026-01-09",
+    "c": 53.33
+   },
+   {
+    "d": "2026-01-12",
+    "c": 53.38
+   },
+   {
+    "d": "2026-01-13",
+    "c": 53.32
+   },
+   {
+    "d": "2026-01-14",
+    "c": 52.89
+   },
+   {
+    "d": "2026-01-15",
+    "c": 53.07
+   },
+   {
+    "d": "2026-01-16",
+    "c": 53.06
+   },
+   {
+    "d": "2026-01-20",
+    "c": 52.08
+   },
+   {
+    "d": "2026-01-21",
     "c": 52.71
    },
    {
-    "d": "2026-03-02",
-    "c": 52.36
+    "d": "2026-01-22",
+    "c": 53.08
    },
    {
-    "d": "2026-03-03",
+    "d": "2026-01-23",
+    "c": 53.27
+   },
+   {
+    "d": "2026-01-26",
+    "c": 53.45
+   },
+   {
+    "d": "2026-01-27",
+    "c": 53.83
+   },
+   {
+    "d": "2026-01-28",
+    "c": 53.94
+   },
+   {
+    "d": "2026-01-29",
+    "c": 53.77
+   },
+   {
+    "d": "2026-01-30",
+    "c": 53.27
+   },
+   {
+    "d": "2026-02-02",
+    "c": 53.15
+   },
+   {
+    "d": "2026-02-03",
+    "c": 52.43
+   },
+   {
+    "d": "2026-02-04",
+    "c": 51.62
+   },
+   {
+    "d": "2026-02-05",
+    "c": 50.92
+   },
+   {
+    "d": "2026-02-06",
     "c": 51.95
    },
    {
+    "d": "2026-02-09",
+    "c": 52.37
+   },
+   {
+    "d": "2026-02-10",
+    "c": 52.15
+   },
+   {
+    "d": "2026-02-11",
+    "c": 52.28
+   },
+   {
+    "d": "2026-02-12",
+    "c": 51.28
+   },
+   {
+    "d": "2026-02-13",
+    "c": 51.39
+   },
+   {
+    "d": "2026-02-17",
+    "c": 51.38
+   },
+   {
+    "d": "2026-02-18",
+    "c": 51.76
+   },
+   {
+    "d": "2026-02-19",
+    "c": 51.56
+   },
+   {
+    "d": "2026-02-20",
+    "c": 52.0
+   },
+   {
+    "d": "2026-02-23",
+    "c": 51.46
+   },
+   {
+    "d": "2026-02-24",
+    "c": 51.96
+   },
+   {
+    "d": "2026-02-25",
+    "c": 52.6
+   },
+   {
+    "d": "2026-02-26",
+    "c": 52.11
+   },
+   {
+    "d": "2026-02-27",
+    "c": 51.97
+   },
+   {
+    "d": "2026-03-02",
+    "c": 51.57
+   },
+   {
+    "d": "2026-03-03",
+    "c": 51.07
+   },
+   {
     "d": "2026-03-04",
-    "c": 52.29
+    "c": 51.75
    },
    {
     "d": "2026-03-05",
-    "c": 52.03
+    "c": 51.65
    },
    {
     "d": "2026-03-06",
-    "c": 51.36
-   },
-   {
-    "d": "2026-03-09",
-    "c": 51.81
-   },
-   {
-    "d": "2026-03-10",
-    "c": 51.74
-   },
-   {
-    "d": "2026-03-11",
-    "c": 51.7
-   },
-   {
-    "d": "2026-03-12",
     "c": 50.98
    },
    {
+    "d": "2026-03-09",
+    "c": 51.6
+   },
+   {
+    "d": "2026-03-10",
+    "c": 51.59
+   },
+   {
+    "d": "2026-03-11",
+    "c": 51.63
+   },
+   {
+    "d": "2026-03-12",
+    "c": 50.88
+   },
+   {
     "d": "2026-03-13",
-    "c": 50.69
+    "c": 50.6
    },
    {
     "d": "2026-03-16",
@@ -394,427 +400,427 @@
    },
    {
     "d": "2026-03-17",
-    "c": 51.35
+    "c": 51.41
    },
    {
     "d": "2026-03-18",
-    "c": 50.69
+    "c": 50.77
    },
    {
     "d": "2026-03-19",
-    "c": 50.57
+    "c": 50.65
    },
    {
     "d": "2026-03-20",
-    "c": 49.84
+    "c": 49.74
    },
    {
     "d": "2026-03-23",
-    "c": 50.36
-   },
-   {
-    "d": "2026-03-24",
-    "c": 50.22
-   },
-   {
-    "d": "2026-03-25",
-    "c": 50.49
-   },
-   {
-    "d": "2026-03-26",
-    "c": 49.65
-   },
-   {
-    "d": "2026-03-27",
-    "c": 48.84
-   },
-   {
-    "d": "2026-03-30",
-    "c": 48.68
-   },
-   {
-    "d": "2026-03-31",
-    "c": 50.04
-   },
-   {
-    "d": "2026-04-01",
-    "c": 50.0
-   },
-   {
-    "d": "2026-04-02",
-    "c": 50.12
-   },
-   {
-    "d": "2026-04-06",
-    "c": 50.29
-   },
-   {
-    "d": "2026-04-07",
     "c": 50.32
    },
    {
+    "d": "2026-03-24",
+    "c": 50.01
+   },
+   {
+    "d": "2026-03-25",
+    "c": 50.33
+   },
+   {
+    "d": "2026-03-26",
+    "c": 49.19
+   },
+   {
+    "d": "2026-03-27",
+    "c": 48.27
+   },
+   {
+    "d": "2026-03-30",
+    "c": 47.96
+   },
+   {
+    "d": "2026-03-31",
+    "c": 49.49
+   },
+   {
+    "d": "2026-04-01",
+    "c": 49.59
+   },
+   {
+    "d": "2026-04-02",
+    "c": 49.68
+   },
+   {
+    "d": "2026-04-06",
+    "c": 49.92
+   },
+   {
+    "d": "2026-04-07",
+    "c": 49.94
+   },
+   {
     "d": "2026-04-08",
-    "c": 51.44
+    "c": 51.18
    },
    {
     "d": "2026-04-09",
-    "c": 51.72
+    "c": 51.46
    },
    {
     "d": "2026-04-10",
-    "c": 51.69
+    "c": 51.52
    },
    {
     "d": "2026-04-13",
-    "c": 52.15
+    "c": 51.98
    },
    {
     "d": "2026-04-14",
-    "c": 52.6
+    "c": 52.69
    },
    {
     "d": "2026-04-15",
-    "c": 52.95
+    "c": 53.27
    },
    {
     "d": "2026-04-16",
-    "c": 53.05
+    "c": 53.47
    },
    {
     "d": "2026-04-17",
-    "c": 53.59
+    "c": 53.99
    },
    {
     "d": "2026-04-20",
-    "c": 53.5
+    "c": 53.88
    },
    {
     "d": "2026-04-21",
-    "c": 53.21
+    "c": 53.7
    },
    {
     "d": "2026-04-22",
-    "c": 53.66
+    "c": 54.42
    },
    {
     "d": "2026-04-23",
-    "c": 53.49
+    "c": 54.2
    },
    {
     "d": "2026-04-24",
-    "c": 53.83
-   },
-   {
-    "d": "2026-04-27",
-    "c": 53.93
-   },
-   {
-    "d": "2026-04-28",
-    "c": 53.69
-   },
-   {
-    "d": "2026-04-29",
-    "c": 53.69
-   },
-   {
-    "d": "2026-04-30",
-    "c": 54.13
-   },
-   {
-    "d": "2026-05-01",
-    "c": 53.86
-   },
-   {
-    "d": "2026-05-04",
-    "c": 53.71
-   },
-   {
-    "d": "2026-05-05",
-    "c": 54.06
-   },
-   {
-    "d": "2026-05-06",
-    "c": 54.64
-   },
-   {
-    "d": "2026-05-07",
-    "c": 54.51
-   },
-   {
-    "d": "2026-05-08",
-    "c": 54.91
-   },
-   {
-    "d": "2026-05-11",
-    "c": 54.99
-   },
-   {
-    "d": "2026-05-12",
-    "c": 54.95
-   },
-   {
-    "d": "2026-05-13",
-    "c": 55.19
-   },
-   {
-    "d": "2026-05-14",
-    "c": 55.58
-   },
-   {
-    "d": "2026-05-15",
-    "c": 55.05
-   },
-   {
-    "d": "2026-05-18",
-    "c": 54.99
-   },
-   {
-    "d": "2026-05-19",
-    "c": 54.71
-   },
-   {
-    "d": "2026-05-20",
-    "c": 55.16
-   },
-   {
-    "d": "2026-05-21",
-    "c": 55.27
-   },
-   {
-    "d": "2026-05-22",
-    "c": 55.46
-   },
-   {
-    "d": "2026-05-26",
-    "c": 55.75
-   },
-   {
-    "d": "2026-05-27",
-    "c": 55.75
-   },
-   {
-    "d": "2026-05-28",
-    "c": 56.01
-   },
-   {
-    "d": "2026-05-29",
-    "c": 56.12
-   },
-   {
-    "d": "2026-06-01",
-    "c": 55.82
-   },
-   {
-    "d": "2026-06-02",
-    "c": 55.88
-   },
-   {
-    "d": "2026-06-03",
-    "c": 55.61
-   },
-   {
-    "d": "2026-06-04",
-    "c": 55.78
-   },
-   {
-    "d": "2026-06-05",
-    "c": 54.57
-   },
-   {
-    "d": "2026-06-08",
-    "c": 54.73
-   },
-   {
-    "d": "2026-06-09",
-    "c": 54.6
-   },
-   {
-    "d": "2026-06-10",
-    "c": 53.79
-   },
-   {
-    "d": "2026-06-11",
-    "c": 54.67
-   },
-   {
-    "d": "2026-06-12",
-    "c": 54.97
-   },
-   {
-    "d": "2026-06-15",
-    "c": 55.8
-   },
-   {
-    "d": "2026-06-16",
-    "c": 55.54
-   },
-   {
-    "d": "2026-06-17",
-    "c": 54.98
-   },
-   {
-    "d": "2026-06-18",
-    "c": 55.5
-   },
-   {
-    "d": "2026-06-22",
-    "c": 55.36
-   },
-   {
-    "d": "2026-06-23",
-    "c": 54.64
-   },
-   {
-    "d": "2026-06-24",
-    "c": 54.6
-   },
-   {
-    "d": "2026-06-25",
-    "c": 54.62
-   },
-   {
-    "d": "2026-06-26",
-    "c": 54.5
-   },
-   {
-    "d": "2026-06-29",
-    "c": 55.19
-   },
-   {
-    "d": "2026-06-30",
-    "c": 55.57
-   },
-   {
-    "d": "2026-07-01",
-    "c": 55.11
-   },
-   {
-    "d": "2026-07-02",
-    "c": 55.04
-   },
-   {
-    "d": "2026-07-06",
-    "c": 55.47
-   },
-   {
-    "d": "2026-07-07",
-    "c": 55.25
-   },
-   {
-    "d": "2026-07-08",
-    "c": 55.11
-   },
-   {
-    "d": "2026-07-09",
-    "c": 55.52
-   },
-   {
-    "d": "2026-07-10",
-    "c": 55.7
-   },
-   {
-    "d": "2026-07-13",
-    "c": 55.35
-   },
-   {
-    "d": "2026-07-14",
-    "c": 55.51
-   },
-   {
-    "d": "2026-07-15",
-    "c": 55.69
-   },
-   {
-    "d": "2026-07-16",
-    "c": 55.46
-   },
-   {
-    "d": "2026-07-17",
     "c": 55.03
    },
    {
+    "d": "2026-04-27",
+    "c": 55.05
+   },
+   {
+    "d": "2026-04-28",
+    "c": 54.62
+   },
+   {
+    "d": "2026-04-29",
+    "c": 54.89
+   },
+   {
+    "d": "2026-04-30",
+    "c": 55.29
+   },
+   {
+    "d": "2026-05-01",
+    "c": 55.23
+   },
+   {
+    "d": "2026-05-04",
+    "c": 55.17
+   },
+   {
+    "d": "2026-05-05",
+    "c": 55.73
+   },
+   {
+    "d": "2026-05-06",
+    "c": 56.57
+   },
+   {
+    "d": "2026-05-07",
+    "c": 56.58
+   },
+   {
+    "d": "2026-05-08",
+    "c": 57.57
+   },
+   {
+    "d": "2026-05-11",
+    "c": 57.75
+   },
+   {
+    "d": "2026-05-12",
+    "c": 57.35
+   },
+   {
+    "d": "2026-05-13",
+    "c": 57.83
+   },
+   {
+    "d": "2026-05-14",
+    "c": 58.19
+   },
+   {
+    "d": "2026-05-15",
+    "c": 57.55
+   },
+   {
+    "d": "2026-05-18",
+    "c": 57.27
+   },
+   {
+    "d": "2026-05-19",
+    "c": 57.04
+   },
+   {
+    "d": "2026-05-20",
+    "c": 57.78
+   },
+   {
+    "d": "2026-05-21",
+    "c": 57.88
+   },
+   {
+    "d": "2026-05-22",
+    "c": 58.12
+   },
+   {
+    "d": "2026-05-26",
+    "c": 58.91
+   },
+   {
+    "d": "2026-05-27",
+    "c": 58.9
+   },
+   {
+    "d": "2026-05-28",
+    "c": 59.28
+   },
+   {
+    "d": "2026-05-29",
+    "c": 59.47
+   },
+   {
+    "d": "2026-06-01",
+    "c": 59.22
+   },
+   {
+    "d": "2026-06-02",
+    "c": 59.45
+   },
+   {
+    "d": "2026-06-03",
+    "c": 59.34
+   },
+   {
+    "d": "2026-06-04",
+    "c": 59.14
+   },
+   {
+    "d": "2026-06-05",
+    "c": 56.79
+   },
+   {
+    "d": "2026-06-08",
+    "c": 57.62
+   },
+   {
+    "d": "2026-06-09",
+    "c": 57.01
+   },
+   {
+    "d": "2026-06-10",
+    "c": 55.95
+   },
+   {
+    "d": "2026-06-11",
+    "c": 57.64
+   },
+   {
+    "d": "2026-06-12",
+    "c": 58.05
+   },
+   {
+    "d": "2026-06-15",
+    "c": 59.52
+   },
+   {
+    "d": "2026-06-16",
+    "c": 58.66
+   },
+   {
+    "d": "2026-06-17",
+    "c": 58.21
+   },
+   {
+    "d": "2026-06-18",
+    "c": 59.39
+   },
+   {
+    "d": "2026-06-22",
+    "c": 59.37
+   },
+   {
+    "d": "2026-06-23",
+    "c": 57.61
+   },
+   {
+    "d": "2026-06-24",
+    "c": 57.44
+   },
+   {
+    "d": "2026-06-25",
+    "c": 57.88
+   },
+   {
+    "d": "2026-06-26",
+    "c": 57.1
+   },
+   {
+    "d": "2026-06-29",
+    "c": 58.44
+   },
+   {
+    "d": "2026-06-30",
+    "c": 59.31
+   },
+   {
+    "d": "2026-07-01",
+    "c": 58.05
+   },
+   {
+    "d": "2026-07-02",
+    "c": 57.15
+   },
+   {
+    "d": "2026-07-06",
+    "c": 57.88
+   },
+   {
+    "d": "2026-07-07",
+    "c": 56.93
+   },
+   {
+    "d": "2026-07-08",
+    "c": 57.09
+   },
+   {
+    "d": "2026-07-09",
+    "c": 57.95
+   },
+   {
+    "d": "2026-07-10",
+    "c": 58.15
+   },
+   {
+    "d": "2026-07-13",
+    "c": 57.15
+   },
+   {
+    "d": "2026-07-14",
+    "c": 57.75
+   },
+   {
+    "d": "2026-07-15",
+    "c": 57.59
+   },
+   {
+    "d": "2026-07-16",
+    "c": 56.73
+   },
+   {
+    "d": "2026-07-17",
+    "c": 55.98
+   },
+   {
     "d": "2026-07-20",
-    "c": 54.97
+    "c": 56.03
    },
    {
     "d": "2026-07-21",
-    "c": 55.37
+    "c": 56.99
    },
    {
     "d": "2026-07-22",
-    "c": 55.31
+    "c": 56.75
    },
    {
     "d": "2026-07-23",
-    "c": 54.73
+    "c": 55.78
    },
    {
     "d": "2026-07-24",
-    "c": 54.78
+    "c": 55.18
    },
    {
     "d": "2026-07-27",
-    "c": 54.84
+    "c": 55.03
    },
    {
     "d": "2026-07-28",
-    "c": 54.97
+    "c": 54.53
    },
    {
     "d": "2026-07-29",
-    "c": 54.23
+    "c": 53.47
    },
    {
     "d": "2026-07-30",
-    "c": 55.04
+    "c": 55.2
    },
    {
     "d": "2026-07-31",
-    "c": 55.38
+    "c": 55.52
    },
    {
     "d": "2026-08-03",
-    "c": 55.59
+    "c": 55.78
    },
    {
     "d": "2026-08-04",
-    "c": 56.23
+    "c": 57.27
    },
    {
     "d": "2026-08-05",
-    "c": 56.19
+    "c": 56.88
    },
    {
     "d": "2026-08-06",
-    "c": 56.11
+    "c": 56.68
    },
    {
     "d": "2026-08-07",
-    "c": 56.38
+    "c": 57.29
    },
    {
     "d": "2026-08-10",
-    "c": 56.41
+    "c": 57.16
    },
    {
     "d": "2026-08-11",
-    "c": 56.27
+    "c": 56.97
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.04,
+  "ttm_yield_pct": 9.94,
   "tbill_3mo": 3.89
  },
  "underlying": {
-  "symbol": "SPY",
-  "price": 770.56,
-  "sma200": 703.99,
+  "symbol": "QQQ",
+  "price": 718.45,
+  "sma200": 648.96,
   "above_200d": true
  },
  "vol": {
-  "index": "VIX",
-  "level": 15.28
+  "index": "VXN",
+  "level": 22.38
  },
  "fomc": {
   "next": "2026-09-16",
@@ -831,50 +837,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14700.0,
-  "dca_value": 19224.74,
-  "dca_return_pct": 30.78,
-  "dip_value": 18996.23,
-  "dip_return_pct": 29.23,
-  "dip_cash_uninvested": 900.0,
-  "dip_buy_days": 31,
+  "dca_value": 20160.18,
+  "dca_return_pct": 37.14,
+  "dip_value": 19923.63,
+  "dip_return_pct": 35.53,
+  "dip_cash_uninvested": 100.0,
+  "dip_buy_days": 56,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Trump renews effort to oust Cook from Federal Reserve Board",
-   "source": "Consumer Finance Monitor",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNU2NOaXJGNVZvNFJTaHhnM2U2RkdEblBsNk1QRUQ1S0dFcVRpUjBLQzNJODRfUk1HYW1NLVVqV1JwNW9QRUZQSHpFVlY1UHp2SW1tdkgtcTI1Q1BkblpEWjZfdVFCZ191RUxGQW1NV0FyUGcwWFpxcEd4UWRHeUxDNUhDczhxOVk2T2FtQW9faE9ldU1aXzBvU3RWMFFDNVEzMUNoSGVSOHFyUnAweGVj?oc=5",
-   "published": "2026-08-11T19:19:12+00:00"
-  },
-  {
-   "title": "An inflation report Wednesday should be a big deal for the Fed. Here's what to expect",
+   "title": "Why Jensen Huang\u2019s $500 billion AI financing plan faces a big risk from China",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNWm1HU0lsVllSdWQ3eDVsZlJUcDZZV0lxZWlYSGVNOUg0T0VWTjlKLW9QQ2FPUEpvdTdpOU14cUJiZnBGcGlvNkxwREhmcU9kVkMtb3ZzTTZ4ZHFHQWhGaGcyUFRadmh0dDJqV0R1cGgybXIwMmdZSkV6Q1k0VmVZS1NsaDJfZ2h0T0hIeGQ2RGFpQUN1MFJJRk5ja0YydzlqZUthekRjTFlWTS1BdE9YOE15M19DcnBlNHA2YtIBwgFBVV95cUxNVWFaS0hpRlE2Qm4yWXl3ZmV1X1lFMkRBdVIyaEs5V2JmdENGMXMzUDdNNG9ueTlfOUFkbXl1R0NOci1TdTVWU1YxY0I1LWR6SVhveTgtZ0xaRWZ1WG1kX2JkaUdQN09PMTV4OWVCRHVGZlgyUTNfaWlUSkFpTGZVVFBHdzI2ajZNdXp4cGtXNmtqcUEtMFRsQmd1akd2WFhUY2liY0xPamVfZzBhSU1ybExuZmJEZTdzSGZWRC1FYTNLZw?oc=5",
-   "published": "2026-08-11T18:34:41+00:00"
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPYU55bUVtSkMySDZUS2RPRWpBTTRRZHhucjFpaUxWM0RoV0NuMVFPNFh1T29XMkpSR1NYRm5Oc1hUc1hnWTNVOXd5T29qXzNVTWdxRWxpal9oT1VCNk1kQVNYeW9fVDBZNG1jODVJNHN3R0lMQ19KSmwtY2JNQXM1V3ptYk7SAYoBQVVfeXFMTmt2WjUtTThxd2gzZnhqcW8wejI3WWdRNDlaZGFLaVFTZXQyZ0tkLW80RW4wSXFoMDBlNTVjZ1pnNFBpQzBQZjJFY0xHQ3Q5S2p4OHdSV05QZi01eG5XcFFmOGVHWmV6MndsZ2dNNU9NLU9FVHUzMkpmaE1DTGVEcS12NXBHcl9CWlJ3?oc=5",
+   "published": "2026-08-11T21:01:13+00:00"
   },
   {
-   "title": "Gold Edges Higher Ahead of U.S. Inflation Data",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZlgxblBzV3BGc1l0QzlndndxTUlJNkJDTkpKZGpWN0VkVXFLLWFHOGY1VzZyTEdXRXlkLWstcE81X1RKN0xNRVR4ajlJVjJfUzlsYWY2Z0xQT24wU0Z5cjU3dUZiSXdpUDBKYW9XMG9NWW1QSzBfXzg4SVlnTGF0MDZHc1BMZWt5dV9yek9aeVljNFhYdjg4MWJnczJlUlhqVi1zUQ?oc=5",
-   "published": "2026-08-12T01:00:00+00:00"
+   "title": "Target Strengthens AI and UX Capabilities to Power Its Next Chapter of Growth",
+   "source": "Target Corporation",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQMnBOS1k5NzUwaFItc2VYQ3EwdE5YckZzbzU4czdiSXJlZjBkQ3h0by12UWJmZzNiVUI5X3dobHdJcHM4d1oxRHB4ZWRMNEh4Z01rcHMxV2dKbzBGUmszQjFWY3RVbjlhSFlJdC1OV1ZMMTZVVTJOWDNYTEdUWWFRcnJUY3QxNDZ6Znc?oc=5",
+   "published": "2026-08-11T11:33:13+00:00"
   },
   {
-   "title": "Dollar drifts as markets await US inflation data for Fed clues",
+   "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
+   "source": "NVIDIA Blog",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE45UUttUUMyRTI3WHVUbF9oMlRKX0NIUHJ2WUFobm9Ta3NubmhVS0pmRjkxMzZILU0wWEFFa1JWTXVBYVhzTkhhS292U1hOWUFoUkRrOUJTTFY3RURHTkZjMWlyTVhlYjE1bHQ2M3ZDRzNlSWlpNDJPTUM1d0l0eFU?oc=5",
+   "published": "2026-08-11T18:41:09+00:00"
+  },
+  {
+   "title": "Governor Newsom announces new AI cyber defense program to protect California\u2019s critical infrastructure",
+   "source": "California State Portal | CA.gov",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNMDI0S2JKNWxnN1VfMURGNTdWQ0RuQXEwdjNER3F0U3pkdVlMdjZyUGsxaFdkLVNGdEkwQ1o0MWNuakk4RS1OVG05cEJsS2M3U1JBMUhiRlJTMGVZRHpVOUhFeTdVUU5DLXgtLW96S2pKVkRGbFRjV054VnI5V3RUa1lnbFhJWUNPQm1lb1lFT05MUUl4YUZTN1dEQ1J2cW9jcDdPQ1NTZURFVUNuTlFnT3IzbmR4THhKZXNTU3FDaTgtZV91OGRFVDRGaGwxQ2daQUE?oc=5",
+   "published": "2026-08-10T14:34:12+00:00"
+  },
+  {
+   "title": "IBM, Together AI ink $240 million deal for Nvidia-powered AI inference cluster",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZnhDSnpIWUFyU185anRuZ0lKYjItT2RJaWU3czNGbGdwVVBTbzRlaEF1QjJ3cERWVEZUVkV2Q0kwc3FtQVBpVWx3SmFnbTVlcEkyX0ZYb0lhd2tDQ0ZXcXl1RHl4aTR6dXVjYnRYZjZVUlN0TDE1QXJ4cF9SaHNueElkRF94cGlXbHJZdnlBSExxZzhaMVAxa0lKblNReU0tdFJJ?oc=5",
-   "published": "2026-08-12T01:45:36+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPaHpmV1NwTWxHeTRKVUtlY3lwWmlUVWtzX0NUYkhGR2VFRzZDQ0JXRXp1LVZ4alp5SXplU2RHTmRFNG5EaG9GWVpRbkVPZE4tS2NxUlc2UXhBVTMteFRHVWo0a0xZZGdNWFNWNmVnOTdZcHBvcGx6bnEycGlqaHNqRDI4Vkw4YTVkcnhPZEI3cGVRa0psa2xFWWE2b2g1SkJ0T0RhWlRiODVSLVBxdUxIWkl4Zl9uN1Ew?oc=5",
+   "published": "2026-08-11T17:03:14+00:00"
   },
   {
-   "title": "Rethinking Fed operations: Recommendations to the five task forces",
-   "source": "Brookings",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNekpQTDNfSnBYeXhNZmhSM0E4OXowZ0dZNS1wMlBnemt6QUU1WTQ3Z0dvNC1TRTRhWlpZRTZUSS0td3dhREkxMk5KQjhHMU02R1FjcjJUd1lxNF81b19Xc1BjcHJvdUcxd0UzU2Q0Zjh1Vm0tdGhXdldQdG0wT3F1cFN1bFZQeWk5QXVHUWtPT0M4MWJpdTVhcGJiSlk2VmhLUTZR?oc=5",
-   "published": "2026-08-11T14:35:15+00:00"
-  },
-  {
-   "title": "U.S. stocks edge further from their records as oil prices keep swinging",
-   "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQeHBQV00tbUI4a2l1SGt5TW9fWXY0d2ZadTVUTVF0dWdXeW1uc1lLQmRXZzh3RFAxQXdqaHJBdVp1bzkzd0JVc0o4NGFISEI1enp6S1VGelhreC1rcmVWZGFJLUhpYzlscXBlazNvekxWaTJFYzc3eVNwdjdkUUl3UmoxYjJ4dXc1RFJNNUpTaWF0UGdpU3R2VmVIUjZGdVM1WHF4T0MyUF9Jczg?oc=5",
-   "published": "2026-08-11T21:59:54+00:00"
+   "title": "IBM and Together AI Sign Multi-Year Agreement to Scale Open-Source AI Inference with NVIDIA AI Infrastructure on IBM Cloud",
+   "source": "IBM Newsroom",
+   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPczQ0bnRwU3FTN2NaN0wzbUVkbGxtYUZkcm5wa2F4R2E4T1VlYnJBTjVzR1VHWFJCelZ5ZHVSUFdyOU5YcjItRnd3aUQ3c2JsWjN2eFZSM0VHM1pONFdCYXRnNUc1cVpaVC1yOXdVR04yMDV5LW9oaGFjelJfclFTOG1EdkZ5LTQxb1RBbEl5Z2tmeklKUm5jdElUam1uN2ZZNmRlVGZjeW9QQ2tUY1R2RG9Kc09FNGg1b1Jid21NTFBheGdYTnNOdWZhVjhJVmJGWUF4bUI3VXV1eVVWa2ticXJsRFJoMl9qOHp4MTZPZw?oc=5",
+   "published": "2026-08-11T12:04:14+00:00"
   }
  ]
 }
