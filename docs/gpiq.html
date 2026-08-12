@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f5f0">
-<meta name="description" content="Eleven transparent market signals - Nasdaq volatility, tech fear premium, credit stress, sentiment, yield vs cash, trend - scored daily to answer one question: is today a better- or worse-than-average day to buy GPIQ?">
+<meta name="description" content="Eleven transparent market checks - Nasdaq volatility, tech fear premium, credit stress, sentiment, yield vs cash, trend - watched daily for the five rare conditions that two independent backtests found actually mark better-than-average days to buy GPIQ.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23004225'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%23f6f5f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Should I buy GPIQ today?</title>
 <link rel="alternate" type="application/atom+xml" title="GPIX/GPIQ verdict-change alerts" href="feed.xml">
@@ -76,17 +76,15 @@
   .verdict.good .label    { color: var(--good); }
   .verdict.ok .label      { color: var(--ok); }
   .verdict.neutral .label { color: var(--neutral); }
-  .verdict.rich .label    { color: var(--rich); }
   .verdict .summary { color: var(--muted); margin-top: 6px; max-width: 64ch; }
 
-  /* buy-meter: zones map to verdict bands (rich <= -2, neutral -1..1,
-     ok 2..4, good >= 5); zone widths come from data.json's meter range */
+  /* buy-meter: zones map to verdict bands (neutral 0, ok 1-2, good 3-5);
+     zone widths come from data.json's meter range */
   .meter { margin-top: 20px; }
   .meter .track { position: relative; height: 10px; border-radius: 99px; overflow: hidden; display: flex; }
-  .meter .z1 { background: rgba(180,83,9,.35); }
-  .meter .z2 { background: rgba(125,138,129,.30); }
-  .meter .z3 { background: rgba(77,124,15,.35); }
-  .meter .z4 { background: rgba(0,66,37,.45); }
+  .meter .z1 { background: rgba(125,138,129,.30); }
+  .meter .z2 { background: rgba(77,124,15,.35); }
+  .meter .z3 { background: rgba(0,66,37,.45); }
   .meter .pin {
     position: absolute; top: -5px; width: 4px; height: 20px; border-radius: 2px;
     background: var(--text); box-sizing: border-box;
@@ -110,8 +108,8 @@
   .sig .val { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; }
   .tag { font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 99px; white-space: nowrap; }
   .tag.pos { color: var(--good); background: rgba(0,66,37,.08); }
-  .tag.neg { color: var(--rich); background: rgba(180,83,9,.1); }
   .tag.zero { color: var(--faint); background: rgba(125,138,129,.12); }
+  .tag.ctx { color: var(--faint); background: transparent; border: 1px dashed var(--border); }
   .sig .note { font-size: 13px; color: var(--faint); margin-top: 8px; }
 
   .flips li { list-style: none; display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 14px; align-items: baseline; }
@@ -128,7 +126,6 @@
   .rc-table .b-good td:first-child { color: var(--good); font-weight: 600; }
   .rc-table .b-ok td:first-child { color: var(--ok); font-weight: 600; }
   .rc-table .b-neutral td:first-child { color: var(--neutral); font-weight: 600; }
-  .rc-table .b-rich td:first-child { color: var(--rich); font-weight: 600; }
   .rc-table .baseline td { color: var(--muted); }
   .rc-table .few { color: var(--faint); font-size: 11.5px; font-weight: 400; }
   .caveat { margin-top: 12px; font-size: 12.5px; color: var(--faint); max-width: 72ch; }
@@ -178,7 +175,7 @@
     .verdict { padding: 18px 16px; }
     .verdict .label { font-size: 19px; }
     .verdict .summary { font-size: 14.5px; }
-    .meter .zlabels span:nth-child(2), .meter .zlabels span:nth-child(3) { visibility: hidden; }
+    .meter .zlabels span:nth-child(2) { visibility: hidden; }
     .card { padding: 12px; }
     .bt-flow { grid-template-columns: 1fr; }
     .lane .how { min-height: 0; }
@@ -204,7 +201,7 @@
   <header>
     <div>
       <h1>Should I buy GPIQ today?</h1>
-      <div class="sub">Eleven market signals - Nasdaq volatility, tech fear premium, credit, sentiment, yield, trend - scored every weekday morning into one answer.</div>
+      <div class="sub">Eleven market checks every weekday morning - five rare conditions scored, the rest (including the tech fear premium) shown as context - turned into one honest answer.</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -212,11 +209,11 @@
   <div id="app"></div>
 
   <footer>
-    Not financial advice; a personal decision aid. The rules are transparent (Nasdaq volatility,
-    tech fear premium, discount from highs, trend, Fed calendar) and deliberately boring, because
-    boring is what works. If the experiment above shows anything consistently, it's that a
-    scheduled buy you actually make beats a clever buy you wait for. Data: Yahoo Finance, FRED,
-    CNN, Google News, Federal Reserve calendar.
+    Not financial advice; a personal decision aid. Rules v2: after two independent backtests of
+    every scoring band, only the handful of rare conditions that proved era-robust still score -
+    and nothing scores negative, because the audits showed this tool couldn't spot bad days, so it
+    stopped claiming to. It flags rare good days; the rest of the time the answer is "buy on
+    schedule." Data: Yahoo Finance, FRED, CNN, Google News, Federal Reserve calendar.
   </footer>
 </div>
 
@@ -233,8 +230,8 @@ const ago = iso => {
 const fmtPct = v => (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
 // Verdict-band colors for the score timeline strip — same palette as the
 // buy-meter zones above.
-const TONE_FILL = {rich: "rgba(180,83,9,.35)", neutral: "rgba(125,138,129,.30)", ok: "rgba(77,124,15,.35)", good: "rgba(0,66,37,.45)"};
-const TONE_NAME = {good: "better-than-usual entry", ok: "mild tailwind", neutral: "no edge", rich: "no discount"};
+const TONE_FILL = {neutral: "rgba(125,138,129,.30)", ok: "rgba(77,124,15,.35)", good: "rgba(0,66,37,.45)"};
+const TONE_NAME = {good: "better-than-usual entry", ok: "mild tailwind", neutral: "no edge"};
 
 // Renders the chart at the container's real pixel width (no viewBox scaling),
 // so axis text stays readable on a phone. Re-renders on resize/rotation.
@@ -315,11 +312,11 @@ function renderChart(series, sma50) {
 
 fetch("data-gpiq.json").then(r => r.json()).then(d => {
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
-  // Meter range comes from the data (each fund has a different signal count).
-  const METER_MIN = d.meter ? d.meter.min : -8;
-  const METER_MAX = d.meter ? d.meter.max : 16;
-  // Zone boundaries between verdict bands: -1.5, 1.5, 4.5.
-  const zw = [(-1.5 - METER_MIN), 3, 3, (METER_MAX - 4.5)];
+  // Meter range comes from the data (rules v2: 0..5, nothing negative).
+  const METER_MIN = d.meter ? d.meter.min : 0;
+  const METER_MAX = d.meter ? d.meter.max : 5;
+  // Zone boundaries between verdict bands: 0.5 (neutral|ok), 2.5 (ok|good).
+  const zw = [(0.5 - METER_MIN), 2, (METER_MAX - 2.5)];
   const chg = g.day_change_pct ?? 0;
   document.getElementById("pricebox").innerHTML = `
     <div class="px">$${fmt2(g.price)}</div>
@@ -335,27 +332,28 @@ fetch("data-gpiq.json").then(r => r.json()).then(d => {
       <div class="summary">${v.summary}</div>
       <div class="meter" title="Combined signal score: ${v.score}">
         <div class="track">
-          <div class="z1" style="flex:${zw[0]}"></div><div class="z2" style="flex:${zw[1]}"></div><div class="z3" style="flex:${zw[2]}"></div><div class="z4" style="flex:${zw[3]}"></div>
+          <div class="z1" style="flex:${zw[0]}"></div><div class="z2" style="flex:${zw[1]}"></div><div class="z3" style="flex:${zw[2]}"></div>
           <div class="pin" style="left: calc(${pinPct}% - 2px)"></div>
         </div>
-        <div class="zlabels"><span style="flex:${zw[0]}">paying full price</span><span style="flex:${zw[1]}">average</span><span style="flex:${zw[2]}">favorable</span><span style="flex:${zw[3]}">strong case to buy</span></div>
+        <div class="zlabels"><span style="flex:${zw[0]}">no edge</span><span style="flex:${zw[1]}">mild tailwind</span><span style="flex:${zw[2]}">strong case to buy</span></div>
       </div>
     </div>
 
     <div class="knowbox"><b>Know what you own:</b> GPIQ is GPIX's Nasdaq-100 sibling — same
     covered-call engine, hotter fuel. Tech options are pricier, so the payout runs ~10% instead
     of ~8%, but the top ten holdings are roughly half the fund and tech drawdowns cut deeper.
-    The extra signal below (tech fear premium) exists because Nasdaq fear and S&amp;P fear
-    often diverge — and that divergence is where GPIQ's timing edge lives.</div>
+    The extra check below (tech fear premium) is shown because Nasdaq fear and S&amp;P fear
+    often diverge — but when we backtested it, that divergence carried no exploitable timing
+    edge, so it's displayed as context and doesn't score.</div>
 
     <h2>Why</h2>
-    <div class="h2sub">Eleven checks each morning: Nasdaq volatility pricing, the tech fear premium, credit stress, sentiment, yield vs cash, trend, and the event calendar. Green = tilts toward buying today, orange = works against you.</div>
+    <div class="h2sub">Eleven checks each morning. Only five rare conditions score (+1 each) — the bands two independent backtests found reliably positive. The rest are shown as context, and nothing scores negative: the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
     <div class="signals">
       ${d.signals.map(s => `
         <div class="sig">
           <div class="top">
             <div><div class="name">${s.name}</div><div class="val">${s.value}</div></div>
-            <span class="tag ${s.score > 0 ? "pos" : s.score < 0 ? "neg" : "zero"}">${s.score > 0 ? "helps ▲" : s.score < 0 ? "hurts ▼" : "neutral"}</span>
+            <span class="tag ${s.score > 0 ? "pos" : s.context ? "ctx" : "zero"}">${s.score > 0 ? "helps ▲" : s.context ? "context" : "neutral"}</span>
           </div>
           <div class="note">${s.note}</div>
         </div>`).join("")}
@@ -363,9 +361,9 @@ fetch("data-gpiq.json").then(r => r.json()).then(d => {
 
     ${d.flips && d.flips.length ? `
     <h2>What would change this verdict</h2>
-    <div class="h2sub">The nearest thresholds from today's values, in either direction. Green rows would push the score up, amber rows down.</div>
+    <div class="h2sub">The nearest scoring thresholds from today's values. Every row would push the score up — no condition can push it down anymore.</div>
     <div class="card"><ul class="flips">
-      ${d.flips.map(f => `<li class="${f.direction > 0 ? "up" : "down"}"><span class="dir">${f.direction > 0 ? "helps ▲" : "hurts ▼"}</span><span>${f.text}</span></li>`).join("")}
+      ${d.flips.map(f => `<li class="up"><span class="dir">helps ▲</span><span>${f.text}</span></li>`).join("")}
     </ul></div>` : ""}
 
     <h2>What the market is chewing on</h2>
@@ -375,7 +373,7 @@ fetch("data-gpiq.json").then(r => r.json()).then(d => {
     </ul></div>
 
     <h2>Price context</h2>
-    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it).${d.income && d.income.ttm_yield_pct != null && d.income.tbill_3mo != null ? ` GPIQ has paid ${d.income.ttm_yield_pct.toFixed(1)}% over the trailing year vs ${d.income.tbill_3mo.toFixed(1)}% on 3-month T-bills.` : ""}</div>
+    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it in raw-price terms — the scored discount uses distributions-reinvested closes instead).${d.income && d.income.ttm_yield_pct != null && d.income.tbill_3mo != null ? ` GPIQ has paid ${d.income.ttm_yield_pct.toFixed(1)}% over the trailing year vs ${d.income.tbill_3mo.toFixed(1)}% on 3-month T-bills.` : ""}</div>
     <div class="card" id="chartcard"></div>
 
     <h2>Does waiting even work? A running experiment</h2>

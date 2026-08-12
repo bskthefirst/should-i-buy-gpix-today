@@ -7,10 +7,21 @@ index, and macro headlines from Google News RSS. Scores today's entry
 conditions with transparent rules and backtests dip-waiting vs plain DCA
 so each page can show whether timing has actually helped.
 
+Rules v2 (post-audit): two independent long-history backtests of every
+scoring band agreed that only a handful of rare conditions carry an
+era-robust positive edge. Only those score now (all +1, composite 0..5):
+vol index >= p90 of its trailing year, a 3%+ discount from the 52-week
+high measured on ADJUSTED (total-return) closes, VIX term-structure
+inversion, credit OAS >= 5%, and Fear & Greed <= 25. Every band the
+audits found scored-backwards or noise is now permanently 0 - those
+signals stay on the page as context. Negative scores are gone entirely:
+the audits showed the tool couldn't spot bad days, so it stopped claiming
+to.
+
 GPIX is scored against the S&P 500 and the VIX; GPIQ against the
-Nasdaq-100 (QQQ) and the VXN, plus one extra Nasdaq-only signal: the
-VXN/VIX "tech fear premium" (how rich tech options are vs the broad
-market, ranked against its own past year).
+Nasdaq-100 (QQQ) and the VXN. GPIQ also displays (context only) the
+VXN/VIX "tech fear premium" - the audit found its intuitive scoring
+backwards, so it no longer scores.
 
 Every non-core fetch is individually guarded: if a source is down, its
 signal is emitted with score 0 and a "skipped" note instead of failing
@@ -61,8 +72,8 @@ FUNDS = [
         # GPIX trails ~8%: beating cash by 5.5+ pts is genuinely wide.
         "payout_bands": (5.5, 3.0),
         "news_query": 'federal+reserve+OR+inflation+OR+%22stock+market%22',
-        # sum of per-signal min/max scores (10 signals)
-        "meter": (-7, 14),
+        # v2 composite range: five +1 bands, nothing negative
+        "meter": (0, 5),
     },
     {
         "key": "gpiq",
@@ -79,8 +90,8 @@ FUNDS = [
         # it a tailwind, so the page doesn't award a permanent free point.
         "payout_bands": (7.5, 4.5),
         "news_query": 'Nasdaq+OR+%22tech+stocks%22+OR+%22Federal+Reserve%22+OR+AI',
-        # sum of per-signal min/max scores (11 signals incl. tech premium)
-        "meter": (-8, 16),
+        # v2 composite range: five +1 bands, nothing negative
+        "meter": (0, 5),
     },
 ]
 
@@ -117,114 +128,63 @@ SKIPPED_NOTE = "Data source unavailable today - signal skipped."
 # Report-card horizon: ~1 trading month.
 FWD_DAYS = 21
 
+# Bump this whenever the scoring rules change: history files carry it, and
+# rows built under an older ruleset are discarded and rebuilt from scratch.
+RULES_VERSION = 2
+
 # Short verdict-band labels (feed titles, report card, timeline tooltip).
 TONE_SHORT = {
     "good": "Better-than-usual entry",
     "ok": "Mild tailwind",
     "neutral": "No edge either way",
-    "rich": "No discount today",
 }
 
 
 # ---------------------------------------------------------------------------
-# Scoring rules - the single source of truth. The live build, the historical
-# backfill and the "what would flip the verdict" panel all call these, so the
-# thresholds can never drift apart.
+# Scoring rules (v2) - the single source of truth. The live build, the
+# historical backfill and the "what would flip the verdict" panel all call
+# these, so the thresholds can never drift apart. Only bands that two
+# independent backtests found era-robust score; everything else is 0.
 # ---------------------------------------------------------------------------
 
 def score_vol_percentile(pct: float) -> int:
-    if pct >= 90:
-        return 2
-    if pct >= 70:
-        return 1
-    if pct >= 25:
-        return 0
-    return -1
+    """Vol index >= p90 of its trailing year: +1.03pt/21d on SPY,
+    positive in every era tested. Lower bands showed no reliable edge."""
+    return 1 if pct >= 90 else 0
 
 
 def score_term_structure(ratio: float) -> int:
-    if ratio >= 1.00:
-        return 2
-    if ratio >= 0.93:
-        return 1
-    return 0
-
-
-def score_tech_premium(pct: float) -> int:
-    if pct >= 85:
-        return 2
-    if pct >= 65:
-        return 1
-    if pct >= 20:
-        return 0
-    return -1
-
-
-def score_vrp(vrp: float) -> int:
-    if vrp >= 6:
-        return 1
-    if vrp > -2:
-        return 0
-    return -1
+    """Inversion only. Evidence is mixed (one audit positive, one found
+    era-flips) but it fires rarely and coincides with genuine panics."""
+    return 1 if ratio >= 1.00 else 0
 
 
 def score_drawdown(dd: float) -> int:
-    if dd >= 7:
-        return 2
-    if dd >= 3:
-        return 1
-    if dd <= 0.5:
-        return -1
-    return 0
+    """3%+ discount from the 52-week high on ADJUSTED closes: the one
+    era-robust discount band. The old >=7% "+2" was a dot-com artifact and
+    the at-the-high "-1" didn't survive testing (at-high days still
+    averaged +0.44%/21d)."""
+    return 1 if dd >= 3 else 0
 
 
-def score_vs_sma50(vs: float) -> int:
-    if vs < 0:
-        return 1
-    if vs > 3:
-        return -1
-    return 0
-
-
-def score_regime(above_200d: bool) -> int:
-    return 0 if above_200d else 1
-
-
-def score_credit(oas: float, chg_1mo: float) -> int:
-    if oas >= 5.0:
-        return 2
-    if chg_1mo >= 0.50:
-        return -1
-    return 0
-
-
-def score_payout(advantage: float, bands: tuple) -> int:
-    hi, mid = bands
-    if advantage >= hi:
-        return 1
-    if advantage >= mid:
-        return 0
-    return -1
+def score_credit(oas: float) -> int:
+    """OAS >= 5%: principled but untested - spreads never got this wide in
+    the testable sample. The widening "-1" is gone: its 34 test days
+    rebounded +2.67pt."""
+    return 1 if oas >= 5.0 else 0
 
 
 def score_fear_greed(fg: float) -> int:
-    if fg <= 25:
-        return 2
-    if fg <= 45:
-        return 1
-    if fg < 75:
-        return 0
-    return -1
+    """Contrarian extreme only (~1 year of testable history)."""
+    return 1 if fg <= 25 else 0
 
 
 def verdict_tone(score: int) -> str:
-    if score >= 5:
+    if score >= 3:
         return "good"
-    if score >= 2:
+    if score >= 1:
         return "ok"
-    if score >= -1:
-        return "neutral"
-    return "rich"
+    return "neutral"
 
 
 def fetch_json(url: str, headers: dict | None = None) -> dict:
@@ -422,16 +382,24 @@ def backtest(history: list[tuple[date, float]]) -> dict:
 
 
 def load_history(path: Path) -> list[dict]:
+    """Rows are only trusted if the file was written under the current
+    RULES_VERSION; older files (including the bare-list v1 format) are
+    discarded so the backfill regenerates everything under today's rules."""
     try:
-        return json.loads(path.read_text())
+        data = json.loads(path.read_text())
     except Exception:
         return []
+    if isinstance(data, dict) and data.get("rules_version") == RULES_VERSION:
+        return data.get("rows", [])
+    return []
 
 
 def save_history(path: Path, rows: list[dict]) -> None:
     rows.sort(key=lambda r: r["date"])
     body = ",\n".join(json.dumps(r, separators=(",", ":")) for r in rows)
-    path.write_text("[\n" + body + "\n]\n")
+    path.write_text(
+        '{"rules_version": %d, "rows": [\n' % RULES_VERSION + body + "\n]}\n"
+    )
 
 
 def _series_or_empty(fn) -> list:
@@ -441,7 +409,7 @@ def _series_or_empty(fn) -> list:
         return []
 
 
-def build_history(fund: dict, fund_rows: list, div_events: list, live_row: dict) -> list[dict]:
+def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
     """Append today's live row and backfill any missing historical dates.
 
     Backfilled rows are scored with the same rules as the live build, using
@@ -455,38 +423,31 @@ def build_history(fund: dict, fund_rows: list, div_events: list, live_row: dict)
     have = {r["date"] for r in hist}
 
     # 4y ranges give daily bars with a full 1-year lead-in before the funds'
-    # Oct 2023 inception (range=max would degrade to weekly bars).
+    # Oct 2023 inception (range=max would degrade to weekly bars). Only the
+    # five v2 scoring inputs are needed: the context-only signals can never
+    # move a historical score.
     vol4 = _series_or_empty(lambda: cached_rows(fund["vol_symbol"], "4y"))
     vix4 = _series_or_empty(lambda: cached_rows("%5EVIX", "4y"))
     vix3m4 = _series_or_empty(lambda: cached_rows("%5EVIX3M", "4y"))
-    und4 = _series_or_empty(lambda: cached_rows(fund["underlying_symbol"], "4y"))
     hy = _series_or_empty(lambda: cached_fred("BAMLH0A0HYM2"))
-    tb = _series_or_empty(lambda: cached_fred("DGS3MO"))
     fg = _series_or_empty(fear_greed_history)
 
     vol_d = [r[0] for r in vol4]; vol_c = [r[1] for r in vol4]
     vix_d = [r[0] for r in vix4]; vix_c = [r[1] for r in vix4]
     v3_d = [r[0] for r in vix3m4]; v3_c = [r[1] for r in vix3m4]
-    und_d = [r[0] for r in und4]; und_c = [r[1] for r in und4]
     hy_d = [r[0] for r in hy]; hy_v = [r[1] for r in hy]
-    tb_d = [r[0] for r in tb]; tb_v = [r[1] for r in tb]
     fg_d = [r[0] for r in fg]; fg_v = [r[1] for r in fg]
-
-    tech_ratio: list[tuple[date, float]] = []
-    if fund["tech_premium"] and vix4:
-        vix_by_date = {d: c for d, c, _ in vix4}
-        tech_ratio = [(d, c / vix_by_date[d]) for d, c, _ in vol4 if d in vix_by_date]
-    tr_d = [r[0] for r in tech_ratio]; tr_v = [r[1] for r in tech_ratio]
 
     def asof(dates: list, d: date) -> int:
         """Index of the latest observation on/before d, or -1."""
         return bisect.bisect_right(dates, d) - 1
 
-    closes = [c for _, c, _ in fund_rows]
+    # Drawdown is measured on ADJUSTED closes so distributions don't
+    # masquerade as discounts (~0.8%/mo payouts add up fast).
+    adj = [a for _, _, a in fund_rows]
 
     def scores_for(i: int) -> list[tuple[str, int]]:
         d = fund_rows[i][0]
-        px = closes[i]
         sc: list[tuple[str, int]] = []
         vi = asof(vol_d, d)
         if vi >= 0:
@@ -496,34 +457,12 @@ def build_history(fund: dict, fund_rows: list, div_events: list, live_row: dict)
         a, b = asof(vix_d, d), asof(v3_d, d)
         if a >= 0 and b >= 0 and v3_c[b]:
             sc.append(("VIX term structure (1mo/3mo)", score_term_structure(vix_c[a] / v3_c[b])))
-        if tech_ratio:
-            ti = asof(tr_d, d)
-            if ti >= 0:
-                win = tr_v[max(0, ti - 251): ti + 1]
-                pct = sum(1 for r in win if r < tr_v[ti]) / len(win) * 100
-                sc.append(("Tech fear premium (VXN/VIX)", score_tech_premium(pct)))
-        ui = asof(und_d, d)
-        if ui >= 20 and vi >= 0:
-            rets = [math.log(und_c[j] / und_c[j - 1]) for j in range(ui - 19, ui + 1)]
-            realized = statistics.stdev(rets) * math.sqrt(252) * 100
-            sc.append(("Are call-sellers overpaid?", score_vrp(vol_c[vi] - realized)))
-        hi52 = max(closes[max(0, i - 251): i + 1])
-        dd = round((1 - px / hi52) * 100, 1)
+        hi52 = max(adj[max(0, i - 251): i + 1])
+        dd = round((1 - adj[i] / hi52) * 100, 1)
         sc.append(("Discount from 52-week high", score_drawdown(dd)))
-        if i + 1 >= 50:
-            s50 = sum(closes[i - 49: i + 1]) / 50
-            sc.append((f"{fund['ticker']} vs 50-day average", score_vs_sma50(round((px / s50 - 1) * 100, 1))))
-        if ui >= 199:
-            s200 = sum(und_c[ui - 199: ui + 1]) / 200
-            sc.append((f"{fund['underlying_name']} regime", score_regime(und_c[ui] >= s200)))
         hj = asof(hy_d, d)
         if hj >= 0:
-            oas = hy_v[hj]
-            sc.append(("Credit stress (junk-bond spreads)", score_credit(oas, oas - hy_v[max(0, hj - 21)])))
-        tj = asof(tb_d, d)
-        ttm = sum(amt for dd_, amt in div_events if d - timedelta(days=365) <= dd_ <= d)
-        if tj >= 0 and ttm > 0:
-            sc.append(("Payout vs safe cash", score_payout(ttm / px * 100 - tb_v[tj], fund["payout_bands"])))
+            sc.append(("Credit stress (junk-bond spreads)", score_credit(hy_v[hj])))
         fj = asof(fg_d, d)
         if fj >= 0 and (d - fg_d[fj]).days <= 5:
             sc.append(("Fear & Greed index", score_fear_greed(fg_v[fj])))
@@ -596,7 +535,7 @@ def report_card(hist: list[dict]) -> dict:
         "baseline": agg([v for _, v in fwd]),
         "bands": [
             dict(tone=t, label=TONE_SHORT[t], **agg([v for tt, v in fwd if tt == t]))
-            for t in ("good", "ok", "neutral", "rich")
+            for t in ("good", "ok", "neutral")
         ],
     }
 
@@ -690,13 +629,22 @@ def build(fund: dict) -> dict:
 
     price = fund_closes[-1]
     day_change = (price / fund_closes[-2] - 1) * 100 if len(fund_closes) > 1 else 0.0
-    sma50 = sma(fund_closes, 50)
+    sma50 = sma(fund_closes, 50)  # raw: overlaid on the raw price chart
     year = fund_closes[-252:] if len(fund_closes) >= 252 else fund_closes
     high52 = max(year)
-    # Round once and reuse everywhere so the page never shows two versions
-    # of the same number.
+    # Raw drawdown for the price-context line (people see raw prices in
+    # their brokerage); the SIGNAL uses the adjusted version below.
     drawdown = round((1 - price / high52) * 100, 1)
-    vs_sma50 = round((price / sma50 - 1) * 100, 1) if sma50 else 0.0
+
+    # Adjusted (total-return) series: distributions reinvested, so a ~0.8%/mo
+    # payout doesn't masquerade as a discount. Signal math uses these.
+    fund_adj = [a for _, _, a in fund_rows]
+    adj_price = fund_adj[-1]
+    year_adj = fund_adj[-252:] if len(fund_adj) >= 252 else fund_adj
+    high52_adj = max(year_adj)
+    drawdown_adj = round((1 - adj_price / high52_adj) * 100, 1)
+    sma50_adj = sma(fund_adj, 50)
+    vs_sma50_adj = round((adj_price / sma50_adj - 1) * 100, 1) if sma50_adj else 0.0
 
     und_price = und_closes[-1]
     und_sma200 = sma(und_closes, 200)
@@ -731,17 +679,21 @@ def build(fund: dict) -> dict:
     # ------------------------------------------------------------------
     signals = []
 
-    # 1. Vol index vs its own past year (percentile of trailing daily closes)
+    # 1. Vol index vs its own past year (percentile of trailing daily closes).
+    # Only the top decile scores - the one vol band both audits found
+    # era-robust (+1.03pt/21d on SPY).
     def sig_vol_percentile():
         below = sum(1 for c in vol_closes if c < vol_level)
         pct = below / len(vol_closes) * 100
         s = score_vol_percentile(pct)
-        note = {
-            2: f"{und_name} volatility in the top decile of the past year - option premiums unusually rich and shares likely marked down.",
-            1: f"{und_name} volatility elevated vs the past year - premiums above their recent norm.",
-            0: f"{und_name} volatility mid-range for the past year. Premiums ordinary.",
-            -1: f"{und_name} volatility near the bottom of its 1-year range - the income engine is running lean.",
-        }[s]
+        if s == 1:
+            note = f"{und_name} volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive."
+        elif pct >= 70:
+            note = f"{und_name} volatility elevated vs the past year, but below the top decile - the audits found no reliable edge here, so it's context only."
+        elif pct < 25:
+            note = f"{und_name} volatility near the bottom of its 1-year range. The old low-vol penalty didn't survive the audit - context only."
+        else:
+            note = f"{und_name} volatility mid-range for the past year. Premiums ordinary."
         return {
             "name": f"{vol_name} vs its own past year",
             "value": f"{vol_level:.1f} (p{pct:.0f})",
@@ -758,11 +710,12 @@ def build(fund: dict) -> dict:
         vix3m = list(cached_rows("%5EVIX3M", "5d"))[-1][1]
         ratio = vix_now / vix3m
         s = score_term_structure(ratio)
-        note = {
-            2: "VIX curve inverted - genuine panic. Near-term option premiums are at their richest and shares are marked down. Historically one of the best covered-call entry setups.",
-            1: "VIX curve flattening - stress building. Premiums firming up in the buyer's favor.",
-            0: "Normal upward-sloping VIX curve. No unusual near-term fear.",
-        }[s]
+        if s == 1:
+            note = "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest +1."
+        elif ratio >= 0.93:
+            note = "VIX curve flattening - stress building, but the audits found no scored edge until full inversion. Context only."
+        else:
+            note = "Normal upward-sloping VIX curve. No unusual near-term fear."
         return {
             "name": "VIX term structure (1mo/3mo)",
             "value": f"{ratio:.2f}",
@@ -773,9 +726,9 @@ def build(fund: dict) -> dict:
     signals.append(guarded("VIX term structure (1mo/3mo)", sig_term_structure))
 
     # 2b. GPIQ only: tech fear premium - VXN/VIX ratio ranked against its
-    # own past year. When tech options are unusually expensive relative to
-    # broad-market options, the Nasdaq call-selling engine is being paid
-    # extra, and tech shares are usually already marked down.
+    # own past year. Context only: the audit found the intuitive scoring
+    # backwards (rich-tech-fear days went on to UNDERPERFORM), so it shows
+    # but never scores.
     if fund["tech_premium"]:
         def sig_tech_premium():
             vix_rows = cached_rows("%5EVIX", "1y")
@@ -785,23 +738,24 @@ def build(fund: dict) -> dict:
             cur = ratios[-1]
             below = sum(1 for r in ratios if r < cur)
             pct = below / len(ratios) * 100
-            s = score_tech_premium(pct)
-            note = {
-                2: "Tech options are at their priciest of the year relative to the broad market - fear is concentrated in the Nasdaq. GPIQ's engine gets paid extra exactly when tech is marked down.",
-                1: "Tech fear running above its norm vs the broad market - Nasdaq premiums a touch richer than usual.",
-                0: "Tech vol priced normally relative to the broad market.",
-                -1: "Tech options unusually cheap vs the broad market - complacency in the Nasdaq, and lean premiums for GPIQ's call-selling.",
-            }[s]
+            if pct >= 65:
+                note = "Tech options pricier than usual relative to the broad market - fear concentrated in the Nasdaq. This used to add points, but the audit found the intuitive scoring backwards, so it's now context only."
+            elif pct < 20:
+                note = "Tech options unusually cheap vs the broad market - Nasdaq complacency. Displayed for context; the audit found no reliable scoring edge in this ratio either way."
+            else:
+                note = "Tech vol priced normally relative to the broad market. Context only - the audit found the intuitive scoring of this ratio backwards, so it no longer scores."
             return {
                 "name": "Tech fear premium (VXN/VIX)",
                 "value": f"{cur:.2f}x (p{pct:.0f})",
-                "score": s,
+                "score": 0,
+                "context": True,
                 "note": note,
             }
 
         signals.append(guarded("Tech fear premium (VXN/VIX)", sig_tech_premium))
 
-    # 3. Variance risk premium: implied vol minus underlying's realized vol
+    # 3. Variance risk premium: implied vol minus underlying's realized vol.
+    # Context only: both scored directions era-flipped in the audits.
     def sig_vrp():
         rets = [
             math.log(und_closes[i] / und_closes[i - 1])
@@ -809,65 +763,69 @@ def build(fund: dict) -> dict:
         ]
         realized = statistics.stdev(rets) * math.sqrt(252) * 100
         vrp = vol_level - realized
-        s = score_vrp(vrp)
-        note = {
-            1: f"Options are pricing far more turbulence than the {und_name} is delivering - covered-call sellers like {ticker} are being overpaid right now.",
-            0: "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
-            -1: f"Realized {und_name} swings exceed what options are pricing - call selling is underpaid in this tape.",
-        }[s]
+        if vrp >= 6:
+            note = f"Options pricing far more turbulence than the {und_name} is delivering - the call-selling engine is well paid right now. Context only: this never proved a reliable timing edge."
+        elif vrp > -2:
+            note = "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep. Context only."
+        else:
+            note = f"Realized {und_name} swings exceed what options are pricing - call selling underpaid in this tape. Context only: the audits found no reliable timing edge in this gap either way."
         return {
             "name": "Are call-sellers overpaid?",
             "value": f"{vrp:+.1f} pts",
-            "score": s,
+            "score": 0,
+            "context": True,
             "note": note,
         }
 
     signals.append(guarded("Are call-sellers overpaid?", sig_vrp))
 
-    # 4. Discount from 52-week high
-    s = score_drawdown(drawdown)
-    note = {
-        2: "Meaningful discount from the 52-week high.",
-        1: "Modest discount from the 52-week high.",
-        -1: "At/near the 52-week high - you are paying full price.",
-        0: "Barely below the high - no real discount.",
-    }[s]
-    signals.append({"name": "Discount from 52-week high", "value": f"{drawdown:.1f}%", "score": s, "note": note})
-
-    # 5. Fund vs 50-day average
-    if sma50 is None:
-        s, note = 0, "Not enough history for a 50-day average."
+    # 4. Discount from 52-week high, on ADJUSTED closes. The single 3%+
+    # band is the only discount that survived both audits (the >=7% "+2"
+    # was a dot-com artifact; the at-the-high "-1" tested as noise).
+    s = score_drawdown(drawdown_adj)
+    if s == 1:
+        note = "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits."
     else:
-        s = score_vs_sma50(vs_sma50)
-        note = {
-            1: "Below its 50-day average - short-term weakness favors the buyer.",
-            -1: "Stretched more than 3% above its 50-day average.",
-            0: "Close to its 50-day average.",
-        }[s]
-    signals.append({"name": f"{ticker} vs 50-day average", "value": f"{vs_sma50:+.1f}%", "score": s, "note": note})
+        note = "No meaningful discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts."
+    signals.append({"name": "Discount from 52-week high", "value": f"{drawdown_adj:.1f}%", "score": s, "note": note})
 
-    # 6. Underlying index regime
+    # 5. Fund vs 50-day average (adjusted). Context only: the raw-close
+    # version was largely a distribution artifact, and even measured
+    # properly the band showed no reliable edge.
+    if sma50_adj is None:
+        note = "Not enough history for a 50-day average."
+    elif vs_sma50_adj < 0:
+        note = "Below its 50-day average (distributions reinvested) - short-term weakness, but the audit found no scored edge in it. Context only."
+    elif vs_sma50_adj > 3:
+        note = "Stretched more than 3% above its 50-day average (distributions reinvested). Context only - the old penalty didn't survive the audit."
+    else:
+        note = "Close to its 50-day average (distributions reinvested). Context only."
+    signals.append({"name": f"{ticker} vs 50-day average", "value": f"{vs_sma50_adj:+.1f}%", "score": 0, "context": True, "note": note})
+
+    # 6. Underlying index regime. Context only: the old below-200d "+1"
+    # was negative on both SPY and QQQ (-0.6pt/21d, era-flipped).
     if und_above_200:
-        s, note = 0, f"{und_name} in a healthy uptrend (above its 200-day average)."
+        note = f"{und_name} in a healthy uptrend (above its 200-day average). Context only."
     else:
-        s, note = 1, f"{und_name} below its 200-day average - bear pricing; long-term buyers historically do well adding here."
-    signals.append({"name": f"{und_name} regime", "value": "uptrend" if und_above_200 else "downtrend", "score": s, "note": note})
+        note = f"{und_name} below its 200-day average - bear pricing. This used to add a point, but the audit found buying on that basis actually lagged, so it's now context only."
+    signals.append({"name": f"{und_name} regime", "value": "uptrend" if und_above_200 else "downtrend", "score": 0, "context": True, "note": note})
 
-    # 7. High-yield credit spread (FRED BAMLH0A0HYM2)
+    # 7. High-yield credit spread (FRED BAMLH0A0HYM2). Only OAS >= 5%
+    # scores; the widening "-1" is retired (its test days rebounded).
     def sig_credit():
         rows = cached_fred("BAMLH0A0HYM2")
         oas = rows[-1][1]
         prior = rows[max(0, len(rows) - 22)][1]
         chg_1mo = oas - prior
-        s = score_credit(oas, chg_1mo)
-        if s == 2:
-            note = "Credit markets pricing serious stress. Painful headlines, but spreads this wide have historically marked strong forward returns for equity buyers."
-        elif s == -1:
-            note = "Credit spreads widening fast - stress building under the surface. Drawdowns often deepen after this signal; patience tends to pay."
+        s = score_credit(oas)
+        if s == 1:
+            note = "Credit markets pricing serious stress. Principled but untested: spreads never got this wide in the testable sample, so this +1 rests on reasoning, not backtest evidence."
+        elif chg_1mo >= 0.50:
+            note = "Credit spreads widening fast. This used to subtract a point, but the audit found those days actually rebounded - context only now."
         elif oas <= 3.5:
-            note = "Credit markets calm - no stress signal in either direction."
+            note = "Credit markets calm - no stress."
         else:
-            note = "Credit spreads moderately elevated but stable."
+            note = "Credit spreads moderately elevated but well short of the 5% panic band."
         return {
             "name": "Credit stress (junk-bond spreads)",
             "value": f"{oas:.2f}% ({chg_1mo:+.2f} 1mo)",
@@ -877,38 +835,41 @@ def build(fund: dict) -> dict:
 
     signals.append(guarded("Credit stress (junk-bond spreads)", sig_credit))
 
-    # 8. Trailing payout vs riskless cash (bands are fund-specific:
-    # GPIQ's headline yield is structurally higher, so it must clear a
-    # higher bar before that counts as a tailwind)
+    # 8. Trailing payout vs riskless cash. Context only: a useful thing to
+    # know about the fund, but never a proven timing signal.
     def sig_payout():
         if ttm_yield is None or tbill is None:
             raise ValueError("missing yield inputs")
         advantage = ttm_yield - tbill
-        s = score_payout(advantage, fund["payout_bands"])
-        note = {
-            1: f"{ticker}'s trailing payout beats riskless T-bills by a wide margin even for this fund - you are well paid for taking equity risk.",
-            0: f"{ticker} yields comfortably more than cash - the normal state of affairs.",
-            -1: f"T-bills pay almost as much as {ticker} with zero risk - the income case for buying today is weak.",
-        }[s]
+        hi, mid = fund["payout_bands"]
+        if advantage >= hi:
+            note = f"{ticker}'s trailing payout beats riskless T-bills by a wide margin even for this fund. Good to know - but it never proved a timing edge, so it's context only."
+        elif advantage >= mid:
+            note = f"{ticker} yields comfortably more than cash - the normal state of affairs. Context only."
+        else:
+            note = f"T-bills pay almost as much as {ticker} with zero risk - the income case is thinner than usual. Context only; the audit found no timing edge here."
         return {
             "name": "Payout vs safe cash",
             "value": f"{ttm_yield:.1f}% vs {tbill:.1f}% cash",
-            "score": s,
+            "score": 0,
+            "context": True,
             "note": note,
         }
 
     signals.append(guarded("Payout vs safe cash", sig_payout))
 
-    # 9. CNN Fear & Greed (contrarian)
+    # 9. CNN Fear & Greed (contrarian). Only the <=25 extreme scores.
     def sig_fear_greed():
         score_, rating = cached_fear_greed()
         s = score_fear_greed(score_)
-        note = {
-            2: "Extreme fear across market internals - historically the crowd is wrong at this extreme, and premiums are fat. Contrarian buy zone.",
-            1: "Fear is the dominant mood - a mild contrarian tailwind for buyers.",
-            0: "Sentiment in the normal range - no contrarian edge either way.",
-            -1: "Extreme greed - the crowd is all-in and shares are priced for perfection.",
-        }[s]
+        if s == 1:
+            note = "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so this +1 rests mostly on principle."
+        elif score_ <= 45:
+            note = "Fear is the dominant mood, but short of the extreme. The audits could only test ~1 year of this index; no scored edge outside the <=25 extreme."
+        elif score_ < 75:
+            note = "Sentiment in the normal range - no contrarian edge either way."
+        else:
+            note = "Extreme greed - the crowd is all-in. This used to subtract a point, but the tool no longer claims to spot bad days, so it's context only."
         return {
             "name": "Fear & Greed index",
             "value": f"{score_:.0f} ({rating})",
@@ -939,156 +900,87 @@ def build(fund: dict) -> dict:
             parts.append(f"next FOMC {next_fomc}")
         ev_note = "No event risk in the next few days" + (" (" + ", ".join(parts) + ")." if parts else ".")
     ev_value = f"{events[0][1]} in {events[0][0]}d" if events else "n/a"
-    signals.append({"name": "Event calendar", "value": ev_value, "score": 0, "note": ev_note})
+    signals.append({"name": "Event calendar", "value": ev_value, "score": 0, "context": True, "note": ev_note})
 
-    # ---- verdict ----
+    # ---- verdict (v2: three bands, nothing negative - the audits showed
+    # the tool couldn't spot bad days, so it stopped claiming to) ----
     score = sum(x["score"] for x in signals)
     tone = verdict_tone(score)
     verdict = {
         "good": {
             "label": "Better-than-usual entry",
-            "summary": f"Several conditions line up in a buyer's favor today. If you have cash earmarked for {ticker}, this is a sensible day to deploy it.",
+            "summary": f"Multiple rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for {ticker}, this is a sensible day to deploy it.",
         },
         "ok": {
             "label": "Mild tailwind - fine day to buy",
-            "summary": "Conditions tilt slightly in your favor. Nothing dramatic, but no reason to wait either.",
+            "summary": "A rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
         },
         "neutral": {
             "label": "No edge either way - buy on schedule",
-            "summary": "Today is average. If it's your scheduled buy day, buy. Waiting for a better day costs more than it saves, on average.",
-        },
-        "rich": {
-            "label": "No discount today",
-            "summary": "You'd be paying full price with thin premiums. If today is your scheduled buy day, buy anyway - the backtest below shows why skipping rarely helps. If it's not, there is no signal pulling you in early.",
+            "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
         },
     }[tone]
     verdict["tone"] = tone
     verdict["score"] = score
 
-    # ---- "what would flip the verdict": nearest actionable thresholds ----
+    # ---- "what would flip the verdict": nearest actionable thresholds.
+    # v2: only the five scoring bands can move the verdict, and all of them
+    # move it UP - there are no negative flips anymore. ----
     def build_flips() -> list[dict]:
         cands = []
 
-        def add(dist, direction, label, text):
-            cands.append({"dist": dist, "direction": direction, "label": label, "text": text})
+        def add(dist, label, text):
+            cands.append({"dist": dist, "direction": +1, "label": label, "text": text})
 
-        # Discount from the 52-week high
-        if drawdown < 3:
-            t = high52 * 0.97
-            add(abs(t / price - 1) * 100, +1, "Real discount",
-                f"{ticker} at ${t:.2f} ({(t / price - 1) * 100:+.1f}% from here) = real discount from the 52-week high (+1)")
-        elif drawdown < 7:
-            t = high52 * 0.93
-            add(abs(t / price - 1) * 100, +1, "Meaningful discount",
-                f"{ticker} at ${t:.2f} ({(t / price - 1) * 100:+.1f}% from here) = meaningful discount (+2)")
-        if 0.5 < drawdown < 3:
-            t = high52 * 0.995
-            add(abs(t / price - 1) * 100, -1, "Back to full price",
-                f"{ticker} back at ${t:.2f} ({(t / price - 1) * 100:+.1f}% from here) = paying full price again (\u22121)")
+        # Adjusted discount reaching 3%. The threshold lives in
+        # total-return space; translate it to a raw price so the number is
+        # recognizable from a brokerage screen.
+        if drawdown_adj < 3:
+            move = high52_adj * 0.97 / adj_price - 1
+            t = price * (1 + move)
+            add(abs(move) * 100, "Real discount",
+                f"{ticker} at ${t:.2f} ({move * 100:+.1f}% from here) = 3%+ below the 52-week high with distributions reinvested (+1)")
 
-        # Vol index vs its trailing-year percentiles
+        # Vol index reaching the top decile of its trailing year
         svol = sorted(vol_closes)
         nv = len(svol)
         vpct = sum(1 for c in vol_closes if c < vol_level) / nv * 100
+        if vpct < 90:
+            lvl = svol[min(nv - 1, int(0.90 * nv))]
+            add(abs(lvl / vol_level - 1) * 100, "Top-decile premiums",
+                f"{vol_name} above {lvl:.1f} (now {vol_level:.1f}) = top decile of its past year (+1)")
 
-        def q(p):
-            return svol[min(nv - 1, int(p * nv))]
-
-        if vpct < 70:
-            lvl = q(0.70)
-            add(abs(lvl / vol_level - 1) * 100, +1, "Elevated premiums",
-                f"{vol_name} above {lvl:.1f} (now {vol_level:.1f}) = premiums elevated vs the past year (+1)")
-        elif vpct < 90:
-            lvl = q(0.90)
-            add(abs(lvl / vol_level - 1) * 100, +1, "Top-decile premiums",
-                f"{vol_name} above {lvl:.1f} (now {vol_level:.1f}) = top-decile premiums (+2)")
-        if vpct >= 25:
-            lvl = q(0.25)
-            if lvl < vol_level:
-                add(abs(1 - lvl / vol_level) * 100, -1, "Lean premiums",
-                    f"{vol_name} below {lvl:.1f} (now {vol_level:.1f}) = income engine running lean (\u22121)")
-
-        # VIX term structure crossing 0.93
+        # VIX term structure inverting
         try:
             vix_now = list(cached_rows("%5EVIX", "1y"))[-1][1]
             vix3m = list(cached_rows("%5EVIX3M", "5d"))[-1][1]
             r = vix_now / vix3m
-            if r < 0.93:
-                add((0.93 / r - 1) * 100, +1, "VIX curve stress",
-                    f"VIX/VIX3M ratio at 0.93 (now {r:.2f}) = stress building in the vol curve (+1)")
+            if r < 1.00:
+                add((1.00 / r - 1) * 100, "VIX curve inversion",
+                    f"VIX/VIX3M ratio at 1.00 (now {r:.2f}) = inverted vol curve, genuine panic (+1)")
         except Exception:
             pass
 
-        # Tech fear premium percentiles (GPIQ only)
-        if fund["tech_premium"]:
-            try:
-                vix_rows = cached_rows("%5EVIX", "1y")
-                vxn_rows = cached_rows("%5EVXN", "1y")
-                vbd = {d: c for d, c, _ in vix_rows}
-                ratios = [c / vbd[d] for d, c, _ in vxn_rows if d in vbd]
-                cur = ratios[-1]
-                sr = sorted(ratios)
-                m = len(sr)
-                tpct = sum(1 for x in ratios if x < cur) / m * 100
-
-                def tq(p):
-                    return sr[min(m - 1, int(p * m))]
-
-                if tpct < 65:
-                    add(abs(tq(0.65) / cur - 1) * 100, +1, "Tech fear premium",
-                        f"VXN/VIX ratio above {tq(0.65):.2f}x (now {cur:.2f}x) = tech fear premium building (+1)")
-                elif tpct < 85:
-                    add(abs(tq(0.85) / cur - 1) * 100, +1, "Peak tech fear",
-                        f"VXN/VIX ratio above {tq(0.85):.2f}x (now {cur:.2f}x) = tech fear at yearly extremes (+2)")
-            except Exception:
-                pass
-
-        # Crossing the 50-day average
-        if sma50:
-            if vs_sma50 >= 0:
-                add(abs(sma50 / price - 1) * 100, +1, "Below 50-day average",
-                    f"{ticker} below its 50-day average of ${sma50:.2f} ({(sma50 / price - 1) * 100:+.1f}% from here) = short-term weakness (+1)")
-            if 0 <= vs_sma50 <= 3:
-                t = sma50 * 1.03
-                add(abs(t / price - 1) * 100, -1, "Stretched",
-                    f"{ticker} above ${t:.2f} (3% over its 50-day average) = stretched (\u22121)")
-
-        # Credit-spread widening warning
+        # Credit OAS reaching the 5% panic band
         try:
-            rows = cached_fred("BAMLH0A0HYM2")
-            oas = rows[-1][1]
-            chg = oas - rows[max(0, len(rows) - 22)][1]
-            if oas < 5.0 and chg < 0.50:
-                need = 0.50 - chg
-                add(need / max(oas, 1.0) * 100, -1, "Credit stress warning",
-                    f"Junk-bond spreads widening another {need:.2f} pts in a month (1-mo change now {chg:+.2f}) = credit stress warning (\u22121)")
+            oas = cached_fred("BAMLH0A0HYM2")[-1][1]
+            if oas < 5.0:
+                add((5.0 / oas - 1) * 100, "Extreme credit stress",
+                    f"Junk-bond spreads at 5.00% (now {oas:.2f}%) = extreme credit stress (+1)")
         except Exception:
             pass
 
-        # Fear & Greed thresholds
+        # Fear & Greed reaching the contrarian extreme
         try:
             fg_now, _ = cached_fear_greed()
-            if 45 < fg_now < 75:
-                add(fg_now - 45, +1, "Fear",
-                    f"Fear & Greed at 45 or below (now {fg_now:.0f}) = fear, a contrarian tailwind (+1)")
-                add(75 - fg_now, -1, "Extreme greed",
-                    f"Fear & Greed at 75 or above (now {fg_now:.0f}) = extreme greed (\u22121)")
+            if fg_now > 25:
+                add(fg_now - 25, "Extreme fear",
+                    f"Fear & Greed at 25 or below (now {fg_now:.0f}) = extreme fear, a contrarian buy zone (+1)")
         except Exception:
             pass
 
         cands.sort(key=lambda c: c["dist"])
-        picked = cands[:5]
-        # Keep the panel two-sided when candidates on both sides exist.
-        if picked and all(c["direction"] > 0 for c in picked):
-            other = next((c for c in cands if c["direction"] < 0), None)
-            if other:
-                picked[-1] = other
-        elif picked and all(c["direction"] < 0 for c in picked):
-            other = next((c for c in cands if c["direction"] > 0), None)
-            if other:
-                picked[-1] = other
-        picked.sort(key=lambda c: c["dist"])
-        return [{"label": c["label"], "direction": c["direction"], "text": c["text"]} for c in picked]
+        return [{"label": c["label"], "direction": c["direction"], "text": c["text"]} for c in cands[:5]]
 
     try:
         flips = build_flips()
@@ -1111,7 +1003,7 @@ def build(fund: dict) -> dict:
     }
     hist_path = DOCS / fund["history_out"]
     try:
-        history = build_history(fund, fund_rows, div_events, live_row)
+        history = build_history(fund, fund_rows, live_row)
     except Exception:
         # Backfill must never break the daily build: fall back to just
         # appending today's row to whatever history already exists.
@@ -1124,6 +1016,7 @@ def build(fund: dict) -> dict:
     meter_min, meter_max = fund["meter"]
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "rules_version": RULES_VERSION,
         "ticker": ticker,
         "verdict": verdict,
         "meter": {"min": meter_min, "max": meter_max},

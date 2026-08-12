@@ -6,33 +6,48 @@ better-or-worse-than-average day to buy [GPIX](https://am.gs.com/en-us/advisors/
 
 A sister page (`gpiq.html`) answers the same question for GPIQ, the Nasdaq-100 version
 of the fund. It swaps in Nasdaq-specific inputs - VXN instead of VIX, QQQ instead of
-SPY, payout bands calibrated to GPIQ's higher (~10%) distribution - and adds one signal
-of its own: the **tech fear premium** (VXN/VIX ratio ranked against its own past year),
-which measures when fear is concentrated in tech rather than the broad market.
+SPY - and displays one extra check of its own: the **tech fear premium** (VXN/VIX ratio
+ranked against its own past year). That check is context-only: the audit found its
+intuitive scoring backwards, so it shows but never scores.
 
 ## How it decides
 
 A GitHub Action runs every weekday morning, pulls data from Yahoo Finance, FRED, CNN's
-Fear & Greed feed, and Google News, and scores ten transparent signals:
+Fear & Greed feed, and Google News, and evaluates ten transparent checks (eleven for
+GPIQ). Under rules v2 only five rare conditions score, +1 each; everything else is
+displayed as context with a score of 0:
 
-| Signal | Source | Why it matters for a covered-call fund |
-| --- | --- | --- |
-| VIX vs its own past year (percentile) | Yahoo `^VIX` | High volatility relative to its own recent history = richer option premiums and marked-down shares |
-| VIX term structure (VIX/VIX3M) | Yahoo `^VIX3M` | An inverted curve means genuine near-term panic - historically a strong covered-call entry |
-| Variance risk premium | VIX minus realized SPY vol | Are option buyers overpaying call-sellers like GPIX right now? |
-| Discount from 52-week high | Yahoo `GPIX` | Are you buying at a discount or paying full price? |
-| GPIX vs its 50-day average | Yahoo `GPIX` | Short-term stretch or weakness |
-| S&P 500 vs its 200-day average | Yahoo `SPY` | Overall market regime |
-| High-yield credit spread | FRED `BAMLH0A0HYM2` | Junk-bond spreads flag stress before headlines do; extreme wides have marked strong forward returns |
-| Payout vs safe cash | Yahoo dividends + FRED `DGS3MO` | GPIX's trailing yield vs 3-month T-bills - how well are you paid for equity risk? |
-| Fear & Greed index | CNN | Contrarian sentiment: extreme fear is a buy zone, extreme greed is priced for perfection |
-| Event calendar | Fed + BLS schedules | Flags imminent FOMC decisions and CPI prints (informational only) |
+| Signal | Source | v2 score | Notes |
+| --- | --- | --- | --- |
+| VIX vs its own past year (percentile) | Yahoo `^VIX` | **+1 at ≥p90** | The one vol band both audits found era-robust (+1.03pt/21d on SPY); lower bands are context |
+| Discount from 52-week high (adjusted closes) | Yahoo `GPIX` | **+1 at ≥3%** | Measured with distributions reinvested so payouts don't masquerade as discounts; the old ≥7% "+2" was a dot-com artifact |
+| VIX term structure (VIX/VIX3M) | Yahoo `^VIX3M` | **+1 at ≥1.00** | Inversion only; evidence mixed but it fires rarely and coincides with genuine panics |
+| High-yield credit spread | FRED `BAMLH0A0HYM2` | **+1 at ≥5.0%** | Principled but untested - spreads never got this wide in the testable sample; the widening "−1" is retired (its test days rebounded) |
+| Fear & Greed index | CNN | **+1 at ≤25** | Contrarian extreme; only ~1 year of testable history |
+| Variance risk premium | VIX minus realized SPY vol | 0 (context) | Both scored directions era-flipped in the audits |
+| GPIX vs its 50-day average (adjusted) | Yahoo `GPIX` | 0 (context) | The raw-close version was a distribution artifact; measured properly, still no edge |
+| S&P 500 vs its 200-day average | Yahoo `SPY` | 0 (context) | The old below-200d "+1" was negative on both SPY and QQQ |
+| Payout vs safe cash | Yahoo dividends + FRED `DGS3MO` | 0 (context) | Good to know, never a timing edge |
+| Tech fear premium (GPIQ only) | Yahoo `^VXN`/`^VIX` | 0 (context) | The audit found the intuitive scoring backwards |
+| Event calendar | Fed + BLS schedules | 0 (context) | Flags imminent FOMC decisions and CPI prints |
 
 Each non-core source is individually guarded - if an endpoint is down, its signal shows
-as skipped (score 0) instead of breaking the daily build. The verdict maps the total
-score (GPIX: -7..+14 across ten signals; GPIQ: -8..+16 across eleven) to one of four
-honest answers, from "better-than-usual entry" (score >= +5) to "no discount today"
-(score <= -2).
+as skipped (score 0) instead of breaking the daily build. The composite score runs 0..+5
+and maps to three honest answers: "better-than-usual entry" (≥3), "mild tailwind" (1-2),
+and "no edge either way - buy on schedule" (0). The old "no discount today" band is
+retired: two audits showed the tool couldn't spot bad days, so it stopped claiming to.
+
+## Methodology v2 (post-audit)
+
+Two independent empirical audits backtested every scoring band on long SPY/QQQ/VIX/VXN
+history (forward 21- and 63-day total returns vs baseline, checked across eras) and
+agreed: only a handful of rare conditions carry an era-robust positive edge, several of
+the old bands were scored *backwards* (tech-fear-premium "+1", below-200d "+1", the deep
+≥7% discount "+2"), and the rest were noise. Rules v2 keeps only the era-robust bands as
++1 scores, keeps two principled-but-untestable extremes (credit OAS ≥5%, Fear & Greed
+≤25) with explicit honesty notes, demotes everything else to context, and eliminates
+negative scores entirely - the tool flags rare good days and no longer pretends to spot
+bad ones.
 
 ## The point of the backtest
 
@@ -44,10 +59,11 @@ most of the time, the no-timing strategy wins, and the page says so out loud.
 
 Each daily run appends the day's composite score to a per-fund history file
 (`docs/history.json`, `docs/history-gpiq.json`). History was backfilled to each fund's
-Oct 2023 inception by replaying today's rules on historical data (no lookahead in the
-inputs: trailing percentiles, 52-week highs and TTM payouts all end at each date;
-backfilled rows are flagged). CNN's Fear & Greed history only reaches back ~1 year, so
-earlier days score that signal neutral.
+Oct 2023 inception by replaying the current rules on historical data (no lookahead in
+the inputs: trailing percentiles and 52-week highs all end at each date; backfilled rows
+are flagged). The files carry a `rules_version` stamp - when the rules change, old rows
+are discarded and the whole history is regenerated under the new rules. CNN's Fear &
+Greed history only reaches back ~1 year, so earlier days score that signal neutral.
 
 The history powers three page features:
 
@@ -56,9 +72,9 @@ The history powers three page features:
   caveats about overlapping windows and hindsight-designed rules.
 - **Score timeline** — a colored strip under the price chart showing what the page
   would have said each day of the chart window.
-- **"What would change this verdict"** — the nearest actionable thresholds (price for a
-  real discount, VIX percentile levels, 50-day-average crosses, credit-spread widening,
-  Fear & Greed levels) rendered as would-help / would-hurt rows.
+- **"What would change this verdict"** — the nearest scoring thresholds (price for a
+  3%+ adjusted discount, the vol index's p90 level, VIX-curve inversion, credit OAS 5%,
+  Fear & Greed 25). All rows push the score up; nothing can push it down anymore.
 
 `docs/feed.xml` is a combined Atom feed for both funds that only emits an entry when a
 fund's verdict band changes from the prior day — subscribe via the "Alerts (RSS)" link

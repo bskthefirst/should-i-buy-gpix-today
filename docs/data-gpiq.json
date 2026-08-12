@@ -1,15 +1,16 @@
 {
- "generated_at": "2026-08-12T04:23:00+00:00",
+ "generated_at": "2026-08-12T04:46:04+00:00",
+ "rules_version": 2,
  "ticker": "GPIQ",
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "Conditions tilt slightly in your favor. Nothing dramatic, but no reason to wait either.",
-  "tone": "ok",
-  "score": 2
+  "label": "No edge either way - buy on schedule",
+  "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
+  "tone": "neutral",
+  "score": 0
  },
  "meter": {
-  "min": -8,
-  "max": 16
+  "min": 0,
+  "max": 5
  },
  "signals": [
   {
@@ -27,44 +28,49 @@
   {
    "name": "Tech fear premium (VXN/VIX)",
    "value": "1.46x (p82)",
-   "score": 1,
-   "note": "Tech fear running above its norm vs the broad market - Nasdaq premiums a touch richer than usual."
+   "score": 0,
+   "context": true,
+   "note": "Tech options pricier than usual relative to the broad market - fear concentrated in the Nasdaq. This used to add points, but the audit found the intuitive scoring backwards, so it's now context only."
   },
   {
    "name": "Are call-sellers overpaid?",
    "value": "-2.5 pts",
-   "score": -1,
-   "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling is underpaid in this tape."
+   "score": 0,
+   "context": true,
+   "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling underpaid in this tape. Context only: the audits found no reliable timing edge in this gap either way."
   },
   {
    "name": "Discount from 52-week high",
-   "value": "4.3%",
-   "score": 1,
-   "note": "Modest discount from the 52-week high."
+   "value": "2.6%",
+   "score": 0,
+   "note": "No meaningful discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts."
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-0.5%",
-   "score": 1,
-   "note": "Below its 50-day average - short-term weakness favors the buyer."
+   "value": "+0.6%",
+   "score": 0,
+   "context": true,
+   "note": "Close to its 50-day average (distributions reinvested). Context only."
   },
   {
    "name": "Nasdaq-100 regime",
    "value": "uptrend",
    "score": 0,
-   "note": "Nasdaq-100 in a healthy uptrend (above its 200-day average)."
+   "context": true,
+   "note": "Nasdaq-100 in a healthy uptrend (above its 200-day average). Context only."
   },
   {
    "name": "Credit stress (junk-bond spreads)",
    "value": "2.70% (+0.01 1mo)",
    "score": 0,
-   "note": "Credit markets calm - no stress signal in either direction."
+   "note": "Credit markets calm - no stress."
   },
   {
    "name": "Payout vs safe cash",
    "value": "9.9% vs 3.9% cash",
    "score": 0,
-   "note": "GPIQ yields comfortably more than cash - the normal state of affairs."
+   "context": true,
+   "note": "GPIQ yields comfortably more than cash - the normal state of affairs. Context only."
   },
   {
    "name": "Fear & Greed index",
@@ -76,6 +82,7 @@
    "name": "Event calendar",
    "value": "CPI in 0d",
    "score": 0,
+   "context": true,
    "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but don't be surprised by a swing."
   }
  ],
@@ -99,12 +106,12 @@
    {
     "d": "2025-11-24",
     "c": 52.23,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2025-11-25",
     "c": 52.55,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2025-11-26",
@@ -119,7 +126,7 @@
    {
     "d": "2025-12-01",
     "c": 52.7,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2025-12-02",
@@ -134,27 +141,27 @@
    {
     "d": "2025-12-04",
     "c": 53.15,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2025-12-05",
     "c": 53.34,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2025-12-08",
     "c": 53.25,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2025-12-09",
     "c": 53.33,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2025-12-10",
     "c": 53.5,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2025-12-11",
@@ -164,17 +171,17 @@
    {
     "d": "2025-12-12",
     "c": 52.6,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2025-12-15",
     "c": 52.4,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2025-12-16",
     "c": 52.51,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2025-12-17",
@@ -184,7 +191,7 @@
    {
     "d": "2025-12-18",
     "c": 52.34,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2025-12-19",
@@ -224,242 +231,242 @@
    {
     "d": "2025-12-31",
     "c": 52.87,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-01-02",
     "c": 52.31,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-01-05",
     "c": 52.69,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-01-06",
     "c": 53.08,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-07",
     "c": 53.12,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-08",
     "c": 52.9,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-09",
     "c": 53.33,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-12",
     "c": 53.38,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-13",
     "c": 53.32,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-14",
     "c": 52.89,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-15",
     "c": 53.07,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-16",
     "c": 53.06,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-20",
     "c": 52.08,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-01-21",
     "c": 52.71,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-22",
     "c": 53.08,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-23",
     "c": 53.27,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-26",
     "c": 53.45,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-27",
     "c": 53.83,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-28",
     "c": 53.94,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-29",
     "c": 53.77,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-30",
     "c": 53.27,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-02",
     "c": 53.15,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-03",
     "c": 52.43,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-02-04",
     "c": 51.62,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-02-05",
     "c": 50.92,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-02-06",
     "c": 51.95,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-02-09",
     "c": 52.37,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-02-10",
     "c": 52.15,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-02-11",
     "c": 52.28,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-02-12",
     "c": 51.28,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-02-13",
     "c": 51.39,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-02-17",
     "c": 51.38,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-02-18",
     "c": 51.76,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-02-19",
     "c": 51.56,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-02-20",
     "c": 52.0,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-02-23",
     "c": 51.46,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-02-24",
     "c": 51.96,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-02-25",
     "c": 52.6,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-26",
     "c": 52.11,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-27",
     "c": 51.97,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-03-02",
     "c": 51.57,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-03-03",
     "c": 51.07,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-04",
     "c": 51.75,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-03-05",
     "c": 51.65,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-03-06",
     "c": 50.98,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-09",
     "c": 51.6,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-10",
     "c": 51.59,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-11",
     "c": 51.63,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-12",
@@ -474,22 +481,22 @@
    {
     "d": "2026-03-16",
     "c": 51.18,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-17",
     "c": 51.41,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-18",
     "c": 50.77,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-19",
     "c": 50.65,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-20",
@@ -499,7 +506,7 @@
    {
     "d": "2026-03-23",
     "c": 50.32,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-24",
@@ -509,7 +516,7 @@
    {
     "d": "2026-03-25",
     "c": 50.33,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-26",
@@ -529,47 +536,47 @@
    {
     "d": "2026-03-31",
     "c": 49.49,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-04-01",
     "c": 49.59,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-04-02",
     "c": 49.68,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-04-06",
     "c": 49.92,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-04-07",
     "c": 49.94,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-04-08",
     "c": 51.18,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-04-09",
     "c": 51.46,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-04-10",
     "c": 51.52,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-04-13",
     "c": 51.98,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-04-14",
@@ -579,7 +586,7 @@
    {
     "d": "2026-04-15",
     "c": 53.27,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-04-16",
@@ -654,7 +661,7 @@
    {
     "d": "2026-05-06",
     "c": 56.57,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-07",
@@ -664,47 +671,47 @@
    {
     "d": "2026-05-08",
     "c": 57.57,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-11",
     "c": 57.75,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-12",
     "c": 57.35,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-13",
     "c": 57.83,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-14",
     "c": 58.19,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-15",
     "c": 57.55,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-18",
     "c": 57.27,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-19",
     "c": 57.04,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-20",
     "c": 57.78,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-21",
@@ -719,7 +726,7 @@
    {
     "d": "2026-05-26",
     "c": 58.91,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-05-27",
@@ -749,17 +756,17 @@
    {
     "d": "2026-06-03",
     "c": 59.34,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-04",
     "c": 59.14,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-05",
     "c": 56.79,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-06-08",
@@ -769,22 +776,22 @@
    {
     "d": "2026-06-09",
     "c": 57.01,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-06-10",
     "c": 55.95,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-06-11",
     "c": 57.64,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-06-12",
     "c": 58.05,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-15",
@@ -794,7 +801,7 @@
    {
     "d": "2026-06-16",
     "c": 58.66,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-17",
@@ -814,17 +821,17 @@
    {
     "d": "2026-06-23",
     "c": 57.61,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-06-24",
     "c": 57.44,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-06-25",
     "c": 57.88,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-06-26",
@@ -844,112 +851,112 @@
    {
     "d": "2026-07-01",
     "c": 58.05,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-02",
     "c": 57.15,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-06",
     "c": 57.88,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-07",
     "c": 56.93,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-08",
     "c": 57.09,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-09",
     "c": 57.95,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-10",
     "c": 58.15,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-13",
     "c": 57.15,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-14",
     "c": 57.75,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-07-15",
     "c": 57.59,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-07-16",
     "c": 56.73,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-17",
     "c": 55.98,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-20",
     "c": 56.03,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-21",
     "c": 56.99,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-22",
     "c": 56.75,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-23",
     "c": 55.78,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-24",
     "c": 55.18,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-27",
     "c": 55.03,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-28",
     "c": 54.53,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-29",
     "c": 53.47,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-30",
     "c": 55.2,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-07-31",
     "c": 55.52,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-08-03",
@@ -959,12 +966,12 @@
    {
     "d": "2026-08-04",
     "c": 57.27,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-08-05",
     "c": 56.88,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-08-06",
@@ -974,45 +981,45 @@
    {
     "d": "2026-08-07",
     "c": 57.29,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-08-10",
     "c": 57.16,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-08-11",
     "c": 56.97,
-    "t": "ok"
+    "t": "neutral"
    }
   ]
  },
  "flips": [
   {
-   "label": "Peak tech fear",
+   "label": "Real discount",
    "direction": 1,
-   "text": "VXN/VIX ratio above 1.50x (now 1.46x) = tech fear at yearly extremes (+2)"
+   "text": "GPIQ at $56.73 (-0.4% from here) = 3%+ below the 52-week high with distributions reinvested (+1)"
   },
   {
-   "label": "Meaningful discount",
+   "label": "VIX curve inversion",
    "direction": 1,
-   "text": "GPIQ at $55.35 (-2.8% from here) = meaningful discount (+2)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+1)"
   },
   {
-   "label": "Lean premiums",
-   "direction": -1,
-   "text": "VXN below 20.4 (now 22.4) = income engine running lean (\u22121)"
-  },
-  {
-   "label": "Elevated premiums",
+   "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 25.5 (now 22.4) = premiums elevated vs the past year (+1)"
+   "text": "VXN above 28.6 (now 22.4) = top decile of its past year (+1)"
   },
   {
-   "label": "Extreme greed",
-   "direction": -1,
-   "text": "Fear & Greed at 75 or above (now 61) = extreme greed (\u22121)"
+   "label": "Extreme fear",
+   "direction": 1,
+   "text": "Fear & Greed at 25 or below (now 61) = extreme fear, a contrarian buy zone (+1)"
+  },
+  {
+   "label": "Extreme credit stress",
+   "direction": 1,
+   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+1)"
   }
  ],
  "report_card": {
@@ -1031,30 +1038,23 @@
    {
     "tone": "good",
     "label": "Better-than-usual entry",
-    "n": 125,
-    "avg_pct": 3.06,
-    "median_pct": 2.23
+    "n": 13,
+    "avg_pct": 6.36,
+    "median_pct": 5.55
    },
    {
     "tone": "ok",
     "label": "Mild tailwind",
-    "n": 160,
-    "avg_pct": 1.46,
-    "median_pct": 1.43
+    "n": 192,
+    "avg_pct": 2.94,
+    "median_pct": 2.93
    },
    {
     "tone": "neutral",
     "label": "No edge either way",
-    "n": 240,
-    "avg_pct": 1.59,
-    "median_pct": 2.12
-   },
-   {
-    "tone": "rich",
-    "label": "No discount today",
-    "n": 152,
-    "avg_pct": 2.01,
-    "median_pct": 2.35
+    "n": 472,
+    "avg_pct": 1.39,
+    "median_pct": 1.8
    }
   ]
  },
@@ -1104,7 +1104,7 @@
   },
   {
    "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
-   "source": "NVIDIA Blog",
+   "source": "blogs.nvidia.com",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE45UUttUUMyRTI3WHVUbF9oMlRKX0NIUHJ2WUFobm9Ta3NubmhVS0pmRjkxMzZILU0wWEFFa1JWTXVBYVhzTkhhS292U1hOWUFoUkRrOUJTTFY3RURHTkZjMWlyTVhlYjE1bHQ2M3ZDRzNlSWlpNDJPTUM1d0l0eFU?oc=5",
    "published": "2026-08-11T18:41:09+00:00"
   },
@@ -1121,16 +1121,16 @@
    "published": "2026-08-10T14:34:12+00:00"
   },
   {
-   "title": "A.I. Offers Hope for Men With Infertility, Spotting \u2018Hidden\u2019 Sperm",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFByandBVUFTOVhpMmlWYUVuc2U0S1BrMEh0ZjNycDROLXRndDVEV1VSaTBDQkVWSWpSaDVvR3Y5aEotRVJRTzladG1iRlRxUXFCUnNSeVN4X1dQcVBLYUpyajhKdE90MzdERWpvMWk5bGJURjVtRnVvT09B?oc=5",
-   "published": "2026-08-11T21:52:53+00:00"
-  },
-  {
    "title": "IBM, Together AI ink $240 million deal for Nvidia-powered AI inference cluster",
    "source": "Reuters",
    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPaHpmV1NwTWxHeTRKVUtlY3lwWmlUVWtzX0NUYkhGR2VFRzZDQ0JXRXp1LVZ4alp5SXplU2RHTmRFNG5EaG9GWVpRbkVPZE4tS2NxUlc2UXhBVTMteFRHVWo0a0xZZGdNWFNWNmVnOTdZcHBvcGx6bnEycGlqaHNqRDI4Vkw4YTVkcnhPZEI3cGVRa0psa2xFWWE2b2g1SkJ0T0RhWlRiODVSLVBxdUxIWkl4Zl9uN1Ew?oc=5",
    "published": "2026-08-11T17:03:14+00:00"
+  },
+  {
+   "title": "IBM and Together AI Sign Multi-Year Agreement to Scale Open-Source AI Inference with NVIDIA AI Infrastructure on IBM Cloud",
+   "source": "IBM Newsroom",
+   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPczQ0bnRwU3FTN2NaN0wzbUVkbGxtYUZkcm5wa2F4R2E4T1VlYnJBTjVzR1VHWFJCelZ5ZHVSUFdyOU5YcjItRnd3aUQ3c2JsWjN2eFZSM0VHM1pONFdCYXRnNUc1cVpaVC1yOXdVR04yMDV5LW9oaGFjelJfclFTOG1EdkZ5LTQxb1RBbEl5Z2tmeklKUm5jdElUam1uN2ZZNmRlVGZjeW9QQ2tUY1R2RG9Kc09FNGg1b1Jid21NTFBheGdYTnNOdWZhVjhJVmJGWUF4bUI3VXV1eVVWa2ticXJsRFJoMl9qOHp4MTZPZw?oc=5",
+   "published": "2026-08-11T12:04:14+00:00"
   }
  ]
 }

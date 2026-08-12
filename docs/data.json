@@ -1,22 +1,23 @@
 {
- "generated_at": "2026-08-12T04:22:59+00:00",
+ "generated_at": "2026-08-12T04:46:03+00:00",
+ "rules_version": 2,
  "ticker": "GPIX",
  "verdict": {
-  "label": "No discount today",
-  "summary": "You'd be paying full price with thin premiums. If today is your scheduled buy day, buy anyway - the backtest below shows why skipping rarely helps. If it's not, there is no signal pulling you in early.",
-  "tone": "rich",
-  "score": -2
+  "label": "No edge either way - buy on schedule",
+  "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
+  "tone": "neutral",
+  "score": 0
  },
  "meter": {
-  "min": -7,
-  "max": 14
+  "min": 0,
+  "max": 5
  },
  "signals": [
   {
    "name": "VIX vs its own past year",
    "value": "15.3 (p13)",
-   "score": -1,
-   "note": "S&P 500 volatility near the bottom of its 1-year range - the income engine is running lean."
+   "score": 0,
+   "note": "S&P 500 volatility near the bottom of its 1-year range. The old low-vol penalty didn't survive the audit - context only."
   },
   {
    "name": "VIX term structure (1mo/3mo)",
@@ -28,37 +29,41 @@
    "name": "Are call-sellers overpaid?",
    "value": "+1.2 pts",
    "score": 0,
-   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep."
+   "context": true,
+   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep. Context only."
   },
   {
    "name": "Discount from 52-week high",
    "value": "0.2%",
-   "score": -1,
-   "note": "At/near the 52-week high - you are paying full price."
+   "score": 0,
+   "note": "No meaningful discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts."
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.8%",
+   "value": "+2.7%",
    "score": 0,
-   "note": "Close to its 50-day average."
+   "context": true,
+   "note": "Close to its 50-day average (distributions reinvested). Context only."
   },
   {
    "name": "S&P 500 regime",
    "value": "uptrend",
    "score": 0,
-   "note": "S&P 500 in a healthy uptrend (above its 200-day average)."
+   "context": true,
+   "note": "S&P 500 in a healthy uptrend (above its 200-day average). Context only."
   },
   {
    "name": "Credit stress (junk-bond spreads)",
    "value": "2.70% (+0.01 1mo)",
    "score": 0,
-   "note": "Credit markets calm - no stress signal in either direction."
+   "note": "Credit markets calm - no stress."
   },
   {
    "name": "Payout vs safe cash",
    "value": "8.0% vs 3.9% cash",
    "score": 0,
-   "note": "GPIX yields comfortably more than cash - the normal state of affairs."
+   "context": true,
+   "note": "GPIX yields comfortably more than cash - the normal state of affairs. Context only."
   },
   {
    "name": "Fear & Greed index",
@@ -70,6 +75,7 @@
    "name": "Event calendar",
    "value": "CPI in 0d",
    "score": 0,
+   "context": true,
    "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but don't be surprised by a swing."
   }
  ],
@@ -88,12 +94,12 @@
    {
     "d": "2025-11-21",
     "c": 51.22,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2025-11-24",
     "c": 51.92,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2025-11-25",
@@ -173,12 +179,12 @@
    {
     "d": "2025-12-17",
     "c": 51.88,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2025-12-18",
     "c": 52.23,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2025-12-19",
@@ -193,22 +199,22 @@
    {
     "d": "2025-12-23",
     "c": 53.13,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2025-12-24",
     "c": 53.28,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2025-12-26",
     "c": 53.28,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2025-12-29",
     "c": 53.15,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2025-12-30",
@@ -233,7 +239,7 @@
    {
     "d": "2026-01-06",
     "c": 53.06,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-01-07",
@@ -248,7 +254,7 @@
    {
     "d": "2026-01-09",
     "c": 53.22,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-01-12",
@@ -278,7 +284,7 @@
    {
     "d": "2026-01-20",
     "c": 52.19,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-01-21",
@@ -328,22 +334,22 @@
    {
     "d": "2026-02-03",
     "c": 52.72,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-04",
     "c": 52.48,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-05",
     "c": 51.89,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-02-06",
     "c": 52.81,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-09",
@@ -363,42 +369,42 @@
    {
     "d": "2026-02-12",
     "c": 52.23,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-02-13",
     "c": 52.26,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-17",
     "c": 52.36,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-18",
     "c": 52.6,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-19",
     "c": 52.46,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-20",
     "c": 52.87,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-23",
     "c": 52.39,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-02-24",
     "c": 52.76,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-02-25",
@@ -413,47 +419,47 @@
    {
     "d": "2026-02-27",
     "c": 52.71,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-03-02",
     "c": 52.36,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-03-03",
     "c": 51.95,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-03-04",
     "c": 52.29,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-03-05",
     "c": 52.03,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-03-06",
     "c": 51.36,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-09",
     "c": 51.81,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-10",
     "c": 51.74,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-11",
     "c": 51.7,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-12",
@@ -468,12 +474,12 @@
    {
     "d": "2026-03-16",
     "c": 51.18,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-17",
     "c": 51.35,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-18",
@@ -483,7 +489,7 @@
    {
     "d": "2026-03-19",
     "c": 50.57,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-03-20",
@@ -523,22 +529,22 @@
    {
     "d": "2026-03-31",
     "c": 50.04,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-04-01",
     "c": 50.0,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-04-02",
     "c": 50.12,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-04-06",
     "c": 50.29,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-04-07",
@@ -548,17 +554,17 @@
    {
     "d": "2026-04-08",
     "c": 51.44,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-04-09",
     "c": 51.72,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-04-10",
     "c": 51.69,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-04-13",
@@ -583,12 +589,12 @@
    {
     "d": "2026-04-17",
     "c": 53.59,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-04-20",
     "c": 53.5,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-04-21",
@@ -598,27 +604,27 @@
    {
     "d": "2026-04-22",
     "c": 53.66,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-04-23",
     "c": 53.49,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-04-24",
     "c": 53.83,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-04-27",
     "c": 53.93,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-04-28",
     "c": 53.69,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-04-29",
@@ -628,12 +634,12 @@
    {
     "d": "2026-04-30",
     "c": 54.13,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-05-01",
     "c": 53.86,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-05-04",
@@ -643,7 +649,7 @@
    {
     "d": "2026-05-05",
     "c": 54.06,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-05-06",
@@ -723,22 +729,22 @@
    {
     "d": "2026-05-28",
     "c": 56.01,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-05-29",
     "c": 56.12,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-06-01",
     "c": 55.82,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-06-02",
     "c": 55.88,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-06-03",
@@ -753,27 +759,27 @@
    {
     "d": "2026-06-05",
     "c": 54.57,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-08",
     "c": 54.73,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-09",
     "c": 54.6,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-10",
     "c": 53.79,
-    "t": "good"
+    "t": "ok"
    },
    {
     "d": "2026-06-11",
     "c": 54.67,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-12",
@@ -808,17 +814,17 @@
    {
     "d": "2026-06-23",
     "c": 54.64,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-24",
     "c": 54.6,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-25",
     "c": 54.62,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-06-26",
@@ -893,12 +899,12 @@
    {
     "d": "2026-07-17",
     "c": 55.03,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-20",
     "c": 54.97,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-21",
@@ -913,32 +919,32 @@
    {
     "d": "2026-07-23",
     "c": 54.73,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-24",
     "c": 54.78,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-27",
     "c": 54.84,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-28",
     "c": 54.97,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-29",
     "c": 54.23,
-    "t": "good"
+    "t": "neutral"
    },
    {
     "d": "2026-07-30",
     "c": 55.04,
-    "t": "ok"
+    "t": "neutral"
    },
    {
     "d": "2026-07-31",
@@ -958,55 +964,55 @@
    {
     "d": "2026-08-05",
     "c": 56.19,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-08-06",
     "c": 56.11,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-08-07",
     "c": 56.38,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-08-10",
     "c": 56.41,
-    "t": "rich"
+    "t": "neutral"
    },
    {
     "d": "2026-08-11",
     "c": 56.27,
-    "t": "rich"
+    "t": "neutral"
    }
   ]
  },
  "flips": [
   {
-   "label": "Stretched",
-   "direction": -1,
-   "text": "GPIX above $56.93 (3% over its 50-day average) = stretched (\u22121)"
-  },
-  {
-   "label": "Below 50-day average",
-   "direction": 1,
-   "text": "GPIX below its 50-day average of $55.28 (-1.8% from here) = short-term weakness (+1)"
-  },
-  {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-2.8% from here) = real discount from the 52-week high (+1)"
+   "text": "GPIX at $54.72 (-2.8% from here) = 3%+ below the 52-week high with distributions reinvested (+1)"
   },
   {
-   "label": "Extreme greed",
-   "direction": -1,
-   "text": "Fear & Greed at 75 or above (now 61) = extreme greed (\u22121)"
-  },
-  {
-   "label": "VIX curve stress",
+   "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 0.93 (now 0.81) = stress building in the vol curve (+1)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+1)"
+  },
+  {
+   "label": "Extreme fear",
+   "direction": 1,
+   "text": "Fear & Greed at 25 or below (now 61) = extreme fear, a contrarian buy zone (+1)"
+  },
+  {
+   "label": "Top-decile premiums",
+   "direction": 1,
+   "text": "VIX above 23.6 (now 15.3) = top decile of its past year (+1)"
+  },
+  {
+   "label": "Extreme credit stress",
+   "direction": 1,
+   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+1)"
   }
  ],
  "report_card": {
@@ -1025,30 +1031,23 @@
    {
     "tone": "good",
     "label": "Better-than-usual entry",
-    "n": 94,
-    "avg_pct": 3.03,
-    "median_pct": 4.08
+    "n": 13,
+    "avg_pct": 7.05,
+    "median_pct": 7.31
    },
    {
     "tone": "ok",
     "label": "Mild tailwind",
-    "n": 109,
-    "avg_pct": 1.84,
-    "median_pct": 2.39
+    "n": 142,
+    "avg_pct": 2.75,
+    "median_pct": 3.35
    },
    {
     "tone": "neutral",
     "label": "No edge either way",
-    "n": 285,
-    "avg_pct": 1.07,
-    "median_pct": 1.44
-   },
-   {
-    "tone": "rich",
-    "label": "No discount today",
-    "n": 189,
-    "avg_pct": 1.83,
-    "median_pct": 2.29
+    "n": 522,
+    "avg_pct": 1.26,
+    "median_pct": 1.72
    }
   ]
  },
@@ -1097,6 +1096,12 @@
    "published": "2026-08-11T19:19:12+00:00"
   },
   {
+   "title": "Inflation is the biggest problem, Fed's Goolsbee says",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPZDltR2o0ZVZseWpZbFpveU1hMUxTTjZCQ1lDa2FkMzNRR0VtRW5fMENiaHVyNWVnZ0UwcTkta1IwM05ON29kNjZMQ1dfNjktNnNrWlZPUHE5cVhfZjFoVjZaWERyMDBuWUxrMTZ0b1EybmZjMjIyMXpEdkZwdmF5dmNPeEVOaE5WelZSczMzSmwyRGdFSzNOcHVn?oc=5",
+   "published": "2026-08-11T18:07:13+00:00"
+  },
+  {
    "title": "An inflation report Wednesday should be a big deal for the Fed. Here's what to expect",
    "source": "CNBC",
    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNWm1HU0lsVllSdWQ3eDVsZlJUcDZZV0lxZWlYSGVNOUg0T0VWTjlKLW9QQ2FPUEpvdTdpOU14cUJiZnBGcGlvNkxwREhmcU9kVkMtb3ZzTTZ4ZHFHQWhGaGcyUFRadmh0dDJqV0R1cGgybXIwMmdZSkV6Q1k0VmVZS1NsaDJfZ2h0T0hIeGQ2RGFpQUN1MFJJRk5ja0YydzlqZUthekRjTFlWTS1BdE9YOE15M19DcnBlNHA2YtIBwgFBVV95cUxNVWFaS0hpRlE2Qm4yWXl3ZmV1X1lFMkRBdVIyaEs5V2JmdENGMXMzUDdNNG9ueTlfOUFkbXl1R0NOci1TdTVWU1YxY0I1LWR6SVhveTgtZ0xaRWZ1WG1kX2JkaUdQN09PMTV4OWVCRHVGZlgyUTNfaWlUSkFpTGZVVFBHdzI2ajZNdXp4cGtXNmtqcUEtMFRsQmd1akd2WFhUY2liY0xPamVfZzBhSU1ybExuZmJEZTdzSGZWRC1FYTNLZw?oc=5",
@@ -1104,27 +1109,21 @@
   },
   {
    "title": "Gold Edges Higher Ahead of U.S. Inflation Data",
-   "source": "wsj.com",
+   "source": "WSJ",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZlgxblBzV3BGc1l0QzlndndxTUlJNkJDTkpKZGpWN0VkVXFLLWFHOGY1VzZyTEdXRXlkLWstcE81X1RKN0xNRVR4ajlJVjJfUzlsYWY2Z0xQT24wU0Z5cjU3dUZiSXdpUDBKYW9XMG9NWW1QSzBfXzg4SVlnTGF0MDZHc1BMZWt5dV9yek9aeVljNFhYdjg4MWJnczJlUlhqVi1zUQ?oc=5",
    "published": "2026-08-12T01:00:00+00:00"
   },
   {
-   "title": "Dollar drifts as markets await US inflation data for Fed clues",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZnhDSnpIWUFyU185anRuZ0lKYjItT2RJaWU3czNGbGdwVVBTbzRlaEF1QjJ3cERWVEZUVkV2Q0kwc3FtQVBpVWx3SmFnbTVlcEkyX0ZYb0lhd2tDQ0ZXcXl1RHl4aTR6dXVjYnRYZjZVUlN0TDE1QXJ4cF9SaHNueElkRF94cGlXbHJZdnlBSExxZzhaMVAxa0lKblNReU0tdFJJ?oc=5",
-   "published": "2026-08-12T00:57:00+00:00"
+   "title": "Gold Advances as Traders Watch US Inflation for Rate-Hike Clues",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZnM5SmxoazU1ZFJYMWNYeGk3Z25RalMyV25wbUVRcldMMVNoeFZ1Mzd1MzZkVVMxTUxhY2Q3OS13ZURXaUVvZ2pOZ1BZdHUxcW5icHQ3MFZCVWRISm9JM3lJQndnYWFtMzV1Um9vS2N2SUlYSEMxbmNnLUc5UG50VWd6djRIaXJid0xRTWotQ0w0bVNFZUVzYkY4ZkF2NHJZbzVXYnZGSExDMWlDVXdoVjhfVm0?oc=5",
+   "published": "2026-08-11T23:35:34+00:00"
   },
   {
    "title": "Rethinking Fed operations: Recommendations to the five task forces",
    "source": "Brookings",
    "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNekpQTDNfSnBYeXhNZmhSM0E4OXowZ0dZNS1wMlBnemt6QUU1WTQ3Z0dvNC1TRTRhWlpZRTZUSS0td3dhREkxMk5KQjhHMU02R1FjcjJUd1lxNF81b19Xc1BjcHJvdUcxd0UzU2Q0Zjh1Vm0tdGhXdldQdG0wT3F1cFN1bFZQeWk5QXVHUWtPT0M4MWJpdTVhcGJiSlk2VmhLUTZR?oc=5",
    "published": "2026-08-11T14:35:15+00:00"
-  },
-  {
-   "title": "U.S. stocks edge further from their records as oil prices keep swinging",
-   "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQeHBQV00tbUI4a2l1SGt5TW9fWXY0d2ZadTVUTVF0dWdXeW1uc1lLQmRXZzh3RFAxQXdqaHJBdVp1bzkzd0JVc0o4NGFISEI1enp6S1VGelhreC1rcmVWZGFJLUhpYzlscXBlazNvekxWaTJFYzc3eVNwdjdkUUl3UmoxYjJ4dXc1RFJNNUpTaWF0UGdpU3R2VmVIUjZGdVM1WHF4T0MyUF9Jczg?oc=5",
-   "published": "2026-08-11T21:59:54+00:00"
   }
  ]
 }
