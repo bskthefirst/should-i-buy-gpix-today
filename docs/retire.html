@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="When can I retire on GPIX + GPIQ income? A live projection: $2,500 biweekly into 80% GPIX / 20% GPIQ, dividends reinvested after 15% withholding, until the net payout covers your target monthly cashflow.">
+<title>When can I retire? — GPIX + GPIQ income plan</title>
+<link rel="alternate" type="application/atom+xml" title="GPIX / GPIQ / TSLA / SPCX verdict alerts" href="feed.xml">
+<style>
+  :root {
+    --bg: #f6f5f0;
+    --surface: #ffffff;
+    --surface2: #eef0e8;
+    --border: #dde1d3;
+    --text: #1c2a22;
+    --muted: #54645b;
+    --faint: #7d8a81;
+    --brg: #004225;
+    --brg-soft: #0a5c37;
+    --good: #0a5c37;
+    --ok: #4d7c0f;
+    --bad: #b91c1c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(1100px 480px at 75% -120px, rgba(0,66,37,.08), transparent 60%),
+      linear-gradient(180deg, #eef1e6 0%, var(--bg) 460px);
+    background-color: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    border-top: 4px solid var(--brg);
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 28px 20px 80px; }
+  .kicker {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--brg); margin-bottom: 4px;
+  }
+
+  .fundtoggle {
+    display: inline-flex; margin-bottom: 22px;
+    border: 1px solid var(--border); border-radius: 99px; background: var(--surface);
+    padding: 3px; box-shadow: 0 1px 3px rgba(28,42,34,.05);
+  }
+  .fundtoggle a {
+    display: flex; align-items: baseline; gap: 6px;
+    padding: 6px 16px; border-radius: 99px; text-decoration: none;
+    font-size: 14px; font-weight: 600; color: var(--muted);
+  }
+  .fundtoggle a small { font-size: 11px; font-weight: 500; color: var(--faint); }
+  .fundtoggle a.active { background: var(--brg); color: #fff; }
+  .fundtoggle a.active small { color: rgba(255,255,255,.7); }
+
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+  .topbar .fundtoggle { margin-bottom: 0; }
+  .rsslink {
+    font-size: 12.5px; font-weight: 600; color: var(--muted); text-decoration: none;
+    border: 1px solid var(--border); border-radius: 99px; padding: 6px 14px;
+    background: var(--surface); white-space: nowrap; box-shadow: 0 1px 3px rgba(28,42,34,.05);
+  }
+  .rsslink:hover { color: var(--brg); border-color: var(--brg); }
+
+  header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; }
+  header .sub { color: var(--muted); font-size: 14px; margin-top: 4px; max-width: 66ch; }
+
+  .verdict {
+    margin-top: 24px; padding: 24px 26px;
+    background: linear-gradient(135deg, #ffffff 0%, #fbfcf7 55%, #f3f6ec 100%);
+    border: 1px solid var(--border); border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(28,42,34,.04), 0 10px 30px rgba(28,42,34,.07);
+  }
+  .vgrid { display: grid; grid-template-columns: 1fr 236px; gap: 8px 26px; align-items: center; }
+  .verdict .whenlab { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .verdict .when { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; color: var(--good); line-height: 1.2; }
+  .verdict .away { font-size: 15px; font-weight: 600; color: var(--muted); margin-top: 2px; }
+  .verdict .summary { font-size: 14.5px; color: var(--muted); margin-top: 10px; max-width: 62ch; }
+  .vgauge { justify-self: center; }
+  .vgauge .gnum { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; fill: var(--good); font-variant-numeric: tabular-nums; }
+  .vgauge .gden { font-size: 10.5px; font-weight: 600; fill: var(--faint); letter-spacing: .04em; }
+  .vgauge .gtick { font-size: 10px; fill: var(--faint); }
+
+  h2 { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 34px 0 6px; padding-left: 12px; border-left: 3px solid var(--brg); line-height: 1.25; }
+  .h2sub { color: var(--faint); font-size: 13px; margin-bottom: 14px; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 13px; padding: 18px; box-shadow: 0 1px 2px rgba(28,42,34,.04), 0 6px 18px rgba(28,42,34,.05); }
+
+  /* controls */
+  .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 26px; }
+  .ctl label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--muted); font-weight: 600; }
+  .ctl label b { font-size: 15px; color: var(--text); font-variant-numeric: tabular-nums; }
+  .ctl input[type=range] { width: 100%; accent-color: var(--brg); margin-top: 6px; }
+  .ctl .hint { font-size: 11.5px; color: var(--faint); margin-top: 2px; }
+  .scenarios { display: flex; gap: 8px; margin-top: 6px; }
+  .scenarios button {
+    flex: 1; padding: 7px 4px; font: inherit; font-size: 12.5px; font-weight: 600;
+    border: 1px solid var(--border); border-radius: 9px; background: var(--surface);
+    color: var(--muted); cursor: pointer;
+  }
+  .scenarios button.active { background: var(--brg); border-color: var(--brg); color: #fff; }
+
+  /* stat cards */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 13px;
+    padding: 15px 17px; box-shadow: 0 1px 2px rgba(28,42,34,.04), 0 6px 18px rgba(28,42,34,.05);
+  }
+  .stat .name { font-size: 12.5px; color: var(--muted); }
+  .stat .val { font-size: 21px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .stat .note { font-size: 11.5px; color: var(--faint); margin-top: 3px; }
+
+  /* chart */
+  .chartcard { padding: 18px 12px 8px; }
+  .chartcard svg { width: 100%; height: auto; display: block; }
+  .chartcard text { font-size: 10.5px; fill: var(--faint); }
+  #ctip {
+    position: fixed; display: none; pointer-events: none; z-index: 10;
+    background: var(--text); color: #fff; font-size: 12px; line-height: 1.45;
+    padding: 6px 10px; border-radius: 8px; box-shadow: 0 4px 14px rgba(28,42,34,.3);
+    max-width: 240px;
+  }
+
+  /* milestones table */
+  .ms-table { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+  .ms-table th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--faint); font-weight: 600; padding: 6px 10px; border-bottom: 1px solid var(--border); }
+  .ms-table td { padding: 8px 10px; border-bottom: 1px solid var(--surface2); }
+  .ms-table tr.target td { font-weight: 700; color: var(--good); background: rgba(0,66,37,.05); }
+  .msbar { width: 30%; }
+  .msbar .bg { position: relative; height: 9px; border-radius: 99px; background: #edf0e6; overflow: hidden; }
+  .msbar .bg i { position: absolute; top: 0; left: 0; height: 100%; display: block; border-radius: 99px; background: linear-gradient(90deg, rgba(0,66,37,.35), rgba(0,66,37,.75)); }
+
+  .honesty {
+    margin-top: 16px; padding: 14px 18px; border-radius: 12px;
+    background: #fbf6ea; border: 1px solid #ead9b0; font-size: 13.5px; color: #5a4a1f;
+  }
+  .honesty b { color: #46390f; }
+
+  .prose { font-size: 14.5px; color: var(--muted); max-width: 72ch; }
+  .prose p + p { margin-top: 10px; }
+  .prose b { color: var(--text); }
+
+  footer { margin-top: 48px; font-size: 12.5px; color: var(--faint); border-top: 1px solid var(--border); padding-top: 18px; }
+  footer p + p { margin-top: 8px; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 620px) {
+    .wrap { padding: 22px 14px 60px; }
+    header h1 { font-size: 21px; }
+    .verdict { padding: 18px 16px; }
+    .verdict .when { font-size: 27px; }
+    .vgrid { grid-template-columns: 1fr; gap: 4px; }
+    .vgauge { order: -1; margin: -6px auto 2px; }
+    .controls { grid-template-columns: 1fr; }
+    .msbar { display: none; }
+    .fundtoggle { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
+    .fundtoggle a { padding: 6px 11px; }
+    .fundtoggle a small { display: none; }
+    .card { padding: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <nav class="fundtoggle" aria-label="Choose asset">
+      <a href="./">GPIX <small>S&amp;P 500</small></a>
+      <a href="gpiq.html">GPIQ <small>Nasdaq 100</small></a>
+      <a href="tsla.html">TSLA <small>stock</small></a>
+      <a href="spcx.html">SPCX <small>stock</small></a>
+      <a href="retire.html" class="active">RETIRE <small>when?</small></a>
+    </nav>
+    <a class="rsslink" href="feed.xml" title="Atom feed — a new entry appears only when a fund's verdict band changes from the prior day. Quiet by design.">Alerts (RSS)</a>
+  </div>
+
+  <header>
+    <div>
+      <div class="kicker">Retirement math · 80% GPIX / 20% GPIQ</div>
+      <h1>When can I retire?</h1>
+      <div class="sub">You save $2,500 every two weeks into covered-call income funds and reinvest
+      every distribution (after 15% US withholding). This page projects the date your net monthly
+      payout covers your target — using the funds' <b>live trailing yields</b>, refreshed daily by the
+      same pipeline as the other pages.</div>
+    </div>
+  </header>
+
+  <div id="app"><div style="padding:60px 0;color:var(--faint)">Crunching the numbers…</div></div>
+
+  <footer>
+    <p><b>Method.</b> Monthly simulation: contributions arrive at (biweekly × 26 ÷ 12) per month; the
+    portfolio pays its blended trailing-12-month distribution yield monthly; 15% is withheld and the
+    rest is reinvested; fund prices drift by the chosen scenario. "Retired" = the month the after-tax
+    payout first covers the target. Yields come live from <a href="data.json">data.json</a> and
+    <a href="data-gpiq.json">data-gpiq.json</a>; everything else runs in your browser, so drag the
+    sliders freely.</p>
+    <p><b>What this is not.</b> Not advice, and not a guarantee — distribution yields float with
+    option premiums, and covered-call funds trade upside for income. Read the honesty box before
+    planning your resignation letter.</p>
+  </footer>
+</div>
+<div id="ctip"></div>
+
+<script>
+"use strict";
+
+// Fallbacks if the live fetch fails (rough long-run TTM yields).
+const FALLBACK = { gpix: 8.0, gpiq: 9.9 };
+
+// User state (defaults = the plan the owner described).
+const S = {
+  target: 1000,        // net $/month wanted
+  biweekly: 2500,      // $ per paycheck
+  gpixPct: 80,         // % of contributions to GPIX
+  taxPct: 15,          // withholding on every distribution
+  start: 0,            // $ already invested
+  scenario: "base",    // NAV drift: flat 0, base +2.5%/yr, strong +5%/yr
+};
+const SCENARIOS = { flat: 0, base: 2.5, strong: 5.0 };
+const SCENARIO_LABEL = { flat: "Flat NAV (0%)", base: "Base (+2.5%/yr)", strong: "Strong (+5%/yr)" };
+
+const fmt$ = v => "$" + Math.round(v).toLocaleString("en-US");
+const fmt$k = v => v >= 1e6 ? "$" + (v / 1e6).toFixed(2) + "M" : "$" + Math.round(v / 1000) + "k";
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function monthLabel(m) {  // m months from now -> "Mar 2029"
+  const d = new Date();
+  d.setMonth(d.getMonth() + m);
+  return MONTHS[d.getMonth()] + " " + d.getFullYear();
+}
+function awayLabel(m) {
+  if (m <= 0) return "already there";
+  const y = Math.floor(m / 12), r = m % 12;
+  if (y === 0) return r + (r === 1 ? " month away" : " months away");
+  return y + (y === 1 ? " year" : " years") + (r ? " " + r + " mo" : "") + " away";
+}
+
+// Arc gauge (same visual language as the fund pages) showing % of the
+// needed pot already accumulated.
+function gauge(pct) {
+  const W = 236, H = 148, cx = W / 2, cy = 126, r = 90, bw = 17;
+  const frac = v => Math.max(0, Math.min(100, v)) / 100;
+  const pt = (v, rad) => {
+    const a = Math.PI * (1 + frac(v));
+    return [cx + rad * Math.cos(a), cy + rad * Math.sin(a)];
+  };
+  const arc = (v0, v1, color) => {
+    const [x0, y0] = pt(v0, r), [x1, y1] = pt(v1, r);
+    return `<path d="M ${x0.toFixed(1)} ${y0.toFixed(1)} A ${r} ${r} 0 0 1 ${x1.toFixed(1)} ${y1.toFixed(1)}" fill="none" stroke="${color}" stroke-width="${bw}"/>`;
+  };
+  const p = Math.max(0, Math.min(100, pct));
+  const [nx, ny] = pt(p, r - bw / 2 - 5);
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${p.toFixed(0)}% of the required portfolio accumulated">
+    ${arc(0, 100, "rgba(125,138,129,.22)")}
+    ${p > 0.5 ? arc(0, p, "rgba(0,66,37,.55)") : ""}
+    <line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="#1c2a22" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="${cx}" cy="${cy}" r="5.5" fill="#1c2a22"/>
+    <text class="gnum" x="${cx}" y="${cy - 26}" text-anchor="middle">${p.toFixed(0)}%</text>
+    <text class="gden" x="${cx}" y="${cy - 10}" text-anchor="middle">OF THE POT YOU NEED</text>
+    <text class="gtick" x="${pt(0, r)[0].toFixed(1)}" y="${cy + 14}" text-anchor="middle">0%</text>
+    <text class="gtick" x="${pt(100, r)[0].toFixed(1)}" y="${cy + 14}" text-anchor="middle">100%</text>
+  </svg>`;
+}
+
+// Core simulation. Returns { months: [{m, portfolio, net}], crossAt } where
+// crossAt is the first month index whose net payout >= target (or null).
+// The target only decides where the sim stops recording; growth math is
+// identical regardless.
+function simulate(yields, target, scenarioKey) {
+  const w = S.gpixPct / 100;
+  const grossY = (w * yields.gpix + (1 - w) * yields.gpiq) / 100;
+  const netF = 1 - S.taxPct / 100;
+  const g = SCENARIOS[scenarioKey] / 100;
+  const contrib = S.biweekly * 26 / 12;
+  let P = S.start;
+  const out = [];
+  let crossAt = null;
+  const MAX = 40 * 12;
+  for (let m = 0; m <= MAX; m++) {
+    const net = P * grossY / 12 * netF;
+    out.push({ m, portfolio: P, net });
+    if (crossAt === null && net >= target) crossAt = m;
+    if (crossAt !== null && m > crossAt + 24) break;  // sim a little past the goal
+    P = P * (1 + g / 12) + P * grossY / 12 * netF + contrib;
+  }
+  return { months: out, crossAt, grossY, netY: grossY * netF, contrib };
+}
+
+// Months until a given net-monthly-income level.
+function monthsTo(yields, level, scenarioKey) {
+  return simulate(yields, level, scenarioKey).crossAt;
+}
+
+function renderChart(sim, target) {
+  const pts = sim.months;
+  if (pts.length < 2) return "";
+  const W = 820, H = 240, L = 56, R = 14, T = 14, B = 30;
+  const lastM = pts[pts.length - 1].m;
+  const maxNet = Math.max(target * 1.15, ...pts.map(p => p.net));
+  const xi = m => L + (m / lastM) * (W - L - R);
+  const yv = v => T + (1 - v / maxNet) * (H - T - B);
+  const line = pts.map((p, i) => (i ? "L" : "M") + xi(p.m).toFixed(1) + " " + yv(p.net).toFixed(1)).join(" ");
+  const area = line + ` L ${xi(lastM).toFixed(1)} ${yv(0)} L ${L} ${yv(0)} Z`;
+  const gridVals = [0.25, 0.5, 0.75, 1].map(f => maxNet * f);
+  const yearTicks = [];
+  const yearStep = lastM > 120 ? 24 : 12;
+  for (let m = yearStep; m < lastM; m += yearStep) yearTicks.push(m);
+  const cross = sim.crossAt != null ? pts.find(p => p.m === sim.crossAt) : null;
+  return `
+  <svg viewBox="0 0 ${W} ${H}" id="csvg">
+    <defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgba(0,66,37,.18)"/><stop offset="1" stop-color="rgba(0,66,37,0)"/>
+    </linearGradient></defs>
+    ${gridVals.map(v => `<line x1="${L}" x2="${W - R}" y1="${yv(v)}" y2="${yv(v)}" stroke="#e4e7dd" stroke-width="1"/>
+      <text x="2" y="${yv(v) + 4}">${fmt$(v)}/mo</text>`).join("")}
+    ${yearTicks.map(m => `<text x="${xi(m)}" y="${H - 10}" text-anchor="middle">${monthLabel(m)}</text>`).join("")}
+    <path d="${area}" fill="url(#rg)"/>
+    <path d="${line}" fill="none" stroke="var(--brg)" stroke-width="2.25"/>
+    <line x1="${L}" x2="${W - R}" y1="${yv(target)}" y2="${yv(target)}" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="${W - R - 4}" y="${yv(target) - 6}" text-anchor="end" fill="#b91c1c">target ${fmt$(target)}/mo net</text>
+    ${cross ? `<circle cx="${xi(cross.m)}" cy="${yv(cross.net)}" r="5.5" fill="var(--brg)" stroke="#fff" stroke-width="2"/>
+      <text x="${xi(cross.m)}" y="${yv(cross.net) - 12}" text-anchor="middle" font-weight="700" fill="var(--brg)">${monthLabel(cross.m)}</text>` : ""}
+  </svg>`;
+}
+
+function attachChartHover(sim) {
+  const svg = document.getElementById("csvg");
+  const tip = document.getElementById("ctip");
+  if (!svg) return;
+  const pts = sim.months;
+  const lastM = pts[pts.length - 1].m;
+  const move = ev => {
+    const rect = svg.getBoundingClientRect();
+    const fx = (ev.clientX - rect.left) / rect.width * 820;
+    const m = Math.round(Math.max(0, Math.min(lastM, (fx - 56) / (820 - 56 - 14) * lastM)));
+    const p = pts.find(q => q.m === m) || pts[pts.length - 1];
+    tip.textContent = monthLabel(p.m) + " · " + fmt$(p.net) + "/mo net · pot " + fmt$k(p.portfolio);
+    tip.style.display = "block";
+    tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - 250) + "px";
+    tip.style.top = (ev.clientY + 16) + "px";
+  };
+  svg.addEventListener("pointermove", move);
+  svg.addEventListener("pointerleave", () => { tip.style.display = "none"; });
+}
+
+// Static skeleton, rendered once. Sliders live here and are never rebuilt,
+// so dragging isn't interrupted; update() only refreshes the result panes
+// and the value labels next to each control.
+function renderSkeleton(yields, meta) {
+  document.getElementById("app").innerHTML = `
+    <div class="verdict"><div class="vgrid" id="hero"></div></div>
+
+    <h2>Dial in your plan</h2>
+    <div class="h2sub">Everything recomputes instantly — the date above is the answer to whatever you set here.</div>
+    <div class="card">
+      <div class="controls">
+        <div class="ctl">
+          <label>Target net income <b id="v-target"></b></label>
+          <input type="range" id="in-target" min="250" max="5000" step="250" value="${S.target}">
+          <div class="hint">after the ${S.taxPct}% withholding — what actually lands in your account</div>
+        </div>
+        <div class="ctl">
+          <label>Savings per paycheck <b id="v-biweekly"></b></label>
+          <input type="range" id="in-biweekly" min="0" max="5000" step="100" value="${S.biweekly}">
+          <div class="hint" id="v-monthly"></div>
+        </div>
+        <div class="ctl">
+          <label>Mix <b id="v-mix"></b></label>
+          <input type="range" id="in-mix" min="0" max="100" step="5" value="${S.gpixPct}">
+          <div class="hint">GPIQ yields more (${yields.gpiq.toFixed(1)}% vs ${yields.gpix.toFixed(1)}%) but rides the more volatile Nasdaq-100</div>
+        </div>
+        <div class="ctl">
+          <label>Already invested <b id="v-start"></b></label>
+          <input type="range" id="in-start" min="0" max="200000" step="5000" value="${S.start}">
+          <div class="hint">head start — anything you have in the funds today</div>
+        </div>
+        <div class="ctl">
+          <label>Dividend tax <b id="v-tax"></b></label>
+          <input type="range" id="in-tax" min="0" max="30" step="1" value="${S.taxPct}">
+          <div class="hint">15% = US–Korea treaty withholding on fund distributions</div>
+        </div>
+        <div class="ctl">
+          <label>Fund price drift <b id="v-scen"></b></label>
+          <div class="scenarios">
+            ${Object.keys(SCENARIOS).map(k => `<button data-scen="${k}">${SCENARIO_LABEL[k]}</button>`).join("")}
+          </div>
+          <div class="hint">covered-call funds keep only part of a rally — +2.5%/yr is a sober base case</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>The moving parts</h2>
+    <div class="h2sub">Live yields from today's pipeline run${meta.asof ? " · " + meta.asof : ""} — these float month to month, which is exactly why the date is an estimate.</div>
+    <div class="stats" id="stats"></div>
+
+    <h2>Your income curve</h2>
+    <div class="h2sub">Net monthly payout as the pot grows — contributions plus reinvested distributions compounding at the after-tax yield. Hover for the pot size.</div>
+    <div class="card chartcard" id="chartbox"></div>
+
+    <h2>Milestones on the way</h2>
+    <div class="h2sub">Each level of monthly cashflow, the pot it takes, and when you get there on the current settings.</div>
+    <div class="card" style="padding: 8px 6px;" id="msbox"></div>
+
+    <h2>How much does the scenario matter?</h2>
+    <div class="h2sub">Same plan, three assumptions about fund prices. The yield does most of the work — price drift mostly moves the date by months, not years.</div>
+    <div class="stats" id="scenbox"></div>
+
+    <h2 id="target-h2"></h2>
+    <div class="card prose">
+      <p><b>$1,000/month is light-FIRE's first rung, not the summit.</b> It's roughly ₩1.4M — real money,
+      but in Korea it's below a lean single-person budget (₩1.5–2.5M/mo depending on city and rent
+      situation). Honest framing: $1,000/mo makes you <b>hard to fire</b>, not retired — it covers the
+      gap in a sabbatical, a pay cut for a saner job, or one categorical expense (housing or food)
+      forever.</p>
+      <p>The table above is the real answer: <b>$2,000/mo (~₩2.8M)</b> is where lean-FIRE outside Seoul
+      becomes defensible, and <b>$3,000/mo</b> buys genuine slack. The encouraging part of the math is
+      that the machine accelerates — reinvested payouts do more of the lifting every year, so the
+      second $1,000/mo arrives faster than the first.</p>
+      <p>One structural note: a ~7% after-tax payout means you're consuming most of the portfolio's
+      return. That's the covered-call bargain — high floor, capped ceiling. It's a fine engine for
+      <i>income now</i>, but don't expect the pot itself to also grow much once you stop reinvesting.
+      If your date is 10+ years out, an accumulation mix (plain index funds) would likely get you a
+      bigger pot faster; these funds shine in the last few years before — and during — the drawing
+      phase.</p>
+    </div>
+
+    <div class="honesty"><b>Tax honesty for a Korean citizen.</b> The 15% modeled here is the US
+    withholding under the US–Korea treaty, taken off every distribution before it reaches you. Korea
+    can tax more: if your total annual financial income (interest + dividends) exceeds ₩20M, the
+    excess joins your comprehensive income at progressive rates, with a credit for the US tax paid.
+    Below ₩20M/yr (about $14k, i.e. most of the accumulation phase) the 15% is typically the whole
+    story. Also unmodeled: KRW/USD swings (your income is in dollars, your groceries aren't),
+    distribution variability (TTM yield is a lagging average, and payouts float with option premiums),
+    and NAV erosion in prolonged bear markets, which would cut the dollar payout even at a steady
+    yield. Treat the date as a compass, not a contract.</div>
+  `;
+
+  const bind = (id, key) => {
+    const el = document.getElementById(id);
+    el.addEventListener("input", () => { S[key] = +el.value; update(yields); });
+  };
+  bind("in-target", "target");
+  bind("in-biweekly", "biweekly");
+  bind("in-mix", "gpixPct");
+  bind("in-start", "start");
+  bind("in-tax", "taxPct");
+  document.querySelectorAll("[data-scen]").forEach(b =>
+    b.addEventListener("click", () => { S.scenario = b.dataset.scen; update(yields); }));
+}
+
+function update(yields) {
+  const sim = simulate(yields, S.target, S.scenario);
+  const needPot = S.target * 12 / sim.netY;
+  const progressPct = needPot > 0 ? S.start / needPot * 100 : 0;
+  const when = sim.crossAt;
+
+  const heroWhen = when === 0 ? "Today" : when != null ? "≈ " + monthLabel(when) : "Not within 40 years";
+  const heroAway = when != null ? awayLabel(when) : "raise contributions or lower the target";
+
+  document.getElementById("hero").innerHTML = `
+    <div>
+      <div class="whenlab">You can stop working around</div>
+      <div class="when">${heroWhen}</div>
+      <div class="away">${heroAway} · needs a ${fmt$k(needPot)} pot</div>
+      <div class="summary">At $${S.biweekly.toLocaleString()} per paycheck into ${S.gpixPct}% GPIX / ${100 - S.gpixPct}% GPIQ,
+      reinvesting every after-tax distribution, your net payout reaches <b>${fmt$(S.target)}/month</b>
+      (after the ${S.taxPct}% withholding) in the <b>${SCENARIO_LABEL[S.scenario].toLowerCase()}</b> scenario.</div>
+    </div>
+    <div class="vgauge">${gauge(progressPct)}</div>`;
+
+  // control value labels + active scenario button
+  document.getElementById("v-target").textContent = fmt$(S.target) + "/mo";
+  document.getElementById("v-biweekly").textContent = fmt$(S.biweekly) + " biweekly";
+  document.getElementById("v-monthly").textContent = "= " + fmt$(S.biweekly * 26 / 12) + "/month (26 paychecks a year)";
+  document.getElementById("v-mix").textContent = S.gpixPct + "% GPIX / " + (100 - S.gpixPct) + "% GPIQ";
+  document.getElementById("v-start").textContent = fmt$(S.start);
+  document.getElementById("v-tax").textContent = S.taxPct + "%";
+  document.getElementById("v-scen").textContent = SCENARIO_LABEL[S.scenario];
+  document.querySelectorAll("[data-scen]").forEach(b =>
+    b.classList.toggle("active", b.dataset.scen === S.scenario));
+
+  document.getElementById("stats").innerHTML = `
+    <div class="stat"><div class="name">Blended gross yield</div><div class="val">${(sim.grossY * 100).toFixed(2)}%</div>
+      <div class="note">GPIX ${yields.gpix.toFixed(2)}% × ${S.gpixPct}% + GPIQ ${yields.gpiq.toFixed(2)}% × ${100 - S.gpixPct}%</div></div>
+    <div class="stat"><div class="name">After-tax yield</div><div class="val">${(sim.netY * 100).toFixed(2)}%</div>
+      <div class="note">what compounds and what you'd live on</div></div>
+    <div class="stat"><div class="name">Pot needed for ${fmt$(S.target)}/mo</div><div class="val">${fmt$k(needPot)}</div>
+      <div class="note">${fmt$(S.target * 12)}/yr ÷ ${(sim.netY * 100).toFixed(2)}%</div></div>
+    <div class="stat"><div class="name">You invest</div><div class="val">${fmt$(sim.contrib)}/mo</div>
+      <div class="note">${fmt$(S.biweekly * 26)} per year, before reinvested payouts</div></div>`;
+
+  document.getElementById("chartbox").innerHTML = renderChart(sim, S.target);
+  attachChartHover(sim);
+
+  const milestones = [...new Set([250, 500, 1000, 1500, 2000, 3000, 5000, S.target])].sort((a, b) => a - b);
+  const msRows = milestones.map(level => ({
+    level,
+    months: monthsTo(yields, level, S.scenario),
+    pot: level * 12 / sim.netY,
+  }));
+  const maxMs = Math.max(1, ...msRows.filter(r => r.months != null).map(r => r.months));
+  document.getElementById("msbox").innerHTML = `
+    <table class="ms-table">
+      <tr><th>Net income</th><th>Pot needed</th><th>When</th><th class="msbar"></th></tr>
+      ${msRows.map(r => `<tr class="${r.level === S.target ? "target" : ""}">
+        <td>${fmt$(r.level)}/mo</td>
+        <td>${fmt$k(r.pot)}</td>
+        <td>${r.months != null ? monthLabel(r.months) + " · " + awayLabel(r.months) : "beyond 40 yrs"}</td>
+        <td class="msbar">${r.months != null ? `<div class="bg"><i style="width:${(r.months / maxMs * 100).toFixed(0)}%"></i></div>` : ""}</td>
+      </tr>`).join("")}
+    </table>`;
+
+  document.getElementById("scenbox").innerHTML = Object.keys(SCENARIOS).map(k => {
+    const mm = monthsTo(yields, S.target, k);
+    return `<div class="stat">
+      <div class="name">${SCENARIO_LABEL[k]}${k === S.scenario ? " · selected" : ""}</div>
+      <div class="val">${mm != null ? monthLabel(mm) : "&gt;40y"}</div>
+      <div class="note">${mm != null ? awayLabel(mm) : "never crosses"}</div>
+    </div>`;
+  }).join("");
+
+  document.getElementById("target-h2").textContent = `Is ${fmt$(S.target)}/month actually "retired"?`;
+}
+
+function render(yields, meta) {
+  renderSkeleton(yields, meta);
+  update(yields);
+}
+
+Promise.all([
+  fetch("data.json").then(r => r.json()).catch(() => null),
+  fetch("data-gpiq.json").then(r => r.json()).catch(() => null),
+]).then(([gpix, gpiq]) => {
+  const yields = {
+    gpix: gpix && gpix.income && gpix.income.ttm_yield_pct || FALLBACK.gpix,
+    gpiq: gpiq && gpiq.income && gpiq.income.ttm_yield_pct || FALLBACK.gpiq,
+  };
+  const asof = gpix && gpix.generated_at
+    ? "as of " + new Date(gpix.generated_at).toLocaleDateString([], { month: "short", day: "numeric" })
+    : "using fallback yields";
+  render(yields, { asof });
+}).catch(() => {
+  render({ gpix: FALLBACK.gpix, gpiq: FALLBACK.gpiq }, { asof: "using fallback yields" });
+});
+</script>
+</body>
+</html>

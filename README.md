@@ -16,6 +16,13 @@ only what a dedicated 16-year validation pass proved (including the project's on
 evidence-backed *negative* zone); SPCX (IPO June 2026) is an honest context-only page
 that pins at 50 until enough history accumulates to test anything.
 
+A fifth page (`retire.html`) answers "when can I retire?" for a fixed savings plan
+($2,500 biweekly into 80% GPIX / 20% GPIQ by default, all adjustable). It reads the
+funds' live TTM yields from `data.json`/`data-gpiq.json`, simulates monthly
+contributions with after-tax (15% US withholding) reinvestment under three NAV-drift
+scenarios, and charts when the net payout crosses the target monthly income. Pure
+client-side - no new data files or workflow steps.
+
 ## How it decides
 
 A GitHub Action runs every weekday morning, pulls data from Yahoo Finance, FRED, CNN's
