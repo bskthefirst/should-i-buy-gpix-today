@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f5f0">
-<meta name="description" content="Ten transparent market checks - volatility, credit stress, sentiment, yield vs cash, trend - watched daily for the five rare conditions that two independent backtests found actually mark better-than-average days to buy GPIX.">
+<meta name="description" content="Eleven transparent market checks - volatility, credit stress, sentiment, short-term pullbacks, yield vs cash, trend - watched daily for the six rare conditions that independent backtests found actually mark better-than-average days to buy GPIX.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23004225'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%23f6f5f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Should I buy GPIX today?</title>
 <link rel="alternate" type="application/atom+xml" title="GPIX/GPIQ verdict-change alerts" href="feed.xml">
@@ -78,7 +78,7 @@
   .verdict.neutral .label { color: var(--neutral); }
   .verdict .summary { color: var(--muted); margin-top: 6px; max-width: 64ch; }
 
-  /* buy-meter: zones map to verdict bands (neutral 0, ok 1-2, good 3-5);
+  /* buy-meter: zones map to verdict bands (neutral 0, ok 1-2, good 3-6);
      zone widths come from data.json's meter range */
   .meter { margin-top: 20px; }
   .meter .track { position: relative; height: 10px; border-radius: 99px; overflow: hidden; display: flex; }
@@ -91,6 +91,12 @@
   }
   .meter .zlabels { display: flex; margin-top: 7px; font-size: 11.5px; color: var(--faint); }
   .meter .zlabels span:last-child { text-align: right; }
+
+  .execnote {
+    margin-top: 14px; padding: 10px 16px; font-size: 13px; color: var(--muted);
+    background: var(--surface2); border-left: 3px solid var(--brg); border-radius: 0 8px 8px 0;
+  }
+  .execnote b { color: var(--text); }
 
   h2 { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 34px 0 6px; }
   .h2sub { color: var(--faint); font-size: 13px; margin-bottom: 14px; }
@@ -195,7 +201,7 @@
   <header>
     <div>
       <h1>Should I buy GPIX today?</h1>
-      <div class="sub">Ten market checks every weekday morning - five rare conditions scored, the rest shown as context - turned into one honest answer.</div>
+      <div class="sub">Eleven market checks every weekday morning - six rare conditions scored, the rest shown as context - turned into one honest answer.</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -203,11 +209,12 @@
   <div id="app"></div>
 
   <footer>
-    Not financial advice; a personal decision aid. Rules v2: after two independent backtests of
-    every scoring band, only the handful of rare conditions that proved era-robust still score -
-    and nothing scores negative, because the audits showed this tool couldn't spot bad days, so it
-    stopped claiming to. It flags rare good days; the rest of the time the answer is "buy on
-    schedule." Data: Yahoo Finance, FRED, CNN, Google News, Federal Reserve calendar.
+    Not financial advice; a personal decision aid. Rules v3: after two independent backtests of
+    every scoring band plus a literature review with independent revalidation, only the rare
+    conditions that proved era-robust score - five market extremes and a short-term pullback
+    reversal - and nothing scores negative, because the audits showed this tool couldn't spot bad
+    days, so it stopped claiming to. It flags rare good days; the rest of the time the answer is
+    "buy on schedule." Data: Yahoo Finance, FRED, CNN, Google News, Federal Reserve calendar.
   </footer>
 </div>
 
@@ -329,7 +336,7 @@ function renderChart(series, sma50, sma200) {
 
 fetch("data.json").then(r => r.json()).then(d => {
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
-  // Meter range comes from the data (rules v2: 0..5, nothing negative).
+  // Meter range comes from the data (rules v3: 0..6, nothing negative).
   const METER_MIN = d.meter ? d.meter.min : 0;
   const METER_MAX = d.meter ? d.meter.max : 5;
   // Zone boundaries between verdict bands: 0.5 (neutral|ok), 2.5 (ok|good).
@@ -356,8 +363,13 @@ fetch("data.json").then(r => r.json()).then(d => {
       </div>
     </div>
 
+    <div class="execnote"><b>Whatever day you buy, place the order near the close:</b> nearly all of the
+    index's return has historically accrued overnight, not intraday (Lou–Polk–Skouras 2019; our
+    validation: SPY ≈ +3.3bp per night, t=4.6, positive in every era). Buying near today's close
+    instead of tomorrow's open captures it — a small free edge, worth basis points, not fortunes.</div>
+
     <h2>Why</h2>
-    <div class="h2sub">Ten checks each morning, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the five audit-proven rare conditions move the score (+1 each); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
+    <div class="h2sub">Eleven checks each morning, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score (+1 each); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
     <div class="signals">
       ${d.signals.map(s => {
         const lean = s.lean || "neutral";

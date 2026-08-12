@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-08-12T11:25:43+00:00",
- "rules_version": 2,
+ "generated_at": "2026-08-12T11:44:18+00:00",
+ "rules_version": 3,
  "ticker": "GPIQ",
  "verdict": {
   "label": "No edge either way - buy on schedule",
@@ -10,7 +10,7 @@
  },
  "meter": {
   "min": 0,
-  "max": 5
+  "max": 6
  },
  "signals": [
   {
@@ -47,6 +47,13 @@
    "score": 0,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either."
+  },
+  {
+   "name": "Short-term pullback (reversal)",
+   "value": "no pullback",
+   "score": 0,
+   "lean": "neutral",
+   "note": "No short-term pullback in QQQ - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.39% next-day excess (t=4.0) in our validation, positive in every era."
   },
   {
    "name": "GPIQ vs 50-day average",
@@ -182,7 +189,7 @@
    {
     "d": "2025-12-15",
     "c": 52.4,
-    "t": "neutral"
+    "t": "ok"
    },
    {
     "d": "2025-12-16",
@@ -232,17 +239,17 @@
    {
     "d": "2025-12-30",
     "c": 53.22,
-    "t": "neutral"
+    "t": "ok"
    },
    {
     "d": "2025-12-31",
     "c": 52.87,
-    "t": "neutral"
+    "t": "ok"
    },
    {
     "d": "2026-01-02",
     "c": 52.31,
-    "t": "neutral"
+    "t": "ok"
    },
    {
     "d": "2026-01-05",
@@ -297,7 +304,7 @@
    {
     "d": "2026-01-20",
     "c": 52.08,
-    "t": "neutral"
+    "t": "ok"
    },
    {
     "d": "2026-01-21",
@@ -357,12 +364,12 @@
    {
     "d": "2026-02-05",
     "c": 50.92,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-02-06",
     "c": 51.95,
-    "t": "neutral"
+    "t": "ok"
    },
    {
     "d": "2026-02-09",
@@ -457,7 +464,7 @@
    {
     "d": "2026-03-06",
     "c": 50.98,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-03-09",
@@ -512,7 +519,7 @@
    {
     "d": "2026-03-23",
     "c": 50.32,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-03-24",
@@ -562,7 +569,7 @@
    {
     "d": "2026-04-07",
     "c": 49.94,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-04-08",
@@ -712,7 +719,7 @@
    {
     "d": "2026-05-19",
     "c": 57.04,
-    "t": "neutral"
+    "t": "ok"
    },
    {
     "d": "2026-05-20",
@@ -772,7 +779,7 @@
    {
     "d": "2026-06-05",
     "c": 56.79,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-06-08",
@@ -782,17 +789,17 @@
    {
     "d": "2026-06-09",
     "c": 57.01,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-06-10",
     "c": 55.95,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-06-11",
     "c": 57.64,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-06-12",
@@ -827,12 +834,12 @@
    {
     "d": "2026-06-23",
     "c": 57.61,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-06-24",
     "c": 57.44,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-06-25",
@@ -912,7 +919,7 @@
    {
     "d": "2026-07-17",
     "c": 55.98,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-07-20",
@@ -942,17 +949,17 @@
    {
     "d": "2026-07-27",
     "c": 55.03,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-07-28",
     "c": 54.53,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-07-29",
     "c": 53.47,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-07-30",
@@ -1008,6 +1015,11 @@
    "text": "GPIQ at $56.73 (-0.4% from here) = 3%+ below the 52-week high with distributions reinvested (+1)"
   },
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "QQQ has fallen 2 straight sessions - one more down close = short-term reversal (+1)"
+  },
+  {
    "label": "VIX curve inversion",
    "direction": 1,
    "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+1)"
@@ -1021,11 +1033,6 @@
    "label": "Extreme fear",
    "direction": 1,
    "text": "Fear & Greed at 25 or below (now 61) = extreme fear, a contrarian buy zone (+1)"
-  },
-  {
-   "label": "Extreme credit stress",
-   "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+1)"
   }
  ],
  "report_card": {
@@ -1044,23 +1051,23 @@
    {
     "tone": "good",
     "label": "Better-than-usual entry",
-    "n": 13,
-    "avg_pct": 6.36,
-    "median_pct": 5.55
+    "n": 67,
+    "avg_pct": 4.36,
+    "median_pct": 3.49
    },
    {
     "tone": "ok",
     "label": "Mild tailwind",
-    "n": 192,
-    "avg_pct": 2.94,
-    "median_pct": 2.93
+    "n": 164,
+    "avg_pct": 2.59,
+    "median_pct": 2.85
    },
    {
     "tone": "neutral",
     "label": "No edge either way",
-    "n": 472,
-    "avg_pct": 1.39,
-    "median_pct": 1.8
+    "n": 446,
+    "avg_pct": 1.32,
+    "median_pct": 1.75
    }
   ]
  },
@@ -1109,28 +1116,28 @@
    "published": "2026-08-12T09:00:00+00:00"
   },
   {
-   "title": "Google\u2019s new AI boss inherits a race to catch OpenAI and Anthropic",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1GdzdHeVhqMkp3QnhRTmNUeDdGNXFPcXUzME5SR0dSenc0OG9qcFFJYk53RE5scUVzNlpneG5panpMb2pmUWlLS0dqVDJxRGJPLW9EdFlYdW1UV3RsdjB3LUVyTU1rYTYxY19DUDZjX2JWbkZaOTR4dzZ30gF_QVVfeXFMTUZqWnlpYnMzVXlYeW9XYXFDWEVhUjdjZzIxaU1VbmdRUXI1eHhkUjRGOGxkNDQ2c3RRdnRNRGVRXzFUcDNzRXQtYW5pTjNsc1lTVzRzaGNTREtYVDRzbFdrenFBVklKRDZRVW9NSnN1LXJaYl9PZ18zYXpDd05VNA?oc=5",
-   "published": "2026-08-12T05:00:01+00:00"
-  },
-  {
    "title": "Schools spend billions on AI, but struggle to figure out what\u2019s worth it",
    "source": "Stateline",
    "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQbXVxSElkOG1aV0JFZmk5Q3Y1WnJHbkxJbjlNaUhmMzVWQlhrbGNLTVozSHRtUUFRRGI4enJjUUVZdmZxdkg1aTF3XzF6TTF5ZlU5X0VBd1ptUTJVUUwzRW1BZDM1eGdCQlRnaWs5cjA2UTI3SGZrMk9QbTBvTElpVDU0Wm9sUkp5a3VGdlFmWnFWMTNiWXN0UWZJY0FTdUJYcTBiMWNhbw?oc=5",
    "published": "2026-08-12T09:08:33+00:00"
   },
   {
-   "title": "AMIE, our research medical AI system, demonstrates real-time clinical video consultation capabilities in a first-of-its-kind study.",
-   "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNaWVfcTVPRW1DclVwZ2hjNXFQYVVrRUpHVjk5MVphcGY3VHRHQmtla285dDg5MmlFVTJHcFZXUjAzbUVKNmtjY1RycE5FUk9nYnhwV3RTZzRTbmg4VUJMSFJVd1d0bENsd2JPOEZ3dTJoZ1hNWnIyWWhGVHphLXM2ZGJBZC0tTnVFak5oR0V4SGFKLV90RWFPMFgzSU92LWtK?oc=5",
-   "published": "2026-08-11T17:08:11+00:00"
+   "title": "Google\u2019s new AI boss inherits a race to catch OpenAI and Anthropic",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1GdzdHeVhqMkp3QnhRTmNUeDdGNXFPcXUzME5SR0dSenc0OG9qcFFJYk53RE5scUVzNlpneG5panpMb2pmUWlLS0dqVDJxRGJPLW9EdFlYdW1UV3RsdjB3LUVyTU1rYTYxY19DUDZjX2JWbkZaOTR4dzZ30gF_QVVfeXFMTUZqWnlpYnMzVXlYeW9XYXFDWEVhUjdjZzIxaU1VbmdRUXI1eHhkUjRGOGxkNDQ2c3RRdnRNRGVRXzFUcDNzRXQtYW5pTjNsc1lTVzRzaGNTREtYVDRzbFdrenFBVklKRDZRVW9NSnN1LXJaYl9PZ18zYXpDd05VNA?oc=5",
+   "published": "2026-08-12T05:00:01+00:00"
   },
   {
    "title": "I Asked AI to Write a Novel. It\u2019s Not So Bad.",
    "source": "Mother Jones",
    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNTWkyN2kza1RRU1ZaeFczaGprd0hzRGx3TFc0cDgta1V4Y1VjSXVYaGM3Q213OU92dDdlNUt5Uk1KQ1RIaFI5WmJaTGswaV9YZzdpaUN1SjEwaFI4aENXZ1BnblF5b1lxWjBXT2tJXy03VF85YjEtODI3VWRsMFdCRm94NHpVUlEzcnFBbFhsZUFNUm5WTVBTT0FJSWY0elpobXp1Y1VnSVN4WHZJOGY5RVBQaHdMRjZ0NWhIei1aNA?oc=5",
    "published": "2026-08-12T11:00:28+00:00"
+  },
+  {
+   "title": "AMIE, our research medical AI system, demonstrates real-time clinical video consultation capabilities in a first-of-its-kind study.",
+   "source": "blog.google",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNaWVfcTVPRW1DclVwZ2hjNXFQYVVrRUpHVjk5MVphcGY3VHRHQmtla285dDg5MmlFVTJHcFZXUjAzbUVKNmtjY1RycE5FUk9nYnhwV3RTZzRTbmg4VUJMSFJVd1d0bENsd2JPOEZ3dTJoZ1hNWnIyWWhGVHphLXM2ZGJBZC0tTnVFak5oR0V4SGFKLV90RWFPMFgzSU92LWtK?oc=5",
+   "published": "2026-08-11T17:08:11+00:00"
   },
   {
    "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",

@@ -13,14 +13,15 @@ intuitive scoring backwards, so it shows but never scores.
 ## How it decides
 
 A GitHub Action runs every weekday morning, pulls data from Yahoo Finance, FRED, CNN's
-Fear & Greed feed, and Google News, and evaluates ten transparent checks (eleven for
-GPIQ). Under rules v2 only five rare conditions score, +1 each; everything else is
+Fear & Greed feed, and Google News, and evaluates eleven transparent checks (twelve for
+GPIQ). Under rules v3 only six rare conditions score, +1 each; everything else is
 displayed as context with a score of 0:
 
-| Signal | Source | v2 score | Notes |
+| Signal | Source | v3 score | Notes |
 | --- | --- | --- | --- |
 | VIX vs its own past year (percentile) | Yahoo `^VIX` | **+1 at ≥p90** | The one vol band both audits found era-robust (+1.03pt/21d on SPY); lower bands are context |
 | Discount from 52-week high (adjusted closes) | Yahoo `GPIX` | **+1 at ≥3%** | Measured with distributions reinvested so payouts don't masquerade as discounts; the old ≥7% "+2" was a dot-com artifact |
+| Short-term pullback (reversal) on the underlying | Yahoo `SPY`/`QQQ` | **+1 at 3+ down closes or 5-session return ≤ −3%** | New in v3; see below |
 | VIX term structure (VIX/VIX3M) | Yahoo `^VIX3M` | **+1 at ≥1.00** | Inversion only; evidence mixed but it fires rarely and coincides with genuine panics |
 | High-yield credit spread | FRED `BAMLH0A0HYM2` | **+1 at ≥5.0%** | Principled but untested - spreads never got this wide in the testable sample; the widening "−1" is retired (its test days rebounded) |
 | Fear & Greed index | CNN | **+1 at ≤25** | Contrarian extreme; only ~1 year of testable history |
@@ -32,7 +33,7 @@ displayed as context with a score of 0:
 | Event calendar | Fed + BLS schedules | 0 (context) | Flags imminent FOMC decisions and CPI prints |
 
 Each non-core source is individually guarded - if an endpoint is down, its signal shows
-as skipped (score 0) instead of breaking the daily build. The composite score runs 0..+5
+as skipped (score 0) instead of breaking the daily build. The composite score runs 0..+6
 and maps to three honest answers: "better-than-usual entry" (≥3), "mild tailwind" (1-2),
 and "no edge either way - buy on schedule" (0). The old "no discount today" band is
 retired: two audits showed the tool couldn't spot bad days, so it stopped claiming to.
@@ -48,6 +49,28 @@ the old bands were scored *backwards* (tech-fear-premium "+1", below-200d "+1", 
 ≤25) with explicit honesty notes, demotes everything else to context, and eliminates
 negative scores entirely - the tool flags rare good days and no longer pretends to spot
 bad ones.
+
+## Rules v3: the reversal signal and the execution note
+
+A literature-mining project (393 papers, ~40 candidate rules backtested on SPY 1993-2026
+and QQQ 1999-2026 at audit grade: era-robustness required, t-stats on effective sample
+sizes) produced exactly two edges that passed. Both are now in the tool:
+
+- **Short-term index reversal (scored, +1).** When the fund's underlying proxy (SPY for
+  GPIX, QQQ for GPIQ - the validation was done on the underlying, not the fund) has, on
+  adjusted closes, closed down 3+ consecutive sessions or fallen ≥3% over 5 sessions,
+  the next day has been reliably above average: SPY +0.21% next-day excess (t=3.6), QQQ
+  +0.39% (t=4.0), positive in every era including 2016+, and additive on days when no
+  other signal fires. It's a classic liquidity-provision reversal (Park 1995;
+  Chordia-Roll-Subrahmanyam 2002) and fires roughly 25-35 days a year.
+- **Overnight premium (execution note, not scored).** Nearly all index return has
+  historically accrued overnight, not intraday (Lou-Polk-Skouras 2019; our validation:
+  SPY +3.3bp/night t=4.6, QQQ +5.3bp t=4.9, positive in every era). Both pages carry a
+  one-liner: if you're buying, place the order near today's close rather than tomorrow's
+  open. Basis points per night - stated because it's free, not because it's dramatic.
+
+The composite is now 0..+6 and both history files were regenerated under `rules_version`
+3.
 
 ## The point of the backtest
 
@@ -73,7 +96,8 @@ The history powers three page features:
 - **Score timeline** — a colored strip under the price chart showing what the page
   would have said each day of the chart window.
 - **"What would change this verdict"** — the nearest scoring thresholds (price for a
-  3%+ adjusted discount, the vol index's p90 level, VIX-curve inversion, credit OAS 5%,
+  3%+ adjusted discount, one more down close or the extra decline needed for the
+  short-term reversal, the vol index's p90 level, VIX-curve inversion, credit OAS 5%,
   Fear & Greed 25). All rows push the score up; nothing can push it down anymore.
 
 `docs/feed.xml` is a combined Atom feed for both funds that only emits an entry when a

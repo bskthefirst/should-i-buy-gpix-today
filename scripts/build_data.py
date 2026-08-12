@@ -18,6 +18,16 @@ signals stay on the page as context. Negative scores are gone entirely:
 the audits showed the tool couldn't spot bad days, so it stopped claiming
 to.
 
+Rules v3 adds the one new scored signal that survived a literature-mining
+project (393 papers, ~40 candidate rules backtested on SPY 1993-2026 /
+QQQ 1999-2026 with era-robustness and effective-N t-stat requirements):
+short-term index reversal. When the fund's UNDERLYING proxy (SPY/QQQ) has
+closed down 3+ consecutive sessions or fallen 3%+ over 5 sessions on
+adjusted closes, the next day has been reliably above average (SPY
++0.21%/day excess, t=3.6; QQQ +0.39%, t=4.0; positive in every era).
+Composite is now 0..6. The same project validated the overnight-premium
+execution note shown on both pages (not scored).
+
 GPIX is scored against the S&P 500 and the VIX; GPIQ against the
 Nasdaq-100 (QQQ) and the VXN. GPIQ also displays the VXN/VIX "tech fear
 premium" - the audit found its intuitive scoring backwards, so it no
@@ -77,8 +87,11 @@ FUNDS = [
         # GPIX trails ~8%: beating cash by 5.5+ pts is genuinely wide.
         "payout_bands": (5.5, 3.0),
         "news_query": 'federal+reserve+OR+inflation+OR+%22stock+market%22',
-        # v2 composite range: five +1 bands, nothing negative
-        "meter": (0, 5),
+        # v3 composite range: six +1 bands, nothing negative
+        "meter": (0, 6),
+        # Validation stats for the short-term reversal card (next-day
+        # excess return after the signal fires, on the underlying).
+        "reversal_stats": "+0.21% next-day excess (t=3.6)",
     },
     {
         "key": "gpiq",
@@ -95,8 +108,9 @@ FUNDS = [
         # it a tailwind, so the page doesn't award a permanent free point.
         "payout_bands": (7.5, 4.5),
         "news_query": 'Nasdaq+OR+%22tech+stocks%22+OR+%22Federal+Reserve%22+OR+AI',
-        # v2 composite range: five +1 bands, nothing negative
-        "meter": (0, 5),
+        # v3 composite range: six +1 bands, nothing negative
+        "meter": (0, 6),
+        "reversal_stats": "+0.39% next-day excess (t=4.0)",
     },
 ]
 
@@ -135,7 +149,7 @@ FWD_DAYS = 21
 
 # Bump this whenever the scoring rules change: history files carry it, and
 # rows built under an older ruleset are discarded and rebuilt from scratch.
-RULES_VERSION = 2
+RULES_VERSION = 3
 
 # Short verdict-band labels (feed titles, report card, timeline tooltip).
 TONE_SHORT = {
@@ -146,9 +160,9 @@ TONE_SHORT = {
 
 
 # ---------------------------------------------------------------------------
-# Scoring rules (v2) - the single source of truth. The live build, the
+# Scoring rules (v3) - the single source of truth. The live build, the
 # historical backfill and the "what would flip the verdict" panel all call
-# these, so the thresholds can never drift apart. Only bands that two
+# these, so the thresholds can never drift apart. Only bands that
 # independent backtests found era-robust score; everything else is 0.
 # ---------------------------------------------------------------------------
 
@@ -182,6 +196,33 @@ def score_credit(oas: float) -> int:
 def score_fear_greed(fg: float) -> int:
     """Contrarian extreme only (~1 year of testable history)."""
     return 1 if fg <= 25 else 0
+
+
+def reversal_inputs(adj: list[float], i: int) -> tuple[int, float | None]:
+    """Reversal signal inputs at index i of an adjusted-close series:
+    (consecutive-down-close streak ending at i, 5-session total return %).
+    ret5 is None when fewer than 6 observations are available."""
+    streak = 0
+    j = i
+    while j > 0 and adj[j] < adj[j - 1]:
+        streak += 1
+        j -= 1
+    ret5 = (adj[i] / adj[i - 5] - 1) * 100 if i >= 5 else None
+    return streak, ret5
+
+
+def score_reversal(down_streak: int, ret5: float | None) -> int:
+    """Short-term index reversal on the UNDERLYING proxy (SPY/QQQ):
+    3+ consecutive down closes OR a 5-session return <= -3%, on adjusted
+    closes. The one new rule that survived a 393-paper literature review
+    plus independent revalidation (Park 1995; Chordia-Roll-Subrahmanyam
+    2002): SPY +0.21%/next-day excess (t=3.6), QQQ +0.39% (t=4.0),
+    positive in every era including 2016+."""
+    if down_streak >= 3:
+        return 1
+    if ret5 is not None and ret5 <= -3.0:
+        return 1
+    return 0
 
 
 def verdict_tone(score: int) -> str:
@@ -429,14 +470,17 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
 
     # 4y ranges give daily bars with a full 1-year lead-in before the funds'
     # Oct 2023 inception (range=max would degrade to weekly bars). Only the
-    # five v2 scoring inputs are needed: the context-only signals can never
-    # move a historical score.
+    # six v3 scoring inputs are needed: the context-only signals can never
+    # move a historical score. The underlying's 4y range also covers the
+    # reversal signal's 5-session lookback at the Oct 2023 backfill start.
     vol4 = _series_or_empty(lambda: cached_rows(fund["vol_symbol"], "4y"))
     vix4 = _series_or_empty(lambda: cached_rows("%5EVIX", "4y"))
     vix3m4 = _series_or_empty(lambda: cached_rows("%5EVIX3M", "4y"))
+    und4 = _series_or_empty(lambda: cached_rows(fund["underlying_symbol"], "4y"))
     hy = _series_or_empty(lambda: cached_fred("BAMLH0A0HYM2"))
     fg = _series_or_empty(fear_greed_history)
 
+    und_d = [r[0] for r in und4]; und_a = [r[2] for r in und4]
     vol_d = [r[0] for r in vol4]; vol_c = [r[1] for r in vol4]
     vix_d = [r[0] for r in vix4]; vix_c = [r[1] for r in vix4]
     v3_d = [r[0] for r in vix3m4]; v3_c = [r[1] for r in vix3m4]
@@ -465,6 +509,10 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
         hi52 = max(adj[max(0, i - 251): i + 1])
         dd = round((1 - adj[i] / hi52) * 100, 1)
         sc.append(("Discount from 52-week high", score_drawdown(dd)))
+        ui = asof(und_d, d)
+        if ui >= 0:
+            streak, ret5 = reversal_inputs(und_a, ui)
+            sc.append(("Short-term pullback (reversal)", score_reversal(streak, ret5)))
         hj = asof(hy_d, d)
         if hj >= 0:
             sc.append(("Credit stress (junk-bond spreads)", score_credit(hy_v[hj])))
@@ -625,7 +673,10 @@ def build(fund: dict) -> dict:
     # (GPIX and GPIQ both launched Oct 2023).
     fund_result = yahoo_chart(ticker, "3y", events=True)
     fund_rows = chart_rows(fund_result)
-    und = list(cached_rows(fund["underlying_symbol"], "2y"))
+    # 4y underlying: the same cached series serves the live signals (which
+    # only use the tail) and the backfill, where the reversal signal needs
+    # adjusted closes from before the funds' Oct 2023 inception.
+    und = list(cached_rows(fund["underlying_symbol"], "4y"))
     vol = list(cached_rows(fund["vol_symbol"], "1y"))
 
     fund_closes = [c for _, c, _ in fund_rows]
@@ -655,6 +706,11 @@ def build(fund: dict) -> dict:
     und_price = und_closes[-1]
     und_sma200 = sma(und_closes, 200)
     und_above_200 = und_sma200 is not None and und_price >= und_sma200
+
+    # Underlying adjusted closes for the short-term reversal signal
+    # (validated on the index proxy, not the fund).
+    und_adj = [a for _, _, a in und]
+    und_streak, und_ret5 = reversal_inputs(und_adj, len(und_adj) - 1)
 
     vol_level = vol_closes[-1]
 
@@ -815,6 +871,41 @@ def build(fund: dict) -> dict:
         note = "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either."
     signals.append({"name": "Discount from 52-week high", "value": f"{drawdown_adj:.1f}%", "score": s, "lean": dd_lean, "note": note})
 
+    # 4b. Short-term index reversal (new in v3): the underlying proxy has
+    # closed down 3+ straight sessions or fallen 3%+ over 5 sessions, on
+    # adjusted closes. The one new rule that survived a 393-paper
+    # literature review plus independent revalidation.
+    und_sym = fund["underlying_symbol"]
+    s = score_reversal(und_streak, und_ret5)
+    if und_streak >= 3:
+        rev_value = f"{und_streak} down days"
+        rev_note = (
+            f"{und_sym} has closed down {und_streak} straight sessions. Short selling streaks like this "
+            f"have reliably bounced the next day - the market pays whoever provides liquidity into them. "
+            f"Validated era-robust in our backtest: {fund['reversal_stats']} after the signal fires."
+        )
+    elif s == 1:
+        rev_value = f"{und_ret5:+.1f}% in 5 sessions"
+        rev_note = (
+            f"{und_sym} is down {abs(und_ret5):.1f}% over the last 5 sessions. Sharp week-scale pullbacks "
+            f"like this have reliably bounced - the market pays whoever provides liquidity into them. "
+            f"Validated era-robust in our backtest: {fund['reversal_stats']} after the signal fires."
+        )
+    else:
+        rev_value = "no pullback"
+        rev_note = (
+            f"No short-term pullback in {und_sym} - this check pays only after 3 straight down closes or a "
+            f"3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged "
+            f"{fund['reversal_stats']} in our validation, positive in every era."
+        )
+    signals.append({
+        "name": "Short-term pullback (reversal)",
+        "value": rev_value,
+        "score": s,
+        "lean": "good" if s == 1 else "neutral",
+        "note": rev_note,
+    })
+
     # 5. Fund vs 50-day average (adjusted). Context only: the raw-close
     # version was largely a distribution artifact, and even measured
     # properly the band showed no reliable edge.
@@ -954,7 +1045,7 @@ def build(fund: dict) -> dict:
         "note": ev_note,
     })
 
-    # ---- verdict (v2: three bands, nothing negative - the audits showed
+    # ---- verdict (v3: three bands, nothing negative - the audits showed
     # the tool couldn't spot bad days, so it stopped claiming to) ----
     score = sum(x["score"] for x in signals)
     tone = verdict_tone(score)
@@ -976,7 +1067,7 @@ def build(fund: dict) -> dict:
     verdict["score"] = score
 
     # ---- "what would flip the verdict": nearest actionable thresholds.
-    # v2: only the five scoring bands can move the verdict, and all of them
+    # v3: only the six scoring bands can move the verdict, and all of them
     # move it UP - there are no negative flips anymore. ----
     def build_flips() -> list[dict]:
         cands = []
@@ -992,6 +1083,17 @@ def build(fund: dict) -> dict:
             t = price * (1 + move)
             add(abs(move) * 100, "Real discount",
                 f"{ticker} at ${t:.2f} ({move * 100:+.1f}% from here) = 3%+ below the 52-week high with distributions reinvested (+1)")
+
+        # Short-term reversal - only shown when within striking distance
+        # (2-day streak, or a 5-session return within 1.5% of the -3% band).
+        if score_reversal(und_streak, und_ret5) == 0:
+            if und_streak == 2:
+                add(0.5, "Short-term pullback",
+                    f"{und_sym} has fallen 2 straight sessions - one more down close = short-term reversal (+1)")
+            elif und_ret5 is not None and und_ret5 <= -1.5:
+                need = abs(-3.0 - und_ret5)
+                add(need, "Short-term pullback",
+                    f"{und_sym} 5-session return {und_ret5:+.1f}% - another -{need:.1f}% = short-term reversal (+1)")
 
         # Vol index reaching the top decile of its trailing year
         svol = sorted(vol_closes)
