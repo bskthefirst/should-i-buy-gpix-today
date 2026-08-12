@@ -40,6 +40,30 @@ The page also runs a running backtest: $100/week bought blindly vs $100/week hel
 waiting for 3%+ dips, with distributions reinvested. It exists to keep the tool honest —
 most of the time, the no-timing strategy wins, and the page says so out loud.
 
+## Score history, report card, alerts
+
+Each daily run appends the day's composite score to a per-fund history file
+(`docs/history.json`, `docs/history-gpiq.json`). History was backfilled to each fund's
+Oct 2023 inception by replaying today's rules on historical data (no lookahead in the
+inputs: trailing percentiles, 52-week highs and TTM payouts all end at each date;
+backfilled rows are flagged). CNN's Fear & Greed history only reaches back ~1 year, so
+earlier days score that signal neutral.
+
+The history powers three page features:
+
+- **Report card** — for each verdict band, the average/median forward 21-trading-day
+  total return of days that got that verdict, vs the all-days baseline, with honest
+  caveats about overlapping windows and hindsight-designed rules.
+- **Score timeline** — a colored strip under the price chart showing what the page
+  would have said each day of the chart window.
+- **"What would change this verdict"** — the nearest actionable thresholds (price for a
+  real discount, VIX percentile levels, 50-day-average crosses, credit-spread widening,
+  Fear & Greed levels) rendered as would-help / would-hurt rows.
+
+`docs/feed.xml` is a combined Atom feed for both funds that only emits an entry when a
+fund's verdict band changes from the prior day — subscribe via the "Alerts (RSS)" link
+on either page.
+
 ## Development
 
 ```bash

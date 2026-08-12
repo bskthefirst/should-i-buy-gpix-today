@@ -7,6 +7,7 @@
 <meta name="description" content="Ten transparent market signals - volatility, credit stress, sentiment, yield vs cash, trend - scored daily to answer one question: is today a better- or worse-than-average day to buy GPIX?">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23004225'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%23f6f5f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Should I buy GPIX today?</title>
+<link rel="alternate" type="application/atom+xml" title="GPIX/GPIQ verdict-change alerts" href="feed.xml">
 <style>
   :root {
     /* Light theme, British racing green */
@@ -47,6 +48,15 @@
   .fundtoggle a small { font-size: 11px; font-weight: 500; color: var(--faint); }
   .fundtoggle a.active { background: var(--brg); color: #fff; }
   .fundtoggle a.active small { color: rgba(255,255,255,.7); }
+
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+  .topbar .fundtoggle { margin-bottom: 0; }
+  .rsslink {
+    font-size: 12.5px; font-weight: 600; color: var(--muted); text-decoration: none;
+    border: 1px solid var(--border); border-radius: 99px; padding: 6px 14px;
+    background: var(--surface); white-space: nowrap; box-shadow: 0 1px 3px rgba(28,42,34,.05);
+  }
+  .rsslink:hover { color: var(--brg); border-color: var(--brg); }
 
   header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
   header h1 { font-size: 25px; font-weight: 700; letter-spacing: -0.02em; }
@@ -97,6 +107,25 @@
   .tag.neg { color: var(--rich); background: rgba(180,83,9,.1); }
   .tag.zero { color: var(--faint); background: rgba(125,138,129,.12); }
   .sig .note { font-size: 13px; color: var(--faint); margin-top: 8px; }
+
+  .flips li { list-style: none; display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 14px; align-items: baseline; }
+  .flips li:last-child { border-bottom: none; }
+  .flips .dir { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 99px; white-space: nowrap; }
+  .flips li.up .dir { color: var(--good); background: rgba(0,66,37,.08); }
+  .flips li.down .dir { color: var(--rich); background: rgba(180,83,9,.1); }
+
+  .rc-table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+  .rc-table th, .rc-table td { padding: 8px 6px; border-bottom: 1px solid var(--border); text-align: right; }
+  .rc-table th:first-child, .rc-table td:first-child { text-align: left; }
+  .rc-table th { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--faint); }
+  .rc-table tr:last-child td { border-bottom: none; }
+  .rc-table .b-good td:first-child { color: var(--good); font-weight: 600; }
+  .rc-table .b-ok td:first-child { color: var(--ok); font-weight: 600; }
+  .rc-table .b-neutral td:first-child { color: var(--neutral); font-weight: 600; }
+  .rc-table .b-rich td:first-child { color: var(--rich); font-weight: 600; }
+  .rc-table .baseline td { color: var(--muted); }
+  .rc-table .few { color: var(--faint); font-size: 11.5px; font-weight: 400; }
+  .caveat { margin-top: 12px; font-size: 12.5px; color: var(--faint); max-width: 72ch; }
 
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: 0 1px 3px rgba(28,42,34,.05); }
   .chartwrap { position: relative; }
@@ -149,15 +178,23 @@
     .lane .how { min-height: 0; }
     .news li { flex-direction: column; gap: 2px; }
     h2 { margin-top: 28px; }
+    .topbar { margin-bottom: 16px; }
+    .rsslink { padding: 5px 11px; font-size: 12px; }
+    .flips li { font-size: 13px; }
+    .rc-table { font-size: 12.5px; }
+    .rc-table th, .rc-table td { padding: 6px 4px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <nav class="fundtoggle" aria-label="Choose fund">
-    <a href="./" class="active">GPIX <small>S&amp;P 500</small></a>
-    <a href="gpiq.html">GPIQ <small>Nasdaq 100</small></a>
-  </nav>
+  <div class="topbar">
+    <nav class="fundtoggle" aria-label="Choose fund">
+      <a href="./" class="active">GPIX <small>S&amp;P 500</small></a>
+      <a href="gpiq.html">GPIQ <small>Nasdaq 100</small></a>
+    </nav>
+    <a class="rsslink" href="feed.xml" title="Atom feed — a new entry appears only when a fund's verdict band changes from the prior day. Quiet by design.">Alerts (RSS)</a>
+  </div>
   <header>
     <div>
       <h1>Should I buy GPIX today?</h1>
@@ -186,6 +223,11 @@ const ago = iso => {
   if (h < 24) return Math.round(h) + "h ago";
   return Math.round(h / 24) + "d ago";
 };
+const fmtPct = v => (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+// Verdict-band colors for the score timeline strip — same palette as the
+// buy-meter zones above.
+const TONE_FILL = {rich: "rgba(180,83,9,.35)", neutral: "rgba(125,138,129,.30)", ok: "rgba(77,124,15,.35)", good: "rgba(0,66,37,.45)"};
+const TONE_NAME = {good: "better-than-usual entry", ok: "mild tailwind", neutral: "no edge", rich: "no discount"};
 
 // Renders the chart at the container's real pixel width (no viewBox scaling),
 // so axis text stays readable on a phone. Re-renders on resize/rotation.
@@ -206,9 +248,21 @@ function renderChart(series, sma50) {
   const gridVals = [hi, (hi + lo) / 2, lo];
   const dateFmt = s => narrow ? s.slice(5) : s;
 
+  // Score timeline strip: one cell per day, same x-scale as the price line,
+  // colored by the verdict band the rules produce(d) for that day.
+  const hasTones = series.some(p => p.t);
+  const EXT = hasTones ? 36 : 0;
+  const step = (W - L - R) / (series.length - 1);
+  const strip = hasTones ? series.map((p, i) => {
+    if (!p.t || !TONE_FILL[p.t]) return "";
+    const x1 = i === 0 ? L : xi(i) - step / 2;
+    const x2 = i === series.length - 1 ? W - R : xi(i) + step / 2;
+    return `<rect x="${x1.toFixed(1)}" y="${H + 2}" width="${(x2 - x1 + 0.4).toFixed(2)}" height="12" fill="${TONE_FILL[p.t]}"/>`;
+  }).join("") + `<text x="${L}" y="${H + 28}">what this page would have said each day</text>` : "";
+
   box.innerHTML = `
   <div class="chartwrap">
-  <svg id="pxchart" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="GPIX closing price with 50-day average, last ${series.length} trading days">
+  <svg id="pxchart" width="${W}" height="${H + EXT}" viewBox="0 0 ${W} ${H + EXT}" role="img" aria-label="GPIX closing price with 50-day average and daily verdict band, last ${series.length} trading days">
     ${gridVals.map(v => `<line x1="${L}" x2="${W-R}" y1="${yv(v)}" y2="${yv(v)}" stroke="#e4e7dd" stroke-width="1"/>
       <text x="2" y="${yv(v)+4}">$${fmt2(v)}</text>`).join("")}
     <path d="${area}" fill="rgba(0,66,37,0.07)"/>
@@ -220,6 +274,7 @@ function renderChart(series, sma50) {
     <circle id="hoverdot" r="3.5" fill="#1c2a22" style="display:none"/>
     <text x="${L}" y="${H-7}">${dateFmt(series[0].d)}</text>
     <text x="${W-(narrow?46:78)}" y="${H-7}">${dateFmt(series[series.length-1].d)}</text>
+    ${strip}
   </svg>
   <div class="tooltip" id="tip"></div>
   </div>`;
@@ -241,7 +296,7 @@ function renderChart(series, sma50) {
     tip.style.display = "block";
     tip.style.left = xi(i) + "px";
     tip.style.top = yv(p.c) + "px";
-    tip.textContent = p.d + " · $" + fmt2(p.c);
+    tip.textContent = p.d + " · $" + fmt2(p.c) + (p.t && TONE_NAME[p.t] ? " — " + TONE_NAME[p.t] : "");
   };
   const hide = () => { tip.style.display = cross.style.display = dot.style.display = "none"; };
   // Pointer events cover mouse AND touch (iOS Safari 13+).
@@ -252,7 +307,7 @@ function renderChart(series, sma50) {
 }
 
 fetch("data.json").then(r => r.json()).then(d => {
-  const g = d.fund, v = d.verdict, bt = d.backtest;
+  const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
   // Meter range comes from the data (each fund has a different signal count).
   const METER_MIN = d.meter ? d.meter.min : -7;
   const METER_MAX = d.meter ? d.meter.max : 14;
@@ -293,6 +348,13 @@ fetch("data.json").then(r => r.json()).then(d => {
         </div>`).join("")}
     </div>
 
+    ${d.flips && d.flips.length ? `
+    <h2>What would change this verdict</h2>
+    <div class="h2sub">The nearest thresholds from today's values, in either direction. Green rows would push the score up, amber rows down.</div>
+    <div class="card"><ul class="flips">
+      ${d.flips.map(f => `<li class="${f.direction > 0 ? "up" : "down"}"><span class="dir">${f.direction > 0 ? "helps ▲" : "hurts ▼"}</span><span>${f.text}</span></li>`).join("")}
+    </ul></div>` : ""}
+
     <h2>What the market is chewing on</h2>
     <div class="h2sub">Context for today's mood — not inputs to the score.</div>
     <div class="card"><ul class="news">
@@ -324,6 +386,18 @@ fetch("data.json").then(r => r.json()).then(d => {
     <div class="moral">${dcaWins
       ? "The robot is ahead. Every day the dip-waiter spends in cash is a day of missed distributions — that's the timing tax, and it's why the verdict above never tells you to skip a scheduled buy."
       : "The dip-waiter is narrowly ahead over this stretch — a young fund with one big drawdown can do that. Note the cash drag it carries; historically this edge shrinks as time passes."}</div>
+
+    ${rc && rc.baseline && rc.baseline.n ? `
+    <h2>Report card: has the verdict meant anything?</h2>
+    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what GPIX actually returned over the following ${rc.horizon_days} trading days (distributions included).</div>
+    <div class="card">
+      <table class="rc-table">
+        <tr><th>Verdict that day</th><th>Days</th><th>Avg next ${rc.horizon_days}d</th><th>Median</th></tr>
+        ${rc.bands.map(b => `<tr class="b-${b.tone}"><td>${b.label}${b.n && b.n < 15 ? ' <span class="few">(small sample)</span>' : ""}</td><td>${b.n}</td><td>${b.n ? fmtPct(b.avg_pct) : "—"}</td><td>${b.n ? fmtPct(b.median_pct) : "—"}</td></tr>`).join("")}
+        <tr class="baseline"><td>Any day (baseline)</td><td>${rc.baseline.n}</td><td>${fmtPct(rc.baseline.avg_pct)}</td><td>${fmtPct(rc.baseline.median_pct)}</td></tr>
+      </table>
+      <div class="caveat">Read honestly: nearby days share most of the same forward month, so these are overlapping windows — not ${rc.baseline.n} independent samples. And ${rc.backfilled_days} of ${rc.days_total} days are backfilled: today's rules replayed on historical data. The inputs contain no lookahead, but the rules themselves were designed recently, with the benefit of hindsight.${rc.fg_coverage_start ? " Fear & Greed history only reaches back to " + rc.fg_coverage_start + "; earlier days score that signal neutral." : ""}</div>
+    </div>` : ""}
   `;
   renderChart(g.series, g.sma50);
   let rT;
