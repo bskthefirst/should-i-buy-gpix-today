@@ -15,7 +15,8 @@ import json
 import re
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "docs" / "data.json"
@@ -95,13 +96,18 @@ def fetch_headlines(limit: int = 6) -> list[dict]:
     for item in root.iter("item"):
         title = item.findtext("title") or ""
         link = item.findtext("link") or ""
+        pub = item.findtext("pubDate") or ""
+        try:
+            pub_iso = parsedate_to_datetime(pub).astimezone(timezone.utc).isoformat()
+        except Exception:
+            pub_iso = None
         # Google News titles end with " - Source"
         source = ""
         m = re.search(r"\s-\s([^-]+)$", title)
         if m:
             source = m.group(1).strip()
             title = title[: m.start()].strip()
-        items.append({"title": title, "source": source, "link": link})
+        items.append({"title": title, "source": source, "link": link, "published": pub_iso})
         if len(items) >= limit:
             break
     return items
@@ -168,11 +174,14 @@ def build() -> dict:
     spy_closes = [c for _, c, _ in spy]
 
     price = gpix_closes[-1]
+    day_change = (price / gpix_closes[-2] - 1) * 100 if len(gpix_closes) > 1 else 0.0
     sma50 = sma(gpix_closes, 50)
     year = gpix_closes[-252:] if len(gpix_closes) >= 252 else gpix_closes
     high52 = max(year)
-    drawdown = (1 - price / high52) * 100
-    vs_sma50 = (price / sma50 - 1) * 100 if sma50 else 0.0
+    # Round once and reuse everywhere so the page never shows two versions
+    # of the same number.
+    drawdown = round((1 - price / high52) * 100, 1)
+    vs_sma50 = round((price / sma50 - 1) * 100, 1) if sma50 else 0.0
 
     spy_price = spy_closes[-1]
     spy_sma200 = sma(spy_closes, 200)
@@ -210,7 +219,7 @@ def build() -> dict:
         s, note = -1, "At/near the 52-week high - you are paying full price."
     else:
         s, note = 0, "Barely below the high - no real discount."
-    signals.append({"name": "GPIX vs 52-week high", "value": f"-{drawdown:.1f}%", "score": s, "note": note})
+    signals.append({"name": "Discount from 52-week high", "value": f"{drawdown:.1f}%", "score": s, "note": note})
 
     if sma50 is None:
         s, note = 0, "Not enough history for a 50-day average."
@@ -273,9 +282,10 @@ def build() -> dict:
         "signals": signals,
         "gpix": {
             "price": price,
+            "day_change_pct": round(day_change, 2),
             "sma50": round(sma50, 2) if sma50 else None,
             "high52w": high52,
-            "drawdown_pct": round(drawdown, 2),
+            "drawdown_pct": drawdown,
             "series": [
                 {"d": d.isoformat(), "c": c} for d, c, _ in gpix[-180:]
             ],
