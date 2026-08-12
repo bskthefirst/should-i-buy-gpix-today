@@ -14,17 +14,18 @@ intuitive scoring backwards, so it shows but never scores.
 
 A GitHub Action runs every weekday morning, pulls data from Yahoo Finance, FRED, CNN's
 Fear & Greed feed, and Google News, and evaluates eleven transparent checks (twelve for
-GPIQ). Under rules v3 only six rare conditions score, +1 each; everything else is
-displayed as context with a score of 0:
+GPIQ). Under rules v4 only six rare conditions score, each weighted by the effect size
+the validation work measured (see "Rules v4" below); everything else is displayed as
+context with a score of 0:
 
-| Signal | Source | v3 score | Notes |
+| Signal | Source | v4 weight | Notes |
 | --- | --- | --- | --- |
-| VIX vs its own past year (percentile) | Yahoo `^VIX` | **+1 at ≥p90** | The one vol band both audits found era-robust (+1.03pt/21d on SPY); lower bands are context |
-| Discount from 52-week high (adjusted closes) | Yahoo `GPIX` | **+1 at ≥3%** | Measured with distributions reinvested so payouts don't masquerade as discounts; the old ≥7% "+2" was a dot-com artifact |
-| Short-term pullback (reversal) on the underlying | Yahoo `SPY`/`QQQ` | **+1 at 3+ down closes or 5-session return ≤ −3%** | New in v3; see below |
-| VIX term structure (VIX/VIX3M) | Yahoo `^VIX3M` | **+1 at ≥1.00** | Inversion only; evidence mixed but it fires rarely and coincides with genuine panics |
-| High-yield credit spread | FRED `BAMLH0A0HYM2` | **+1 at ≥5.0%** | Principled but untested - spreads never got this wide in the testable sample; the widening "−1" is retired (its test days rebounded) |
-| Fear & Greed index | CNN | **+1 at ≤25** | Contrarian extreme; only ~1 year of testable history |
+| Short-term pullback (reversal) on the underlying | Yahoo `SPY`/`QQQ` | **+2.0 at 3+ down closes or 5-session return ≤ −3%** | The strongest validated edge; see below |
+| Discount from 52-week high (adjusted closes) | Yahoo `GPIX` | **+1.5 at ≥3%** | Measured with distributions reinvested so payouts don't masquerade as discounts; the old ≥7% "+2" was a dot-com artifact |
+| VIX vs its own past year (percentile) | Yahoo `^VIX` | **+1.5 at ≥p90** | The one vol band both audits found era-robust (+1.03pt/21d on SPY); lower bands are context |
+| VIX term structure (VIX/VIX3M) | Yahoo `^VIX3M` | **+1.0 at ≥1.00** | Inversion only; evidence mixed but it fires rarely and coincides with genuine panics |
+| High-yield credit spread | FRED `BAMLH0A0HYM2` | **+1.0 at ≥5.0%** | Principled but untested - spreads never got this wide in the testable sample; the widening "−1" is retired (its test days rebounded) |
+| Fear & Greed index | CNN | **+1.0 at ≤25** | Contrarian extreme; only ~1 year of testable history |
 | Variance risk premium | VIX minus realized SPY vol | 0 (context) | Both scored directions era-flipped in the audits |
 | GPIX vs its 50-day average (adjusted) | Yahoo `GPIX` | 0 (context) | The raw-close version was a distribution artifact; measured properly, still no edge |
 | S&P 500 vs its 200-day average | Yahoo `SPY` | 0 (context) | The old below-200d "+1" was negative on both SPY and QQQ |
@@ -33,10 +34,11 @@ displayed as context with a score of 0:
 | Event calendar | Fed + BLS schedules | 0 (context) | Flags imminent FOMC decisions and CPI prints |
 
 Each non-core source is individually guarded - if an endpoint is down, its signal shows
-as skipped (score 0) instead of breaking the daily build. The composite score runs 0..+6
-and maps to three honest answers: "better-than-usual entry" (≥3), "mild tailwind" (1-2),
-and "no edge either way - buy on schedule" (0). The old "no discount today" band is
-retired: two audits showed the tool couldn't spot bad days, so it stopped claiming to.
+as skipped (score 0) instead of breaking the daily build. The weighted composite W runs
+0..8 and maps to three honest answers: "better-than-usual entry" (W ≥ 3), "mild
+tailwind" (W ≥ 1), and "no edge either way - buy on schedule" (W = 0). The old "no
+discount today" band is retired: two audits showed the tool couldn't spot bad days, so
+it stopped claiming to.
 
 ## Methodology v2 (post-audit)
 
@@ -69,8 +71,35 @@ sizes) produced exactly two edges that passed. Both are now in the tool:
   one-liner: if you're buying, place the order near today's close rather than tomorrow's
   open. Basis points per night - stated because it's free, not because it's dramatic.
 
-The composite is now 0..+6 and both history files were regenerated under `rules_version`
-3.
+## Rules v4: evidence-weighted signals and the 0–100 buy score
+
+v4 keeps the same six validated conditions but weights each by the effect size the
+validation work actually measured, instead of a flat +1:
+
+| Condition | Weight | Evidence basis |
+| --- | --- | --- |
+| Short-term reversal | **2.0** | Strongest validated edge: SPY +0.21%/1d excess (t=3.6), QQQ +0.39%/1d (t=4.0), era-robust everywhere |
+| Discount ≥3% (adjusted) | **1.5** | +0.7–0.9pt/21d, era-stable on both indexes |
+| Vol index ≥ p90 | **1.5** | +1.0pt/21d on SPY, era-positive |
+| VIX/VIX3M inversion | **1.0** | Mixed evidence, rare, panic-coincident |
+| Credit OAS ≥ 5% | **1.0** | Principled, untestable in the available sample |
+| Fear & Greed ≤ 25 | **1.0** | Principled, ~1 year of testable history |
+
+The weighted composite W ranges 0..8 and maps to the headline **buy score**:
+
+```
+score100 = round(50 + W × 6.25)
+```
+
+50 on a typical day, 100 when everything fires. The score never goes below 50 by
+design — two audits found no reliable negative signal, so the tool doesn't claim any —
+and both pages say so explicitly, so 50 doesn't read as "half-bad". Verdict bands sit
+on W: **good** at W ≥ 3 (score ≥ 69 — e.g. reversal + discount, W 3.5 → 72), **ok** at
+W ≥ 1 (score 56–68 — any single condition; reversal alone is W 2 → 62), **neutral** at
+W = 0 (score 50). `verdict.score` in the JSON stays the weighted W for compatibility;
+`verdict.score100` and `verdict.weights_max` (8) are new, each signal carries its
+`weight` (0 for context signals), and both history files were regenerated under
+`rules_version` 4 with per-day `score` (W) and `score100`.
 
 ## The point of the backtest
 

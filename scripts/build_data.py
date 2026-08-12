@@ -28,6 +28,16 @@ adjusted closes, the next day has been reliably above average (SPY
 Composite is now 0..6. The same project validated the overnight-premium
 execution note shown on both pages (not scored).
 
+Rules v4 keeps the same six validated conditions but weights each by the
+size of the edge the validation work actually measured, instead of a flat
++1: the short-term reversal (the strongest, most era-robust effect)
+carries 2.0, the adjusted discount and the vol-percentile extreme carry
+1.5, and the three rarer/principled extremes carry 1.0. The weighted
+composite W runs 0..8 and maps to a headline 0-100 buy score:
+score100 = round(50 + W * 6.25). 50 means "typical day - buy on
+schedule"; the score never goes below 50 by design, because two audits
+found no reliable negative signal, so the tool doesn't claim any.
+
 GPIX is scored against the S&P 500 and the VIX; GPIQ against the
 Nasdaq-100 (QQQ) and the VXN. GPIQ also displays the VXN/VIX "tech fear
 premium" - the audit found its intuitive scoring backwards, so it no
@@ -87,8 +97,8 @@ FUNDS = [
         # GPIX trails ~8%: beating cash by 5.5+ pts is genuinely wide.
         "payout_bands": (5.5, 3.0),
         "news_query": 'federal+reserve+OR+inflation+OR+%22stock+market%22',
-        # v3 composite range: six +1 bands, nothing negative
-        "meter": (0, 6),
+        # v4 meter axis: the headline 0-100 buy score, floored at 50
+        "meter": (50, 100),
         # Validation stats for the short-term reversal card (next-day
         # excess return after the signal fires, on the underlying).
         "reversal_stats": "+0.21% next-day excess (t=3.6)",
@@ -108,8 +118,8 @@ FUNDS = [
         # it a tailwind, so the page doesn't award a permanent free point.
         "payout_bands": (7.5, 4.5),
         "news_query": 'Nasdaq+OR+%22tech+stocks%22+OR+%22Federal+Reserve%22+OR+AI',
-        # v3 composite range: six +1 bands, nothing negative
-        "meter": (0, 6),
+        # v4 meter axis: the headline 0-100 buy score, floored at 50
+        "meter": (50, 100),
         "reversal_stats": "+0.39% next-day excess (t=4.0)",
     },
 ]
@@ -149,7 +159,7 @@ FWD_DAYS = 21
 
 # Bump this whenever the scoring rules change: history files carry it, and
 # rows built under an older ruleset are discarded and rebuilt from scratch.
-RULES_VERSION = 3
+RULES_VERSION = 4
 
 # Short verdict-band labels (feed titles, report card, timeline tooltip).
 TONE_SHORT = {
@@ -158,44 +168,90 @@ TONE_SHORT = {
     "neutral": "No edge either way",
 }
 
+# Buy-score (0-100) ranges of each band, for report-card labels. W>=1 maps
+# to score100 56.25 and W>=3 to 68.75; the rendered boundaries round to
+# 56 and 69.
+BAND_RANGE100 = {
+    "good": "score ≥ 69",
+    "ok": "score 56–68",
+    "neutral": "score 50",
+}
 
 # ---------------------------------------------------------------------------
-# Scoring rules (v3) - the single source of truth. The live build, the
+# Rules v4 weights - sized from the effect sizes the validation work
+# actually measured, not vibes:
+#   reversal  2.0  strongest validated edge: SPY +0.21%/1d excess (t=3.6),
+#                  QQQ +0.39%/1d (t=4.0), era-robust in every period tested
+#   discount  1.5  3%+ adjusted discount: +0.7-0.9pt/21d, era-stable on
+#                  both indexes
+#   vol p90   1.5  vol index >= p90 of trailing year: +1.0pt/21d on SPY,
+#                  positive in every era
+#   term inv  1.0  VIX/VIX3M >= 1.00: mixed evidence (one audit positive,
+#                  one found era-flips) but rare and panic-coincident
+#   credit    1.0  OAS >= 5%: principled, untestable in the available
+#                  sample (spreads never got that wide)
+#   F&G <=25  1.0  principled contrarian extreme, only ~1y testable history
+# Weighted composite W ranges 0..8 (= WEIGHTS_MAX).
+# ---------------------------------------------------------------------------
+W_REVERSAL = 2.0
+W_DISCOUNT = 1.5
+W_VOL = 1.5
+W_TERM = 1.0
+W_CREDIT = 1.0
+W_FG = 1.0
+WEIGHTS_MAX = W_REVERSAL + W_DISCOUNT + W_VOL + W_TERM + W_CREDIT + W_FG  # 8.0
+
+
+def score100_of(w: float) -> int:
+    """Headline 0-100 buy score: 50 on a typical day (W=0), 100 when every
+    weighted condition fires (W=8). Floored at 50 by design: two audits
+    found no reliable negative signal, so the tool doesn't claim any."""
+    return round(50 + w * 6.25)
+
+
+def fmt_w(w: float) -> str:
+    """Weighted scores render as +2, +1.5, +3.5 - no trailing .0 noise."""
+    return f"{w:+g}"
+
+
+# ---------------------------------------------------------------------------
+# Scoring rules (v4) - the single source of truth. The live build, the
 # historical backfill and the "what would flip the verdict" panel all call
 # these, so the thresholds can never drift apart. Only bands that
 # independent backtests found era-robust score; everything else is 0.
+# Each returns its evidence weight when the condition fires, else 0.
 # ---------------------------------------------------------------------------
 
-def score_vol_percentile(pct: float) -> int:
+def score_vol_percentile(pct: float) -> float:
     """Vol index >= p90 of its trailing year: +1.03pt/21d on SPY,
     positive in every era tested. Lower bands showed no reliable edge."""
-    return 1 if pct >= 90 else 0
+    return W_VOL if pct >= 90 else 0.0
 
 
-def score_term_structure(ratio: float) -> int:
+def score_term_structure(ratio: float) -> float:
     """Inversion only. Evidence is mixed (one audit positive, one found
     era-flips) but it fires rarely and coincides with genuine panics."""
-    return 1 if ratio >= 1.00 else 0
+    return W_TERM if ratio >= 1.00 else 0.0
 
 
-def score_drawdown(dd: float) -> int:
+def score_drawdown(dd: float) -> float:
     """3%+ discount from the 52-week high on ADJUSTED closes: the one
-    era-robust discount band. The old >=7% "+2" was a dot-com artifact and
-    the at-the-high "-1" didn't survive testing (at-high days still
-    averaged +0.44%/21d)."""
-    return 1 if dd >= 3 else 0
+    era-robust discount band (+0.7-0.9pt/21d on both indexes). The old
+    >=7% "+2" was a dot-com artifact and the at-the-high "-1" didn't
+    survive testing (at-high days still averaged +0.44%/21d)."""
+    return W_DISCOUNT if dd >= 3 else 0.0
 
 
-def score_credit(oas: float) -> int:
+def score_credit(oas: float) -> float:
     """OAS >= 5%: principled but untested - spreads never got this wide in
     the testable sample. The widening "-1" is gone: its 34 test days
     rebounded +2.67pt."""
-    return 1 if oas >= 5.0 else 0
+    return W_CREDIT if oas >= 5.0 else 0.0
 
 
-def score_fear_greed(fg: float) -> int:
+def score_fear_greed(fg: float) -> float:
     """Contrarian extreme only (~1 year of testable history)."""
-    return 1 if fg <= 25 else 0
+    return W_FG if fg <= 25 else 0.0
 
 
 def reversal_inputs(adj: list[float], i: int) -> tuple[int, float | None]:
@@ -211,21 +267,27 @@ def reversal_inputs(adj: list[float], i: int) -> tuple[int, float | None]:
     return streak, ret5
 
 
-def score_reversal(down_streak: int, ret5: float | None) -> int:
+def score_reversal(down_streak: int, ret5: float | None) -> float:
     """Short-term index reversal on the UNDERLYING proxy (SPY/QQQ):
     3+ consecutive down closes OR a 5-session return <= -3%, on adjusted
     closes. The one new rule that survived a 393-paper literature review
     plus independent revalidation (Park 1995; Chordia-Roll-Subrahmanyam
     2002): SPY +0.21%/next-day excess (t=3.6), QQQ +0.39% (t=4.0),
-    positive in every era including 2016+."""
+    positive in every era including 2016+. The strongest validated edge,
+    hence the heaviest v4 weight."""
     if down_streak >= 3:
-        return 1
+        return W_REVERSAL
     if ret5 is not None and ret5 <= -3.0:
-        return 1
-    return 0
+        return W_REVERSAL
+    return 0.0
 
 
-def verdict_tone(score: int) -> str:
+def verdict_tone(score: float) -> str:
+    """Verdict bands on the weighted composite W (0..8). Same numeric
+    thresholds as v3 but on weighted points, so membership differs:
+    W >= 3 (score100 >= 69, e.g. reversal + discount, or two mid-weight
+    conditions) = good; W >= 1 (score100 >= 56, any single condition)
+    = ok; W = 0 (score100 = 50) = neutral."""
     if score >= 3:
         return "good"
     if score >= 1:
@@ -470,7 +532,7 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
 
     # 4y ranges give daily bars with a full 1-year lead-in before the funds'
     # Oct 2023 inception (range=max would degrade to weekly bars). Only the
-    # six v3 scoring inputs are needed: the context-only signals can never
+    # six v4 scoring inputs are needed: the context-only signals can never
     # move a historical score. The underlying's 4y range also covers the
     # reversal signal's 5-session lookback at the Oct 2023 backfill start.
     vol4 = _series_or_empty(lambda: cached_rows(fund["vol_symbol"], "4y"))
@@ -495,9 +557,9 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
     # masquerade as discounts (~0.8%/mo payouts add up fast).
     adj = [a for _, _, a in fund_rows]
 
-    def scores_for(i: int) -> list[tuple[str, int]]:
+    def scores_for(i: int) -> list[tuple[str, float]]:
         d = fund_rows[i][0]
-        sc: list[tuple[str, int]] = []
+        sc: list[tuple[str, float]] = []
         vi = asof(vol_d, d)
         if vi >= 0:
             win = vol_c[max(0, vi - 251): vi + 1]
@@ -529,14 +591,15 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
         if iso in have:
             continue
         sc = scores_for(i)
-        total = sum(s for _, s in sc)
+        total = round(sum(s for _, s in sc), 2)
         drivers = [
-            f"{s:+d} {n}"
+            f"{fmt_w(s)} {n}"
             for n, s in sorted((x for x in sc if x[1]), key=lambda x: -abs(x[1]))[:3]
         ]
         hist.append({
             "date": iso,
             "score": total,
+            "score100": score100_of(total),
             "tone": verdict_tone(total),
             "price": fund_rows[i][1],
             "adj": fund_rows[i][2],
@@ -587,7 +650,7 @@ def report_card(hist: list[dict]) -> dict:
         "fg_coverage_start": fg_start,
         "baseline": agg([v for _, v in fwd]),
         "bands": [
-            dict(tone=t, label=TONE_SHORT[t], **agg([v for tt, v in fwd if tt == t]))
+            dict(tone=t, label=f"{TONE_SHORT[t]} ({BAND_RANGE100[t]})", **agg([v for tt, v in fwd if tt == t]))
             for t in ("good", "ok", "neutral")
         ],
     }
@@ -607,6 +670,7 @@ def write_feed(hist_by_key: dict[str, list[dict]]) -> int:
                     "frm": prev["tone"],
                     "to": r["tone"],
                     "score": r["score"],
+                    "score100": r.get("score100", score100_of(r["score"])),
                     "drivers": r.get("drivers") or [],
                     "backfilled": r.get("backfilled", False),
                 })
@@ -635,13 +699,14 @@ def write_feed(hist_by_key: dict[str, list[dict]]) -> int:
     for e in events:
         t = e["fund"]["ticker"]
         entry = sub(feed, "entry")
-        sub(entry, "title", f"{t}: {TONE_SHORT[e['frm']]} → {TONE_SHORT[e['to']]} (score {e['score']:+d})")
+        sub(entry, "title", f"{t}: {TONE_SHORT[e['frm']]} → {TONE_SHORT[e['to']]} (buy score {e['score100']}/100)")
         sub(entry, "link", rel="alternate", href=SITE + e["fund"]["page"])
         sub(entry, "id", f"tag:bskthefirst.github.io,2026:{e['fund']['key']}:{e['date']}")
         sub(entry, "updated", f"{e['date']}T13:35:00Z")
         body = (
             f"{t} verdict moved from \"{TONE_SHORT[e['frm']]}\" to "
-            f"\"{TONE_SHORT[e['to']]}\" (score {e['score']:+d})."
+            f"\"{TONE_SHORT[e['to']]}\" (buy score {e['score100']}/100, "
+            f"weighted signals {fmt_w(e['score'])})."
         )
         if e["drivers"]:
             body += " Driving signals: " + "; ".join(e["drivers"]) + "."
@@ -659,7 +724,7 @@ def guarded(name: str, builder):
     try:
         return builder()
     except Exception:
-        return {"name": name, "value": "n/a", "score": 0, "lean": "neutral", "note": SKIPPED_NOTE}
+        return {"name": name, "value": "n/a", "score": 0, "weight": 0, "lean": "neutral", "note": SKIPPED_NOTE}
 
 
 def build(fund: dict) -> dict:
@@ -743,17 +808,17 @@ def build(fund: dict) -> dict:
 
     # 1. Vol index vs its own past year (percentile of trailing daily closes).
     # Only the top decile scores - the one vol band both audits found
-    # era-robust (+1.03pt/21d on SPY).
+    # era-robust (+1.03pt/21d on SPY), which is why it carries a 1.5 weight.
     def sig_vol_percentile():
         below = sum(1 for c in vol_closes if c < vol_level)
         pct = below / len(vol_closes) * 100
         s = score_vol_percentile(pct)
-        if s == 1:
+        if s:
             lean = "good"
-            note = f"{und_name} volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive."
+            note = f"{und_name} volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive (about +1pt over the next month, so it carries a 1.5 weight)."
         elif pct >= 70:
             lean = "good"
-            note = f"{und_name} volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile earns a point, but the read is good."
+            note = f"{und_name} volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good."
         elif pct < 25:
             lean = "bad"
             note = f"{und_name} volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit."
@@ -764,6 +829,7 @@ def build(fund: dict) -> dict:
             "name": f"{vol_name} vs its own past year",
             "value": f"{vol_level:.1f} (p{pct:.0f})",
             "score": s,
+            "weight": W_VOL,
             "lean": lean,
             "note": note,
         }
@@ -777,12 +843,12 @@ def build(fund: dict) -> dict:
         vix3m = list(cached_rows("%5EVIX3M", "5d"))[-1][1]
         ratio = vix_now / vix3m
         s = score_term_structure(ratio)
-        if s == 1:
+        if s:
             lean = "good"
-            note = "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest +1."
+            note = "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight."
         elif ratio >= 0.93:
             lean = "good"
-            note = "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; a point only comes at full inversion (1.00+)."
+            note = "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+)."
         else:
             lean = "neutral"
             note = "Normal upward-sloping VIX curve. No unusual near-term fear."
@@ -790,6 +856,7 @@ def build(fund: dict) -> dict:
             "name": "VIX term structure (1mo/3mo)",
             "value": f"{ratio:.2f}",
             "score": s,
+            "weight": W_TERM,
             "lean": lean,
             "note": note,
         }
@@ -822,6 +889,7 @@ def build(fund: dict) -> dict:
                 "name": "Tech fear premium (VXN/VIX)",
                 "value": f"{cur:.2f}x (p{pct:.0f})",
                 "score": 0,
+                "weight": 0,
                 "lean": lean,
                 "note": note,
             }
@@ -850,6 +918,7 @@ def build(fund: dict) -> dict:
             "name": "Are call-sellers overpaid?",
             "value": f"{vrp:+.1f} pts",
             "score": 0,
+            "weight": 0,
             "lean": lean,
             "note": note,
         }
@@ -859,19 +928,21 @@ def build(fund: dict) -> dict:
     # 4. Discount from 52-week high, on ADJUSTED closes. The single 3%+
     # band is the only discount that survived both audits (the >=7% "+2"
     # was a dot-com artifact; the at-the-high "-1" tested as noise).
+    # Weight 1.5: +0.7-0.9pt/21d, era-stable on both indexes.
     s = score_drawdown(drawdown_adj)
-    if s == 1:
+    if s:
         dd_lean = "good"
-        note = "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits."
+        note = "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight)."
     elif drawdown_adj <= 0.5:
         dd_lean = "neutral"
         note = "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average."
     else:
         dd_lean = "neutral"
         note = "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either."
-    signals.append({"name": "Discount from 52-week high", "value": f"{drawdown_adj:.1f}%", "score": s, "lean": dd_lean, "note": note})
+    signals.append({"name": "Discount from 52-week high", "value": f"{drawdown_adj:.1f}%", "score": s, "weight": W_DISCOUNT, "lean": dd_lean, "note": note})
 
-    # 4b. Short-term index reversal (new in v3): the underlying proxy has
+    # 4b. Short-term index reversal (added in v3, top-weighted in v4): the
+    # underlying proxy has
     # closed down 3+ straight sessions or fallen 3%+ over 5 sessions, on
     # adjusted closes. The one new rule that survived a 393-paper
     # literature review plus independent revalidation.
@@ -882,27 +953,31 @@ def build(fund: dict) -> dict:
         rev_note = (
             f"{und_sym} has closed down {und_streak} straight sessions. Short selling streaks like this "
             f"have reliably bounced the next day - the market pays whoever provides liquidity into them. "
-            f"Validated era-robust in our backtest: {fund['reversal_stats']} after the signal fires."
+            f"Validated era-robust in our backtest ({fund['reversal_stats']} after the signal fires) - "
+            f"the strongest edge this tool has, hence its top weight of 2.0."
         )
-    elif s == 1:
+    elif s:
         rev_value = f"{und_ret5:+.1f}% in 5 sessions"
         rev_note = (
             f"{und_sym} is down {abs(und_ret5):.1f}% over the last 5 sessions. Sharp week-scale pullbacks "
             f"like this have reliably bounced - the market pays whoever provides liquidity into them. "
-            f"Validated era-robust in our backtest: {fund['reversal_stats']} after the signal fires."
+            f"Validated era-robust in our backtest ({fund['reversal_stats']} after the signal fires) - "
+            f"the strongest edge this tool has, hence its top weight of 2.0."
         )
     else:
         rev_value = "no pullback"
         rev_note = (
             f"No short-term pullback in {und_sym} - this check pays only after 3 straight down closes or a "
             f"3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged "
-            f"{fund['reversal_stats']} in our validation, positive in every era."
+            f"{fund['reversal_stats']} in our validation, positive in every era - the strongest edge this "
+            f"tool has, hence its top weight of 2.0."
         )
     signals.append({
         "name": "Short-term pullback (reversal)",
         "value": rev_value,
         "score": s,
-        "lean": "good" if s == 1 else "neutral",
+        "weight": W_REVERSAL,
+        "lean": "good" if s else "neutral",
         "note": rev_note,
     })
 
@@ -917,7 +992,7 @@ def build(fund: dict) -> dict:
         note = "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral."
     else:
         note = "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral."
-    signals.append({"name": f"{ticker} vs 50-day average", "value": f"{vs_sma50_adj:+.1f}%", "score": 0, "lean": "neutral", "note": note})
+    signals.append({"name": f"{ticker} vs 50-day average", "value": f"{vs_sma50_adj:+.1f}%", "score": 0, "weight": 0, "lean": "neutral", "note": note})
 
     # 6. Underlying index regime. Never scores (the old below-200d "+1"
     # was negative on both SPY and QQQ), but the lean follows the evidence:
@@ -930,6 +1005,7 @@ def build(fund: dict) -> dict:
         "name": f"{und_name} regime",
         "value": "uptrend" if und_above_200 else "downtrend",
         "score": 0,
+        "weight": 0,
         "lean": "good" if und_above_200 else "bad",
         "note": note,
     })
@@ -942,9 +1018,9 @@ def build(fund: dict) -> dict:
         prior = rows[max(0, len(rows) - 22)][1]
         chg_1mo = oas - prior
         s = score_credit(oas)
-        if s == 1:
+        if s:
             lean = "good"
-            note = "Credit markets pricing serious stress - a contrarian buy zone. Principled but untested: spreads never got this wide in the testable sample, so this +1 rests on reasoning, not backtest evidence."
+            note = "Credit markets pricing serious stress - a contrarian buy zone. Principled but untested: spreads never got this wide in the testable sample, so its 1.0 weight rests on reasoning, not backtest evidence."
         elif chg_1mo >= 0.50:
             lean = "bad"
             note = "Credit spreads widening fast - stress building under the surface. The audit couldn't validate a score on this (those days actually rebounded), but as a plain read of conditions it leans bad."
@@ -958,6 +1034,7 @@ def build(fund: dict) -> dict:
             "name": "Credit stress (junk-bond spreads)",
             "value": f"{oas:.2f}% ({chg_1mo:+.2f} 1mo)",
             "score": s,
+            "weight": W_CREDIT,
             "lean": lean,
             "note": note,
         }
@@ -984,6 +1061,7 @@ def build(fund: dict) -> dict:
             "name": "Payout vs safe cash",
             "value": f"{ttm_yield:.1f}% vs {tbill:.1f}% cash",
             "score": 0,
+            "weight": 0,
             "lean": lean,
             "note": note,
         }
@@ -994,12 +1072,12 @@ def build(fund: dict) -> dict:
     def sig_fear_greed():
         score_, rating = cached_fear_greed()
         s = score_fear_greed(score_)
-        if s == 1:
+        if s:
             lean = "good"
-            note = "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so this +1 rests mostly on principle."
+            note = "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle."
         elif score_ <= 45:
             lean = "good"
-            note = "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that earns a point."
+            note = "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores."
         elif score_ >= 75:
             lean = "bad"
             note = "Extreme greed - the crowd is all-in, historically a worse-than-average mood to add at. A read only: nothing scores negative anymore."
@@ -1010,6 +1088,7 @@ def build(fund: dict) -> dict:
             "name": "Fear & Greed index",
             "value": f"{score_:.0f} ({rating})",
             "score": s,
+            "weight": W_FG,
             "lean": lean,
             "note": note,
         }
@@ -1041,22 +1120,26 @@ def build(fund: dict) -> dict:
         "name": "Event calendar",
         "value": ev_value,
         "score": 0,
+        "weight": 0,
         "lean": "bad" if imminent else "neutral",
         "note": ev_note,
     })
 
-    # ---- verdict (v3: three bands, nothing negative - the audits showed
-    # the tool couldn't spot bad days, so it stopped claiming to) ----
-    score = sum(x["score"] for x in signals)
+    # ---- verdict (v4: three bands on the weighted composite W, nothing
+    # negative - the audits showed the tool couldn't spot bad days, so it
+    # stopped claiming to). Band mapping: W >= 3 good, W >= 1 ok, W = 0
+    # neutral; headline buy score = round(50 + W * 6.25). ----
+    score = round(sum(x["score"] for x in signals), 2)
+    score100 = score100_of(score)
     tone = verdict_tone(score)
     verdict = {
         "good": {
             "label": "Better-than-usual entry",
-            "summary": f"Multiple rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for {ticker}, this is a sensible day to deploy it.",
+            "summary": f"Heavily-weighted rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for {ticker}, this is a sensible day to deploy it.",
         },
         "ok": {
             "label": "Mild tailwind - fine day to buy",
-            "summary": "A rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
+            "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
         },
         "neutral": {
             "label": "No edge either way - buy on schedule",
@@ -1065,15 +1148,21 @@ def build(fund: dict) -> dict:
     }[tone]
     verdict["tone"] = tone
     verdict["score"] = score
+    verdict["score100"] = score100
+    verdict["weights_max"] = WEIGHTS_MAX
 
     # ---- "what would flip the verdict": nearest actionable thresholds.
-    # v3: only the six scoring bands can move the verdict, and all of them
-    # move it UP - there are no negative flips anymore. ----
+    # v4: only the six weighted bands can move the verdict, and all of them
+    # move it UP - there are no negative flips anymore. Each row states its
+    # impact on the headline 0-100 buy score (weight * 6.25 points). ----
     def build_flips() -> list[dict]:
         cands = []
 
         def add(dist, label, text):
             cands.append({"dist": dist, "direction": +1, "label": label, "text": text})
+
+        def pts(w: float) -> str:
+            return f"+{round(w * 6.25)} pts"
 
         # Adjusted discount reaching 3%. The threshold lives in
         # total-return space; translate it to a raw price so the number is
@@ -1082,18 +1171,18 @@ def build(fund: dict) -> dict:
             move = high52_adj * 0.97 / adj_price - 1
             t = price * (1 + move)
             add(abs(move) * 100, "Real discount",
-                f"{ticker} at ${t:.2f} ({move * 100:+.1f}% from here) = 3%+ below the 52-week high with distributions reinvested (+1)")
+                f"{ticker} at ${t:.2f} ({move * 100:+.1f}% from here) = 3%+ below the 52-week high with distributions reinvested ({pts(W_DISCOUNT)})")
 
         # Short-term reversal - only shown when within striking distance
         # (2-day streak, or a 5-session return within 1.5% of the -3% band).
         if score_reversal(und_streak, und_ret5) == 0:
             if und_streak == 2:
                 add(0.5, "Short-term pullback",
-                    f"{und_sym} has fallen 2 straight sessions - one more down close = short-term reversal (+1)")
+                    f"{und_sym} has fallen 2 straight sessions - one more down close = short-term reversal ({pts(W_REVERSAL)})")
             elif und_ret5 is not None and und_ret5 <= -1.5:
                 need = abs(-3.0 - und_ret5)
                 add(need, "Short-term pullback",
-                    f"{und_sym} 5-session return {und_ret5:+.1f}% - another -{need:.1f}% = short-term reversal (+1)")
+                    f"{und_sym} 5-session return {und_ret5:+.1f}% - another -{need:.1f}% = short-term reversal ({pts(W_REVERSAL)})")
 
         # Vol index reaching the top decile of its trailing year
         svol = sorted(vol_closes)
@@ -1102,7 +1191,7 @@ def build(fund: dict) -> dict:
         if vpct < 90:
             lvl = svol[min(nv - 1, int(0.90 * nv))]
             add(abs(lvl / vol_level - 1) * 100, "Top-decile premiums",
-                f"{vol_name} above {lvl:.1f} (now {vol_level:.1f}) = top decile of its past year (+1)")
+                f"{vol_name} above {lvl:.1f} (now {vol_level:.1f}) = top decile of its past year ({pts(W_VOL)})")
 
         # VIX term structure inverting
         try:
@@ -1111,7 +1200,7 @@ def build(fund: dict) -> dict:
             r = vix_now / vix3m
             if r < 1.00:
                 add((1.00 / r - 1) * 100, "VIX curve inversion",
-                    f"VIX/VIX3M ratio at 1.00 (now {r:.2f}) = inverted vol curve, genuine panic (+1)")
+                    f"VIX/VIX3M ratio at 1.00 (now {r:.2f}) = inverted vol curve, genuine panic ({pts(W_TERM)})")
         except Exception:
             pass
 
@@ -1120,7 +1209,7 @@ def build(fund: dict) -> dict:
             oas = cached_fred("BAMLH0A0HYM2")[-1][1]
             if oas < 5.0:
                 add((5.0 / oas - 1) * 100, "Extreme credit stress",
-                    f"Junk-bond spreads at 5.00% (now {oas:.2f}%) = extreme credit stress (+1)")
+                    f"Junk-bond spreads at 5.00% (now {oas:.2f}%) = extreme credit stress ({pts(W_CREDIT)})")
         except Exception:
             pass
 
@@ -1129,7 +1218,7 @@ def build(fund: dict) -> dict:
             fg_now, _ = cached_fear_greed()
             if fg_now > 25:
                 add(fg_now - 25, "Extreme fear",
-                    f"Fear & Greed at 25 or below (now {fg_now:.0f}) = extreme fear, a contrarian buy zone (+1)")
+                    f"Fear & Greed at 25 or below (now {fg_now:.0f}) = extreme fear, a contrarian buy zone ({pts(W_FG)})")
         except Exception:
             pass
 
@@ -1143,12 +1232,13 @@ def build(fund: dict) -> dict:
 
     # ---- score history: backfill missing dates + append today's live row ----
     live_drivers = [
-        f"{s['score']:+d} {s['name']}"
+        f"{fmt_w(s['score'])} {s['name']}"
         for s in sorted((x for x in signals if x["score"]), key=lambda x: -abs(x["score"]))[:3]
     ]
     live_row = {
         "date": fund_rows[-1][0].isoformat(),
         "score": score,
+        "score100": score100,
         "tone": tone,
         "price": price,
         "adj": fund_rows[-1][2],
@@ -1211,9 +1301,12 @@ if __name__ == "__main__":
         out = DOCS / fund["out"]
         out.write_text(json.dumps(data, indent=1))
         print(f"wrote {out}")
-        print(f"{fund['ticker']} verdict: {data['verdict']['label']} (score {data['verdict']['score']})")
+        print(
+            f"{fund['ticker']} verdict: {data['verdict']['label']} "
+            f"(buy score {data['verdict']['score100']}/100, W={data['verdict']['score']:g}/{data['verdict']['weights_max']:g})"
+        )
         for s in data["signals"]:
-            print(f"  {s['score']:+d} [{s.get('lean', '?'):>7}] {s['name']}: {s['value']}")
+            print(f"  {fmt_w(s['score']):>4} [{s.get('lean', '?'):>7}] {s['name']}: {s['value']}")
         bt = data["backtest"]
         print(f"  backtest: DCA {bt['dca_return_pct']}% vs dip-waiting {bt['dip_return_pct']}%")
         rc = data.get("report_card")

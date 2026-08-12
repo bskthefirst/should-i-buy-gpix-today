@@ -78,8 +78,17 @@
   .verdict.neutral .label { color: var(--neutral); }
   .verdict .summary { color: var(--muted); margin-top: 6px; max-width: 64ch; }
 
-  /* buy-meter: zones map to verdict bands (neutral 0, ok 1-2, good 3-6);
-     zone widths come from data.json's meter range */
+  /* headline 0-100 buy score: BRG when good, olive when ok, gray at 50 */
+  .buyscore { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+  .buyscore .cap { width: 100%; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .buyscore .num { font-size: 46px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--faint); }
+  .buyscore .den { font-size: 17px; font-weight: 600; color: var(--faint); }
+  .verdict.good .buyscore .num { color: var(--good); }
+  .verdict.ok .buyscore .num { color: var(--ok); }
+  .scorenote { margin-top: 8px; font-size: 12.5px; color: var(--faint); max-width: 62ch; }
+
+  /* buy-meter: the 50-100 buy-score axis; zones map to verdict bands
+     (50-56 neutral, 56-69 ok, 69-100 good — the W>=1 and W>=3 boundaries) */
   .meter { margin-top: 20px; }
   .meter .track { position: relative; height: 10px; border-radius: 99px; overflow: hidden; display: flex; }
   .meter .z1 { background: rgba(125,138,129,.30); }
@@ -174,6 +183,7 @@
     .pricebox .stamp { width: 100%; margin-top: 0; }
     .verdict { padding: 18px 16px; }
     .verdict .label { font-size: 19px; }
+    .buyscore .num { font-size: 38px; }
     .verdict .summary { font-size: 14.5px; }
     .meter .zlabels span:nth-child(2) { visibility: hidden; }
     .card { padding: 12px; }
@@ -201,7 +211,7 @@
   <header>
     <div>
       <h1>Should I buy GPIX today?</h1>
-      <div class="sub">Eleven market checks every weekday morning - six rare conditions scored, the rest shown as context - turned into one honest answer.</div>
+      <div class="sub">Eleven market checks every weekday morning - six rare conditions scored and weighted by evidence, the rest shown as context - turned into one honest 0-100 buy score.</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -209,12 +219,14 @@
   <div id="app"></div>
 
   <footer>
-    Not financial advice; a personal decision aid. Rules v3: after two independent backtests of
+    Not financial advice; a personal decision aid. Rules v4: after two independent backtests of
     every scoring band plus a literature review with independent revalidation, only the rare
     conditions that proved era-robust score - five market extremes and a short-term pullback
-    reversal - and nothing scores negative, because the audits showed this tool couldn't spot bad
-    days, so it stopped claiming to. It flags rare good days; the rest of the time the answer is
-    "buy on schedule." Data: Yahoo Finance, FRED, CNN, Google News, Federal Reserve calendar.
+    reversal - each weighted by the effect size the validation actually measured, then mapped to
+    a 0-100 buy score where 50 means "typical day". Nothing scores negative, because the audits
+    showed this tool couldn't spot bad days, so it stopped claiming to. It flags rare good days;
+    the rest of the time the answer is "buy on schedule." Data: Yahoo Finance, FRED, CNN, Google
+    News, Federal Reserve calendar.
   </footer>
 </div>
 
@@ -336,30 +348,34 @@ function renderChart(series, sma50, sma200) {
 
 fetch("data.json").then(r => r.json()).then(d => {
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
-  // Meter range comes from the data (rules v3: 0..6, nothing negative).
-  const METER_MIN = d.meter ? d.meter.min : 0;
-  const METER_MAX = d.meter ? d.meter.max : 5;
-  // Zone boundaries between verdict bands: 0.5 (neutral|ok), 2.5 (ok|good).
-  const zw = [(0.5 - METER_MIN), 2, (METER_MAX - 2.5)];
+  // Meter axis is the 0-100 buy score, floored at 50 (rules v4).
+  const METER_MIN = d.meter ? d.meter.min : 50;
+  const METER_MAX = d.meter ? d.meter.max : 100;
+  // Headline buy score: 50 + weighted W * 6.25 (never below 50 by design).
+  const s100 = v.score100 ?? Math.round(50 + v.score * 6.25);
+  // Zone boundaries between verdict bands: 56 (neutral|ok, W=1), 69 (ok|good, W=3).
+  const zw = [56 - METER_MIN, 69 - 56, METER_MAX - 69];
   const chg = g.day_change_pct ?? 0;
   document.getElementById("pricebox").innerHTML = `
     <div class="px">$${fmt2(g.price)}</div>
     <div class="chg ${chg >= 0 ? "up" : "dn"}">${chg >= 0 ? "▲" : "▼"} ${Math.abs(chg).toFixed(2)}% vs prior close</div>
     <div class="stamp">updated ${new Date(d.generated_at).toLocaleString([], {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"})}</div>`;
 
-  const pinPct = ((Math.max(METER_MIN, Math.min(METER_MAX, v.score)) - METER_MIN) / (METER_MAX - METER_MIN)) * 100;
+  const pinPct = ((Math.max(METER_MIN, Math.min(METER_MAX, s100)) - METER_MIN) / (METER_MAX - METER_MIN)) * 100;
   const dcaWins = bt.winner === "dca";
 
   document.getElementById("app").innerHTML = `
     <div class="verdict ${v.tone}">
+      <div class="buyscore"><span class="cap">Buy score</span><span class="num">${s100}</span><span class="den">/100</span></div>
       <div class="label">${v.label}</div>
       <div class="summary">${v.summary}</div>
-      <div class="meter" title="Combined signal score: ${v.score}">
+      <div class="scorenote">50 = typical day; the score only rises above it, because no reliable "bad day" signal survived our audits.</div>
+      <div class="meter" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 8}">
         <div class="track">
           <div class="z1" style="flex:${zw[0]}"></div><div class="z2" style="flex:${zw[1]}"></div><div class="z3" style="flex:${zw[2]}"></div>
           <div class="pin" style="left: calc(${pinPct}% - 2px)"></div>
         </div>
-        <div class="zlabels"><span style="flex:${zw[0]}">no edge</span><span style="flex:${zw[1]}">mild tailwind</span><span style="flex:${zw[2]}">strong case to buy</span></div>
+        <div class="zlabels"><span style="flex:${zw[0]}">50</span><span style="flex:${zw[1]}">mild tailwind 56+</span><span style="flex:${zw[2]}">strong case to buy 69+</span></div>
       </div>
     </div>
 
@@ -369,12 +385,12 @@ fetch("data.json").then(r => r.json()).then(d => {
     instead of tomorrow's open captures it — a small free edge, worth basis points, not fortunes.</div>
 
     <h2>Why</h2>
-    <div class="h2sub">Eleven checks each morning, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score (+1 each); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
+    <div class="h2sub">Eleven checks each morning, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score, each weighted by the effect size our validation work measured (short-term reversal 2.0, discount and top-decile vol 1.5, the rest 1.0); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
     <div class="signals">
       ${d.signals.map(s => {
         const lean = s.lean || "neutral";
         const cls = s.score > 0 || lean === "good" ? "pos" : lean === "bad" ? "neg" : "zero";
-        const tag = s.score > 0 ? `+${s.score} · helps ▲` : lean === "good" ? "looks good ▲" : lean === "bad" ? "looks bad ▼" : "neutral";
+        const tag = s.score > 0 ? `+${s.score.toFixed(1)} · helps ▲` : lean === "good" ? "looks good ▲" : lean === "bad" ? "looks bad ▼" : "neutral";
         return `
         <div class="sig">
           <div class="top">
@@ -388,7 +404,7 @@ fetch("data.json").then(r => r.json()).then(d => {
 
     ${d.flips && d.flips.length ? `
     <h2>What would change this verdict</h2>
-    <div class="h2sub">The nearest scoring thresholds from today's values. Every row would push the score up — no condition can push it down anymore.</div>
+    <div class="h2sub">The nearest scoring thresholds from today's values, with their impact on the 0-100 buy score. Every row would push the score up — no condition can push it down anymore.</div>
     <div class="card"><ul class="flips">
       ${d.flips.map(f => `<li class="up"><span class="dir">helps ▲</span><span>${f.text}</span></li>`).join("")}
     </ul></div>` : ""}

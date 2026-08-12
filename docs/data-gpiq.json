@@ -1,29 +1,33 @@
 {
- "generated_at": "2026-08-12T11:44:18+00:00",
- "rules_version": 3,
+ "generated_at": "2026-08-12T11:59:19+00:00",
+ "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
   "label": "No edge either way - buy on schedule",
   "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
   "tone": "neutral",
-  "score": 0
+  "score": 0.0,
+  "score100": 50,
+  "weights_max": 8.0
  },
  "meter": {
-  "min": 0,
-  "max": 6
+  "min": 50,
+  "max": 100
  },
  "signals": [
   {
    "name": "VXN vs its own past year",
    "value": "22.4 (p40)",
-   "score": 0,
+   "score": 0.0,
+   "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary."
   },
   {
    "name": "VIX term structure (1mo/3mo)",
    "value": "0.81",
-   "score": 0,
+   "score": 0.0,
+   "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear."
   },
@@ -31,6 +35,7 @@
    "name": "Tech fear premium (VXN/VIX)",
    "value": "1.46x (p81)",
    "score": 0,
+   "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good."
   },
@@ -38,27 +43,31 @@
    "name": "Are call-sellers overpaid?",
    "value": "-2.5 pts",
    "score": 0,
+   "weight": 0,
    "lean": "bad",
    "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits."
   },
   {
    "name": "Discount from 52-week high",
    "value": "2.6%",
-   "score": 0,
+   "score": 0.0,
+   "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either."
   },
   {
    "name": "Short-term pullback (reversal)",
    "value": "no pullback",
-   "score": 0,
+   "score": 0.0,
+   "weight": 2.0,
    "lean": "neutral",
-   "note": "No short-term pullback in QQQ - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.39% next-day excess (t=4.0) in our validation, positive in every era."
+   "note": "No short-term pullback in QQQ - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.39% next-day excess (t=4.0) in our validation, positive in every era - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIQ vs 50-day average",
    "value": "+0.6%",
    "score": 0,
+   "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral."
   },
@@ -66,13 +75,15 @@
    "name": "Nasdaq-100 regime",
    "value": "uptrend",
    "score": 0,
+   "weight": 0,
    "lean": "good",
    "note": "Nasdaq-100 in a healthy uptrend (above its 200-day average) - the regime in which forward returns have been better on average."
   },
   {
    "name": "Credit stress (junk-bond spreads)",
    "value": "2.70% (+0.01 1mo)",
-   "score": 0,
+   "score": 0.0,
+   "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress."
   },
@@ -80,13 +91,15 @@
    "name": "Payout vs safe cash",
    "value": "9.9% vs 3.9% cash",
    "score": 0,
+   "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs."
   },
   {
    "name": "Fear & Greed index",
    "value": "61 (greed)",
-   "score": 0,
+   "score": 0.0,
+   "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way."
   },
@@ -94,6 +107,7 @@
    "name": "Event calendar",
    "value": "CPI in 0d",
    "score": 0,
+   "weight": 0,
    "lean": "bad",
    "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but expect a swing."
   }
@@ -199,7 +213,7 @@
    {
     "d": "2025-12-17",
     "c": 51.63,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2025-12-18",
@@ -359,7 +373,7 @@
    {
     "d": "2026-02-04",
     "c": 51.62,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-02-05",
@@ -784,7 +798,7 @@
    {
     "d": "2026-06-08",
     "c": 57.62,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-06-09",
@@ -884,7 +898,7 @@
    {
     "d": "2026-07-08",
     "c": 57.09,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-07-09",
@@ -924,7 +938,7 @@
    {
     "d": "2026-07-20",
     "c": 56.03,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-07-21",
@@ -944,7 +958,7 @@
    {
     "d": "2026-07-24",
     "c": 55.18,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-07-27",
@@ -1012,27 +1026,27 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.73 (-0.4% from here) = 3%+ below the 52-week high with distributions reinvested (+1)"
+   "text": "GPIQ at $56.73 (-0.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Short-term pullback",
    "direction": 1,
-   "text": "QQQ has fallen 2 straight sessions - one more down close = short-term reversal (+1)"
+   "text": "QQQ has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+1)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.4) = top decile of its past year (+1)"
+   "text": "VXN above 28.6 (now 22.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 61) = extreme fear, a contrarian buy zone (+1)"
+   "text": "Fear & Greed at 25 or below (now 61) = extreme fear, a contrarian buy zone (+6 pts)"
   }
  ],
  "report_card": {
@@ -1050,21 +1064,21 @@
   "bands": [
    {
     "tone": "good",
-    "label": "Better-than-usual entry",
-    "n": 67,
-    "avg_pct": 4.36,
-    "median_pct": 3.49
+    "label": "Better-than-usual entry (score \u2265 69)",
+    "n": 99,
+    "avg_pct": 3.72,
+    "median_pct": 3.26
    },
    {
     "tone": "ok",
-    "label": "Mild tailwind",
-    "n": 164,
-    "avg_pct": 2.59,
-    "median_pct": 2.85
+    "label": "Mild tailwind (score 56\u201368)",
+    "n": 132,
+    "avg_pct": 2.65,
+    "median_pct": 2.9
    },
    {
     "tone": "neutral",
-    "label": "No edge either way",
+    "label": "No edge either way (score 50)",
     "n": 446,
     "avg_pct": 1.32,
     "median_pct": 1.75

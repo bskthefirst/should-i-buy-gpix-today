@@ -1,29 +1,33 @@
 {
- "generated_at": "2026-08-12T11:44:17+00:00",
- "rules_version": 3,
+ "generated_at": "2026-08-12T11:59:18+00:00",
+ "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
   "label": "No edge either way - buy on schedule",
   "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
   "tone": "neutral",
-  "score": 0
+  "score": 0.0,
+  "score100": 50,
+  "weights_max": 8.0
  },
  "meter": {
-  "min": 0,
-  "max": 6
+  "min": 50,
+  "max": 100
  },
  "signals": [
   {
    "name": "VIX vs its own past year",
    "value": "15.4 (p15)",
-   "score": 0,
+   "score": 0.0,
+   "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit."
   },
   {
    "name": "VIX term structure (1mo/3mo)",
    "value": "0.81",
-   "score": 0,
+   "score": 0.0,
+   "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear."
   },
@@ -31,27 +35,31 @@
    "name": "Are call-sellers overpaid?",
    "value": "+1.3 pts",
    "score": 0,
+   "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep."
   },
   {
    "name": "Discount from 52-week high",
    "value": "0.2%",
-   "score": 0,
+   "score": 0.0,
+   "weight": 1.5,
    "lean": "neutral",
    "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average."
   },
   {
    "name": "Short-term pullback (reversal)",
    "value": "no pullback",
-   "score": 0,
+   "score": 0.0,
+   "weight": 2.0,
    "lean": "neutral",
-   "note": "No short-term pullback in SPY - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.21% next-day excess (t=3.6) in our validation, positive in every era."
+   "note": "No short-term pullback in SPY - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.21% next-day excess (t=3.6) in our validation, positive in every era - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIX vs 50-day average",
    "value": "+2.7%",
    "score": 0,
+   "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral."
   },
@@ -59,13 +67,15 @@
    "name": "S&P 500 regime",
    "value": "uptrend",
    "score": 0,
+   "weight": 0,
    "lean": "good",
    "note": "S&P 500 in a healthy uptrend (above its 200-day average) - the regime in which forward returns have been better on average."
   },
   {
    "name": "Credit stress (junk-bond spreads)",
    "value": "2.70% (+0.01 1mo)",
-   "score": 0,
+   "score": 0.0,
+   "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress."
   },
@@ -73,13 +83,15 @@
    "name": "Payout vs safe cash",
    "value": "8.0% vs 3.9% cash",
    "score": 0,
+   "weight": 0,
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs."
   },
   {
    "name": "Fear & Greed index",
    "value": "61 (greed)",
-   "score": 0,
+   "score": 0.0,
+   "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way."
   },
@@ -87,6 +99,7 @@
    "name": "Event calendar",
    "value": "CPI in 0d",
    "score": 0,
+   "weight": 0,
    "lean": "bad",
    "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but expect a swing."
   }
@@ -787,7 +800,7 @@
    {
     "d": "2026-06-10",
     "c": 53.79,
-    "t": "ok"
+    "t": "good"
    },
    {
     "d": "2026-06-11",
@@ -1005,27 +1018,27 @@
   {
    "label": "Short-term pullback",
    "direction": 1,
-   "text": "SPY has fallen 2 straight sessions - one more down close = short-term reversal (+1)"
+   "text": "SPY has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
   },
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-2.8% from here) = 3%+ below the 52-week high with distributions reinvested (+1)"
+   "text": "GPIX at $54.72 (-2.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+1)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 61) = extreme fear, a contrarian buy zone (+1)"
+   "text": "Fear & Greed at 25 or below (now 61) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+1)"
+   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1043,21 +1056,21 @@
   "bands": [
    {
     "tone": "good",
-    "label": "Better-than-usual entry",
-    "n": 52,
-    "avg_pct": 4.14,
-    "median_pct": 4.94
+    "label": "Better-than-usual entry (score \u2265 69)",
+    "n": 71,
+    "avg_pct": 3.8,
+    "median_pct": 4.27
    },
    {
     "tone": "ok",
-    "label": "Mild tailwind",
-    "n": 137,
-    "avg_pct": 2.26,
-    "median_pct": 2.89
+    "label": "Mild tailwind (score 56\u201368)",
+    "n": 118,
+    "avg_pct": 2.16,
+    "median_pct": 2.71
    },
    {
     "tone": "neutral",
-    "label": "No edge either way",
+    "label": "No edge either way (score 50)",
     "n": 488,
     "avg_pct": 1.26,
     "median_pct": 1.71
@@ -1076,7 +1089,7 @@
  },
  "vol": {
   "index": "VIX",
-  "level": 15.38
+  "level": 15.39
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1095,7 +1108,7 @@
   "invested": 14700.0,
   "dca_value": 19224.74,
   "dca_return_pct": 30.78,
-  "dip_value": 18996.24,
+  "dip_value": 18996.23,
   "dip_return_pct": 29.23,
   "dip_cash_uninvested": 900.0,
   "dip_buy_days": 31,
