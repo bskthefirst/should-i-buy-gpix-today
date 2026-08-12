@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Should I buy GPIX today?</title>
+<style>
+  :root {
+    --bg: #0e1117;
+    --surface: #161b24;
+    --surface2: #1c2330;
+    --border: #262f3f;
+    --text: #e6e9ef;
+    --muted: #9aa4b5;
+    --faint: #6b7688;
+    --good: #4ade80;
+    --ok: #a3e635;
+    --neutral: #60a5fa;
+    --rich: #f59e0b;
+    --bad: #f87171;
+    --accent: #60a5fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 40px 20px 80px; }
+  header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+  header .sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  .stamp { color: var(--faint); font-size: 12px; }
+
+  .verdict {
+    margin-top: 28px; padding: 26px 28px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    border-left-width: 4px;
+  }
+  .verdict.good   { border-left-color: var(--good); }
+  .verdict.ok     { border-left-color: var(--ok); }
+  .verdict.neutral{ border-left-color: var(--neutral); }
+  .verdict.rich   { border-left-color: var(--rich); }
+  .verdict .label { font-size: 22px; font-weight: 700; }
+  .verdict.good .label    { color: var(--good); }
+  .verdict.ok .label      { color: var(--ok); }
+  .verdict.neutral .label { color: var(--neutral); }
+  .verdict.rich .label    { color: var(--rich); }
+  .verdict .summary { color: var(--muted); margin-top: 8px; max-width: 60ch; }
+  .verdict .score { float: right; color: var(--faint); font-size: 13px; font-variant-numeric: tabular-nums; }
+
+  h2 { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 36px 0 14px; }
+
+  .signals { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+  .sig {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .sig .top { display: flex; justify-content: space-between; align-items: baseline; }
+  .sig .name { font-size: 13px; color: var(--muted); }
+  .sig .val { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .sig .pts { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 99px; }
+  .pts.pos { color: var(--good); background: rgba(74, 222, 128, 0.1); }
+  .pts.neg { color: var(--rich); background: rgba(245, 158, 11, 0.1); }
+  .pts.zero { color: var(--faint); background: rgba(107, 118, 136, 0.12); }
+  .sig .note { font-size: 13px; color: var(--faint); margin-top: 8px; }
+
+  .chartbox { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .chartbox .meta { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 8px; }
+  .chartbox .meta div { font-size: 13px; color: var(--muted); }
+  .chartbox .meta b { color: var(--text); font-variant-numeric: tabular-nums; }
+  svg text { fill: var(--faint); font-size: 10px; }
+
+  .bt { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .bt .race { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
+  .bt .lane { background: var(--surface2); border-radius: 10px; padding: 14px 16px; }
+  .bt .lane.winner { outline: 1px solid var(--good); }
+  .bt .lane .who { font-size: 13px; color: var(--muted); }
+  .bt .lane .ret { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .bt .lane.winner .ret { color: var(--good); }
+  .bt .lane .detail { font-size: 12px; color: var(--faint); margin-top: 4px; }
+  .bt .moral { margin-top: 14px; font-size: 14px; color: var(--muted); }
+
+  .news li { list-style: none; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .news li:last-child { border-bottom: none; }
+  .news a { color: var(--text); text-decoration: none; }
+  .news a:hover { color: var(--accent); }
+  .news .src { color: var(--faint); font-size: 12px; margin-left: 8px; }
+
+  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--faint); font-size: 12.5px; max-width: 68ch; }
+  .err { margin-top: 30px; color: var(--bad); }
+  @media (max-width: 560px) { .bt .race { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Should I buy GPIX today?</h1>
+    <div class="sub">Rules-based read on macro conditions for buying an S&amp;P 500 covered-call fund. Refreshes every weekday morning.</div>
+    <div class="stamp" id="stamp"></div>
+  </header>
+
+  <div id="app"></div>
+
+  <footer>
+    Not financial advice; a personal decision aid. The rules are transparent (VIX level, discount
+    from highs, trend, Fed calendar) and deliberately boring, because boring is what works. If the
+    backtest above shows anything consistently, it's that a scheduled buy you actually make beats a
+    clever buy you wait for. Data: Yahoo Finance, Google News, Federal Reserve calendar.
+  </footer>
+</div>
+
+<script>
+const fmt$ = v => "$" + v.toLocaleString("en-US", {maximumFractionDigits: 0});
+const fmt2 = v => v.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+function sparkline(series, sma50) {
+  const W = 820, H = 180, P = 8;
+  const closes = series.map(p => p.c);
+  const lo = Math.min(...closes), hi = Math.max(...closes);
+  const x = i => P + i * (W - 2 * P) / (series.length - 1);
+  const y = v => H - P - (v - lo) * (H - 2 * P) / (hi - lo || 1);
+  const path = closes.map((c, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(c).toFixed(1)).join(" ");
+  const last = closes[closes.length - 1];
+  const smaLine = sma50 ? `<line x1="${P}" x2="${W-P}" y1="${y(sma50)}" y2="${y(sma50)}" stroke="#6b7688" stroke-dasharray="4 4" stroke-width="1"/>
+    <text x="${P+2}" y="${y(sma50)-5}">50-day avg ${fmt2(sma50)}</text>` : "";
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="GPIX closing price, last ${series.length} trading days">
+    ${smaLine}
+    <path d="${path}" fill="none" stroke="#60a5fa" stroke-width="2"/>
+    <circle cx="${x(closes.length-1)}" cy="${y(last)}" r="3.5" fill="#60a5fa"/>
+    <text x="${P}" y="${H-2}">${series[0].d}</text>
+    <text x="${W-70}" y="${H-2}">${series[series.length-1].d}</text>
+  </svg>`;
+}
+
+fetch("data.json").then(r => r.json()).then(d => {
+  document.getElementById("stamp").textContent =
+    "Last updated " + new Date(d.generated_at).toLocaleString();
+
+  const v = d.verdict;
+  const bt = d.backtest;
+  const dcaWins = bt.winner === "dca";
+  const g = d.gpix;
+
+  document.getElementById("app").innerHTML = `
+    <div class="verdict ${v.tone}">
+      <span class="score">signal score ${v.score >= 0 ? "+" + v.score : v.score}</span>
+      <div class="label">${v.label}</div>
+      <div class="summary">${v.summary}</div>
+    </div>
+
+    <h2>Today's signals</h2>
+    <div class="signals">
+      ${d.signals.map(s => `
+        <div class="sig">
+          <div class="top">
+            <div><div class="name">${s.name}</div><div class="val">${s.value}</div></div>
+            <span class="pts ${s.score > 0 ? "pos" : s.score < 0 ? "neg" : "zero"}">${s.score > 0 ? "+" + s.score : s.score}</span>
+          </div>
+          <div class="note">${s.note}</div>
+        </div>`).join("")}
+    </div>
+
+    <h2>GPIX — last ${g.series.length} trading days</h2>
+    <div class="chartbox">
+      <div class="meta">
+        <div>Close <b>${fmt2(g.price)}</b></div>
+        <div>52-week high <b>${fmt2(g.high52w)}</b></div>
+        <div>Off high <b>${g.drawdown_pct.toFixed(1)}%</b></div>
+        <div>VIX <b>${d.vix.level.toFixed(1)}</b></div>
+        <div>Next FOMC <b>${d.fomc.next ?? "n/a"}</b></div>
+      </div>
+      ${sparkline(g.series, g.sma50)}
+    </div>
+
+    <h2>The timing tax — same $${bt.weekly_amount}/week since ${bt.start}</h2>
+    <div class="bt">
+      <div style="font-size:14px;color:var(--muted)">
+        Two savers each set aside $${bt.weekly_amount} every week (${fmt$(bt.invested)} total).
+        One buys GPIX every week no matter what. The other holds cash and only buys when GPIX is
+        at least ${bt.dip_threshold_pct}% below its high — the "wait for a better day" strategy.
+        Distributions reinvested for whoever holds shares.
+      </div>
+      <div class="race">
+        <div class="lane ${dcaWins ? "winner" : ""}">
+          <div class="who">Buys every week, no timing</div>
+          <div class="ret">+${bt.dca_return_pct}%</div>
+          <div class="detail">${fmt$(bt.dca_value)} today</div>
+        </div>
+        <div class="lane ${dcaWins ? "" : "winner"}">
+          <div class="who">Waits for ${bt.dip_threshold_pct}% dips (${bt.dip_buy_days} buy days)</div>
+          <div class="ret">+${bt.dip_return_pct}%</div>
+          <div class="detail">${fmt$(bt.dip_value)} today${bt.dip_cash_uninvested > 0 ? ", incl. " + fmt$(bt.dip_cash_uninvested) + " still stuck in cash" : ""}</div>
+        </div>
+      </div>
+      <div class="moral">${dcaWins
+        ? "The no-timing buyer is ahead. Every day spent waiting for a dip is a day of missed distributions — that's the timing tax this page exists to remind you about."
+        : "Dip-waiting is narrowly ahead over this stretch — a young fund with one big drawdown can do that. Note the cash drag it carries, and that this edge historically disappears as history lengthens."}</div>
+    </div>
+
+    <h2>Macro headlines</h2>
+    <div class="chartbox"><ul class="news">
+      ${d.headlines.map(h => `<li><a href="${h.link}" target="_blank" rel="noopener">${h.title}</a><span class="src">${h.source}</span></li>`).join("") || "<li>No headlines fetched.</li>"}
+    </ul></div>
+  `;
+}).catch(e => {
+  document.getElementById("app").innerHTML = `<div class="err">Could not load data.json — ${e}</div>`;
+});
+</script>
+</body>
+</html>
