@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-12T12:27:16+00:00",
+ "generated_at": "2026-08-12T14:39:21+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.4 (p40)",
+   "value": "21.9 (p38)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 39.8,
+    "pos": 37.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.81",
+   "value": "0.79",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 28.2,
+    "pos": 22.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.46x (p81)",
+   "value": "1.49x (p84)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 80.9,
+    "pos": 83.5,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-2.5 pts",
+   "value": "-3.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 12.6,
+    "pos": 7.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "2.6%",
+   "value": "1.9%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 26.0,
+    "pos": 19.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.6%",
+   "value": "+1.3%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 55.0,
+    "pos": 60.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.70% (+0.01 1mo)",
+   "value": "2.72% (+0.03 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 17.5,
+    "pos": 18.0,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 60.5,
+    "pos": 59.8,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "61 (greed)",
+   "value": "63 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 60.9,
+    "pos": 63.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 56.97,
-  "day_change_pct": -0.33,
-  "sma50": 57.28,
-  "sma200": 54.13,
+  "price": 57.37,
+  "day_change_pct": 0.7,
+  "sma50": 57.24,
+  "sma200": 54.16,
   "high52w": 59.52,
-  "drawdown_pct": 4.3,
+  "drawdown_pct": 3.6,
   "series": [
-   {
-    "d": "2025-11-20",
-    "c": 50.59,
-    "t": "good",
-    "s": 94
-   },
    {
     "d": "2025-11-21",
     "c": 51.01,
@@ -1343,6 +1337,12 @@
     "c": 56.97,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-08-12",
+    "c": 57.37,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1350,40 +1350,40 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.73 (-0.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
-  },
-  {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "QQQ has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
+   "text": "GPIQ at $56.73 (-1.1% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.79) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.4) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.9) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 61) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 63) = extreme fear, a contrarian buy zone (+6 pts)"
+  },
+  {
+   "label": "Extreme credit stress",
+   "direction": 1,
+   "text": "Junk-bond spreads at 5.00% (now 2.72%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-11",
-  "days_total": 698,
+  "end": "2026-08-12",
+  "days_total": 699,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-08-12",
   "baseline": {
-   "n": 677,
-   "avg_pct": 1.93,
-   "median_pct": 2.14
+   "n": 678,
+   "avg_pct": 1.92,
+   "median_pct": 2.13
   },
   "bands": [
    {
@@ -1403,25 +1403,25 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 446,
-    "avg_pct": 1.32,
-    "median_pct": 1.75
+    "n": 447,
+    "avg_pct": 1.31,
+    "median_pct": 1.74
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.94,
+  "ttm_yield_pct": 9.87,
   "tbill_3mo": 3.89
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 718.45,
-  "sma200": 648.96,
+  "price": 725.11,
+  "sma200": 649.54,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 22.38
+  "level": 21.95
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1434,14 +1434,14 @@
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-08-11",
+  "end": "2026-08-12",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14700.0,
-  "dca_value": 20160.18,
-  "dca_return_pct": 37.14,
-  "dip_value": 19923.62,
-  "dip_return_pct": 35.53,
+  "dca_value": 20301.73,
+  "dca_return_pct": 38.11,
+  "dip_value": 20062.81,
+  "dip_return_pct": 36.48,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 56,
   "winner": "dca"
@@ -1454,16 +1454,16 @@
    "published": "2026-08-12T09:00:00+00:00"
   },
   {
-   "title": "AI chatbots are offering financial advice. Should you trust them?",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9ldFo4U3dVNlpFTEo5WFVJUGhWM3o2NGI5VUpVWkVwM2szUnBBUmF2ek1yVjd4QmdoNTJWNmR1MDhHYnRpMHVLMEhwQUg4d2RCekZJcWNhVjZlOWNPcnB0LVdqckJMQ0duNFZlTFJONmREeU12YjhmODZKbnYtZw?oc=5",
-   "published": "2026-08-12T09:00:00+00:00"
+   "title": "AI was supposed to destroy jobs. Where\u2019s the carnage?",
+   "source": "The Guardian",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE85RVJfLU9XbWFoYlEzQ0hqdWxJVlJBZUxIcnk1VnZkR0JiVHNvSDVEelVmbDU4Ung2M3FJQUtncTNDUDR2NDJ0RkgxUWJEZEd4VzY5WUlJTGhGenVqOTZRcEYzcFNPc29xT2pYRUdFcF9kZFpEa2VXZQ?oc=5",
+   "published": "2026-08-12T14:02:00+00:00"
   },
   {
-   "title": "Google\u2019s new AI boss inherits a race to catch OpenAI and Anthropic",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1GdzdHeVhqMkp3QnhRTmNUeDdGNXFPcXUzME5SR0dSenc0OG9qcFFJYk53RE5scUVzNlpneG5panpMb2pmUWlLS0dqVDJxRGJPLW9EdFlYdW1UV3RsdjB3LUVyTU1rYTYxY19DUDZjX2JWbkZaOTR4dzZ30gF_QVVfeXFMTUZqWnlpYnMzVXlYeW9XYXFDWEVhUjdjZzIxaU1VbmdRUXI1eHhkUjRGOGxkNDQ2c3RRdnRNRGVRXzFUcDNzRXQtYW5pTjNsc1lTVzRzaGNTREtYVDRzbFdrenFBVklKRDZRVW9NSnN1LXJaYl9PZ18zYXpDd05VNA?oc=5",
-   "published": "2026-08-12T05:00:01+00:00"
+   "title": "The AI Growth Paradox",
+   "source": "Foreign Affairs",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9fY2FwSVNZMm1YTHA1UWdqMEg0amh6MnlQWW0zcUlSRUpqTjBMWkxFRXJ2RFVjT3Y4M0trajluLWdYLXd3M3l1T3p3cGlDOWE3ODhROWhzY2J1QWhMbW11QVUydEpMVzJxQ3R5em5Taw?oc=5",
+   "published": "2026-08-12T14:01:21+00:00"
   },
   {
    "title": "I Asked AI to Write a Novel. It\u2019s Not So Bad.",
@@ -1472,16 +1472,16 @@
    "published": "2026-08-12T11:00:28+00:00"
   },
   {
-   "title": "AMIE, our research medical AI system, demonstrates real-time clinical video consultation capabilities in a first-of-its-kind study.",
-   "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNaWVfcTVPRW1DclVwZ2hjNXFQYVVrRUpHVjk5MVphcGY3VHRHQmtla285dDg5MmlFVTJHcFZXUjAzbUVKNmtjY1RycE5FUk9nYnhwV3RTZzRTbmg4VUJMSFJVd1d0bENsd2JPOEZ3dTJoZ1hNWnIyWWhGVHphLXM2ZGJBZC0tTnVFak5oR0V4SGFKLV90RWFPMFgzSU92LWtK?oc=5",
-   "published": "2026-08-11T17:08:11+00:00"
+   "title": "Thrive Holdings, A.I.-Focused Buyer of Service Firms, Raises $2 Billion",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNaVNZaS1CVkxhb2tfaWgxSUVZWWJxUmdRRERHUXhTS01oVlBTVnkxSU52Rmo4cEpqbW1XeS1XeVNHd2EwSzRJM09WS0hCbmlsYXNVYWY2czlWRW13cEFWanJVUmhjeGFTcmtRX1dRT0J3bmxScDFnLWxVTVhZTGNBc3c3dGozUGpPc1hIWQ?oc=5",
+   "published": "2026-08-12T12:26:07+00:00"
   },
   {
-   "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
-   "source": "NVIDIA Blog",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE45UUttUUMyRTI3WHVUbF9oMlRKX0NIUHJ2WUFobm9Ta3NubmhVS0pmRjkxMzZILU0wWEFFa1JWTXVBYVhzTkhhS292U1hOWUFoUkRrOUJTTFY3RURHTkZjMWlyTVhlYjE1bHQ2M3ZDRzNlSWlpNDJPTUM1d0l0eFU?oc=5",
-   "published": "2026-08-11T18:41:09+00:00"
+   "title": "Agency Transformation Center to aid AI adoption, modernize operations",
+   "source": "dla.mil",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNM2tITnZFbjhORUVuaG1hYVg4Tjl3UmlsUkpQWmJfZHM2SHI4ZjQ2Z2JCUkl6cXd6T0ZoNERMeFZjdEllb0lWdHdzam5XTHNqbUdCdDg2d25oUkxkdVVyQTBlanRoTUJBLUQ1dy1UUDBSVi11c0N6ZGlOZ25xN01VcGN6azRsVVNaQ0Z5TXJOdTFYbndudEVzdGxKU3FaV0RlS1V1ajZWTWlXM1VoMUtPT2lXc2ZaaGZsQ200UTMyR3BoMDllODNHNmhRam5FSnRqWGpqMg?oc=5",
+   "published": "2026-08-12T13:46:26+00:00"
   }
  ]
 }

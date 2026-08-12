@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-12T12:27:14+00:00",
+ "generated_at": "2026-08-12T14:39:19+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.4 (p15)",
+   "value": "14.8 (p6)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 15.0,
+    "pos": 6.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.81",
+   "value": "0.79",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 28.2,
+    "pos": 22.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+1.3 pts",
+   "value": "+0.7 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 44.3,
+    "pos": 39.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.2%",
+   "value": "0.0%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 2.0,
+    "pos": 0.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+2.7%",
+   "value": "+2.9%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 72.5,
+    "pos": 74.2,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.70% (+0.01 1mo)",
+   "value": "2.72% (+0.03 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 17.5,
+    "pos": 18.0,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 41.5,
+    "pos": 41.3,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "61 (greed)",
+   "value": "63 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 60.9,
+    "pos": 63.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 56.27,
-  "day_change_pct": -0.25,
-  "sma50": 55.28,
-  "sma200": 53.34,
+  "price": 56.405,
+  "day_change_pct": 0.24,
+  "sma50": 55.29,
+  "sma200": 53.36,
   "high52w": 56.41,
-  "drawdown_pct": 0.2,
+  "drawdown_pct": 0.0,
   "series": [
-   {
-    "d": "2025-11-20",
-    "c": 50.73,
-    "t": "good",
-    "s": 81
-   },
    {
     "d": "2025-11-21",
     "c": 51.22,
@@ -1316,45 +1310,51 @@
     "c": 56.27,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-08-12",
+    "c": 56.405,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "SPY has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
-  },
-  {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-2.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.72 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.79) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 61) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 63) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.7 (now 14.8) = top decile of its past year (+9 pts)"
+  },
+  {
+   "label": "Extreme credit stress",
+   "direction": 1,
+   "text": "Junk-bond spreads at 5.00% (now 2.72%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-11",
-  "days_total": 698,
+  "end": "2026-08-12",
+  "days_total": 699,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-08-12",
   "baseline": {
-   "n": 677,
+   "n": 678,
    "avg_pct": 1.68,
    "median_pct": 2.02
   },
@@ -1376,25 +1376,25 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 488,
+    "n": 489,
     "avg_pct": 1.26,
     "median_pct": 1.71
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.04,
+  "ttm_yield_pct": 8.02,
   "tbill_3mo": 3.89
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 770.56,
-  "sma200": 703.99,
+  "price": 772.52,
+  "sma200": 704.5,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.37
+  "level": 14.76
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1407,19 +1407,37 @@
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-08-11",
+  "end": "2026-08-12",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14700.0,
-  "dca_value": 19224.74,
-  "dca_return_pct": 30.78,
-  "dip_value": 18996.24,
-  "dip_return_pct": 29.23,
+  "dca_value": 19270.86,
+  "dca_return_pct": 31.09,
+  "dip_value": 19039.65,
+  "dip_return_pct": 29.52,
   "dip_cash_uninvested": 900.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "US inflation cooled slightly to 3.4% in July but prices still elevated",
+   "source": "The Guardian",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBJbUtUZVJERDNkQkJKN25GZFU3XzNKaTJBSXkxN1ZBcGVaekhMV0V6M0pGV0dOdkZ2ZC05YmlNOFJXdHNaR0lBYmduV2pCbWY3REJtOGhUMFg2ZnkzUWJlVm1SbDR5QjM3azhQdnFHWW1vZm1ndkpj?oc=5",
+   "published": "2026-08-12T13:37:00+00:00"
+  },
+  {
+   "title": "US inflation falls to 3.4% in July",
+   "source": "Financial Times",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPdjR6U2Z3QVUyNzNVQUNsNFBPbm9uMTdwS0gzQy1VVnUwc05zb09iT1M3NjJXMFRUTmpxQ1lLNDRTMGxJWGhzS05lTkVmM3RGRVU0ZFVGS0JPbS16UUdUSkZzSm9kTFUwV2JPeWJsZXJ3T3hJMnE5SDdQNlBueGp6d3pWVlY?oc=5",
+   "published": "2026-08-12T12:31:43+00:00"
+  },
+  {
+   "title": "US Core Inflation Was Subdued in July, Easing Pressure on Fed",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNcmtEeUtTbGR0NmtLTVBmOWFHUlVRQjZVYXRlNTJIZl8weFBnWFVoTzNvcmRZRWtqelY4RlVuRkhSRmwxUmZSajhtZm1BYWo4V20tT0x2MnVzOGZpNGtXMXdaOTlNbWthdExkalhFcDJqUjhCSmtFYmVJRlJOaGJPYWctOEx6azd0RGM2Yk9VVDZLcWFKMUZsSWZITDBUVnJSWkhnaXNmZ3RfczMyck05bg?oc=5",
+   "published": "2026-08-12T13:31:50+00:00"
+  },
   {
    "title": "Trump renews effort to oust Cook from Federal Reserve Board",
    "source": "Consumer Finance Monitor",
@@ -1427,34 +1445,16 @@
    "published": "2026-08-11T19:19:12+00:00"
   },
   {
-   "title": "AI\u2019s costly buildout complicates the Fed\u2019s inflation fight",
+   "title": "AI\u2019s costly build-out complicates the Fed\u2019s inflation fight",
    "source": "CNBC",
    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOWWZCUlp0OVM5U1JDSTJxbVpDeXNqZGNOWjZSX0pXd2dWYWNkWHhINzNHc3FNeVJ3XzhydDBQZnVLa21UdWxyMENBdDRiTm1TV2RDekZvdEZIcnpzaHliWmpxUXNESXpvN0pGX3NjNmhzRmplX0ZTRWlzbjlLTWFUT1lYdGthNWlDTUdId1JCOEl2Z0VnLWdLONIBngFBVV95cUxPT3hwY0I2OUpUdlkyRDJ5TUk1WWJQY3ZBelhldFAzX2tWaUxnTlBNZGRQeHl3QnJBZUlHNzItZDdXMEtTd19hcHRyOEstd0RwaHY3ZWJJVWxRUXJTNEphOXZ6V3lKdXN6NGx4d1VQZVBqUGk3bGhjSU9wNk5JTWw0czlSbE1OMUIwZFNXZE1oekMxSzI3OXQ1ZzlIQzU2QQ?oc=5",
    "published": "2026-08-12T11:00:01+00:00"
   },
   {
-   "title": "Gold Rises Ahead of U.S. CPI Figures",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZlgxblBzV3BGc1l0QzlndndxTUlJNkJDTkpKZGpWN0VkVXFLLWFHOGY1VzZyTEdXRXlkLWstcE81X1RKN0xNRVR4ajlJVjJfUzlsYWY2Z0xQT24wU0Z5cjU3dUZiSXdpUDBKYW9XMG9NWW1QSzBfXzg4SVlnTGF0MDZHc1BMZWt5dV9yek9aeVljNFhYdjg4MWJnczJlUlhqVi1zUQ?oc=5",
-   "published": "2026-08-12T08:01:00+00:00"
-  },
-  {
-   "title": "Inflation is the biggest problem, Fed's Goolsbee says",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPZDltR2o0ZVZseWpZbFpveU1hMUxTTjZCQ1lDa2FkMzNRR0VtRW5fMENiaHVyNWVnZ0UwcTkta1IwM05ON29kNjZMQ1dfNjktNnNrWlZPUHE5cVhfZjFoVjZaWERyMDBuWUxrMTZ0b1EybmZjMjIyMXpEdkZwdmF5dmNPeEVOaE5WelZSczMzSmwyRGdFSzNOcHVn?oc=5",
-   "published": "2026-08-11T18:07:13+00:00"
-  },
-  {
-   "title": "Inflation in focus as wage growth slows for workers",
-   "source": "NBC News",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOeC1mOEhqYTg4TmJSbFVDSGJCX2M1SUVqN1UxNU1rS0xZN2x0UklqUVBkZXdvS24zS21nejhDR2l1djhqYTlIZW9jNzRpTTFaTFlCQXFIOThSU21yX3h4NWRjZGMzaHVZRzhIUUt1TzVENTBwbUZoLXJCci0wbENSbQ?oc=5",
-   "published": "2026-08-12T09:00:41+00:00"
-  },
-  {
-   "title": "Benign Inflation Data Would Reduce Urgency Around September Rate Rise",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPLUo4SDFMcTBGcm9FZHFKNDJ6VmJvaHphNGlXWWVDbVRIa2g1Qm9tTVlLZ2F4UGZ5LXRWaGQzeUNLYUl0SmlRV3ZncXlqNjdPVFRpMXFWdHkydlRZMjhzZk9mYm1iYVZ5NFhCTmlPeVdBRW5RTUNwaHNfZVNYX0FjNmczVW1DbkpydVYxZzZxN09GV2RCZlE1QkR4RF83dw?oc=5",
-   "published": "2026-08-12T11:26:53+00:00"
+   "title": "Inflation cooled slighlty last month as gas prices fell",
+   "source": "Spectrum News",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUmJRRjg5SFJtQ0lINHFncmxucHZmWjlkQUJtZFRsejJMYnpRaEdRRENoUnVyRDV1ZzB4S0RMMmVDaHpCZlc4dFQ3UjJYbXd4QjRfVnVSMXQ1dVNIVVR4eU9vMHJIUjFSX2Q0OVRTOElvamp1OVVkSnZycGsyWWVtaW9Cck1FX2lTNEw5Rkh6QzZWTWlPRVdfbkRBeW5LcHh5cE1zQQ?oc=5",
+   "published": "2026-08-12T12:45:00+00:00"
   }
  ]
 }
