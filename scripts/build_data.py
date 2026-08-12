@@ -122,6 +122,48 @@ FUNDS = [
         "meter": (50, 100),
         "reversal_stats": "+0.39% next-day excess (t=4.0)",
     },
+    {
+        # Single stock, NOT a covered-call ETF: its own validation pass
+        # (TSLA 2010-2026, 4054 sessions, /tmp/tsla_validation) decides
+        # what scores. Index-validated bands do NOT transfer blindly -
+        # e.g. the 3%+ discount band tested as noise on TSLA, while
+        # at-the-high tested as MOMENTUM (positive), the opposite of its
+        # index behavior.
+        "key": "tsla",
+        "kind": "stock",
+        "ticker": "TSLA",
+        "asset_name": "Tesla",
+        "out": "data-tsla.json",
+        "history_out": "history-tsla.json",
+        "page": "tsla.html",
+        "validated": True,
+        "range": "4y",  # full 1y lead-in before the Oct 2023 history start
+        "history_start": "2023-10-27",  # same window as GPIX/GPIQ report cards
+        "news_query": "Tesla+OR+TSLA+stock+OR+%22Elon+Musk%22",
+        # score100 span: W in [-1.5 .. +3.5] -> 41 .. 72 (see stock weights)
+        "meter": (40, 73),
+        "weights_max": 4.5,  # crash reversal 2.0 + realized-vol 1.5 + at-high 1.0
+    },
+    {
+        # SpaceX IPO'd 2026-06-12: ~2 months of data. NOTHING can be
+        # validated yet, so nothing scores - the page is context-only and
+        # pins at 50 until enough history accumulates to test (mid-2027
+        # for 1-year percentile signals).
+        "key": "spcx",
+        "kind": "stock",
+        "ticker": "SPCX",
+        "asset_name": "SpaceX",
+        "out": "data-spcx.json",
+        "history_out": "history-spcx.json",
+        "page": "spcx.html",
+        "validated": False,
+        "range": "1y",
+        "history_start": None,  # from IPO
+        "ipo": "2026-06-12",
+        "news_query": "SpaceX+OR+Starlink+OR+%22Space+Exploration+Technologies%22",
+        "meter": (50, 100),
+        "weights_max": 0,
+    },
 ]
 
 # Remaining FOMC decision days (second day of each meeting), per the
@@ -162,19 +204,24 @@ FWD_DAYS = 21
 RULES_VERSION = 4
 
 # Short verdict-band labels (feed titles, report card, timeline tooltip).
+# "caution" exists only for validated single stocks: TSLA's 10-20%
+# drawdown band tested negative in every era, the first (and only)
+# evidence-backed worse-than-average zone in the system.
 TONE_SHORT = {
     "good": "Better-than-usual entry",
     "ok": "Mild tailwind",
     "neutral": "No edge either way",
+    "caution": "Worse-than-average zone",
 }
 
 # Buy-score (0-100) ranges of each band, for report-card labels. W>=1 maps
 # to score100 56.25 and W>=3 to 68.75; the rendered boundaries round to
-# 56 and 69.
+# 56 and 69. W<=-1 (stocks only) maps to <=43.75, rendered as <=44.
 BAND_RANGE100 = {
     "good": "score ≥ 69",
     "ok": "score 56–68",
-    "neutral": "score 50",
+    "neutral": "score ~50",
+    "caution": "score ≤ 44",
 }
 
 # ---------------------------------------------------------------------------
@@ -200,6 +247,80 @@ W_TERM = 1.0
 W_CREDIT = 1.0
 W_FG = 1.0
 WEIGHTS_MAX = W_REVERSAL + W_DISCOUNT + W_VOL + W_TERM + W_CREDIT + W_FG  # 8.0
+
+
+# ---------------------------------------------------------------------------
+# Single-stock weights (TSLA only; SPCX is unvalidated and scores nothing).
+# Sized from the dedicated TSLA validation pass (2010-2026, 4054 sessions,
+# same forward-excess-return / era-split / effective-N method as the fund
+# audits; artifacts in /tmp/tsla_validation):
+#   crash reversal  2.0  5d return <= -12% (vol-scaled for TSLA's ~3x index
+#                        sigma): +0.87pt next-day excess (t=2.2), +11.2pt
+#                        over the next quarter, positive in EVERY era at
+#                        EVERY horizon tested. Fires ~11 days/yr.
+#   3 down closes   1.0  +0.35pt next-day excess (t=1.7), positive in all
+#                        four eras at the 1-day horizon (longer horizons
+#                        mixed, so it earns half the crash weight).
+#   realized vol    1.5  20d realized vol >= p90 of its trailing year:
+#                        +0.35pt/1d (t=1.7) and +15.5pt/63d, each positive
+#                        in every era. (No public TSLA IV index exists
+#                        keyless; realized vol is the substitute.)
+#   at 52w high     1.0  within 0.5% of the high: +0.62pt/1d (t=2.05),
+#                        positive in all eras - single-name MOMENTUM, the
+#                        opposite of what at-the-high meant for indexes.
+#   falling knife  -1.5  drawdown 10-20% from the 52w high: NEGATIVE in
+#                        every era at both 1d (t=-2.6) and 21d (t=-1.9)
+#                        horizons. The first evidence-backed "worse than
+#                        average to buy" zone in this whole project - it
+#                        exists for a single name even though two audits
+#                        found none for diversified indexes.
+# Failed the bar (context-only): the index 3-7% discount band (does not
+# transfer), drawdown >=35% "deep value" (+13pt/63d but t=1.1, narrowly
+# missed), market-wide VIX conditions applied to TSLA (era-flipped).
+# ---------------------------------------------------------------------------
+WS_CRASH = 2.0
+WS_DOWN3 = 1.0
+WS_RVOL = 1.5
+WS_HIGH = 1.0
+WS_KNIFE = -1.5
+
+
+def score_stock_pullback(down_streak: int, ret5: float | None) -> float:
+    """Crash reversal (5d <= -12%) at 2.0, plain 3-down-close streak at 1.0.
+    The crash band supersedes the streak when both fire."""
+    if ret5 is not None and ret5 <= -12.0:
+        return WS_CRASH
+    if down_streak >= 3:
+        return WS_DOWN3
+    return 0.0
+
+
+def score_stock_rvol(pct: float | None) -> float:
+    """Realized vol >= p90 of its own trailing year."""
+    return WS_RVOL if pct is not None and pct >= 90 else 0.0
+
+
+def score_stock_high_or_knife(dd: float) -> float:
+    """Distance from the 52-week high, single-name edition: at the high is
+    momentum (+1.0), the 10-20% band is the falling knife (-1.5)."""
+    if dd <= 0.5:
+        return WS_HIGH
+    if 10.0 <= dd < 20.0:
+        return WS_KNIFE
+    return 0.0
+
+
+def verdict_tone_stock(score: float) -> str:
+    """Stock verdict bands add "caution" below W <= -1: unlike the index
+    funds, TSLA has one empirically negative zone, so the score CAN drop
+    below 50 - the honest reading of the single-name evidence."""
+    if score >= 3:
+        return "good"
+    if score >= 1:
+        return "ok"
+    if score <= -1:
+        return "caution"
+    return "neutral"
 
 
 def score100_of(w: float) -> int:
@@ -310,6 +431,45 @@ def curl_fetch(url: str, headers: dict | None = None) -> bytes:
     return subprocess.run(cmd, capture_output=True, check=True).stdout
 
 
+@lru_cache(maxsize=None)
+def fetch_earnings(ticker: str) -> tuple[str, bool] | None:
+    """Next earnings date via Yahoo quoteSummary calendarEvents.
+
+    The endpoint has required a cookie+crumb handshake since 2023, but both
+    steps are keyless and serve curl fine (verified from this environment
+    and GitHub Actions uses the same plain egress). Returns
+    (iso_date, is_estimate) or None; callers treat None as "omit with a
+    note" - earnings display is a nice-to-have, never build-critical.
+    """
+    import tempfile
+    import urllib.parse
+
+    moz = CNN_HEADERS["User-Agent"]
+    with tempfile.NamedTemporaryFile() as jar:
+        def crl(args):
+            return subprocess.run(
+                ["curl", "-sS", "--fail", "-m", "20", "-A", moz] + args,
+                capture_output=True, check=True,
+            ).stdout
+
+        crl(["-c", jar.name, "-o", "/dev/null", "https://fc.yahoo.com"])
+        crumb = crl(["-b", jar.name, "https://query1.finance.yahoo.com/v1/test/getcrumb"]).decode().strip()
+        if not crumb or "<" in crumb:
+            return None
+        data = json.loads(crl([
+            "-b", jar.name,
+            "https://query1.finance.yahoo.com/v10/finance/quoteSummary/"
+            f"{ticker}?modules=calendarEvents&crumb={urllib.parse.quote(crumb)}",
+        ]))
+    earnings = data["quoteSummary"]["result"][0]["calendarEvents"]["earnings"]
+    dates = earnings.get("earningsDate") or []
+    today = date.today()
+    upcoming = sorted(d["fmt"] for d in dates if "fmt" in d and d["fmt"] >= today.isoformat())
+    if not upcoming:
+        return None
+    return upcoming[0], bool(earnings.get("isEarningsDateEstimate"))
+
+
 def yahoo_chart(symbol: str, range_: str, events: bool = False) -> dict:
     url = (
         f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
@@ -408,6 +568,29 @@ def sma(closes: list[float], window: int) -> float | None:
     if len(closes) < window:
         return None
     return sum(closes[-window:]) / window
+
+
+def realized_vol_series(adj: list[float], window: int = 20) -> list[float | None]:
+    """Annualized 20-day realized volatility (%), per index. The stock
+    pages' substitute for an implied-vol index - no keyless single-stock
+    IV series exists."""
+    rv: list[float | None] = [None] * len(adj)
+    for i in range(window, len(adj)):
+        rets = [math.log(adj[j] / adj[j - 1]) for j in range(i - window + 1, i + 1)]
+        rv[i] = statistics.stdev(rets) * math.sqrt(252) * 100
+    return rv
+
+
+def trailing_pct(series: list, i: int, min_obs: int = 252) -> float | None:
+    """Percentile of series[i] within its trailing year (inclusive).
+    None until a full year of observations exists - the min-history guard
+    that keeps SPCX's too-young signals from pretending to know things."""
+    if i < 0 or series[i] is None:
+        return None
+    window = [x for x in series[max(0, i - 251): i + 1] if x is not None]
+    if len(window) < min_obs:
+        return None
+    return sum(1 for x in window if x < series[i]) / len(window) * 100
 
 
 def fetch_headlines(query: str, limit: int = 6) -> list[dict]:
@@ -618,7 +801,7 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
     return hist
 
 
-def report_card(hist: list[dict]) -> dict:
+def report_card(hist: list[dict], tones: tuple = ("good", "ok", "neutral")) -> dict:
     """Forward FWD_DAYS-trading-day total return (adjusted closes) of buys
     made under each verdict band, vs the all-days baseline."""
     fwd = []
@@ -651,7 +834,7 @@ def report_card(hist: list[dict]) -> dict:
         "baseline": agg([v for _, v in fwd]),
         "bands": [
             dict(tone=t, label=f"{TONE_SHORT[t]} ({BAND_RANGE100[t]})", **agg([v for tt, v in fwd if tt == t]))
-            for t in ("good", "ok", "neutral")
+            for t in tones
         ],
     }
 
@@ -688,7 +871,7 @@ def write_feed(hist_by_key: dict[str, list[dict]]) -> int:
             el.text = text
         return el
 
-    sub(feed, "title", "Should I buy GPIX/GPIQ today? - verdict changes")
+    sub(feed, "title", "Should I buy GPIX/GPIQ/TSLA/SPCX today? - verdict changes")
     sub(feed, "id", SITE + "feed.xml")
     sub(feed, "link", rel="self", href=SITE + "feed.xml")
     sub(feed, "link", rel="alternate", href=SITE)
@@ -1294,10 +1477,546 @@ def build(fund: dict) -> dict:
     }
 
 
+def build_stock_history(fund: dict, rows: list, rv: list, live_row: dict) -> list[dict]:
+    """Backfill for single stocks: same as-of discipline as the fund
+    backfill, but scored with the stock rules (which are all derived from
+    the stock's own series - no external fetches to guard)."""
+    path = DOCS / fund["history_out"]
+    hist = load_history(path)
+    have = {r["date"] for r in hist}
+    start = date.fromisoformat(fund["history_start"]) if fund["history_start"] else None
+    adj = [a for _, _, a in rows]
+    validated = fund["validated"]
+
+    changed = False
+    for i in range(len(rows) - 1):
+        d = rows[i][0]
+        if start and d < start:
+            continue
+        iso = d.isoformat()
+        if iso in have:
+            continue
+        sc: list[tuple[str, float]] = []
+        if validated:
+            streak, ret5 = reversal_inputs(adj, i)
+            hi52 = max(adj[max(0, i - 251): i + 1])
+            dd = round((1 - adj[i] / hi52) * 100, 1)
+            sc = [
+                ("Short-term pullback (reversal)", score_stock_pullback(streak, ret5)),
+                ("Realized volatility vs its past year", score_stock_rvol(trailing_pct(rv, i))),
+                ("Distance from 52-week high", score_stock_high_or_knife(dd)),
+            ]
+        total = round(sum(s for _, s in sc), 2)
+        drivers = [
+            f"{fmt_w(s)} {n}"
+            for n, s in sorted((x for x in sc if x[1]), key=lambda x: -abs(x[1]))[:3]
+        ]
+        hist.append({
+            "date": iso,
+            "score": total,
+            "score100": score100_of(total),
+            "tone": verdict_tone_stock(total) if validated else "neutral",
+            "price": rows[i][1],
+            "adj": rows[i][2],
+            "backfilled": True,
+            "drivers": drivers,
+        })
+        have.add(iso)
+        changed = True
+    if live_row["date"] not in have:
+        hist.append(live_row)
+        changed = True
+    if changed or not path.exists():
+        save_history(path, hist)
+    else:
+        hist.sort(key=lambda r: r["date"])
+    return hist
+
+
+def build_stock(fund: dict) -> dict:
+    """Single-stock page build (TSLA validated, SPCX context-only).
+
+    Deliberately leaner than the fund build: only conditions the TSLA
+    validation pass proved (or explicitly demoted to context) appear, and
+    every 1-year-window signal carries a min-history guard so SPCX renders
+    honest "too young" cards instead of fake percentiles.
+    """
+    ticker = fund["ticker"]
+    name = fund["asset_name"]
+    validated = fund["validated"]
+
+    result = yahoo_chart(ticker, fund["range"], events=True)
+    rows = chart_rows(result)
+    closes = [c for _, c, _ in rows]
+    adj = [a for _, _, a in rows]
+    n = len(rows)
+    too_young = n < 252
+
+    price = closes[-1]
+    day_change = (price / closes[-2] - 1) * 100 if n > 1 else 0.0
+    sma50 = sma(closes, 50)
+    sma200 = sma(closes, 200)
+    year = closes[-252:]
+    high52 = max(year)
+    drawdown = round((1 - price / high52) * 100, 1)
+    year_adj = adj[-252:]
+    high52_adj = max(year_adj)
+    drawdown_adj = round((1 - adj[-1] / high52_adj) * 100, 1)
+
+    streak, ret5 = reversal_inputs(adj, n - 1)
+    rv = realized_vol_series(adj)
+    rv_now = rv[-1]
+    rv_pct = trailing_pct(rv, n - 1)
+
+    today = date.today()
+    high_label = "52-week high" if not too_young else "high since IPO"
+
+    signals = []
+
+    # 1. Short-term pullback - TSLA-specific thresholds from the
+    # validation pass; unvalidated (SPCX) shows the same math as context.
+    s = score_stock_pullback(streak, ret5) if validated else 0.0
+    if streak >= 3:
+        pb_value = f"{streak} down days"
+    elif ret5 is not None and ret5 <= -3:
+        pb_value = f"{ret5:+.1f}% in 5 sessions"
+    else:
+        pb_value = "no pullback"
+    if not validated:
+        pb_note = (
+            f"{ticker} has traded for {n} sessions - far too few to validate anything. On TSLA "
+            f"(16 years of history) sharp pullbacks reliably bounced, but single names differ and "
+            f"nothing may be assumed to transfer. Context only until enough history exists to test."
+        )
+        pb_lean = "neutral"
+    elif s == WS_CRASH:
+        pb_note = (
+            f"{ticker} is down {abs(ret5):.1f}% over 5 sessions - the vol-scaled crash band. In 16 years "
+            f"of {ticker} history these days averaged +0.9pt next-day excess (t=2.2) and +11pt over the "
+            f"next quarter, positive in every era at every horizon - the strongest single-name edge "
+            f"this tool found, hence the 2.0 weight."
+        )
+        pb_lean = "good"
+    elif s == WS_DOWN3:
+        pb_note = (
+            f"{ticker} has closed down {streak} straight sessions. Historically bounced the next day "
+            f"(+0.35pt excess, t=1.7, positive in every era at the 1-day horizon). Longer horizons were "
+            f"mixed, so it earns 1.0 - half the crash band's weight."
+        )
+        pb_lean = "good"
+    else:
+        pb_note = (
+            f"No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ "
+            f"five-session drop (+2.0). The thresholds are {ticker}-specific: at roughly 3x index "
+            f"volatility, the index's -3% band would fire a third of all days and tested as noise here."
+        )
+        pb_lean = "neutral"
+    signals.append({
+        "name": "Short-term pullback (reversal)",
+        "value": pb_value,
+        "score": s,
+        "weight": WS_CRASH if validated else 0,
+        "lean": pb_lean,
+        "note": pb_note,
+    })
+
+    # 2. Realized volatility vs its own past year (the single-stock
+    # substitute for a vol index - no keyless TSLA IV series exists).
+    s = score_stock_rvol(rv_pct) if validated else 0.0
+    if rv_now is None:
+        rvol_value = "n/a"
+        rvol_lean = "neutral"
+        rvol_note = f"Fewer than 21 sessions of history - realized volatility isn't computable yet."
+    elif rv_pct is None:
+        rvol_value = f"{rv_now:.0f}% ann."
+        rvol_lean = "neutral"
+        rvol_note = (
+            f"20-day realized volatility, annualized. A 1-year percentile needs a year of history - "
+            f"{ticker} IPO'd {fund.get('ipo', 'recently')}, so this card can't rank the number until "
+            f"mid-2027. The raw level is shown for context."
+        )
+    elif s:
+        rvol_value = f"{rv_now:.0f}% ann. (p{rv_pct:.0f})"
+        rvol_lean = "good"
+        rvol_note = (
+            f"{ticker}'s realized volatility is in the top decile of its own past year. In validation, "
+            f"these days averaged +0.35pt next-day excess (t=1.7) and +15.5pt over the next quarter, "
+            f"positive in every era - chaos has been the single-name buyer's friend. Weight 1.5."
+        )
+    elif rv_pct >= 70:
+        rvol_value = f"{rv_now:.0f}% ann. (p{rv_pct:.0f})"
+        rvol_lean = "good"
+        rvol_note = (
+            f"Realized volatility elevated vs {ticker}'s own past year. Only the top decile scores, "
+            f"but the direction of the evidence says turbulent tapes have been better entries."
+        )
+    elif rv_pct < 25:
+        rvol_value = f"{rv_now:.0f}% ann. (p{rv_pct:.0f})"
+        rvol_lean = "bad"
+        rvol_note = (
+            f"An unusually quiet tape for {ticker}. Quiet periods leaned slightly below average in "
+            f"validation but didn't meet the scoring bar - a lean, not a score."
+        )
+    else:
+        rvol_value = f"{rv_now:.0f}% ann. (p{rv_pct:.0f})"
+        rvol_lean = "neutral"
+        rvol_note = f"Realized volatility mid-range for {ticker}'s own past year."
+    signals.append({
+        "name": "Realized volatility vs its past year",
+        "value": rvol_value,
+        "score": s,
+        "weight": WS_RVOL if validated else 0,
+        "lean": rvol_lean,
+        "note": rvol_note,
+    })
+
+    # 3. Distance from the 52-week high - the single-name edition, where
+    # the evidence INVERTS the index intuition: at the high = momentum
+    # (+1.0), the 10-20% band = the falling knife (-1.5, the one
+    # evidence-backed worse-than-average zone in this whole project).
+    s = score_stock_high_or_knife(drawdown_adj) if validated else 0.0
+    if not validated:
+        dd_lean = "neutral"
+        dd_note = (
+            f"{ticker} is {drawdown_adj:.1f}% below its high since the June 2026 IPO. A real 52-week "
+            f"high won't exist until June 2027, and no drawdown band has been validated on this stock. "
+            f"Context only."
+        )
+    elif s == WS_HIGH:
+        dd_lean = "good"
+        dd_note = (
+            f"{ticker} is at (or within a whisker of) its 52-week high. For a single stock this is "
+            f"MOMENTUM, not a warning: in 16 years of validation, at-the-high days averaged +0.62pt "
+            f"next-day excess (t=2.05), positive in every era - the opposite of what this line means "
+            f"for the index funds. Weight 1.0."
+        )
+    elif s == WS_KNIFE:
+        dd_lean = "bad"
+        dd_note = (
+            f"{ticker} sits {drawdown_adj:.1f}% below its 52-week high - the falling-knife band "
+            f"(10-20% down). The one zone in this entire project with era-robust evidence of "
+            f"BELOW-average forward returns (negative in every era, t=-2.6 next-day, t=-1.9 monthly). "
+            f"Single names in mid-drawdown lean momentum, not mean-reversion. Weight -1.5."
+        )
+    elif drawdown_adj >= 35:
+        dd_lean = "good"
+        dd_note = (
+            f"A 35%+ drawdown - the deep-value zone. Validation showed +13pt over the next quarter on "
+            f"average, but the effect was era-fragile (t=1.1) and narrowly missed the scoring bar. "
+            f"Reads good; scores nothing."
+        )
+    elif drawdown_adj >= 20:
+        dd_lean = "neutral"
+        dd_note = (
+            f"A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of "
+            f"history show no reliable edge either way in this no-man's-land."
+        )
+    else:
+        dd_lean = "neutral"
+        dd_note = (
+            f"A modest {drawdown_adj:.1f}% off the 52-week high. Note the index funds' 3%+ discount "
+            f"band does NOT transfer: on {ticker} it tested as noise, so no points for small dips here."
+        )
+    signals.append({
+        "name": f"Distance from {high_label}",
+        "value": f"{drawdown_adj:.1f}%",
+        "score": s,
+        "weight": WS_KNIFE if s == WS_KNIFE else (WS_HIGH if validated else 0),
+        "lean": dd_lean,
+        "note": dd_note,
+    })
+
+    # 4. Own 200-day regime (TSLA) / trading-history card (SPCX).
+    if sma200 is not None:
+        above = price >= sma200
+        signals.append({
+            "name": f"{ticker} regime",
+            "value": "uptrend" if above else "downtrend",
+            "score": 0,
+            "weight": 0,
+            "lean": "good" if above else "bad",
+            "note": (
+                f"{ticker} {'above' if above else 'below'} its own 200-day average. Descriptive only - "
+                f"the fund audits showed below-200-day is not a buy signal, and no regime band was "
+                f"validated on {ticker} either. The lean just reads the tape."
+            ),
+        })
+    else:
+        unlock = []
+        if sma50 is None:
+            unlock.append("50-day average needs ~2.5 months")
+        unlock.append("200-day average arrives ~March 2027")
+        unlock.append("1-year signals (52-week high, vol percentile) arrive June 2027")
+        signals.append({
+            "name": "Trading history",
+            "value": f"{n} sessions",
+            "score": 0,
+            "weight": 0,
+            "lean": "neutral",
+            "note": (
+                f"{name} has traded {n} sessions since its {fund.get('ipo', '2026')} IPO. "
+                f"What unlocks as history accumulates: " + "; ".join(unlock) + ". Until then this "
+                f"page is context, not signal."
+            ),
+        })
+
+    # 5. Market backdrop - shown because people ask, scored never: the
+    # validation pass tested market-wide panic conditions (VIX >= p90,
+    # curve inversion, extreme fear) directly against TSLA's forward
+    # returns and every one era-flipped.
+    def sig_market():
+        vix_rows = list(cached_rows("%5EVIX", "1y"))
+        vix_level = vix_rows[-1][1]
+        vix_closes = [c for _, c, _ in vix_rows]
+        pct = sum(1 for c in vix_closes if c < vix_level) / len(vix_closes) * 100
+        fg_score, fg_rating = cached_fear_greed()
+        return {
+            "name": "Market backdrop (VIX & fear)",
+            "value": f"VIX {vix_level:.1f} (p{pct:.0f}), F&G {fg_score:.0f}",
+            "score": 0,
+            "weight": 0,
+            "lean": "neutral",
+            "note": (
+                f"The market-wide panic conditions that score for the index funds (VIX top-decile, "
+                f"curve inversion, Fear & Greed <= 25) were tested directly against {ticker}'s forward "
+                f"returns - and every one era-flipped. Single-company risk swamps macro timing, so "
+                f"this card informs and never scores."
+            ),
+        }
+
+    signals.append(guarded("Market backdrop (VIX & fear)", sig_market))
+
+    # 6. Event calendar: earnings first (the single-stock volatility event),
+    # then FOMC/CPI. Earnings fetch is guarded - omit with a note if the
+    # crumb handshake ever breaks.
+    next_fomc = next((d for d in FOMC_DATES if date.fromisoformat(d) >= today), None)
+    next_cpi = next((d for d in CPI_DATES if date.fromisoformat(d) >= today), None)
+    days_to_fomc = (date.fromisoformat(next_fomc) - today).days if next_fomc else None
+    days_to_cpi = (date.fromisoformat(next_cpi) - today).days if next_cpi else None
+    earnings_iso = None
+    earnings_est = False
+    earnings_note = ""
+    try:
+        got = fetch_earnings(ticker)
+        if got:
+            earnings_iso, earnings_est = got
+    except Exception:
+        earnings_note = " (Earnings date unavailable today - Yahoo's calendar endpoint didn't answer.)"
+    days_to_earnings = (date.fromisoformat(earnings_iso) - today).days if earnings_iso else None
+
+    events = [(d, "earnings", earnings_iso) for d in [days_to_earnings] if d is not None]
+    events += [(d, "FOMC", next_fomc) for d in [days_to_fomc] if d is not None]
+    events += [(d, "CPI", next_cpi) for d in [days_to_cpi] if d is not None]
+    events.sort()
+    imminent = bool(events) and events[0][0] <= 2
+    earnings_imminent = days_to_earnings is not None and days_to_earnings <= 5
+    if earnings_imminent:
+        est = " (date still an estimate)" if earnings_est else ""
+        ev_note = (
+            f"Earnings on {earnings_iso}{est} - THE single-stock volatility event: {ticker}-sized "
+            f"names routinely gap 5-15% on results, dwarfing any timing signal on this page. Not a "
+            f"reason to abandon a plan, but know it's a coin-flip week."
+        )
+        ev_lean = "bad"
+    elif imminent:
+        what = "CPI print" if events[0][1] == "CPI" else "Rate decision"
+        ev_note = f"{what} within 2 days - a market-wide volatility event. Expect a swing either way."
+        ev_lean = "bad"
+    else:
+        parts = []
+        if earnings_iso:
+            parts.append(f"earnings {earnings_iso}" + (" est." if earnings_est else ""))
+        if next_cpi:
+            parts.append(f"CPI {next_cpi}")
+        if next_fomc:
+            parts.append(f"FOMC {next_fomc}")
+        ev_note = "No event risk in the next few days" + (" (" + ", ".join(parts) + ")." if parts else ".") + earnings_note
+        ev_lean = "neutral"
+    ev_value = f"{events[0][1]} in {events[0][0]}d" if events else "n/a"
+    signals.append({
+        "name": "Event calendar",
+        "value": ev_value,
+        "score": 0,
+        "weight": 0,
+        "lean": ev_lean,
+        "note": ev_note,
+    })
+
+    # ---- verdict ----
+    score = round(sum(x["score"] for x in signals), 2)
+    score100 = score100_of(score)
+    tone = verdict_tone_stock(score) if validated else "neutral"
+    if not validated:
+        verdict = {
+            "label": "Too young to score - context only",
+            "summary": (
+                f"{name} has ~{n} sessions of trading history. Nothing can be validated on that, so "
+                f"nothing scores and the buy score pins at 50. This page is context, not signal, until "
+                f"enough history accumulates to test (percentile signals arrive mid-2027). For a "
+                f"single company, position sizing matters far more than timing anyway."
+            ),
+        }
+    else:
+        verdict = {
+            "good": {
+                "label": "Better-than-usual entry",
+                "summary": f"Rare validated conditions aligned on {ticker} today - the kind of setup that rewarded buyers across 16 years of history. If you were planning to add, this is a sensible day. (Still one company: size the position accordingly.)",
+            },
+            "ok": {
+                "label": "Mild tailwind - fine day to buy",
+                "summary": f"A validated {ticker}-specific condition is in your favor today. Nothing dramatic - and single-stock risk still dwarfs entry timing.",
+            },
+            "neutral": {
+                "label": "No edge either way",
+                "summary": f"None of the validated {ticker} conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
+            },
+            "caution": {
+                "label": "Worse-than-average zone",
+                "summary": (
+                    f"{ticker} sits in its 10-20% drawdown band - the falling knife. This is the one "
+                    f"zone in this whole project with era-robust evidence of below-average forward "
+                    f"returns: single names in mid-drawdown tend to keep drifting, not bounce. Nothing "
+                    f"here says sell; it says this specific dip has historically kept dipping."
+                ),
+            },
+        }[tone]
+    verdict["tone"] = tone
+    verdict["score"] = score
+    verdict["score100"] = score100
+    verdict["weights_max"] = fund["weights_max"]
+
+    # ---- flips (validated stocks only; SPCX has nothing to flip) ----
+    def build_flips() -> list[dict]:
+        if not validated:
+            return []
+        cands = []
+
+        def add(dist, direction, label, text):
+            cands.append({"dist": dist, "direction": direction, "label": label, "text": text})
+
+        def pts(w: float) -> str:
+            return f"{'+' if w > 0 else '−'}{abs(round(w * 6.25))} pts"
+
+        cur_pb = score_stock_pullback(streak, ret5)
+        if cur_pb < WS_CRASH and ret5 is not None and ret5 > -12 and ret5 <= -6:
+            need = abs(-12.0 - ret5)
+            add(need, +1, "Crash band",
+                f"{ticker} 5-session return {ret5:+.1f}% - another -{need:.1f}% reaches the validated crash band ({pts(WS_CRASH - cur_pb)})")
+        if cur_pb == 0 and streak == 2:
+            add(0.5, +1, "Short-term pullback",
+                f"{ticker} has fallen 2 straight sessions - one more down close = pullback signal ({pts(WS_DOWN3)})")
+
+        if rv_pct is not None and rv_pct < 90 and rv_now is not None:
+            window = sorted(x for x in rv[-252:] if x is not None)
+            lvl = window[min(len(window) - 1, int(0.90 * len(window)))]
+            add(abs(lvl / rv_now - 1) * 100, +1, "Top-decile volatility",
+                f"20-day realized vol above {lvl:.0f}% annualized (now {rv_now:.0f}%) = top decile of its year ({pts(WS_RVOL)})")
+
+        if 0.5 < drawdown_adj <= 3.5:
+            move = high52_adj * 0.995 / adj[-1] - 1
+            add(abs(move) * 100, +1, "Momentum: new high",
+                f"{ticker} at ${price * (1 + move):.2f} ({move * 100:+.1f}% from here) = back within 0.5% of the 52-week high ({pts(WS_HIGH)})")
+
+        if 6.5 <= drawdown_adj < 10:
+            move = high52_adj * 0.90 / adj[-1] - 1
+            add(abs(move) * 100, -1, "Falling-knife zone",
+                f"{ticker} at ${price * (1 + move):.2f} ({move * 100:+.1f}% from here) enters the 10-20% falling-knife band ({pts(WS_KNIFE)})")
+        if 10 <= drawdown_adj < 20:
+            move = high52_adj * 0.90 / adj[-1] - 1
+            add(abs(move) * 100, +1, "Exiting the knife zone",
+                f"{ticker} at ${price * (1 + move):.2f} ({move * 100:+.1f}% from here) climbs out of the falling-knife band ({pts(-WS_KNIFE)})")
+
+        cands.sort(key=lambda c: c["dist"])
+        return [{"label": c["label"], "direction": c["direction"], "text": c["text"]} for c in cands[:5]]
+
+    try:
+        flips = build_flips()
+    except Exception:
+        flips = []
+
+    # ---- history + report card ----
+    live_drivers = [
+        f"{fmt_w(x['score'])} {x['name']}"
+        for x in sorted((x for x in signals if x["score"]), key=lambda x: -abs(x["score"]))[:3]
+    ]
+    live_row = {
+        "date": rows[-1][0].isoformat(),
+        "score": score,
+        "score100": score100,
+        "tone": tone,
+        "price": price,
+        "adj": rows[-1][2],
+        "backfilled": False,
+        "drivers": live_drivers,
+    }
+    hist_path = DOCS / fund["history_out"]
+    try:
+        history = build_stock_history(fund, rows, rv, live_row)
+    except Exception:
+        history = load_history(hist_path)
+        if live_row["date"] not in {r["date"] for r in history}:
+            history.append(live_row)
+            save_history(hist_path, history)
+    tone_by_date = {r["date"]: r["tone"] for r in history}
+
+    tbill = None
+    try:
+        tbill = round(cached_fred("DGS3MO")[-1][1], 2)
+    except Exception:
+        pass
+
+    meter_min, meter_max = fund["meter"]
+    rc_tones = ("good", "ok", "neutral", "caution") if validated else ("good", "ok", "neutral")
+    return {
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "rules_version": RULES_VERSION,
+        "ticker": ticker,
+        "asset": {
+            "kind": "stock",
+            "name": name,
+            "ipo": fund.get("ipo"),
+            "sessions": n,
+            "too_young": too_young,
+            "validated": validated,
+        },
+        "verdict": verdict,
+        "meter": {"min": meter_min, "max": meter_max},
+        "signals": signals,
+        "fund": {
+            "price": price,
+            "day_change_pct": round(day_change, 2),
+            "sma50": round(sma50, 2) if sma50 else None,
+            "sma200": round(sma200, 2) if sma200 else None,
+            "high52w": high52,
+            "high_label": high_label,
+            "drawdown_pct": drawdown,
+            "series": [
+                {"d": d.isoformat(), "c": c, "t": tone_by_date.get(d.isoformat())}
+                for d, c, _ in rows[-180:]
+            ],
+        },
+        "flips": flips,
+        "report_card": report_card(history, rc_tones) if history else None,
+        "income": {"ttm_yield_pct": None, "tbill_3mo": tbill},
+        "underlying": {
+            "symbol": ticker,
+            "price": price,
+            "sma200": round(sma200, 2) if sma200 else None,
+            "above_200d": sma200 is not None and price >= sma200,
+        },
+        "vol": {"index": "20d realized", "level": round(rv_now, 1) if rv_now else None},
+        "fomc": {"next": next_fomc, "days_until": days_to_fomc, "imminent": imminent},
+        "cpi": {"next": next_cpi, "days_until": days_to_cpi},
+        "earnings": {"next": earnings_iso, "days_until": days_to_earnings, "estimate": earnings_est},
+        "backtest": backtest([(d, a) for d, _, a in rows]),
+        "headlines": fetch_headlines(fund["news_query"]),
+    }
+
+
 if __name__ == "__main__":
     DOCS.mkdir(parents=True, exist_ok=True)
     for fund in FUNDS:
-        data = build(fund)
+        data = build_stock(fund) if fund.get("kind") == "stock" else build(fund)
         out = DOCS / fund["out"]
         out.write_text(json.dumps(data, indent=1))
         print(f"wrote {out}")

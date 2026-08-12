@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f5f0">
-<meta name="description" content="Eleven transparent market checks - volatility, credit stress, sentiment, short-term pullbacks, yield vs cash, trend - watched daily for the six rare conditions that independent backtests found actually mark better-than-average days to buy GPIX.">
+<meta name="description" content="Six transparent daily checks on Tesla stock - pullbacks, realized volatility, distance from the high, regime, market backdrop, events - scored only where a dedicated 16-year TSLA validation pass found a real edge, including the one evidence-backed zone that's WORSE than average to buy.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23004225'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%23f6f5f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<title>Should I buy GPIX today?</title>
+<title>Should I buy TSLA today?</title>
 <link rel="alternate" type="application/atom+xml" title="GPIX/GPIQ/TSLA/SPCX verdict-change alerts" href="feed.xml">
 <style>
   :root {
@@ -76,6 +76,7 @@
   .verdict.good .label    { color: var(--good); }
   .verdict.ok .label      { color: var(--ok); }
   .verdict.neutral .label { color: var(--neutral); }
+  .verdict.caution .label { color: var(--bad); }
   .verdict .summary { color: var(--muted); margin-top: 6px; max-width: 64ch; }
 
   /* headline 0-100 buy score: BRG when good, olive when ok, gray at 50 */
@@ -85,12 +86,15 @@
   .buyscore .den { font-size: 17px; font-weight: 600; color: var(--faint); }
   .verdict.good .buyscore .num { color: var(--good); }
   .verdict.ok .buyscore .num { color: var(--ok); }
+  .verdict.caution .buyscore .num { color: var(--bad); }
   .scorenote { margin-top: 8px; font-size: 12.5px; color: var(--faint); max-width: 62ch; }
 
-  /* buy-meter: the 50-100 buy-score axis; zones map to verdict bands
-     (50-56 neutral, 56-69 ok, 69-100 good — the W>=1 and W>=3 boundaries) */
+  /* buy-meter: TSLA's axis runs 40-73 because — unlike the index funds —
+     one validated condition is NEGATIVE. Zones: caution (W<=-1, score<=44),
+     neutral around 50, ok 56+, good 69+. */
   .meter { margin-top: 20px; }
   .meter .track { position: relative; height: 10px; border-radius: 99px; overflow: hidden; display: flex; }
+  .meter .z0 { background: rgba(185,28,28,.28); }
   .meter .z1 { background: rgba(125,138,129,.30); }
   .meter .z2 { background: rgba(77,124,15,.35); }
   .meter .z3 { background: rgba(0,66,37,.45); }
@@ -106,6 +110,11 @@
     background: var(--surface2); border-left: 3px solid var(--brg); border-radius: 0 8px 8px 0;
   }
   .execnote b { color: var(--text); }
+  .honesty {
+    margin-top: 14px; padding: 12px 16px; font-size: 13px; color: var(--muted);
+    background: var(--surface2); border-left: 3px solid var(--rich); border-radius: 0 8px 8px 0;
+  }
+  .honesty b { color: var(--text); }
 
   h2 { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 34px 0 6px; }
   .h2sub { color: var(--faint); font-size: 13px; margin-bottom: 14px; }
@@ -135,6 +144,7 @@
   .rc-table .b-good td:first-child { color: var(--good); font-weight: 600; }
   .rc-table .b-ok td:first-child { color: var(--ok); font-weight: 600; }
   .rc-table .b-neutral td:first-child { color: var(--neutral); font-weight: 600; }
+  .rc-table .b-caution td:first-child { color: var(--bad); font-weight: 600; }
   .rc-table .baseline td { color: var(--muted); }
   .rc-table .few { color: var(--faint); font-size: 11.5px; font-weight: 400; }
   .caveat { margin-top: 12px; font-size: 12.5px; color: var(--faint); max-width: 72ch; }
@@ -185,7 +195,7 @@
     .verdict .label { font-size: 19px; }
     .buyscore .num { font-size: 38px; }
     .verdict .summary { font-size: 14.5px; }
-    .meter .zlabels span:nth-child(2) { visibility: hidden; }
+    .meter .zlabels span:nth-child(2), .meter .zlabels span:nth-child(3) { visibility: hidden; }
     .fundtoggle { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
     .fundtoggle a { padding: 6px 11px; }
     .fundtoggle a small { display: none; }
@@ -206,17 +216,17 @@
 <div class="wrap">
   <div class="topbar">
     <nav class="fundtoggle" aria-label="Choose asset">
-      <a href="./" class="active">GPIX <small>S&amp;P 500</small></a>
+      <a href="./">GPIX <small>S&amp;P 500</small></a>
       <a href="gpiq.html">GPIQ <small>Nasdaq 100</small></a>
-      <a href="tsla.html">TSLA <small>stock</small></a>
+      <a href="tsla.html" class="active">TSLA <small>stock</small></a>
       <a href="spcx.html">SPCX <small>stock</small></a>
     </nav>
     <a class="rsslink" href="feed.xml" title="Atom feed — a new entry appears only when a fund's verdict band changes from the prior day. Quiet by design.">Alerts (RSS)</a>
   </div>
   <header>
     <div>
-      <h1>Should I buy GPIX today?</h1>
-      <div class="sub">Eleven market checks every weekday morning - six rare conditions scored and weighted by evidence, the rest shown as context - turned into one honest 0-100 buy score.</div>
+      <h1>Should I buy TSLA today?</h1>
+      <div class="sub">Six daily checks, scored only where a dedicated 16-year TSLA validation pass found a real edge - including the one zone that's provably WORSE than average to buy.</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -224,14 +234,14 @@
   <div id="app"></div>
 
   <footer>
-    Not financial advice; a personal decision aid. Rules v4: after two independent backtests of
-    every scoring band plus a literature review with independent revalidation, only the rare
-    conditions that proved era-robust score - five market extremes and a short-term pullback
-    reversal - each weighted by the effect size the validation actually measured, then mapped to
-    a 0-100 buy score where 50 means "typical day". Nothing scores negative, because the audits
-    showed this tool couldn't spot bad days, so it stopped claiming to. It flags rare good days;
-    the rest of the time the answer is "buy on schedule." Data: Yahoo Finance, FRED, CNN, Google
-    News, Federal Reserve calendar.
+    Not financial advice; a personal decision aid. TSLA's rules come from a dedicated validation
+    pass (2010–2026, ~4,000 sessions) using the same method as the fund audits: forward
+    excess-return tests with era splits and effective-N t-stats. Only bands positive (or negative)
+    in every era scored; index-validated bands were NOT assumed to transfer, and most didn't.
+    Uniquely on this page, one condition scores negative — the 10–20% drawdown "falling knife" —
+    because the evidence for it was unambiguous. Single-stock caveat: none of this protects
+    against company-specific impairment; size positions accordingly. Data: Yahoo Finance, FRED,
+    CNN, Google News, Federal Reserve calendar.
   </footer>
 </div>
 
@@ -248,8 +258,8 @@ const ago = iso => {
 const fmtPct = v => (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
 // Verdict-band colors for the score timeline strip — same palette as the
 // buy-meter zones above.
-const TONE_FILL = {neutral: "rgba(125,138,129,.30)", ok: "rgba(77,124,15,.35)", good: "rgba(0,66,37,.45)"};
-const TONE_NAME = {good: "better-than-usual entry", ok: "mild tailwind", neutral: "no edge"};
+const TONE_FILL = {neutral: "rgba(125,138,129,.30)", ok: "rgba(77,124,15,.35)", good: "rgba(0,66,37,.45)", caution: "rgba(185,28,28,.32)"};
+const TONE_NAME = {good: "better-than-usual entry", ok: "mild tailwind", neutral: "no edge", caution: "worse-than-average zone"};
 
 // Renders the chart at the container's real pixel width (no viewBox scaling),
 // so axis text stays readable on a phone. Re-renders on resize/rotation.
@@ -307,7 +317,7 @@ function renderChart(series, sma50, sma200) {
 
   box.innerHTML = `
   <div class="chartwrap">
-  <svg id="pxchart" width="${W}" height="${H + EXT}" viewBox="0 0 ${W} ${H + EXT}" role="img" aria-label="GPIX closing price with 50- and 200-day averages and daily verdict band, last ${series.length} trading days">
+  <svg id="pxchart" width="${W}" height="${H + EXT}" viewBox="0 0 ${W} ${H + EXT}" role="img" aria-label="TSLA closing price with 50- and 200-day averages and daily verdict band, last ${series.length} trading days">
     ${gridVals.map(v => `<line x1="${L}" x2="${W-R}" y1="${yv(v)}" y2="${yv(v)}" stroke="#e4e7dd" stroke-width="1"/>
       <text x="2" y="${yv(v)+4}">$${fmt2(v)}</text>`).join("")}
     <path d="${area}" fill="rgba(0,66,37,0.07)"/>
@@ -351,15 +361,16 @@ function renderChart(series, sma50, sma200) {
   svg.addEventListener("pointercancel", hide);
 }
 
-fetch("data.json").then(r => r.json()).then(d => {
+fetch("data-tsla.json").then(r => r.json()).then(d => {
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
-  // Meter axis is the 0-100 buy score, floored at 50 (rules v4).
-  const METER_MIN = d.meter ? d.meter.min : 50;
-  const METER_MAX = d.meter ? d.meter.max : 100;
-  // Headline buy score: 50 + weighted W * 6.25 (never below 50 by design).
+  // Meter axis: 40-73. TSLA's score CAN fall below 50 (the falling-knife
+  // band scores -1.5), unlike the index-fund pages.
+  const METER_MIN = d.meter ? d.meter.min : 40;
+  const METER_MAX = d.meter ? d.meter.max : 73;
   const s100 = v.score100 ?? Math.round(50 + v.score * 6.25);
-  // Zone boundaries between verdict bands: 56 (neutral|ok, W=1), 69 (ok|good, W=3).
-  const zw = [56 - METER_MIN, 69 - 56, METER_MAX - 69];
+  // Zone boundaries: 43.75 (caution|neutral, W=-1), 56.25 (neutral|ok, W=1),
+  // 68.75 (ok|good, W=3) — rendered as 44 / 56 / 69.
+  const zw = [43.75 - METER_MIN, 56.25 - 43.75, 68.75 - 56.25, METER_MAX - 68.75];
   const chg = g.day_change_pct ?? 0;
   document.getElementById("pricebox").innerHTML = `
     <div class="px">$${fmt2(g.price)}</div>
@@ -374,28 +385,34 @@ fetch("data.json").then(r => r.json()).then(d => {
       <div class="buyscore"><span class="cap">Buy score</span><span class="num">${s100}</span><span class="den">/100</span></div>
       <div class="label">${v.label}</div>
       <div class="summary">${v.summary}</div>
-      <div class="scorenote">50 = typical day; the score only rises above it, because no reliable "bad day" signal survived our audits.</div>
-      <div class="meter" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 8}">
+      <div class="scorenote">50 = typical day. Unlike the index-fund pages, TSLA's score CAN fall below 50: its 10–20% drawdown band preceded below-average returns in every era tested — the one evidence-backed bad zone this project has found.</div>
+      <div class="meter" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 4.5}">
         <div class="track">
-          <div class="z1" style="flex:${zw[0]}"></div><div class="z2" style="flex:${zw[1]}"></div><div class="z3" style="flex:${zw[2]}"></div>
+          <div class="z0" style="flex:${zw[0]}"></div><div class="z1" style="flex:${zw[1]}"></div><div class="z2" style="flex:${zw[2]}"></div><div class="z3" style="flex:${zw[3]}"></div>
           <div class="pin" style="left: calc(${pinPct}% - 2px)"></div>
         </div>
-        <div class="zlabels"><span style="flex:${zw[0]}">50</span><span style="flex:${zw[1]}">mild tailwind 56+</span><span style="flex:${zw[2]}">strong case to buy 69+</span></div>
+        <div class="zlabels"><span style="flex:${zw[0]}">worse ≤44</span><span style="flex:${zw[1]}">50</span><span style="flex:${zw[2]}">mild 56+</span><span style="flex:${zw[3]}">strong 69+</span></div>
       </div>
     </div>
 
-    <div class="execnote"><b>Whatever day you buy, place the order near the close:</b> nearly all of the
-    index's return has historically accrued overnight, not intraday (Lou–Polk–Skouras 2019; our
-    validation: SPY ≈ +3.3bp per night, t=4.6, positive in every era). Buying near today's close
-    instead of tomorrow's open captures it — a small free edge, worth basis points, not fortunes.</div>
+    <div class="honesty"><b>This is one company, not an index.</b> The "any day is fine, 50 is the floor"
+    logic on the GPIX/GPIQ pages was validated on diversified indexes, which can't go to zero and always
+    recovered. A single stock can suffer permanent company-specific impairment that no timing signal sees
+    coming — so for TSLA, position sizing matters far more than entry timing, and this page scores only
+    what a dedicated 16-year TSLA validation pass actually proved.</div>
+
+    <div class="execnote"><b>If you buy, place the order near the close:</b> the overnight-premium
+    evidence (Lou–Polk–Skouras 2019; our validation: SPY ≈ +3.3bp per night, t=4.6, positive in every
+    era) was measured on indexes. Single-stock overnight behavior is noisier, so treat this as a mild
+    default habit here, not a proven edge.</div>
 
     <h2>Why</h2>
-    <div class="h2sub">Eleven checks each morning, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score, each weighted by the effect size our validation work measured (short-term reversal 2.0, discount and top-decile vol 1.5, the rest 1.0); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
+    <div class="h2sub">Six checks each morning. Only conditions that passed a dedicated TSLA validation pass (2010–2026, same era-robustness bar as the fund audits) move the score: crash pullback 2.0, top-decile realized vol 1.5, 3 straight down closes 1.0, at-the-high momentum 1.0 — and the 10–20% falling-knife band <b>subtracts</b> 1.5, the one signal in this project allowed to score negative, because the evidence is unambiguous. Index-validated bands that failed on TSLA (the 3% discount, market-wide VIX panic) render as context only.</div>
     <div class="signals">
       ${d.signals.map(s => {
         const lean = s.lean || "neutral";
-        const cls = s.score > 0 || lean === "good" ? "pos" : lean === "bad" ? "neg" : "zero";
-        const tag = s.score > 0 ? `+${s.score.toFixed(1)} · helps ▲` : lean === "good" ? "looks good ▲" : lean === "bad" ? "looks bad ▼" : "neutral";
+        const cls = s.score > 0 || (s.score === 0 && lean === "good") ? "pos" : s.score < 0 || lean === "bad" ? "neg" : "zero";
+        const tag = s.score > 0 ? `+${s.score.toFixed(1)} · helps ▲` : s.score < 0 ? `${s.score.toFixed(1)} · hurts ▼` : lean === "good" ? "looks good ▲" : lean === "bad" ? "looks bad ▼" : "neutral";
         return `
         <div class="sig">
           <div class="top">
@@ -409,9 +426,9 @@ fetch("data.json").then(r => r.json()).then(d => {
 
     ${d.flips && d.flips.length ? `
     <h2>What would change this verdict</h2>
-    <div class="h2sub">The nearest scoring thresholds from today's values, with their impact on the 0-100 buy score. Every row would push the score up — no condition can push it down anymore.</div>
+    <div class="h2sub">The nearest scoring thresholds from today's values, with their impact on the 0-100 buy score. Unlike the index-fund pages, rows here can point down — TSLA has an evidence-backed negative zone.</div>
     <div class="card"><ul class="flips">
-      ${d.flips.map(f => `<li class="up"><span class="dir">helps ▲</span><span>${f.text}</span></li>`).join("")}
+      ${d.flips.map(f => `<li class="${f.direction > 0 ? "up" : "down"}"><span class="dir">${f.direction > 0 ? "helps ▲" : "hurts ▼"}</span><span>${f.text}</span></li>`).join("")}
     </ul></div>` : ""}
 
     <h2>What the market is chewing on</h2>
@@ -421,7 +438,7 @@ fetch("data.json").then(r => r.json()).then(d => {
     </ul></div>
 
     <h2>Price context</h2>
-    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices; dashed lines mark the 50- and 200-day averages. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it in raw-price terms — the scored discount uses distributions-reinvested closes instead).${d.income && d.income.ttm_yield_pct != null && d.income.tbill_3mo != null ? ` GPIX has paid ${d.income.ttm_yield_pct.toFixed(1)}% over the trailing year vs ${d.income.tbill_3mo.toFixed(1)}% on 3-month T-bills.` : ""}</div>
+    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices; dashed lines mark the 50- and 200-day averages. 52-week high: $${fmt2(g.high52w)}, today ${g.drawdown_pct.toFixed(1)}% below it. The validated bands: within 0.5% of the high = momentum (+), 10–20% below = the falling knife (−), 35%+ = deep value (context only).</div>
     <div class="card" id="chartcard"></div>
 
     <h2>Does waiting even work? A running experiment</h2>
@@ -437,18 +454,18 @@ fetch("data.json").then(r => r.json()).then(d => {
       <div class="lane ${dcaWins ? "" : "winner"}">
         ${dcaWins ? "" : '<span class="crown">ahead</span>'}
         <div class="who">The dip-waiter</div>
-        <div class="how">Saves cash and only buys when GPIX is ≥${bt.dip_threshold_pct}% off its high. Got ${bt.dip_buy_days} chances so far.</div>
+        <div class="how">Saves cash and only buys when TSLA is ≥${bt.dip_threshold_pct}% off its high. Got ${bt.dip_buy_days} chances so far.</div>
         <div class="flow">${fmt$(bt.invested)} in → <b>${fmt$(bt.dip_value)}</b></div>
         <div class="ret">+${bt.dip_return_pct}% total return${bt.dip_cash_uninvested > 0 ? " · " + fmt$(bt.dip_cash_uninvested) + " still waiting in cash" : ""}</div>
       </div>
     </div>
     <div class="moral">${dcaWins
-      ? "The robot is ahead. Every day the dip-waiter spends in cash is a day of missed distributions — that's the timing tax, and it's why the verdict above never tells you to skip a scheduled buy."
-      : "The dip-waiter is narrowly ahead over this stretch — a young fund with one big drawdown can do that. Note the cash drag it carries; historically this edge shrinks as time passes."}</div>
+      ? "The robot is ahead. On a stock this volatile, dips come often enough that waiting rarely buys much cheaper — and the cash spends long stretches idle."
+      : "The dip-waiter is narrowly ahead over this stretch — on a stock with 60%+ swings, a 3% dip rule triggers constantly, so the two strategies track closely. Neither line is a timing argument; it's a reminder that WHEN matters far less than HOW MUCH for a single name."}</div>
 
     ${rc && rc.baseline && rc.baseline.n ? `
     <h2>Report card: has the verdict meant anything?</h2>
-    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what GPIX actually returned over the following ${rc.horizon_days} trading days (distributions included).</div>
+    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what TSLA actually returned over the following ${rc.horizon_days} trading days. Note the caution band: the falling-knife zone's negative read has held up in this recent window too.</div>
     <div class="card">
       <table class="rc-table">
         <tr><th>Verdict that day</th><th>Days</th><th>Avg next ${rc.horizon_days}d</th><th>Median</th></tr>
@@ -465,7 +482,7 @@ fetch("data.json").then(r => r.json()).then(d => {
     rT = setTimeout(() => renderChart(g.series, g.sma50, g.sma200), 150);
   });
 }).catch(e => {
-  document.getElementById("app").innerHTML = `<div class="err">Could not load data.json — ${e}</div>`;
+  document.getElementById("app").innerHTML = `<div class="err">Could not load data-tsla.json — ${e}</div>`;
 });
 </script>
 </body>

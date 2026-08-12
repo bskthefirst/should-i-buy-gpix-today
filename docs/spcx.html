@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f5f0">
-<meta name="description" content="Eleven transparent market checks - volatility, credit stress, sentiment, short-term pullbacks, yield vs cash, trend - watched daily for the six rare conditions that independent backtests found actually mark better-than-average days to buy GPIX.">
+<meta name="description" content="Daily context on SpaceX (SPCX) stock since its June 2026 IPO - price, realized volatility, drawdown from the IPO-era high, market backdrop, events. Honest by design: with ~2 months of trading history nothing can be validated, so nothing scores until enough data accumulates.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23004225'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%23f6f5f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<title>Should I buy GPIX today?</title>
+<title>Should I buy SPCX today?</title>
 <link rel="alternate" type="application/atom+xml" title="GPIX/GPIQ/TSLA/SPCX verdict-change alerts" href="feed.xml">
 <style>
   :root {
@@ -106,6 +106,11 @@
     background: var(--surface2); border-left: 3px solid var(--brg); border-radius: 0 8px 8px 0;
   }
   .execnote b { color: var(--text); }
+  .honesty {
+    margin-top: 14px; padding: 12px 16px; font-size: 13px; color: var(--muted);
+    background: var(--surface2); border-left: 3px solid var(--rich); border-radius: 0 8px 8px 0;
+  }
+  .honesty b { color: var(--text); }
 
   h2 { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 34px 0 6px; }
   .h2sub { color: var(--faint); font-size: 13px; margin-bottom: 14px; }
@@ -206,17 +211,17 @@
 <div class="wrap">
   <div class="topbar">
     <nav class="fundtoggle" aria-label="Choose asset">
-      <a href="./" class="active">GPIX <small>S&amp;P 500</small></a>
+      <a href="./">GPIX <small>S&amp;P 500</small></a>
       <a href="gpiq.html">GPIQ <small>Nasdaq 100</small></a>
       <a href="tsla.html">TSLA <small>stock</small></a>
-      <a href="spcx.html">SPCX <small>stock</small></a>
+      <a href="spcx.html" class="active">SPCX <small>stock</small></a>
     </nav>
     <a class="rsslink" href="feed.xml" title="Atom feed — a new entry appears only when a fund's verdict band changes from the prior day. Quiet by design.">Alerts (RSS)</a>
   </div>
   <header>
     <div>
-      <h1>Should I buy GPIX today?</h1>
-      <div class="sub">Eleven market checks every weekday morning - six rare conditions scored and weighted by evidence, the rest shown as context - turned into one honest 0-100 buy score.</div>
+      <h1>Should I buy SPCX today?</h1>
+      <div class="sub">SpaceX has traded for about two months. Nothing can be validated on that, so nothing scores - this page is daily context, not signal, until history accumulates (mid-2027 for the 1-year measures).</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -224,14 +229,14 @@
   <div id="app"></div>
 
   <footer>
-    Not financial advice; a personal decision aid. Rules v4: after two independent backtests of
-    every scoring band plus a literature review with independent revalidation, only the rare
-    conditions that proved era-robust score - five market extremes and a short-term pullback
-    reversal - each weighted by the effect size the validation actually measured, then mapped to
-    a 0-100 buy score where 50 means "typical day". Nothing scores negative, because the audits
-    showed this tool couldn't spot bad days, so it stopped claiming to. It flags rare good days;
-    the rest of the time the answer is "buy on schedule." Data: Yahoo Finance, FRED, CNN, Google
-    News, Federal Reserve calendar.
+    Not financial advice; a personal decision aid. SPCX (Space Exploration Technologies Corp.)
+    IPO'd June 12, 2026, and this tool refuses to score what it cannot test: every signal here is
+    context-only until enough history accumulates to run the same validation pass TSLA got
+    (percentile signals become computable mid-2027; era-robustness tests need years beyond that).
+    The buy score pins at 50 in the meantime — that is a statement about the tool's knowledge, not
+    about SpaceX. Single-stock caveat: nothing here protects against company-specific impairment;
+    size positions accordingly. Data: Yahoo Finance, FRED, CNN, Google News, Federal Reserve
+    calendar.
   </footer>
 </div>
 
@@ -307,7 +312,7 @@ function renderChart(series, sma50, sma200) {
 
   box.innerHTML = `
   <div class="chartwrap">
-  <svg id="pxchart" width="${W}" height="${H + EXT}" viewBox="0 0 ${W} ${H + EXT}" role="img" aria-label="GPIX closing price with 50- and 200-day averages and daily verdict band, last ${series.length} trading days">
+  <svg id="pxchart" width="${W}" height="${H + EXT}" viewBox="0 0 ${W} ${H + EXT}" role="img" aria-label="SPCX closing price since its June 2026 IPO with daily verdict band">
     ${gridVals.map(v => `<line x1="${L}" x2="${W-R}" y1="${yv(v)}" y2="${yv(v)}" stroke="#e4e7dd" stroke-width="1"/>
       <text x="2" y="${yv(v)+4}">$${fmt2(v)}</text>`).join("")}
     <path d="${area}" fill="rgba(0,66,37,0.07)"/>
@@ -351,7 +356,7 @@ function renderChart(series, sma50, sma200) {
   svg.addEventListener("pointercancel", hide);
 }
 
-fetch("data.json").then(r => r.json()).then(d => {
+fetch("data-spcx.json").then(r => r.json()).then(d => {
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
   // Meter axis is the 0-100 buy score, floored at 50 (rules v4).
   const METER_MIN = d.meter ? d.meter.min : 50;
@@ -374,8 +379,8 @@ fetch("data.json").then(r => r.json()).then(d => {
       <div class="buyscore"><span class="cap">Buy score</span><span class="num">${s100}</span><span class="den">/100</span></div>
       <div class="label">${v.label}</div>
       <div class="summary">${v.summary}</div>
-      <div class="scorenote">50 = typical day; the score only rises above it, because no reliable "bad day" signal survived our audits.</div>
-      <div class="meter" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 8}">
+      <div class="scorenote">Pinned at 50 by honesty, not by calm: none of this tool's signals can be validated on ~2 months of data, so none are allowed to score. The score unlocks as history accumulates.</div>
+      <div class="meter" title="Buy score ${s100}/100 — no validated signals yet (too young to score)">
         <div class="track">
           <div class="z1" style="flex:${zw[0]}"></div><div class="z2" style="flex:${zw[1]}"></div><div class="z3" style="flex:${zw[2]}"></div>
           <div class="pin" style="left: calc(${pinPct}% - 2px)"></div>
@@ -384,13 +389,20 @@ fetch("data.json").then(r => r.json()).then(d => {
       </div>
     </div>
 
-    <div class="execnote"><b>Whatever day you buy, place the order near the close:</b> nearly all of the
-    index's return has historically accrued overnight, not intraday (Lou–Polk–Skouras 2019; our
-    validation: SPY ≈ +3.3bp per night, t=4.6, positive in every era). Buying near today's close
-    instead of tomorrow's open captures it — a small free edge, worth basis points, not fortunes.</div>
+    <div class="honesty"><b>Two months of data — this page is context, not signal, until mid-2027.</b>
+    SpaceX first traded on June 12, 2026${d.asset && d.asset.sessions ? ` (${d.asset.sessions} sessions so far)` : ""}.
+    There is no 52-week high, no 200-day average, no 1-year volatility percentile, and no way to
+    validate any timing rule. And this is one company, not an index: the "any day is fine" logic from
+    the fund pages was proven on diversified indexes and does NOT protect against company-specific
+    impairment. Position sizing matters far more than timing here.</div>
+
+    <div class="execnote"><b>If you buy, place the order near the close:</b> the overnight-premium
+    evidence (Lou–Polk–Skouras 2019; our validation: SPY ≈ +3.3bp per night, t=4.6, positive in every
+    era) was measured on indexes. Single-stock overnight behavior is noisier — a mild default habit,
+    not a proven edge.</div>
 
     <h2>Why</h2>
-    <div class="h2sub">Eleven checks each morning, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score, each weighted by the effect size our validation work measured (short-term reversal 2.0, discount and top-decile vol 1.5, the rest 1.0); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
+    <div class="h2sub">Six checks each morning, every one shown with a definite read — but none scoring. On the fund pages (and TSLA) only validated conditions move the score; SPCX has nothing validated yet, so every card is context by construction. The cards state exactly what unlocks when.</div>
     <div class="signals">
       ${d.signals.map(s => {
         const lean = s.lean || "neutral";
@@ -421,11 +433,11 @@ fetch("data.json").then(r => r.json()).then(d => {
     </ul></div>
 
     <h2>Price context</h2>
-    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices; dashed lines mark the 50- and 200-day averages. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it in raw-price terms — the scored discount uses distributions-reinvested closes instead).${d.income && d.income.ttm_yield_pct != null && d.income.tbill_3mo != null ? ` GPIX has paid ${d.income.ttm_yield_pct.toFixed(1)}% over the trailing year vs ${d.income.tbill_3mo.toFixed(1)}% on 3-month T-bills.` : ""}</div>
+    <div class="h2sub">The entire trading history: ${g.series.length} days since the June 2026 IPO. Touch or hover for exact prices. High since IPO: $${fmt2(g.high52w)}, today ${g.drawdown_pct.toFixed(1)}% below it. The 50-day average appears once ~2.5 months exist; the 200-day in March 2027.</div>
     <div class="card" id="chartcard"></div>
 
     <h2>Does waiting even work? A running experiment</h2>
-    <div class="h2sub">Two imaginary savers, $${bt.weekly_amount}/week each since ${bt.start} (${fmt$(bt.invested)} in). Distributions reinvested.</div>
+    <div class="h2sub">Two imaginary savers, $${bt.weekly_amount}/week each since ${bt.start} (${fmt$(bt.invested)} in). <b>A ~2-month sample is statistically meaningless</b> — shown for transparency and continuity with the other pages, not as evidence for either strategy.</div>
     <div class="bt-flow">
       <div class="lane ${dcaWins ? "winner" : ""}">
         ${dcaWins ? '<span class="crown">ahead</span>' : ""}
@@ -437,18 +449,16 @@ fetch("data.json").then(r => r.json()).then(d => {
       <div class="lane ${dcaWins ? "" : "winner"}">
         ${dcaWins ? "" : '<span class="crown">ahead</span>'}
         <div class="who">The dip-waiter</div>
-        <div class="how">Saves cash and only buys when GPIX is ≥${bt.dip_threshold_pct}% off its high. Got ${bt.dip_buy_days} chances so far.</div>
+        <div class="how">Saves cash and only buys when SPCX is ≥${bt.dip_threshold_pct}% off its high. Got ${bt.dip_buy_days} chances so far.</div>
         <div class="flow">${fmt$(bt.invested)} in → <b>${fmt$(bt.dip_value)}</b></div>
         <div class="ret">+${bt.dip_return_pct}% total return${bt.dip_cash_uninvested > 0 ? " · " + fmt$(bt.dip_cash_uninvested) + " still waiting in cash" : ""}</div>
       </div>
     </div>
-    <div class="moral">${dcaWins
-      ? "The robot is ahead. Every day the dip-waiter spends in cash is a day of missed distributions — that's the timing tax, and it's why the verdict above never tells you to skip a scheduled buy."
-      : "The dip-waiter is narrowly ahead over this stretch — a young fund with one big drawdown can do that. Note the cash drag it carries; historically this edge shrinks as time passes."}</div>
+    <div class="moral">With ${g.series.length} sessions since IPO, neither lane means anything yet — this experiment needs years, not weeks. It runs from day one so that by the time it IS meaningful, no one can accuse it of a convenient start date.</div>
 
     ${rc && rc.baseline && rc.baseline.n ? `
     <h2>Report card: has the verdict meant anything?</h2>
-    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what GPIX actually returned over the following ${rc.horizon_days} trading days (distributions included).</div>
+    <div class="h2sub">Every trading day since the IPO scored with today's rules, then graded on what SPCX returned over the following ${rc.horizon_days} trading days. With nothing scoring, every day is "no edge" — and a sample this small is noise, shown only so the table exists from day one.</div>
     <div class="card">
       <table class="rc-table">
         <tr><th>Verdict that day</th><th>Days</th><th>Avg next ${rc.horizon_days}d</th><th>Median</th></tr>
@@ -465,7 +475,7 @@ fetch("data.json").then(r => r.json()).then(d => {
     rT = setTimeout(() => renderChart(g.series, g.sma50, g.sma200), 150);
   });
 }).catch(e => {
-  document.getElementById("app").innerHTML = `<div class="err">Could not load data.json — ${e}</div>`;
+  document.getElementById("app").innerHTML = `<div class="err">Could not load data-spcx.json — ${e}</div>`;
 });
 </script>
 </body>

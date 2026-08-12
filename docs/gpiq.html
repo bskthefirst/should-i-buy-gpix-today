@@ -7,7 +7,7 @@
 <meta name="description" content="Twelve transparent market checks - Nasdaq volatility, tech fear premium, credit stress, sentiment, short-term pullbacks, yield vs cash, trend - watched daily for the six rare conditions that independent backtests found actually mark better-than-average days to buy GPIQ.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23004225'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%23f6f5f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Should I buy GPIQ today?</title>
-<link rel="alternate" type="application/atom+xml" title="GPIX/GPIQ verdict-change alerts" href="feed.xml">
+<link rel="alternate" type="application/atom+xml" title="GPIX/GPIQ/TSLA/SPCX verdict-change alerts" href="feed.xml">
 <style>
   :root {
     /* Light theme, British racing green */
@@ -192,6 +192,9 @@
     .buyscore .num { font-size: 38px; }
     .verdict .summary { font-size: 14.5px; }
     .meter .zlabels span:nth-child(2) { visibility: hidden; }
+    .fundtoggle { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
+    .fundtoggle a { padding: 6px 11px; }
+    .fundtoggle a small { display: none; }
     .card { padding: 12px; }
     .bt-flow { grid-template-columns: 1fr; }
     .lane .how { min-height: 0; }
@@ -208,9 +211,11 @@
 <body>
 <div class="wrap">
   <div class="topbar">
-    <nav class="fundtoggle" aria-label="Choose fund">
+    <nav class="fundtoggle" aria-label="Choose asset">
       <a href="./">GPIX <small>S&amp;P 500</small></a>
       <a href="gpiq.html" class="active">GPIQ <small>Nasdaq 100</small></a>
+      <a href="tsla.html">TSLA <small>stock</small></a>
+      <a href="spcx.html">SPCX <small>stock</small></a>
     </nav>
     <a class="rsslink" href="feed.xml" title="Atom feed — a new entry appears only when a fund's verdict band changes from the prior day. Quiet by design.">Alerts (RSS)</a>
   </div>

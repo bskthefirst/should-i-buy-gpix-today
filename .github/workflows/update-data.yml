@@ -1,4 +1,4 @@
-name: Update GPIX/GPIQ data
+name: Update GPIX/GPIQ/TSLA/SPCX data
 
 on:
   schedule:
@@ -23,6 +23,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/data.json docs/data-gpiq.json docs/history.json docs/history-gpiq.json docs/feed.xml
+          git add docs/data.json docs/data-gpiq.json docs/data-tsla.json docs/data-spcx.json \
+                  docs/history.json docs/history-gpiq.json docs/history-tsla.json docs/history-spcx.json \
+                  docs/feed.xml
           git diff --cached --quiet && echo "no changes" || git commit -m "data: daily refresh $(date -u +%F)"
           git push

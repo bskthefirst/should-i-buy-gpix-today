@@ -10,6 +10,12 @@ SPY - and displays one extra check of its own: the **tech fear premium** (VXN/VI
 ranked against its own past year). That check is context-only: the audit found its
 intuitive scoring backwards, so it shows but never scores.
 
+Two single-stock pages (`tsla.html`, `spcx.html`) extend the same machinery to Tesla
+and SpaceX with an asset-aware engine - see "Single-stock pages" below. TSLA scores
+only what a dedicated 16-year validation pass proved (including the project's one
+evidence-backed *negative* zone); SPCX (IPO June 2026) is an honest context-only page
+that pins at 50 until enough history accumulates to test anything.
+
 ## How it decides
 
 A GitHub Action runs every weekday morning, pulls data from Yahoo Finance, FRED, CNN's
@@ -101,6 +107,44 @@ W = 0 (score 50). `verdict.score` in the JSON stays the weighted W for compatibi
 `weight` (0 for context signals), and both history files were regenerated under
 `rules_version` 4 with per-day `score` (W) and `score100`.
 
+## Single-stock pages: TSLA and SPCX
+
+Single stocks are not index funds, and the engine treats them differently
+(`kind: "stock"` in the `FUNDS` config): index-validated bands were **not** assumed to
+transfer. TSLA got its own audit-grade validation pass (2010-2026, ~4,050 sessions,
+same forward 21/63-day excess-return method, four era splits, effective-N t-stats)
+before anything was allowed to score. The results inverted several index intuitions:
+
+| TSLA condition | Weight | Evidence (all-era robust unless noted) |
+| --- | --- | --- |
+| Crash pullback: 5-session return ≤ −12% | **+2.0** | +0.87pt next-day excess (t=2.2), +11.2pt/63d, positive in every era at every horizon (~11 days/yr) |
+| 3 consecutive down closes | **+1.0** | +0.35pt/1d (t=1.7), all eras positive at 1d; longer horizons mixed, hence half weight |
+| 20d realized vol ≥ p90 of its year | **+1.5** | +0.35pt/1d (t=1.7) and +15.5pt/63d, all eras positive (no keyless TSLA IV index exists; realized vol substitutes) |
+| Within 0.5% of 52-week high | **+1.0** | +0.62pt/1d (t=2.05), all eras — single-name **momentum**, the opposite of the index result |
+| Drawdown 10–20% ("falling knife") | **−1.5** | Negative in every era at 1d (t=−2.6) and 21d (t=−1.9) — the one evidence-backed worse-than-average zone in this project |
+| Drawdown ≥35% ("deep value") | 0 (context) | +13pt/63d but era-fragile (t=1.1); narrowly missed the bar |
+| Index-style 3–7% discount | 0 (context) | Does not transfer — noise on TSLA |
+| Market-wide VIX/F&G panic bands | 0 (context) | Era-flipped when tested against TSLA forward returns |
+
+Because of the falling-knife band, **TSLA's buy score can fall below 50** (floor 41,
+verdict band "worse-than-average zone" at W ≤ −1) - the only page where the tool
+claims a bad day, because the evidence there was unambiguous. Its meter runs 40-73
+accordingly, and its report card carries a fourth "caution" row.
+
+SPCX (Space Exploration Technologies Corp., first traded 2026-06-12) has ~2 months of
+history: no 52-week high, no 200-day average, no 1-year percentile, no validation
+sample. Nothing scores; the score pins at 50 with on-page copy saying that's a
+statement about the tool's knowledge, not about SpaceX. Cards render honest "too
+young" notes with the dates each measure unlocks (50d SMA ~Aug 2026, 200d ~Mar 2027,
+1-year signals Jun 2027). Both stock pages also carry a single-stock honesty block:
+the "any day is fine" floor was validated on diversified indexes and does not protect
+against company-specific impairment - position sizing beats timing for single names.
+
+Stock pages add **earnings dates** to the event calendar (Yahoo quoteSummary
+`calendarEvents` via its cookie+crumb handshake - keyless, guarded, omitted with a
+note if the endpoint breaks). Earnings within 5 days flags as the dominant
+single-stock volatility event.
+
 ## The point of the backtest
 
 The page also runs a running backtest: $100/week bought blindly vs $100/week held in cash
@@ -109,9 +153,11 @@ most of the time, the no-timing strategy wins, and the page says so out loud.
 
 ## Score history, report card, alerts
 
-Each daily run appends the day's composite score to a per-fund history file
-(`docs/history.json`, `docs/history-gpiq.json`). History was backfilled to each fund's
-Oct 2023 inception by replaying the current rules on historical data (no lookahead in
+Each daily run appends the day's composite score to a per-asset history file
+(`docs/history.json`, `docs/history-gpiq.json`, `docs/history-tsla.json`,
+`docs/history-spcx.json`). History was backfilled to Oct 2023 (the funds' inception,
+also used for TSLA so the report cards cover the same window; SPCX backfills from its
+June 2026 IPO) by replaying the current rules on historical data (no lookahead in
 the inputs: trailing percentiles and 52-week highs all end at each date; backfilled rows
 are flagged). The files carry a `rules_version` stamp - when the rules change, old rows
 are discarded and the whole history is regenerated under the new rules. CNN's Fear &
@@ -129,18 +175,18 @@ The history powers three page features:
   short-term reversal, the vol index's p90 level, VIX-curve inversion, credit OAS 5%,
   Fear & Greed 25). All rows push the score up; nothing can push it down anymore.
 
-`docs/feed.xml` is a combined Atom feed for both funds that only emits an entry when a
-fund's verdict band changes from the prior day — subscribe via the "Alerts (RSS)" link
-on either page.
+`docs/feed.xml` is a combined Atom feed for all four assets that only emits an entry
+when an asset's verdict band changes from the prior day — subscribe via the "Alerts
+(RSS)" link on any page.
 
 ## Development
 
 ```bash
-python3 scripts/build_data.py   # regenerates docs/data.json + docs/data-gpiq.json (stdlib only)
+python3 scripts/build_data.py   # regenerates all four data-*.json files (stdlib only)
 python3 -m http.server -d docs  # view locally at http://localhost:8000
 ```
 
 Pages serves from the `docs/` folder on `main`. The workflow in
-`.github/workflows/update-data.yml` refreshes both data files each weekday at 13:35 UTC.
+`.github/workflows/update-data.yml` refreshes all four data files each weekday at 13:35 UTC.
 
 Not financial advice. Built as a personal decision aid.
