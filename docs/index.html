@@ -3,24 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0e1117">
+<meta name="theme-color" content="#f6f5f0">
 <meta name="description" content="Ten transparent market signals - volatility, credit stress, sentiment, yield vs cash, trend - scored daily to answer one question: is today a better- or worse-than-average day to buy GPIX?">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1117'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%2360a5fa' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23004225'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%23f6f5f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Should I buy GPIX today?</title>
 <style>
   :root {
-    --bg: #0e1117;
-    --surface: #161b24;
-    --surface2: #1d2431;
-    --border: #262f3f;
-    --text: #e6e9ef;
-    --muted: #9aa4b5;
-    --faint: #6b7688;
-    --good: #4ade80;
-    --ok: #a3e635;
-    --neutral: #60a5fa;
-    --rich: #f59e0b;
-    --bad: #f87171;
+    /* Light theme, British racing green */
+    --brg: #004225;
+    --bg: #f6f5f0;
+    --surface: #ffffff;
+    --surface2: #eff1ea;
+    --border: #dfe3d8;
+    --text: #1c2a22;
+    --muted: #54645b;
+    --faint: #7d8a81;
+    --good: #004225;
+    --ok: #4d7c0f;
+    --neutral: #44695b;
+    --rich: #b45309;
+    --bad: #b91c1c;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -28,6 +30,7 @@
     color: var(--text);
     font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
+    border-top: 4px solid var(--brg);
   }
   .wrap { max-width: 880px; margin: 0 auto; padding: 36px 20px 80px; }
 
@@ -43,6 +46,7 @@
   .verdict {
     margin-top: 24px; padding: 24px 26px;
     background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(28,42,34,.05);
   }
   .verdict .label { font-size: 22px; font-weight: 700; }
   .verdict.good .label    { color: var(--good); }
@@ -55,10 +59,10 @@
      (rich <= -2, neutral -1..1, ok 2..4, good >= 5) */
   .meter { margin-top: 20px; }
   .meter .track { position: relative; height: 10px; border-radius: 99px; overflow: hidden; display: flex; }
-  .meter .z1 { flex: 5.5; background: rgba(245,158,11,.45); }
-  .meter .z2 { flex: 3; background: rgba(96,165,250,.45); }
-  .meter .z3 { flex: 3; background: rgba(163,230,53,.45); }
-  .meter .z4 { flex: 7.5; background: rgba(74,222,128,.45); }
+  .meter .z1 { flex: 5.5; background: rgba(180,83,9,.35); }
+  .meter .z2 { flex: 3; background: rgba(125,138,129,.30); }
+  .meter .z3 { flex: 3; background: rgba(77,124,15,.35); }
+  .meter .z4 { flex: 7.5; background: rgba(0,66,37,.45); }
   .meter .pin {
     position: absolute; top: -5px; width: 4px; height: 20px; border-radius: 2px;
     background: var(--text); box-sizing: border-box;
@@ -73,17 +77,17 @@
   .h2sub { color: var(--faint); font-size: 13px; margin-bottom: 14px; }
 
   .signals { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
-  .sig { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 15px 17px; }
+  .sig { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 15px 17px; box-shadow: 0 1px 3px rgba(28,42,34,.05); }
   .sig .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
   .sig .name { font-size: 13px; color: var(--muted); }
   .sig .val { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; }
   .tag { font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 99px; white-space: nowrap; }
-  .tag.pos { color: var(--good); background: rgba(74,222,128,.1); }
-  .tag.neg { color: var(--rich); background: rgba(245,158,11,.12); }
-  .tag.zero { color: var(--faint); background: rgba(107,118,136,.12); }
+  .tag.pos { color: var(--good); background: rgba(0,66,37,.08); }
+  .tag.neg { color: var(--rich); background: rgba(180,83,9,.1); }
+  .tag.zero { color: var(--faint); background: rgba(125,138,129,.12); }
   .sig .note { font-size: 13px; color: var(--faint); margin-top: 8px; }
 
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: 0 1px 3px rgba(28,42,34,.05); }
   .chartwrap { position: relative; }
   .tooltip {
     position: absolute; pointer-events: none; display: none;
@@ -98,7 +102,7 @@
   .lane.winner { outline: 1.5px solid var(--good); }
   .lane .crown {
     position: absolute; top: -10px; right: 12px; font-size: 11px; font-weight: 700;
-    background: var(--good); color: #0c1a10; padding: 2px 9px; border-radius: 99px;
+    background: var(--brg); color: #f6f5f0; padding: 2px 9px; border-radius: 99px;
   }
   .lane .who { font-size: 14px; font-weight: 600; }
   .lane .how { font-size: 12.5px; color: var(--faint); margin-top: 2px; min-height: 34px; }
@@ -111,7 +115,7 @@
   .news li { list-style: none; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; display: flex; justify-content: space-between; gap: 14px; }
   .news li:last-child { border-bottom: none; }
   .news a { color: var(--text); text-decoration: none; }
-  .news a:hover { color: var(--neutral); }
+  .news a:hover { color: var(--brg); text-decoration: underline; }
   .news .meta { color: var(--faint); font-size: 12px; white-space: nowrap; }
 
   footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--faint); font-size: 12.5px; max-width: 68ch; }
@@ -193,15 +197,15 @@ function renderChart(series, sma50) {
   box.innerHTML = `
   <div class="chartwrap">
   <svg id="pxchart" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="GPIX closing price with 50-day average, last ${series.length} trading days">
-    ${gridVals.map(v => `<line x1="${L}" x2="${W-R}" y1="${yv(v)}" y2="${yv(v)}" stroke="#262f3f" stroke-width="1"/>
+    ${gridVals.map(v => `<line x1="${L}" x2="${W-R}" y1="${yv(v)}" y2="${yv(v)}" stroke="#e4e7dd" stroke-width="1"/>
       <text x="2" y="${yv(v)+4}">$${fmt2(v)}</text>`).join("")}
-    <path d="${area}" fill="rgba(96,165,250,0.08)"/>
-    ${sma50 !== null ? `<line x1="${L}" x2="${W-R}" y1="${yv(sma50)}" y2="${yv(sma50)}" stroke="#6b7688" stroke-dasharray="4 4" stroke-width="1"/>
+    <path d="${area}" fill="rgba(0,66,37,0.07)"/>
+    ${sma50 !== null ? `<line x1="${L}" x2="${W-R}" y1="${yv(sma50)}" y2="${yv(sma50)}" stroke="#9aa79f" stroke-dasharray="4 4" stroke-width="1"/>
       <text x="${L+4}" y="${yv(sma50)-5}">50-day average</text>` : ""}
-    <path d="${path}" fill="none" stroke="#60a5fa" stroke-width="2"/>
-    <circle cx="${xi(closes.length-1)}" cy="${yv(last)}" r="3.5" fill="#60a5fa"/>
-    <line id="cross" y1="${T}" y2="${H-B}" stroke="#6b7688" stroke-width="1" style="display:none"/>
-    <circle id="hoverdot" r="3.5" fill="#e6e9ef" style="display:none"/>
+    <path d="${path}" fill="none" stroke="#004225" stroke-width="2"/>
+    <circle cx="${xi(closes.length-1)}" cy="${yv(last)}" r="3.5" fill="#004225"/>
+    <line id="cross" y1="${T}" y2="${H-B}" stroke="#9aa79f" stroke-width="1" style="display:none"/>
+    <circle id="hoverdot" r="3.5" fill="#1c2a22" style="display:none"/>
     <text x="${L}" y="${H-7}">${dateFmt(series[0].d)}</text>
     <text x="${W-(narrow?46:78)}" y="${H-7}">${dateFmt(series[series.length-1].d)}</text>
   </svg>
@@ -272,6 +276,12 @@ fetch("data.json").then(r => r.json()).then(d => {
         </div>`).join("")}
     </div>
 
+    <h2>What the market is chewing on</h2>
+    <div class="h2sub">Context for today's mood — not inputs to the score.</div>
+    <div class="card"><ul class="news">
+      ${d.headlines.map(h => `<li><a href="${h.link}" target="_blank" rel="noopener">${h.title}</a><span class="meta">${h.source}${h.published ? " · " + ago(h.published) : ""}</span></li>`).join("") || "<li>No headlines fetched.</li>"}
+    </ul></div>
+
     <h2>Price context</h2>
     <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it).${d.income && d.income.ttm_yield_pct != null && d.income.tbill_3mo != null ? ` GPIX has paid ${d.income.ttm_yield_pct.toFixed(1)}% over the trailing year vs ${d.income.tbill_3mo.toFixed(1)}% on 3-month T-bills.` : ""}</div>
     <div class="card" id="chartcard"></div>
@@ -297,12 +307,6 @@ fetch("data.json").then(r => r.json()).then(d => {
     <div class="moral">${dcaWins
       ? "The robot is ahead. Every day the dip-waiter spends in cash is a day of missed distributions — that's the timing tax, and it's why the verdict above never tells you to skip a scheduled buy."
       : "The dip-waiter is narrowly ahead over this stretch — a young fund with one big drawdown can do that. Note the cash drag it carries; historically this edge shrinks as time passes."}</div>
-
-    <h2>What the market is chewing on</h2>
-    <div class="h2sub">Context for today's mood — not inputs to the score.</div>
-    <div class="card"><ul class="news">
-      ${d.headlines.map(h => `<li><a href="${h.link}" target="_blank" rel="noopener">${h.title}</a><span class="meta">${h.source}${h.published ? " · " + ago(h.published) : ""}</span></li>`).join("") || "<li>No headlines fetched.</li>"}
-    </ul></div>
   `;
   renderChart(g.series, g.sma50);
   let rT;
