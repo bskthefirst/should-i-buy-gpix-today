@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e1117">
+<meta name="description" content="Rules-based daily read on whether today is a better- or worse-than-average day to buy GPIX.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1117'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%2360a5fa' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Should I buy GPIX today?</title>
 <style>
   :root {
@@ -112,9 +115,24 @@
 
   footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--faint); font-size: 12.5px; max-width: 68ch; }
   .err { margin-top: 30px; color: var(--bad); }
+  #pxchart { touch-action: pan-y; display: block; }
+
   @media (max-width: 620px) {
+    .wrap { padding: 22px 14px 60px; }
+    header { flex-direction: column; gap: 10px; }
+    header h1 { font-size: 21px; }
+    .pricebox { text-align: left; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .pricebox .px { font-size: 21px; }
+    .pricebox .stamp { width: 100%; margin-top: 0; }
+    .verdict { padding: 18px 16px; }
+    .verdict .label { font-size: 19px; }
+    .verdict .summary { font-size: 14.5px; }
+    .meter .zlabels span:nth-child(2), .meter .zlabels span:nth-child(3) { visibility: hidden; }
+    .card { padding: 12px; }
     .bt-flow { grid-template-columns: 1fr; }
-    .pricebox { text-align: left; }
+    .lane .how { min-height: 0; }
+    .news li { flex-direction: column; gap: 2px; }
+    h2 { margin-top: 28px; }
   }
 </style>
 </head>
@@ -152,49 +170,50 @@ const ago = iso => {
 // Score scale for the meter: -3 (everything says "full price") to +6 (everything favorable).
 const METER_MIN = -3, METER_MAX = 6;
 
-function chart(series, sma50) {
-  const W = 820, H = 200, L = 44, R = 10, T = 10, B = 22;
-  const closes = series.map(p => p.c);
-  const lo = Math.min(...closes), hi = Math.max(...closes);
-  const x = i => L + i * (W - L - R) / (series.length - 1);
-  const y = v => T + (hi - v) * (H - T - B) / (hi - lo || 1);
-  const path = closes.map((c, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(c).toFixed(1)).join(" ");
-  const area = path + ` L ${x(closes.length-1).toFixed(1)} ${H-B} L ${L} ${H-B} Z`;
-  const last = closes[closes.length - 1];
-  const gridVals = [hi, (hi + lo) / 2, lo];
-  return `
-  <div class="chartwrap">
-  <svg id="pxchart" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="GPIX closing price with 50-day average, last ${series.length} trading days">
-    ${gridVals.map(v => `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#262f3f" stroke-width="1"/>
-      <text x="2" y="${y(v)+4}">$${fmt2(v)}</text>`).join("")}
-    <path d="${area}" fill="rgba(96,165,250,0.08)"/>
-    ${sma50 !== null ? `<line x1="${L}" x2="${W-R}" y1="${y(sma50)}" y2="${y(sma50)}" stroke="#6b7688" stroke-dasharray="4 4" stroke-width="1"/>
-      <text x="${L+4}" y="${y(sma50)-5}">50-day average</text>` : ""}
-    <path d="${path}" fill="none" stroke="#60a5fa" stroke-width="2"/>
-    <circle cx="${x(closes.length-1)}" cy="${y(last)}" r="3.5" fill="#60a5fa"/>
-    <line id="cross" y1="${T}" y2="${H-B}" stroke="#6b7688" stroke-width="1" style="display:none"/>
-    <circle id="hoverdot" r="3.5" fill="#e6e9ef" style="display:none"/>
-    <text x="${L}" y="${H-6}">${series[0].d}</text>
-    <text x="${W-80}" y="${H-6}">${series[series.length-1].d}</text>
-    <rect id="hit" x="${L}" y="0" width="${W-L-R}" height="${H}" fill="transparent"/>
-  </svg>
-  <div class="tooltip" id="tip"></div>
-  </div>`;
-}
-
-function wireChart(series) {
-  const svg = document.getElementById("pxchart");
-  const tip = document.getElementById("tip");
-  const cross = document.getElementById("cross");
-  const dot = document.getElementById("hoverdot");
-  const W = 820, H = 200, L = 44, R = 10, T = 10, B = 22;
+// Renders the chart at the container's real pixel width (no viewBox scaling),
+// so axis text stays readable on a phone. Re-renders on resize/rotation.
+function renderChart(series, sma50) {
+  const box = document.getElementById("chartcard");
+  if (!box) return;
+  const narrow = window.innerWidth <= 620;
+  const W = Math.max(300, box.clientWidth - (narrow ? 24 : 36));
+  const H = narrow ? 190 : 210;
+  const L = 46, R = 10, T = 12, B = 24;
   const closes = series.map(p => p.c);
   const lo = Math.min(...closes), hi = Math.max(...closes);
   const xi = i => L + i * (W - L - R) / (series.length - 1);
   const yv = v => T + (hi - v) * (H - T - B) / (hi - lo || 1);
-  svg.addEventListener("mousemove", ev => {
+  const path = closes.map((c, i) => (i ? "L" : "M") + xi(i).toFixed(1) + " " + yv(c).toFixed(1)).join(" ");
+  const area = path + ` L ${xi(closes.length-1).toFixed(1)} ${H-B} L ${L} ${H-B} Z`;
+  const last = closes[closes.length - 1];
+  const gridVals = [hi, (hi + lo) / 2, lo];
+  const dateFmt = s => narrow ? s.slice(5) : s;
+
+  box.innerHTML = `
+  <div class="chartwrap">
+  <svg id="pxchart" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="GPIX closing price with 50-day average, last ${series.length} trading days">
+    ${gridVals.map(v => `<line x1="${L}" x2="${W-R}" y1="${yv(v)}" y2="${yv(v)}" stroke="#262f3f" stroke-width="1"/>
+      <text x="2" y="${yv(v)+4}">$${fmt2(v)}</text>`).join("")}
+    <path d="${area}" fill="rgba(96,165,250,0.08)"/>
+    ${sma50 !== null ? `<line x1="${L}" x2="${W-R}" y1="${yv(sma50)}" y2="${yv(sma50)}" stroke="#6b7688" stroke-dasharray="4 4" stroke-width="1"/>
+      <text x="${L+4}" y="${yv(sma50)-5}">50-day average</text>` : ""}
+    <path d="${path}" fill="none" stroke="#60a5fa" stroke-width="2"/>
+    <circle cx="${xi(closes.length-1)}" cy="${yv(last)}" r="3.5" fill="#60a5fa"/>
+    <line id="cross" y1="${T}" y2="${H-B}" stroke="#6b7688" stroke-width="1" style="display:none"/>
+    <circle id="hoverdot" r="3.5" fill="#e6e9ef" style="display:none"/>
+    <text x="${L}" y="${H-7}">${dateFmt(series[0].d)}</text>
+    <text x="${W-(narrow?46:78)}" y="${H-7}">${dateFmt(series[series.length-1].d)}</text>
+  </svg>
+  <div class="tooltip" id="tip"></div>
+  </div>`;
+
+  const svg = document.getElementById("pxchart");
+  const tip = document.getElementById("tip");
+  const cross = document.getElementById("cross");
+  const dot = document.getElementById("hoverdot");
+  const show = clientX => {
     const rect = svg.getBoundingClientRect();
-    const px = (ev.clientX - rect.left) * W / rect.width;
+    const px = clientX - rect.left;
     const i = Math.max(0, Math.min(series.length - 1,
       Math.round((px - L) / ((W - L - R) / (series.length - 1)))));
     const p = series[i];
@@ -203,13 +222,16 @@ function wireChart(series) {
     dot.setAttribute("cx", xi(i)); dot.setAttribute("cy", yv(p.c));
     dot.style.display = "block";
     tip.style.display = "block";
-    tip.style.left = (xi(i) * rect.width / W) + "px";
-    tip.style.top = (yv(p.c) * rect.height / H) + "px";
+    tip.style.left = xi(i) + "px";
+    tip.style.top = yv(p.c) + "px";
     tip.textContent = p.d + " · $" + fmt2(p.c);
-  });
-  svg.addEventListener("mouseleave", () => {
-    tip.style.display = cross.style.display = dot.style.display = "none";
-  });
+  };
+  const hide = () => { tip.style.display = cross.style.display = dot.style.display = "none"; };
+  // Pointer events cover mouse AND touch (iOS Safari 13+).
+  svg.addEventListener("pointermove", ev => show(ev.clientX));
+  svg.addEventListener("pointerdown", ev => show(ev.clientX));
+  svg.addEventListener("pointerleave", hide);
+  svg.addEventListener("pointercancel", hide);
 }
 
 fetch("data.json").then(r => r.json()).then(d => {
@@ -250,8 +272,8 @@ fetch("data.json").then(r => r.json()).then(d => {
     </div>
 
     <h2>Price context</h2>
-    <div class="h2sub">Last ${g.series.length} trading days. Hover for exact prices. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it).</div>
-    <div class="card">${chart(g.series, g.sma50)}</div>
+    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it).</div>
+    <div class="card" id="chartcard"></div>
 
     <h2>Does waiting even work? A running experiment</h2>
     <div class="h2sub">Two imaginary savers, $${bt.weekly_amount}/week each since ${bt.start} (${fmt$(bt.invested)} in). Distributions reinvested.</div>
@@ -281,7 +303,12 @@ fetch("data.json").then(r => r.json()).then(d => {
       ${d.headlines.map(h => `<li><a href="${h.link}" target="_blank" rel="noopener">${h.title}</a><span class="meta">${h.source}${h.published ? " · " + ago(h.published) : ""}</span></li>`).join("") || "<li>No headlines fetched.</li>"}
     </ul></div>
   `;
-  wireChart(g.series);
+  renderChart(g.series, g.sma50);
+  let rT;
+  window.addEventListener("resize", () => {
+    clearTimeout(rT);
+    rT = setTimeout(() => renderChart(g.series, g.sma50), 150);
+  });
 }).catch(e => {
   document.getElementById("app").innerHTML = `<div class="err">Could not load data.json — ${e}</div>`;
 });
