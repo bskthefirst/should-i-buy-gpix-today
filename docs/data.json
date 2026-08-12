@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-12T12:17:48+00:00",
+ "generated_at": "2026-08-12T12:27:14+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -21,7 +21,22 @@
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
-   "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit."
+   "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
+   "viz": {
+    "pos": 15.0,
+    "labels": [
+     "calm year",
+     "p90+ scores"
+    ],
+    "zones": [
+     [
+      90,
+      100,
+      "good"
+     ]
+    ],
+    "marker": 90
+   }
   },
   {
    "name": "VIX term structure (1mo/3mo)",
@@ -29,7 +44,22 @@
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "Normal upward-sloping VIX curve. No unusual near-term fear."
+   "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
+   "viz": {
+    "pos": 28.2,
+    "labels": [
+     "0.70 calm",
+     "1.10 panic"
+    ],
+    "zones": [
+     [
+      75,
+      100,
+      "good"
+     ]
+    ],
+    "marker": 75
+   }
   },
   {
    "name": "Are call-sellers overpaid?",
@@ -37,7 +67,26 @@
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep."
+   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
+   "viz": {
+    "pos": 44.3,
+    "labels": [
+     "underpaid \u22124",
+     "overpaid +8"
+    ],
+    "zones": [
+     [
+      0,
+      16.7,
+      "bad"
+     ],
+     [
+      83.3,
+      100,
+      "good"
+     ]
+    ]
+   }
   },
   {
    "name": "Discount from 52-week high",
@@ -45,7 +94,22 @@
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
-   "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average."
+   "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
+   "viz": {
+    "pos": 2.0,
+    "labels": [
+     "at the high",
+     "\u221210%"
+    ],
+    "zones": [
+     [
+      30,
+      100,
+      "good"
+     ]
+    ],
+    "marker": 30
+   }
   },
   {
    "name": "Short-term pullback (reversal)",
@@ -61,7 +125,14 @@
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral."
+   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
+   "viz": {
+    "pos": 72.5,
+    "labels": [
+     "\u22126%",
+     "+6%"
+    ]
+   }
   },
   {
    "name": "S&P 500 regime",
@@ -77,7 +148,22 @@
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "Credit markets calm - no stress."
+   "note": "Credit markets calm - no stress.",
+   "viz": {
+    "pos": 17.5,
+    "labels": [
+     "2% calm",
+     "6% crisis"
+    ],
+    "zones": [
+     [
+      75,
+      100,
+      "good"
+     ]
+    ],
+    "marker": 75
+   }
   },
   {
    "name": "Payout vs safe cash",
@@ -85,7 +171,26 @@
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "GPIX yields comfortably more than cash - the normal state of affairs."
+   "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
+   "viz": {
+    "pos": 41.5,
+    "labels": [
+     "no edge over cash",
+     "+10 pts"
+    ],
+    "zones": [
+     [
+      55.0,
+      100,
+      "good"
+     ],
+     [
+      0,
+      30.0,
+      "bad"
+     ]
+    ]
+   }
   },
   {
    "name": "Fear & Greed index",
@@ -93,7 +198,27 @@
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "Sentiment in the normal range - no contrarian edge either way."
+   "note": "Sentiment in the normal range - no contrarian edge either way.",
+   "viz": {
+    "pos": 60.9,
+    "labels": [
+     "extreme fear",
+     "extreme greed"
+    ],
+    "zones": [
+     [
+      0,
+      25,
+      "good"
+     ],
+     [
+      75,
+      100,
+      "bad"
+     ]
+    ],
+    "marker": 25
+   }
   },
   {
    "name": "Event calendar",
@@ -115,902 +240,1082 @@
    {
     "d": "2025-11-20",
     "c": 50.73,
-    "t": "good"
+    "t": "good",
+    "s": 81
    },
    {
     "d": "2025-11-21",
     "c": 51.22,
-    "t": "ok"
+    "t": "ok",
+    "s": 66
    },
    {
     "d": "2025-11-24",
     "c": 51.92,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2025-11-25",
     "c": 52.35,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2025-11-26",
     "c": 52.67,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2025-11-28",
     "c": 52.93,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2025-12-01",
     "c": 52.36,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2025-12-02",
     "c": 52.44,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2025-12-03",
     "c": 52.59,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2025-12-04",
     "c": 52.63,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-05",
     "c": 52.71,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-08",
     "c": 52.61,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-09",
     "c": 52.57,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-10",
     "c": 52.86,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-11",
     "c": 52.96,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-12",
     "c": 52.52,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-15",
     "c": 52.48,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-16",
     "c": 52.35,
-    "t": "ok"
+    "t": "ok",
+    "s": 62
    },
    {
     "d": "2025-12-17",
     "c": 51.88,
-    "t": "ok"
+    "t": "ok",
+    "s": 62
    },
    {
     "d": "2025-12-18",
     "c": 52.23,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-19",
     "c": 52.66,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-22",
     "c": 52.96,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-23",
     "c": 53.13,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-24",
     "c": 53.28,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-26",
     "c": 53.28,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-29",
     "c": 53.15,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2025-12-30",
     "c": 53.11,
-    "t": "ok"
+    "t": "ok",
+    "s": 62
    },
    {
     "d": "2025-12-31",
     "c": 52.8,
-    "t": "ok"
+    "t": "ok",
+    "s": 62
    },
    {
     "d": "2026-01-02",
     "c": 52.53,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-05",
     "c": 52.8,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-06",
     "c": 53.06,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-07",
     "c": 52.93,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-08",
     "c": 52.95,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-09",
     "c": 53.22,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-12",
     "c": 53.28,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-13",
     "c": 53.2,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-14",
     "c": 53.02,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-15",
     "c": 53.11,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-16",
     "c": 53.11,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-20",
     "c": 52.19,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-21",
     "c": 52.72,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-22",
     "c": 52.97,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-23",
     "c": 53.01,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-26",
     "c": 53.24,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-27",
     "c": 53.41,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-28",
     "c": 53.4,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-29",
     "c": 53.34,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-01-30",
     "c": 53.23,
-    "t": "ok"
+    "t": "ok",
+    "s": 62
    },
    {
     "d": "2026-02-02",
     "c": 53.09,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-03",
     "c": 52.72,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-04",
     "c": 52.48,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-05",
     "c": 51.89,
-    "t": "ok"
+    "t": "ok",
+    "s": 62
    },
    {
     "d": "2026-02-06",
     "c": 52.81,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2026-02-09",
     "c": 53.04,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-10",
     "c": 52.95,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-11",
     "c": 52.93,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-12",
     "c": 52.23,
-    "t": "ok"
+    "t": "ok",
+    "s": 62
    },
    {
     "d": "2026-02-13",
     "c": 52.26,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-17",
     "c": 52.36,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-18",
     "c": 52.6,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-19",
     "c": 52.46,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-20",
     "c": 52.87,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-23",
     "c": 52.39,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-24",
     "c": 52.76,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-25",
     "c": 53.12,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-26",
     "c": 52.9,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-02-27",
     "c": 52.71,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-03-02",
     "c": 52.36,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-03-03",
     "c": 51.95,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2026-03-04",
     "c": 52.29,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-03-05",
     "c": 52.03,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-03-06",
     "c": 51.36,
-    "t": "ok"
+    "t": "ok",
+    "s": 66
    },
    {
     "d": "2026-03-09",
     "c": 51.81,
-    "t": "good"
+    "t": "good",
+    "s": 72
    },
    {
     "d": "2026-03-10",
     "c": 51.74,
-    "t": "ok"
+    "t": "ok",
+    "s": 66
    },
    {
     "d": "2026-03-11",
     "c": 51.7,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2026-03-12",
     "c": 50.98,
-    "t": "good"
+    "t": "good",
+    "s": 94
    },
    {
     "d": "2026-03-13",
     "c": 50.69,
-    "t": "good"
+    "t": "good",
+    "s": 88
    },
    {
     "d": "2026-03-16",
     "c": 51.18,
-    "t": "ok"
+    "t": "ok",
+    "s": 66
    },
    {
     "d": "2026-03-17",
     "c": 51.35,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2026-03-18",
     "c": 50.69,
-    "t": "good"
+    "t": "good",
+    "s": 75
    },
    {
     "d": "2026-03-19",
     "c": 50.57,
-    "t": "ok"
+    "t": "ok",
+    "s": 66
    },
    {
     "d": "2026-03-20",
     "c": 49.84,
-    "t": "good"
+    "t": "good",
+    "s": 88
    },
    {
     "d": "2026-03-23",
     "c": 50.36,
-    "t": "good"
+    "t": "good",
+    "s": 81
    },
    {
     "d": "2026-03-24",
     "c": 50.22,
-    "t": "good"
+    "t": "good",
+    "s": 81
    },
    {
     "d": "2026-03-25",
     "c": 50.49,
-    "t": "good"
+    "t": "good",
+    "s": 75
    },
    {
     "d": "2026-03-26",
     "c": 49.65,
-    "t": "good"
+    "t": "good",
+    "s": 81
    },
    {
     "d": "2026-03-27",
     "c": 48.84,
-    "t": "good"
+    "t": "good",
+    "s": 81
    },
    {
     "d": "2026-03-30",
     "c": 48.68,
-    "t": "good"
+    "t": "good",
+    "s": 94
    },
    {
     "d": "2026-03-31",
     "c": 50.04,
-    "t": "ok"
+    "t": "ok",
+    "s": 66
    },
    {
     "d": "2026-04-01",
     "c": 50.0,
-    "t": "ok"
+    "t": "ok",
+    "s": 66
    },
    {
     "d": "2026-04-02",
     "c": 50.12,
-    "t": "ok"
+    "t": "ok",
+    "s": 66
    },
    {
     "d": "2026-04-06",
     "c": 50.29,
-    "t": "ok"
+    "t": "ok",
+    "s": 66
    },
    {
     "d": "2026-04-07",
     "c": 50.32,
-    "t": "good"
+    "t": "good",
+    "s": 81
    },
    {
     "d": "2026-04-08",
     "c": 51.44,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-09",
     "c": 51.72,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-10",
     "c": 51.69,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-13",
     "c": 52.15,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-14",
     "c": 52.6,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-15",
     "c": 52.95,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-16",
     "c": 53.05,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-17",
     "c": 53.59,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-20",
     "c": 53.5,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-21",
     "c": 53.21,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-22",
     "c": 53.66,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-23",
     "c": 53.49,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-24",
     "c": 53.83,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-27",
     "c": 53.93,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-28",
     "c": 53.69,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-29",
     "c": 53.69,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-04-30",
     "c": 54.13,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-01",
     "c": 53.86,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-04",
     "c": 53.71,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-05",
     "c": 54.06,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-06",
     "c": 54.64,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-07",
     "c": 54.51,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-08",
     "c": 54.91,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-11",
     "c": 54.99,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-12",
     "c": 54.95,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-13",
     "c": 55.19,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-14",
     "c": 55.58,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-15",
     "c": 55.05,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-18",
     "c": 54.99,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-19",
     "c": 54.71,
-    "t": "ok"
+    "t": "ok",
+    "s": 62
    },
    {
     "d": "2026-05-20",
     "c": 55.16,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-21",
     "c": 55.27,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-22",
     "c": 55.46,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-26",
     "c": 55.75,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-27",
     "c": 55.75,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-28",
     "c": 56.01,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-05-29",
     "c": 56.12,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-01",
     "c": 55.82,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-02",
     "c": 55.88,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-03",
     "c": 55.61,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-04",
     "c": 55.78,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-05",
     "c": 54.57,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-08",
     "c": 54.73,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-09",
     "c": 54.6,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-10",
     "c": 53.79,
-    "t": "good"
+    "t": "good",
+    "s": 72
    },
    {
     "d": "2026-06-11",
     "c": 54.67,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-12",
     "c": 54.97,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-15",
     "c": 55.8,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-16",
     "c": 55.54,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-17",
     "c": 54.98,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-18",
     "c": 55.5,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-22",
     "c": 55.36,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-23",
     "c": 54.64,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-24",
     "c": 54.6,
-    "t": "ok"
+    "t": "ok",
+    "s": 62
    },
    {
     "d": "2026-06-25",
     "c": 54.62,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-26",
     "c": 54.5,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2026-06-29",
     "c": 55.19,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-06-30",
     "c": 55.57,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-01",
     "c": 55.11,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-02",
     "c": 55.04,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-06",
     "c": 55.47,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-07",
     "c": 55.25,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-08",
     "c": 55.11,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-09",
     "c": 55.52,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-10",
     "c": 55.7,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-13",
     "c": 55.35,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-14",
     "c": 55.51,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-15",
     "c": 55.69,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-16",
     "c": 55.46,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-17",
     "c": 55.03,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-20",
     "c": 54.97,
-    "t": "ok"
+    "t": "ok",
+    "s": 62
    },
    {
     "d": "2026-07-21",
     "c": 55.37,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-22",
     "c": 55.31,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-23",
     "c": 54.73,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-24",
     "c": 54.78,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-27",
     "c": 54.84,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-28",
     "c": 54.97,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-29",
     "c": 54.23,
-    "t": "ok"
+    "t": "ok",
+    "s": 56
    },
    {
     "d": "2026-07-30",
     "c": 55.04,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-07-31",
     "c": 55.38,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-08-03",
     "c": 55.59,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-08-04",
     "c": 56.23,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-08-05",
     "c": 56.19,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-08-06",
     "c": 56.11,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-08-07",
     "c": 56.38,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-08-10",
     "c": 56.41,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    },
    {
     "d": "2026-08-11",
     "c": 56.27,
-    "t": "neutral"
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1089,7 +1394,7 @@
  },
  "vol": {
   "index": "VIX",
-  "level": 15.38
+  "level": 15.37
  },
  "fomc": {
   "next": "2026-09-16",

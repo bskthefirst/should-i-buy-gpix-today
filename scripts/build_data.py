@@ -335,6 +335,19 @@ def fmt_w(w: float) -> str:
     return f"{w:+g}"
 
 
+def viz(pos: float, labels: list[str], zones: list | None = None,
+        marker: float | None = None) -> dict:
+    """Per-signal visualization data for the pages' bullet bars: where
+    today's value sits on a 0-100 track, which regions score (or hurt),
+    and the threshold tick. Pure presentation - never touches scoring."""
+    out: dict = {"pos": round(max(0.0, min(100.0, pos)), 1), "labels": labels}
+    if zones:
+        out["zones"] = zones
+    if marker is not None:
+        out["marker"] = marker
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Scoring rules (v4) - the single source of truth. The live build, the
 # historical backfill and the "what would flip the verdict" panel all call
@@ -1015,6 +1028,7 @@ def build(fund: dict) -> dict:
             "weight": W_VOL,
             "lean": lean,
             "note": note,
+            "viz": viz(pct, ["calm year", "p90+ scores"], zones=[[90, 100, "good"]], marker=90),
         }
 
     signals.append(guarded(f"{vol_name} vs its own past year", sig_vol_percentile))
@@ -1042,6 +1056,8 @@ def build(fund: dict) -> dict:
             "weight": W_TERM,
             "lean": lean,
             "note": note,
+            "viz": viz((ratio - 0.70) / 0.40 * 100, ["0.70 calm", "1.10 panic"],
+                       zones=[[75, 100, "good"]], marker=75),
         }
 
     signals.append(guarded("VIX term structure (1mo/3mo)", sig_term_structure))
@@ -1075,6 +1091,8 @@ def build(fund: dict) -> dict:
                 "weight": 0,
                 "lean": lean,
                 "note": note,
+                "viz": viz(pct, ["cheap tech vol", "rich tech vol"],
+                           zones=[[0, 20, "good"], [65, 100, "bad"]]),
             }
 
         signals.append(guarded("Tech fear premium (VXN/VIX)", sig_tech_premium))
@@ -1104,6 +1122,8 @@ def build(fund: dict) -> dict:
             "weight": 0,
             "lean": lean,
             "note": note,
+            "viz": viz((vrp + 4) / 12 * 100, ["underpaid −4", "overpaid +8"],
+                       zones=[[0, 16.7, "bad"], [83.3, 100, "good"]]),
         }
 
     signals.append(guarded("Are call-sellers overpaid?", sig_vrp))
@@ -1122,7 +1142,12 @@ def build(fund: dict) -> dict:
     else:
         dd_lean = "neutral"
         note = "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either."
-    signals.append({"name": "Discount from 52-week high", "value": f"{drawdown_adj:.1f}%", "score": s, "weight": W_DISCOUNT, "lean": dd_lean, "note": note})
+    signals.append({
+        "name": "Discount from 52-week high", "value": f"{drawdown_adj:.1f}%",
+        "score": s, "weight": W_DISCOUNT, "lean": dd_lean, "note": note,
+        "viz": viz(drawdown_adj * 10, ["at the high", "−10%"],
+                   zones=[[30, 100, "good"]], marker=30),
+    })
 
     # 4b. Short-term index reversal (added in v3, top-weighted in v4): the
     # underlying proxy has
@@ -1175,7 +1200,11 @@ def build(fund: dict) -> dict:
         note = "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral."
     else:
         note = "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral."
-    signals.append({"name": f"{ticker} vs 50-day average", "value": f"{vs_sma50_adj:+.1f}%", "score": 0, "weight": 0, "lean": "neutral", "note": note})
+    signals.append({
+        "name": f"{ticker} vs 50-day average", "value": f"{vs_sma50_adj:+.1f}%",
+        "score": 0, "weight": 0, "lean": "neutral", "note": note,
+        "viz": viz((vs_sma50_adj + 6) / 12 * 100, ["−6%", "+6%"]),
+    })
 
     # 6. Underlying index regime. Never scores (the old below-200d "+1"
     # was negative on both SPY and QQQ), but the lean follows the evidence:
@@ -1220,6 +1249,8 @@ def build(fund: dict) -> dict:
             "weight": W_CREDIT,
             "lean": lean,
             "note": note,
+            "viz": viz((oas - 2.0) / 4.0 * 100, ["2% calm", "6% crisis"],
+                       zones=[[75, 100, "good"]], marker=75),
         }
 
     signals.append(guarded("Credit stress (junk-bond spreads)", sig_credit))
@@ -1247,6 +1278,8 @@ def build(fund: dict) -> dict:
             "weight": 0,
             "lean": lean,
             "note": note,
+            "viz": viz(advantage * 10, ["no edge over cash", "+10 pts"],
+                       zones=[[hi * 10, 100, "good"], [0, mid * 10, "bad"]]),
         }
 
     signals.append(guarded("Payout vs safe cash", sig_payout))
@@ -1274,6 +1307,8 @@ def build(fund: dict) -> dict:
             "weight": W_FG,
             "lean": lean,
             "note": note,
+            "viz": viz(score_, ["extreme fear", "extreme greed"],
+                       zones=[[0, 25, "good"], [75, 100, "bad"]], marker=25),
         }
 
     signals.append(guarded("Fear & Greed index", sig_fear_greed))
@@ -1439,6 +1474,7 @@ def build(fund: dict) -> dict:
             history.append(live_row)
             save_history(hist_path, history)
     tone_by_date = {r["date"]: r["tone"] for r in history}
+    s100_by_date = {r["date"]: r.get("score100") for r in history}
 
     meter_min, meter_max = fund["meter"]
     return {
@@ -1456,7 +1492,8 @@ def build(fund: dict) -> dict:
             "high52w": high52,
             "drawdown_pct": drawdown,
             "series": [
-                {"d": d.isoformat(), "c": c, "t": tone_by_date.get(d.isoformat())}
+                {"d": d.isoformat(), "c": c, "t": tone_by_date.get(d.isoformat()),
+                 "s": s100_by_date.get(d.isoformat())}
                 for d, c, _ in fund_rows[-180:]
             ],
         },
@@ -1611,14 +1648,21 @@ def build_stock(fund: dict) -> dict:
             f"volatility, the index's -3% band would fire a third of all days and tested as noise here."
         )
         pb_lean = "neutral"
-    signals.append({
+    pb_sig = {
         "name": "Short-term pullback (reversal)",
         "value": pb_value,
         "score": s,
         "weight": WS_CRASH if validated else 0,
         "lean": pb_lean,
         "note": pb_note,
-    })
+    }
+    if ret5 is not None:
+        pb_sig["viz"] = viz(
+            (ret5 + 15) / 15 * 100, ["−15% in 5d", "flat"],
+            zones=[[0, 20, "good"]] if validated else None,
+            marker=20 if validated else None,
+        )
+    signals.append(pb_sig)
 
     # 2. Realized volatility vs its own past year (the single-stock
     # substitute for a vol index - no keyless TSLA IV series exists).
@@ -1661,14 +1705,18 @@ def build_stock(fund: dict) -> dict:
         rvol_value = f"{rv_now:.0f}% ann. (p{rv_pct:.0f})"
         rvol_lean = "neutral"
         rvol_note = f"Realized volatility mid-range for {ticker}'s own past year."
-    signals.append({
+    rvol_sig = {
         "name": "Realized volatility vs its past year",
         "value": rvol_value,
         "score": s,
         "weight": WS_RVOL if validated else 0,
         "lean": rvol_lean,
         "note": rvol_note,
-    })
+    }
+    if rv_pct is not None:
+        rvol_sig["viz"] = viz(rv_pct, ["quiet year", "p90+ scores"],
+                              zones=[[90, 100, "good"]], marker=90)
+    signals.append(rvol_sig)
 
     # 3. Distance from the 52-week high - the single-name edition, where
     # the evidence INVERTS the index intuition: at the high = momentum
@@ -1724,6 +1772,10 @@ def build_stock(fund: dict) -> dict:
         "weight": WS_KNIFE if s == WS_KNIFE else (WS_HIGH if validated else 0),
         "lean": dd_lean,
         "note": dd_note,
+        "viz": viz(
+            drawdown_adj * 2, ["at the high", "−50%"],
+            zones=[[0, 1, "good"], [20, 40, "bad"], [70, 100, "good"]] if validated else None,
+        ),
     })
 
     # 4. Own 200-day regime (TSLA) / trading-history card (SPCX).
@@ -1958,6 +2010,7 @@ def build_stock(fund: dict) -> dict:
             history.append(live_row)
             save_history(hist_path, history)
     tone_by_date = {r["date"]: r["tone"] for r in history}
+    s100_by_date = {r["date"]: r.get("score100") for r in history}
 
     tbill = None
     try:
@@ -1991,7 +2044,8 @@ def build_stock(fund: dict) -> dict:
             "high_label": high_label,
             "drawdown_pct": drawdown,
             "series": [
-                {"d": d.isoformat(), "c": c, "t": tone_by_date.get(d.isoformat())}
+                {"d": d.isoformat(), "c": c, "t": tone_by_date.get(d.isoformat()),
+                 "s": s100_by_date.get(d.isoformat())}
                 for d, c, _ in rows[-180:]
             ],
         },

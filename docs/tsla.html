@@ -27,13 +27,20 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    background: var(--bg);
+    background:
+      radial-gradient(1100px 480px at 75% -120px, rgba(0,66,37,.08), transparent 60%),
+      linear-gradient(180deg, #eef1e6 0%, var(--bg) 460px);
+    background-color: var(--bg);
     color: var(--text);
     font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     border-top: 4px solid var(--brg);
   }
   .wrap { max-width: 880px; margin: 0 auto; padding: 28px 20px 80px; }
+  .kicker {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--brg); margin-bottom: 4px;
+  }
 
   .fundtoggle {
     display: inline-flex; margin-bottom: 22px;
@@ -69,9 +76,11 @@
 
   .verdict {
     margin-top: 24px; padding: 24px 26px;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-    box-shadow: 0 1px 3px rgba(28,42,34,.05);
+    background: linear-gradient(135deg, #ffffff 0%, #fbfcf7 55%, #f3f6ec 100%);
+    border: 1px solid var(--border); border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(28,42,34,.04), 0 10px 30px rgba(28,42,34,.07);
   }
+  .vgrid { display: grid; grid-template-columns: 1fr 236px; gap: 8px 26px; align-items: center; }
   .verdict .label { font-size: 22px; font-weight: 700; }
   .verdict.good .label    { color: var(--good); }
   .verdict.ok .label      { color: var(--ok); }
@@ -79,31 +88,16 @@
   .verdict.caution .label { color: var(--bad); }
   .verdict .summary { color: var(--muted); margin-top: 6px; max-width: 64ch; }
 
-  /* headline 0-100 buy score: BRG when good, olive when ok, gray at 50 */
-  .buyscore { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
-  .buyscore .cap { width: 100%; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-  .buyscore .num { font-size: 46px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--faint); }
-  .buyscore .den { font-size: 17px; font-weight: 600; color: var(--faint); }
-  .verdict.good .buyscore .num { color: var(--good); }
-  .verdict.ok .buyscore .num { color: var(--ok); }
-  .verdict.caution .buyscore .num { color: var(--bad); }
+  /* arc gauge: the 0-100 buy score as a semicircular dial with the
+     verdict-band zones painted on the arc */
+  .vgauge { justify-self: center; }
+  .vgauge .gnum { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; fill: var(--faint); font-variant-numeric: tabular-nums; }
+  .verdict.good .gnum { fill: var(--good); }
+  .verdict.ok .gnum { fill: var(--ok); }
+  .verdict.caution .gnum { fill: var(--bad); }
+  .vgauge .gden { font-size: 11px; font-weight: 600; fill: var(--faint); letter-spacing: .04em; }
+  .vgauge .gtick { font-size: 10px; fill: var(--faint); }
   .scorenote { margin-top: 8px; font-size: 12.5px; color: var(--faint); max-width: 62ch; }
-
-  /* buy-meter: TSLA's axis runs 40-73 because — unlike the index funds —
-     one validated condition is NEGATIVE. Zones: caution (W<=-1, score<=44),
-     neutral around 50, ok 56+, good 69+. */
-  .meter { margin-top: 20px; }
-  .meter .track { position: relative; height: 10px; border-radius: 99px; overflow: hidden; display: flex; }
-  .meter .z0 { background: rgba(185,28,28,.28); }
-  .meter .z1 { background: rgba(125,138,129,.30); }
-  .meter .z2 { background: rgba(77,124,15,.35); }
-  .meter .z3 { background: rgba(0,66,37,.45); }
-  .meter .pin {
-    position: absolute; top: -5px; width: 4px; height: 20px; border-radius: 2px;
-    background: var(--text); box-sizing: border-box;
-  }
-  .meter .zlabels { display: flex; margin-top: 7px; font-size: 11.5px; color: var(--faint); }
-  .meter .zlabels span:last-child { text-align: right; }
 
   .execnote {
     margin-top: 14px; padding: 10px 16px; font-size: 13px; color: var(--muted);
@@ -116,14 +110,35 @@
   }
   .honesty b { color: var(--text); }
 
-  h2 { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 34px 0 6px; }
+  h2 { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 34px 0 6px; padding-left: 12px; border-left: 3px solid var(--brg); line-height: 1.25; }
   .h2sub { color: var(--faint); font-size: 13px; margin-bottom: 14px; }
 
   .signals { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
-  .sig { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 15px 17px; box-shadow: 0 1px 3px rgba(28,42,34,.05); }
+  .sig {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 13px;
+    padding: 15px 17px; box-shadow: 0 1px 2px rgba(28,42,34,.04), 0 6px 18px rgba(28,42,34,.05);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .sig:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(28,42,34,.05), 0 12px 26px rgba(28,42,34,.09); }
   .sig .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
   .sig .name { font-size: 13px; color: var(--muted); }
   .sig .val { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; }
+
+  /* bullet bar: where today sits on each signal's scale, with the scored
+     band(s) tinted and the threshold ticked */
+  .bullet { margin-top: 11px; }
+  .btrack { position: relative; height: 6px; border-radius: 99px; background: #e7eae0; }
+  .btrack i { position: absolute; display: block; }
+  .bz { top: 0; height: 100%; border-radius: 99px; }
+  .bz.good { background: rgba(0,66,37,.25); }
+  .bz.bad { background: rgba(185,28,28,.20); }
+  .bm { top: -3px; width: 2px; height: 12px; background: var(--muted); border-radius: 1px; }
+  .bdot {
+    top: 50%; width: 13px; height: 13px; border-radius: 50%;
+    background: #fff; border: 3.5px solid var(--brg);
+    transform: translate(-50%,-50%); box-shadow: 0 1px 3px rgba(28,42,34,.35);
+  }
+  .blabels { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--faint); margin-top: 5px; }
   .tag { font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 99px; white-space: nowrap; }
   .tag.pos { color: var(--good); background: rgba(0,66,37,.08); }
   .tag.neg { color: var(--rich); background: rgba(180,83,9,.12); }
@@ -147,9 +162,14 @@
   .rc-table .b-caution td:first-child { color: var(--bad); font-weight: 600; }
   .rc-table .baseline td { color: var(--muted); }
   .rc-table .few { color: var(--faint); font-size: 11.5px; font-weight: 400; }
+  .rcbar { width: 26%; }
+  .rcbar .bg { position: relative; height: 9px; border-radius: 99px; background: #edf0e6; overflow: hidden; }
+  .rcbar .bg i { position: absolute; top: 0; height: 100%; display: block; border-radius: 99px; }
+  .rcbar .bg i.p { background: linear-gradient(90deg, rgba(0,66,37,.35), rgba(0,66,37,.75)); }
+  .rcbar .bg i.n { background: linear-gradient(90deg, rgba(185,28,28,.7), rgba(185,28,28,.35)); }
   .caveat { margin-top: 12px; font-size: 12.5px; color: var(--faint); max-width: 72ch; }
 
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: 0 1px 3px rgba(28,42,34,.05); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 13px; padding: 18px; box-shadow: 0 1px 2px rgba(28,42,34,.04), 0 6px 18px rgba(28,42,34,.05); }
   .chartwrap { position: relative; }
   .tooltip {
     position: absolute; pointer-events: none; display: none;
@@ -172,6 +192,8 @@
   .lane .flow b { color: var(--text); font-size: 19px; }
   .lane.winner .flow b { color: var(--good); }
   .lane .ret { font-size: 12.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .lanebar { margin-top: 10px; height: 8px; border-radius: 99px; background: #e3e7db; overflow: hidden; }
+  .lanebar i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #2f6d4c, #004225); }
   .moral { margin-top: 14px; font-size: 14px; color: var(--muted); max-width: 70ch; }
 
   .news li { list-style: none; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; display: flex; justify-content: space-between; gap: 14px; }
@@ -193,9 +215,10 @@
     .pricebox .stamp { width: 100%; margin-top: 0; }
     .verdict { padding: 18px 16px; }
     .verdict .label { font-size: 19px; }
-    .buyscore .num { font-size: 38px; }
+    .vgrid { grid-template-columns: 1fr; gap: 4px; }
+    .vgauge { order: -1; margin: -6px auto 2px; }
     .verdict .summary { font-size: 14.5px; }
-    .meter .zlabels span:nth-child(2), .meter .zlabels span:nth-child(3) { visibility: hidden; }
+    .rcbar { display: none; }
     .fundtoggle { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
     .fundtoggle a { padding: 6px 11px; }
     .fundtoggle a small { display: none; }
@@ -225,6 +248,7 @@
   </div>
   <header>
     <div>
+      <div class="kicker">Daily timing signal · Single stock, own validation</div>
       <h1>Should I buy TSLA today?</h1>
       <div class="sub">Six daily checks, scored only where a dedicated 16-year TSLA validation pass found a real edge - including the one zone that's provably WORSE than average to buy.</div>
     </div>
@@ -256,6 +280,46 @@ const ago = iso => {
   return Math.round(h / 24) + "d ago";
 };
 const fmtPct = v => (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+
+// Per-signal bullet bar: today's position on the signal's scale, scored
+// band(s) tinted, threshold ticked. Pure presentation from the data JSON's viz.
+const bullet = v => {
+  const zones = (v.zones || []).map(z =>
+    `<i class="bz ${z[2]}" style="left:${z[0]}%;width:${z[1] - z[0]}%"></i>`).join("");
+  const marker = v.marker != null ? `<i class="bm" style="left:${v.marker}%"></i>` : "";
+  return `<div class="bullet"><div class="btrack">${zones}${marker}<i class="bdot" style="left:${v.pos}%"></i></div>
+    <div class="blabels"><span>${v.labels[0]}</span><span>${v.labels[1]}</span></div></div>`;
+};
+
+// Semicircular arc gauge for the headline buy score. Zones are painted on
+// the arc in score space; boundary ticks label the verdict-band cutoffs.
+function gauge(s100, MIN, MAX, zones) {
+  const W = 236, H = 148, cx = W / 2, cy = 126, r = 90, bw = 17;
+  const frac = v => (Math.max(MIN, Math.min(MAX, v)) - MIN) / (MAX - MIN);
+  const pt = (v, rad) => {
+    const a = Math.PI * (1 + frac(v));
+    return [cx + rad * Math.cos(a), cy + rad * Math.sin(a)];
+  };
+  const arc = (v0, v1, color) => {
+    const [x0, y0] = pt(v0, r), [x1, y1] = pt(v1, r);
+    return `<path d="M ${x0.toFixed(1)} ${y0.toFixed(1)} A ${r} ${r} 0 0 1 ${x1.toFixed(1)} ${y1.toFixed(1)}" fill="none" stroke="${color}" stroke-width="${bw}"/>`;
+  };
+  const ticks = zones.slice(1).map(z => {
+    const [tx, ty] = pt(z[0], r + bw / 2 + 9);
+    return `<text class="gtick" x="${tx.toFixed(1)}" y="${ty.toFixed(1)}" text-anchor="middle">${Math.round(z[0])}</text>`;
+  }).join("");
+  const [nx, ny] = pt(s100, r - bw / 2 - 5);
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Buy score ${s100} out of 100">
+    ${zones.map(z => arc(z[0], z[1], z[2])).join("")}
+    <line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="#1c2a22" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="${cx}" cy="${cy}" r="5.5" fill="#1c2a22"/>
+    <text class="gnum" x="${cx}" y="${cy - 26}" text-anchor="middle">${s100}</text>
+    <text class="gden" x="${cx}" y="${cy - 10}" text-anchor="middle">/100 BUY SCORE</text>
+    <text class="gtick" x="${pt(MIN, r)[0].toFixed(1)}" y="${cy + 14}" text-anchor="middle">${MIN}</text>
+    <text class="gtick" x="${pt(MAX, r)[0].toFixed(1)}" y="${cy + 14}" text-anchor="middle">${MAX}</text>
+    ${ticks}
+  </svg>`;
+}
 // Verdict-band colors for the score timeline strip — same palette as the
 // buy-meter zones above.
 const TONE_FILL = {neutral: "rgba(125,138,129,.30)", ok: "rgba(77,124,15,.35)", good: "rgba(0,66,37,.45)", caution: "rgba(185,28,28,.32)"};
@@ -283,17 +347,27 @@ function renderChart(series, sma50, sma200) {
   const gridVals = [hi, (hi + lo) / 2, lo];
   const dateFmt = s => narrow ? s.slice(5) : s;
 
-  // Score timeline strip: one cell per day, same x-scale as the price line,
-  // colored by the verdict band the rules produce(d) for that day.
-  const hasTones = series.some(p => p.t);
-  const EXT = hasTones ? 36 : 0;
+  // Score timeline: one diverging bar per day around the 50 axis, same
+  // x-scale as the price line — height shows how far the buy score sat
+  // from "typical", color shows the verdict band.
+  const hasScores = series.some(p => p.s != null || p.t);
+  const EXT = hasScores ? 52 : 0;
   const step = (W - L - R) / (series.length - 1);
-  const strip = hasTones ? series.map((p, i) => {
-    if (!p.t || !TONE_FILL[p.t]) return "";
+  const mid = H + 22, amp = 13;
+  let maxdev = 6.25;
+  series.forEach(p => { if (p.s != null) maxdev = Math.max(maxdev, Math.abs(p.s - 50)); });
+  const strip = hasScores ? series.map((p, i) => {
+    const fill = p.t && TONE_FILL[p.t];
+    if (!fill) return "";
+    const dev = (p.s != null ? p.s : 50) - 50;
+    const hb = Math.max(1.6, Math.abs(dev) / maxdev * amp);
     const x1 = i === 0 ? L : xi(i) - step / 2;
     const x2 = i === series.length - 1 ? W - R : xi(i) + step / 2;
-    return `<rect x="${x1.toFixed(1)}" y="${H + 2}" width="${(x2 - x1 + 0.4).toFixed(2)}" height="12" fill="${TONE_FILL[p.t]}"/>`;
-  }).join("") + `<text x="${L}" y="${H + 28}">what this page would have said each day</text>` : "";
+    return `<rect x="${x1.toFixed(1)}" y="${(dev >= 0 ? mid - hb : mid).toFixed(1)}" width="${(x2 - x1 + 0.4).toFixed(2)}" height="${hb.toFixed(1)}" fill="${fill}"/>`;
+  }).join("")
+    + `<line x1="${L}" x2="${W - R}" y1="${mid}" y2="${mid}" stroke="#d5dacc" stroke-width="1"/>`
+    + `<text x="${L - 4}" y="${mid + 3.5}" text-anchor="end">50</text>`
+    + `<text x="${L}" y="${H + EXT - 6}">daily buy score vs the 50 baseline — what this page would have said each day</text>` : "";
 
   // Dashed average lines. The 50-day label sits above its line and the
   // 200-day label below its own; if the two labels would still land within
@@ -318,9 +392,12 @@ function renderChart(series, sma50, sma200) {
   box.innerHTML = `
   <div class="chartwrap">
   <svg id="pxchart" width="${W}" height="${H + EXT}" viewBox="0 0 ${W} ${H + EXT}" role="img" aria-label="TSLA closing price with 50- and 200-day averages and daily verdict band, last ${series.length} trading days">
+    <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgba(0,66,37,.18)"/><stop offset="1" stop-color="rgba(0,66,37,0)"/>
+    </linearGradient></defs>
     ${gridVals.map(v => `<line x1="${L}" x2="${W-R}" y1="${yv(v)}" y2="${yv(v)}" stroke="#e4e7dd" stroke-width="1"/>
       <text x="2" y="${yv(v)+4}">$${fmt2(v)}</text>`).join("")}
-    <path d="${area}" fill="rgba(0,66,37,0.07)"/>
+    <path d="${area}" fill="url(#ag)"/>
     ${smaLines}
     <path d="${path}" fill="none" stroke="#004225" stroke-width="2"/>
     ${smaLabels}
@@ -351,7 +428,9 @@ function renderChart(series, sma50, sma200) {
     tip.style.display = "block";
     tip.style.left = xi(i) + "px";
     tip.style.top = yv(p.c) + "px";
-    tip.textContent = p.d + " · $" + fmt2(p.c) + (p.t && TONE_NAME[p.t] ? " — " + TONE_NAME[p.t] : "");
+    tip.textContent = p.d + " · $" + fmt2(p.c)
+      + (p.s != null ? " · score " + p.s : "")
+      + (p.t && TONE_NAME[p.t] ? " — " + TONE_NAME[p.t] : "");
   };
   const hide = () => { tip.style.display = cross.style.display = dot.style.display = "none"; };
   // Pointer events cover mouse AND touch (iOS Safari 13+).
@@ -369,29 +448,31 @@ fetch("data-tsla.json").then(r => r.json()).then(d => {
   const METER_MAX = d.meter ? d.meter.max : 73;
   const s100 = v.score100 ?? Math.round(50 + v.score * 6.25);
   // Zone boundaries: 43.75 (caution|neutral, W=-1), 56.25 (neutral|ok, W=1),
-  // 68.75 (ok|good, W=3) — rendered as 44 / 56 / 69.
-  const zw = [43.75 - METER_MIN, 56.25 - 43.75, 68.75 - 56.25, METER_MAX - 68.75];
+  // 68.75 (ok|good, W=3) — rendered on the gauge as 44 / 56 / 69. TSLA is
+  // the one asset with a red zone: its falling-knife band scores negative.
+  const GAUGE_ZONES = [
+    [METER_MIN, 43.75, "rgba(185,28,28,.40)"],
+    [43.75, 56.25, "rgba(125,138,129,.30)"],
+    [56.25, 68.75, "rgba(77,124,15,.45)"],
+    [68.75, METER_MAX, "rgba(0,66,37,.55)"],
+  ];
   const chg = g.day_change_pct ?? 0;
   document.getElementById("pricebox").innerHTML = `
     <div class="px">$${fmt2(g.price)}</div>
     <div class="chg ${chg >= 0 ? "up" : "dn"}">${chg >= 0 ? "▲" : "▼"} ${Math.abs(chg).toFixed(2)}% vs prior close</div>
     <div class="stamp">updated ${new Date(d.generated_at).toLocaleString([], {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"})}</div>`;
 
-  const pinPct = ((Math.max(METER_MIN, Math.min(METER_MAX, s100)) - METER_MIN) / (METER_MAX - METER_MIN)) * 100;
   const dcaWins = bt.winner === "dca";
 
   document.getElementById("app").innerHTML = `
-    <div class="verdict ${v.tone}">
-      <div class="buyscore"><span class="cap">Buy score</span><span class="num">${s100}</span><span class="den">/100</span></div>
-      <div class="label">${v.label}</div>
-      <div class="summary">${v.summary}</div>
-      <div class="scorenote">50 = typical day. Unlike the index-fund pages, TSLA's score CAN fall below 50: its 10–20% drawdown band preceded below-average returns in every era tested — the one evidence-backed bad zone this project has found.</div>
-      <div class="meter" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 4.5}">
-        <div class="track">
-          <div class="z0" style="flex:${zw[0]}"></div><div class="z1" style="flex:${zw[1]}"></div><div class="z2" style="flex:${zw[2]}"></div><div class="z3" style="flex:${zw[3]}"></div>
-          <div class="pin" style="left: calc(${pinPct}% - 2px)"></div>
+    <div class="verdict ${v.tone}" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 4.5}">
+      <div class="vgrid">
+        <div class="vtext">
+          <div class="label">${v.label}</div>
+          <div class="summary">${v.summary}</div>
+          <div class="scorenote">50 = typical day. Unlike the index-fund pages, TSLA's score CAN fall below 50 — the red arc: its 10–20% drawdown band preceded below-average returns in every era tested, the one evidence-backed bad zone this project has found. Mild tailwind at 56+, strong case at 69+.</div>
         </div>
-        <div class="zlabels"><span style="flex:${zw[0]}">worse ≤44</span><span style="flex:${zw[1]}">50</span><span style="flex:${zw[2]}">mild 56+</span><span style="flex:${zw[3]}">strong 69+</span></div>
+        <div class="vgauge">${gauge(s100, METER_MIN, METER_MAX, GAUGE_ZONES)}</div>
       </div>
     </div>
 
@@ -419,6 +500,7 @@ fetch("data-tsla.json").then(r => r.json()).then(d => {
             <div><div class="name">${s.name}</div><div class="val">${s.value}</div></div>
             <span class="tag ${cls}">${tag}</span>
           </div>
+          ${s.viz ? bullet(s.viz) : ""}
           <div class="note">${s.note}</div>
         </div>`;
       }).join("")}
@@ -450,6 +532,7 @@ fetch("data-tsla.json").then(r => r.json()).then(d => {
         <div class="how">Buys every single week. Never looks at the price, never reads the news.</div>
         <div class="flow">${fmt$(bt.invested)} in → <b>${fmt$(bt.dca_value)}</b></div>
         <div class="ret">+${bt.dca_return_pct}% total return</div>
+        <div class="lanebar"><i style="width:${(bt.dca_value / Math.max(bt.dca_value, bt.dip_value) * 100).toFixed(1)}%"></i></div>
       </div>
       <div class="lane ${dcaWins ? "" : "winner"}">
         ${dcaWins ? "" : '<span class="crown">ahead</span>'}
@@ -457,6 +540,7 @@ fetch("data-tsla.json").then(r => r.json()).then(d => {
         <div class="how">Saves cash and only buys when TSLA is ≥${bt.dip_threshold_pct}% off its high. Got ${bt.dip_buy_days} chances so far.</div>
         <div class="flow">${fmt$(bt.invested)} in → <b>${fmt$(bt.dip_value)}</b></div>
         <div class="ret">+${bt.dip_return_pct}% total return${bt.dip_cash_uninvested > 0 ? " · " + fmt$(bt.dip_cash_uninvested) + " still waiting in cash" : ""}</div>
+        <div class="lanebar"><i style="width:${(bt.dip_value / Math.max(bt.dca_value, bt.dip_value) * 100).toFixed(1)}%"></i></div>
       </div>
     </div>
     <div class="moral">${dcaWins
@@ -468,9 +552,13 @@ fetch("data-tsla.json").then(r => r.json()).then(d => {
     <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what TSLA actually returned over the following ${rc.horizon_days} trading days. Note the caution band: the falling-knife zone's negative read has held up in this recent window too.</div>
     <div class="card">
       <table class="rc-table">
-        <tr><th>Verdict that day</th><th>Days</th><th>Avg next ${rc.horizon_days}d</th><th>Median</th></tr>
-        ${rc.bands.map(b => `<tr class="b-${b.tone}"><td>${b.label}${b.n && b.n < 15 ? ' <span class="few">(small sample)</span>' : ""}</td><td>${b.n}</td><td>${b.n ? fmtPct(b.avg_pct) : "—"}</td><td>${b.n ? fmtPct(b.median_pct) : "—"}</td></tr>`).join("")}
-        <tr class="baseline"><td>Any day (baseline)</td><td>${rc.baseline.n}</td><td>${fmtPct(rc.baseline.avg_pct)}</td><td>${fmtPct(rc.baseline.median_pct)}</td></tr>
+        <tr><th>Verdict that day</th><th>Days</th><th>Avg next ${rc.horizon_days}d</th><th>Median</th><th></th></tr>
+        ${(() => {
+          const maxAbs = Math.max(0.01, ...rc.bands.filter(b => b.n).map(b => Math.abs(b.avg_pct)), Math.abs(rc.baseline.avg_pct));
+          const bar = avg => `<div class="bg"><i class="${avg >= 0 ? "p" : "n"}" style="width:${(Math.abs(avg) / maxAbs * 100).toFixed(0)}%"></i></div>`;
+          return rc.bands.map(b => `<tr class="b-${b.tone}"><td>${b.label}${b.n && b.n < 15 ? ' <span class="few">(small sample)</span>' : ""}</td><td>${b.n}</td><td>${b.n ? fmtPct(b.avg_pct) : "—"}</td><td>${b.n ? fmtPct(b.median_pct) : "—"}</td><td class="rcbar">${b.n ? bar(b.avg_pct) : ""}</td></tr>`).join("")
+            + `<tr class="baseline"><td>Any day (baseline)</td><td>${rc.baseline.n}</td><td>${fmtPct(rc.baseline.avg_pct)}</td><td>${fmtPct(rc.baseline.median_pct)}</td><td class="rcbar">${bar(rc.baseline.avg_pct)}</td></tr>`;
+        })()}
       </table>
       <div class="caveat">Read honestly: nearby days share most of the same forward month, so these are overlapping windows — not ${rc.baseline.n} independent samples. And ${rc.backfilled_days} of ${rc.days_total} days are backfilled: today's rules replayed on historical data. The inputs contain no lookahead, but the rules themselves were designed recently, with the benefit of hindsight.${rc.fg_coverage_start ? " Fear & Greed history only reaches back to " + rc.fg_coverage_start + "; earlier days score that signal neutral." : ""}</div>
     </div>` : ""}
