@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0e1117">
-<meta name="description" content="Rules-based daily read on whether today is a better- or worse-than-average day to buy GPIX.">
+<meta name="description" content="Ten transparent market signals - volatility, credit stress, sentiment, yield vs cash, trend - scored daily to answer one question: is today a better- or worse-than-average day to buy GPIX?">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1117'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%2360a5fa' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Should I buy GPIX today?</title>
 <style>
@@ -51,22 +51,23 @@
   .verdict.rich .label    { color: var(--rich); }
   .verdict .summary { color: var(--muted); margin-top: 6px; max-width: 64ch; }
 
-  /* buy-meter */
+  /* buy-meter: zones map to verdict bands on the -7..+12 score scale
+     (rich <= -2, neutral -1..1, ok 2..4, good >= 5) */
   .meter { margin-top: 20px; }
   .meter .track { position: relative; height: 10px; border-radius: 99px; overflow: hidden; display: flex; }
-  .meter .z1 { flex: 3; background: rgba(245,158,11,.45); }
-  .meter .z2 { flex: 1; background: rgba(96,165,250,.45); }
-  .meter .z3 { flex: 2; background: rgba(163,230,53,.45); }
-  .meter .z4 { flex: 3; background: rgba(74,222,128,.45); }
+  .meter .z1 { flex: 5.5; background: rgba(245,158,11,.45); }
+  .meter .z2 { flex: 3; background: rgba(96,165,250,.45); }
+  .meter .z3 { flex: 3; background: rgba(163,230,53,.45); }
+  .meter .z4 { flex: 7.5; background: rgba(74,222,128,.45); }
   .meter .pin {
     position: absolute; top: -5px; width: 4px; height: 20px; border-radius: 2px;
     background: var(--text); box-sizing: border-box;
   }
   .meter .zlabels { display: flex; margin-top: 7px; font-size: 11.5px; color: var(--faint); }
-  .meter .zlabels span:nth-child(1) { flex: 3; }
-  .meter .zlabels span:nth-child(2) { flex: 1; }
-  .meter .zlabels span:nth-child(3) { flex: 2; }
-  .meter .zlabels span:nth-child(4) { flex: 3; text-align: right; }
+  .meter .zlabels span:nth-child(1) { flex: 5.5; }
+  .meter .zlabels span:nth-child(2) { flex: 3; }
+  .meter .zlabels span:nth-child(3) { flex: 3; }
+  .meter .zlabels span:nth-child(4) { flex: 7.5; text-align: right; }
 
   h2 { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 34px 0 6px; }
   .h2sub { color: var(--faint); font-size: 13px; margin-bottom: 14px; }
@@ -141,7 +142,7 @@
   <header>
     <div>
       <h1>Should I buy GPIX today?</h1>
-      <div class="sub">A rules-based read on whether today is a better- or worse-than-average day to buy. Updates every weekday morning.</div>
+      <div class="sub">Ten market signals - volatility, credit, sentiment, yield, trend - scored every weekday morning into one answer.</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -167,8 +168,8 @@ const ago = iso => {
   return Math.round(h / 24) + "d ago";
 };
 
-// Score scale for the meter: -3 (everything says "full price") to +6 (everything favorable).
-const METER_MIN = -3, METER_MAX = 6;
+// Score scale for the meter: -7 (everything says "full price") to +12 (everything favorable).
+const METER_MIN = -7, METER_MAX = 12;
 
 // Renders the chart at the container's real pixel width (no viewBox scaling),
 // so axis text stays readable on a phone. Re-renders on resize/rotation.
@@ -259,7 +260,7 @@ fetch("data.json").then(r => r.json()).then(d => {
     </div>
 
     <h2>Why</h2>
-    <div class="h2sub">Five things this page checks each morning. Green = tilts toward buying today, orange = works against you.</div>
+    <div class="h2sub">Ten checks each morning: volatility pricing, credit stress, sentiment, yield vs cash, trend, and the event calendar. Green = tilts toward buying today, orange = works against you.</div>
     <div class="signals">
       ${d.signals.map(s => `
         <div class="sig">
@@ -272,7 +273,7 @@ fetch("data.json").then(r => r.json()).then(d => {
     </div>
 
     <h2>Price context</h2>
-    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it).</div>
+    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it).${d.income && d.income.ttm_yield_pct != null && d.income.tbill_3mo != null ? ` GPIX has paid ${d.income.ttm_yield_pct.toFixed(1)}% over the trailing year vs ${d.income.tbill_3mo.toFixed(1)}% on 3-month T-bills.` : ""}</div>
     <div class="card" id="chartcard"></div>
 
     <h2>Does waiting even work? A running experiment</h2>

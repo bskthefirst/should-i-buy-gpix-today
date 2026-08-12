@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Build docs/data.json for the "Should I buy GPIX today?" page.
 
-Fetches GPIX/SPY/VIX from Yahoo Finance's public chart API and macro
-headlines from Google News RSS, scores today's entry conditions with
-transparent rules, and backtests dip-waiting vs plain DCA so the page
-can show whether timing has actually helped.
+Fetches GPIX/SPY/VIX/VIX3M from Yahoo Finance's public chart API, credit
+spreads and T-bill rates from FRED, CNN's Fear & Greed index, and macro
+headlines from Google News RSS. Scores today's entry conditions with
+transparent rules and backtests dip-waiting vs plain DCA so the page can
+show whether timing has actually helped.
+
+Every non-core fetch is individually guarded: if a source is down, its
+signal is emitted with score 0 and a "skipped" note instead of failing
+the build.
 
 Stdlib only - no dependencies - so it runs anywhere including GitHub Actions.
 """
@@ -12,15 +17,26 @@ Stdlib only - no dependencies - so it runs anywhere including GitHub Actions.
 from __future__ import annotations
 
 import json
+import math
 import re
+import statistics
+import subprocess
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "docs" / "data.json"
 UA = {"User-Agent": "Mozilla/5.0 (gpix-timing tool; personal use)"}
+# CNN's endpoint returns HTTP 418 without a browser UA AND a cnn.com referer.
+CNN_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+    ),
+    "Referer": "https://www.cnn.com/",
+}
 
 # Remaining FOMC decision days (second day of each meeting), per the
 # Federal Reserve's published schedule.
@@ -38,25 +54,49 @@ FOMC_DATES = [
     "2027-12-08",
 ]
 
+# BLS CPI release dates. The 2027 schedule is published late 2026.
+CPI_DATES = [
+    "2026-08-12",
+    "2026-09-11",
+    "2026-10-14",
+    "2026-11-10",
+    "2026-12-10",
+]
+
 WEEKLY_DCA_AMOUNT = 100.0
 DIP_THRESHOLD = 0.03  # dip-waiter buys only >=3% below the high so far
 
+SKIPPED_NOTE = "Data source unavailable today - signal skipped."
 
-def fetch_json(url: str) -> dict:
-    req = urllib.request.Request(url, headers=UA)
+
+def fetch_json(url: str, headers: dict | None = None) -> dict:
+    req = urllib.request.Request(url, headers=headers or UA)
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.load(resp)
 
 
-def yahoo_history(symbol: str, range_: str) -> list[tuple[date, float, float]]:
-    """Return (date, close, adjusted_close) rows. Adjusted close folds
-    distributions back in, which is what total-return math needs."""
+def curl_fetch(url: str, headers: dict | None = None) -> bytes:
+    """FRED and CNN stall or reject Python's urllib (TLS/header
+    fingerprinting) but serve curl instantly - so use curl for them."""
+    cmd = ["curl", "-sS", "--fail", "-m", "30", url]
+    for k, v in (headers or {}).items():
+        cmd += ["-H", f"{k}: {v}"]
+    return subprocess.run(cmd, capture_output=True, check=True).stdout
+
+
+def yahoo_chart(symbol: str, range_: str, events: bool = False) -> dict:
     url = (
         f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
         f"?range={range_}&interval=1d"
     )
-    data = fetch_json(url)
-    result = data["chart"]["result"][0]
+    if events:
+        url += "&events=div"
+    return fetch_json(url)["chart"]["result"][0]
+
+
+def chart_rows(result: dict) -> list[tuple[date, float, float]]:
+    """(date, close, adjusted_close) rows. Adjusted close folds
+    distributions back in, which is what total-return math needs."""
     stamps = result["timestamp"]
     closes = result["indicators"]["quote"][0]["close"]
     adj = result["indicators"].get("adjclose", [{}])[0].get("adjclose", closes)
@@ -72,6 +112,25 @@ def yahoo_history(symbol: str, range_: str) -> list[tuple[date, float, float]]:
             )
         )
     return out
+
+
+def fetch_fred(series_id: str) -> list[tuple[date, float]]:
+    """FRED CSV: header 'observation_date,SERIES_ID'; missing values are '.'."""
+    start = (date.today() - timedelta(days=100)).isoformat()
+    url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}&cosd={start}"
+    text = curl_fetch(url).decode()
+    rows = []
+    for line in text.splitlines()[1:]:
+        parts = line.strip().split(",")
+        if len(parts) != 2:
+            continue
+        try:
+            rows.append((date.fromisoformat(parts[0]), float(parts[1])))
+        except ValueError:
+            continue  # '.' or malformed
+    if not rows:
+        raise ValueError(f"no parseable rows for {series_id}")
+    return rows
 
 
 def sma(closes: list[float], window: int) -> float | None:
@@ -119,7 +178,7 @@ def backtest(history: list[tuple[date, float]]) -> dict:
 
     Runs on ADJUSTED closes, so monthly distributions count as reinvested
     for whoever holds shares. Cash waiting for a dip earns nothing - which
-    is the real cost of waiting with an 8.5%-distributing fund.
+    is the real cost of waiting with an 8%-distributing fund.
     """
     dca_shares = 0.0
     dca_invested = 0.0
@@ -163,15 +222,27 @@ def backtest(history: list[tuple[date, float]]) -> dict:
     }
 
 
+def guarded(name: str, builder):
+    """Run a signal builder; on any failure emit a neutral placeholder so
+    one flaky endpoint never breaks the daily build."""
+    try:
+        return builder()
+    except Exception:
+        return {"name": name, "value": "n/a", "score": 0, "note": SKIPPED_NOTE}
+
+
 def build() -> dict:
+    # ---- core fetches (build fails loudly if these break) ----
     # Note: range=max silently degrades to weekly bars on Yahoo's API;
     # 3y keeps daily granularity and covers GPIX's full life (Oct 2023 launch).
-    gpix = yahoo_history("GPIX", "3y")
-    spy = yahoo_history("SPY", "2y")
-    vix = yahoo_history("%5EVIX", "3mo")
+    gpix_result = yahoo_chart("GPIX", "3y", events=True)
+    gpix = chart_rows(gpix_result)
+    spy = chart_rows(yahoo_chart("SPY", "2y"))
+    vix = chart_rows(yahoo_chart("%5EVIX", "1y"))
 
     gpix_closes = [c for _, c, _ in gpix]
     spy_closes = [c for _, c, _ in spy]
+    vix_closes = [c for _, c, _ in vix]
 
     price = gpix_closes[-1]
     day_change = (price / gpix_closes[-2] - 1) * 100 if len(gpix_closes) > 1 else 0.0
@@ -187,30 +258,99 @@ def build() -> dict:
     spy_sma200 = sma(spy_closes, 200)
     spy_above_200 = spy_sma200 is not None and spy_price >= spy_sma200
 
-    vix_level = vix[-1][1]
-    gpix_total_return = [(d, a) for d, _, a in gpix]
+    vix_level = vix_closes[-1]
 
     today = date.today()
-    next_fomc = next(
-        (d for d in FOMC_DATES if date.fromisoformat(d) >= today), None
-    )
-    days_to_fomc = (
-        (date.fromisoformat(next_fomc) - today).days if next_fomc else None
-    )
 
-    # ---- transparent scoring rules ----
+    # ---- income data (used by a signal and shown on the page) ----
+    ttm_yield = None
+    tbill = None
+    try:
+        divs = gpix_result.get("events", {}).get("dividends", {})
+        cutoff = datetime.now(timezone.utc) - timedelta(days=365)
+        ttm_sum = sum(
+            d["amount"]
+            for d in divs.values()
+            if datetime.fromtimestamp(d["date"], tz=timezone.utc) >= cutoff
+        )
+        if ttm_sum > 0:
+            ttm_yield = round(ttm_sum / price * 100, 2)
+    except Exception:
+        pass
+    try:
+        tbill = round(fetch_fred("DGS3MO")[-1][1], 2)
+    except Exception:
+        pass
+
+    # ------------------------------------------------------------------
+    # Signals. Positive score = tilts toward buying today.
+    # ------------------------------------------------------------------
     signals = []
 
-    if vix_level >= 25:
-        s, note = 2, "Fear is elevated: option premiums are rich (fatter future distributions) and shares are on sale."
-    elif vix_level >= 18:
-        s, note = 1, "Volatility above average - premiums somewhat rich."
-    elif vix_level >= 13:
-        s, note = 0, "Calm market. Premiums ordinary."
-    else:
-        s, note = -1, "Volatility unusually low - covered-call income is thin at these levels."
-    signals.append({"name": "VIX (option premium fuel)", "value": f"{vix_level:.1f}", "score": s, "note": note})
+    # 1. VIX vs its own past year (percentile of trailing daily closes)
+    def sig_vix_percentile():
+        below = sum(1 for c in vix_closes if c < vix_level)
+        pct = below / len(vix_closes) * 100
+        if pct >= 90:
+            s, note = 2, "Volatility in the top decile of the past year - option premiums unusually rich and shares likely marked down."
+        elif pct >= 70:
+            s, note = 1, "Volatility elevated vs the past year - premiums above their recent norm."
+        elif pct >= 25:
+            s, note = 0, "Volatility mid-range for the past year. Premiums ordinary."
+        else:
+            s, note = -1, "Volatility near the bottom of its 1-year range - the income engine is running lean."
+        return {
+            "name": "VIX vs its own past year",
+            "value": f"{vix_level:.1f} (p{pct:.0f})",
+            "score": s,
+            "note": note,
+        }
 
+    signals.append(guarded("VIX vs its own past year", sig_vix_percentile))
+
+    # 2. VIX term structure (VIX / VIX3M)
+    def sig_term_structure():
+        vix3m = chart_rows(yahoo_chart("%5EVIX3M", "5d"))[-1][1]
+        ratio = vix_level / vix3m
+        if ratio >= 1.00:
+            s, note = 2, "VIX curve inverted - genuine panic. Near-term option premiums are at their richest and shares are marked down. Historically one of the best covered-call entry setups."
+        elif ratio >= 0.93:
+            s, note = 1, "VIX curve flattening - stress building. Premiums firming up in the buyer's favor."
+        else:
+            s, note = 0, "Normal upward-sloping VIX curve. No unusual near-term fear."
+        return {
+            "name": "VIX term structure (1mo/3mo)",
+            "value": f"{ratio:.2f}",
+            "score": s,
+            "note": note,
+        }
+
+    signals.append(guarded("VIX term structure (1mo/3mo)", sig_term_structure))
+
+    # 3. Variance risk premium: implied (VIX) minus realized SPY volatility
+    def sig_vrp():
+        rets = [
+            math.log(spy_closes[i] / spy_closes[i - 1])
+            for i in range(len(spy_closes) - 20, len(spy_closes))
+        ]
+        realized = statistics.stdev(rets) * math.sqrt(252) * 100
+        vrp = vix_level - realized
+        if vrp >= 6:
+            s, note = 1, "Options are pricing far more turbulence than the market is delivering - covered-call sellers like GPIX are being overpaid right now."
+        elif vrp > -2:
+            s, note = 0, "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep."
+        else:
+            s, note = -1, "Realized swings exceed what options are pricing - call selling is underpaid in this tape."
+        return {
+            "name": "Are call-sellers overpaid?",
+            "value": f"{vrp:+.1f} pts",
+            "score": s,
+            "note": note,
+        }
+
+    signals.append(guarded("Are call-sellers overpaid?", sig_vrp))
+
+    # 4. Discount from 52-week high
     if drawdown >= 7:
         s, note = 2, "Meaningful discount from the 52-week high."
     elif drawdown >= 3:
@@ -221,6 +361,7 @@ def build() -> dict:
         s, note = 0, "Barely below the high - no real discount."
     signals.append({"name": "Discount from 52-week high", "value": f"{drawdown:.1f}%", "score": s, "note": note})
 
+    # 5. GPIX vs 50-day average
     if sma50 is None:
         s, note = 0, "Not enough history for a 50-day average."
     elif vs_sma50 < 0:
@@ -231,38 +372,121 @@ def build() -> dict:
         s, note = 0, "Close to its 50-day average."
     signals.append({"name": "GPIX vs 50-day average", "value": f"{vs_sma50:+.1f}%", "score": s, "note": note})
 
+    # 6. S&P 500 regime
     if spy_above_200:
         s, note = 0, "S&P 500 in a healthy uptrend (above its 200-day average)."
     else:
         s, note = 1, "S&P 500 below its 200-day average - bear pricing; long-term buyers historically do well adding here."
     signals.append({"name": "S&P 500 regime", "value": "uptrend" if spy_above_200 else "downtrend", "score": s, "note": note})
 
-    fomc_this_week = days_to_fomc is not None and days_to_fomc <= 2
-    signals.append({
-        "name": "Fed calendar",
-        "value": f"FOMC in {days_to_fomc}d" if days_to_fomc is not None else "n/a",
-        "score": 0,
-        "note": (
-            "Rate decision within 2 days - expect a volatility spike either way. Not a reason to skip a scheduled buy."
-            if fomc_this_week
-            else f"Next rate decision {next_fomc}. No event risk in the next few days."
-        ),
-    })
+    # 7. High-yield credit spread (FRED BAMLH0A0HYM2)
+    def sig_credit():
+        rows = fetch_fred("BAMLH0A0HYM2")
+        oas = rows[-1][1]
+        prior = rows[max(0, len(rows) - 22)][1]
+        chg_1mo = oas - prior
+        if oas >= 5.0:
+            s, note = 2, "Credit markets pricing serious stress. Painful headlines, but spreads this wide have historically marked strong forward returns for equity buyers."
+        elif chg_1mo >= 0.50:
+            s, note = -1, "Credit spreads widening fast - stress building under the surface. Drawdowns often deepen after this signal; patience tends to pay."
+        elif oas <= 3.5:
+            s, note = 0, "Credit markets calm - no stress signal in either direction."
+        else:
+            s, note = 0, "Credit spreads moderately elevated but stable."
+        return {
+            "name": "Credit stress (junk-bond spreads)",
+            "value": f"{oas:.2f}% ({chg_1mo:+.2f} 1mo)",
+            "score": s,
+            "note": note,
+        }
 
+    signals.append(guarded("Credit stress (junk-bond spreads)", sig_credit))
+
+    # 8. GPIX trailing payout vs riskless cash
+    def sig_payout():
+        if ttm_yield is None or tbill is None:
+            raise ValueError("missing yield inputs")
+        advantage = ttm_yield - tbill
+        if advantage >= 5.5:
+            s, note = 1, "GPIX's trailing payout beats riskless T-bills by a wide margin - you are well paid for taking equity risk."
+        elif advantage >= 3.0:
+            s, note = 0, "GPIX yields comfortably more than cash - the normal state of affairs."
+        else:
+            s, note = -1, "T-bills pay almost as much as GPIX with zero risk - the income case for buying today is weak."
+        return {
+            "name": "Payout vs safe cash",
+            "value": f"{ttm_yield:.1f}% vs {tbill:.1f}% cash",
+            "score": s,
+            "note": note,
+        }
+
+    signals.append(guarded("Payout vs safe cash", sig_payout))
+
+    # 9. CNN Fear & Greed (contrarian)
+    def sig_fear_greed():
+        data = json.loads(
+            curl_fetch(
+                "https://production.dataviz.cnn.io/index/fearandgreed/graphdata",
+                headers=CNN_HEADERS,
+            )
+        )
+        score_ = float(data["fear_and_greed"]["score"])
+        rating = str(data["fear_and_greed"]["rating"])
+        if score_ <= 25:
+            s, note = 2, "Extreme fear across market internals - historically the crowd is wrong at this extreme, and premiums are fat. Contrarian buy zone."
+        elif score_ <= 45:
+            s, note = 1, "Fear is the dominant mood - a mild contrarian tailwind for buyers."
+        elif score_ < 75:
+            s, note = 0, "Sentiment in the normal range - no contrarian edge either way."
+        else:
+            s, note = -1, "Extreme greed - the crowd is all-in and shares are priced for perfection."
+        return {
+            "name": "Fear & Greed index",
+            "value": f"{score_:.0f} ({rating})",
+            "score": s,
+            "note": note,
+        }
+
+    signals.append(guarded("Fear & Greed index", sig_fear_greed))
+
+    # 10. Event calendar: FOMC decisions + CPI prints (informational, score 0)
+    next_fomc = next((d for d in FOMC_DATES if date.fromisoformat(d) >= today), None)
+    next_cpi = next((d for d in CPI_DATES if date.fromisoformat(d) >= today), None)
+    days_to_fomc = (date.fromisoformat(next_fomc) - today).days if next_fomc else None
+    days_to_cpi = (date.fromisoformat(next_cpi) - today).days if next_cpi else None
+    events = [(d, "FOMC", next_fomc) for d in [days_to_fomc] if d is not None]
+    events += [(d, "CPI", next_cpi) for d in [days_to_cpi] if d is not None]
+    events.sort()
+    imminent = bool(events) and events[0][0] <= 2
+    if imminent and events[0][1] == "CPI":
+        ev_note = "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but don't be surprised by a swing."
+    elif imminent:
+        ev_note = "Rate decision within 2 days - expect a volatility spike either way. Not a reason to skip a scheduled buy."
+    else:
+        parts = []
+        if next_cpi:
+            parts.append(f"next CPI {next_cpi}")
+        if next_fomc:
+            parts.append(f"next FOMC {next_fomc}")
+        ev_note = "No event risk in the next few days" + (" (" + ", ".join(parts) + ")." if parts else ".")
+    ev_value = f"{events[0][1]} in {events[0][0]}d" if events else "n/a"
+    signals.append({"name": "Event calendar", "value": ev_value, "score": 0, "note": ev_note})
+
+    # ---- verdict (score range roughly -7..+12) ----
     score = sum(x["score"] for x in signals)
-    if score >= 3:
+    if score >= 5:
         verdict = {
             "tone": "good",
             "label": "Better-than-usual entry",
             "summary": "Several conditions line up in a buyer's favor today. If you have cash earmarked for GPIX, this is a sensible day to deploy it.",
         }
-    elif score >= 1:
+    elif score >= 2:
         verdict = {
             "tone": "ok",
             "label": "Mild tailwind - fine day to buy",
             "summary": "Conditions tilt slightly in your favor. Nothing dramatic, but no reason to wait either.",
         }
-    elif score == 0:
+    elif score >= -1:
         verdict = {
             "tone": "neutral",
             "label": "No edge either way - buy on schedule",
@@ -290,10 +514,12 @@ def build() -> dict:
                 {"d": d.isoformat(), "c": c} for d, c, _ in gpix[-180:]
             ],
         },
+        "income": {"ttm_yield_pct": ttm_yield, "tbill_3mo": tbill},
         "spy": {"price": spy_price, "sma200": round(spy_sma200, 2) if spy_sma200 else None, "above_200d": spy_above_200},
         "vix": {"level": vix_level},
-        "fomc": {"next": next_fomc, "days_until": days_to_fomc, "imminent": fomc_this_week},
-        "backtest": backtest(gpix_total_return),
+        "fomc": {"next": next_fomc, "days_until": days_to_fomc, "imminent": imminent},
+        "cpi": {"next": next_cpi, "days_until": days_to_cpi},
+        "backtest": backtest([(d, a) for d, _, a in gpix]),
         "headlines": fetch_headlines(),
     }
 
@@ -304,5 +530,7 @@ if __name__ == "__main__":
     OUT.write_text(json.dumps(data, indent=1))
     print(f"wrote {OUT}")
     print(f"verdict: {data['verdict']['label']} (score {data['verdict']['score']})")
+    for s in data["signals"]:
+        print(f"  {s['score']:+d}  {s['name']}: {s['value']}")
     bt = data["backtest"]
     print(f"backtest: DCA {bt['dca_return_pct']}% vs dip-waiting {bt['dip_return_pct']}%")

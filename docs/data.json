@@ -1,17 +1,29 @@
 {
- "generated_at": "2026-08-12T03:24:02+00:00",
+ "generated_at": "2026-08-12T03:46:55+00:00",
  "verdict": {
   "tone": "rich",
   "label": "No discount today",
   "summary": "You'd be paying full price with thin premiums. If today is your scheduled buy day, buy anyway - the backtest below shows why skipping rarely helps. If it's not, there is no signal pulling you in early.",
-  "score": -1
+  "score": -2
  },
  "signals": [
   {
-   "name": "VIX (option premium fuel)",
-   "value": "15.3",
+   "name": "VIX vs its own past year",
+   "value": "15.3 (p13)",
+   "score": -1,
+   "note": "Volatility near the bottom of its 1-year range - the income engine is running lean."
+  },
+  {
+   "name": "VIX term structure (1mo/3mo)",
+   "value": "0.81",
    "score": 0,
-   "note": "Calm market. Premiums ordinary."
+   "note": "Normal upward-sloping VIX curve. No unusual near-term fear."
+  },
+  {
+   "name": "Are call-sellers overpaid?",
+   "value": "+1.2 pts",
+   "score": 0,
+   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep."
   },
   {
    "name": "Discount from 52-week high",
@@ -32,10 +44,28 @@
    "note": "S&P 500 in a healthy uptrend (above its 200-day average)."
   },
   {
-   "name": "Fed calendar",
-   "value": "FOMC in 36d",
+   "name": "Credit stress (junk-bond spreads)",
+   "value": "2.70% (+0.01 1mo)",
    "score": 0,
-   "note": "Next rate decision 2026-09-16. No event risk in the next few days."
+   "note": "Credit markets calm - no stress signal in either direction."
+  },
+  {
+   "name": "Payout vs safe cash",
+   "value": "8.0% vs 3.9% cash",
+   "score": 0,
+   "note": "GPIX yields comfortably more than cash - the normal state of affairs."
+  },
+  {
+   "name": "Fear & Greed index",
+   "value": "61 (greed)",
+   "score": 0,
+   "note": "Sentiment in the normal range - no contrarian edge either way."
+  },
+  {
+   "name": "Event calendar",
+   "value": "CPI in 1d",
+   "score": 0,
+   "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but don't be surprised by a swing."
   }
  ],
  "gpix": {
@@ -767,6 +797,10 @@
    }
   ]
  },
+ "income": {
+  "ttm_yield_pct": 8.04,
+  "tbill_3mo": 3.89
+ },
  "spy": {
   "price": 770.56,
   "sma200": 703.99,
@@ -778,7 +812,11 @@
  "fomc": {
   "next": "2026-09-16",
   "days_until": 36,
-  "imminent": false
+  "imminent": true
+ },
+ "cpi": {
+  "next": "2026-08-12",
+  "days_until": 1
  },
  "backtest": {
   "start": "2023-10-27",
@@ -788,7 +826,7 @@
   "invested": 14700.0,
   "dca_value": 19224.74,
   "dca_return_pct": 30.78,
-  "dip_value": 18996.23,
+  "dip_value": 18996.24,
   "dip_return_pct": 29.23,
   "dip_cash_uninvested": 900.0,
   "dip_buy_days": 31,
@@ -808,16 +846,16 @@
    "published": "2026-08-11T18:34:41+00:00"
   },
   {
+   "title": "Gold Edges Higher Ahead of U.S. Inflation Data",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZlgxblBzV3BGc1l0QzlndndxTUlJNkJDTkpKZGpWN0VkVXFLLWFHOGY1VzZyTEdXRXlkLWstcE81X1RKN0xNRVR4ajlJVjJfUzlsYWY2Z0xQT24wU0Z5cjU3dUZiSXdpUDBKYW9XMG9NWW1QSzBfXzg4SVlnTGF0MDZHc1BMZWt5dV9yek9aeVljNFhYdjg4MWJnczJlUlhqVi1zUQ?oc=5",
+   "published": "2026-08-12T01:00:00+00:00"
+  },
+  {
    "title": "Dollar drifts as markets await US inflation data for Fed clues",
    "source": "Reuters",
    "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZnhDSnpIWUFyU185anRuZ0lKYjItT2RJaWU3czNGbGdwVVBTbzRlaEF1QjJ3cERWVEZUVkV2Q0kwc3FtQVBpVWx3SmFnbTVlcEkyX0ZYb0lhd2tDQ0ZXcXl1RHl4aTR6dXVjYnRYZjZVUlN0TDE1QXJ4cF9SaHNueElkRF94cGlXbHJZdnlBSExxZzhaMVAxa0lKblNReU0tdFJJ?oc=5",
    "published": "2026-08-12T01:45:36+00:00"
-  },
-  {
-   "title": "Gold Edges Higher Ahead of U.S. Inflation Data",
-   "source": "wsj.com",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZlgxblBzV3BGc1l0QzlndndxTUlJNkJDTkpKZGpWN0VkVXFLLWFHOGY1VzZyTEdXRXlkLWstcE81X1RKN0xNRVR4ajlJVjJfUzlsYWY2Z0xQT24wU0Z5cjU3dUZiSXdpUDBKYW9XMG9NWW1QSzBfXzg4SVlnTGF0MDZHc1BMZWt5dV9yek9aeVljNFhYdjg4MWJnczJlUlhqVi1zUQ?oc=5",
-   "published": "2026-08-12T01:00:00+00:00"
   },
   {
    "title": "Rethinking Fed operations: Recommendations to the five task forces",

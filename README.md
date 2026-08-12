@@ -6,19 +6,26 @@ better-or-worse-than-average day to buy [GPIX](https://am.gs.com/en-us/advisors/
 
 ## How it decides
 
-A GitHub Action runs every weekday morning, pulls data from Yahoo Finance and Google News,
-and scores four transparent signals:
+A GitHub Action runs every weekday morning, pulls data from Yahoo Finance, FRED, CNN's
+Fear & Greed feed, and Google News, and scores ten transparent signals:
 
-| Signal | Why it matters for a covered-call fund |
-| --- | --- |
-| VIX level | High volatility = richer option premiums (fatter future distributions) and fearful sellers |
-| GPIX vs its 52-week high | Are you buying at a discount or paying full price? |
-| GPIX vs its 50-day average | Short-term stretch or weakness |
-| S&P 500 vs its 200-day average | Overall market regime |
-| Fed calendar (FOMC dates) | Flags imminent rate decisions (informational only) |
+| Signal | Source | Why it matters for a covered-call fund |
+| --- | --- | --- |
+| VIX vs its own past year (percentile) | Yahoo `^VIX` | High volatility relative to its own recent history = richer option premiums and marked-down shares |
+| VIX term structure (VIX/VIX3M) | Yahoo `^VIX3M` | An inverted curve means genuine near-term panic - historically a strong covered-call entry |
+| Variance risk premium | VIX minus realized SPY vol | Are option buyers overpaying call-sellers like GPIX right now? |
+| Discount from 52-week high | Yahoo `GPIX` | Are you buying at a discount or paying full price? |
+| GPIX vs its 50-day average | Yahoo `GPIX` | Short-term stretch or weakness |
+| S&P 500 vs its 200-day average | Yahoo `SPY` | Overall market regime |
+| High-yield credit spread | FRED `BAMLH0A0HYM2` | Junk-bond spreads flag stress before headlines do; extreme wides have marked strong forward returns |
+| Payout vs safe cash | Yahoo dividends + FRED `DGS3MO` | GPIX's trailing yield vs 3-month T-bills - how well are you paid for equity risk? |
+| Fear & Greed index | CNN | Contrarian sentiment: extreme fear is a buy zone, extreme greed is priced for perfection |
+| Event calendar | Fed + BLS schedules | Flags imminent FOMC decisions and CPI prints (informational only) |
 
-The verdict maps the total score to one of four honest answers, ranging from
-"better-than-usual entry" to "no discount today."
+Each non-core source is individually guarded - if an endpoint is down, its signal shows
+as skipped (score 0) instead of breaking the daily build. The verdict maps the total
+score (range roughly -7 to +12) to one of four honest answers, from "better-than-usual
+entry" (score >= +5) to "no discount today" (score <= -2).
 
 ## The point of the backtest
 
