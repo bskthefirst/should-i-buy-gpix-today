@@ -19,9 +19,14 @@ the audits showed the tool couldn't spot bad days, so it stopped claiming
 to.
 
 GPIX is scored against the S&P 500 and the VIX; GPIQ against the
-Nasdaq-100 (QQQ) and the VXN. GPIQ also displays (context only) the
-VXN/VIX "tech fear premium" - the audit found its intuitive scoring
-backwards, so it no longer scores.
+Nasdaq-100 (QQQ) and the VXN. GPIQ also displays the VXN/VIX "tech fear
+premium" - the audit found its intuitive scoring backwards, so it no
+longer scores.
+
+Every signal also carries a "lean" ("good" | "bad" | "neutral"): a
+purely descriptive, presentation-only read of current conditions so the
+page never shows a vague tag. Leans never touch the score, the history
+backfill, or the feed - those are score-based only.
 
 Every non-core fetch is individually guarded: if a source is down, its
 signal is emitted with score 0 and a "skipped" note instead of failing
@@ -606,7 +611,7 @@ def guarded(name: str, builder):
     try:
         return builder()
     except Exception:
-        return {"name": name, "value": "n/a", "score": 0, "note": SKIPPED_NOTE}
+        return {"name": name, "value": "n/a", "score": 0, "lean": "neutral", "note": SKIPPED_NOTE}
 
 
 def build(fund: dict) -> dict:
@@ -630,6 +635,7 @@ def build(fund: dict) -> dict:
     price = fund_closes[-1]
     day_change = (price / fund_closes[-2] - 1) * 100 if len(fund_closes) > 1 else 0.0
     sma50 = sma(fund_closes, 50)  # raw: overlaid on the raw price chart
+    sma200 = sma(fund_closes, 200)  # raw, for the chart's second dashed line
     year = fund_closes[-252:] if len(fund_closes) >= 252 else fund_closes
     high52 = max(year)
     # Raw drawdown for the price-context line (people see raw prices in
@@ -687,17 +693,22 @@ def build(fund: dict) -> dict:
         pct = below / len(vol_closes) * 100
         s = score_vol_percentile(pct)
         if s == 1:
+            lean = "good"
             note = f"{und_name} volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive."
         elif pct >= 70:
-            note = f"{und_name} volatility elevated vs the past year, but below the top decile - the audits found no reliable edge here, so it's context only."
+            lean = "good"
+            note = f"{und_name} volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile earns a point, but the read is good."
         elif pct < 25:
-            note = f"{und_name} volatility near the bottom of its 1-year range. The old low-vol penalty didn't survive the audit - context only."
+            lean = "bad"
+            note = f"{und_name} volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit."
         else:
+            lean = "neutral"
             note = f"{und_name} volatility mid-range for the past year. Premiums ordinary."
         return {
             "name": f"{vol_name} vs its own past year",
             "value": f"{vol_level:.1f} (p{pct:.0f})",
             "score": s,
+            "lean": lean,
             "note": note,
         }
 
@@ -711,15 +722,19 @@ def build(fund: dict) -> dict:
         ratio = vix_now / vix3m
         s = score_term_structure(ratio)
         if s == 1:
+            lean = "good"
             note = "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest +1."
         elif ratio >= 0.93:
-            note = "VIX curve flattening - stress building, but the audits found no scored edge until full inversion. Context only."
+            lean = "good"
+            note = "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; a point only comes at full inversion (1.00+)."
         else:
+            lean = "neutral"
             note = "Normal upward-sloping VIX curve. No unusual near-term fear."
         return {
             "name": "VIX term structure (1mo/3mo)",
             "value": f"{ratio:.2f}",
             "score": s,
+            "lean": lean,
             "note": note,
         }
 
@@ -739,16 +754,19 @@ def build(fund: dict) -> dict:
             below = sum(1 for r in ratios if r < cur)
             pct = below / len(ratios) * 100
             if pct >= 65:
-                note = "Tech options pricier than usual relative to the broad market - fear concentrated in the Nasdaq. This used to add points, but the audit found the intuitive scoring backwards, so it's now context only."
+                lean = "bad"
+                note = "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good."
             elif pct < 20:
-                note = "Tech options unusually cheap vs the broad market - Nasdaq complacency. Displayed for context; the audit found no reliable scoring edge in this ratio either way."
+                lean = "good"
+                note = "Tech options unusually cheap vs the broad market. Since the audits found rich tech premiums preceded weaker returns, an unusually cheap premium reads mildly good - though it never proved a scoring edge."
             else:
-                note = "Tech vol priced normally relative to the broad market. Context only - the audit found the intuitive scoring of this ratio backwards, so it no longer scores."
+                lean = "neutral"
+                note = "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes."
             return {
                 "name": "Tech fear premium (VXN/VIX)",
                 "value": f"{cur:.2f}x (p{pct:.0f})",
                 "score": 0,
-                "context": True,
+                "lean": lean,
                 "note": note,
             }
 
@@ -764,16 +782,19 @@ def build(fund: dict) -> dict:
         realized = statistics.stdev(rets) * math.sqrt(252) * 100
         vrp = vol_level - realized
         if vrp >= 6:
-            note = f"Options pricing far more turbulence than the {und_name} is delivering - the call-selling engine is well paid right now. Context only: this never proved a reliable timing edge."
-        elif vrp > -2:
-            note = "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep. Context only."
+            lean = "good"
+            note = f"Options pricing far more turbulence than the {und_name} is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits."
+        elif vrp <= -2:
+            lean = "bad"
+            note = f"Realized {und_name} swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits."
         else:
-            note = f"Realized {und_name} swings exceed what options are pricing - call selling underpaid in this tape. Context only: the audits found no reliable timing edge in this gap either way."
+            lean = "neutral"
+            note = "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep."
         return {
             "name": "Are call-sellers overpaid?",
             "value": f"{vrp:+.1f} pts",
             "score": 0,
-            "context": True,
+            "lean": lean,
             "note": note,
         }
 
@@ -784,10 +805,15 @@ def build(fund: dict) -> dict:
     # was a dot-com artifact; the at-the-high "-1" tested as noise).
     s = score_drawdown(drawdown_adj)
     if s == 1:
+        dd_lean = "good"
         note = "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits."
+    elif drawdown_adj <= 0.5:
+        dd_lean = "neutral"
+        note = "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average."
     else:
-        note = "No meaningful discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts."
-    signals.append({"name": "Discount from 52-week high", "value": f"{drawdown_adj:.1f}%", "score": s, "note": note})
+        dd_lean = "neutral"
+        note = "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either."
+    signals.append({"name": "Discount from 52-week high", "value": f"{drawdown_adj:.1f}%", "score": s, "lean": dd_lean, "note": note})
 
     # 5. Fund vs 50-day average (adjusted). Context only: the raw-close
     # version was largely a distribution artifact, and even measured
@@ -795,20 +821,27 @@ def build(fund: dict) -> dict:
     if sma50_adj is None:
         note = "Not enough history for a 50-day average."
     elif vs_sma50_adj < 0:
-        note = "Below its 50-day average (distributions reinvested) - short-term weakness, but the audit found no scored edge in it. Context only."
+        note = "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral."
     elif vs_sma50_adj > 3:
-        note = "Stretched more than 3% above its 50-day average (distributions reinvested). Context only - the old penalty didn't survive the audit."
+        note = "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral."
     else:
-        note = "Close to its 50-day average (distributions reinvested). Context only."
-    signals.append({"name": f"{ticker} vs 50-day average", "value": f"{vs_sma50_adj:+.1f}%", "score": 0, "context": True, "note": note})
+        note = "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral."
+    signals.append({"name": f"{ticker} vs 50-day average", "value": f"{vs_sma50_adj:+.1f}%", "score": 0, "lean": "neutral", "note": note})
 
-    # 6. Underlying index regime. Context only: the old below-200d "+1"
-    # was negative on both SPY and QQQ (-0.6pt/21d, era-flipped).
+    # 6. Underlying index regime. Never scores (the old below-200d "+1"
+    # was negative on both SPY and QQQ), but the lean follows the evidence:
+    # below the 200-day preceded below-average returns, so downtrend = bad.
     if und_above_200:
-        note = f"{und_name} in a healthy uptrend (above its 200-day average). Context only."
+        note = f"{und_name} in a healthy uptrend (above its 200-day average) - the regime in which forward returns have been better on average."
     else:
-        note = f"{und_name} below its 200-day average - bear pricing. This used to add a point, but the audit found buying on that basis actually lagged, so it's now context only."
-    signals.append({"name": f"{und_name} regime", "value": "uptrend" if und_above_200 else "downtrend", "score": 0, "context": True, "note": note})
+        note = f"{und_name} below its 200-day average. The old rules gave this a point as \"bear pricing\" - the audits found the opposite: below-200-day days preceded below-average returns. So it reads bad (though nothing scores negative)."
+    signals.append({
+        "name": f"{und_name} regime",
+        "value": "uptrend" if und_above_200 else "downtrend",
+        "score": 0,
+        "lean": "good" if und_above_200 else "bad",
+        "note": note,
+    })
 
     # 7. High-yield credit spread (FRED BAMLH0A0HYM2). Only OAS >= 5%
     # scores; the widening "-1" is retired (its test days rebounded).
@@ -819,17 +852,22 @@ def build(fund: dict) -> dict:
         chg_1mo = oas - prior
         s = score_credit(oas)
         if s == 1:
-            note = "Credit markets pricing serious stress. Principled but untested: spreads never got this wide in the testable sample, so this +1 rests on reasoning, not backtest evidence."
+            lean = "good"
+            note = "Credit markets pricing serious stress - a contrarian buy zone. Principled but untested: spreads never got this wide in the testable sample, so this +1 rests on reasoning, not backtest evidence."
         elif chg_1mo >= 0.50:
-            note = "Credit spreads widening fast. This used to subtract a point, but the audit found those days actually rebounded - context only now."
+            lean = "bad"
+            note = "Credit spreads widening fast - stress building under the surface. The audit couldn't validate a score on this (those days actually rebounded), but as a plain read of conditions it leans bad."
         elif oas <= 3.5:
+            lean = "neutral"
             note = "Credit markets calm - no stress."
         else:
+            lean = "neutral"
             note = "Credit spreads moderately elevated but well short of the 5% panic band."
         return {
             "name": "Credit stress (junk-bond spreads)",
             "value": f"{oas:.2f}% ({chg_1mo:+.2f} 1mo)",
             "score": s,
+            "lean": lean,
             "note": note,
         }
 
@@ -843,16 +881,19 @@ def build(fund: dict) -> dict:
         advantage = ttm_yield - tbill
         hi, mid = fund["payout_bands"]
         if advantage >= hi:
-            note = f"{ticker}'s trailing payout beats riskless T-bills by a wide margin even for this fund. Good to know - but it never proved a timing edge, so it's context only."
+            lean = "good"
+            note = f"{ticker}'s trailing payout beats riskless T-bills by a wide margin even for this fund - the income case is unusually strong. A read only: it never proved a timing edge."
         elif advantage >= mid:
-            note = f"{ticker} yields comfortably more than cash - the normal state of affairs. Context only."
+            lean = "neutral"
+            note = f"{ticker} yields comfortably more than cash - the normal state of affairs."
         else:
-            note = f"T-bills pay almost as much as {ticker} with zero risk - the income case is thinner than usual. Context only; the audit found no timing edge here."
+            lean = "bad"
+            note = f"T-bills pay almost as much as {ticker} with zero risk - the income case is thinner than usual. A read only: the audit found no timing edge here."
         return {
             "name": "Payout vs safe cash",
             "value": f"{ttm_yield:.1f}% vs {tbill:.1f}% cash",
             "score": 0,
-            "context": True,
+            "lean": lean,
             "note": note,
         }
 
@@ -863,17 +904,22 @@ def build(fund: dict) -> dict:
         score_, rating = cached_fear_greed()
         s = score_fear_greed(score_)
         if s == 1:
+            lean = "good"
             note = "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so this +1 rests mostly on principle."
         elif score_ <= 45:
-            note = "Fear is the dominant mood, but short of the extreme. The audits could only test ~1 year of this index; no scored edge outside the <=25 extreme."
-        elif score_ < 75:
-            note = "Sentiment in the normal range - no contrarian edge either way."
+            lean = "good"
+            note = "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that earns a point."
+        elif score_ >= 75:
+            lean = "bad"
+            note = "Extreme greed - the crowd is all-in, historically a worse-than-average mood to add at. A read only: nothing scores negative anymore."
         else:
-            note = "Extreme greed - the crowd is all-in. This used to subtract a point, but the tool no longer claims to spot bad days, so it's context only."
+            lean = "neutral"
+            note = "Sentiment in the normal range - no contrarian edge either way."
         return {
             "name": "Fear & Greed index",
             "value": f"{score_:.0f} ({rating})",
             "score": s,
+            "lean": lean,
             "note": note,
         }
 
@@ -889,9 +935,9 @@ def build(fund: dict) -> dict:
     events.sort()
     imminent = bool(events) and events[0][0] <= 2
     if imminent and events[0][1] == "CPI":
-        ev_note = "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but don't be surprised by a swing."
+        ev_note = "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but expect a swing."
     elif imminent:
-        ev_note = "Rate decision within 2 days - expect a volatility spike either way. Not a reason to skip a scheduled buy."
+        ev_note = "Rate decision within 2 days - a volatility event ahead. Not a reason to skip a scheduled buy, but expect a swing either way."
     else:
         parts = []
         if next_cpi:
@@ -900,7 +946,13 @@ def build(fund: dict) -> dict:
             parts.append(f"next FOMC {next_fomc}")
         ev_note = "No event risk in the next few days" + (" (" + ", ".join(parts) + ")." if parts else ".")
     ev_value = f"{events[0][1]} in {events[0][0]}d" if events else "n/a"
-    signals.append({"name": "Event calendar", "value": ev_value, "score": 0, "context": True, "note": ev_note})
+    signals.append({
+        "name": "Event calendar",
+        "value": ev_value,
+        "score": 0,
+        "lean": "bad" if imminent else "neutral",
+        "note": ev_note,
+    })
 
     # ---- verdict (v2: three bands, nothing negative - the audits showed
     # the tool couldn't spot bad days, so it stopped claiming to) ----
@@ -1025,6 +1077,7 @@ def build(fund: dict) -> dict:
             "price": price,
             "day_change_pct": round(day_change, 2),
             "sma50": round(sma50, 2) if sma50 else None,
+            "sma200": round(sma200, 2) if sma200 else None,
             "high52w": high52,
             "drawdown_pct": drawdown,
             "series": [
@@ -1058,7 +1111,7 @@ if __name__ == "__main__":
         print(f"wrote {out}")
         print(f"{fund['ticker']} verdict: {data['verdict']['label']} (score {data['verdict']['score']})")
         for s in data["signals"]:
-            print(f"  {s['score']:+d}  {s['name']}: {s['value']}")
+            print(f"  {s['score']:+d} [{s.get('lean', '?'):>7}] {s['name']}: {s['value']}")
         bt = data["backtest"]
         print(f"  backtest: DCA {bt['dca_return_pct']}% vs dip-waiting {bt['dip_return_pct']}%")
         rc = data.get("report_card")

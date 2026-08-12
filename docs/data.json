@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-12T04:46:03+00:00",
+ "generated_at": "2026-08-12T11:25:42+00:00",
  "rules_version": 2,
  "ticker": "GPIX",
  "verdict": {
@@ -15,74 +15,80 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.3 (p13)",
+   "value": "15.4 (p15)",
    "score": 0,
-   "note": "S&P 500 volatility near the bottom of its 1-year range. The old low-vol penalty didn't survive the audit - context only."
+   "lean": "bad",
+   "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit."
   },
   {
    "name": "VIX term structure (1mo/3mo)",
    "value": "0.81",
    "score": 0,
+   "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear."
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+1.2 pts",
+   "value": "+1.3 pts",
    "score": 0,
-   "context": true,
-   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep. Context only."
+   "lean": "neutral",
+   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep."
   },
   {
    "name": "Discount from 52-week high",
    "value": "0.2%",
    "score": 0,
-   "note": "No meaningful discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts."
+   "lean": "neutral",
+   "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average."
   },
   {
    "name": "GPIX vs 50-day average",
    "value": "+2.7%",
    "score": 0,
-   "context": true,
-   "note": "Close to its 50-day average (distributions reinvested). Context only."
+   "lean": "neutral",
+   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral."
   },
   {
    "name": "S&P 500 regime",
    "value": "uptrend",
    "score": 0,
-   "context": true,
-   "note": "S&P 500 in a healthy uptrend (above its 200-day average). Context only."
+   "lean": "good",
+   "note": "S&P 500 in a healthy uptrend (above its 200-day average) - the regime in which forward returns have been better on average."
   },
   {
    "name": "Credit stress (junk-bond spreads)",
    "value": "2.70% (+0.01 1mo)",
    "score": 0,
+   "lean": "neutral",
    "note": "Credit markets calm - no stress."
   },
   {
    "name": "Payout vs safe cash",
    "value": "8.0% vs 3.9% cash",
    "score": 0,
-   "context": true,
-   "note": "GPIX yields comfortably more than cash - the normal state of affairs. Context only."
+   "lean": "neutral",
+   "note": "GPIX yields comfortably more than cash - the normal state of affairs."
   },
   {
    "name": "Fear & Greed index",
    "value": "61 (greed)",
    "score": 0,
+   "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way."
   },
   {
    "name": "Event calendar",
    "value": "CPI in 0d",
    "score": 0,
-   "context": true,
-   "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but don't be surprised by a swing."
+   "lean": "bad",
+   "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but expect a swing."
   }
  ],
  "fund": {
   "price": 56.27,
   "day_change_pct": -0.25,
   "sma50": 55.28,
+  "sma200": 53.34,
   "high52w": 56.41,
   "drawdown_pct": 0.2,
   "series": [
@@ -1007,7 +1013,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.3) = top decile of its past year (+1)"
+   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+1)"
   },
   {
    "label": "Extreme credit stress",
@@ -1063,7 +1069,7 @@
  },
  "vol": {
   "index": "VIX",
-  "level": 15.28
+  "level": 15.37
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1082,7 +1088,7 @@
   "invested": 14700.0,
   "dca_value": 19224.74,
   "dca_return_pct": 30.78,
-  "dip_value": 18996.23,
+  "dip_value": 18996.24,
   "dip_return_pct": 29.23,
   "dip_cash_uninvested": 900.0,
   "dip_buy_days": 31,
@@ -1096,34 +1102,34 @@
    "published": "2026-08-11T19:19:12+00:00"
   },
   {
+   "title": "U.S. Futures Higher Ahead of Key Inflation Report",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOVENEcDFub05veWQtY1VzbDFDWkgtYWRzZTg1ck9ncnc5MlNuUXRKSnNta3NGRlJQMXRXZ28wM0hKanBfYXphLW1aVGw2SFBDTUdSTXZGSHZySFBDUk9UazdaSmxEOUFoVVVOSkxMcDJ4bjBUUzhaZnhxcmpISUxkdDJ3MGhURUJGUGhvem1B?oc=5",
+   "published": "2026-08-12T08:38:00+00:00"
+  },
+  {
    "title": "Inflation is the biggest problem, Fed's Goolsbee says",
    "source": "Reuters",
    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPZDltR2o0ZVZseWpZbFpveU1hMUxTTjZCQ1lDa2FkMzNRR0VtRW5fMENiaHVyNWVnZ0UwcTkta1IwM05ON29kNjZMQ1dfNjktNnNrWlZPUHE5cVhfZjFoVjZaWERyMDBuWUxrMTZ0b1EybmZjMjIyMXpEdkZwdmF5dmNPeEVOaE5WelZSczMzSmwyRGdFSzNOcHVn?oc=5",
    "published": "2026-08-11T18:07:13+00:00"
   },
   {
-   "title": "An inflation report Wednesday should be a big deal for the Fed. Here's what to expect",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNWm1HU0lsVllSdWQ3eDVsZlJUcDZZV0lxZWlYSGVNOUg0T0VWTjlKLW9QQ2FPUEpvdTdpOU14cUJiZnBGcGlvNkxwREhmcU9kVkMtb3ZzTTZ4ZHFHQWhGaGcyUFRadmh0dDJqV0R1cGgybXIwMmdZSkV6Q1k0VmVZS1NsaDJfZ2h0T0hIeGQ2RGFpQUN1MFJJRk5ja0YydzlqZUthekRjTFlWTS1BdE9YOE15M19DcnBlNHA2YtIBwgFBVV95cUxNVWFaS0hpRlE2Qm4yWXl3ZmV1X1lFMkRBdVIyaEs5V2JmdENGMXMzUDdNNG9ueTlfOUFkbXl1R0NOci1TdTVWU1YxY0I1LWR6SVhveTgtZ0xaRWZ1WG1kX2JkaUdQN09PMTV4OWVCRHVGZlgyUTNfaWlUSkFpTGZVVFBHdzI2ajZNdXp4cGtXNmtqcUEtMFRsQmd1akd2WFhUY2liY0xPamVfZzBhSU1ybExuZmJEZTdzSGZWRC1FYTNLZw?oc=5",
-   "published": "2026-08-11T18:34:41+00:00"
+   "title": "Inflation in focus as wage growth slows for workers",
+   "source": "NBC News",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOeC1mOEhqYTg4TmJSbFVDSGJCX2M1SUVqN1UxNU1rS0xZN2x0UklqUVBkZXdvS24zS21nejhDR2l1djhqYTlIZW9jNzRpTTFaTFlCQXFIOThSU21yX3h4NWRjZGMzaHVZRzhIUUt1TzVENTBwbUZoLXJCci0wbENSbQ?oc=5",
+   "published": "2026-08-12T09:00:41+00:00"
   },
   {
-   "title": "Gold Edges Higher Ahead of U.S. Inflation Data",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZlgxblBzV3BGc1l0QzlndndxTUlJNkJDTkpKZGpWN0VkVXFLLWFHOGY1VzZyTEdXRXlkLWstcE81X1RKN0xNRVR4ajlJVjJfUzlsYWY2Z0xQT24wU0Z5cjU3dUZiSXdpUDBKYW9XMG9NWW1QSzBfXzg4SVlnTGF0MDZHc1BMZWt5dV9yek9aeVljNFhYdjg4MWJnczJlUlhqVi1zUQ?oc=5",
-   "published": "2026-08-12T01:00:00+00:00"
+   "title": "Inflation expected to have eased in July but stayed above pre-Iran war level - ABC News",
+   "source": "Breaking News, Latest News and Videos",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQX283dGxTMVc2bnN6ZUZBR1lOUDQ0SHV1NlctTG54aW1WT3gwdUFYaFlTaEpKNkpoaTJlek5ZZXVHRkhHd0dHenZhaGRONG5UR0Rmc25WSnFDR2hYaTBuVFAwdERXQ19WZm1TTnQwMnNxbEFHd0ZoVEhfY1JtNEJnQ21CRkhReDBYcjUwbER2OUJfRXdKX3A1ZTJNZ1BLUdIBowFBVV95cUxOVzBZelRYSG5HUElSZkdsb2kyd1IxdW9hYjUzNkhwRjF2b0NqZ3RkLVlUUkFfcWNOQnN3ZEVjQ0oySVlRMThiU2N6WldZRU16czVpNmFHMFBoTEh1ekJBQk9qTW5yQV9WUl9HeExUck42UEY0QUtkUFVoV1VIZTNvS1ZGRElhNG1aenpqMnJTdnNIOWtHbEl1UW1jazd5eXdpWVNj?oc=5",
+   "published": "2026-08-12T09:29:53+00:00"
   },
   {
    "title": "Gold Advances as Traders Watch US Inflation for Rate-Hike Clues",
    "source": "Bloomberg.com",
    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZnM5SmxoazU1ZFJYMWNYeGk3Z25RalMyV25wbUVRcldMMVNoeFZ1Mzd1MzZkVVMxTUxhY2Q3OS13ZURXaUVvZ2pOZ1BZdHUxcW5icHQ3MFZCVWRISm9JM3lJQndnYWFtMzV1Um9vS2N2SUlYSEMxbmNnLUc5UG50VWd6djRIaXJid0xRTWotQ0w0bVNFZUVzYkY4ZkF2NHJZbzVXYnZGSExDMWlDVXdoVjhfVm0?oc=5",
    "published": "2026-08-11T23:35:34+00:00"
-  },
-  {
-   "title": "Rethinking Fed operations: Recommendations to the five task forces",
-   "source": "Brookings",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNekpQTDNfSnBYeXhNZmhSM0E4OXowZ0dZNS1wMlBnemt6QUU1WTQ3Z0dvNC1TRTRhWlpZRTZUSS0td3dhREkxMk5KQjhHMU02R1FjcjJUd1lxNF81b19Xc1BjcHJvdUcxd0UzU2Q0Zjh1Vm0tdGhXdldQdG0wT3F1cFN1bFZQeWk5QXVHUWtPT0M4MWJpdTVhcGJiSlk2VmhLUTZR?oc=5",
-   "published": "2026-08-11T14:35:15+00:00"
   }
  ]
 }

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-12T04:46:04+00:00",
+ "generated_at": "2026-08-12T11:25:43+00:00",
  "rules_version": 2,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,79 +17,85 @@
    "name": "VXN vs its own past year",
    "value": "22.4 (p40)",
    "score": 0,
+   "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary."
   },
   {
    "name": "VIX term structure (1mo/3mo)",
    "value": "0.81",
    "score": 0,
+   "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear."
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.46x (p82)",
+   "value": "1.46x (p81)",
    "score": 0,
-   "context": true,
-   "note": "Tech options pricier than usual relative to the broad market - fear concentrated in the Nasdaq. This used to add points, but the audit found the intuitive scoring backwards, so it's now context only."
+   "lean": "bad",
+   "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good."
   },
   {
    "name": "Are call-sellers overpaid?",
    "value": "-2.5 pts",
    "score": 0,
-   "context": true,
-   "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling underpaid in this tape. Context only: the audits found no reliable timing edge in this gap either way."
+   "lean": "bad",
+   "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits."
   },
   {
    "name": "Discount from 52-week high",
    "value": "2.6%",
    "score": 0,
-   "note": "No meaningful discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts."
+   "lean": "neutral",
+   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either."
   },
   {
    "name": "GPIQ vs 50-day average",
    "value": "+0.6%",
    "score": 0,
-   "context": true,
-   "note": "Close to its 50-day average (distributions reinvested). Context only."
+   "lean": "neutral",
+   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral."
   },
   {
    "name": "Nasdaq-100 regime",
    "value": "uptrend",
    "score": 0,
-   "context": true,
-   "note": "Nasdaq-100 in a healthy uptrend (above its 200-day average). Context only."
+   "lean": "good",
+   "note": "Nasdaq-100 in a healthy uptrend (above its 200-day average) - the regime in which forward returns have been better on average."
   },
   {
    "name": "Credit stress (junk-bond spreads)",
    "value": "2.70% (+0.01 1mo)",
    "score": 0,
+   "lean": "neutral",
    "note": "Credit markets calm - no stress."
   },
   {
    "name": "Payout vs safe cash",
    "value": "9.9% vs 3.9% cash",
    "score": 0,
-   "context": true,
-   "note": "GPIQ yields comfortably more than cash - the normal state of affairs. Context only."
+   "lean": "neutral",
+   "note": "GPIQ yields comfortably more than cash - the normal state of affairs."
   },
   {
    "name": "Fear & Greed index",
    "value": "61 (greed)",
    "score": 0,
+   "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way."
   },
   {
    "name": "Event calendar",
    "value": "CPI in 0d",
    "score": 0,
-   "context": true,
-   "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but don't be surprised by a swing."
+   "lean": "bad",
+   "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but expect a swing."
   }
  ],
  "fund": {
   "price": 56.97,
   "day_change_pct": -0.33,
   "sma50": 57.28,
+  "sma200": 54.13,
   "high52w": 59.52,
   "drawdown_pct": 4.3,
   "series": [
@@ -1097,40 +1103,40 @@
  },
  "headlines": [
   {
-   "title": "Why Jensen Huang\u2019s $500 billion AI financing plan faces a big risk from China",
+   "title": "AI chatbots are offering financial advice. Should you trust them?",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9ldFo4U3dVNlpFTEo5WFVJUGhWM3o2NGI5VUpVWkVwM2szUnBBUmF2ek1yVjd4QmdoNTJWNmR1MDhHYnRpMHVLMEhwQUg4d2RCekZJcWNhVjZlOWNPcnB0LVdqckJMQ0duNFZlTFJONmREeU12YjhmODZKbnYtZw?oc=5",
+   "published": "2026-08-12T09:00:00+00:00"
+  },
+  {
+   "title": "Google\u2019s new AI boss inherits a race to catch OpenAI and Anthropic",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPYU55bUVtSkMySDZUS2RPRWpBTTRRZHhucjFpaUxWM0RoV0NuMVFPNFh1T29XMkpSR1NYRm5Oc1hUc1hnWTNVOXd5T29qXzNVTWdxRWxpal9oT1VCNk1kQVNYeW9fVDBZNG1jODVJNHN3R0lMQ19KSmwtY2JNQXM1V3ptYk7SAYoBQVVfeXFMTmt2WjUtTThxd2gzZnhqcW8wejI3WWdRNDlaZGFLaVFTZXQyZ0tkLW80RW4wSXFoMDBlNTVjZ1pnNFBpQzBQZjJFY0xHQ3Q5S2p4OHdSV05QZi01eG5XcFFmOGVHWmV6MndsZ2dNNU9NLU9FVHUzMkpmaE1DTGVEcS12NXBHcl9CWlJ3?oc=5",
-   "published": "2026-08-11T21:01:13+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1GdzdHeVhqMkp3QnhRTmNUeDdGNXFPcXUzME5SR0dSenc0OG9qcFFJYk53RE5scUVzNlpneG5panpMb2pmUWlLS0dqVDJxRGJPLW9EdFlYdW1UV3RsdjB3LUVyTU1rYTYxY19DUDZjX2JWbkZaOTR4dzZ30gF_QVVfeXFMTUZqWnlpYnMzVXlYeW9XYXFDWEVhUjdjZzIxaU1VbmdRUXI1eHhkUjRGOGxkNDQ2c3RRdnRNRGVRXzFUcDNzRXQtYW5pTjNsc1lTVzRzaGNTREtYVDRzbFdrenFBVklKRDZRVW9NSnN1LXJaYl9PZ18zYXpDd05VNA?oc=5",
+   "published": "2026-08-12T05:00:01+00:00"
+  },
+  {
+   "title": "Schools spend billions on AI, but struggle to figure out what\u2019s worth it",
+   "source": "Stateline",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQbXVxSElkOG1aV0JFZmk5Q3Y1WnJHbkxJbjlNaUhmMzVWQlhrbGNLTVozSHRtUUFRRGI4enJjUUVZdmZxdkg1aTF3XzF6TTF5ZlU5X0VBd1ptUTJVUUwzRW1BZDM1eGdCQlRnaWs5cjA2UTI3SGZrMk9QbTBvTElpVDU0Wm9sUkp5a3VGdlFmWnFWMTNiWXN0UWZJY0FTdUJYcTBiMWNhbw?oc=5",
+   "published": "2026-08-12T09:08:33+00:00"
+  },
+  {
+   "title": "AMIE, our research medical AI system, demonstrates real-time clinical video consultation capabilities in a first-of-its-kind study.",
+   "source": "blog.google",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNaWVfcTVPRW1DclVwZ2hjNXFQYVVrRUpHVjk5MVphcGY3VHRHQmtla285dDg5MmlFVTJHcFZXUjAzbUVKNmtjY1RycE5FUk9nYnhwV3RTZzRTbmg4VUJMSFJVd1d0bENsd2JPOEZ3dTJoZ1hNWnIyWWhGVHphLXM2ZGJBZC0tTnVFak5oR0V4SGFKLV90RWFPMFgzSU92LWtK?oc=5",
+   "published": "2026-08-11T17:08:11+00:00"
+  },
+  {
+   "title": "I Asked AI to Write a Novel. It\u2019s Not So Bad.",
+   "source": "Mother Jones",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNTWkyN2kza1RRU1ZaeFczaGprd0hzRGx3TFc0cDgta1V4Y1VjSXVYaGM3Q213OU92dDdlNUt5Uk1KQ1RIaFI5WmJaTGswaV9YZzdpaUN1SjEwaFI4aENXZ1BnblF5b1lxWjBXT2tJXy03VF85YjEtODI3VWRsMFdCRm94NHpVUlEzcnFBbFhsZUFNUm5WTVBTT0FJSWY0elpobXp1Y1VnSVN4WHZJOGY5RVBQaHdMRjZ0NWhIei1aNA?oc=5",
+   "published": "2026-08-12T11:00:28+00:00"
   },
   {
    "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
-   "source": "blogs.nvidia.com",
+   "source": "NVIDIA Blog",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE45UUttUUMyRTI3WHVUbF9oMlRKX0NIUHJ2WUFobm9Ta3NubmhVS0pmRjkxMzZILU0wWEFFa1JWTXVBYVhzTkhhS292U1hOWUFoUkRrOUJTTFY3RURHTkZjMWlyTVhlYjE1bHQ2M3ZDRzNlSWlpNDJPTUM1d0l0eFU?oc=5",
    "published": "2026-08-11T18:41:09+00:00"
-  },
-  {
-   "title": "Target Strengthens AI and UX Capabilities to Power Its Next Chapter of Growth",
-   "source": "corporate.target.com",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQMnBOS1k5NzUwaFItc2VYQ3EwdE5YckZzbzU4czdiSXJlZjBkQ3h0by12UWJmZzNiVUI5X3dobHdJcHM4d1oxRHB4ZWRMNEh4Z01rcHMxV2dKbzBGUmszQjFWY3RVbjlhSFlJdC1OV1ZMMTZVVTJOWDNYTEdUWWFRcnJUY3QxNDZ6Znc?oc=5",
-   "published": "2026-08-11T11:33:13+00:00"
-  },
-  {
-   "title": "Governor Newsom announces new AI cyber defense program to protect California\u2019s critical infrastructure",
-   "source": "California State Portal | CA.gov",
-   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNMDI0S2JKNWxnN1VfMURGNTdWQ0RuQXEwdjNER3F0U3pkdVlMdjZyUGsxaFdkLVNGdEkwQ1o0MWNuakk4RS1OVG05cEJsS2M3U1JBMUhiRlJTMGVZRHpVOUhFeTdVUU5DLXgtLW96S2pKVkRGbFRjV054VnI5V3RUa1lnbFhJWUNPQm1lb1lFT05MUUl4YUZTN1dEQ1J2cW9jcDdPQ1NTZURFVUNuTlFnT3IzbmR4THhKZXNTU3FDaTgtZV91OGRFVDRGaGwxQ2daQUE?oc=5",
-   "published": "2026-08-10T14:34:12+00:00"
-  },
-  {
-   "title": "IBM, Together AI ink $240 million deal for Nvidia-powered AI inference cluster",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPaHpmV1NwTWxHeTRKVUtlY3lwWmlUVWtzX0NUYkhGR2VFRzZDQ0JXRXp1LVZ4alp5SXplU2RHTmRFNG5EaG9GWVpRbkVPZE4tS2NxUlc2UXhBVTMteFRHVWo0a0xZZGdNWFNWNmVnOTdZcHBvcGx6bnEycGlqaHNqRDI4Vkw4YTVkcnhPZEI3cGVRa0psa2xFWWE2b2g1SkJ0T0RhWlRiODVSLVBxdUxIWkl4Zl9uN1Ew?oc=5",
-   "published": "2026-08-11T17:03:14+00:00"
-  },
-  {
-   "title": "IBM and Together AI Sign Multi-Year Agreement to Scale Open-Source AI Inference with NVIDIA AI Infrastructure on IBM Cloud",
-   "source": "IBM Newsroom",
-   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPczQ0bnRwU3FTN2NaN0wzbUVkbGxtYUZkcm5wa2F4R2E4T1VlYnJBTjVzR1VHWFJCelZ5ZHVSUFdyOU5YcjItRnd3aUQ3c2JsWjN2eFZSM0VHM1pONFdCYXRnNUc1cVpaVC1yOXdVR04yMDV5LW9oaGFjelJfclFTOG1EdkZ5LTQxb1RBbEl5Z2tmeklKUm5jdElUam1uN2ZZNmRlVGZjeW9QQ2tUY1R2RG9Kc09FNGg1b1Jid21NTFBheGdYTnNOdWZhVjhJVmJGWUF4bUI3VXV1eVVWa2ticXJsRFJoMl9qOHp4MTZPZw?oc=5",
-   "published": "2026-08-11T12:04:14+00:00"
   }
  ]
 }
