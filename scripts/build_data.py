@@ -698,6 +698,51 @@ def load_history(path: Path) -> list[dict]:
     return []
 
 
+def distributions_block(div_events: list, today: date) -> dict | None:
+    """Payout history + estimated next ex-date for the fund pages.
+
+    Yahoo's chart events give every historical ex-date and per-share amount;
+    Goldman publishes no machine-readable calendar, so the NEXT ex-date is
+    projected from the median gap between recent ex-dates and always flagged
+    as an estimate. Returns None when there is nothing to show."""
+    if not div_events:
+        return None
+    recent = div_events[-24:]
+    est = None
+    if len(recent) >= 3:
+        gaps = sorted(
+            (recent[i][0] - recent[i - 1][0]).days for i in range(1, len(recent))
+        )
+        med = max(1, gaps[len(gaps) // 2])
+        nxt = recent[-1][0] + timedelta(days=med)
+        while nxt < today:
+            nxt += timedelta(days=med)
+        est = nxt.isoformat()
+    return {
+        "history": [{"date": d.isoformat(), "amount": round(a, 4)} for d, a in recent],
+        "ttm_sum": round(sum(a for d, a in div_events if d >= today - timedelta(days=365)), 4),
+        "last_ex": recent[-1][0].isoformat(),
+        "last_amount": round(recent[-1][1], 4),
+        "next_ex_estimate": est,
+        "is_estimate": True,
+    }
+
+
+def upsert_live_row(hist: list[dict], live_row: dict) -> bool:
+    """Insert today's row, or replace it if a row for today already exists
+    and differs. The workflow now runs twice a day: the afternoon run must
+    update the morning verdict, not silently keep the stale one. Returns
+    True when the history changed."""
+    for i, r in enumerate(hist):
+        if r["date"] == live_row["date"]:
+            if r != live_row:
+                hist[i] = live_row
+                return True
+            return False
+    hist.append(live_row)
+    return True
+
+
 def save_history(path: Path, rows: list[dict]) -> None:
     rows.sort(key=lambda r: r["date"])
     body = ",\n".join(json.dumps(r, separators=(",", ":")) for r in rows)
@@ -804,9 +849,7 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
         })
         have.add(iso)
         changed = True
-    if live_row["date"] not in have:
-        hist.append(live_row)
-        changed = True
+    changed = upsert_live_row(hist, live_row) or changed
     if changed or not path.exists():
         save_history(path, hist)
     else:
@@ -1470,8 +1513,7 @@ def build(fund: dict) -> dict:
         # Backfill must never break the daily build: fall back to just
         # appending today's row to whatever history already exists.
         history = load_history(hist_path)
-        if live_row["date"] not in {r["date"] for r in history}:
-            history.append(live_row)
+        if upsert_live_row(history, live_row):
             save_history(hist_path, history)
     tone_by_date = {r["date"]: r["tone"] for r in history}
     s100_by_date = {r["date"]: r.get("score100") for r in history}
@@ -1500,6 +1542,7 @@ def build(fund: dict) -> dict:
         "flips": flips,
         "report_card": report_card(history) if history else None,
         "income": {"ttm_yield_pct": ttm_yield, "tbill_3mo": tbill},
+        "distributions": distributions_block(div_events, today),
         "underlying": {
             "symbol": fund["underlying_symbol"],
             "price": und_price,
@@ -1560,9 +1603,7 @@ def build_stock_history(fund: dict, rows: list, rv: list, live_row: dict) -> lis
         })
         have.add(iso)
         changed = True
-    if live_row["date"] not in have:
-        hist.append(live_row)
-        changed = True
+    changed = upsert_live_row(hist, live_row) or changed
     if changed or not path.exists():
         save_history(path, hist)
     else:
@@ -2006,8 +2047,7 @@ def build_stock(fund: dict) -> dict:
         history = build_stock_history(fund, rows, rv, live_row)
     except Exception:
         history = load_history(hist_path)
-        if live_row["date"] not in {r["date"] for r in history}:
-            history.append(live_row)
+        if upsert_live_row(history, live_row):
             save_history(hist_path, history)
     tone_by_date = {r["date"]: r["tone"] for r in history}
     s100_by_date = {r["date"]: r.get("score100") for r in history}

@@ -16,6 +16,13 @@ only what a dedicated 16-year validation pass proved (including the project's on
 evidence-backed *negative* zone); SPCX (IPO June 2026) is an honest context-only page
 that pins at 50 until enough history accumulates to test anything.
 
+The pipeline runs **twice per weekday** (13:35 and 19:15 UTC): a morning refresh and
+an early-afternoon one so the buy score is fresh for the buy-at-close window. The
+engine updates today's history row in place on the second run, so histories keep one
+row per day. Fund JSONs also carry a `distributions` block (last 24 payouts, TTM sum,
+and an estimated next ex-date projected from the payout cadence) which feeds the
+"What it actually pays" bar chart on the GPIX/GPIQ pages.
+
 A fifth page (`retire.html`) answers "when can I retire?" for a fixed savings plan
 ($2,500 biweekly into 80% GPIX / 20% GPIQ by default, all adjustable). It reads the
 funds' live TTM yields from `data.json`/`data-gpiq.json`, simulates monthly

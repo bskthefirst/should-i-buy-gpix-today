@@ -5,6 +5,10 @@ on:
     # 13:35 UTC = 9:35am ET (EDT) / 8:35am ET (EST), weekdays.
     # Uses the prior close either way; runs before the user checks it in the morning.
     - cron: "35 13 * * 1-5"
+    # 19:15 UTC = 3:15pm ET (EDT) / 2:15pm ET (EST), weekdays: a fresh buy
+    # score right before the buy-at-close window. The engine updates today's
+    # history row in place, so the two runs never duplicate a date.
+    - cron: "15 19 * * 1-5"
   workflow_dispatch:
 
 permissions:

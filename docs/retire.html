@@ -205,15 +205,22 @@
 // Fallbacks if the live fetch fails (rough long-run TTM yields).
 const FALLBACK = { gpix: 8.0, gpiq: 9.9 };
 
-// User state (defaults = the plan the owner described).
+// User state (defaults = the plan the owner described, including the
+// $3,100 of GPIX already held). Any change is persisted to localStorage,
+// so the page remembers your settings between visits.
 const S = {
   target: 1000,        // net $/month wanted
   biweekly: 2500,      // $ per paycheck
   gpixPct: 80,         // % of contributions to GPIX
   taxPct: 15,          // withholding on every distribution
-  start: 0,            // $ already invested
+  start: 3100,         // $ already invested
   scenario: "base",    // NAV drift: flat 0, base +2.5%/yr, strong +5%/yr
 };
+const STORE_KEY = "retire-settings-v1";
+try {
+  const saved = JSON.parse(localStorage.getItem(STORE_KEY) || "{}");
+  for (const k of Object.keys(S)) if (k in saved) S[k] = saved[k];
+} catch (e) { /* private mode etc. — defaults are fine */ }
 const SCENARIOS = { flat: 0, base: 2.5, strong: 5.0 };
 const SCENARIO_LABEL = { flat: "Flat NAV (0%)", base: "Base (+2.5%/yr)", strong: "Strong (+5%/yr)" };
 
@@ -369,8 +376,8 @@ function renderSkeleton(yields, meta) {
         </div>
         <div class="ctl">
           <label>Already invested <b id="v-start"></b></label>
-          <input type="range" id="in-start" min="0" max="200000" step="5000" value="${S.start}">
-          <div class="hint">head start — anything you have in the funds today</div>
+          <input type="range" id="in-start" min="0" max="200000" step="100" value="${S.start}">
+          <div class="hint">head start — anything you have in the funds today (your $3,100 GPIX is the default)</div>
         </div>
         <div class="ctl">
           <label>Dividend tax <b id="v-tax"></b></label>
@@ -447,6 +454,7 @@ function renderSkeleton(yields, meta) {
 }
 
 function update(yields) {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(S)); } catch (e) {}
   const sim = simulate(yields, S.target, S.scenario);
   const needPot = S.target * 12 / sim.netY;
   const progressPct = needPot > 0 ? S.start / needPot * 100 : 0;

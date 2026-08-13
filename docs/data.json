@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-12T14:39:19+00:00",
+ "generated_at": "2026-08-13T03:25:33+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "14.8 (p6)",
+   "value": "14.6 (p4)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 6.0,
+    "pos": 4.3,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 22.5,
+    "pos": 21.3,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+0.7 pts",
+   "value": "+0.5 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 39.4,
+    "pos": 37.7,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+2.9%",
+   "value": "+3.0%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 74.2,
+    "pos": 75.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 41.3,
+    "pos": 41.2,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "63 (greed)",
+   "value": "62 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 63.0,
+    "pos": 62.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,11 +230,11 @@
   }
  ],
  "fund": {
-  "price": 56.405,
-  "day_change_pct": 0.24,
+  "price": 56.44,
+  "day_change_pct": 0.3,
   "sma50": 55.29,
   "sma200": 53.36,
-  "high52w": 56.41,
+  "high52w": 56.44,
   "drawdown_pct": 0.0,
   "series": [
    {
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-08-12",
-    "c": 56.405,
+    "c": 56.44,
     "t": "neutral",
     "s": 50
    }
@@ -1323,7 +1323,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.75 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1333,12 +1333,12 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 63) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 62) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.7 (now 14.8) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.6) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1352,7 +1352,7 @@
   "end": "2026-08-12",
   "days_total": 699,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-08-12",
+  "fg_coverage_start": "2025-08-13",
   "baseline": {
    "n": 678,
    "avg_pct": 1.68,
@@ -1383,18 +1383,123 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.02,
+  "ttm_yield_pct": 8.01,
   "tbill_3mo": 3.89
+ },
+ "distributions": {
+  "history": [
+   {
+    "date": "2024-09-04",
+    "amount": 0.342
+   },
+   {
+    "date": "2024-10-02",
+    "amount": 0.347
+   },
+   {
+    "date": "2024-11-04",
+    "amount": 0.343
+   },
+   {
+    "date": "2024-12-03",
+    "amount": 0.358
+   },
+   {
+    "date": "2025-01-03",
+    "amount": 0.35
+   },
+   {
+    "date": "2025-02-03",
+    "amount": 0.358
+   },
+   {
+    "date": "2025-03-03",
+    "amount": 0.344
+   },
+   {
+    "date": "2025-04-01",
+    "amount": 0.327
+   },
+   {
+    "date": "2025-05-01",
+    "amount": 0.323
+   },
+   {
+    "date": "2025-06-02",
+    "amount": 0.339
+   },
+   {
+    "date": "2025-07-01",
+    "amount": 0.352
+   },
+   {
+    "date": "2025-08-01",
+    "amount": 0.358
+   },
+   {
+    "date": "2025-09-02",
+    "amount": 0.362
+   },
+   {
+    "date": "2025-10-01",
+    "amount": 0.369
+   },
+   {
+    "date": "2025-11-03",
+    "amount": 0.376
+   },
+   {
+    "date": "2025-12-01",
+    "amount": 0.374
+   },
+   {
+    "date": "2026-01-02",
+    "amount": 0.375
+   },
+   {
+    "date": "2026-02-02",
+    "amount": 0.376
+   },
+   {
+    "date": "2026-03-02",
+    "amount": 0.372
+   },
+   {
+    "date": "2026-04-01",
+    "amount": 0.353
+   },
+   {
+    "date": "2026-05-01",
+    "amount": 0.383
+   },
+   {
+    "date": "2026-06-01",
+    "amount": 0.397
+   },
+   {
+    "date": "2026-07-01",
+    "amount": 0.394
+   },
+   {
+    "date": "2026-08-03",
+    "amount": 0.392
+   }
+  ],
+  "ttm_sum": 4.523,
+  "last_ex": "2026-08-03",
+  "last_amount": 0.392,
+  "next_ex_estimate": "2026-09-02",
+  "is_estimate": true
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 772.52,
+  "price": 772.49,
   "sma200": 704.5,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 14.76
+  "level": 14.55
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1411,20 +1516,38 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14700.0,
-  "dca_value": 19270.86,
-  "dca_return_pct": 31.09,
-  "dip_value": 19039.65,
-  "dip_return_pct": 29.52,
+  "dca_value": 19282.82,
+  "dca_return_pct": 31.18,
+  "dip_value": 19050.91,
+  "dip_return_pct": 29.6,
   "dip_cash_uninvested": 900.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "US inflation cooled slightly to 3.4% in July but prices still elevated",
-   "source": "The Guardian",
-   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBJbUtUZVJERDNkQkJKN25GZFU3XzNKaTJBSXkxN1ZBcGVaekhMV0V6M0pGV0dOdkZ2ZC05YmlNOFJXdHNaR0lBYmduV2pCbWY3REJtOGhUMFg2ZnkzUWJlVm1SbDR5QjM3azhQdnFHWW1vZm1ndkpj?oc=5",
-   "published": "2026-08-12T13:37:00+00:00"
+   "title": "Impact-First Investing: Matching Capital to Purpose",
+   "source": "Federal Reserve Bank of New York",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQbHBvYzVQUlVSZW02ZEUwdHdURTRwRHdWdnVOZnBQVGRWbXZXRGo5QXQ4TlpqRHBHOHFvUFRkNUN0dkpJei02cXp0Wkt6YklPeDNrT3VGcGFiTER0R0plSzljY29UbHZxdEo0ZWZRVTJEYU9KNS04U1NyUlE1d3FITkpjUQ?oc=5",
+   "published": "2026-08-12T20:10:53+00:00"
+  },
+  {
+   "title": "Opinion | Inflation is still too high",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNUTN4R05hRWJ1WnRicHA3V0liUmNjaEp3VXVXcDBEZUlVWGliVWtiRzBvcU9rOGJ0Wlc5S2N6RExoS2ptLVp4dEhWWVd1bVlMSU9hdktmYVVmbnFWX25aWllodTNQaUdvZHNoN193dFNqTm5veDBoQ2d3eTVETUNuYmRwREQwTG5OMk1ZQU9ia0VnWndPcGVTLVEwZEMxek9Tb2w5Mg?oc=5",
+   "published": "2026-08-12T23:46:46+00:00"
+  },
+  {
+   "title": "Fed expected to leave rates unchanged next month after soft inflation data",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNR2NNM1hicnFuakczck9zME1UVXVFV2hjLVFzbkJMY1NaT3JUcWlfcDN3Rko0RU1iSFEzS3VQaGJibEo5S05icjFXN09POFE0dGFYS3pjTlMxa0hKSnJ2SjdaVDJRZXNIR3h5dTZvTkgxalowRndaeUttbHc0OFZvbmJGcXJ3UnhxYVZrSGdfbmllVXYzMmRUQ2VrMUE2eGJwa1VDdEJCM01fVlp6b1U0?oc=5",
+   "published": "2026-08-12T17:09:12+00:00"
+  },
+  {
+   "title": "Inflation cooled last month as gas prices fell, though costs remain elevated",
+   "source": "PBS",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNQjFkWVRmbXJjU1ljTDZJUFROaVhuWG02OEp2SWR2OUU3Qm1tbjNoTWhhM2FSTjFXNGNSQ3locnMzb2hQYzRySjU5SWJDb2NXSkdaa1Z2LTVIQXVOYVVBMlNrMExfbVBCVUJ2SlI2TXRRZ3lfcXprU2tIaURXYzdTcUNOd1N3LTRNR1I2NHVueWRfdzhqb1dpNEdqX2dCTmpnQ05kOEtJWExWbjdjeEdiSnF30gG3AUFVX3lxTE9hcUMyWkFqdUtXU05iTVB0eVQ5U211ZWZFc0g3SllYNFZpZUNSSk1tUGJQOVBXYTRPVXBCUnRKWFNPMTdUeXo3MWZneldsWnhJOGdsV1plRWI3eW5FWDZzb2kxaHBxQVpzWGpwTHNMV2hVd2dQV3o5MEtpbTVVWlRZMUZ0Q0UzcDhkbE4yWDh3aXMtczc5TGdxendHX2l5cjgySGV1aUYyNEtaRG41dmNfRFViT2tsNA?oc=5",
+   "published": "2026-08-12T18:01:55+00:00"
   },
   {
    "title": "US inflation falls to 3.4% in July",
@@ -1433,28 +1556,10 @@
    "published": "2026-08-12T12:31:43+00:00"
   },
   {
-   "title": "US Core Inflation Was Subdued in July, Easing Pressure on Fed",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNcmtEeUtTbGR0NmtLTVBmOWFHUlVRQjZVYXRlNTJIZl8weFBnWFVoTzNvcmRZRWtqelY4RlVuRkhSRmwxUmZSajhtZm1BYWo4V20tT0x2MnVzOGZpNGtXMXdaOTlNbWthdExkalhFcDJqUjhCSmtFYmVJRlJOaGJPYWctOEx6azd0RGM2Yk9VVDZLcWFKMUZsSWZITDBUVnJSWkhnaXNmZ3RfczMyck05bg?oc=5",
-   "published": "2026-08-12T13:31:50+00:00"
-  },
-  {
-   "title": "Trump renews effort to oust Cook from Federal Reserve Board",
-   "source": "Consumer Finance Monitor",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNU2NOaXJGNVZvNFJTaHhnM2U2RkdEblBsNk1QRUQ1S0dFcVRpUjBLQzNJODRfUk1HYW1NLVVqV1JwNW9QRUZQSHpFVlY1UHp2SW1tdkgtcTI1Q1BkblpEWjZfdVFCZ191RUxGQW1NV0FyUGcwWFpxcEd4UWRHeUxDNUhDczhxOVk2T2FtQW9faE9ldU1aXzBvU3RWMFFDNVEzMUNoSGVSOHFyUnAweGVj?oc=5",
-   "published": "2026-08-11T19:19:12+00:00"
-  },
-  {
-   "title": "AI\u2019s costly build-out complicates the Fed\u2019s inflation fight",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOWWZCUlp0OVM5U1JDSTJxbVpDeXNqZGNOWjZSX0pXd2dWYWNkWHhINzNHc3FNeVJ3XzhydDBQZnVLa21UdWxyMENBdDRiTm1TV2RDekZvdEZIcnpzaHliWmpxUXNESXpvN0pGX3NjNmhzRmplX0ZTRWlzbjlLTWFUT1lYdGthNWlDTUdId1JCOEl2Z0VnLWdLONIBngFBVV95cUxPT3hwY0I2OUpUdlkyRDJ5TUk1WWJQY3ZBelhldFAzX2tWaUxnTlBNZGRQeHl3QnJBZUlHNzItZDdXMEtTd19hcHRyOEstd0RwaHY3ZWJJVWxRUXJTNEphOXZ6V3lKdXN6NGx4d1VQZVBqUGk3bGhjSU9wNk5JTWw0czlSbE1OMUIwZFNXZE1oekMxSzI3OXQ1ZzlIQzU2QQ?oc=5",
-   "published": "2026-08-12T11:00:01+00:00"
-  },
-  {
-   "title": "Inflation cooled slighlty last month as gas prices fell",
-   "source": "Spectrum News",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUmJRRjg5SFJtQ0lINHFncmxucHZmWjlkQUJtZFRsejJMYnpRaEdRRENoUnVyRDV1ZzB4S0RMMmVDaHpCZlc4dFQ3UjJYbXd4QjRfVnVSMXQ1dVNIVVR4eU9vMHJIUjFSX2Q0OVRTOElvamp1OVVkSnZycGsyWWVtaW9Cck1FX2lTNEw5Rkh6QzZWTWlPRVdfbkRBeW5LcHh5cE1zQQ?oc=5",
-   "published": "2026-08-12T12:45:00+00:00"
+   "title": "Inflation eases again, but costs remain elevated",
+   "source": "ABC11 News",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5xV29CYWlzQWZfdHo0U2hrLWpDN3d4bFp6dTBWQzBWendzeFo4YThxWjM3RFdEcGhrVGJPYWNMQXg1UkUtVUhIOEhyR2JhSm1KSzJZODl0eVo2LVRWMkNpWXN5RHZ1QWVSY1EzWjdFd0V3b0tHblB0Vkx30gF_QVVfeXFMTXNsVENBMUpwZmFWU1hyY3BSY0lOdFA4MWtsbXgwQkQ3bHc2T0NZTDhJeFhud1MzOGFyUjd1M2F5RXVaS2dPTHlaZTNTR3pjOXk4eWpnR0pWZnJodGw5YXNsWXpKOU5HcWZORk9GRHg2NlItUzljZjk5R21nMzVJUQ?oc=5",
+   "published": "2026-08-12T22:23:14+00:00"
   }
  ]
 }
