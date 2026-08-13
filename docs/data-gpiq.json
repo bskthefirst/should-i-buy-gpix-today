@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-13T03:25:34+00:00",
+ "generated_at": "2026-08-13T14:30:12+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.0 (p31)",
+   "value": "21.5 (p34)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 31.5,
+    "pos": 33.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 21.3,
+    "pos": 22.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.44x (p81)",
+   "value": "1.46x (p82)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 80.6,
+    "pos": 81.5,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-4.0 pts",
+   "value": "-3.0 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 0.0,
+    "pos": 8.5,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "2.1%",
+   "value": "1.3%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 21.0,
+    "pos": 13.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+1.2%",
+   "value": "+2.0%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 60.0,
+    "pos": 66.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.72% (+0.03 1mo)",
+   "value": "2.71% (-0.01 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 18.0,
+    "pos": 17.8,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "9.9% vs 3.9% cash",
+   "value": "9.8% vs 3.9% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 59.9,
+    "pos": 59.1,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "62 (greed)",
+   "value": "66 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 62.1,
+    "pos": 66.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,27 +249,21 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 0d",
+   "value": "CPI in 29d",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but expect a swing."
+   "lean": "neutral",
+   "note": "No event risk in the next few days (next CPI 2026-09-11, next FOMC 2026-09-16)."
   }
  ],
  "fund": {
-  "price": 57.27,
-  "day_change_pct": 0.53,
-  "sma50": 57.24,
-  "sma200": 54.16,
+  "price": 57.74,
+  "day_change_pct": 0.82,
+  "sma50": 57.21,
+  "sma200": 54.18,
   "high52w": 59.52,
-  "drawdown_pct": 3.8,
+  "drawdown_pct": 3.0,
   "series": [
-   {
-    "d": "2025-11-21",
-    "c": 51.01,
-    "t": "good",
-    "s": 88
-   },
    {
     "d": "2025-11-24",
     "c": 52.23,
@@ -1343,6 +1337,12 @@
     "c": 57.27,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-08-13",
+    "c": 57.74,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1350,7 +1350,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.73 (-0.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.73 (-1.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1360,28 +1360,28 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.0) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.5) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 62) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 66) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.72%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.71%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-12",
-  "days_total": 699,
+  "end": "2026-08-13",
+  "days_total": 700,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-08-13",
   "baseline": {
-   "n": 678,
+   "n": 679,
    "avg_pct": 1.92,
    "median_pct": 2.13
   },
@@ -1403,14 +1403,14 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 447,
+    "n": 448,
     "avg_pct": 1.31,
-    "median_pct": 1.74
+    "median_pct": 1.71
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.88,
+  "ttm_yield_pct": 9.8,
   "tbill_3mo": 3.89
  },
  "distributions": {
@@ -1520,73 +1520,73 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 723.7,
-  "sma200": 649.53,
+  "price": 732.89,
+  "sma200": 650.11,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 20.97
+  "level": 21.52
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 35,
-  "imminent": true
+  "days_until": 34,
+  "imminent": false
  },
  "cpi": {
-  "next": "2026-08-12",
-  "days_until": 0
+  "next": "2026-09-11",
+  "days_until": 29
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-08-12",
+  "end": "2026-08-13",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14700.0,
-  "dca_value": 20266.34,
-  "dca_return_pct": 37.87,
-  "dip_value": 20028.01,
-  "dip_return_pct": 36.24,
+  "dca_value": 20432.66,
+  "dca_return_pct": 39.0,
+  "dip_value": 20191.56,
+  "dip_return_pct": 37.36,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 56,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Exclusive | Apple in Talks to Pay Publishers to Improve AI-Powered Siri",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPZXRadlhiaWpJNTMwVmxUWkhLM3NXTC03VkpqMzFCWHozTUpIRDBTQ2pmUFBibmZFRFQxbkJIV09kZmpiMUxqazU5NmxMSkJoVmR0X3JlRE9XNnA1Zi1KX2x6d3o2elV5WlkyM0phNzhLNC1rQTdxVndFcGpYOWdCSzljZHBqQjhFcHp5UzVPeUI4bDhvSkxCLWw3a0tJMHpzMkdiQnpR?oc=5",
-   "published": "2026-08-12T22:30:00+00:00"
+   "title": "AI boom or bubble? Timing is everything",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5DUzlzbWNYMzFfZkRPMFVrZWI1djM3MGpTdVl4TzZhNWZzSUo3TlVxdWMtU0xQUWhTemZKVVVMbGJZM3hld21tcFF5MkVWMXpubHNYeW5UMGN1Wk9sZG9VMmRULS1hSm81U050Zg?oc=5",
+   "published": "2026-08-13T09:00:29+00:00"
   },
   {
-   "title": "Jim Cramer says the AI data center trade is back. These 6 stocks are leading the comeback",
+   "title": "IBM Partners with OpenAI to Accelerate Secure AI Deployment for Enterprises Across Core Operations",
+   "source": "IBM Newsroom",
+   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOR3p4N3M0WXh3TEJGWUxEMDVucXFKc0lfSW9Qa19WeE9FUXowbTB4ZXdra1U0dlJic2o3dlJkMExvV3dWN1ZfM3VuTmd4TWI3OFF3S3o4aG9Yb09QZG1fUDBmWUo4eEpfMFh5cFZud3ZOS05FcnlnMGpoTGUxWndpcTl6OHRWcl9ucENIN0RjTS1tRzB6eEpNSjREXzJWdnQyeXpxdXpnMzJsMS1La0FHSmUycllIQTlhc3hUM1BjZTk1STJIcGR4WjMxcWs4UlE?oc=5",
+   "published": "2026-08-13T10:08:43+00:00"
+  },
+  {
+   "title": "An inside look at SK Hynix $720 billion AI-fueled buildout that's taking over South Korea",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNRGxRUjRhdnE0eGZPZGc0SWlFQlZHbXBiX2dKdm4xdnRFNmxZWGUxYXpMNUM3YlNNbnFFTlVqMEMyV3RXX0J5WldiTDdOYUxhVk1GZnZELUhDN3EycWNEUzVFOUx4eDRJS3czMFJZUTZwc2NRb1I5M0dFd19zU015Vmw5LUdXV0FsWWdB0gGQAUFVX3lxTE9jbjlzRkJUaHhoYm1PV1dwSU5KdWRnVERncGhHOW1fOUJiamtXTzNGRGthZ2Q3cFZmZ1JzYlJjVF9fUFo4UXpXSFlCYU53SDl0NENlNmJxWWdWWktWSDZfc24yd2dHMW5SUjA5Y20tZjlnMzAzZFVEbW9aUURDRzdETXpTT1ZrTzNwWTNFSFpFNg?oc=5",
-   "published": "2026-08-12T22:27:52+00:00"
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPMkZyZURpRzJDN1Z2QjFneUp4UG9uN2Rfam9FOEF4ZWg1ZHA0R1BRX0FobzVndVZ3dGlGLUpSTnQtX3V4ZmFCWnNFSjFFa3FxMVlXUkRTV1VHajlDOXp5WWRvSVNYVjdHYl95RXE1OFBmTHlneHF2TExuRktvNE00Wi00d3FRbnhlLWR4aTlHUVJSNHhrMS1PdXh3X05hLWtS0gGmAUFVX3lxTFBJa1FBdnRrSVBuRmpydEJ0a3ZzdGZpZzZ6QzV4SXV4bWtfSGZteGtTU0V4QU1DeWM0S3ZuXzVHZUoxVnBvcGNhZlM3M21fREN4ejd3V3FVV1pJajJILVFLR0d3ODZtVXFUcG01VTVsanAzN1FUckktUlVBVW9XOVdDSjFjLU5LN0RzeEY0eFFCamJlWTUyQ3laUFA0aXc1UzAtMlJnWlE?oc=5",
+   "published": "2026-08-13T09:00:01+00:00"
   },
   {
-   "title": "From assistance to execution: How enterprises put AI to work",
-   "source": "OpenAI",
-   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1tWU9Wam51YVk5a1BYMlpjSFVMSy1UWDUwcHdFM2o1aUJRTUVzVHhPZVg3MzB4Q3l5UVVtemJzRnFyRU84YTNNeE1fUEt1Y3NXU25Db09pUFZuSXpLby1rZ2FzbDJPb3c?oc=5",
-   "published": "2026-08-12T13:06:54+00:00"
-  },
-  {
-   "title": "S&P 500 ends higher as CoreWeave results fuel AI optimism",
+   "title": "EXCLUSIVE: Microsoft retreats in China, but AI boom helps it keep a window open",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYklxZWxQWEI4bU5nVHpWUVJkQWo4YmQ5ZWpfTXNWWHBjNlE0d09NNEdtbWMtQldtbndIMzNBU1Z3TldjNEF5YUoxMHJSdHlXak50XzBMYlh4dHh2OWxVckViSjVxYUFCVlBvcnQ4Vk9vLVF0MWhGR3BidXQzOGItYUVjbnNYSk1pdS1XeTZqUGtaVTZzcDRkR1N1V0xkN0o5STBZ?oc=5",
-   "published": "2026-08-12T23:02:09+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQRjIyVlcxYlQ1eG1Od0FjLUt4eXFxMk9iSlhDdzlfdkVDNjJUT0M1bE1zc2JnR1A3UzNGVjRxeHNGcE9GLUdqVVdKajV0aXcxZjMtTFVGZ2lNYUhySnp4R195WGNrcFVyR3AySU9TNzJwc19QZGlmbW1RZUpEeG9hZzR4ZW5lM2QweC0yRi00U1VfWjVnM1A1c0dnTi11TzRpWTI0UEtwbi1yQQ?oc=5",
+   "published": "2026-08-13T12:01:44+00:00"
   },
   {
-   "title": "AI was supposed to destroy jobs. Where\u2019s the carnage?",
-   "source": "The Guardian",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE85RVJfLU9XbWFoYlEzQ0hqdWxJVlJBZUxIcnk1VnZkR0JiVHNvSDVEelVmbDU4Ung2M3FJQUtncTNDUDR2NDJ0RkgxUWJEZEd4VzY5WUlJTGhGenVqOTZRcEYzcFNPc29xT2pYRUdFcF9kZFpEa2VXZQ?oc=5",
-   "published": "2026-08-12T14:02:00+00:00"
+   "title": "Chester County\u2019s AI-Powered Self-Service Kiosk Project Wins National Award",
+   "source": "Chester County",
+   "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBIMURNMkY2aDA5LWhtUkt6WHFDMDRLUmNTZG5rdFU5WUdUTEdQMENBTEZKaDNfdG1mRFJnN3gtOTJieS0tdzNBQ00zS0h3NlpTSDRJalFIUWxscDZuZWZsLQ?oc=5",
+   "published": "2026-08-13T13:10:25+00:00"
   },
   {
-   "title": "It May Be Time to Panic About AI",
-   "source": "The Atlantic",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9KYzcxZG1NdTVITUVrWlFaeXpER2NqR28wMHk0ZlhnbUFQSEJRSVZhSXNpVVVJY05GTzdhRGRBWUNPSHZURV9aWnluMXl1M1liNXZYS2FnNm92M1cwN20zSVYycWlSSnJVOVpCQkctdk8wclRCeUZiYXg1RXRKUQ?oc=5",
-   "published": "2026-08-12T20:05:28+00:00"
+   "title": "Exploring AI\u2019s Operational Implications in a Future U.S.-China Conflict",
+   "source": "RAND Corporation",
+   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBvR1lNYldWWFhSNzNxQVk5NWJ1a0JFYWlZa3YxdE8yNUlwNnItbTlhVTc1NDlCd1EtekxWVUFQbGYxQUtxRzdIVzVfam16NnZxVkNlSTdPMmhGYnF2bWtwWEZ2dw?oc=5",
+   "published": "2026-08-13T12:50:06+00:00"
   }
  ]
 }
