@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-14T14:34:02+00:00",
+ "generated_at": "2026-08-14T19:54:20+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "14.6 (p4)",
+   "value": "14.3 (p2)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 4.3,
+    "pos": 2.4,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.78",
+   "value": "0.77",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 20.6,
+    "pos": 18.6,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+1.3 pts",
+   "value": "+1.0 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 44.2,
+    "pos": 41.3,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+3.2%",
+   "value": "+3.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 76.7,
+    "pos": 75.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "67 (greed)",
+   "value": "65 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 67.3,
+    "pos": 64.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,8 +230,8 @@
   }
  ],
  "fund": {
-  "price": 56.615,
-  "day_change_pct": -0.1,
+  "price": 56.585,
+  "day_change_pct": -0.15,
   "sma50": 55.32,
   "sma200": 53.4,
   "high52w": 56.67,
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-08-14",
-    "c": 56.615,
+    "c": 56.585,
     "t": "neutral",
     "s": 50
    }
@@ -1328,17 +1328,17 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.78) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.77) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 67) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 65) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 14.6) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.3) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 776.85,
-  "sma200": 705.46,
+  "price": 776.18,
+  "sma200": 705.45,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 14.61
+  "level": 14.29
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,26 +1516,26 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14700.0,
-  "dca_value": 19342.61,
-  "dca_return_pct": 31.58,
-  "dip_value": 19107.19,
-  "dip_return_pct": 29.98,
+  "dca_value": 19332.36,
+  "dca_return_pct": 31.51,
+  "dip_value": 19097.54,
+  "dip_return_pct": 29.92,
   "dip_cash_uninvested": 900.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "Transforming the Social Sector Through Enterprise Capital",
+   "source": "Federal Reserve Bank of New York",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOT3VqRlY5SnVGa2t3bi04SE4yYWdKNXZRWGdQUk1Idm9wS1ZETHNYS19qM1Fubm9KdExJQldBTVpWMG5ZUWxQWDY2SVQ2M1VfWVVjZ1I4SHQxMjhYZElqaHVDdHg5MEo0bl81aXNlQ25GOHFZcXI4TXVaXzk1UjYyWkxCMA?oc=5",
+   "published": "2026-08-14T13:38:42+00:00"
+  },
+  {
    "title": "Steady Tightening of Agricultural Credit Conditions Persists",
    "source": "Federal Reserve Bank of Kansas City",
    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQalpHVjVGaExsb0hUTHo4YzBMcXduRDEzTDVldXRSM3VNSnVmZ3RBdUpIQmtFTm93SDlTdTk3VnVEOWlnNEt2ZW9jYVFGX012Tll3aTFiYW8zaGNQaGJkVG96OGpTWm1Ja3ZxR3R4Y3gxMFcwdnpnUTN1cUVPZlBYcGpFeE5zSEV3R19QWnJITEpqaUp3dkpTX1F6amE1clN1cmp4RVlyZWQxZHFiUVhIMWZHcUVjSXMxUWZOYg?oc=5",
-   "published": "2026-08-14T13:52:48+00:00"
-  },
-  {
-   "title": "Cooler inflation data may force Warsh's divided Fed to hold the line on rates",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbDJaOWp0UVZZRVd3MUp5UGNUVk1EOXNybWFfeXRKR2FQYzJsUnJCN3VEU1I2bldJWHFodHlUWXQxcUdzXzVtaTN4RmEyaHlwREhvdVpialZycTYyaFozME5kWWV3MGFqT1hGS00zTnMyQmVDZkZXZTFvT0VGR0RSMU1FMnBiT3dyZFlSQmx5RDRXX0JsZ1dPMy1KOTNteGVOaVJRemdUaDhtWkpmRndEeQ?oc=5",
-   "published": "2026-08-14T10:59:51+00:00"
+   "published": "2026-08-14T14:53:19+00:00"
   },
   {
    "title": "INFLATION REDUCTION ACT OF 2022",
@@ -1544,22 +1544,22 @@
    "published": "2026-08-12T19:00:00+00:00"
   },
   {
+   "title": "Cooler inflation data may force Warsh's divided Fed to hold the line on rates",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbDJaOWp0UVZZRVd3MUp5UGNUVk1EOXNybWFfeXRKR2FQYzJsUnJCN3VEU1I2bldJWHFodHlUWXQxcUdzXzVtaTN4RmEyaHlwREhvdVpialZycTYyaFozME5kWWV3MGFqT1hGS00zTnMyQmVDZkZXZTFvT0VGR0RSMU1FMnBiT3dyZFlSQmx5RDRXX0JsZ1dPMy1KOTNteGVOaVJRemdUaDhtWkpmRndEeQ?oc=5",
+   "published": "2026-08-14T10:59:51+00:00"
+  },
+  {
    "title": "In-Line Inflation Reading Buys the Fed More Time to Defend Its Forecast",
    "source": "WSJ",
    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNEhfYzhqTzJnQmFwQl8wRTNGYVBKR2hoN1hjNEU5T0h6QzROQ2ZNNjhqVmEybnp4YlBJako5X2JkbWl2RnZyblBkaFlwM0o4YUJyOXJWY0EzMTl2S2tYVGU1TmkxWmpwZjZURUdHU0VxV2RnXzZwWERwUEFkZXpPODRzbndPSHA0MnB1T0lCVGREdWF6eEVnQg?oc=5",
    "published": "2026-08-12T15:56:00+00:00"
   },
   {
-   "title": "Asian shares mostly fall and US futures are little changed after US inflation data improves - ABC News",
-   "source": "Breaking News, Latest News and Videos",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQdkZYNUUtX1NpdFlFSTk4UUxzUGR4dzdKVkZzV3doMkJRZkxoZWQ0a1NQTmpkZU4xTnZjOTFudEFENmlxZ3gtaE5BQjh0R2tWX3RBREtwWmhLejFzOC1pYzJNc1VlNnlNSUZuRTBLVHB3b0cxeHQ1Q0l6VG5WODVsLXRPeHQtVGY5dndEY1FDXzdvb3ZpUlA1ejh30gGfAUFVX3lxTE9nMGdJbkF2bEpLXzU5WnZHRjZ4SkxSSi1URXliVGpOdk05YzRxQ2sxNXVzbHVqZzVjOUZqc0p2SGd0aDhOYXR5NmdoUmQtRXhlQWJ6elFybF9kcmVoQ0x2bl9CdG5aQUtGVmw3SnEtRDBoLTVLRGxFbE9DT1hmR2JZTkktcEZWaWRZOVpidXFYeVljYXJPWU1rTzNsQlVqNA?oc=5",
-   "published": "2026-08-14T06:41:41+00:00"
-  },
-  {
-   "title": "Why federal government\u2019s monthly inflation report has an effect on Wall Street",
-   "source": "Baltimore Sun",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPMzk3QnVnNFgxejNJQWZ2czZIZTRfUWRrdVVRZE9aSTFhLS1mLThnUzVMN3BaeDhXSVBQeEdZSFdYMEdJUFhoaG01X21PQVUyWm5HZm9Ba3lTOWRWRGw3Q0Rmdnp2c19zNGFXX1dhMm1rRjR6dEg2QU5ueE9SSTZEa1lLeDVkWlBiT2VLb0d5WjQ5ZmZwNXVxdjZ4VVpURkdPZjRkaFI2X0hHT0dUcW9lVTBGMldGUWRjcFE?oc=5",
-   "published": "2026-08-14T13:11:19+00:00"
+   "title": "Fed Rate Hike Odds Fall As Amazon Prime Day Effect Hits Retail Sales",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPUjlaMnhtaGxDcGZzZFdpTjBDclVqYmdQUkE2Q0VaMEVQY1FldUhJbVM2VVpDZ3pJd2dieFA1RHI5YlNYeGc2empyczA5NTd3Yk5BdlpjSVJ1WVhYaGNGOXVpSU5BbUhQWGpPS0lQWDk4ZGgwUjlHeTBGSXRhSTJNVHpwUE1vMk05VzFYTEZ4MHJidGlwejNGX3RRa2R0QndtOVE?oc=5",
+   "published": "2026-08-14T14:33:00+00:00"
   }
  ]
 }
