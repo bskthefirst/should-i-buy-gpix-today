@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-13T19:59:14+00:00",
+ "generated_at": "2026-08-14T14:30:15+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "14.6 (p5)",
+   "value": "14.6 (p4)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 4.8,
+    "pos": 4.4,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 21.1,
+    "pos": 20.7,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+0.7 pts",
+   "value": "+1.3 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 39.0,
+    "pos": 44.2,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.0%",
+   "value": "0.1%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 0.0,
+    "pos": 1.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+3.3%",
+   "value": "+3.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 77.5,
+    "pos": 76.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,7 +144,7 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.71% (-0.01 1mo)",
+   "value": "2.71% (+0.00 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 40.9,
+    "pos": 41.2,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "66 (greed)",
+   "value": "68 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 66.3,
+    "pos": 67.8,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 29d",
+   "value": "CPI in 28d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 56.665,
-  "day_change_pct": 0.4,
-  "sma50": 55.3,
-  "sma200": 53.38,
-  "high52w": 56.665,
-  "drawdown_pct": 0.0,
+  "price": 56.635,
+  "day_change_pct": -0.06,
+  "sma50": 55.32,
+  "sma200": 53.4,
+  "high52w": 56.67,
+  "drawdown_pct": 0.1,
   "series": [
-   {
-    "d": "2025-11-24",
-    "c": 51.92,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2025-11-25",
     "c": 52.35,
@@ -1313,7 +1307,13 @@
    },
    {
     "d": "2026-08-13",
-    "c": 56.665,
+    "c": 56.67,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-14",
+    "c": 56.635,
     "t": "neutral",
     "s": 50
    }
@@ -1323,7 +1323,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.97 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.97 (-2.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1333,7 +1333,7 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 66) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 68) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
@@ -1349,12 +1349,12 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-13",
-  "days_total": 700,
+  "end": "2026-08-14",
+  "days_total": 701,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-08-13",
+  "fg_coverage_start": "2025-08-14",
   "baseline": {
-   "n": 679,
+   "n": 680,
    "avg_pct": 1.68,
    "median_pct": 2.03
   },
@@ -1376,15 +1376,15 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 490,
+    "n": 491,
     "avg_pct": 1.26,
     "median_pct": 1.71
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 7.98,
-  "tbill_3mo": 3.89
+  "ttm_yield_pct": 7.99,
+  "tbill_3mo": 3.87
  },
  "distributions": {
   "history": [
@@ -1493,73 +1493,73 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 777.84,
-  "sma200": 705.0,
+  "price": 777.47,
+  "sma200": 705.46,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 14.62
+  "level": 14.59
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 34,
+  "days_until": 33,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 29
+  "days_until": 28
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-08-13",
+  "end": "2026-08-14",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14700.0,
-  "dca_value": 19359.69,
-  "dca_return_pct": 31.7,
-  "dip_value": 19123.27,
-  "dip_return_pct": 30.09,
+  "dca_value": 19349.45,
+  "dca_return_pct": 31.63,
+  "dip_value": 19113.62,
+  "dip_return_pct": 30.02,
   "dip_cash_uninvested": 900.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Fed should raise rates to restrain growth and inflation, Hammack says",
+   "title": "Steady Tightening of Agricultural Credit Conditions Persists",
+   "source": "Federal Reserve Bank of Kansas City",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQalpHVjVGaExsb0hUTHo4YzBMcXduRDEzTDVldXRSM3VNSnVmZ3RBdUpIQmtFTm93SDlTdTk3VnVEOWlnNEt2ZW9jYVFGX012Tll3aTFiYW8zaGNQaGJkVG96OGpTWm1Ja3ZxR3R4Y3gxMFcwdnpnUTN1cUVPZlBYcGpFeE5zSEV3R19QWnJITEpqaUp3dkpTX1F6amE1clN1cmp4RVlyZWQxZHFiUVhIMWZHcUVjSXMxUWZOYg?oc=5",
+   "published": "2026-08-14T13:52:48+00:00"
+  },
+  {
+   "title": "Cooler inflation data may force Warsh's divided Fed to hold the line on rates",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNVHBQbGpaRk5FcmRfWTlhRmNHeFJiWlpOY2pyY25qdzFka19seGhUU29vMWlvVkxzdW1oMUtYVjN0bU1WNzBsRzZxOS1BLWdRRXVPdDdBdGdPVFRSU2dMZWtXbHZQcmZHTFdhQVU1RXNBYVVyZUdoTjE1RmluSXRxUUpkQXFqUkRXR0RHZ3Fxakh4dEJYY0FUM2toSTNyMFlCc3VpTHlCVTZUbGMtZGZFN0hkVG8?oc=5",
-   "published": "2026-08-13T15:52:03+00:00"
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbDJaOWp0UVZZRVd3MUp5UGNUVk1EOXNybWFfeXRKR2FQYzJsUnJCN3VEU1I2bldJWHFodHlUWXQxcUdzXzVtaTN4RmEyaHlwREhvdVpialZycTYyaFozME5kWWV3MGFqT1hGS00zTnMyQmVDZkZXZTFvT0VGR0RSMU1FMnBiT3dyZFlSQmx5RDRXX0JsZ1dPMy1KOTNteGVOaVJRemdUaDhtWkpmRndEeQ?oc=5",
+   "published": "2026-08-14T10:59:51+00:00"
   },
   {
-   "title": "Alternative Trimmed Mean PCE inflation measure better tracked price surge",
-   "source": "Federal Reserve Bank of Dallas",
-   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE85OHZha1BfZGlDWjJyXzBhWWk1VFFlN2M2R19maWpfUzc1LXZxSUFUTEtkaU5OeERGWlJfRnZQb2g5M0lJcGJuZk15YzBjNjQxYmJZQ2ZHUW1MaGpyaXhMQ1oxRU4?oc=5",
-   "published": "2026-08-13T16:04:38+00:00"
+   "title": "INFLATION REDUCTION ACT OF 2022",
+   "source": "Department of Energy (.gov)",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1WZ1JFc24yV0d0Z09fdUF1ZTluaWJVVmZwY3I3SnFjb01GT3dUbk5zemY1OFAzeUU5aFVNNHQ3MlZ0MVlPS0hSVGV5eFZJWGRTdmFpNS1ueUVsbjQzUVoxWjRycmo0UQ?oc=5",
+   "published": "2026-08-12T19:00:00+00:00"
   },
   {
-   "title": "Wholesale price inflation slows last month as gas and food costs fall",
-   "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNajBqRnRzbmxvNWhYT2NWM0h4OFllTXEydllfZW1sdlMyakZMam9ibjNCaTViZHVDemdua3RLRlFPLXFtb3hQUjJpX2FTTXpEckhXQ0dFWWtqYjVzLVhKRGhDZFNHdy1qa3FOOVlOem5VVTZPUThWb1JReEdmd2N5NFlad1hmdk94aHp4Tl83R01RUGRyemhFM0JFYUQya3M2MGhUT3NRTTV6QdIBrwFBVV95cUxNcWdJbHBPamM1dmNrbG1NNF9ZYkJQZjBmMXRHNDlGRWN1M09YVGlUdEpUWmsxdVBwTkI5dmZoSkRiZk9WbUJ1dVhTVnc4d1ROX2xabHBsbUZIUWZPbFR0TjhwQjFtVFJtcDhBQjMtMGxxenFEbTVscEY2VG1wdFVZRU0wZ28wNk9KU2ZPVE5VSFFfNENhbXFwMGU3eWx5c2hTWERRNjRiZnppajR3ajBZ?oc=5",
-   "published": "2026-08-13T13:15:54+00:00"
+   "title": "In-Line Inflation Reading Buys the Fed More Time to Defend Its Forecast",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNEhfYzhqTzJnQmFwQl8wRTNGYVBKR2hoN1hjNEU5T0h6QzROQ2ZNNjhqVmEybnp4YlBJako5X2JkbWl2RnZyblBkaFlwM0o4YUJyOXJWY0EzMTl2S2tYVGU1TmkxWmpwZjZURUdHU0VxV2RnXzZwWERwUEFkZXpPODRzbndPSHA0MnB1T0lCVGREdWF6eEVnQg?oc=5",
+   "published": "2026-08-12T15:56:00+00:00"
   },
   {
-   "title": "Stocks rise and interest rates fall after inflation report",
-   "source": "NBC News",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPNTFaSEQyZkFiaU1KTkNPU2FuTk40RmpObmYtUUVXdVU2a2JIZ3RJSThFZ2pNdkZCYU53SjlyU0ZTMUlKVEl4Qi1pV2QxUkotYngtZ3pDRmZ6djhTUWhOc1dvVXlWckxDNG5kOUdCNkgtQ1plb1hJMUxmOWNCMXNDbVUxMWQ?oc=5",
-   "published": "2026-08-13T18:01:33+00:00"
+   "title": "Asian shares mostly fall and US futures are little changed after US inflation data improves - ABC News",
+   "source": "Breaking News, Latest News and Videos",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQdkZYNUUtX1NpdFlFSTk4UUxzUGR4dzdKVkZzV3doMkJRZkxoZWQ0a1NQTmpkZU4xTnZjOTFudEFENmlxZ3gtaE5BQjh0R2tWX3RBREtwWmhLejFzOC1pYzJNc1VlNnlNSUZuRTBLVHB3b0cxeHQ1Q0l6VG5WODVsLXRPeHQtVGY5dndEY1FDXzdvb3ZpUlA1ejh30gGfAUFVX3lxTE9nMGdJbkF2bEpLXzU5WnZHRjZ4SkxSSi1URXliVGpOdk05YzRxQ2sxNXVzbHVqZzVjOUZqc0p2SGd0aDhOYXR5NmdoUmQtRXhlQWJ6elFybF9kcmVoQ0x2bl9CdG5aQUtGVmw3SnEtRDBoLTVLRGxFbE9DT1hmR2JZTkktcEZWaWRZOVpidXFYeVljYXJPWU1rTzNsQlVqNA?oc=5",
+   "published": "2026-08-14T06:41:41+00:00"
   },
   {
-   "title": "Opinion | Inflation is still too high",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNUTN4R05hRWJ1WnRicHA3V0liUmNjaEp3VXVXcDBEZUlVWGliVWtiRzBvcU9rOGJ0Wlc5S2N6RExoS2ptLVp4dEhWWVd1bVlMSU9hdktmYVVmbnFWX25aWllodTNQaUdvZHNoN193dFNqTm5veDBoQ2d3eTVETUNuYmRwREQwTG5OMk1ZQU9ia0VnWndPcGVTLVEwZEMxek9Tb2w5Mg?oc=5",
-   "published": "2026-08-12T23:46:46+00:00"
-  },
-  {
-   "title": "U.S. stocks tick toward records as oil prices drop and inflation gets less bad - Pittsburgh Post-Gazette",
-   "source": "",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNclpmbkp2MjNLLTFqa1F3ejBsR1FTWlFPdDdkYy1fVGtLM1k1MWFuRE9hb21HenZSMGxRWFM2aEdCVDNNZGNKSzdKeFVxbjI1Zlh5b3Z6a05nZTB4US1pd1VPTGxYSl8yVzBoOEFzU0V2WVdTc2JYcGYxTFdYMnpZRml6bEtEdUNBOFFMNVptNjdQT1FPQlMwdW1EazJMd19FU3BIcDRwaHdCUVJ2YkE?oc=5",
-   "published": "2026-08-13T19:48:29+00:00"
+   "title": "Why federal government\u2019s monthly inflation report has an effect on Wall Street",
+   "source": "Baltimore Sun",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPMzk3QnVnNFgxejNJQWZ2czZIZTRfUWRrdVVRZE9aSTFhLS1mLThnUzVMN3BaeDhXSVBQeEdZSFdYMEdJUFhoaG01X21PQVUyWm5HZm9Ba3lTOWRWRGw3Q0Rmdnp2c19zNGFXX1dhMm1rRjR6dEg2QU5ueE9SSTZEa1lLeDVkWlBiT2VLb0d5WjQ5ZmZwNXVxdjZ4VVpURkdPZjRkaFI2X0hHT0dUcW9lVTBGMldGUWRjcFE?oc=5",
+   "published": "2026-08-14T13:11:19+00:00"
   }
  ]
 }
