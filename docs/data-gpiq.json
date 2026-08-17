@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-17T14:03:48+00:00",
+ "generated_at": "2026-08-17T19:39:12+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,7 +17,7 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.3 (p33)",
+   "value": "21.4 (p33)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 25.1,
+    "pos": 24.9,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-2.3 pts",
+   "value": "-2.2 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 14.0,
+    "pos": 14.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.3%",
+   "value": "1.5%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 13.0,
+    "pos": 15.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+2.0%",
+   "value": "+1.8%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 66.7,
+    "pos": 65.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.71% (+0.00 1mo)",
+   "value": "2.67% (-0.04 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 17.8,
+    "pos": 16.8,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 59.3,
+    "pos": 59.6,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "63 (greed)",
+   "value": "61 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 62.9,
+    "pos": 60.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 57.74,
-  "day_change_pct": 0.14,
-  "sma50": 57.15,
+  "price": 57.5992,
+  "day_change_pct": -0.11,
+  "sma50": 57.14,
   "sma200": 54.21,
   "high52w": 59.52,
-  "drawdown_pct": 3.0,
+  "drawdown_pct": 3.2,
   "series": [
    {
     "d": "2025-11-26",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-08-17",
-    "c": 57.74,
+    "c": 57.5992,
     "t": "neutral",
     "s": 50
    }
@@ -1348,9 +1348,14 @@
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "QQQ has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
+  },
+  {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.73 (-1.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.73 (-1.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1360,17 +1365,12 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.3) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 63) = extreme fear, a contrarian buy zone (+6 pts)"
-  },
-  {
-   "label": "Extreme credit stress",
-   "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.71%) = extreme credit stress (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 61) = extreme fear, a contrarian buy zone (+6 pts)"
   }
  ],
  "report_card": {
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.8,
+  "ttm_yield_pct": 9.83,
   "tbill_3mo": 3.87
  },
  "distributions": {
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 732.67,
-  "sma200": 651.12,
+  "price": 730.1984,
+  "sma200": 651.11,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.32
+  "level": 21.43
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1543,15 +1543,39 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14800.0,
-  "dca_value": 20532.66,
-  "dca_return_pct": 38.73,
-  "dip_value": 20291.56,
-  "dip_return_pct": 37.11,
+  "dca_value": 20482.84,
+  "dca_return_pct": 38.4,
+  "dip_value": 20242.57,
+  "dip_return_pct": 36.77,
   "dip_cash_uninvested": 200.0,
   "dip_buy_days": 56,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "We Tracked a Shipment of Rare Books. It Ended at an Amazon AI Training Facility",
+   "source": "404 Media",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPTThNSzB2N3pVdXFvMldJMEdFWHlydnlkNTkxNnlNVU84QlhDekkzYk1XZUdnYTc4bHIwajI1TmV6aV9PdjBVRUlyQV91UFItakt4REd1U3hmSWhMeTNodnYxTzVhYlhEcVBPSVNnTjlaZVRvN0NheW9CU19FeG9VZVpSblZoLWRaT1lOMFZ1ejVnSldSTFhFamo2bTdlZUk5ZHZRemtB?oc=5",
+   "published": "2026-08-17T14:59:47+00:00"
+  },
+  {
+   "title": "Trump crypto firm backs venture offering AI from restricted Chinese companies",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQTHhDcEM5cGN4V2duaGh3RmNtbVZndFdfWHBjSkF5ekRiN1JBVnRULTBUeTVld0I3czliYWZsckdXbVJfLTdJcldxY0V1VnV6NU1sME1uM3BWLUttZzR4RDVPSkJsTXlRQkRSTkFJc2pLelNEYXNBWHpUX1BGdzFBTGtmaFFwdE1DclphZDZncHMyTk5oNmFZSWhQRmVrUHdkaFpCb3ZBWWY4eExmcGZEMkJZekFPTEI3VG4zUQ?oc=5",
+   "published": "2026-08-17T15:01:40+00:00"
+  },
+  {
+   "title": "UNCSA and a/perture cinema Present: The AI Doc",
+   "source": "University of North Carolina School of the Arts",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBrcFBQMTJKX3RJYmxCaU1IckZQZWtnY09lMFdVdWlZYi1hR3lrSUh4Xy13VlpOd1JjXzdLNVl6SzFZM2c0TG1qaERuV013MUdYRi0zOXlYSC1PbF9JMjBDZzdVaGZkcjZONlVkdnl6MlczckRV?oc=5",
+   "published": "2026-08-17T19:07:42+00:00"
+  },
+  {
+   "title": "Sick of A.I. Slop? So Are Tech Giants.",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBOWjV4Szg4bEFBdlVDNGxjNE5ocy1wMnN1ZkRUMUlkazNTV21NdzhwMGlMT3hsVzBKeXNHOEJoMnB3NERSZ2xYMEFKa25ISF9fRGJvV01hNWc4VExHb19xb0N4WE00YzA1Vnc?oc=5",
+   "published": "2026-08-17T15:36:10+00:00"
+  },
   {
    "title": "NVIDIA Guarantees SB Energy's PORTS-Pike Technology Campus in Ohio to Exclusively Host NVIDIA AI Compute",
    "source": "NVIDIA Newsroom",
@@ -1559,34 +1583,10 @@
    "published": "2026-08-17T12:38:11+00:00"
   },
   {
-   "title": "AI Has Plunged the Book Publishing Industry Into Utter Chaos",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOYWFiWDhvRzBmOTIyUW1BSmxsSFc0eDA3UzU2cVVrZ0xST2MzektGTDVaM0laOEVUd3I0OUNDMzlBb2JadFEwS3hQVGRncDVicDNtaG10R2g2b29hYW1VeTZtSGRFNDFoRVlIeXNWTkxSb3QxUlNrMGluem1kS25TeTQ5Zw?oc=5",
-   "published": "2026-08-17T09:30:00+00:00"
-  },
-  {
    "title": "AI slop is swamping a House office that drafts US laws",
    "source": "Politico",
    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPM3lYZTZ5N0ZsQ2pySGZhSzZuQUlKNzhjVVRrUnk4ZWV6WE8wWVZvdjZkWV82dmRBUU5sbnVFZldFeVVRR3BPUHZwcHljZmItWjVQUEo4dVJqMFV3cGYyRExEbWIwMm5iUXhJN1Bvd09YNUVWLWdyeWZxWk04dnN0NFhB?oc=5",
    "published": "2026-08-17T08:45:00+00:00"
-  },
-  {
-   "title": "S&P 500 opens muted as Middle East tensions weigh",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNNmVQMTVLQjc4cmxldlJTQjJiaXFrUFp0cXh6R2xQaGhRS3g2ZGFQbmRwM2pWZTRBQ08yTlhOZHNzVEExVWNVb0tHWmZRU0s5RHhuc3czT19MeXVBeThpejlsZ0puNnJ4UlNCTEg2NjNKYWVObzhDbnJ5UFBaeVFXYjlrZWJnZGhJRHc?oc=5",
-   "published": "2026-08-17T13:36:22+00:00"
-  },
-  {
-   "title": "China Wants to Shape What the World\u2019s A.I. Knows",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBHYlo3WmVNbm9LY1dPZnpZMWdGRFF2N29BaDEzM2VCbFcxLVlqVjZoWk1LM3plTDh0YUJTSDBQcnROWThTSjJPSExaSzNmWE9uZHlfLUJNN1hXOEVhNWM1ODFseGZpam5PSURobThLLThZTVc2YWFxSUl1Y1pSdw?oc=5",
-   "published": "2026-08-17T04:01:07+00:00"
-  },
-  {
-   "title": "\u2018A million dollars over asking\u2019: AI wealth is fueling housing market frenzy in San Francisco",
-   "source": "CNN",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5mNWpVOGF3Q0ItNXNqYU5qODY1MElabkxBb0N5UHl3X29Za1kzWkVVY2JUaWFYQUxPSldIcEFhR2N1dmZFUjN2a2xaNmRkQWNULUp1bzZmcXd1N0x0SlZ2ZmtTeFhWMVZSSERTeWp4V0w?oc=5",
-   "published": "2026-08-17T10:30:29+00:00"
   }
  ]
 }
