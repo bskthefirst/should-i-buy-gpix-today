@@ -1,18 +1,18 @@
 {
- "generated_at": "2026-08-14T19:54:23+00:00",
+ "generated_at": "2026-08-17T14:03:50+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 44,
+  "sessions": 45,
   "too_young": true,
   "validated": false
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~44 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~45 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -29,7 +29,7 @@
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 44 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 45 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
     "pos": 100.0,
     "labels": [
@@ -48,13 +48,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "33.9%",
+   "value": "30.0%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 33.9% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 30.0% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 67.8,
+    "pos": 60.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -63,15 +63,15 @@
   },
   {
    "name": "Trading history",
-   "value": "44 sessions",
+   "value": "45 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 44 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 50-day average needs ~2.5 months; 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 45 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 50-day average needs ~2.5 months; 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.3 (p2), F&G 65",
+   "value": "VIX 15.1 (p11), F&G 63",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -79,7 +79,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 28d",
+   "value": "CPI in 25d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -87,13 +87,13 @@
   }
  ],
  "fund": {
-  "price": 139.66,
-  "day_change_pct": -1.15,
+  "price": 147.92,
+  "day_change_pct": 5.66,
   "sma50": null,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 33.9,
+  "drawdown_pct": 30.0,
   "series": [
    {
     "d": "2026-06-12",
@@ -355,7 +355,13 @@
    },
    {
     "d": "2026-08-14",
-    "c": 139.66,
+    "c": 140.0,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-17",
+    "c": 147.92,
     "t": "neutral",
     "s": 50
    }
@@ -365,14 +371,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-08-14",
-  "days_total": 44,
+  "end": "2026-08-17",
+  "days_total": 45,
   "backfilled_days": 40,
-  "fg_coverage_start": "2025-08-14",
+  "fg_coverage_start": "2025-08-18",
   "baseline": {
-   "n": 23,
-   "avg_pct": -21.13,
-   "median_pct": -25.45
+   "n": 24,
+   "avg_pct": -19.45,
+   "median_pct": -24.85
   },
   "bands": [
    {
@@ -392,9 +398,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 23,
-    "avg_pct": -21.13,
-    "median_pct": -25.45
+    "n": 24,
+    "avg_pct": -19.45,
+    "median_pct": -24.85
    }
   ]
  },
@@ -404,22 +410,22 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 139.66,
+  "price": 147.92,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 104.0
+  "level": 104.2
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 33,
+  "days_until": 30,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 28
+  "days_until": 25
  },
  "earnings": {
   "next": null,
@@ -428,54 +434,54 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-08-14",
+  "end": "2026-08-17",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 1000.0,
-  "dca_value": 984.33,
-  "dca_return_pct": -1.57,
-  "dip_value": 970.63,
-  "dip_return_pct": -2.94,
+  "invested": 1100.0,
+  "dca_value": 1142.55,
+  "dca_return_pct": 3.87,
+  "dip_value": 1128.03,
+  "dip_return_pct": 2.55,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 9,
+  "dip_buy_days": 10,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "USSF-366 Mission",
-   "source": "SpaceX",
-   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1uVXc3djI0YUVwMnV0VTRGMm45Z2cxT3dZYUl5SjVkV3NWUGJDdnp6eXpTTzNWVUkxSXRZYjBnOVBaUTFkakNXLXBQQjJyV2ow?oc=5",
-   "published": "2026-08-14T18:00:18+00:00"
+   "title": "Elon Musk\u2019s Starbase wants to expand in south Texas",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNaHVpaS1RQmlRSzE0WE5SMVlMUG82dE9BOWs1QUpPbllMY3U5VlRsZS1XWTBTSjNBbG1WRFRnT1hROU5ud3hQQ21ZSFRpSEltUWxqX19ueGZFa0g2aVZRa0N0RWI0VHZyb2lZdWJoYzdSaEtLcWtDTU9hUmMzMkNlWWxR?oc=5",
+   "published": "2026-08-17T09:00:00+00:00"
   },
   {
-   "title": "Alphabet's SpaceX bet grows 100-fold over a decade to $94 billion",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNOGlSVjd0am5adkxrNm1hX0c3RFVTN0JmZzBjVVluX3M1bjNUWndRRjlGV2IyT1dTbHdHYzh6MlNzOC0zNDFjejRiRzVOcmZCcE9PVEFHV2JxblZsM2xCa0JBcFl2T0FJRzVoUWVvR2FRd0hiOUZuWlZITHVxR0NONDljUm9YT2xMVVk1WjFJUWFzNVdPQmsyV1czWEdxRGRQQVJXWkZjQm1wRUZyZ3lZWQ?oc=5",
-   "published": "2026-08-14T15:54:00+00:00"
-  },
-  {
-   "title": "SpaceX Stock Drops as Musk\u2019s Rockets Face a Fresh Rival",
+   "title": "Elon Musk\u2019s SpaceX Holdings Revealed. (Hint: It\u2019s A Lot.)",
    "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQY1hIZl9XSEpBSjl1Y0ZTNUQ3MmVSRFpGRmNMUTJhTGlXMERLNVIzaDd1bG94eF9lbE4zdTBsdnN2QUxYV1BJRmstNUZpc0lOYWNuQ3lISHJUNnJGYTFoc0taRlFwNVBvbXJDd1pIMDVpNmduZkphamcwS1pGOEFPSw?oc=5",
-   "published": "2026-08-14T16:31:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9veV9YNGNtUVRBN1N0WHRuWlM4aWRJOFF1dl9ueF9maEo3VnNrQ21jTVlmVjNwQmFVVlZzVkMtYlo2aFRLTDNtczBuWmhwU0RBSExpY0dBWS1RaWtNN0tUMmFOMWVmOEVWUDVmM3A4QnNTWmdwbl9hNEpUTmpSQQ?oc=5",
+   "published": "2026-08-17T10:33:00+00:00"
   },
   {
-   "title": "Elon Musk Reveals $900 Billion SpaceX Stake, Massive Voting Power",
+   "title": "SpaceX rocket launches, NASA's MAX POWER lead Florida space newsletter",
+   "source": "Florida Today",
+   "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxOY1M4WFlOMk85cEQ0bm9Pc0ZkNlQ5M2N2QThiYS11bUdtOEVUaUdoYWdBUDFuUFE3Zy0xOUxuY2JHdHlyajhxTmJ4REtnb1hmSE1mX1ZINFRaTGwyeGpuYi1IaUp0d1ZHRlNibUlQcGJSaGs4aTA5YXJFaXZNUmc5cjV5LXZKSnBuM094WVNnbUVWZ3ZuR2xkMUppdVZvQ3ZRQmFITHcyLWg2U2dBc1AwT01ZUnNsMVE2T2VyOWFpY2xtUkRZLUVLaHowQk1Xc2tnUXpUbTRiMjVvNTBWSFVrN2ZoN0tEdmlCZ2NuckVEMGdfWXNwWklSQUtrbVJGZjBGd01nYVFHcVYtdw?oc=5",
+   "published": "2026-08-17T11:58:42+00:00"
+  },
+  {
+   "title": "Nvidia, Alphabet, Peter Thiel: SpaceX Top Shareholders Revealed",
    "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOdlhGQnQtVmhpbldIMUlyOEFzN3p5bTFlRVgwQThvV0VVakZIVWNMNXBEOEdXUkh3bWtwQkF4Q2x4SlVFZ3JjN3hVZE1rNnF5MGlzZVAzbm5Lb05paWNnSm0xWFBmbTNVVm5VdTh1V1hWejZzOFdlODFDeUE3MHFZRDdNWlJ3ZWUxeFhIU0JUWjFzYjJLVUE?oc=5",
-   "published": "2026-08-14T13:57:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNRGM3NGpBRTYyMkpyLU1pb0E2c0FlNTRRa1lPd1dNN1h5Z1ByQl84dFdtLTlvOEhoek5aRnRyUmprRFRPci1SWW9WVmI1WHNhZHNMRmt2MGVCWnlaVUFPTTBWRENUbVJqQW5lMENrN2ZZcUx4YnBkWExlZlB0SmFIbzZwcU5pOGw5N2JJeXN3TWNBV0E?oc=5",
+   "published": "2026-08-17T12:47:00+00:00"
   },
   {
-   "title": "SpaceX rocket's moon crash highlights 'a tangible operational risk' of lunar settlement",
-   "source": "Space",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNN1J4cGdkNGFqaXJqUnllalpBTGUweVRvbHJhQ0hxdVRhTDJYbE5SakM5T2g4UGxfVzZfWTJ5Sll4b0lpcG9qVU16ZUV6RHBTRExxeEtqamdCbWVReFlwSFpqZnp2R2pUbXh3cms4TFdHMk9URXhienU3ZmpQT3BHaEdreThTYmhzcGl6OUk3SzIwNV9YS0lCYzhRSWxHbUV5NjlXMHZXaDUxS2dGS2IwZkhFT0xNOWdNUFNnSWFn?oc=5",
-   "published": "2026-08-14T10:00:00+00:00"
+   "title": "I asked ChatGPT whether I should buy Rolls-Royce or SpaceX shares",
+   "source": "The Twelfth Magpie",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYmRXX0tHNUVBZHF6cU14VU1SNE9ZNjAzazE3ekxsVk1RNjlWSW0tZDlMaUdJbVJDa0tyRW9kc2ZZSVBPTWZmUmdpcEpYOFVsT2pYd1QwSW8wRFozZ3Q0SG0yc3kwT1pLT0FzVWZTcV93ZkJSNlJnMm1KX0VlVVpJRGlhUTNaeFAwVjlwMUs2SVkzUHhqeDE2R3VUWDFJUXEtMjJSTndqVnY1Q28?oc=5",
+   "published": "2026-08-17T09:07:01+00:00"
   },
   {
-   "title": "Mining Tycoon Gina Rinehart Reveals $1.4 Billion SpaceX Stake",
+   "title": "Elon Musk Can't Sell SpaceX Stock Until June 2027 -- But 6 Billion More Shares Could Flood the Market Before Then",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPS3dIVi05RlNNMDdkMGZBT0JieTc0ZWpsX0FpaXlNVFlvU041TE1UbWxqUEVyOTgxdTh2TUk4aGhETGZYbjY2RllnYndraUNiaGZ6NFVoZERYeVhESEp0WDZ2elJJTVEtaEhYY3JrSFNyamJXSjk4Tk5XWnh5b2JHUHRfS01HaVJqSTdLVnNlaURFbTY3ZmtzS1poXzlWZ1QyMHc?oc=5",
-   "published": "2026-08-14T14:46:46+00:00"
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPWWt3dUl3VGJzalJzSjMzd2JxbnRJajl3Y3BfM2NFYXB5MG5vOFFxUXBSUVN3S2VVeXhCdFRXSzdVQVJ6bHBmX29yTWM5RnFFMXM1QzBocXJ5TVJveVlqdTR3YkFzMDFMWTlBN0FuN3o3UVBWRVVYNjlqZzhvbXdtNHVFMm13N09mX3A1ZFdqQUdBUTU4c2c?oc=5",
+   "published": "2026-08-16T19:20:00+00:00"
   }
  ]
 }

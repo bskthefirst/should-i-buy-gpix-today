@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-14T19:54:21+00:00",
+ "generated_at": "2026-08-17T14:03:48+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "20.8 (p29)",
+   "value": "21.3 (p33)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 29.4,
+    "pos": 33.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.77",
+   "value": "0.80",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 18.6,
+    "pos": 25.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.45x (p80)",
+   "value": "1.41x (p77)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 80.2,
+    "pos": 77.3,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-2.9 pts",
+   "value": "-2.3 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 9.2,
+    "pos": 14.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.5%",
+   "value": "1.3%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 15.0,
+    "pos": 13.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+1.8%",
+   "value": "+2.0%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 65.0,
+    "pos": 66.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 59.5,
+    "pos": 59.3,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "65 (greed)",
+   "value": "63 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 64.7,
+    "pos": 62.9,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 28d",
+   "value": "CPI in 25d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 57.62,
-  "day_change_pct": -0.17,
-  "sma50": 57.17,
-  "sma200": 54.2,
+  "price": 57.74,
+  "day_change_pct": 0.14,
+  "sma50": 57.15,
+  "sma200": 54.21,
   "high52w": 59.52,
-  "drawdown_pct": 3.2,
+  "drawdown_pct": 3.0,
   "series": [
-   {
-    "d": "2025-11-25",
-    "c": 52.55,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2025-11-26",
     "c": 52.97,
@@ -1340,7 +1334,13 @@
    },
    {
     "d": "2026-08-14",
-    "c": 57.62,
+    "c": 57.66,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-17",
+    "c": 57.74,
     "t": "neutral",
     "s": 50
    }
@@ -1350,22 +1350,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.73 (-1.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.73 (-1.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.77) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.80) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 20.8) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.3) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 65) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 63) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1376,22 +1376,22 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-14",
-  "days_total": 701,
+  "end": "2026-08-17",
+  "days_total": 702,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-08-14",
+  "fg_coverage_start": "2025-08-18",
   "baseline": {
-   "n": 680,
-   "avg_pct": 1.92,
-   "median_pct": 2.13
+   "n": 681,
+   "avg_pct": 1.93,
+   "median_pct": 2.14
   },
   "bands": [
    {
     "tone": "good",
     "label": "Better-than-usual entry (score \u2265 69)",
-    "n": 99,
+    "n": 100,
     "avg_pct": 3.72,
-    "median_pct": 3.26
+    "median_pct": 3.31
    },
    {
     "tone": "ok",
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.82,
+  "ttm_yield_pct": 9.8,
   "tbill_3mo": 3.87
  },
  "distributions": {
@@ -1520,73 +1520,73 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 730.56,
-  "sma200": 650.62,
+  "price": 732.67,
+  "sma200": 651.12,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 20.76
+  "level": 21.32
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 33,
+  "days_until": 30,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 28
+  "days_until": 25
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-08-14",
+  "end": "2026-08-17",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 14700.0,
-  "dca_value": 20390.2,
-  "dca_return_pct": 38.71,
-  "dip_value": 20149.8,
-  "dip_return_pct": 37.07,
-  "dip_cash_uninvested": 100.0,
+  "invested": 14800.0,
+  "dca_value": 20532.66,
+  "dca_return_pct": 38.73,
+  "dip_value": 20291.56,
+  "dip_return_pct": 37.11,
+  "dip_cash_uninvested": 200.0,
   "dip_buy_days": 56,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Data breach notices have already blown past last year\u2019s total \u2014 and AI is playing a growing role",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOQWpHNFg2Wi04V0t6R3RlcnZGbWlrR0hvcnVEV0psMnFIdmljRmNlQURKUVdvYmwweFZCaWQ0NXlZSjVYRDlIa2I1RDFJN0FRX2VUN3haTU1heFhUM1ViOHJ6TlF3NzZjSlJrQ09INl8zT1lPMGp3WU1uWnBmSjQycXB1NNIBiAFBVV95cUxPLWh1TXhCa3Y0Y1YyMi16V2l3NnR1bXpfb0Z6OVJYS0ZIOWh6Wm1BbVI2TG9fX2pWSF9jcmFqV3RyRWxGVnFKR1d3bExLVVJ4emNZamhtOXpvSzdyaFVTRmlRbTJhRjZUMzYxUGlva203UVY1YldWc1lnZ3J5Vm5oSTdzZmlWQ1NO?oc=5",
-   "published": "2026-08-14T12:15:01+00:00"
+   "title": "NVIDIA Guarantees SB Energy's PORTS-Pike Technology Campus in Ohio to Exclusively Host NVIDIA AI Compute",
+   "source": "NVIDIA Newsroom",
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNYXdyMXl0ZUs3UDVBSFo1a3BCcDg4UlZUazQxSEp1allrY1B3SEVxYnQ2RjFQVFY5T3Q1YUFYM19Jc1ZQNXVobGtZNVJBc1BPQXpFWFFsTlBvWEJqV3VRM1lCU0ZzSVlHcS14UGxUZldBaEVsdUJveHN0TXJOLURfWDBxRlJYaFdXMHREU3VSNlVrcFZncENub1czY2lGV1F6eGpGSWZiU2loYlJYVVRFZTdQSU80Q0lNZmdvX3FZQ0hTU1pjZF8weHhCRWEzeURkcDk3N1Z3?oc=5",
+   "published": "2026-08-17T12:38:11+00:00"
   },
   {
-   "title": "How I Learned to Fear AI",
-   "source": "Public Books",
-   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1yd09sdFVEQ1NkdzY5T0hMWEdzczVXSDg0S043UFVWVjVseXlhN09VTTFWTlNUZ0hpbXJKMVgyUjVpOU90SC1wWFp3Z0JrbmVsckVGRzBGdHZIanNfVTIza0x3dw?oc=5",
-   "published": "2026-08-14T15:00:00+00:00"
+   "title": "AI Has Plunged the Book Publishing Industry Into Utter Chaos",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOYWFiWDhvRzBmOTIyUW1BSmxsSFc0eDA3UzU2cVVrZ0xST2MzektGTDVaM0laOEVUd3I0OUNDMzlBb2JadFEwS3hQVGRncDVicDNtaG10R2g2b29hYW1VeTZtSGRFNDFoRVlIeXNWTkxSb3QxUlNrMGluem1kS25TeTQ5Zw?oc=5",
+   "published": "2026-08-17T09:30:00+00:00"
   },
   {
-   "title": "I Tested a Popular A.I. Slop Detector. It Felt Empowering.",
-   "source": "nytimes.com",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQOWUxT0ludUhqbUV0Y3J5SnVVSzJOanRIVXBPeDByeU82TlZFOGNhc2F1QThfYXlua2Zkd2ZEZV9vR1hhTkxpWHpBSVo1cU5mX2dmV3N6SGhqdXpmd2c0aktEV2U1cHVLWEhSZFl6eFRlYk44YS1VdUtpbTAwWDdwcW9nZjExejkySFRidFlWcFNIUQ?oc=5",
-   "published": "2026-08-14T14:08:00+00:00"
+   "title": "AI slop is swamping a House office that drafts US laws",
+   "source": "Politico",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPM3lYZTZ5N0ZsQ2pySGZhSzZuQUlKNzhjVVRrUnk4ZWV6WE8wWVZvdjZkWV82dmRBUU5sbnVFZldFeVVRR3BPUHZwcHljZmItWjVQUEo4dVJqMFV3cGYyRExEbWIwMm5iUXhJN1Bvd09YNUVWLWdyeWZxWk04dnN0NFhB?oc=5",
+   "published": "2026-08-17T08:45:00+00:00"
   },
   {
-   "title": "The AI build-out has a problem that $1 trillion in cash can't fix",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNWxKUjhaZXhNZVJBMWEyNUZBR2UzV0F4bmJPSnVKcDBXbU1sOHZkQnFNcDR1ZXNBUVp6c0NQeUtPNlJqTXc3cVN6VVhPMEJaVzRpY1duVUlBNm1DZi1Da0hNdThuSVdZb296NDJRYi1mRW1ETnNkaHYxcG1qVDlFZWE0SFYwSk1lX0xlRWs2bWxGSy1ZdFc0b0h2NlVNTjJ1SjFUNjdhRWx6QW9aeTJpeUdhYjcxYlhKMEhDakVFdUY?oc=5",
-   "published": "2026-08-14T13:41:14+00:00"
+   "title": "S&P 500 opens muted as Middle East tensions weigh",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNNmVQMTVLQjc4cmxldlJTQjJiaXFrUFp0cXh6R2xQaGhRS3g2ZGFQbmRwM2pWZTRBQ08yTlhOZHNzVEExVWNVb0tHWmZRU0s5RHhuc3czT19MeXVBeThpejlsZ0puNnJ4UlNCTEg2NjNKYWVObzhDbnJ5UFBaeVFXYjlrZWJnZGhJRHc?oc=5",
+   "published": "2026-08-17T13:36:22+00:00"
   },
   {
-   "title": "Through data governance, tribes protect \u201cdigital land\u201d and build tribal economies",
-   "source": "Federal Reserve Bank of Minneapolis",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNOXhhV2xwRHowZm9TcmJwUGp3WVVYT3NUcWhqUGJOYk9Pc2RVaDVURnF2LXF6NkZlSU9HNDBua29rZDZZY3F5SDdBTnY4ZmgyeGpKUC16Y2pVODkxRE82MFU5MmFPUC0xV1o5aS0tTmw5OWxCRU9YWVVvemkwdDdhQ2otRkJ0TUxOQ2JGamFFZTQwYmE4MEpsYTQ3M3p3cmdOYldxQzNyNnNwUHY1RHZPOGhZODVoWjVZQ2dqQXNXcw?oc=5",
-   "published": "2026-08-14T19:27:01+00:00"
+   "title": "China Wants to Shape What the World\u2019s A.I. Knows",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBHYlo3WmVNbm9LY1dPZnpZMWdGRFF2N29BaDEzM2VCbFcxLVlqVjZoWk1LM3plTDh0YUJTSDBQcnROWThTSjJPSExaSzNmWE9uZHlfLUJNN1hXOEVhNWM1ODFseGZpam5PSURobThLLThZTVc2YWFxSUl1Y1pSdw?oc=5",
+   "published": "2026-08-17T04:01:07+00:00"
   },
   {
-   "title": "Like it or not, AI psycho-oncology care is already happening. Urgently needed: An ethical framework Developers and mental health providers must share the same goal: Safe, equitable, trustworthy, and patient-centered care",
-   "source": "The Cancer Letter",
-   "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1feHYxaVNQZkRNMm1aMlVpLUR1S21sUlAzYWhPN25SWldVTUhIU1ZpcmNMR19ETTdoNWl1Vm11RXhoRU1fUEJZOUg3cHZZeWVlWVJoRmNobkd4WXc2cDZTNnhn?oc=5",
-   "published": "2026-08-14T19:23:50+00:00"
+   "title": "\u2018A million dollars over asking\u2019: AI wealth is fueling housing market frenzy in San Francisco",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5mNWpVOGF3Q0ItNXNqYU5qODY1MElabkxBb0N5UHl3X29Za1kzWkVVY2JUaWFYQUxPSldIcEFhR2N1dmZFUjN2a2xaNmRkQWNULUp1bzZmcXd1N0x0SlZ2ZmtTeFhWMVZSSERTeWp4V0w?oc=5",
+   "published": "2026-08-17T10:30:29+00:00"
   }
  ]
 }
