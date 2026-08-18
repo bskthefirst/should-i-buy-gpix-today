@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-08-18T14:09:04+00:00",
+ "generated_at": "2026-08-18T19:37:33+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
-  "label": "No edge either way - buy on schedule",
-  "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
-  "tone": "neutral",
-  "score": 0.0,
-  "score100": 50,
+  "label": "Mild tailwind - fine day to buy",
+  "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
+  "tone": "ok",
+  "score": 2.0,
+  "score100": 62,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.6 (p42)",
+   "value": "22.4 (p40)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 42.2,
+    "pos": 40.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 29.3,
+    "pos": 29.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -69,7 +69,7 @@
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 77.7,
+    "pos": 77.8,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-2.0 pts",
+   "value": "-1.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 16.8,
+    "pos": 21.9,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "2.7%",
+   "value": "2.8%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 27.0,
+    "pos": 28.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -140,21 +140,21 @@
   },
   {
    "name": "Short-term pullback (reversal)",
-   "value": "no pullback",
-   "score": 0.0,
+   "value": "3 down days",
+   "score": 2.0,
    "weight": 2.0,
-   "lean": "neutral",
-   "note": "No short-term pullback in QQQ - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.39% next-day excess (t=4.0) in our validation, positive in every era - the strongest edge this tool has, hence its top weight of 2.0."
+   "lean": "good",
+   "note": "QQQ has closed down 3 straight sessions. Short selling streaks like this have reliably bounced the next day - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.39% next-day excess (t=4.0) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.6%",
+   "value": "+0.4%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 55.0,
+    "pos": 53.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.67% (-0.04 1mo)",
+   "value": "2.70% (-0.03 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 16.8,
+    "pos": 17.5,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "9.9% vs 3.9% cash",
+   "value": "10.0% vs 3.9% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 60.9,
+    "pos": 61.0,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "55 (greed)",
+   "value": "55 (neutral)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 55.1,
+    "pos": 54.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 56.9006,
-  "day_change_pct": -1.32,
-  "sma50": 57.13,
-  "sma200": 54.21,
+  "price": 56.845,
+  "day_change_pct": -1.29,
+  "sma50": 57.14,
+  "sma200": 54.22,
   "high52w": 59.52,
-  "drawdown_pct": 4.4,
+  "drawdown_pct": 4.5,
   "series": [
-   {
-    "d": "2025-11-26",
-    "c": 52.97,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2025-11-28",
     "c": 53.33,
@@ -1339,10 +1333,16 @@
     "s": 50
    },
    {
-    "d": "2026-08-18",
-    "c": 56.9006,
+    "d": "2026-08-17",
+    "c": 57.59,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-08-18",
+    "c": 56.845,
+    "t": "ok",
+    "s": 62
    }
   ]
  },
@@ -1350,12 +1350,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.73 (-0.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
-  },
-  {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "QQQ has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
+   "text": "GPIQ at $56.73 (-0.2% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1365,12 +1360,17 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.6) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 22.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
    "text": "Fear & Greed at 25 or below (now 55) = extreme fear, a contrarian buy zone (+6 pts)"
+  },
+  {
+   "label": "Extreme credit stress",
+   "direction": 1,
+   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1390,7 +1390,7 @@
     "tone": "good",
     "label": "Better-than-usual entry (score \u2265 69)",
     "n": 101,
-    "avg_pct": 3.71,
+    "avg_pct": 3.7,
     "median_pct": 3.26
    },
    {
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.95,
+  "ttm_yield_pct": 9.96,
   "tbill_3mo": 3.86
  },
  "distributions": {
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 718.89,
-  "sma200": 651.05,
+  "price": 717.8105,
+  "sma200": 651.52,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 22.63
+  "level": 22.44
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1543,10 +1543,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14800.0,
-  "dca_value": 20235.62,
-  "dca_return_pct": 36.73,
-  "dip_value": 19999.48,
-  "dip_return_pct": 35.13,
+  "dca_value": 20214.65,
+  "dca_return_pct": 36.59,
+  "dip_value": 19980.13,
+  "dip_return_pct": 35.0,
   "dip_cash_uninvested": 200.0,
   "dip_buy_days": 56,
   "winner": "dca"
@@ -1559,34 +1559,34 @@
    "published": "2026-08-18T09:00:00+00:00"
   },
   {
+   "title": "When AI art has no author: Study finds generated images often can\u2019t be traced to training data",
+   "source": "MIT News",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZTZpTDNuME1qYU1VZkkySkRzSURWQTN0R1Z6REJDYmhSR3NrMVB2UEpDc0tLanFUM3JwX1c1eWNxWjBEZGs3M3djbDNzQlVtTW1BbWhYanhuN3Rob3AyVjluUTdTdFVkTWdNb3FwU1FSMmI0WE1wRjFtbnl1MWhXSVJBLXdrWVBxeW4zTDZzWjFsZG9ZejJQM2pIYkh2Rmp1X3EteFJkbDZobTVFMG94dA?oc=5",
+   "published": "2026-08-18T16:35:00+00:00"
+  },
+  {
+   "title": "Texas Tech University Is Using A.I. to Cut Left-Leaning Content",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSG9sVmlFTjR0VUpQbmFZd3hYZnVGdVIwN0hmeC15TURQQ01OeUdBSDc3U3ZrbGp1OEZkcjFRa25oWUhaTWZkTTlzbU43LTc2VW9leG5XOGhjQS0zeE10UlZubHI1QXdjVnY4akF2S1phWGRsNmxJYmZEZUVyTVZjcV9nQVNLZjA5c1l5dE5kNWJUaUtMTjdNbVF4VFFvRmdQRnJkTEJ6cw?oc=5",
+   "published": "2026-08-18T17:17:12+00:00"
+  },
+  {
    "title": "'Worrisome': AI is driving a looming market correction, European central bank economists warn",
    "source": "CNBC",
    "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE0xbVRBdlNrTkdsNEU3bWtMMWxmN3d0a0oyOWpBaFJtYV9TaXZvb2htSVdObVZ5eWs3YmxrWGVvbU9MclJBS0UyYjBlREpPQmhpNW5JbmhFMDZmUHpXbHI1bjhMejV3MkRabHRiRGVTeFJmYUxyZnBvVDFwc2nSAYIBQVVfeXFMUEp3Y0tlNzlTZ1RpYmVEUndHRkxPMklEZnBUNHBvWmdfZ2QyNC16b2pJZFp0MUhyVFhzUnhwMWVGX3ZwMXlrcGxjT0xSaW5RNG4waWoyWnRUVnhSS0d6dXlJaDZJcUZSdDNuTkxad1U1SW8zNG45Nm1uaDBGYUtxVUVWZw?oc=5",
    "published": "2026-08-18T12:07:05+00:00"
   },
   {
-   "title": "A Texas University Is Using A.I. to Cut Left-Leaning Content",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSG9sVmlFTjR0VUpQbmFZd3hYZnVGdVIwN0hmeC15TURQQ01OeUdBSDc3U3ZrbGp1OEZkcjFRa25oWUhaTWZkTTlzbU43LTc2VW9leG5XOGhjQS0zeE10UlZubHI1QXdjVnY4akF2S1phWGRsNmxJYmZEZUVyTVZjcV9nQVNLZjA5c1l5dE5kNWJUaUtMTjdNbVF4VFFvRmdQRnJkTEJ6cw?oc=5",
-   "published": "2026-08-18T09:00:07+00:00"
+   "title": "Young adults in the U.S. are increasingly wary of AI, concerned it will take jobs",
+   "source": "Pew Research Center",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOb2RZeVlaT0ZaNzh1emgyY1lyUkdCeGNCSUR4NlhFQTRuN0R3LUw3QTFoV0ZyczlJYUJFdFRLWm04WlF2cU4zeWxXd3EzR1Z3Wkk1SlJGR242cTVzTEcxTlJmQmJpWlVaQ3VBWGNLcTFDWVYyWFZoUDdPYlFfUmNEVVF2UzFfQ2FPMDJQanU1a0pDUEVEWFA3Tk0wUmhqZDlVQXJ6ZmhOMGhjek1GaU1pUDRWQ0tiRkdlSVdUZVd3TlMzQ3R0aWpMOTRR?oc=5",
+   "published": "2026-08-18T15:58:46+00:00"
   },
   {
-   "title": "Partnering with CodeAI to prepare the first AI generation",
-   "source": "OpenAI",
-   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFAxUXRfSV9kTlJXUk02dl9WR0Q2MWtkSTVSb1FBcnN4Y2NmZEFOS2U1UGlCYnBlUTlEM0Z0Wk45c2MwQTZHYnFBWmI0UDRseVdlV2UyRkJoa19OaEFw?oc=5",
-   "published": "2026-08-18T11:04:30+00:00"
-  },
-  {
-   "title": "Can fiscal, AI, or monetary news explain the rise in r*?",
-   "source": "Brookings",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQakdCZWlvSlVoRkt3XzhTMGx1VWo2TGZWbTdJc1J5OGJKQnFaenowWDNGYkEwcHp4ZURGMVRrX1BkYnBsMzNMZUZtOWhBSTB3Y21LcXJ4dUE0N2xTbHZJdm9jeXd1MzhoMmxZejQ5WmdwVVpUMnE4WEVJOHk5OTZvSkZRT3RKUTRET0JDZGVrdG5XUQ?oc=5",
-   "published": "2026-08-18T13:32:10+00:00"
-  },
-  {
-   "title": "Operation Blue Skies: Reducing aviation climate impact with AI",
-   "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOMjZRWFE0TW5oR1ZOR0pYbnh1X24ydk9JQ1Z0aGhjM3ppWnZnc1dhdkQ1cEpYZjEyMWJ4T1ZBeW1PNjB5LUZzM21SQVZZLTAzTzhrRmNBbmRtTDBuV3BTcVgyR1dEdTRzbUJQZnhVY3BhdmR6VmpCWmh2cjAtU2otTl9BT25raFVMUDc2UlVR?oc=5",
-   "published": "2026-08-18T09:03:42+00:00"
+   "title": "AI-generated bomb threat forces Wheatland High School to evacuate, cancel classes",
+   "source": "KCRA",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOZlNISldvNE9NY2RmaEV3SHRaSWxtSDdoSjVMZXlCb3JsQ0R4Tl9kdnpyT0dmV0k0VzFfZXJ5a3NjS1ZCdDVOY3ZzZk54Xy1TSTFCMmVhREtRWUVneEVfYUhqN0R2ZzJnZ1M1c2dxcGNLNDctY2stSXA5Ql85MllQb0JVWDF2cE5XTnNScQ?oc=5",
+   "published": "2026-08-18T18:37:00+00:00"
   }
  ]
 }
