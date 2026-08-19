@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-19T14:09:11+00:00",
+ "generated_at": "2026-08-19T19:35:50+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.4 (p16)",
+   "value": "15.0 (p10)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 15.8,
+    "pos": 9.6,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.81",
+   "value": "0.80",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 27.4,
+    "pos": 25.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+1.8 pts",
+   "value": "+1.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 48.6,
+    "pos": 44.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.8%",
+   "value": "0.7%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 8.0,
+    "pos": 7.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.70% (-0.03 1mo)",
+   "value": "2.75% (+0.06 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 17.5,
+    "pos": 18.8,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "58 (greed)",
+   "value": "57 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 57.7,
+    "pos": 57.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 56.2307,
-  "day_change_pct": 0.22,
+  "price": 56.255,
+  "day_change_pct": 0.26,
   "sma50": 55.4,
   "sma200": 53.44,
   "high52w": 56.67,
-  "drawdown_pct": 0.8,
+  "drawdown_pct": 0.7,
   "series": [
    {
     "d": "2025-12-01",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-08-19",
-    "c": 56.2307,
+    "c": 56.255,
     "t": "neutral",
     "s": 50
    }
@@ -1323,27 +1323,27 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.97 (-2.2% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.97 (-2.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.80) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 58) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 57) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.7 (now 15.0) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.75%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 769.63,
+  "price": 769.76,
   "sma200": 706.73,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.43
+  "level": 14.96
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,15 +1516,33 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14800.0,
-  "dca_value": 19310.98,
-  "dca_return_pct": 30.48,
-  "dip_value": 19083.6,
-  "dip_return_pct": 28.94,
+  "dca_value": 19319.33,
+  "dca_return_pct": 30.54,
+  "dip_value": 19091.41,
+  "dip_return_pct": 29.0,
   "dip_cash_uninvested": 1000.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "Fed Minutes Show Rising Concern Over Inflation",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNbElsRFRLSUFTZTNOX2VrbjFYcGJuOXNoTlJyMmd3dl9uRFpzeTNhY2dYRk85UTZyY0lQMk9iYzVkTmVRLVVXZk1EQTNfLWQ2R19sU2cyeWZ0WmwtdmJYNWdGS3VrQWE3TjU4bUFKa2RKM1ZQN3I5Ml9pVkxiQzA4ellNbmp1MDd6RTYtMW1KWEtmQWROT3JITWo3VDFQeTlN?oc=5",
+   "published": "2026-08-19T18:28:00+00:00"
+  },
+  {
+   "title": "Fed officials saw need for rate hike if inflation doesn't cool, minutes show",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQX3djZ2FKOHhfMkVRRHEzdFlsQ0t2Tmt5OE1sM1lrX1V3WFZ3RXlYdTlZcFVSWmx0YWFYaDZRSjYyYkRwVXQzZm5Sdldobk5xc0pXdVotLUt2S251cnVfdHV3MmRObmd1aW5zcGZkVGVxdkgzbURqbU9qV093Wmt2aWFFWkpxaWNGYVRQanh6NWRqeXJfZHA3bDB4Nmp2LXlrbUh0MlR1WWdDWEM5QUpaV2gycjItYmvSAbwBQVVfeXFMTjhBbUlQSGRVY3hPZXpNT3A1NFlLQ1ViNUZ0WjBzaC1LdTlFZ3J1UHI4Q1FGT2tUZ3JWeDBOWTIxRGJWRnNRUW9VcHdfQkhKZk5IaGhBdmdiSXFYX3RySnhUOVNpeUN2TjBvMUVKcEUyRXlQUjZkRmYwQU5ud3VIczJwLTZxVW90NlVZYjM4a2J3RnpxbjV1RlZ5VXFYenNZcXFEVmhLM0pKUnQyOVZQRm5lMUlvdDNLWVRFOU0?oc=5",
+   "published": "2026-08-19T18:01:32+00:00"
+  },
+  {
+   "title": "Fed policymakers' inflation concerns increased at July meeting, minutes show",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPZUU3QzJ6YTh1c3NuVDhBeE1lZzByYWtla200SkRNWnZEWW5wWmZWXzZvS3RqYU8yM2Y1VE91aHVWMng0MnczWVNjV3poa2t2TnFmYVhMZDVJSE1kdjFGcU9MaW5vS0o0MjEwalJmU0tZekFHclBKRi13SEhnYnQtMlF2TFVIT09HRkw2UThrb1F5eWVVNnNaYXQyTjhYbVhpenc5TjFGdW1yUG55ZWVXaEhSRHc3Wk0?oc=5",
+   "published": "2026-08-19T18:09:35+00:00"
+  },
   {
    "title": "What to watch for in the next Fed minutes",
    "source": "marketplace.org",
@@ -1532,34 +1550,16 @@
    "published": "2026-08-19T12:12:00+00:00"
   },
   {
-   "title": "Has Broader Stock Market Participation Changed How Interest Rates Affect the Economy?",
-   "source": "Liberty Street Economics",
-   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOVmRkbElMU1FXQjRfTUQzVldXNVQ1TktDekgtT2Q1cThUQWJzZno2OHc1dDY2Z2JVdDl0N3pRX0JiZFVlUW8wSENySUtRTk9zT2huMlVPMGlVRzltaV9wZmp4QjI5MnFhbDR5bFIwV0NpWUFwQkxLRmZ0OGFXUzZTM0xaMmVYVnd0anQ1bG1zRFVfODZHdGp1RmpFZDVyODdmZF93UVVBT0tKZTA4Wkk2WHpURE8zSU5wUUNkV09wd0ZYV2lFZ2pkLXdFTlZ2N042NTNzc3RR?oc=5",
-   "published": "2026-08-19T11:04:09+00:00"
+   "title": "Fed officials warned rate hikes may be needed if inflation stays high",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQWEt5Q3dhWUdERVp6Q3JZQ05KQk5qUTcwZi1WZVMteFVTX09YQVZrZ0FPN0pyRU9qZnpJbElqNEE4Vm05ZmcyZ3ZEdl9YcUpEb2prb1F1cVdLM1daTkMxNjNCV3ZXQlE?oc=5",
+   "published": "2026-08-19T18:54:16+00:00"
   },
   {
-   "title": "Fed to hold interest rates this year, economists say, sticking to their view: Reuters poll",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOZ0p0REVVbU5Jemw4S3l1Z1l6d1phN25HR3lMck44YjJlQld3bFh0M0l3ZEROT0o3cjdIbTVrNjVSS2xzMjhPTjE0VHA2eE9kUlREVUZpWTZwbUQ1dDVpa1VmRGQ4eVU1OHh4S1BtSnkyLUZkZ2VTTU9IU0Fsc3VucUZNVm9zM1N3RUdpc0gzdk5zOGV3bzNROUlXaXdvZFdoR2tId0N6bHJyUTZlUmp0MzJXRQ?oc=5",
-   "published": "2026-08-17T11:08:09+00:00"
-  },
-  {
-   "title": "Global Government Bond Yields Stabilize Ahead of Fed Minutes",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQcWZWaC1oVFRNRHpqUFJZM1BUNDlZdFBYTEstZ1FGUHgyZjFoS0gtRkJEMERIVkxUbS0xNkVoOE82T0djM181V1FBcWJuYnB3blhGUHdKdkk0N3ZLc3pGaU50VGRtZks1Yk1tOGNfUW9hdy1XTEpadTBpVnpwY2J3eVpYckNTOXBXRTFHVkgzajQ5N0ZJSWhvemY3MUhNYlNVU3JrSjZkWk12ZHdHeEFBZ3h5aw?oc=5",
-   "published": "2026-08-19T09:13:00+00:00"
-  },
-  {
-   "title": "Shrinking the Fed\u2019s Balance Sheet Is Easier Said Than Done",
-   "source": "Stanford Graduate School of Business",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNYTYxSHp3ZnpTWGRGanNGZ2c5eDVsNlJ2blc1V0VRUEluVXltbVhyVTQwcjROOGdMenA4aGs2VHVVejVqbEY2bmRHZTJTRG12aDdEU25LSVVDS2VtV0VWNGtoOC1jaUZxQzdSR2p2dDBjS2NPUXZkQ21LU0RNWXlybWNfXzlsaTVPMGtz?oc=5",
-   "published": "2026-08-17T23:26:06+00:00"
-  },
-  {
-   "title": "Barnett, Peyton named to Federal Reserve industry councils",
-   "source": "Talk Business & Politics",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQenJvM000S2huQzZ6N3R2dUJrOE9nN1hqOVg1ODd5c3h1dkFhUFZjMU94U1doMWVQS3FWTDZqOXk4bHdvZ0FqQ1BqMlY3X29NaWZTV3p2NUZuWUdUOWp2WjQ5WW4wbUtHdGdrN2UwVFI3V1RZTG4xSjhnOGZFVzlDbDR3RUJ2OGdkRGRWYVE0NUZHWVZyM3c?oc=5",
-   "published": "2026-08-18T19:04:24+00:00"
+   "title": "Fed Minutes Show \u2018Many\u2019 Officials Prefer Hiking Rates If Inflation Doesn\u2019t Decline",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOU24xSU8wTk9YM3h1WE1vUEhQVk1qZVRfaHlTQkFwNGRkUVhPZWg2MFZ3VlZZVVZmdlBjZVROWERlWm9QSU5wMVFsRDViRy1aWGNmZnpkWXdrN0JqMWVueHZ0S0FRYmtKdkd6bjJSTGRnOV9xN3ViSFByNGcwejdpUVpiazdzZGozdzdJ?oc=5",
+   "published": "2026-08-19T18:50:00+00:00"
   }
  ]
 }
