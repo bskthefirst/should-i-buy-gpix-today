@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-20T14:17:11+00:00",
+ "generated_at": "2026-08-20T19:43:46+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "23.0 (p46)",
+   "value": "23.5 (p54)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 46.0,
+    "pos": 53.6,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.83",
+   "value": "0.84",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 33.7,
+    "pos": 35.6,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.45x (p79)",
+   "value": "1.46x (p80)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 79.0,
+    "pos": 80.2,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+0.3 pts",
+   "value": "+0.7 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 35.7,
+    "pos": 39.2,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.75% (+0.06 1mo)",
+   "value": "2.73% (+0.04 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 18.8,
+    "pos": 18.2,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "57 (greed)",
+   "value": "53 (neutral)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 56.9,
+    "pos": 52.9,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 56.52,
-  "day_change_pct": -0.42,
+  "price": 56.4814,
+  "day_change_pct": -0.49,
   "sma50": 57.12,
   "sma200": 54.25,
   "high52w": 59.52,
-  "drawdown_pct": 5.0,
+  "drawdown_pct": 5.1,
   "series": [
    {
     "d": "2025-12-02",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-08-20",
-    "c": 56.52,
+    "c": 56.4814,
     "t": "good",
     "s": 72
    }
@@ -1350,22 +1350,22 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 23.0) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 23.5) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 57) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 53) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.75%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.73%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1392,7 +1392,7 @@
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
     "n": 135,
-    "avg_pct": 2.62,
+    "avg_pct": 2.61,
     "median_pct": 2.79
    },
    {
@@ -1515,13 +1515,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 711.66,
-  "sma200": 652.38,
+  "price": 711.22,
+  "sma200": 652.37,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 23.04
+  "level": 23.49
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1538,50 +1538,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14800.0,
-  "dca_value": 20099.08,
-  "dca_return_pct": 35.8,
-  "dip_value": 19867.04,
-  "dip_return_pct": 34.24,
+  "dca_value": 20085.35,
+  "dca_return_pct": 35.71,
+  "dip_value": 19853.61,
+  "dip_return_pct": 34.15,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 57,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "USC Upstate, Tranquility AI Launch First-in-Nation Initiative",
-   "source": "USC Upstate",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOOGJna0Z2WHV5aXFtaEZnNk00Wmxwd1FVMWlRTWNwbU8yVDlIMjBibnJzbWNCTW0ta3hzQVAyLXdWeVRHXzIyRk1STC1Ec0lDSnhjTWtuQXc3ZElkM1A5b2ljX1AyS0xFcHFMVWFoSGFoZUhKd0lkZTJ3eWdUdDVGdlM5UzdzN2p6Z0ZGYnMyb2dNa0VodEdINkZNaXQzd0ZKWE9jaEFRZXhlXzc1U21PVWl5dVZVYTg?oc=5",
-   "published": "2026-08-20T14:04:26+00:00"
+   "title": "A new force is increasing inequality in America",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQdHF0WVI5bG82QUc5TlYxRG1fRjZYT1dWTFVnd1JSaVBCaS11U1hwdVhlS2ZVaG1CcVZqS2pZV25SdjlJbmNuLWpjb2RQV3Z4QUZYUlIzc0lKd0tFSlRSV2k2LVN3OUt0LWl5cmJjSzN0UmNpcFpsX2twSTV6VDV4dkZ6TU9XeDNNQnhSSmZ1N1ZBbzZoN0RnbWJ4c3V5QlNBRzMzYzd1TkR4eEtlc245Q2loallSTFk?oc=5",
+   "published": "2026-08-20T16:00:00+00:00"
   },
   {
-   "title": "The slow sucking sound of AI",
-   "source": "Financial Times",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPUlFkSHBzTVRQRXNYYU55ZUlST3ljUnl0WVhuUFNzeldrYkdHOU1nd2p1ZUk5ak1YMWp2dkhETnd3R1dvVm5XQmMwbXRIRUFUX1lvWG5NTVlaV0I1em9oaDhkTWFVVnVlVDBVNG5oT3hiaEFGaWFjTVE2b0FzQmw0dzY3OFE?oc=5",
-   "published": "2026-08-20T07:35:11+00:00"
+   "title": "Should Governments Use Preemption to Regulate AI?",
+   "source": "Urban Institute",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOMlhyWUNaNjdoTS1YSHpOQWpZeS13R1J6SjVjTUFrbVE5X003RGlWbFN2bkNTSjF5eUY1Ylp3R1dzRUI3NzkyY0JHdTJTenpjRXZrS0hxcWZLRDFWSkUxYmUyRjhPSTFyWWNfZWx1bmhwTllUSGZzTmtUa3l0STNIMmpIbk4?oc=5",
+   "published": "2026-08-20T14:28:05+00:00"
   },
   {
-   "title": "I Saw the Future of AI in a Robot That Can Learn on the Spot",
-   "source": "WIRED",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWGZkR3hzWk5ucFlyNTFmTEI1V05oUXBSdUJNMDNhLXNUdE1lTFZiUjJQT0pXdVREY1ZwVmZFaWdSTktpZ2ZxSjdTejFPMThDdlFnMDZ2aDBxSW5VcHdLblB1X3Bxc0dhUXdDSGlFaW8wYlMtR2t6cWtvYm9mREEzeDNn?oc=5",
-   "published": "2026-08-19T19:30:00+00:00"
+   "title": "The Indian City Where AI Is Creating Jobs for Humans",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUUc5eEgxc2t5R2dXbFQxaGdGeGNlQy0zMk92YjZkbXBGZmJpa2xOQ01NdzNJc013WENGRHpzcHBlNVFUdTMtRThKdGFUdzE5TzlEWmlzSjNsNGN2OERhS2hTdVdIMXg4RVVWZUsyeVZHUXFCLTJNX0hUcG9oX2Z4dmZSUUd1OWxFSjgzUFllMA?oc=5",
+   "published": "2026-08-20T12:03:58+00:00"
   },
   {
-   "title": "Helping AI succeed in retail: Turn pilots into measurable impact",
-   "source": "National Retail Federation | NRF",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOM0ZHRHRUeE9rSXBGa0tyTkoxb1FXWEdqWHBmWU54MUhGOUVyNjBOUzlMbmZueFJxUFFwZ1hodjZkMk1vMmJZaHFiR0VUTzloX3RId3IwN000c09ocXRZS1pQT0hDVUREXzNxVXo5b3F1S1ZHQnc2aEJ2NmtGZmhpUG1yakhEWGJRVG1seg?oc=5",
-   "published": "2026-08-20T13:38:53+00:00"
+   "title": "4 Steps to Transform the \u201cMiddle Office\u201d with AI",
+   "source": "Harvard Business Review",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB3RHp4ZTBmMHhPRHhFU3ZhVHZlendNWEkwMFNGTGhxc0swa1BUU2JCcVB3dnd6bXNienlpYmpwdEgyZjVIMmxkN0E3TE5RQWJqUnd0YjF4V082QXBsdU00Mlh1Rm1vMDhIc3dRMWlsR1czcjhzaFhJSHZB?oc=5",
+   "published": "2026-08-20T18:45:31+00:00"
   },
   {
-   "title": "Contributor: Stop shaming the use of AI. For some with disabilities, it's a godsend",
-   "source": "Los Angeles Times",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNc0VwM2ZZd1FKTUtMQV9abXFNS2RZbTZsSWo0em9RTG9kNXpxQ1FJWjQzOW9YeVg5WDc2eDJzQnVIRGU4VC1WNHhfTVNKNHNjR0NvVzYxNWtEMzk0S2JaeWpuMUtmWmFCTkw4ci1pekRrdmFScGxqSmRqYndCdjB1NE94VmVUQjAzQmZUczUyS1pIdU01bmc?oc=5",
-   "published": "2026-08-20T10:17:00+00:00"
+   "title": "AI data center outrage is showing up everywhere from ads to elections",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5NU1JTVElyd0VoUGxkbExGS0ZtTWQ0TktXaEZaUnN0V1N4bHByb1VCQmplbzEtalFNSTZtT1R4LTkxOXhmRExuZGdfUWtCR18xM1VDemJVaWVnWDU1VWxPS2hSUkw3cXVzOUg2QjJVYXRQT0VhNFYtN9IBfkFVX3lxTE1QWXBpQmVNVG1wYVdEakxudnJwZzAwaDluQ2dXakNreXE2aUx6RGpDclg5eVd6Zlc2Z0NIaWNwaXM1RUlSb3dCSXJNdnQyNl9WdEd4WHpyTmY2SHExd1RNV2NYS2hpWENMMkpMWFBzRVRGYzB5ZXJYTHE3SExsUQ?oc=5",
+   "published": "2026-08-20T14:03:30+00:00"
   },
   {
-   "title": "Bandwidth Achieves ISO/IEC 42001 Certification for AI Management System, Reinforcing Leadership in Trusted AI Infrastructure",
-   "source": "PR Newswire",
-   "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxOY1E0a2lDQlV0WjZzZjRzcXQxbkdJWVJnOEswYTIzUlQtZm5FSFZjRzFJdUpLME9hNHN5RTN0NHdXUmdYN0tWVUxhRVNvZ2h3bU9oVnFXSnpJTWpmV3c3cWctVV9zZDU4Vk54V1g2dmlqY3RTR01CYUxTc2QtOGNOaWlOSlVJbFQtOFNjTlFaZlhmcm1OYWtTSVhWempaOUtBYlRkMFQ4M0NWektlR1BkX1lFaWdZR3JaaFpUWElUYkVZMVlGUUFPZDJxdmc5MTkxbERVb1dCUDVtcFN5NjJUWFc4LTZmVXZtWlRvZ3l5MzI3Z01EUklLUEZFb0p1REhNZmExZHhuQUw1QQ?oc=5",
-   "published": "2026-08-20T12:12:00+00:00"
+   "title": "The new kingmakers: Crypto, AI and betting firms fuel record spending on the 2026 midterms",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOeENQNnM1RGoxMUFwdGJ2c19GUDRnTUhiWVdieDZNZG1qX2QzN29SYVBqU0NBcnVaMjRISjB3ZFc5WTlRbXYwQ1FkallpcmdLeEcwWk1wcS1pbG9TbTB6WFQ4VENCa25wMTE1TmJMeGJ1dEFtY0xrX0hOb0ZURkZJWlRmM3lFcHFZaXpqTWFCYVhHdDc0UXJzNEpPTUo5LXdBYzlCcXppZklKbkN5cnc4NGFsU3p5U0xPNnJ1dGUxYWEzQVI0Y3ZqcA?oc=5",
+   "published": "2026-08-20T18:39:27+00:00"
   }
  ]
 }
