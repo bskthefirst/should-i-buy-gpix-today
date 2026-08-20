@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-19T19:35:50+00:00",
+ "generated_at": "2026-08-20T14:17:10+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.0 (p10)",
+   "value": "15.9 (p25)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 9.6,
+    "pos": 24.9,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.80",
+   "value": "0.83",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 25.8,
+    "pos": 33.7,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+1.4 pts",
+   "value": "+3.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 44.6,
+    "pos": 59.1,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.7%",
+   "value": "1.1%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 7.0,
+    "pos": 11.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+2.3%",
+   "value": "+1.8%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 69.2,
+    "pos": 65.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -167,13 +167,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "8.0% vs 3.9% cash",
+   "value": "8.1% vs 3.9% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 41.7,
+    "pos": 42.1,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 57.1,
+    "pos": 56.9,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 23d",
+   "value": "CPI in 22d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 56.255,
-  "day_change_pct": 0.26,
-  "sma50": 55.4,
-  "sma200": 53.44,
+  "price": 56.02,
+  "day_change_pct": -0.37,
+  "sma50": 55.43,
+  "sma200": 53.46,
   "high52w": 56.67,
-  "drawdown_pct": 0.7,
+  "drawdown_pct": 1.1,
   "series": [
-   {
-    "d": "2025-12-01",
-    "c": 52.36,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2025-12-02",
     "c": 52.44,
@@ -1313,7 +1307,13 @@
    },
    {
     "d": "2026-08-19",
-    "c": 56.255,
+    "c": 56.23,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-20",
+    "c": 56.02,
     "t": "neutral",
     "s": 50
    }
@@ -1321,14 +1321,19 @@
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "SPY 5-session return -1.6% - another -1.4% = short-term reversal (+12 pts)"
+  },
+  {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.97 (-2.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.97 (-1.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.80) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1338,25 +1343,20 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.7 (now 15.0) = top decile of its past year (+9 pts)"
-  },
-  {
-   "label": "Extreme credit stress",
-   "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.75%) = extreme credit stress (+6 pts)"
+   "text": "VIX above 23.6 (now 15.9) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-19",
-  "days_total": 704,
+  "end": "2026-08-20",
+  "days_total": 705,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-08-19",
+  "fg_coverage_start": "2025-08-20",
   "baseline": {
-   "n": 683,
+   "n": 684,
    "avg_pct": 1.69,
-   "median_pct": 2.05
+   "median_pct": 2.04
   },
   "bands": [
    {
@@ -1376,15 +1376,15 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 493,
+    "n": 494,
     "avg_pct": 1.27,
-    "median_pct": 1.72
+    "median_pct": 1.73
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.04,
-  "tbill_3mo": 3.87
+  "ttm_yield_pct": 8.07,
+  "tbill_3mo": 3.86
  },
  "distributions": {
   "history": [
@@ -1493,73 +1493,73 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 769.76,
-  "sma200": 706.73,
+  "price": 765.58,
+  "sma200": 707.15,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 14.96
+  "level": 15.88
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 28,
+  "days_until": 27,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 23
+  "days_until": 22
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-08-19",
+  "end": "2026-08-20",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14800.0,
-  "dca_value": 19319.33,
-  "dca_return_pct": 30.54,
-  "dip_value": 19091.41,
-  "dip_return_pct": 29.0,
+  "dca_value": 19238.62,
+  "dca_return_pct": 29.99,
+  "dip_value": 19015.84,
+  "dip_return_pct": 28.49,
   "dip_cash_uninvested": 1000.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Fed Minutes Show Rising Concern Over Inflation",
+   "title": "Federal Reserve officials hint rate increase may be necessary",
+   "source": "The Hill",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE94NWtnVTFYOGRxSDdodmNaNjBqVEdObFFuVTJfdGVuRFMwUG92RXBOT2E5TTdLVG9UWm5CR2pZOTNNRjgyR2pQZVVNSU5WSnd5U1h3NldjTy1sTG5wQlJtLVg4VHNWTDI1R2NOcS13MGt2UdIBd0FVX3lxTE9sXzNSYjA0Sk0xOVVyVWRja2FsMnZIVmVYSHo1UVBxX2lGQ3BzSXFpazJPbFgzUzgySHJ1UzdhYklkTjdvNEpxd3hBZkdYaVdrdW8xQzNmTG8wS2p0YWlTOEJmY0ZJMWd0NjlBR2JEdEpLckJkTmZz?oc=5",
+   "published": "2026-08-19T23:13:00+00:00"
+  },
+  {
+   "title": "Fed Minutes Reveal Broader Support for Rate Increases",
    "source": "WSJ",
    "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNbElsRFRLSUFTZTNOX2VrbjFYcGJuOXNoTlJyMmd3dl9uRFpzeTNhY2dYRk85UTZyY0lQMk9iYzVkTmVRLVVXZk1EQTNfLWQ2R19sU2cyeWZ0WmwtdmJYNWdGS3VrQWE3TjU4bUFKa2RKM1ZQN3I5Ml9pVkxiQzA4ellNbmp1MDd6RTYtMW1KWEtmQWROT3JITWo3VDFQeTlN?oc=5",
-   "published": "2026-08-19T18:28:00+00:00"
+   "published": "2026-08-19T19:04:00+00:00"
+  },
+  {
+   "title": "More Fed Officials Lost Patience About Elevated Inflation at Latest Meeting",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNbGJtNHhWeW5zNEk5ZERYN1hFQnI3Vmp3UG9OUENacjBuNndmOHlkZkJ3MHdPMnRRc1RGMUhhZ0xUcTZDV0lYbGVrVU9RTEl0MUFEVTRqVTJvU0U5bXV1emt0dDhCOWtuSDVKSV8xUXVQNGl4OGRhS25NcFR5VUpwOWhvYkNOQQ?oc=5",
+   "published": "2026-08-19T19:46:16+00:00"
+  },
+  {
+   "title": "Fed officials warned rate hikes may be needed if inflation stays high",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQWEt5Q3dhWUdERVp6Q3JZQ05KQk5qUTcwZi1WZVMteFVTX09YQVZrZ0FPN0pyRU9qZnpJbElqNEE4Vm05ZmcyZ3ZEdl9YcUpEb2prb1F1cVdLM1daTkMxNjNCV3ZXQlE?oc=5",
+   "published": "2026-08-19T18:33:20+00:00"
+  },
+  {
+   "title": "Treasury's upsized buybacks may complicate Fed's monetary policy work",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOeUNFNVY4V1prRFU5SG40RlZMSHNaWkI2dDBMeGNxWVpEcExuU2FsRU03cDBkWWJvLThHWXhmZy1tWW15VnNnRDVYTlJwODIyb21PczdaZzVUc25WRmQzb0drazZaM2xTcEYtYmF0LWtUdjJyNl9ueHB6bjBuUHJPN2NTUE5NaURMNVV6bTk2MzZCb1RwR0lEN0ZOYkMwM0tFZG5CZ1F2RHdhWmVQamJNUm1Nb1VKeUFJTHZkckY1WG4?oc=5",
+   "published": "2026-08-20T05:01:00+00:00"
   },
   {
    "title": "Fed officials saw need for rate hike if inflation doesn't cool, minutes show",
    "source": "CNBC",
    "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQX3djZ2FKOHhfMkVRRHEzdFlsQ0t2Tmt5OE1sM1lrX1V3WFZ3RXlYdTlZcFVSWmx0YWFYaDZRSjYyYkRwVXQzZm5Sdldobk5xc0pXdVotLUt2S251cnVfdHV3MmRObmd1aW5zcGZkVGVxdkgzbURqbU9qV093Wmt2aWFFWkpxaWNGYVRQanh6NWRqeXJfZHA3bDB4Nmp2LXlrbUh0MlR1WWdDWEM5QUpaV2gycjItYmvSAbwBQVVfeXFMTjhBbUlQSGRVY3hPZXpNT3A1NFlLQ1ViNUZ0WjBzaC1LdTlFZ3J1UHI4Q1FGT2tUZ3JWeDBOWTIxRGJWRnNRUW9VcHdfQkhKZk5IaGhBdmdiSXFYX3RySnhUOVNpeUN2TjBvMUVKcEUyRXlQUjZkRmYwQU5ud3VIczJwLTZxVW90NlVZYjM4a2J3RnpxbjV1RlZ5VXFYenNZcXFEVmhLM0pKUnQyOVZQRm5lMUlvdDNLWVRFOU0?oc=5",
    "published": "2026-08-19T18:01:32+00:00"
-  },
-  {
-   "title": "Fed policymakers' inflation concerns increased at July meeting, minutes show",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPZUU3QzJ6YTh1c3NuVDhBeE1lZzByYWtla200SkRNWnZEWW5wWmZWXzZvS3RqYU8yM2Y1VE91aHVWMng0MnczWVNjV3poa2t2TnFmYVhMZDVJSE1kdjFGcU9MaW5vS0o0MjEwalJmU0tZekFHclBKRi13SEhnYnQtMlF2TFVIT09HRkw2UThrb1F5eWVVNnNaYXQyTjhYbVhpenc5TjFGdW1yUG55ZWVXaEhSRHc3Wk0?oc=5",
-   "published": "2026-08-19T18:09:35+00:00"
-  },
-  {
-   "title": "What to watch for in the next Fed minutes",
-   "source": "marketplace.org",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNMF9adjlpRlYzb2pmUEh0YnEtX3FHTjBFOWZHM1F0cGVadEtkYlUxNEE5X0ZCTkxmaE1rbzVMOEo3Wk56dFhMSUFUUHZxeVE3a0lQUW0xMUtsLXpiRnJkOWZObHJKWHFnODl5UXpPYlFaVExwM2tYc3hhNzlJc2hUVFZQOUpGMGZrYmZHWkpB?oc=5",
-   "published": "2026-08-19T12:12:00+00:00"
-  },
-  {
-   "title": "Fed officials warned rate hikes may be needed if inflation stays high",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQWEt5Q3dhWUdERVp6Q3JZQ05KQk5qUTcwZi1WZVMteFVTX09YQVZrZ0FPN0pyRU9qZnpJbElqNEE4Vm05ZmcyZ3ZEdl9YcUpEb2prb1F1cVdLM1daTkMxNjNCV3ZXQlE?oc=5",
-   "published": "2026-08-19T18:54:16+00:00"
-  },
-  {
-   "title": "Fed Minutes Show \u2018Many\u2019 Officials Prefer Hiking Rates If Inflation Doesn\u2019t Decline",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOU24xSU8wTk9YM3h1WE1vUEhQVk1qZVRfaHlTQkFwNGRkUVhPZWg2MFZ3VlZZVVZmdlBjZVROWERlWm9QSU5wMVFsRDViRy1aWGNmZnpkWXdrN0JqMWVueHZ0S0FRYmtKdkd6bjJSTGRnOV9xN3ViSFByNGcwejdpUVpiazdzZGozdzdJ?oc=5",
-   "published": "2026-08-19T18:50:00+00:00"
   }
  ]
 }

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-19T19:35:53+00:00",
+ "generated_at": "2026-08-20T14:17:12+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
@@ -11,11 +11,11 @@
   "validated": true
  },
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated TSLA-specific condition is in your favor today. Nothing dramatic - and single-stock risk still dwarfs entry timing.",
-  "tone": "ok",
-  "score": 1.5,
-  "score100": 59,
+  "label": "No edge either way",
+  "summary": "None of the validated TSLA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 4.5
  },
  "meter": {
@@ -48,13 +48,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "66% ann. (p96)",
-   "score": 1.5,
+   "value": "35% ann. (p15)",
+   "score": 0.0,
    "weight": 1.5,
-   "lean": "good",
-   "note": "TSLA's realized volatility is in the top decile of its own past year. In validation, these days averaged +0.35pt next-day excess (t=1.7) and +15.5pt over the next quarter, positive in every era - chaos has been the single-name buyer's friend. Weight 1.5.",
+   "lean": "bad",
+   "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 95.6,
+    "pos": 14.7,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -71,13 +71,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "28.8%",
+   "value": "30.2%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 57.6,
+    "pos": 60.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -111,7 +111,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.0 (p10), F&G 57",
+   "value": "VIX 15.9 (p25), F&G 57",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -119,7 +119,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 23d",
+   "value": "CPI in 22d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -127,20 +127,14 @@
   }
  ],
  "fund": {
-  "price": 348.91,
-  "day_change_pct": 3.57,
-  "sma50": 367.22,
-  "sma200": 404.39,
+  "price": 342.145,
+  "day_change_pct": -2.56,
+  "sma50": 366.17,
+  "sma200": 403.83,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 28.8,
+  "drawdown_pct": 30.2,
   "series": [
-   {
-    "d": "2025-12-01",
-    "c": 430.14,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2025-12-02",
     "c": 429.24,
@@ -1211,23 +1205,35 @@
    },
    {
     "d": "2026-08-19",
-    "c": 348.91,
+    "c": 351.12,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-08-20",
+    "c": 342.145,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
- "flips": [],
+ "flips": [
+  {
+   "label": "Top-decile volatility",
+   "direction": 1,
+   "text": "20-day realized vol above 61% annualized (now 35%) = top decile of its year (+9 pts)"
+  }
+ ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-19",
-  "days_total": 704,
+  "end": "2026-08-20",
+  "days_total": 705,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-08-19",
+  "fg_coverage_start": "2025-08-20",
   "baseline": {
-   "n": 683,
-   "avg_pct": 2.51,
+   "n": 684,
+   "avg_pct": 2.5,
    "median_pct": 0.07
   },
   "bands": [
@@ -1241,9 +1247,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 159,
-    "avg_pct": 8.99,
-    "median_pct": 4.74
+    "n": 160,
+    "avg_pct": 8.88,
+    "median_pct": 4.7
    },
    {
     "tone": "neutral",
@@ -1263,26 +1269,26 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 3.87
+  "tbill_3mo": 3.86
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 348.91,
-  "sma200": 404.39,
+  "price": 342.145,
+  "sma200": 403.83,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 66.1
+  "level": 35.4
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 28,
+  "days_until": 27,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 23
+  "days_until": 22
  },
  "earnings": {
   "next": null,
@@ -1290,55 +1296,55 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-08-19",
-  "end": "2026-08-19",
+  "start": "2022-08-22",
+  "end": "2026-08-20",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 21000.0,
-  "dca_value": 28894.87,
-  "dca_return_pct": 37.59,
-  "dip_value": 28903.57,
-  "dip_return_pct": 37.64,
+  "invested": 20900.0,
+  "dca_value": 28219.3,
+  "dca_return_pct": 35.02,
+  "dip_value": 28224.4,
+  "dip_return_pct": 35.04,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 206,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Tesla, the Cybercab, and What the Stock Needs for the Gains to Keep Coming",
+   "title": "Tesla Stock Is at a \u2018Major Inflection Point\u2019 as Cybercab Rollout Nears",
    "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA4dEtoMHp6X1ZMel84TEpYU2huMHlLT1pGcHExelB6cEFFZXlWVkVyMndHWnVQTV8yZnVhT0hxS3c2ZW1ZeExsQ1BHQVdfWU9uV1dJeVVQZ0RGdmtweE10b3BNeEk2N0ctLV9TYlhRMU5iakk1ck84OEdIWHFacWs?oc=5",
-   "published": "2026-08-19T16:39:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNRGVrU2tBVHhHd3NuYmNPaEhUbDBhX052eDNPQlZjQzR4ejZreUFyU0ZSZDZOX3Y4LXkwX3dEdXJVa21naGdROTlmZktfY3FUdnpsSXYxTTVZY1lIaG5CdHoyUlU1ZHVUVDY5MHJOOE9QMUFjeDVldVhNOEpsTERmTkJ1eFF6NzBJYjE0U1hyWQ?oc=5",
+   "published": "2026-08-20T11:30:00+00:00"
   },
   {
-   "title": "Buy, Hold or Sell Tesla Stock Ahead of Cybercab Launch?",
+   "title": "Tesla (TSLA) Stock Is Up, What You Need To Know",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOQUpsU2JpQW13YkV4NEl6YUhoeWROSXBDX1hFWFRMZ0pPS3hJcF9NcEN1UXo0VDNmRDNYQnBCOWdVdUJ0MFJvQUpOWXAwN08wanBENkhUb0N6LUhwbXpHUzZIM2M0enh1Uk9fQ2w1amtWN0lCMXNsaXFybWp4NXdkMkdFZ3FkekpFbW5tRU4xenRYQWQ5?oc=5",
-   "published": "2026-08-19T13:44:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNQ0tWMmxIS0YwWEJua0ZlRGdPVVBhaWwyYk9yNlJLY2ZIUnJLZU94UGJZSXFndWotSWhreWc2Z0JQelBWZVlveVNVSXRRaUtPYlQxdFZWMkh3VWs1YUFlNHlNTVgtUWhpcE1Vc0w2OUZsaXlVclJiaGtBaExsTjZIYlktNjBKM0FiZWp5UDRxTQ?oc=5",
+   "published": "2026-08-19T23:10:02+00:00"
   },
   {
-   "title": "Should You Buy Tesla Stock While It's Trading Below $400?",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQZHJyMjc0NWdfVEdZYkQ5YzFrN2pqdVdsZU55VTNubzl1WFBfMVR5MXBLN3BiUEd4dTYxb3E2SXpORzV5WU9Nc0JtOE5YbnphVmYxY2tRVnlZSDZLZ2hxVTMzMXJuRGUtY3JfRE85c2I4MTQ5QmVxdXkzRlN2VFZDNTR1U2hpaG9oczBoWHRxUnB1YjlwOGs1cg?oc=5",
-   "published": "2026-08-19T17:01:32+00:00"
+   "title": "Tesla Stock Adds Its Own Story, And Its Own Swings",
+   "source": "Trefis",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQWjQ4VkNQbUN6RDd3RU50XzR3N3pPSC16ZWs4dGpfWGltMzkyWkRyOVRfZ2F3RnJ1bEhqaEVnQWFKTlRvUElLVmJBSW1pZmRBOWQ0czV1M0FyZk1Tc2YtZUN2bzFtSGcwaDdudTVCUEVKZ29JRlduNW1YOFk3eV91b25MUTZvSWtqbTZsb0NqM2tPT0RBcE9wbzRqeTJpb2dJdU1YQlZPSDhjOXlsWTRUck5CaklkeFRMaGFj?oc=5",
+   "published": "2026-08-20T10:41:47+00:00"
   },
   {
-   "title": "Tesla: No One Is Paying Attention (NASDAQ:TSLA)",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE43eC1Xc0ZlTzR1T3VYNi1RbTJvMld5TkQxTzBISndOWWY2ekV1YThYd3g3QzBBU0JwS0NVaWY5NzBvOW1EVXo4S2lLd2s4V2tGb0I0bldKRGNpQ0U1SGRRT3NoYzVOUTdBd1I2c1JKZml5c2x1Ym15Xy1uN09qZw?oc=5",
-   "published": "2026-08-19T17:31:00+00:00"
+   "title": "After Earnings, Is Tesla Stock a Buy, a Sell, or Fairly Valued?",
+   "source": "Morningstar",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNOVdEaXFTSVM5MTB6anVqT1ZzN242dVZyeDdIc01GU2tRTzc4Vm1acTluTlctZXN4Q1lwRWpYeTl2Si0yOTdhbFBUSHBUdGNkMlBXcDM0NHlqX19wb3NqY2RPWVVHZ3BiaFh6ak9QVkdCRW1GMEQ1MFctSmJETmV5RmtUQnV2NDFaMkd1cEdlSHdGeVVqNW1tbW5HelUtTTk3WVhB?oc=5",
+   "published": "2026-08-05T07:00:00+00:00"
   },
   {
-   "title": "Tesla Stock (TSLA) Opinions on Recent Sales Figures and Autonomy Progress",
-   "source": "Quiver Quantitative",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPeUktY1RUOFA4MUxkMms1bzhjQ0Qtd2NSa2pSVmYtMjBDSjBlNkN3TDh4eGxnSzFselU0b3k4OUJaVWVBSkFKRllKNkxLeVZrWEdEc3ppU3V3dVFVR291TEExTWlCR0IyS1NSelF6U1JPZFpPenZSS245RTVqTWY0LXZxa1QwVEFaWFlVUW0waXNOaDFiY0lyQXAyRS1SemxsTGwwcG41cG1rT0NKN2tZ?oc=5",
-   "published": "2026-08-19T14:05:00+00:00"
+   "title": "Tesla 'Intentionally' Not Adding EVs To Robotaxi Fleet; Semi Truck Set For Europe",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNRDhGNXdBalN0NnRpQnNxQnNKam9UYW1jYmNMa29UNkpYMzN3RmpoSHZ2TlBSMTJpWU9qdVpnWVBHRmlMOXB0dTJRMDA1ZXU2a1ZsZ3BtdW9LSmxXTkhiVUR4eWtCT2t1ZndHdmZWZEZXZW9vOHhQclFpWjV6VVotUUxacF9EbjFVbXY5MkV3Z2E?oc=5",
+   "published": "2026-08-20T13:17:00+00:00"
   },
   {
-   "title": "'Highly Contentious' Tesla Stock Drops Despite Cybercab Hope -- Barrons.com",
-   "source": "moomoo.com",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOZ0FUUFRTWWZac3hMeEVoeTdKa0xma2huZktkWlBqNW1FbjlIM2k2c2tIc0dLeGdzOU5uNU84eFo1RmFyMDZzTC1udXdnM1FBa1ZaNG1xU09sRXZwMzZxSTg3TUZWTmplTWRCS1dVUVVqR3BZdVdZSG9TSndvd1M1cDh5OFJBNElZN1BmTzhKWUpKWkxPSXo3UUYyc0lYNEc3QXhQd1JzN3FNQ1FFdUV6WQ?oc=5",
-   "published": "2026-08-19T00:53:11+00:00"
+   "title": "Here Is How to Play Tesla Stock After Its Robotaxi Breakthrough",
+   "source": "Barchart.com",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOWkNneGdoUkl4OS1HRnZwajN3QVRJWXZyY0NxRVVmd3pfNHptd1ZsMHVXdUV3a1BTSVhVVi12UWN2MDNJRUVzdl9HT3ExTnp3T1RrTXdHUVNmSEhYQUNXaXBNNjJqT0w1d2szdWpOV1hkaFV2QnRrWllfYnhTejU0Y0RiTVJVYnNZbEVIekN2bTE1VGM4M3h2a3p2RFhlWWtESEkxelMwNGtha0E?oc=5",
+   "published": "2026-08-19T18:21:18+00:00"
   }
  ]
 }
