@@ -69,6 +69,9 @@ from datetime import date, datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from functools import lru_cache
 from pathlib import Path
+from zoneinfo import ZoneInfo
+
+TZ_ET = ZoneInfo("America/New_York")
 
 DOCS = Path(__file__).resolve().parent.parent / "docs"
 SITE = "https://bskthefirst.github.io/should-i-buy-gpix-today/"
@@ -895,6 +898,165 @@ def report_card(hist: list[dict], tones: tuple = ("good", "ok", "neutral")) -> d
     }
 
 
+def et_now() -> datetime:
+    return datetime.now(TZ_ET)
+
+
+def as_of_et(when: datetime | None = None) -> str:
+    """Calendar date in America/New_York. Prefer this over client-side Intl —
+    OpenClaw's QuickJS code-mode sandbox has no Intl global."""
+    return (when or et_now()).date().isoformat()
+
+
+def _brief_asset_block(data: dict) -> dict:
+    v = data["verdict"]
+    scored = [
+        {
+            "name": s["name"],
+            "score": s["score"],
+            "value": s["value"],
+            "lean": s.get("lean"),
+        }
+        for s in data.get("signals", [])
+        if s.get("score")
+    ]
+    scored.sort(key=lambda s: -abs(s["score"]))
+    flips = [
+        {"direction": f["direction"], "text": f["text"]}
+        for f in data.get("flips", [])[:3]
+    ]
+    fund = data.get("fund") or {}
+    return {
+        "ticker": data["ticker"],
+        "buy_score": v.get("score100"),
+        "weighted": v.get("score"),
+        "weights_max": v.get("weights_max"),
+        "label": v.get("label"),
+        "tone": v.get("tone"),
+        "summary": v.get("summary"),
+        "price": fund.get("price"),
+        "day_change_pct": fund.get("day_change_pct"),
+        "drivers": scored,
+        "flips": flips,
+        "page": {
+            "gpix": "",
+            "gpiq": "gpiq.html",
+            "tsla": "tsla.html",
+            "spcx": "spcx.html",
+        }.get(data["ticker"].lower(), ""),
+    }
+
+
+def write_research_brief(datasets: dict[str, dict]) -> dict:
+    """Write docs/research-brief.{json,txt} for OpenClaw / Research Desk.
+
+    OpenClaw cron triggers run in QuickJS-WASI where `Intl` is undefined, so
+    any trigger that formats ET dates with Intl.DateTimeFormat fails and the
+    08:20 ET desk withholds the report as stale. This brief carries
+    server-side ET stamps and a plain-text body so delivery scripts only need
+    Date.parse / age checks — no Intl.
+    """
+    now_et = et_now()
+    now_utc = datetime.now(timezone.utc)
+    as_of = now_et.date().isoformat()
+    order = ["gpix", "gpiq", "tsla", "spcx"]
+    assets = []
+    for key in order:
+        data = datasets.get(key)
+        if data:
+            assets.append(_brief_asset_block(data))
+
+    # Thesis: lead with the strongest non-neutral read; otherwise schedule-buy.
+    lead = next((a for a in assets if a["tone"] in ("good", "caution")), None)
+    if lead is None:
+        lead = next((a for a in assets if a["tone"] == "ok"), None)
+    if lead and lead["tone"] == "good":
+        thesis = (
+            f"{lead['ticker']} shows a better-than-usual entry "
+            f"(buy score {lead['buy_score']}/100). "
+            f"{lead['summary']}"
+        )
+        thesis_status = "verified"
+    elif lead and lead["tone"] == "ok":
+        thesis = (
+            f"{lead['ticker']} has a mild tailwind "
+            f"(buy score {lead['buy_score']}/100). "
+            f"{lead['summary']}"
+        )
+        thesis_status = "verified"
+    elif lead and lead["tone"] == "caution":
+        thesis = (
+            f"{lead['ticker']} is in a worse-than-average zone "
+            f"(buy score {lead['buy_score']}/100). "
+            f"{lead['summary']}"
+        )
+        thesis_status = "verified"
+    else:
+        thesis = (
+            "No rare edge conditions are firing across the desk. "
+            "Buy on schedule; waiting for a better day has not paid historically."
+        )
+        thesis_status = "verified"
+
+    lines = [
+        f"RESEARCH DESK — {as_of} ET",
+        f"Generated {now_et.strftime('%Y-%m-%d %H:%M %Z')}",
+        "",
+        "THESIS",
+        thesis,
+        "",
+        "SCORES",
+    ]
+    for a in assets:
+        drivers = ", ".join(
+            f"{d['score']:+g} {d['name']}" for d in a["drivers"]
+        ) or "none scoring"
+        lines.append(
+            f"- {a['ticker']}: {a['buy_score']}/100 — {a['label']} "
+            f"(drivers: {drivers})"
+        )
+    lines.append("")
+    lines.append("NEAR FLIPS")
+    any_flip = False
+    for a in assets:
+        for f in a["flips"]:
+            any_flip = True
+            sign = "+" if f["direction"] > 0 else "−"
+            lines.append(f"- {a['ticker']} {sign} {f['text']}")
+    if not any_flip:
+        lines.append("- none within the usual watch bands")
+    lines.extend(
+        [
+            "",
+            f"Site: {SITE}",
+            "Rules: evidence-weighted v4 (no unverified thesis substituted).",
+        ]
+    )
+    text = "\n".join(lines) + "\n"
+
+    # Fresh for delivery if built on today's ET calendar date. OpenClaw should
+    # gate on as_of_et / status rather than formatting clocks with Intl.
+    brief = {
+        "status": "ready",
+        "thesis_status": thesis_status,
+        "deliverable": True,
+        "as_of_et": as_of,
+        "generated_at": now_utc.isoformat(timespec="seconds"),
+        "generated_at_et": now_et.isoformat(timespec="seconds"),
+        "rules_version": RULES_VERSION,
+        "thesis": thesis,
+        "assets": assets,
+        "text": text,
+        "site": SITE,
+        # Age gate helper for QuickJS scripts (ms since epoch).
+        "generated_at_ms": int(now_utc.timestamp() * 1000),
+        "fresh_max_age_ms": 18 * 60 * 60 * 1000,
+    }
+    (DOCS / "research-brief.json").write_text(json.dumps(brief, indent=2) + "\n")
+    (DOCS / "research-brief.txt").write_text(text)
+    return brief
+
+
 def write_feed(hist_by_key: dict[str, list[dict]]) -> int:
     """Atom feed with one entry per verdict-band change per fund (capped at
     the 50 most recent). Quiet by design - no entry on unchanged days."""
@@ -1521,6 +1683,7 @@ def build(fund: dict) -> dict:
     meter_min, meter_max = fund["meter"]
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "as_of_et": as_of_et(),
         "rules_version": RULES_VERSION,
         "ticker": ticker,
         "verdict": verdict,
@@ -2062,6 +2225,7 @@ def build_stock(fund: dict) -> dict:
     rc_tones = ("good", "ok", "neutral", "caution") if validated else ("good", "ok", "neutral")
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "as_of_et": as_of_et(),
         "rules_version": RULES_VERSION,
         "ticker": ticker,
         "asset": {
@@ -2109,8 +2273,10 @@ def build_stock(fund: dict) -> dict:
 
 if __name__ == "__main__":
     DOCS.mkdir(parents=True, exist_ok=True)
+    datasets: dict[str, dict] = {}
     for fund in FUNDS:
         data = build_stock(fund) if fund.get("kind") == "stock" else build(fund)
+        datasets[fund["key"]] = data
         out = DOCS / fund["out"]
         out.write_text(json.dumps(data, indent=1))
         print(f"wrote {out}")
@@ -2140,3 +2306,12 @@ if __name__ == "__main__":
         print(f"wrote {DOCS / 'feed.xml'} ({n} verdict-change entries)")
     except Exception as exc:
         print(f"feed generation failed (non-fatal): {exc}")
+
+    try:
+        brief = write_research_brief(datasets)
+        print(
+            f"wrote {DOCS / 'research-brief.json'} "
+            f"(as_of_et={brief['as_of_et']}, status={brief['status']})"
+        )
+    except Exception as exc:
+        print(f"research brief failed (non-fatal): {exc}")

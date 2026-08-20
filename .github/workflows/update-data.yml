@@ -2,6 +2,11 @@ name: Update GPIX/GPIQ/TSLA/SPCX data
 
 on:
   schedule:
+    # 11:30 UTC = 7:30am ET (EDT) / 6:30am ET (EST), weekdays.
+    # Ready before the 08:20 ET Research Desk delivery window. Uses the prior
+    # close; OpenClaw code-mode has no Intl, so the desk must consume this
+    # pre-stamped brief instead of formatting ET clocks in QuickJS.
+    - cron: "30 11 * * 1-5"
     # 13:35 UTC = 9:35am ET (EDT) / 8:35am ET (EST), weekdays.
     # Uses the prior close either way; runs before the user checks it in the morning.
     - cron: "35 13 * * 1-5"
@@ -20,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build data, history and feed files
+      - name: Build data, history, feed and research brief
         run: python3 scripts/build_data.py
 
       - name: Commit if changed
@@ -29,6 +34,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/data.json docs/data-gpiq.json docs/data-tsla.json docs/data-spcx.json \
                   docs/history.json docs/history-gpiq.json docs/history-tsla.json docs/history-spcx.json \
-                  docs/feed.xml
+                  docs/feed.xml docs/research-brief.json docs/research-brief.txt
           git diff --cached --quiet && echo "no changes" || git commit -m "data: daily refresh $(date -u +%F)"
           git push
