@@ -1,18 +1,18 @@
 {
- "generated_at": "2026-08-20T19:43:48+00:00",
+ "generated_at": "2026-08-21T14:09:44+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 48,
+  "sessions": 49,
   "too_young": true,
   "validated": false
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~48 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~49 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -25,13 +25,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "3 down days",
+   "value": "4 down days",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 48 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 49 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 60.3,
+    "pos": 67.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -40,7 +40,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "103% ann.",
+   "value": "101% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -48,13 +48,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "37.1%",
+   "value": "37.0%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 37.1% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 37.0% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 74.2,
+    "pos": 74.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -63,15 +63,15 @@
   },
   {
    "name": "Trading history",
-   "value": "48 sessions",
+   "value": "49 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 48 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 50-day average needs ~2.5 months; 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 49 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 50-day average needs ~2.5 months; 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.1 (p26), F&G 53",
+   "value": "VIX 15.6 (p17), F&G 56",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -79,7 +79,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 22d",
+   "value": "CPI in 21d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -87,13 +87,13 @@
   }
  ],
  "fund": {
-  "price": 132.88,
-  "day_change_pct": -4.85,
+  "price": 133.19,
+  "day_change_pct": -0.6,
   "sma50": null,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 37.1,
+  "drawdown_pct": 37.0,
   "series": [
    {
     "d": "2026-06-12",
@@ -379,7 +379,13 @@
    },
    {
     "d": "2026-08-20",
-    "c": 132.88,
+    "c": 134.0,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-21",
+    "c": 133.19,
     "t": "neutral",
     "s": 50
    }
@@ -389,14 +395,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-08-20",
-  "days_total": 48,
+  "end": "2026-08-21",
+  "days_total": 49,
   "backfilled_days": 40,
-  "fg_coverage_start": "2025-08-20",
+  "fg_coverage_start": "2025-08-21",
   "baseline": {
-   "n": 27,
-   "avg_pct": -15.6,
-   "median_pct": -24.03
+   "n": 28,
+   "avg_pct": -14.59,
+   "median_pct": -23.27
   },
   "bands": [
    {
@@ -416,9 +422,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 27,
-    "avg_pct": -15.6,
-    "median_pct": -24.03
+    "n": 28,
+    "avg_pct": -14.59,
+    "median_pct": -23.27
    }
   ]
  },
@@ -428,22 +434,22 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 132.88,
+  "price": 133.19,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 102.7
+  "level": 101.4
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 27,
+  "days_until": 26,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 22
+  "days_until": 21
  },
  "earnings": {
   "next": null,
@@ -452,19 +458,25 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-08-20",
+  "end": "2026-08-21",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1100.0,
-  "dca_value": 1027.42,
-  "dca_return_pct": -6.6,
-  "dip_value": 1014.38,
-  "dip_return_pct": -7.78,
+  "dca_value": 1029.82,
+  "dca_return_pct": -6.38,
+  "dip_value": 1016.74,
+  "dip_return_pct": -7.57,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 10,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "SpaceX Stock Just Earned Another Sell Rating. Why It Could Fall 25%.",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1PbHlhdWYyd2JlZm9NWGV6LW45NWFFbDh5dUVPX1RRMUwtVlZULUhoU3NDWHBOa0ZBeWxEUUdrSS1iMTFPNEFwbERwRHJicTJfMjFxSmpvTTBYMklZOEpsLUV4SmhJLWRBRXlMVGljbHVYOUpJT0huOTQta1M?oc=5",
+   "published": "2026-08-21T12:13:00+00:00"
+  },
   {
    "title": "Last-minute abort stalls Cape Canaveral Starlink mission",
    "source": "Spaceflight Now",
@@ -472,34 +484,28 @@
    "published": "2026-08-20T17:58:24+00:00"
   },
   {
-   "title": "SpaceX stock slips as 319 million new shares come to market",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPWktmdUlFem5Ia2daMnc1dGxuMW5Zd1ZsSnZxbm80Tm1jZHAtcElzRTZrdTZENTJEbDdYQ3dUNjhEV2Jsb1poTmhRYnZjYVliMGJJazl2aF9MX3lLTGdMTksxRFVUb3NrNkNETnhHMkFlb2U1dlhLVXpTNG1IZ3Zhb2dDUzdfR05IcFVleTVCN0hUUnZmU3JjQm9kNXpaUE5IVTBSNUZ6Mk9hLXJVelRqQkw0ei1Oc2pZTDRoY3dKeHc?oc=5",
-   "published": "2026-08-20T14:31:00+00:00"
+   "title": "SpaceX will try for 1st Starship tower catch 'in a few months,' Elon Musk says",
+   "source": "Space",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPTUVTTGZqa1ZFNThadVBwTHlOTEZiRGRNUWZocG9MS2JhQzQyUDhHWG5CX1BEVEt5X3NPekhOVm9TU21PM2VSWUJ4REFkQXRLZ1FhU2RjZHowdE5Ga1lHRlkxeG50QUlISTdXTE1YQ1IteTRveUdwbHBkcVBPakF4YmtqMkg5R080WEVKV1cwVjJSVnFGOUQwdG92WGcxSk1oeF9NaVR2UXRpNEVhZUVPVDdNc0RlZ2RodmNkdE9uT1UzSDJpVXI1d0REZ1hpUnhQ?oc=5",
+   "published": "2026-08-20T20:30:00+00:00"
   },
   {
-   "title": "SpaceX has some of the world's biggest investors on board. Meet 10 of its top shareholders.",
-   "source": "Business Insider",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOVGJacWZ4OXoyNkdFRkQ2VmhqMlRDVnFzcG9QZWZEeEdHaW8weGg1Ukw2R0Z5NEpXaG1NelpQV1NyNTlPdElRTF9lay1VVDR5V2pSb2xTV21QZFRSTXhyNE5rT3ZsQWo3ckwteDVhTmZjN1F1TE5kdENDZVFfaXNOY0RhWVNld1ZYVDlZcWYxZVM1SExyTHBOSmFsV19Ud3lzOHh1SG5OZjZWUQ?oc=5",
-   "published": "2026-08-20T15:22:36+00:00"
-  },
-  {
-   "title": "More SpaceX stock is about to hit the market. Here\u2019s what to know.",
-   "source": "MarketWatch",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNTUx4SGhqVVJUX2tqOGVLMC1ERDRrQVF6dEhIVTdnenVlbzNiTHNyRy0wd1pkd1lZM3U4Y0NqdU4tY2RVY2J6NnlRV3JfRmc2ZGd0ZEVhdTV5cF96SE1XVzBiaTZqVWFidm1XYzE3ckdlUG9iTl9oR0tNYUFZd0R2VG5yX21QTXBfQzBxSk1acE1OSlZ6UkNNc1doSXdUVmhzLVlmenM3cS1rdw?oc=5",
-   "published": "2026-08-20T14:53:00+00:00"
+   "title": "SpaceX, AST Said Seeking to Buy Spectrum Valued at $6 Billion",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOdDJJT185RlBud1o1eG9kWUJBN01JUS16RGZtZnFBNW10X29GeWtlT2x1YjQtcmpsSUQxcWZqbldPclVSZUNnV0JnWjNKcl83VlI0cE1YQXVIRHpBT2c4Nm1SSW9uUUh1bHhWeW05cjMtYTNGX2JrU25TZ2c1dEhlbXBtYXJBZlZZU3J0RmVNMl9LSUdYUXlqT01laVpESHQ1MGRpY096cF83czRiMHQw?oc=5",
+   "published": "2026-08-21T01:19:00+00:00"
   },
   {
    "title": "Anthropic Expects to Match SpaceX\u2019s Record IPO Size or Top It",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPZjdKM3p6TTVON2FNcXFDRVhHd056NU03dGQxNzFYYkNYc09xWDhwS1hETzdFUkoyVkpWM0o1VENSaENzWnIwODBmUThla2dsUWF5UkRuWThvVmRsRVdCZHhCaDVQZ2NYSVdLU2J4aHdaZ19OeDY5LUREbVg1cmR6ZmZxVk5OcG5YX0lHMmFUelNSYjNoVVBJVWNYdENoeFFZdmxEQVBPSDNsQWdIMFdtQnJn?oc=5",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPT2RwbzAzN1d4OE5VenFKUThLek1qUFJLTk1fM1AzQTMxNHd2eFNmYWdfMDN5NWxpNGVwUTAwNE1TVEdjNGlaM3J2Y1FaSi05aFNIVGs3UjJ5U04xenlISzJLQ1BLSklVVWJKbG53SGRNY3RQUkhyc2k1TTU4WV9rUFoxRnVkQS1mc0pqU2tKdU5mcjFqRzYzSjNOaDE0OGxTcDFF?oc=5",
    "published": "2026-08-20T17:56:02+00:00"
   },
   {
-   "title": "SpaceX Is Racking Up Wins in Washington",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPTFRUSi0zRHdlMlA4MkczMDVsSmxDNnEydjcxTVVHdWEwWElMcHYzTXNFemU1RDZybWEySjhqVnppM1ZidDR4UUJSSXQ3S0k1MDkyNEt6cXpwd180Z1VMWWhQdGs5UmFPbU1YdE1ldmQ2Y1BBNUx0QnA2cWRIZGtIWDBzcnAyRnY3YVFBMk1R?oc=5",
-   "published": "2026-08-20T17:09:00+00:00"
+   "title": "Rocket Report: SpaceX makes its mark on the Moon; ULA names new boss",
+   "source": "Ars Technica",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQOUNPdzRzMk5naENtblN1NFk4N0gzWDVTNk94YVBZdzUxU1drcDE2RXVRQkpqWjVSSTEyUFdHS0NSbFBhdmN0NnZlVTl0UjRlSktnb1FlSm9QNkVRekRjejhtNzktVkdvcDgwaVdiSWhxd3p4Z0lnTTVBU0g3ek1QYjBFUkUzQ2tnOC1hcU55TENkR0xYT1hmQ3NPelBiUUdpMnlrbUZ3?oc=5",
+   "published": "2026-08-21T11:00:36+00:00"
   }
  ]
 }
