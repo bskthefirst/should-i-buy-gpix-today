@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-24T14:21:27+00:00",
+ "generated_at": "2026-08-24T19:41:37+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.9 (p25)",
+   "value": "15.8 (p21)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 24.6,
+    "pos": 20.6,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 38.7,
+    "pos": 38.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+2.7 pts",
+   "value": "+2.5 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 55.5,
+    "pos": 54.5,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.4%",
+   "value": "+1.5%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 61.7,
+    "pos": 62.5,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 42.2,
+    "pos": 42.1,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "56 (greed)",
+   "value": "55 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 55.7,
+    "pos": 55.5,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,8 +230,8 @@
   }
  ],
  "fund": {
-  "price": 55.905,
-  "day_change_pct": -0.33,
+  "price": 55.945,
+  "day_change_pct": -0.26,
   "sma50": 55.49,
   "sma200": 53.49,
   "high52w": 56.67,
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-08-24",
-    "c": 55.905,
+    "c": 55.945,
     "t": "neutral",
     "s": 50
    }
@@ -1333,12 +1333,12 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 56) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 55) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.9) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1383,7 +1383,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.09,
+  "ttm_yield_pct": 8.08,
   "tbill_3mo": 3.87
  },
  "distributions": {
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 763.11,
-  "sma200": 707.98,
+  "price": 763.67,
+  "sma200": 707.99,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.93
+  "level": 15.77
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,15 +1516,27 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14900.0,
-  "dca_value": 19299.13,
-  "dca_return_pct": 29.52,
-  "dip_value": 19078.86,
-  "dip_return_pct": 28.05,
+  "dca_value": 19312.86,
+  "dca_return_pct": 29.62,
+  "dip_value": 19091.72,
+  "dip_return_pct": 28.13,
   "dip_cash_uninvested": 1100.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "New Fed chair faces critical test at Jackson Hole as inflation fears mount",
+   "source": "The Guardian",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYzJ1cVl2Ny1WanlFSEpJczFRQ19DSnJoeUJQNmwxNFVvZm1OUXVodzRPVElZZXBNLW5Ndnp5REdRRjB5Z19fREtlX09qNXBtNll3WlBud3ptZnFtdWtwbzFLVkw2MHJId3FXMGFhZTF0d2x0ZnNsdUthU1ZmaW1URmIzZ1kxR0JUU2lwTG41aE44YlotT3hIUjlDZ1VhSThxelVTNjRreWhnbWtqRjZEMjhLekJuWDZfZUFqcVJGcDJnZk0?oc=5",
+   "published": "2026-08-24T14:18:00+00:00"
+  },
+  {
+   "title": "Native federal contractors contribute to local economies nationwide",
+   "source": "Federal Reserve Bank of Minneapolis",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNS1pT0RxWW1WNExzOWFQQWM1Tkp0ek1YeUlrN3pJbHJjX09ZUHNVYWFvNUNhWDdJbDBEM3Y1R2U4QkZsYWM2ejlSQ1hPZ0lMWl9RVGxkTWQwUlFaTWgzRXBJMGtEYUtFUWNHRjlZcU1adnF4eGpRNEhCa3JmcEd2QlBnQkx0dmFkMDFBSDJaZGhrekUydmN0VFRYVzBoY1haNkxadEo1YWhXeS11Z3NBcg?oc=5",
+   "published": "2026-08-24T19:08:23+00:00"
+  },
   {
    "title": "'Many' Fed officials think higher rates will be needed if inflation stays high",
    "source": "PBS",
@@ -1538,28 +1550,16 @@
    "published": "2026-08-24T12:21:07+00:00"
   },
   {
-   "title": "Gold climbs to more than three-month high as markets await U.S. inflation data",
+   "title": "Gold rally gains momentum ahead of U.S. inflation, Jackson Hole event",
    "source": "CNBC",
    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaU5WTzNQenZqaS00RkdfbUFUNUp6dlRvRDBhWVVqekhnOVJHVlQxTGhLZFRsVWJYdzl3S1JTNDBXQ19NOTk3U3o1TU85N3pFTFBBVm1RSEttVEdiNFlZWUtMZHlNaDB5RkpBd0dHbUpVTkNJVjRhbFR5V1VNbXM2NkJoSEEyYzFEcGRfblEzakRaaXA2ZTJYZS02bGdsczM1VnfSAacBQVVfeXFMUDRsak1hQ3JSWV9VZGVZNWVXdVZhUllMa1FLbGpkYkFqaUJtazZ2eHJOUmJHdGFyVW9GeW5aVERfMmlrVl9LNHFoMEhJSWx4NWZMeUgyV0t6ZHpYWmJLVE56Nm5zbjMyZzJnaW8yTEF5Tkd3Y2hxMVJYWmhWZDFsVlNsZWlKS3F4SmpsWjBZWHNhSk01MkRpRzFneHJYNk9xNjBvVUpzTWs?oc=5",
    "published": "2026-08-24T02:31:00+00:00"
-  },
-  {
-   "title": "New Fed chair faces critical test at Jackson Hole as inflation fears mount",
-   "source": "The Guardian",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYzJ1cVl2Ny1WanlFSEpJczFRQ19DSnJoeUJQNmwxNFVvZm1OUXVodzRPVElZZXBNLW5Ndnp5REdRRjB5Z19fREtlX09qNXBtNll3WlBud3ptZnFtdWtwbzFLVkw2MHJId3FXMGFhZTF0d2x0ZnNsdUthU1ZmaW1URmIzZ1kxR0JUU2lwTG41aE44YlotT3hIUjlDZ1VhSThxelVTNjRreWhnbWtqRjZEMjhLekJuWDZfZUFqcVJGcDJnZk0?oc=5",
-   "published": "2026-08-24T07:03:00+00:00"
   },
   {
    "title": "Iran, Inflation, Trade and the Bond Market Serve Up a Smorgasbord of Economic Woes",
    "source": "U.S. News & World Report",
    "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPZmNNaGpxMnlRTHRHM2hQenE2eUFORjdwNUNIbjdJQjY0dnp4ZW5KcUFJajFuVFpTUVhSek9WRi0xUS1temF0SjFoVHduTjFtWHhzcWxDRmZOYld4RzM0MFJNUFB1V21SM1gxdkxmeVRIdGhXUkhLZk9rU0R4OFpBbmxMY2k2TlVYZ0djcnZMNWlZUXVfQ3R3aHotdTFsaEt5Y0UzcW5hMGxvbjdMaTYxRkoxR1pSR1RxODZvNXk5ZGo2bG5RcnZLNWJQWktjelJJcUxZaEFoaHFEQQ?oc=5",
    "published": "2026-08-24T13:16:00+00:00"
-  },
-  {
-   "title": "Warsh\u2019s Old Forecasts Show How He Formed His Views on Inflation",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPbFhYSmhyVUlMbWNjakhBazJaZGJLQU4zbUsyWXJCMmJORTJJQUhSZ3RleVh6bWR0WjRtZzNyQzdEanJjOU9Fai1Gd2Q0VVVqeHZRazNXZ3V2Y0J6NW94akkxNUhXUnFmdXBWSHBiME5hSFFNQ3M1dkJsMy10Z3BZR1dKZUFOSDgyeWNqSEZxR3pDOEVfZnotWXJvRnQ2M2VNd3lya0ktM3N2NjlhVlg4bWd4VWN2Zw?oc=5",
-   "published": "2026-08-24T01:00:00+00:00"
   }
  ]
 }
