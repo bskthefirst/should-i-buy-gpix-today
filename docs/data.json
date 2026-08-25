@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-24T19:41:37+00:00",
+ "generated_at": "2026-08-25T14:23:31+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.8 (p21)",
+   "value": "15.8 (p22)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 20.6,
+    "pos": 22.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.85",
+   "value": "0.86",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 38.1,
+    "pos": 39.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+2.5 pts",
+   "value": "+2.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 54.5,
+    "pos": 54.7,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.3%",
+   "value": "1.1%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 13.0,
+    "pos": 11.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 42.1,
+    "pos": 41.9,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "55 (greed)",
+   "value": "59 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 55.5,
+    "pos": 59.4,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 18d",
+   "value": "CPI in 17d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 55.945,
-  "day_change_pct": -0.26,
-  "sma50": 55.49,
-  "sma200": 53.49,
+  "price": 56.025,
+  "day_change_pct": 0.15,
+  "sma50": 55.51,
+  "sma200": 53.51,
   "high52w": 56.67,
-  "drawdown_pct": 1.3,
+  "drawdown_pct": 1.1,
   "series": [
-   {
-    "d": "2025-12-04",
-    "c": 52.63,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-05",
     "c": 52.71,
@@ -1313,7 +1307,13 @@
    },
    {
     "d": "2026-08-24",
-    "c": 55.945,
+    "c": 55.94,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-25",
+    "c": 56.025,
     "t": "neutral",
     "s": 50
    }
@@ -1323,17 +1323,17 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.97 (-1.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.97 (-1.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.86) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 55) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 59) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
@@ -1349,13 +1349,13 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-24",
-  "days_total": 707,
+  "end": "2026-08-25",
+  "days_total": 708,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-08-25",
   "baseline": {
-   "n": 686,
-   "avg_pct": 1.69,
+   "n": 687,
+   "avg_pct": 1.7,
    "median_pct": 2.06
   },
   "bands": [
@@ -1376,15 +1376,15 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 496,
+    "n": 497,
     "avg_pct": 1.28,
     "median_pct": 1.74
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.08,
-  "tbill_3mo": 3.87
+  "ttm_yield_pct": 8.07,
+  "tbill_3mo": 3.88
  },
  "distributions": {
   "history": [
@@ -1493,49 +1493,49 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 763.67,
-  "sma200": 707.99,
+  "price": 764.93,
+  "sma200": 708.42,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.77
+  "level": 15.81
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 23,
+  "days_until": 22,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 18
+  "days_until": 17
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-08-24",
+  "end": "2026-08-25",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14900.0,
-  "dca_value": 19312.86,
-  "dca_return_pct": 29.62,
-  "dip_value": 19091.72,
-  "dip_return_pct": 28.13,
+  "dca_value": 19340.49,
+  "dca_return_pct": 29.8,
+  "dip_value": 19117.45,
+  "dip_return_pct": 28.31,
   "dip_cash_uninvested": 1100.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "New Fed chair faces critical test at Jackson Hole as inflation fears mount",
-   "source": "The Guardian",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYzJ1cVl2Ny1WanlFSEpJczFRQ19DSnJoeUJQNmwxNFVvZm1OUXVodzRPVElZZXBNLW5Ndnp5REdRRjB5Z19fREtlX09qNXBtNll3WlBud3ptZnFtdWtwbzFLVkw2MHJId3FXMGFhZTF0d2x0ZnNsdUthU1ZmaW1URmIzZ1kxR0JUU2lwTG41aE44YlotT3hIUjlDZ1VhSThxelVTNjRreWhnbWtqRjZEMjhLekJuWDZfZUFqcVJGcDJnZk0?oc=5",
-   "published": "2026-08-24T14:18:00+00:00"
+   "title": "Central banks go their own way",
+   "source": "ADP Research",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOTVd6RTBUUExzQ1pZdUZkZlVBWFprLS1raWoxSko3YmhENzVFQXhVRG9qRVRRWGxXcmFiemFfRzlsQXpQRjZyZlczRW9mdGc1T0p1Y291TkZLTWJ2U05KelNsRXFEUWFjYkdmcnhrSnJ4LS1BWkVidGFEWkpCdjd1aWVn?oc=5",
+   "published": "2026-08-25T12:16:25+00:00"
   },
   {
-   "title": "Native federal contractors contribute to local economies nationwide",
-   "source": "Federal Reserve Bank of Minneapolis",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNS1pT0RxWW1WNExzOWFQQWM1Tkp0ek1YeUlrN3pJbHJjX09ZUHNVYWFvNUNhWDdJbDBEM3Y1R2U4QkZsYWM2ejlSQ1hPZ0lMWl9RVGxkTWQwUlFaTWgzRXBJMGtEYUtFUWNHRjlZcU1adnF4eGpRNEhCa3JmcEd2QlBnQkx0dmFkMDFBSDJaZGhrekUydmN0VFRYVzBoY1haNkxadEo1YWhXeS11Z3NBcg?oc=5",
-   "published": "2026-08-24T19:08:23+00:00"
+   "title": "Trump\u2019s new attempt to seize control of the Federal Reserve, explained",
+   "source": "vox.com",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNamljNUxaUDZzT2gzSXRWRHFKNHYyN185Y1c4cDYxQldlcUFSeDhxd2lSWlJ3dVJyckdXemlLVVc1OVNydnBwU2FVb1l0UnNyRHNKWmZXUWVHcUZVVWlIWkxTdjNyWjZqNi1ZMGxoaC1UbFdTYllLREpsY0FzZk5qTFhmTXdQT2Vj?oc=5",
+   "published": "2026-08-25T10:00:00+00:00"
   },
   {
    "title": "'Many' Fed officials think higher rates will be needed if inflation stays high",
@@ -1544,22 +1544,22 @@
    "published": "2026-08-19T21:19:43+00:00"
   },
   {
-   "title": "Bond market anxiety raises stakes for Warsh's debut Jackson Hole speech",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQcnNlclhfMG4yZE9OTExTUEQ4Zi1sUml5RFdoUVZiU2tXd3EtaTJSc0E4YlRBQUp4T1hvSzdmVHRBeFhobTMxV1hodmhsRl80Zm4zSldlTzBWTGJMeTNEd0RnekpmLV9RaVprUWp4SlBCQXJheXc1ZUt4NEx2T3pON0NQQTVlQTlldVA0SWRWdmN6OWVwc25jUlRBeGFTUFIzaC1YNlRQSzFrREtrQ3FXWQ?oc=5",
-   "published": "2026-08-24T12:21:07+00:00"
+   "title": "Man dead after stabbing in front of Federal Reserve Bank building",
+   "source": "FOX13 Memphis",
+   "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOaktQdDBGQjQxU0UyTGRsVFlNaXh3emVuWnY1TmNzemMwSDZsNExXZ01URGtBYU1XdnEta1BNdTl0eFZMQ3BKWEhESEprRUlBUEFLUVhHNURvalBtLURRUkVZYkxsWElhZEFlVU1RVWpKUF9BSjhnSXEtVUJIdWdwRFF0M1pPT2dxZUN2UDZldXhXR29XMlhzUHdfRTc4Ti1Od3U1TWUyS0psR2F5OGZfTVMyS0hpYjBfYkNvSFRYRGRDOTdIWWRGS2Vpc1k4U2ZZWHY3RU5MTUQ0MEtxdjZFNTNGYw?oc=5",
+   "published": "2026-08-25T09:26:00+00:00"
   },
   {
-   "title": "Gold rally gains momentum ahead of U.S. inflation, Jackson Hole event",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaU5WTzNQenZqaS00RkdfbUFUNUp6dlRvRDBhWVVqekhnOVJHVlQxTGhLZFRsVWJYdzl3S1JTNDBXQ19NOTk3U3o1TU85N3pFTFBBVm1RSEttVEdiNFlZWUtMZHlNaDB5RkpBd0dHbUpVTkNJVjRhbFR5V1VNbXM2NkJoSEEyYzFEcGRfblEzakRaaXA2ZTJYZS02bGdsczM1VnfSAacBQVVfeXFMUDRsak1hQ3JSWV9VZGVZNWVXdVZhUllMa1FLbGpkYkFqaUJtazZ2eHJOUmJHdGFyVW9GeW5aVERfMmlrVl9LNHFoMEhJSWx4NWZMeUgyV0t6ZHpYWmJLVE56Nm5zbjMyZzJnaW8yTEF5Tkd3Y2hxMVJYWmhWZDFsVlNsZWlKS3F4SmpsWjBZWHNhSk01MkRpRzFneHJYNk9xNjBvVUpzTWs?oc=5",
-   "published": "2026-08-24T02:31:00+00:00"
+   "title": "Did the 2022 energy inflation surge dent European Central Bank and Fed credibility? Evidence across horizons",
+   "source": "Bruegel",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOdEJLLUNsaENvXzYyWmFXWS13MUpkVkNOOUo1c2tEYmlqdTJfVklGMXVsNURHYWdGQVBjX3RkVWlsMnZCTkVHcWthRTh6RG83bUpXMnJqLW9BQ3A3bHRsSERFdEk0MllmZTFvVVFjNGhjZXM2VVMyTjY4MkQ3am14NUh6NGRaV3B0NVg3YU1TNFBvTFJwb3Fpd2Zmd0M5LU1wMzFzQm5PeDc4SUFVRDZ1MG9jUENDcmc?oc=5",
+   "published": "2026-08-25T09:43:25+00:00"
   },
   {
-   "title": "Iran, Inflation, Trade and the Bond Market Serve Up a Smorgasbord of Economic Woes",
-   "source": "U.S. News & World Report",
-   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPZmNNaGpxMnlRTHRHM2hQenE2eUFORjdwNUNIbjdJQjY0dnp4ZW5KcUFJajFuVFpTUVhSek9WRi0xUS1temF0SjFoVHduTjFtWHhzcWxDRmZOYld4RzM0MFJNUFB1V21SM1gxdkxmeVRIdGhXUkhLZk9rU0R4OFpBbmxMY2k2TlVYZ0djcnZMNWlZUXVfQ3R3aHotdTFsaEt5Y0UzcW5hMGxvbjdMaTYxRkoxR1pSR1RxODZvNXk5ZGo2bG5RcnZLNWJQWktjelJJcUxZaEFoaHFEQQ?oc=5",
-   "published": "2026-08-24T13:16:00+00:00"
+   "title": "The credibility of the Fed, the world's most powerful financial institution, is at risk",
+   "source": "Le Monde.fr",
+   "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQN0R4U2JEc0EyU3MyV3VrYnpvS3JNLW5yMFZrOVFwdzJILUpUS21FelBob2RXdVNnRGJ5aldJX3RVTVFQM1BJSUktRVRURVI5ekcwamxGZ2NvY04tOGkyYjlnM3ZnVW9tSmJURVo0ZjgyTU4wX1NfLXAzdU05d1BBTnF6bERSYTBWamNpR2djUDdaSlRuRVhUeHhZc2RFZFVrdHhOWG1rVXc1V0pfdUU4eWgtUmxBZU5ReE8xT3pIZkdqUEFBUzBKZm9nNHFWTlpVNmNiLTdTZkR6OC1TZzF1Z3BhNkcwTm1DWGpRRjBac1BqRHJJRWUtRnRHTS1EQQ?oc=5",
+   "published": "2026-08-25T03:00:02+00:00"
   }
  ]
 }

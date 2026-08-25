@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-08-24T19:41:38+00:00",
+ "generated_at": "2026-08-25T14:23:32+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
-  "label": "Better-than-usual entry",
-  "summary": "Heavily-weighted rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for GPIQ, this is a sensible day to deploy it.",
-  "tone": "good",
-  "score": 3.5,
-  "score100": 72,
+  "label": "Mild tailwind - fine day to buy",
+  "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
+  "tone": "ok",
+  "score": 1.5,
+  "score100": 59,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.4 (p39)",
+   "value": "22.7 (p42)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 39.0,
+    "pos": 42.5,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.85",
+   "value": "0.86",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 38.1,
+    "pos": 39.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.42x (p76)",
+   "value": "1.44x (p77)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 76.1,
+    "pos": 77.0,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-0.2 pts",
+   "value": "+0.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 31.9,
+    "pos": 36.8,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.8%",
+   "value": "3.6%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 38.0,
+    "pos": 36.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -140,21 +140,21 @@
   },
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-3.1% in 5 sessions",
-   "score": 2.0,
+   "value": "no pullback",
+   "score": 0.0,
    "weight": 2.0,
-   "lean": "good",
-   "note": "QQQ is down 3.1% over the last 5 sessions. Sharp week-scale pullbacks like this have reliably bounced - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.39% next-day excess (t=4.0) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
+   "lean": "neutral",
+   "note": "No short-term pullback in QQQ - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.39% next-day excess (t=4.0) in our validation, positive in every era - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-0.7%",
+   "value": "-0.4%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 44.2,
+    "pos": 46.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.1% vs 3.9% cash",
+   "value": "10.0% vs 3.9% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 61.9,
+    "pos": 61.6,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "55 (greed)",
+   "value": "59 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 55.5,
+    "pos": 59.4,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 18d",
+   "value": "CPI in 17d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 56.2478,
-  "day_change_pct": -0.71,
-  "sma50": 57.1,
-  "sma200": 54.28,
+  "price": 56.4,
+  "day_change_pct": 0.37,
+  "sma50": 57.07,
+  "sma200": 54.29,
   "high52w": 59.52,
-  "drawdown_pct": 5.5,
+  "drawdown_pct": 5.2,
   "series": [
-   {
-    "d": "2025-12-04",
-    "c": 53.15,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-05",
     "c": 53.34,
@@ -1340,9 +1334,15 @@
    },
    {
     "d": "2026-08-24",
-    "c": 56.2478,
+    "c": 56.19,
     "t": "good",
     "s": 72
+   },
+   {
+    "d": "2026-08-25",
+    "c": 56.4,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
@@ -1350,17 +1350,17 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.86) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.4) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 22.7) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 55) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 59) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1371,22 +1371,22 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-24",
-  "days_total": 707,
+  "end": "2026-08-25",
+  "days_total": 708,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-08-25",
   "baseline": {
-   "n": 686,
-   "avg_pct": 1.92,
-   "median_pct": 2.16
+   "n": 687,
+   "avg_pct": 1.93,
+   "median_pct": 2.17
   },
   "bands": [
    {
     "tone": "good",
     "label": "Better-than-usual entry (score \u2265 69)",
-    "n": 102,
-    "avg_pct": 3.7,
-    "median_pct": 3.16
+    "n": 103,
+    "avg_pct": 3.69,
+    "median_pct": 3.26
    },
    {
     "tone": "ok",
@@ -1405,8 +1405,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.06,
-  "tbill_3mo": 3.87
+  "ttm_yield_pct": 10.04,
+  "tbill_3mo": 3.88
  },
  "distributions": {
   "history": [
@@ -1515,73 +1515,73 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 707.0769,
-  "sma200": 653.22,
+  "price": 709.45,
+  "sma200": 653.65,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 22.43
+  "level": 22.69
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 23,
+  "days_until": 22,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 18
+  "days_until": 17
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-08-24",
+  "end": "2026-08-25",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14900.0,
-  "dca_value": 20102.28,
-  "dca_return_pct": 34.91,
-  "dip_value": 19871.57,
-  "dip_return_pct": 33.37,
+  "dca_value": 20156.78,
+  "dca_return_pct": 35.28,
+  "dip_value": 19925.45,
+  "dip_return_pct": 33.73,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 58,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "This A.I. Start-Up Aims to Reverse the Backlash Against Data Centers",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQbVl2Q0VFclRyNEVvXzdEYVZUWFpheXFJNWhQUTFpeUlBQWxzbkttR3A4T242bUlEVW5Rbll4RWZIdUxNWkphcVJYcGdiUklSejVZMFRPTGdiaEF1WXdfV25LQldrcDNEQ2V2bnltNmFreVlZdDJiU1gydEptZnV3WDc3VGNtWUhsNUhJV0lObVlXaTJwdS1NU0pmTkRXV2s?oc=5",
+   "published": "2026-08-25T11:30:04+00:00"
+  },
+  {
+   "title": "SEC reportedly subpoenas Wall Street banks over AI hedge fund Situational Awareness's near collapse",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOV0RtUFJMRXd0YjRtUzFxNklBQ19kMzBCcmIzeXF1TWR2T2Fha1FUVXh2Zk9ZeTFWY3l6d1QweVJOekFVekdQbk1vN1RDamt2V1F6YkxUUWR0NlM2NzdRUE9udVh6QWFteTF0Wnd2NzV2a1pwY3NWX2FPSzkxS1JCNEQzS3lFN1M1U1JJ0gGQAUFVX3lxTE1hSlgyZFpqYjEtUF9vTVBESzJ2bzZEOGhoMVRnZXd6dmdtRU5iOTF1aW1Ndk02NFNFSUJYR25nZVJqTFFhUWs3M0Nnal93V3doZHN3ajJnbVVDcTVwRW1pSkwtN3hrMDM0aC1LZGJBNG1UMTNadDI2SDctajdqdlF1ZVc0OU9UdlRkVUM1Tnc5Zw?oc=5",
+   "published": "2026-08-25T09:35:30+00:00"
+  },
+  {
    "title": "SpaceXAI Adopts NVIDIA Vera CPU to Accelerate Agentic AI at Massive Scale",
    "source": "NVIDIA Newsroom",
    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNQ0VWYXd5MnAyUzdGRDB5YkJsdzk4ZW5zbDZnTUdRNVZDS1d1dE5ISUVkVzUyUmRLcDBjNzJLQ1dWMUNkUUI3MWxIT2xZWHp6bndLYy1hM2I2ZnF1emNZRWh5ZzAxQzVYWEI3ZTFVZzJpUjhLQ05rTmVybjVkeWNfMmtMQlFPSTZGX0ZPNnRIdDJ5bmoyZlJ6TVppbHVkWnJnVmJlMU1JNDhpV1VY?oc=5",
-   "published": "2026-08-24T15:02:30+00:00"
+   "published": "2026-08-25T03:32:45+00:00"
   },
   {
-   "title": "Goldman Sachs partner warns of 'huge danger' in letting AI replace bankers' reasoning skills",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOQUhxcnhmTUVlMTRPYUM1TXZvY3RabEEtcDl5b3lnazJoYlZoNFhQZTVPa1ZnNG1lSTk3TVNfcjFXcjdUeERhMVV2dTEzMWxiN2g5YWY0SG5MWkpVSFhLR1p5RndmYWlxcUNxTVhzSU92dlBIbzJUcnNlWU9QV1JJS9IBhgFBVV95cUxQQnpMUGI2d3JsZF83ZGJBYVhaeFMtQmVUY1dQSjF4Y2t1S3R6RUg4ZUQxSjdKLWhfLUJ3NHd6VjhBeTFsY1B1aVNFb1Z1bFByeTZUYVBnUG9ZdFRKYzRHSy1xdl9iQkk4a09CdnFSREwzS20tUVlWczNVaEFFRmM4dGJNek9XZw?oc=5",
-   "published": "2026-08-24T15:00:01+00:00"
+   "title": "Apple introduces M6 and M5 Ultra for a big leap in performance and AI compute",
+   "source": "Apple",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNaFNZWnlDMmx2VlBtaFlBWTAyS1g1cWk2SF8wM2phRU95eWpJT2hoM1RtMGVDOUJmNmI0N1RNQzBnblhQVjdFcHl4RVZNVzg1YVZEbTMycVpxdkpTcmNGODIzcmxxRzRnOEJ5Qkg0OG1QVDZaYy1sdUoxLTJJbWUzbEZFcmhzMVlQUXB4OEJBWGhrY2d5aWhXYzNaOElRdlZzdktUdGc1ZTJvcGRUWVc0X2RJTk5GUi1x?oc=5",
+   "published": "2026-08-25T13:00:51+00:00"
   },
   {
-   "title": "Opinion | College Students Worried About A.I. Should Study the Humanities",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBxQW5vWHAzUmNBOHZXVXp3c2Rzd2V3UmVYc3RUcjNIS0ZkRXJsdWg3R2loZTNiTURZQWZYNFc4d1AwN3NDZXpsSzFYc1hBZFJXMlhtcTRiNUd0YXFNT3FPWlRHWEx0S3lDM0E?oc=5",
-   "published": "2026-08-24T09:03:48+00:00"
+   "title": "AI reminders for the new school year",
+   "source": "Clemson News",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBFNHFfb09NRk9iUkxXVEVFSHZlOTE0RTJFXzdTLXlGeTh1T1FzYlpITWpkbUQzQllWcmFDbW52bGR1MGFpWU5GQURvUFJ0bU1VQzlmMWxVNXVhSVhZUEhKYjdYN3ZoellOWXhLQjM5WQ?oc=5",
+   "published": "2026-08-25T11:01:30+00:00"
   },
   {
-   "title": "Intel Outlines Architectures for Agentic AI at Hot Chips 2026",
-   "source": "Intel Newsroom",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPR3pPUGQ5SFlqYndHbURabk5kUzE5d09FRDIxR3BRX0dhb29DT3JtX051cXY5VXlJcFE2aHgydmFUSnNQUmJwclJZQkNJaWhScExRQTNSeTcyUlJsN2UzekJkUXhBRWdFT1BqZjgyekJyQzRTMXdRU3I5c1RHdDFlMV91aGVieTJXMFVpWlRYOWpkUE1Rd2xMeHNGOXhUTlRoR194dmZUbVQ?oc=5",
-   "published": "2026-08-24T14:35:34+00:00"
-  },
-  {
-   "title": "Tech drags S&P 500, Nasdaq lower as more Iran sanctions, Nvidia earnings loom",
+   "title": "EXCLUSIVE: The AI founders who walked away from Bezos-backed Prometheus to model the universe",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZmVCQWYzaWpzTVpmVFJPV0xRdEtUcXg0N2JKZHB5Z2JFZWpWRHFwS0Q3R2NtVHp1c29rem5scXhwa0FZMFZJNGtqM3ZCRlVOa1doNGNtWEcxVVZCYXFDSXlEbmJwODhKbG5Kdk15RDJpbDFleUFpWkdmbWEtMkhGWnF0U1FWWVpmSnp4aXp4UzlPc2hzaFNTWllwSm5UVWlpNWtWQlkzX1dqOHJNbkg5ag?oc=5",
-   "published": "2026-08-24T18:27:38+00:00"
-  },
-  {
-   "title": "How Databricks Uses AI to Accelerate Incident Investigation",
-   "source": "Databricks",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNWkJjTmNKQ08xOGhqRkkyMEJONUNxZE42MHhNVHA4My1fQ3ZNRF9zUDBrZFh6Ul9xb203aVd2cWhWNm1oaFBBUlNPOF9rOWZtRG1ERF8zR1Zrd3lweFdMRHJReGY1NDZzVE9GbGJ5d201b1NmN202V0FlRldXQVU0R3BCWWM0S2RjVWllZXZVVm0wZw?oc=5",
-   "published": "2026-08-24T16:58:13+00:00"
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNa1VQWjVudDlPckk5b1pkQ3U1bENxZUx1eGxOeGY2OHVKeHNKcERBeC1yOUVhQUcwYThGejZnbUNIOFY1cUtjam90bGZaWnRYNnlzQXM5X0ZoekNNMkljcDRmaEsyLVplOGx3OUdKaG10WVBISHRza3ZGQTNadjFSUmVOSmtYRl9jLURCQndQc19lSjdEWTlEWENKNTB3Q3Zlc0tTdDd6bUxiVmMxTXZzbw?oc=5",
+   "published": "2026-08-25T10:30:34+00:00"
   }
  ]
 }

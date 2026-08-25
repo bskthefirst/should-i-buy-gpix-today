@@ -1,18 +1,18 @@
 {
- "generated_at": "2026-08-24T19:41:40+00:00",
+ "generated_at": "2026-08-25T14:23:33+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 50,
+  "sessions": 51,
   "too_young": true,
   "validated": false
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~50 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~51 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -25,13 +25,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-7.7% in 5 sessions",
+   "value": "-4.4% in 5 sessions",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 50 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 51 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 48.6,
+    "pos": 70.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -48,13 +48,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "36.2%",
+   "value": "35.2%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 36.2% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 35.2% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 72.4,
+    "pos": 70.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -63,15 +63,15 @@
   },
   {
    "name": "Trading history",
-   "value": "50 sessions",
+   "value": "51 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 50 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 51 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.8 (p21), F&G 55",
+   "value": "VIX 15.8 (p22), F&G 59",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -79,7 +79,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 18d",
+   "value": "CPI in 17d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -87,13 +87,13 @@
   }
  ],
  "fund": {
-  "price": 134.95,
-  "day_change_pct": -1.47,
-  "sma50": 141.49,
+  "price": 137.02,
+  "day_change_pct": 1.5,
+  "sma50": 141.02,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 36.2,
+  "drawdown_pct": 35.2,
   "series": [
    {
     "d": "2026-06-12",
@@ -391,7 +391,13 @@
    },
    {
     "d": "2026-08-24",
-    "c": 134.95,
+    "c": 135.0,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-25",
+    "c": 137.02,
     "t": "neutral",
     "s": 50
    }
@@ -401,14 +407,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-08-24",
-  "days_total": 50,
+  "end": "2026-08-25",
+  "days_total": 51,
   "backfilled_days": 40,
   "fg_coverage_start": "2025-08-25",
   "baseline": {
-   "n": 29,
-   "avg_pct": -13.41,
-   "median_pct": -22.51
+   "n": 30,
+   "avg_pct": -12.27,
+   "median_pct": -22.19
   },
   "bands": [
    {
@@ -428,34 +434,34 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 29,
-    "avg_pct": -13.41,
-    "median_pct": -22.51
+    "n": 30,
+    "avg_pct": -12.27,
+    "median_pct": -22.19
    }
   ]
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 3.87
+  "tbill_3mo": 3.88
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 134.95,
+  "price": 137.02,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 101.5
+  "level": 101.3
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 23,
+  "days_until": 22,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 18
+  "days_until": 17
  },
  "earnings": {
   "next": null,
@@ -464,54 +470,54 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-08-24",
+  "end": "2026-08-25",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1200.0,
-  "dca_value": 1143.42,
-  "dca_return_pct": -4.71,
-  "dip_value": 1130.18,
-  "dip_return_pct": -5.82,
+  "dca_value": 1160.93,
+  "dca_return_pct": -3.26,
+  "dip_value": 1147.48,
+  "dip_return_pct": -4.38,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 11,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "SpaceX is climbing the stack and pulling up the ladder",
-   "source": "SpaceNews",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxORlJDTWtJSDNya3A3djJ6SHktbnByZDlZVnNwWFdyYlB6eTRkTUh4Q2xHeDB2YXk0ZHJmQTU0ZkVjMU5JM0V0d2tFaTYtZ3JPazFrWlJJZWlkNkZ4RTA2VnRIVENnQldSdkFqT0NodnBzd0JiY3lnTFlJMktNRk51LVZaUQ?oc=5",
-   "published": "2026-08-24T11:00:00+00:00"
+   "title": "SpaceX sets rocket-reuse record on 100th Falcon 9 launch of the year",
+   "source": "Space",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNUZ3UWZVR2ZvQkR4UXVfWkZnUlZnT3VOcXNNRm5XTTZFRm5VQktVOVN3U3Y0WnVpTzhERHFGWXVfaDFUSDRuYUlKdWloOU5xVVBFZm5QQjRlNjg5d2J1V2FIRUFobWQwRjZvclBqNGlZdmUxQnlOMzVqOHhhTjJnRHBfWGVmclJER1hVYm9QTVhiRnN2YVJrZ1lDT3JrRTBlakhQaVpsSGhRN1pHSncwaHotWlZHNlhBTDgySF8zbjJKZw?oc=5",
+   "published": "2026-08-25T11:20:16+00:00"
   },
   {
-   "title": "Jellyfish effect likely for early-morning SpaceX launch",
-   "source": "Spectrum News 13",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE10bmplZ2dkdXZRTDV2LW9sY29hYzRTYXlQY193NW1Ta2tpUG53bkRiRHg1V2pPUkNxWVpTVWp0UEpBdTEyZndVWVNadklFSU1obnRlS2ZOQVh4WHpSMGVPVjF2OEpwWHg0eWhhM1lnUV9McUtoR3h2aVhR?oc=5",
-   "published": "2026-08-24T15:09:00+00:00"
+   "title": "SpaceX announcement set for Louisiana today",
+   "source": "WDSU",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdFJ0Q2dSQ1IyaExvWXA1UnFxQ1Qzak9tQ2tCS09HU1BnMXUxczBvR1lNM0Fia1pNbmVTOV9aaGNmVTRqbGZuVTJ1OWh4ZWo2cEtVZi1Fc2JWRFZIN2FFX3l5clFYYllLOGNmcUY1a1oyckpHcUFrYkV3SzRlV1o2Uw?oc=5",
+   "published": "2026-08-25T10:51:00+00:00"
   },
   {
-   "title": "What we know as Louisiana prepares to announce Space X spaceport project",
-   "source": "Shreveport Times",
-   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNMnczSVEtUU02aHJxeTNnMnNWWUM0WEo5OTZjYTdOaGYwUHdDcV8zZGI4M042UUhuZnpkZ0d2SFFFSElGc29GNXVrd3Y3RjI5cmxOY3RxMU5qZW5WOU9xMGljbVZReVY0X050Z05EU0ZtalBTSHNHU0VxQ1NYYURsMEVvN0dlY19RQ251cFFES2VDTXBGSHVmTHU3ZHRIdW83MktQcGJHenlnc2dheENrTV94YlBRVVhyeWVUMmNyV0JWQjhiSTdzVXp5WjcwZzBsMHlxMnJ3Wi1UeThDemM4ODhrRm9Rbms?oc=5",
-   "published": "2026-08-24T16:04:00+00:00"
+   "title": "Did you see it? SpaceX launch paints glowing trail across Carolina skies",
+   "source": "WECT | TV6",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQWFJVRXNGZUEtMDM0YnNDdUdtQ0FkWUR3bUpEakZrOGV5RVFpNnVnano1S2gxSjZONE50di1aSm1lWGkySXQ3VXBtbVY0NTB2TGRmTklxN0l2OFlPMDJGS25ZOHRQNm1icW1vV0ROTnVfY2pzdGRvcU5mVm5TVnBHVjQzT24tbHNrMUxucHIwT1hPY012b3NxQkdzbnlDV0ZLeTFmSE5LY9IBuwFBVV95cUxOYnZIS0pFaWxsbVJPSFBIQ1NETW5vTzBURFc5RV9SR245elVSendna21IRndJSUFROFVIbjh6X20xUVQxeWJHamxYZDdqQWJyZG8yMjNvVjQwWkdoM0EyUE1EU0xXRTFaM19venFnWlEyNXBWMy0zeVlncVBjUlcwM1hUalY5Sl8wN2VVdS1KbjNGOXVSWlVOb1JHbUsxM0NraDVrN3lnSXl0MUNtWkdqWW1zWHN2OENhZGxJ?oc=5",
+   "published": "2026-08-25T10:20:00+00:00"
   },
   {
-   "title": "Cathie Wood's ARK Goes On $27 Million SpaceX Shopping Spree",
-   "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9saUp2bFJYY09VSjFQVTlMTzI5Q2tMeDFwUXVlZXQ4ek5xNUdDeXVQSnBIcUZLQXg3RXJnNDNCNWY1U1o2NDAxRGN0WlYxQUItSndZUWlBQ0x5UVFSRVNoanU1RVFWRENuWlJadGExcHpDblgyTzh3Qy1hYw?oc=5",
-   "published": "2026-08-24T16:11:00+00:00"
+   "title": "SpaceX Falcon 9 spotted over Upstate",
+   "source": "FOX Carolina News",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOOHA2QXltc0o0ajMwenpEM2JiMjQ0STF0MzU5SmF6bDNYZWJ2TG5hNjVLY1UxNVVyd0g5M2hRRFk4WkwxcXNxTFFCaTZxaTRXaGJHV0ZZU2pIeWlXYkNNNUZLY2djb3RYZjNPeGl4Um5pSTVDRjZTcXMweE83cGpiNVUwWXdYM0l4VlE?oc=5",
+   "published": "2026-08-25T11:02:00+00:00"
   },
   {
-   "title": "163 Arrested in Iran Over Starlink Satellite Equipment",
-   "source": "IranWire",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPX1FmT2lGMmd3S0hwdmV2c1JPRGxZcW5JdFZsZEpJZWNQVWEtcFJCazBqTXpaQ2Jod2V4dEpzY240MjkzYVpIQ2lTRURyWEZpSnlSWk9ja2U1RmdLTUJmcF9GQkFaM1dxWEZBMDQzMU5Fbm9NTF9CVTdMeVA0dVh1Qko2WU9sN1IzN2UyLWpKN1lMMmlWblE?oc=5",
-   "published": "2026-08-24T09:16:21+00:00"
+   "title": "Photos: SpaceX rocket launch visible from Charleston area early Tuesday morning",
+   "source": "WCBD News 2",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNNlpOalhfbF9ScWVLX0lZZ1RnVkhMNjV4bEhUT1Bkb2tIa1JDVWc5US1TUFF2blc4bVV5UGN6LUtfdUhFWTY3cnlIeExadTlHd0hHTlNrNDVoMGR1MHljUkFxOFNTQ3FrSUVYb1ZtOGMyTEVCbEF2YVNFVnRnOVhaNzZjXzNRaDN5MTJyYUZEMWZXT1hGQlpUdlc2MmQyb005UW1McjNkcTAtdG9rZnlmYWEySy13M0o2UHhDcdIBwgFBVV95cUxOY1NRay1LTDk1b0FrLTJ4R0s4eUk3UHZSb1JQdmxwNmR6ZzR5MHlnSXpmNmZTVlRqaEQ1THoxUVZpWFdJeWlndk1lZWJCZU90aVkzeWg3bmFEbW80a0FCWUV1cDZtLVp0THpUemFNQUJLMTYzaS04OEtVZzV4Z20wRlZHTUMyTWlPcjJON3QxTGIyQ0o2aHRZcGJ2eGJPdmlFNW96cTNoN2dMVU56WjQzTll2d2F5Q3phUURWQTl5QmlJdw?oc=5",
+   "published": "2026-08-25T10:20:32+00:00"
   },
   {
-   "title": "Live coverage: SpaceX to launch Starlink mission on a Falcon booster\u2019s record-breaking 37th flight",
-   "source": "Spaceflight Now",
-   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQM25rOTdTQ1BkOExQRXAydnpzS2ZTZzEtMFFBUHY1WF9fa2NVZVhucXp3bDNEa2wtZHVDMEVkVnBULXU2SDNMTGYtb0F3TWY0cUE2MEwtcTJtTlpGby1wQmEtQWk0eG90SjBSWkhLdkdfSDFBWnA2MHZ6SDAtdGNHOVhZX2dGSkNRUmZMUzdOaWFSOEpfZC1RZlVNbUlQaWlyZDhwdjQyNW9kRDI3dzZ6OFZiSGkwaUJlV0E2Z1NfM05hQTE3c2gzRTVlU28zVjMt?oc=5",
-   "published": "2026-08-24T19:21:19+00:00"
+   "title": "What $1,088 Invested in SpaceX Could Be Worth by 2030",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPT3Z0RU9sY3hab0JnMXlpRUloX1JLWmtSUkFhdlBNcXgyRFd2TG5jdVVSTWNTeEpFRG5TZEt6YUlROFVFWld2X0kzSUdQVElfaU1vLW9zTEhyVmtxLW1zNTRnNWJZcGZuSGp6M0lTZVBXM2hLQkMzN3JHMEdFemxMMzFWQjZjM2g2aHlENW9qX0hDWWlYYW13?oc=5",
+   "published": "2026-08-25T08:15:00+00:00"
   }
  ]
 }
