@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-25T14:23:31+00:00",
+ "generated_at": "2026-08-25T19:43:53+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.8 (p22)",
+   "value": "15.5 (p17)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 22.1,
+    "pos": 17.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.86",
+   "value": "0.85",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 39.0,
+    "pos": 36.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+2.6 pts",
+   "value": "+2.2 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 54.7,
+    "pos": 51.8,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.5%",
+   "value": "+1.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 62.5,
+    "pos": 63.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.70% (-0.07 1mo)",
+   "value": "2.69% (-0.10 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 17.5,
+    "pos": 17.2,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 59.4,
+    "pos": 58.8,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,9 +230,9 @@
   }
  ],
  "fund": {
-  "price": 56.025,
-  "day_change_pct": 0.15,
-  "sma50": 55.51,
+  "price": 56.07,
+  "day_change_pct": 0.23,
+  "sma50": 55.52,
   "sma200": 53.51,
   "high52w": 56.67,
   "drawdown_pct": 1.1,
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-08-25",
-    "c": 56.025,
+    "c": 56.07,
     "t": "neutral",
     "s": 50
    }
@@ -1323,12 +1323,12 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.97 (-1.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.97 (-2.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.86) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1338,12 +1338,12 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.8) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.5) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.69%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 764.93,
-  "sma200": 708.42,
+  "price": 765.57,
+  "sma200": 708.43,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.81
+  "level": 15.46
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,10 +1516,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14900.0,
-  "dca_value": 19340.49,
-  "dca_return_pct": 29.8,
-  "dip_value": 19117.45,
-  "dip_return_pct": 28.31,
+  "dca_value": 19356.03,
+  "dca_return_pct": 29.91,
+  "dip_value": 19131.92,
+  "dip_return_pct": 28.4,
   "dip_cash_uninvested": 1100.0,
   "dip_buy_days": 31,
   "winner": "dca"
@@ -1530,6 +1530,12 @@
    "source": "ADP Research",
    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOTVd6RTBUUExzQ1pZdUZkZlVBWFprLS1raWoxSko3YmhENzVFQXhVRG9qRVRRWGxXcmFiemFfRzlsQXpQRjZyZlczRW9mdGc1T0p1Y291TkZLTWJ2U05KelNsRXFEUWFjYkdmcnhrSnJ4LS1BWkVidGFEWkpCdjd1aWVn?oc=5",
    "published": "2026-08-25T12:16:25+00:00"
+  },
+  {
+   "title": "The credibility of the Fed, the world's most powerful financial institution, is at risk",
+   "source": "Le Monde.fr",
+   "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQN0R4U2JEc0EyU3MyV3VrYnpvS3JNLW5yMFZrOVFwdzJILUpUS21FelBob2RXdVNnRGJ5aldJX3RVTVFQM1BJSUktRVRURVI5ekcwamxGZ2NvY04tOGkyYjlnM3ZnVW9tSmJURVo0ZjgyTU4wX1NfLXAzdU05d1BBTnF6bERSYTBWamNpR2djUDdaSlRuRVhUeHhZc2RFZFVrdHhOWG1rVXc1V0pfdUU4eWgtUmxBZU5ReE8xT3pIZkdqUEFBUzBKZm9nNHFWTlpVNmNiLTdTZkR6OC1TZzF1Z3BhNkcwTm1DWGpRRjBac1BqRHJJRWUtRnRHTS1EQQ?oc=5",
+   "published": "2026-08-25T03:00:02+00:00"
   },
   {
    "title": "Trump\u2019s new attempt to seize control of the Federal Reserve, explained",
@@ -1544,22 +1550,16 @@
    "published": "2026-08-19T21:19:43+00:00"
   },
   {
-   "title": "Man dead after stabbing in front of Federal Reserve Bank building",
-   "source": "FOX13 Memphis",
-   "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOaktQdDBGQjQxU0UyTGRsVFlNaXh3emVuWnY1TmNzemMwSDZsNExXZ01URGtBYU1XdnEta1BNdTl0eFZMQ3BKWEhESEprRUlBUEFLUVhHNURvalBtLURRUkVZYkxsWElhZEFlVU1RVWpKUF9BSjhnSXEtVUJIdWdwRFF0M1pPT2dxZUN2UDZldXhXR29XMlhzUHdfRTc4Ti1Od3U1TWUyS0psR2F5OGZfTVMyS0hpYjBfYkNvSFRYRGRDOTdIWWRGS2Vpc1k4U2ZZWHY3RU5MTUQ0MEtxdjZFNTNGYw?oc=5",
-   "published": "2026-08-25T09:26:00+00:00"
+   "title": "Fed May Need to Tighten Soon Without Progress on Inflation, Fed\u2019s Collins Says",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOaUFna19Hc2pnbllRaGVFYzRyQlhvcEFGVHhDQ2luTkFzVXFzbnlhSHdnX1JoV2tXRC00S0hNS1lBYjFrRHBCUncyRjVPcGg2WjdMODltVGJHaEdaN0ZGYjlmYjVRdWYxdEdIdjBRNEJuQjMxbVBnZEVmcGFuaU5PempvdWE5S2FIbjdtNG5nX3FTdmlIVU1Dcm5RWWNrZVNjaEV6U3owUDFQZy1qMjFPdFdFSmdkNUlaNWRKTGhQUFlHYnM?oc=5",
+   "published": "2026-08-25T15:28:00+00:00"
   },
   {
-   "title": "Did the 2022 energy inflation surge dent European Central Bank and Fed credibility? Evidence across horizons",
-   "source": "Bruegel",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOdEJLLUNsaENvXzYyWmFXWS13MUpkVkNOOUo1c2tEYmlqdTJfVklGMXVsNURHYWdGQVBjX3RkVWlsMnZCTkVHcWthRTh6RG83bUpXMnJqLW9BQ3A3bHRsSERFdEk0MllmZTFvVVFjNGhjZXM2VVMyTjY4MkQ3am14NUh6NGRaV3B0NVg3YU1TNFBvTFJwb3Fpd2Zmd0M5LU1wMzFzQm5PeDc4SUFVRDZ1MG9jUENDcmc?oc=5",
-   "published": "2026-08-25T09:43:25+00:00"
-  },
-  {
-   "title": "The credibility of the Fed, the world's most powerful financial institution, is at risk",
-   "source": "Le Monde.fr",
-   "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQN0R4U2JEc0EyU3MyV3VrYnpvS3JNLW5yMFZrOVFwdzJILUpUS21FelBob2RXdVNnRGJ5aldJX3RVTVFQM1BJSUktRVRURVI5ekcwamxGZ2NvY04tOGkyYjlnM3ZnVW9tSmJURVo0ZjgyTU4wX1NfLXAzdU05d1BBTnF6bERSYTBWamNpR2djUDdaSlRuRVhUeHhZc2RFZFVrdHhOWG1rVXc1V0pfdUU4eWgtUmxBZU5ReE8xT3pIZkdqUEFBUzBKZm9nNHFWTlpVNmNiLTdTZkR6OC1TZzF1Z3BhNkcwTm1DWGpRRjBac1BqRHJJRWUtRnRHTS1EQQ?oc=5",
-   "published": "2026-08-25T03:00:02+00:00"
+   "title": "Fed\u2019s Collins Says Holding Rates Hangs on Inflation Progress",
+   "source": "Bloomberg",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOdzYtTVBCMWMyNU5ha2VpREFERTZlMUhFdnlJQXRZNGQ2Nm50REhDLThtYktoQ3JpdVVoTE1Ia2tGVDBGQ0ZLMmRJWjFoeXRrTXJleTZrZU1BV1NlNHNJbE9YUDRWUFFHMVVJaGZLaDQ5U3B6NXpSVjZlaEhjcEd4clFrV2JLZGc4d3dreFBDTzdubGJzcUYxLVk2MTZteWRUU2RLRTFPOE5ubzlSZndvcA?oc=5",
+   "published": "2026-08-25T14:54:04+00:00"
   }
  ]
 }
