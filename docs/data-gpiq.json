@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-26T14:21:44+00:00",
+ "generated_at": "2026-08-26T21:48:49+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.2 (p37)",
+   "value": "21.4 (p30)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 36.9,
+    "pos": 30.3,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 37.1,
+    "pos": 36.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.44x (p77)",
+   "value": "1.41x (p75)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 77.0,
+    "pos": 74.5,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+1.5 pts",
+   "value": "+0.8 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 46.1,
+    "pos": 40.3,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.5%",
+   "value": "3.3%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 35.0,
+    "pos": 33.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-0.3%",
+   "value": "-0.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 47.5,
+    "pos": 49.2,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 61.6,
+    "pos": 61.5,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "58 (greed)",
+   "value": "55 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 58.3,
+    "pos": 55.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 56.4299,
-  "day_change_pct": -0.12,
+  "price": 56.56,
+  "day_change_pct": 0.11,
   "sma50": 57.01,
-  "sma200": 54.31,
+  "sma200": 54.32,
   "high52w": 59.52,
-  "drawdown_pct": 5.2,
+  "drawdown_pct": 5.0,
   "series": [
    {
     "d": "2025-12-08",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-08-26",
-    "c": 56.4299,
+    "c": 56.56,
     "t": "ok",
     "s": 59
    }
@@ -1353,14 +1353,14 @@
    "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
-   "label": "Top-decile premiums",
-   "direction": 1,
-   "text": "VXN above 28.6 (now 22.2) = top decile of its past year (+9 pts)"
-  },
-  {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 58) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 55) = extreme fear, a contrarian buy zone (+6 pts)"
+  },
+  {
+   "label": "Top-decile premiums",
+   "direction": 1,
+   "text": "VXN above 28.6 (now 21.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1405,8 +1405,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.03,
-  "tbill_3mo": 3.87
+  "ttm_yield_pct": 10.01,
+  "tbill_3mo": 3.86
  },
  "distributions": {
   "history": [
@@ -1515,13 +1515,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 709.59,
-  "sma200": 654.14,
+  "price": 711.37,
+  "sma200": 654.15,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 22.18
+  "level": 21.42
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1538,50 +1538,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14900.0,
-  "dca_value": 20167.47,
-  "dca_return_pct": 35.35,
-  "dip_value": 19936.0,
-  "dip_return_pct": 33.8,
+  "dca_value": 20213.96,
+  "dca_return_pct": 35.66,
+  "dip_value": 19981.97,
+  "dip_return_pct": 34.11,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 58,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "The choices we make about AI now are critical | Bill Gates",
+   "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "gatesnotes.com",
    "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQWjJReG5nQkZUUnNySlFzcHE4U2ptdWtZazE0YzZEQzNsVl9nU2VrX1lxYm1ZVFpORFc1VE1GQTFyN1RLaGl2NE52aXZsS1ZETnVtajBhNEk5S2JyOVRLUlJ5UUREMTRkeWZ3TF9XajFuTmNSaEpEd2Qyb2w5bWM4ZWlIRjZRYllUeGNKMGxjTUt5WE12d1FmMW5rSVJtZU5CaHBLNkhIVF9KWXNadWNGZnhn?oc=5",
    "published": "2026-08-26T12:09:16+00:00"
   },
   {
-   "title": "Billionaire Stanley Druckenmiller\u2019s WSJ Op-Ed Criticizing Bessent Was Written With AI - News of the United States",
-   "source": "NOTUS",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9RZC1sMHJmcjIyd2M0REdoQWdGT2NMNGMwc1RnTzE5Sm40MW8taHJjbUZFTG9id19BOEhCSzNIOGZmcE82dXR3c2RHcGU0d3dkOWc3T21PTkdjSFFfY3B0YWNhdTlmWTd5MzdZZm9ySjZwSkdaUTB2cWZXaw?oc=5",
-   "published": "2026-08-25T22:06:10+00:00"
-  },
-  {
-   "title": "Bill Gates warns \u2018there is no plan\u2019 for the \u2018upheaval\u2019 AI will cause",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1TWjRYRDczeHJMLWZEczhIdzZYQmJPcFEyU0RqUlNIVDJHbUZSM3paVDhIQmlXX296U0pJaWt4YWpNaXZDMl85SlFyWjNrU3JOV0U0aFhSQXN0NGdfcDhMYnFwS0hUc3ZRcVQtVkFSYUU1eXJicm96TkJhMFk5d9IBgwFBVV95cUxQQXN1dFVRNHdaY2s1WVdFXzBiUFl0VjN6Z3BMR1RJVXFWQVRtNm9uQlBwNl9KNUxTVEUyalRTM242OHFNaDNzVkNFdWNmb2RQenNLQ3lNcmJYWlBiTlp5SWRuUzNoNmdqbWhqSWJqMnZteEo0b0hBR1hVZjg1UGN6VzRQQQ?oc=5",
-   "published": "2026-08-26T13:12:37+00:00"
+   "title": "Cleveland Clinic President Discusses AI Summit for Health-Care Professionals",
+   "source": "The ASCO Post",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOMHZkOUZRdHVZYXI4ZjllOW9KZXRVZ2o2ZlhPOF9maDlISURXZFZPeXJ6bUxEenBJSHUyRTBDR0lvaE1kQnlLOHVLUEdzSXhfZERNdmFUa3hMQ2FacmpTOWpmbzZpUWJPbHRCR3FDVUxSTGpCVG5qdk1YREZnY3liMTBoclI3RE5qQ3Z5UzJTLVBPVlpzRmpoaDl2TDcwak1vMWhFSlFpUm5YVzdSTk5COGxaTGF6Zw?oc=5",
+   "published": "2026-08-26T18:42:06+00:00"
   },
   {
    "title": "Bill Gates was an AI optimist. Now he\u2019s scared of what could go wrong.",
    "source": "The Washington Post",
    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOYmZxQlViRG5wSXMxTXM3bXVGWUNaeXdXUFpkbDUwZVlxLXE2LWxiX3pOS2tjVkNYdkpuM1NvOFpHOHhXcWJzQWY3Y0FvRTBoN0d1NC1Bd2JqTEpiR0pwazNQOE5wSjdCUVFnb29LczJSN2ZkWEFrazNyamVkREFyM2d0VlE5Y3lONXljQTFldEQwcGlMelQzcnBKeGs2bWduTnY5QmxpNms2eUJJVzQwYVJzM2U?oc=5",
-   "published": "2026-08-26T13:57:02+00:00"
+   "published": "2026-08-26T14:01:00+00:00"
   },
   {
-   "title": "Bill Gates Is Warning That A.I. Is More Dangerous Than Big Tech Will Admit",
+   "title": "OpenAI releases sweeping report on Hugging Face AI agent hack",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1YOTJIY1dTeGxzcnlfOTNaY1ZZNW5IR19EcDRvWm04V1VVelZmeU9YalBHU3lLV1JKUXR2Q05JT041YlAyX09OeTd1T05PZFg4Y2NFNHBwbnE0VzVGMU5KUTBHbHgyMktRTzV6RFN5QdIBdEFVX3lxTE80azdfcnVsNFhGSXFQTC0yWGdkckFkTlpDVi1EQlRoSDRneG94YjVVWXhzMTM1aHdPckJ6VDF6SXpUTC11YURWa0JMYWhsWEp1U1JuX0JQWDhFa0liTzNWS3ZmRkwxREJTV3hfQ2lRYmRDOW4y?oc=5",
+   "published": "2026-08-26T19:00:01+00:00"
+  },
+  {
+   "title": "Exclusive | The Latest Viral AI Assistant Rocketing Across Silicon Valley",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPMmFuUk5xeWZja3d4Wjlqd3J2OG0tNHVwcVhUTWtuREFLT24yUlBHZzRzcFliNF9jN2xvcWtxeFZ2X3NGdXlNazFHUHY4LWNTU0d1MEJvbTRLWkhVNmg5aUVjRXdZUENPUDc5S0Nua05MazZqVGRlaWM0YkU4X0Fidk1DYXl4Z1hkSS03d0Z4TWNMZ2Z3VnJPY1FVRXRUYWs?oc=5",
+   "published": "2026-08-26T17:56:00+00:00"
+  },
+  {
+   "title": "Opinion | This Is How the A.I. Debt Binge Sinks the Economy",
    "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBpdU40bG1VdWJuMWJGR3NrTTloZzVNV1V2VlBBNTQ1LW40UkxqQUV0cWV5a1NOX2hSLVhWVkladllLaUR6RWZsSXQwZ2hEckhJUUx0c1h3elFrWHN1MXhXMnVxQm9GV1RNaXAwbThoU3JKSTBoeHNVdjNB?oc=5",
-   "published": "2026-08-26T11:06:51+00:00"
-  },
-  {
-   "title": "Bill Gates sounds the alarm on an AI transition",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPRGl4ZGR1ODA3ZXRLN1pleUJCODdhalU3QThrTk8ycnNPUTJDekZWS1JhY3Y4MmhUVWRJLUVLeEtDZ2VWd1VvbzA5RFlaY01yVG9ZUDBiSDVfY3JlcXZXcTNyWHdDRzE4WF9rTHJXZmtPWUppWjd4WGJuNFRZQ2Y3TWk0M1dKMm8?oc=5",
-   "published": "2026-08-26T07:02:30+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNMi03ZGR2NlpxVlEwcVRtdVhGQ3Q0MmZ4OXI1cklEWVhYZ3o3ejBpR2ZsbWZCRjRXS2RfQlBnVEF2UVBsVG95T2ZvXzVxWERObmZHeVlkNzNVcURtVThhN3p1VXlXY25oYWpfSlFiRHhBeUdpNE55SUtJNE9QQTBoaGV3?oc=5",
+   "published": "2026-08-26T15:00:06+00:00"
   }
  ]
 }

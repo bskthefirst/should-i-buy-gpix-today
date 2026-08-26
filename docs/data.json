@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-26T14:21:42+00:00",
+ "generated_at": "2026-08-26T21:48:48+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.4 (p16)",
+   "value": "15.2 (p12)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 15.8,
+    "pos": 12.3,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 37.1,
+    "pos": 36.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+3.8 pts",
+   "value": "+3.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 65.1,
+    "pos": 63.2,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "58 (greed)",
+   "value": "55 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 58.3,
+    "pos": 55.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,8 +230,8 @@
   }
  ],
  "fund": {
-  "price": 56.08,
-  "day_change_pct": -0.04,
+  "price": 56.09,
+  "day_change_pct": -0.02,
   "sma50": 55.52,
   "sma200": 53.53,
   "high52w": 56.67,
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-08-26",
-    "c": 56.08,
+    "c": 56.09,
     "t": "neutral",
     "s": 50
    }
@@ -1333,12 +1333,12 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 58) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 55) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.2) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1383,8 +1383,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.07,
-  "tbill_3mo": 3.87
+  "ttm_yield_pct": 8.06,
+  "tbill_3mo": 3.86
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 765.845,
-  "sma200": 708.9,
+  "price": 766.08,
+  "sma200": 708.91,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.45
+  "level": 15.21
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,50 +1516,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14900.0,
-  "dca_value": 19359.48,
-  "dca_return_pct": 29.93,
-  "dip_value": 19135.14,
-  "dip_return_pct": 28.42,
+  "dca_value": 19362.93,
+  "dca_return_pct": 29.95,
+  "dip_value": 19138.35,
+  "dip_return_pct": 28.45,
   "dip_cash_uninvested": 1100.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Fed\u2019s preferred inflation gauge shows core prices rose 3.3% annually in July",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPSVVsa2NwekdQT3BYM2xVT0g2YnNRZE5DVVJEVEo5Q0xkSXhnYTNlck5JQ1U2a2U3Y1dVdFZqMlU3ZU9CVzNFbVBpdERTSmtrZldKZUw5c1dSLVAxU3Q0bzUzZjAwNXFheGJGcDdjVEQtWU1sdlVkRUNLOExUdy1VVXBKR0t2VENtbzZoWDlzaUItZ0RNaURuUkUxOUxQMGdrN0hpNUpXVHNCS3JUTGp0b2VoWTNYdkh5TjQtZTNIQdIBxAFBVV95cUxNNy1Wc1cya0tNay0wRGduUFBkZnhtM2RlcVBIeVRzTmVSb0hTT3ZHMzk0dndGa1ZnUS1MdENyMzE3bHpySEQ1RmVjTjM5cFVWRDduTTJtWmNKVGV6MG9JZExkYnFCdVg2ZjB3a0o3amo3SkVLRDhNXzgweG9DZHYxamdKN05yMUlleVR5ZG5tUkNyR2ZpQjBOLWtUZmdmWXQ3aDlJRVFpUWROTnY4SDVycXdfTl9DMkl2RG5CVVR2bDRtNHl6?oc=5",
-   "published": "2026-08-26T12:32:36+00:00"
-  },
-  {
-   "title": "US rates need to rise soon absent evidence of ongoing drop in inflation, Fed's Collins says",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOQkp5RVU0RERWTS1JTmNjUUVaemRkWTZCTTF0Z2RDSFFMUElhX01sN1RuR29mc3hqZ1RlblQ4Rm9TZ3J2YkNmeGVSLURRa0cyS0FQWWswSWFfUkpvSk9WNkJuQnByRXljdmFSX1JtMENBS2dvLVFSUDdWZGlZSVdtNExkTlpuLTBCUmp3eEM0ZlBab1Fs?oc=5",
-   "published": "2026-08-26T11:30:17+00:00"
-  },
-  {
-   "title": "PCE Index Shows Inflation Remained Elevated in July Amid High Energy Costs",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5LRFJZdEo5MUY4dzA5VTF4OWJDa0dYVlBIUGFQb1N1RDZMVHRYNF9ycnlUdVVBeUgyMVVjMjNtb25VRnE2RWNSUk9LM1FKSjczMnVYeU5WLWFOa2pXUUZzY3ZRaEp3WDhUZXJrcjhSbGtmZFVkRlA5bnNn?oc=5",
-   "published": "2026-08-26T13:20:34+00:00"
-  },
-  {
-   "title": "July PCE inflation index held at 3.7% annual pace, slightly hotter than expected",
-   "source": "CBS News",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0tQmFCOGFTZkFwNW1ZM3Z5VnYtY2RDLVJBc1hhVGxEUmxSekVyMnY2bk5leXRfVHpwSllYeHYta00xdHhfT09kNjRMN2l4NmJDTE83ZkNVU3dEV3JnRXE3MVpSLXFINlJfUjEyU2hNejhFZ0FqOVpoT2xB?oc=5",
-   "published": "2026-08-26T12:54:26+00:00"
-  },
-  {
-   "title": "Dollar nudges higher ahead of US inflation data; Aussie gains on rate bets",
+   "title": "US says Chinese hackers broke into Justice Department, NASA, Federal Reserve, Senate",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQalFaeTZ2Tl9BS09vVjROdl84Z24tcVpyWWRLMVltR3hyQ1g5OThDMllnMGxscnZMWktXT2FxNVVMd1ZGTTVycFJMV0JVT202NFFncFh0MVRYUlBiLS1XWEVvUnI1dHNaMEt0TXgzanprZGp5MDRsRXl5cTVVRDZ0SjYwNXc0UUtGNWlMVDlQUE9MRk5EbDgzTFllcWlOZ3ZFWkM0MWFwOGYtYk9CRUl3bWNJVXk?oc=5",
-   "published": "2026-08-26T01:51:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPNWZiUFZqM2pSUlNEQmtJVEllRGF1a04tVG43Q0s2ZDYzME5GRlNsVEdaaW9ScDFDZFhyWElFbEVtQ1JGamZsMDRoaDhtRTJaQUNKaVh0VlpLYTBCVVRHUGtiWEZMdFBTTzBMdU5lV2tVUU11SUxubVVPcTNZVzRDM0Z4TGdDVVp4M085bXdmT1ZiV0Jvcjg3OC1QY0tYT1MtT0pxX3hIa0RZMFRLTTVuMElMY1I0VmFSY2c?oc=5",
+   "published": "2026-08-26T19:00:13+00:00"
   },
   {
-   "title": "The Fed Chairman Is Heading to Jackson Hole Without a Clear Stance on Inflation",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNZ3hkSFJpd2k4bDFPeTVGbkQ2WEljRFRfaE1GZmpkR1ZSVXJZQlJSR1RqMWVWR3k3SzNSY25EblFBOHp1NTluUHA0YmxWaUNZT3ZwN01fQy1GWmZpVFdIamJiOWFNbmFwNjdRV2poQTR4eWg3MTNoc0pJeVJKeHJ4ZFRTNUNidmNLSk5XZkx6T3ZiRTJtWW04S1FiSzRoOFBpNzRGUkdpNzF1Tm1ScUNVUDhjZjFPamx3S3RCcVIwbXlTbElaa01rMzlfLUg?oc=5",
-   "published": "2026-08-26T09:30:00+00:00"
+   "title": "Fed, NASA and DOJ among victims of Chinese state-sponsored hacker group: Court documents",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5YNG1sMXJ5ZGh6eXd0clE3YTJhUEN3ZndWclV2UGtvTWVSREdUZmwyd0VJTlN4YWNLa1lEeGc4Wjc1ZTdrNlBqQmNhV0sxSE82NXBzSjZyWFdJNlhOUGF3MU5QMzdsWFdVTFhFZDdVODJ5aUZ1OTZEYjVacUxhaGvSAYQBQVVfeXFMTVNhY0FuV1NqcDczTzRuVHhfLS1qaWdzak1CMGRCSGlmc2NxR1BVNVY4MGhXZ3VOZVVEcXk3Q09oX2lyYm4wMkt0cWxsMXQ2YWhVU3FuQjlTQ1BJQWJwd1ZtVTdmc19iVmxpVVV4Qnh5bzU4dUZCcjFVeVZzOXhiWTMwQjl3?oc=5",
+   "published": "2026-08-26T15:11:14+00:00"
+  },
+  {
+   "title": "Farm Finance Deterioration Eases Slightly - Kansas City",
+   "source": "Federal Reserve",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOdUZqck9hN3FfN0wwWkphQ3d3UElJeWhRNVkwUlBwMmtPZnUxTllBc1BIeG9vZUhtOHBGOW9jdWJSYUZXWm10LWE5aGh0LVVmdjItWV9YTkdkd1JpbHp0a21kUmx2RWFTN25fZURrbG5oTldlN19OX1lWUGhUVWl1dmlfdnh3SmRZdEVXeHhEZ2s1bV9OVnhLZFM0U3p1bG80QVpib1luRFAwNk8xZjNxOUxrdUFRazNaSUtVQjdDWGVSSTNuODRfTGlIaTE?oc=5",
+   "published": "2026-08-26T14:31:39+00:00"
+  },
+  {
+   "title": "US inflation holds at 3.7 percent in July, above Fed target",
+   "source": "Al Jazeera",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPRkcycVZ4MTRqczRFMkhLc253UmlvMTdUUnAzS2Y1aTZDU29Ddm9OVXVsMmZ2SWlyN1R0RWtFSXVCRllzOXkyMjN0ODY3YTA4ZE9CdDdGX0NGemZPSHdWLWJ3RlVHeFQwc3dOejc1WG12b01sMjBVb05vTjA3ZnkzbTROWTNVZ9IBiwFBVV95cUxORmI3VnJYRXI4YmxCMXFuazlkV2xTY0tsYzA4a2R5bTgzRE45TElfQmsxbkYzR2otbzI2aFZyZWtPdkE5cFZBNkVraDlmd0tBRTNBXzFYdnVVMDZDelQ2UWpicEpXak1KSkRMUlVZT2dyNTBXZG5ibkF0T0UzWFlWZHlxRURGSDJzeG1R?oc=5",
+   "published": "2026-08-26T17:33:01+00:00"
+  },
+  {
+   "title": "Financial Survival or Stability? Workers and the Job Market Weigh In - Atlanta",
+   "source": "Federal Reserve Bank",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQb2xsS2RsZ1hTbm5OZXpEWmxJcHM4U2ZYTENnLWJFbmstQmJKcWY0NUFJRGZOWGN6ZjBBSWwyZ0VJY19fY1lxZjNCV3JtWVpYRFo5c1FPSUcyYy13TXpKY2l5SUZaclIyMU9jOVE1dkQ0cXFaa1JqODd6YXlIdlBEU210Z3BCbDlPVmZlZjA3R1hzR0YxNHVFU0pzYXZqUF9lZHZ3LVYyQmd1TG0yLVVoajhmZVlKbjAtajNzZ0o0NVNVdWg1cV9MVGtxSUlxUQ?oc=5",
+   "published": "2026-08-26T18:59:40+00:00"
+  },
+  {
+   "title": "US says Chinese hackers broke into DOJ, NASA, Federal Reserve, Senate",
+   "source": "USA Today",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQVmRMNE4zQ0hPREwwa0UxMnJsVWdDU3ZMb3E0Z0JHMTFRek1EVjBfbzBycmg3VEY5cm1CSE5rLWpFTXZKTHRtREVLUXBPcXVZMDdfRW9ScUVnTVdMWXpwb3ZHNGdoN1FZQ25HRW5mb3hYbTlwWmUwV0lZcDl1TU1hdHA2S0YyVEMyNUZ1eWNwdG5Zb1kxZDhNTG1JVWFyTk4zNFdsdWZwYVhPaEVWYlo4?oc=5",
+   "published": "2026-08-26T18:28:00+00:00"
   }
  ]
 }
