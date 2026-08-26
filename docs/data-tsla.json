@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-25T19:43:55+00:00",
+ "generated_at": "2026-08-26T14:21:44+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
@@ -31,7 +31,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 100.0,
+    "pos": 94.7,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -48,13 +48,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "40% ann. (p35)",
+   "value": "38% ann. (p25)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "Realized volatility mid-range for TSLA's own past year.",
+   "lean": "bad",
+   "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 34.5,
+    "pos": 24.6,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -71,13 +71,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "28.1%",
+   "value": "28.9%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 56.2,
+    "pos": 57.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -111,7 +111,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.5 (p17), F&G 59",
+   "value": "VIX 15.4 (p16), F&G 58",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -119,7 +119,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 17d",
+   "value": "CPI in 16d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -127,20 +127,14 @@
   }
  ],
  "fund": {
-  "price": 351.99,
-  "day_change_pct": 0.87,
-  "sma50": 363.76,
-  "sma200": 402.29,
+  "price": 348.345,
+  "day_change_pct": -0.54,
+  "sma50": 362.47,
+  "sma200": 401.8,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 28.1,
+  "drawdown_pct": 28.9,
   "series": [
-   {
-    "d": "2025-12-05",
-    "c": 455.0,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-08",
     "c": 439.58,
@@ -1211,7 +1205,13 @@
    },
    {
     "d": "2026-08-25",
-    "c": 351.99,
+    "c": 350.25,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-26",
+    "c": 348.345,
     "t": "neutral",
     "s": 50
    }
@@ -1221,28 +1221,28 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 40%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 38%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-25",
-  "days_total": 708,
+  "end": "2026-08-26",
+  "days_total": 709,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-08-25",
+  "fg_coverage_start": "2025-08-26",
   "baseline": {
-   "n": 687,
-   "avg_pct": 2.54,
-   "median_pct": 0.12
+   "n": 688,
+   "avg_pct": 2.56,
+   "median_pct": 0.19
   },
   "bands": [
    {
     "tone": "good",
     "label": "Better-than-usual entry (score \u2265 69)",
-    "n": 7,
-    "avg_pct": 12.24,
-    "median_pct": 11.54
+    "n": 8,
+    "avg_pct": 12.37,
+    "median_pct": 12.42
    },
    {
     "tone": "ok",
@@ -1269,26 +1269,26 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 3.88
+  "tbill_3mo": 3.87
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 351.99,
-  "sma200": 402.29,
+  "price": 348.345,
+  "sma200": 401.8,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 39.7
+  "level": 37.6
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 22,
+  "days_until": 21,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 17
+  "days_until": 16
  },
  "earnings": {
   "next": null,
@@ -1296,20 +1296,26 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-08-25",
-  "end": "2026-08-25",
+  "start": "2022-08-26",
+  "end": "2026-08-26",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 29129.64,
-  "dca_return_pct": 38.71,
-  "dip_value": 29138.81,
-  "dip_return_pct": 38.76,
+  "dca_value": 28831.25,
+  "dca_return_pct": 37.29,
+  "dip_value": 28843.34,
+  "dip_return_pct": 37.35,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 206,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Stronger technical forecast for Tesla stock price after Tuesday trading",
+   "source": "StockInvest.us",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZXptbFJiTTFveUhMb2QtZUE3U19MNS1ueXdLMFJFdlQ2QzNMQ2RrZ043cGJsWnJLWThtdldUSmJtbDRTa2NDSXAyOEs0X2lwMDBVWWhZVGlGUG83a2dZUUVZSXUxcHF5cVBVSHlnVkxia1ZneGxINVlZTkI5cFllTmZyc2hoS1R0VjJ5V2pmc1NIcnRiMXJOajNxNFNCVXMzbzVwTTVpWm5XZ1dUZjl0NHJHTkVSNkk?oc=5",
+   "published": "2026-08-26T00:53:57+00:00"
+  },
   {
    "title": "Great News for Tesla Stock Investors",
    "source": "The Motley Fool",
@@ -1317,34 +1323,28 @@
    "published": "2026-08-25T09:40:36+00:00"
   },
   {
-   "title": "Tesla\u2019s Cybertruck Price Increase Shows Cost Trumps Demand",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPWFpueXlBTURHNmZxb3RoakZlVk9kMlA2aWlkajdVbnZ5UmZ4bnZQcFdfczJtR25JbTZ2dXpyNE5SNGdPQ3BPZURFOHFZUEFFWGQzOGRWRy1hc2FzRzc2UGtIRC1WeFRuZjAxNi11blZSbkcwOGtGakE4THkyQjVya3lTazB5UQ?oc=5",
-   "published": "2026-08-25T17:33:00+00:00"
+   "title": "The Real Engine That Could Power Tesla Stock Higher",
+   "source": "Trefis",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRkc5NmMyNXJrWDJVVjBVR1RLQUlyaEdfVHpta2FhOVZpM085OGdjblhCOTI1RXo1SFBnRVpmcTFlNGU2NEtIWG01ejlka0RyNV9EeThESE8wRkRZTWpHRG9JWWJOYm5pOHIzei1RQUNkazJjQlJpRENwMGRvbFRCdjc3dUpuVWk0YUtpT3ZYS0xlVm1oYWxLZ0NLdnVLUGd2cmhXeHZ3TFpnd2ZQU3hPLS1n?oc=5",
+   "published": "2026-08-25T20:40:47+00:00"
   },
   {
-   "title": "Tesla Hikes Prices For Struggling Cybertruck; Stock Faces Key Test",
-   "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOM3EwcXBOamY0MlNpYS1nSlpCVFk1RVpEcVBXUG1VcVF4M0JDblhQeWVLeXlTaV8tYTkyMHRfbm84T2pLZjJubDNVLWV5NF9TQTBIRi1lRzN5Vmo0RzRaandSMm1hMXdDRDBKdWRvMmNzZTczci1pbi0tcXYyMWh2bE13?oc=5",
-   "published": "2026-08-25T14:50:00+00:00"
+   "title": "After Earnings, Is Tesla Stock a Buy, a Sell, or Fairly Valued?",
+   "source": "Morningstar",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNOVdEaXFTSVM5MTB6anVqT1ZzN242dVZyeDdIc01GU2tRTzc4Vm1acTluTlctZXN4Q1lwRWpYeTl2Si0yOTdhbFBUSHBUdGNkMlBXcDM0NHlqX19wb3NqY2RPWVVHZ3BiaFh6ak9QVkdCRW1GMEQ1MFctSmJETmV5RmtUQnV2NDFaMkd1cEdlSHdGeVVqNW1tbW5HelUtTTk3WVhB?oc=5",
+   "published": "2026-08-05T07:00:00+00:00"
   },
   {
-   "title": "Huge News for Tesla Stock Fans",
-   "source": "TradingView",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxObFRiSm9HLTBFWmVOY0s3d1VILUJ2Y1JRTG44X2N0SjhzWmxxSTZuek43ZWxXb0ZIRlhQeHNsOWRWRGQzT2FPUVNxQWh3QjhTZmRHaTBVVzNwVFUzUTdpRTlQVHNVRFdrank2eFFRWV9NRUZSNXhqd3hzNzVreWRFU1F3Z3dkMGRITTdGbHRsQ2tsWEY5?oc=5",
-   "published": "2026-08-25T12:14:46+00:00"
+   "title": "TSLA Stock Races Past NVDA, GOOG In August Rally: Elon Musk\u2019s TeraFab And Semi Bets Shift Into High Gear",
+   "source": "Stocktwits",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNVkpKbEZ3QkRGRklQQm5tLWlZV2lmbjduZ0hLNmZyd0ozQkw2dS1JQXh2WDFXZ3l5Z2x2TzRZNTRlQUZmVkp6Q293TW9oTFdvYVktSVh2djBPMjBOai1PQUswaUt6RFgwMXI1cG5HX1RNa2hlRW9sazlUTE9zVnRHcHJTRW4wYkF5T3Iwd0I2c05YMklYSklZZm5LbGpRbHV2a09xc3JpLTgzNkFiUWNlWQ?oc=5",
+   "published": "2026-08-26T04:32:00+00:00"
   },
   {
-   "title": "Massive Call One-Year Call Options Buying in Tesla Shows Investors Bullish on TSLA Stock",
-   "source": "Barchart.com",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNekdFbERwYWtxQzZZYmViNUxqYnhZVFpJV2x1TkNZZ0pLSDU3OWtXRFRuQlFkWTY3TkZXcjZRYnE1bVRRajFRcEg0WGNsdWFDWHN0NlBKbzFSTTc5Y3BFYXhyWmlYbDZUclpHUG9aMzNndEZHTUdLd1NVY2JLWWpfNHVnVHZzTGVJTFVZVVB1NDg4LUhiTFI5TVloMzN2QmVDR2U4Q3BhQW10bm54UEcwRVl2R0tMWTRLNDRwdk40OHdrMWcxdlAwbHNvT00?oc=5",
-   "published": "2026-08-25T17:30:02+00:00"
-  },
-  {
-   "title": "Tesla (TSLA) Stock Is Up, What You Need To Know",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNQ0tWMmxIS0YwWEJua0ZlRGdPVVBhaWwyYk9yNlJLY2ZIUnJLZU94UGJZSXFndWotSWhreWc2Z0JQelBWZVlveVNVSXRRaUtPYlQxdFZWMkh3VWs1YUFlNHlNTVgtUWhpcE1Vc0w2OUZsaXlVclJiaGtBaExsTjZIYlktNjBKM0FiZWp5UDRxTQ?oc=5",
-   "published": "2026-08-19T23:10:02+00:00"
+   "title": "Tesla is raising Cybertruck prices by $5,000 as it settles into a luxury niche",
+   "source": "Business Insider",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE8yN3NGQmxTMzk3NEJHaVpXZVo2Vm5uTnRUWU1SWk9vRTl6TWw3UXNEdERTbW5MWUk5RU5yQUUxTDRyOXhBSndGOUotcFFzWk9mUnlJcXRxV3YyNDQwSUdiQldLZjQ5eHdTdXZxRS1sUWliVDhnWUI5cDV5U19IUnM?oc=5",
+   "published": "2026-08-26T08:39:00+00:00"
   }
  ]
 }

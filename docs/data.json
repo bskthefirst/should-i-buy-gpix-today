@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-25T19:43:53+00:00",
+ "generated_at": "2026-08-26T14:21:42+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.5 (p17)",
+   "value": "15.4 (p16)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 17.0,
+    "pos": 15.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 36.8,
+    "pos": 37.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+2.2 pts",
+   "value": "+3.8 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 51.8,
+    "pos": 65.1,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.1%",
+   "value": "1.0%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 11.0,
+    "pos": 10.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.69% (-0.10 1mo)",
+   "value": "2.70% (-0.11 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 17.2,
+    "pos": 17.5,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 41.9,
+    "pos": 42.0,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "59 (greed)",
+   "value": "58 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 58.8,
+    "pos": 58.3,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 17d",
+   "value": "CPI in 16d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 56.07,
-  "day_change_pct": 0.23,
+  "price": 56.08,
+  "day_change_pct": -0.04,
   "sma50": 55.52,
-  "sma200": 53.51,
+  "sma200": 53.53,
   "high52w": 56.67,
-  "drawdown_pct": 1.1,
+  "drawdown_pct": 1.0,
   "series": [
-   {
-    "d": "2025-12-05",
-    "c": 52.71,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-08",
     "c": 52.61,
@@ -1313,7 +1307,13 @@
    },
    {
     "d": "2026-08-25",
-    "c": 56.07,
+    "c": 56.1,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-26",
+    "c": 56.08,
     "t": "neutral",
     "s": 50
    }
@@ -1333,30 +1333,30 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 59) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 58) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.5) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.69%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-25",
-  "days_total": 708,
+  "end": "2026-08-26",
+  "days_total": 709,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-08-25",
+  "fg_coverage_start": "2025-08-26",
   "baseline": {
-   "n": 687,
+   "n": 688,
    "avg_pct": 1.7,
-   "median_pct": 2.06
+   "median_pct": 2.07
   },
   "bands": [
    {
@@ -1376,15 +1376,15 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 497,
-    "avg_pct": 1.28,
-    "median_pct": 1.74
+    "n": 498,
+    "avg_pct": 1.29,
+    "median_pct": 1.75
    }
   ]
  },
  "income": {
   "ttm_yield_pct": 8.07,
-  "tbill_3mo": 3.88
+  "tbill_3mo": 3.87
  },
  "distributions": {
   "history": [
@@ -1493,73 +1493,73 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 765.57,
-  "sma200": 708.43,
+  "price": 765.845,
+  "sma200": 708.9,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.46
+  "level": 15.45
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 22,
+  "days_until": 21,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 17
+  "days_until": 16
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-08-25",
+  "end": "2026-08-26",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14900.0,
-  "dca_value": 19356.03,
-  "dca_return_pct": 29.91,
-  "dip_value": 19131.92,
-  "dip_return_pct": 28.4,
+  "dca_value": 19359.48,
+  "dca_return_pct": 29.93,
+  "dip_value": 19135.14,
+  "dip_return_pct": 28.42,
   "dip_cash_uninvested": 1100.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Central banks go their own way",
-   "source": "ADP Research",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOTVd6RTBUUExzQ1pZdUZkZlVBWFprLS1raWoxSko3YmhENzVFQXhVRG9qRVRRWGxXcmFiemFfRzlsQXpQRjZyZlczRW9mdGc1T0p1Y291TkZLTWJ2U05KelNsRXFEUWFjYkdmcnhrSnJ4LS1BWkVidGFEWkpCdjd1aWVn?oc=5",
-   "published": "2026-08-25T12:16:25+00:00"
+   "title": "Fed\u2019s preferred inflation gauge shows core prices rose 3.3% annually in July",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPSVVsa2NwekdQT3BYM2xVT0g2YnNRZE5DVVJEVEo5Q0xkSXhnYTNlck5JQ1U2a2U3Y1dVdFZqMlU3ZU9CVzNFbVBpdERTSmtrZldKZUw5c1dSLVAxU3Q0bzUzZjAwNXFheGJGcDdjVEQtWU1sdlVkRUNLOExUdy1VVXBKR0t2VENtbzZoWDlzaUItZ0RNaURuUkUxOUxQMGdrN0hpNUpXVHNCS3JUTGp0b2VoWTNYdkh5TjQtZTNIQdIBxAFBVV95cUxNNy1Wc1cya0tNay0wRGduUFBkZnhtM2RlcVBIeVRzTmVSb0hTT3ZHMzk0dndGa1ZnUS1MdENyMzE3bHpySEQ1RmVjTjM5cFVWRDduTTJtWmNKVGV6MG9JZExkYnFCdVg2ZjB3a0o3amo3SkVLRDhNXzgweG9DZHYxamdKN05yMUlleVR5ZG5tUkNyR2ZpQjBOLWtUZmdmWXQ3aDlJRVFpUWROTnY4SDVycXdfTl9DMkl2RG5CVVR2bDRtNHl6?oc=5",
+   "published": "2026-08-26T12:32:36+00:00"
   },
   {
-   "title": "The credibility of the Fed, the world's most powerful financial institution, is at risk",
-   "source": "Le Monde.fr",
-   "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQN0R4U2JEc0EyU3MyV3VrYnpvS3JNLW5yMFZrOVFwdzJILUpUS21FelBob2RXdVNnRGJ5aldJX3RVTVFQM1BJSUktRVRURVI5ekcwamxGZ2NvY04tOGkyYjlnM3ZnVW9tSmJURVo0ZjgyTU4wX1NfLXAzdU05d1BBTnF6bERSYTBWamNpR2djUDdaSlRuRVhUeHhZc2RFZFVrdHhOWG1rVXc1V0pfdUU4eWgtUmxBZU5ReE8xT3pIZkdqUEFBUzBKZm9nNHFWTlpVNmNiLTdTZkR6OC1TZzF1Z3BhNkcwTm1DWGpRRjBac1BqRHJJRWUtRnRHTS1EQQ?oc=5",
-   "published": "2026-08-25T03:00:02+00:00"
+   "title": "US rates need to rise soon absent evidence of ongoing drop in inflation, Fed's Collins says",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOQkp5RVU0RERWTS1JTmNjUUVaemRkWTZCTTF0Z2RDSFFMUElhX01sN1RuR29mc3hqZ1RlblQ4Rm9TZ3J2YkNmeGVSLURRa0cyS0FQWWswSWFfUkpvSk9WNkJuQnByRXljdmFSX1JtMENBS2dvLVFSUDdWZGlZSVdtNExkTlpuLTBCUmp3eEM0ZlBab1Fs?oc=5",
+   "published": "2026-08-26T11:30:17+00:00"
   },
   {
-   "title": "Trump\u2019s new attempt to seize control of the Federal Reserve, explained",
-   "source": "vox.com",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNamljNUxaUDZzT2gzSXRWRHFKNHYyN185Y1c4cDYxQldlcUFSeDhxd2lSWlJ3dVJyckdXemlLVVc1OVNydnBwU2FVb1l0UnNyRHNKWmZXUWVHcUZVVWlIWkxTdjNyWjZqNi1ZMGxoaC1UbFdTYllLREpsY0FzZk5qTFhmTXdQT2Vj?oc=5",
-   "published": "2026-08-25T10:00:00+00:00"
+   "title": "PCE Index Shows Inflation Remained Elevated in July Amid High Energy Costs",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5LRFJZdEo5MUY4dzA5VTF4OWJDa0dYVlBIUGFQb1N1RDZMVHRYNF9ycnlUdVVBeUgyMVVjMjNtb25VRnE2RWNSUk9LM1FKSjczMnVYeU5WLWFOa2pXUUZzY3ZRaEp3WDhUZXJrcjhSbGtmZFVkRlA5bnNn?oc=5",
+   "published": "2026-08-26T13:20:34+00:00"
   },
   {
-   "title": "'Many' Fed officials think higher rates will be needed if inflation stays high",
-   "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQX0hhVDlqaTItMnN5c1RjYVJTYnJNUkNJVmNvUXRqYk95bUtsYVNNanFTVl9jbjNWYWtGRjFGM213RHpBVHE5SDNMdjhDTGNMRkx6Y1FWQ2JoRUxqZGFuQjRDRkNCbGk2a0QtSG81TlRHSHN6aV9SU0xtNkxuVURCcUtJajZQbnlOMlV2a2NRM1VwZ1pLYmpEckZaQS0wYjhGLURSeVVkM0lxU05GaFNqWUZDZ9IBuAFBVV95cUxOcFFEcWZYcVdLMDVPSUFQMFdfaEU4cHB4SnBOY01LQnRub1U2N19rWG1SVGljdTdudVlaRENrT3pEbjNES0F4QzVGa1ZxQWduUDJEckhoY245VVlQdmhhRW0zdWVVYmR1ZFZSQ0cxVl9OaUJlelZzQ2pleTRqRzBBSEhKVmlJTFR6dE1WeXpmZzBtcDUwWkhOVFpVS2htNXIweWVLd0ZBbzlMQ0NzNDc0SkFwOUJLTlY0?oc=5",
-   "published": "2026-08-19T21:19:43+00:00"
+   "title": "July PCE inflation index held at 3.7% annual pace, slightly hotter than expected",
+   "source": "CBS News",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0tQmFCOGFTZkFwNW1ZM3Z5VnYtY2RDLVJBc1hhVGxEUmxSekVyMnY2bk5leXRfVHpwSllYeHYta00xdHhfT09kNjRMN2l4NmJDTE83ZkNVU3dEV3JnRXE3MVpSLXFINlJfUjEyU2hNejhFZ0FqOVpoT2xB?oc=5",
+   "published": "2026-08-26T12:54:26+00:00"
   },
   {
-   "title": "Fed May Need to Tighten Soon Without Progress on Inflation, Fed\u2019s Collins Says",
+   "title": "Dollar nudges higher ahead of US inflation data; Aussie gains on rate bets",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQalFaeTZ2Tl9BS09vVjROdl84Z24tcVpyWWRLMVltR3hyQ1g5OThDMllnMGxscnZMWktXT2FxNVVMd1ZGTTVycFJMV0JVT202NFFncFh0MVRYUlBiLS1XWEVvUnI1dHNaMEt0TXgzanprZGp5MDRsRXl5cTVVRDZ0SjYwNXc0UUtGNWlMVDlQUE9MRk5EbDgzTFllcWlOZ3ZFWkM0MWFwOGYtYk9CRUl3bWNJVXk?oc=5",
+   "published": "2026-08-26T01:51:00+00:00"
+  },
+  {
+   "title": "The Fed Chairman Is Heading to Jackson Hole Without a Clear Stance on Inflation",
    "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOaUFna19Hc2pnbllRaGVFYzRyQlhvcEFGVHhDQ2luTkFzVXFzbnlhSHdnX1JoV2tXRC00S0hNS1lBYjFrRHBCUncyRjVPcGg2WjdMODltVGJHaEdaN0ZGYjlmYjVRdWYxdEdIdjBRNEJuQjMxbVBnZEVmcGFuaU5PempvdWE5S2FIbjdtNG5nX3FTdmlIVU1Dcm5RWWNrZVNjaEV6U3owUDFQZy1qMjFPdFdFSmdkNUlaNWRKTGhQUFlHYnM?oc=5",
-   "published": "2026-08-25T15:28:00+00:00"
-  },
-  {
-   "title": "Fed\u2019s Collins Says Holding Rates Hangs on Inflation Progress",
-   "source": "Bloomberg",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOdzYtTVBCMWMyNU5ha2VpREFERTZlMUhFdnlJQXRZNGQ2Nm50REhDLThtYktoQ3JpdVVoTE1Ia2tGVDBGQ0ZLMmRJWjFoeXRrTXJleTZrZU1BV1NlNHNJbE9YUDRWUFFHMVVJaGZLaDQ5U3B6NXpSVjZlaEhjcEd4clFrV2JLZGc4d3dreFBDTzdubGJzcUYxLVk2MTZteWRUU2RLRTFPOE5ubzlSZndvcA?oc=5",
-   "published": "2026-08-25T14:54:04+00:00"
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNZ3hkSFJpd2k4bDFPeTVGbkQ2WEljRFRfaE1GZmpkR1ZSVXJZQlJSR1RqMWVWR3k3SzNSY25EblFBOHp1NTluUHA0YmxWaUNZT3ZwN01fQy1GWmZpVFdIamJiOWFNbmFwNjdRV2poQTR4eWg3MTNoc0pJeVJKeHJ4ZFRTNUNidmNLSk5XZkx6T3ZiRTJtWW04S1FiSzRoOFBpNzRGUkdpNzF1Tm1ScUNVUDhjZjFPamx3S3RCcVIwbXlTbElaa01rMzlfLUg?oc=5",
+   "published": "2026-08-26T09:30:00+00:00"
   }
  ]
 }
