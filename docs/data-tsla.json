@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-08-26T21:48:50+00:00",
+ "generated_at": "2026-08-27T14:30:18+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true
  },
@@ -31,7 +31,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 89.9,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -48,13 +48,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "38% ann. (p26)",
+   "value": "37% ann. (p21)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "Realized volatility mid-range for TSLA's own past year.",
+   "lean": "bad",
+   "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 26.2,
+    "pos": 21.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -71,13 +71,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "29.4%",
+   "value": "28.1%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 58.8,
+    "pos": 56.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -111,7 +111,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.2 (p12), F&G 55",
+   "value": "VIX 14.7 (p5), F&G 59",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -119,7 +119,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 16d",
+   "value": "CPI in 15d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -127,20 +127,14 @@
   }
  ],
  "fund": {
-  "price": 345.82,
-  "day_change_pct": -1.26,
-  "sma50": 362.42,
-  "sma200": 401.78,
+  "price": 352.36,
+  "day_change_pct": 1.89,
+  "sma50": 361.38,
+  "sma200": 401.4,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 29.4,
+  "drawdown_pct": 28.1,
   "series": [
-   {
-    "d": "2025-12-08",
-    "c": 439.58,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-09",
     "c": 445.17,
@@ -1214,6 +1208,12 @@
     "c": 345.82,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-08-27",
+    "c": 352.36,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1221,28 +1221,28 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 38%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 37%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-26",
-  "days_total": 709,
+  "end": "2026-08-27",
+  "days_total": 710,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-08-26",
+  "fg_coverage_start": "2025-08-27",
   "baseline": {
-   "n": 688,
-   "avg_pct": 2.56,
-   "median_pct": 0.19
+   "n": 689,
+   "avg_pct": 2.58,
+   "median_pct": 0.25
   },
   "bands": [
    {
     "tone": "good",
     "label": "Better-than-usual entry (score \u2265 69)",
-    "n": 8,
-    "avg_pct": 12.27,
-    "median_pct": 12.01
+    "n": 9,
+    "avg_pct": 12.92,
+    "median_pct": 12.48
    },
    {
     "tone": "ok",
@@ -1273,22 +1273,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 345.82,
-  "sma200": 401.78,
+  "price": 352.36,
+  "sma200": 401.4,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 38.0
+  "level": 36.9
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 21,
+  "days_until": 20,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 16
+  "days_until": 15
  },
  "earnings": {
   "next": null,
@@ -1297,30 +1297,42 @@
  },
  "backtest": {
   "start": "2022-08-29",
-  "end": "2026-08-26",
+  "end": "2026-08-27",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 28502.23,
-  "dca_return_pct": 36.37,
-  "dip_value": 28510.68,
-  "dip_return_pct": 36.41,
+  "dca_value": 29041.25,
+  "dca_return_pct": 38.95,
+  "dip_value": 29049.86,
+  "dip_return_pct": 38.99,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 206,
   "winner": "dip"
  },
  "headlines": [
   {
+   "title": "Why Nvidia Earnings Matter for Tesla Stock: AI Compute and FSD Training",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOTF9tVTUtTXQ0VUw1Q2lfa21iY3NRUFdPaXdtQTBOZm9iTUxnVDNtaWRPODVlbEJGLXdZbXE4bE00LTl0eTlKV3o3ZWxCNElQQnBNM2MwTUFyRlVQSjFEdWVvYklnNEVnNWU0ZVhHQ2FneGhYbmJ0ZE1IMHZDV0NPRjNmS0dkbFozZWlsOWlfMHVJUHpTZ2c?oc=5",
+   "published": "2026-08-27T12:42:00+00:00"
+  },
+  {
+   "title": "Tesla (TSLA) Stock Looks Overvalued Following Its 41% Five Year Gain",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPS09iRkhDQVdYdGFpdW85NUg5YW5vTzBnWEFDSXoyQ0hxR21GanJ0SDJXMFh5d3JKRmRkaXZUZkdjYXJMeWwteDA2OW10cTdESi1UdHFGWHNBbGliR1RQNjZHQWIzNUUyMndYeXRSSWZ1WjAtS3JtVUdsY1B6MlZLbDdrb1E3ODkyVFNXT0JkMGpOTEhIaWFucmU1UkZ2bGc?oc=5",
+   "published": "2026-08-27T01:09:00+00:00"
+  },
+  {
+   "title": "The Demand Signal Underneath Tesla Stock\u2019s Cash-Burn Debate",
+   "source": "Trefis",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQczZPdmRndWg5NFZmSlUxSlhodXh4aTRFX0NQdWNfV25tVmxWZDRxRHAzakJfclJWQmlaMGlxMkxlRy0wN3N3aHV3TGlKaDhWVWZOWkptSHdvUEY4RkxMT1c2YXVjck1VSkFyMlJ2OGx1OVlHcVZJeUdNRldhZElwa2s4dG51MktxOGRXVktCRjJDTmFnS2dHaWxxZjY2WlpkV2NSNlFnd015Q3RSSGpGMXdmNi1tNV9yQU1N?oc=5",
+   "published": "2026-08-27T13:34:09+00:00"
+  },
+  {
    "title": "Great News for Tesla Stock Investors",
    "source": "The Motley Fool",
    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOLWdrNXNBWG5SYmxoYUVZSEVVVzlhTnBINy02MzlNQ24yTFRjYnBuNDZXUUdiMUd3Y1U1YUlwSXpoanZZSllGQkFkYmZ0bGtoRWloaTFwNHJKbGZvZjVHZTZ4cmJvQzZ3eDYwQ3o4TmZrdUk1Uk9NLXBRN0VUekpqQjk2WEZSdw?oc=5",
    "published": "2026-08-25T09:40:36+00:00"
-  },
-  {
-   "title": "Tesla Reportedly Says China FSD Work Continues After Website Omission Sparks Shutdown Claims \u2014 TSLA Stock Slips",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQaWNQZVA5YUdDV1I4alUwTXgyTFZfN1BTVjV5THl0OEhBUUctYy1yOVh6bUJGaVhpSEc3dWkwamIxVWFGYjBIYWVaNnhtMU9iV1d4UTFZbUpYa3FvbF9fT2J1VzctSHlEZDFtTTFJQlktMUlEdU4xeWQtOHRwOHVOeHVZclpQZURYXzd4Z3J6anB6VnFaT1BKRXhGTzc?oc=5",
-   "published": "2026-08-26T18:56:28+00:00"
   },
   {
    "title": "After Earnings, Is Tesla Stock a Buy, a Sell, or Fairly Valued?",
@@ -1329,22 +1341,10 @@
    "published": "2026-08-05T07:00:00+00:00"
   },
   {
-   "title": "Tesla Just Lost Its Top Chip Engineer to Another Firm. Consider It a Manageable Setback for TSLA Stock.",
-   "source": "Barchart.com",
-   "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOZy1Kb29BRVhWY2xRaEFVcTI3dkQ0OHhjTWRqZnE5aG8tNnEtbkZmWVZoeTZXSE5aSi1HNHhHOGdRWnRpWFptZVp1WF9VOFVCMENYNzZsVUF3RmQwSTZuM1dVWmRMTURTNWlxMVFjWUpXT2FsaGJ1Q2FNSUVPVGx5SmotT3VXS2NzTmM3bzNhTzZhVHZUbUpVVHhYcGE2NWRLR0RESWhYOUpJYk9waUNRSnJ6Ql9aRFpnSzV2UVV0X085RzdDVUswS0cwd3JZamItY1lZUTd6WFY4NG9TMFE?oc=5",
-   "published": "2026-08-26T18:33:04+00:00"
-  },
-  {
-   "title": "Tesla: Potential Merger Has Some Upside, But I'm Still Bearish (Upgrade) (NASDAQ:TSLA)",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNaEU5SUV1S2ladVYxWEpLLUJZM1lEOXlLTzhvSVgzZ2dyUU9Eb2R5M3JZX212Yl9Kclk5bVAyaldJRXBsSzFQUEx5MU9mSnVHQWgwNkNhX1BXSzZOSWZCbVJZQ0NXRnBLZHMyQ0ljejBMSFk5dUpGRTM4dUU4XzM1MVl1T1lIRGdjbGV6Zm4xODlseE1pM3JPM2xWc2J3bzNwTEw0N2Flc1BkYVJf?oc=5",
-   "published": "2026-08-26T17:40:30+00:00"
-  },
-  {
-   "title": "Tesla Reportedly Says China FSD Work Continues After Website Omission Sparks Shutdown Claims \u2014 TSLA Stock Slips",
-   "source": "TradingView",
-   "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPcmpaMmt0U2gzaHVlcTZwVDJrREFuSHhVV0ltMi12R0VqejA3ZXljZTI5MzI2ZF85ejJ4NHkxQnVJY0FyZUdIcWFZc05LejdFMVNFekZad1dKaXNjRHo0ekdBWEs4NEFlWGNMaTkxVkhEMTVFVjMtQ1lTM0pXVDNpYzV0SmJpNVA0VEg0TExlMzhiY2x2Wmk2SllNb054Tk9WSnhmMUtud2R3dFFzZWRkQzJZR1dEd3p6YUl2S2o4SzYxR0h3ZFVFNDBHTmU3X1M5bFhDVXNsbWdydy1HZkJYQld4RktvYlVrRVBiMjhmVXFtSWpOczRQUWU3RjlEWUE?oc=5",
-   "published": "2026-08-26T18:56:28+00:00"
+   "title": "Tesla Stock Leads 3 Founder Led AI Infrastructure Picks Investors Should Watch",
+   "source": "simplywall.st",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNR3BEaExMenNFYVI0cXJXVnpGVFlneDFvS01rRzIxZjZIWlUweXNkR3liUkhOcHJCWi1vZ2NZbVpubHhmd2JVXzFTLVFHRHEzc3JUZ1BuWjdENHFkTTdjUk9Fb2xhRWFnYkdqQXdDVklscUstTTVNNUlXVUxqM3JLaXdwN0RTeXF1VTlRdDl1OFpHRkp6bmFKcG1xOUd2bjd4b2ZpN05va3YzcU1pSEhKMVBsMnpIVmZJSms1OFhpVnNtb28zX0HSAcsBQVVfeXFMTktaOHlmWFJhMWQ0RWp6Q044LURRMEZ6dDJVLW1rR242VzUtVG11Xzh3SXVwR3lLZ3V0cHFKS3NjVnRrNzFrUEFLYnMwT2ZkdDRKMmk1Mzd2alNzNGFHSUhzaU51aWI2QzkwMzZLUWtDaDc0b2RENWV3U0EwNGRDcndOdW1mY2x3NTJaQktoUW9SaFl5eFd2cFZBc0JVZjg1VW9jb25JME54RGtPdGZTOXpROGNpbk5DZEpuRGJEOWxwdU10VlVSUDZjZGM?oc=5",
+   "published": "2026-08-26T23:45:30+00:00"
   }
  ]
 }
