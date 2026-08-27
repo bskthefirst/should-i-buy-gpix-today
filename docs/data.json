@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-27T14:30:15+00:00",
+ "generated_at": "2026-08-27T23:02:22+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "14.7 (p5)",
+   "value": "14.5 (p4)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 5.1,
+    "pos": 3.6,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 32.6,
+    "pos": 31.6,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.3 pts",
+   "value": "+4.0 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 69.3,
+    "pos": 66.8,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.6%",
+   "value": "0.4%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
-   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
+   "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 6.0,
+    "pos": 4.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+2.0%",
+   "value": "+2.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 66.7,
+    "pos": 68.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "59 (greed)",
+   "value": "58 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 58.5,
+    "pos": 58.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 56.325,
-  "day_change_pct": 0.42,
+  "price": 56.42,
+  "day_change_pct": 0.59,
   "sma50": 55.54,
   "sma200": 53.55,
   "high52w": 56.67,
-  "drawdown_pct": 0.6,
+  "drawdown_pct": 0.4,
   "series": [
    {
     "d": "2025-12-09",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-08-27",
-    "c": 56.325,
+    "c": 56.42,
     "t": "neutral",
     "s": 50
    }
@@ -1323,7 +1323,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.97 (-2.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.97 (-2.6% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1333,12 +1333,12 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 59) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 58) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 14.7) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.5) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1383,8 +1383,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.03,
-  "tbill_3mo": 3.86
+  "ttm_yield_pct": 8.02,
+  "tbill_3mo": 3.85
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 769.555,
-  "sma200": 709.4,
+  "price": 771.1,
+  "sma200": 709.41,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 14.72
+  "level": 14.51
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,50 +1516,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14900.0,
-  "dca_value": 19444.05,
-  "dca_return_pct": 30.5,
-  "dip_value": 19213.92,
-  "dip_return_pct": 28.95,
+  "dca_value": 19476.85,
+  "dca_return_pct": 30.72,
+  "dip_value": 19244.47,
+  "dip_return_pct": 29.16,
   "dip_cash_uninvested": 1100.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "The Fed Chairman Is Heading to Jackson Hole Without a Clear Stance on Inflation",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNZ3hkSFJpd2k4bDFPeTVGbkQ2WEljRFRfaE1GZmpkR1ZSVXJZQlJSR1RqMWVWR3k3SzNSY25EblFBOHp1NTluUHA0YmxWaUNZT3ZwN01fQy1GWmZpVFdIamJiOWFNbmFwNjdRV2poQTR4eWg3MTNoc0pJeVJKeHJ4ZFRTNUNidmNLSk5XZkx6T3ZiRTJtWW04S1FiSzRoOFBpNzRGUkdpNzF1Tm1ScUNVUDhjZjFPamx3S3RCcVIwbXlTbElaa01rMzlfLUg?oc=5",
-   "published": "2026-08-27T13:03:55+00:00"
+   "title": "Fed Governor Lisa Cook responds to Trump administration\u2019s letter stating that it is \u201cconsidering\u201d her removal",
+   "source": "SCOTUSblog",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPUXhaRFNoNjRkb3dQNU9BWUs2OVVGWV9Ob3U1S3VHQ21oRU9fbThqYU95WUlmRzF2Rl9ydmRrUTRJWFFnTDhrLUVQV0FabEwxaGcycWJndVNjUDFZYURGRHc5MG5pWjliWmVFUmpzbzZBNVdmWmpoZDBONHhSLW4yMFB1R25uS0ZjZzFydV9kNVN4U01mMHdJNnF5aEJPOFNHZ0VIZUkxa2kxTEFXaW5WMUJZOEQ5M0lsZXNTQlB6Nm5nYjVmVWRZLWFpQXQ?oc=5",
+   "published": "2026-08-27T14:15:38+00:00"
   },
   {
    "title": "What to know about the Federal Reserve's big Jackson Hole conference",
    "source": "Axios",
    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE53RDQwYVVqdTBubGE3dWdpVmlqbWdUNVF1a0ZYMFBQRHRTdFVEY0dHUEM1bDZYXzN1Qkw4bm5YVS1MY2RhMndwa1RrQjcwUmtMQUJqNUt0ZmJzZ2o4akJwcG5EaXhLeHNEeUJndWN3?oc=5",
-   "published": "2026-08-27T12:02:03+00:00"
+   "published": "2026-08-27T11:53:17+00:00"
+  },
+  {
+   "title": "Fed's Hammack says 'now is the time to act' on raising interest rates",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOYzhMUzYyajNpakhHREF2VjBuaGFYbzQ4VXd6dUtNMTV0VHBJcVh2a21Lb0pSZFNTaVFHczdHeEUzT1JmRnFWMmQ4bm1hZC1XNlQxeWFpV2FUazVIVXQzZWl3QkM4TGZxak4wUWwxU0dKNW5BUHVWVS01NWMyXzlqODE5ZzRZenZIRGNubjdLeW5OZVdSZHNlSG1SZTJ4M202VjZmZUxn0gGrAUFVX3lxTE55QjRqWHBxbVNNakk1RDlBZTNVTkJEZUljbS1wUXFCVE5XdVhMMFlOOTNwQTJ5YTAxM1RiNDVtQVJHVWctV1JwMXN2Z29HUkNiU2NvWnVyWjFUclFpWm9RektWNFBGR3hQclNjcTE3Y09rRWtTRG5hR1FPNVJEdjA3UzBDc2lxSmswV3U0N0ZWd00xTGlyMUgtXzdjYWc1aHhMLTBBd29PUFdrdw?oc=5",
+   "published": "2026-08-27T14:27:17+00:00"
   },
   {
    "title": "Fed's Warsh faces challenge whether inflation is a problem or not",
    "source": "Reuters",
    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNX1ZsanZDSzJVV2VrSjFWbXF5ekhONEFsQkg1ZjJERUVsQTJUV3NtUHU5MUVVNjNfRG14WEtFM25TMUxOX2EyRW5MRzRweUFORWJuY201MWZmVG10amNxOFQ4b0FiT0lnejV6Q3UxNGJ5RXZTQnhSWVpwd1A3bHV3QnM0U1NSWEpWSGN0RUFLd3JFTjdFR1VtTEZTNU5PMHRDMHlqaVllREMxRDg?oc=5",
-   "published": "2026-08-27T13:46:12+00:00"
+   "published": "2026-08-27T15:14:10+00:00"
   },
   {
-   "title": "While Long Islanders struggle with inflation, the Federal Reserve fiddles",
-   "source": "Long Island Business News",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPM1NUU3V1QTVGWXgzOXlEYjZ3Skp0VWdUUzdkM1Q3cWlTeHFwYVlrSFZmclpZVnNqQVpheXFwS1ZzTE5aT19XeVVfUXFSZUhpMENLWG1yNVJETFZOaV9WVUZzOGZ3bGNsZlFadDRUVDNwa3VveVg1TjRIdDVLRHhuT2MxNjdvakg3SkR3?oc=5",
-   "published": "2026-08-27T13:45:35+00:00"
+   "title": "New Fed chair Kevin Warsh under pressure to clarify views on inflation, interest rates",
+   "source": "AP News",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNQ0haYVBvVFJqZ2FhYl9lalJicEl6eU1ucWdjUlJ0OWpqQzItdGF3d1pyTWpnRlZaT3lEaE1pRjg0RHJUQXlOT2VicWN1WE5tVm9Hd1VwZlpjQTVJMVJHTy1hbEcxTUdBei1hbE5fTnZZcnI1ci11ejRNd21ULWkzZDBBMkRkUXQ4a2FtMEV2aE5VTmRiRmRPZFc3N2RfcUtCTFE?oc=5",
+   "published": "2026-08-27T12:58:00+00:00"
   },
   {
-   "title": "Fed Chair Warsh faces Jackson Hole spotlight with inflation, rate path in focus",
-   "source": "Fox Business",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQb3ZyLVkyY1hYUkh5b1BRUXhBenQ1bnE0c2ZIeDVreEFOd0R1bjB4TXV4ZmdKQW1YUm0xdnprdG5aakNOODZzLUJabXhzRlZuS1VNanJfcV92TFJXZnNiTDhKSVQ2ZjdPaXVzdzB2a003MjZOVmY5Z0IyVkRwUXhBUUN1bWM0NmRfYkRIRVdaZzN6Ukg0dl9neW5jdFdWejExcGxpTFp5ckJhd9IBrwFBVV95cUxQaGN3cmVnOXdMQ3JnSGZoV3dkNU5GVkdDWFFwVmpObjRnYjBaOEpZMngwdTNOeXFZS2FXdGlVSklLOFhQVHJGcUgtalkwZEdncm5OOWFGVklxQTB0alJHZ1g0dUlhdVRqejZsbmVCVG1MZGJiM1ZTNVpBVkQ5dlFjRkZVUGhsSlNiYzNrRFBMWFo1NVZiZXUyZzZlc0ViTmNfMnRGMTcyNHJrX1c2YXpr?oc=5",
-   "published": "2026-08-27T10:00:00+00:00"
-  },
-  {
-   "title": "Underlying Inflation Dashboard - Atlanta",
-   "source": "Federal Reserve Bank",
-   "link": "https://news.google.com/rss/articles/CBMiogJBVV95cUxQQll3dndIems5RVBrbzRDd3ZiVE9wUm5YMDdzSDVKMFBXdzYtbXlBX2E3SVNwMFlZVzNjV2JmdWp2WXNaYU5xaW1yZ2htWmptb2M4Mk5CeXZDXy1EUTU2WXhHRUx1NXU1dWU0NWFYT21KZnppaFdQRkM4TWhMYllET1l2SWIwZ1kxcEFOWXNqM1lJZmZSWEVTTFJCTHRCUnlNTGhXak56dEVjbHFUWDBQLTBRcHZUdmNreERuelB4cmJDZjZYUkhsV1h1eEhsT2hlSW5ZUld0MnFremwxQ050UkdYSkM3ZlJGMlhIOXZJRWVLdmIzdnpQQ2x5NjlrSExHM3NPRnFiazRJZmVZaG9tQ2lRaWFvWmk2OWxDSVB4SUM0dw?oc=5",
-   "published": "2026-08-26T22:29:56+00:00"
+   "title": "Tenth District Manufacturing Activity Increased Further in August",
+   "source": "Federal Reserve Bank of Kansas City",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPQ25Bd2JVdTFldDdCN3dZUTBWWE15OUVxU04xMXJRdDNON1M3LWN4b09BaVQxSHJnZk1ueHNXR3JSWVZBQ2xaUkhHd3FBS2lMNENqUVVnWDgzeFZVSjJSOWpiZEhlX0Vubkd2WXB2dXRVNXgyZnlTZE1OZ3NsTUxFNk5janpNSkN0SWpyR01aS3dzMk1uc29JRnhNbU1va01BU1NWS2Itekg5Ymk4TEJzX01BTnZLd0p6Tm55LVg1NWswM1B5WXpTcEtB?oc=5",
+   "published": "2026-08-27T19:30:00+00:00"
   }
  ]
 }
