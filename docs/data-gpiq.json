@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-28T14:30:13+00:00",
+ "generated_at": "2026-08-28T23:10:40+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "20.8 (p27)",
+   "value": "19.9 (p13)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
+   "lean": "bad",
+   "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 26.6,
+    "pos": 13.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 32.5,
+    "pos": 31.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.42x (p75)",
+   "value": "1.38x (p72)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 75.0,
+    "pos": 72.1,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+2.8 pts",
+   "value": "+1.7 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 56.7,
+    "pos": 47.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "2.3%",
+   "value": "2.7%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 23.0,
+    "pos": 27.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+1.0%",
+   "value": "+0.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 58.3,
+    "pos": 55.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "9.9% vs 3.9% cash",
+   "value": "9.9% vs 3.8% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 60.5,
+    "pos": 61.0,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "56 (greed)",
+   "value": "54 (neutral)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 55.5,
+    "pos": 54.4,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 57.165,
-  "day_change_pct": -0.13,
+  "price": 56.93,
+  "day_change_pct": -0.54,
   "sma50": 56.96,
   "sma200": 54.36,
   "high52w": 59.52,
-  "drawdown_pct": 4.0,
+  "drawdown_pct": 4.4,
   "series": [
    {
     "d": "2025-12-10",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-08-28",
-    "c": 57.165,
+    "c": 56.93,
     "t": "neutral",
     "s": 50
    }
@@ -1350,7 +1350,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.73 (-0.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.73 (-0.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1360,12 +1360,12 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 56) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 54) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 20.8) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 19.9) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1397,7 +1397,7 @@
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
     "n": 137,
-    "avg_pct": 2.63,
+    "avg_pct": 2.62,
     "median_pct": 2.79
    },
    {
@@ -1410,8 +1410,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.9,
-  "tbill_3mo": 3.85
+  "ttm_yield_pct": 9.94,
+  "tbill_3mo": 3.84
  },
  "distributions": {
   "history": [
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 720.4,
-  "sma200": 655.19,
+  "price": 716.43,
+  "sma200": 655.17,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 20.8
+  "level": 19.92
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1543,10 +1543,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14900.0,
-  "dca_value": 20430.18,
-  "dca_return_pct": 37.12,
-  "dip_value": 20195.71,
-  "dip_return_pct": 35.54,
+  "dca_value": 20346.2,
+  "dca_return_pct": 36.55,
+  "dip_value": 20112.69,
+  "dip_return_pct": 34.98,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 58,
   "winner": "dca"
@@ -1556,37 +1556,37 @@
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "gatesnotes.com",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-08-28T14:05:32+00:00"
+   "published": "2026-08-28T22:46:39+00:00"
   },
   {
-   "title": "How the AI Investment Craze Is Keeping the Global Economy Afloat",
+   "title": "Druckenmiller\u2019s Surprising Critique of Bessent Was Delivered With the Help of AI",
    "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNZkdSWHR3REljVG5UdHg4VUhVR3R5d1B5Y1ZNUjVQdUZYZXVfTmphLUpKUG5MTjJxSjNGdC1INmZzOURSWWxDM3c0Nkcxaktfa0hjU3FQVjdRcHNVWGhEZXhZTUo2dGVqc1E5czVOMEstTWxGalN0dU1fRWsyaE90MDdYZVY1Sng0Si1IVDVRUUprN1ZIM3pyQXBFbWF0TGJkRmY3ZnlLWURDX2l6?oc=5",
-   "published": "2026-08-28T02:00:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOa0NFTHBxeFZocUhTd2FFUFhsU2pUdDM2d253SHVEVDVobUkyUDdsMjlxRjhoelpieU9pWlk3ZTdfWTVHZTVHa2dCU3hDdGJta3ZtbnJoMnZ0dng4UG5oUVZGeW1DSkhiQ0pCcXdPX1JwSkQ2VHZDSW4taVZyUkp0Z25EWWw4dV9vNmJwc1RFTlZtS0xUTUJQYzRDUzZQNXZ3a240eC0yam9OUy1SbFdZdVJIZ0dKWmM?oc=5",
+   "published": "2026-08-28T20:14:05+00:00"
   },
   {
-   "title": "What happened when we put AI to work?",
-   "source": "Cornell Chronicle",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE44RUFTajl2V1M2WU9VdVdqSEl4dzNPWGpYeUFadUJRMkhUeGg1TmZGZGEzTFRCenozS1FfOV9zRnFudXFyU0ZOMG13WG9sRmoxYVktSDB4ZXZQdXJXNjR5WUFOMnJVU18zQTZHNGo2QjdJTTB5MV93ZFhiUFdaQ1E?oc=5",
-   "published": "2026-08-28T13:07:29+00:00"
+   "title": "Catholic University Researchers Earn Funding and Awards for AI-Related Research",
+   "source": "The Catholic University of America",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOMm5HQnFZZ3ZSai1LemsyUWwyb0hweFJZb2ZIckdsUURjUlRPMnVVaEVzVS1nQmF1dm9kWk5DeUlQNmhxcFZqVW41cWhYZ2RWcGtaMF9YS3RpS0YzTnl0eUJuRUhDckFIajMyYkxBLWJjUGpOdmVLWEJmdWtCbGRoVENmeHE1V183RVcwN2YyZ2xQSjd2WmVfQnp6U0FES1FBVmNPbUYzVTNjSHl1aGx4aVNn?oc=5",
+   "published": "2026-08-28T22:07:30+00:00"
   },
   {
-   "title": "Supporting Thailand\u2019s next generation of AI startups",
-   "source": "OpenAI",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9tRm9iT0h5ZzlndHdoZGxMSGNhX2RtanVQd3ZVS045V19fQ3d6NThoNzNxdGt1d3VqYU40VmtCTktiU3FTMnJ5TWN3NHVhRnczcW0tSGQ2cUNIVlpSN0QwQVd0Q1JpNUUtTE9hZVVqVE9XUjlOdzVjT3FMYkF2dw?oc=5",
-   "published": "2026-08-28T09:05:06+00:00"
+   "title": "China is secretly fueling America's data center rage",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5NcmR4M2dyQXBORXF0clRmR1E2bHBWZ3hGdEJCQmIyOEphU3VRSnFmX0Q5VmVjRVczNGdlZTAweFI5bGo3aW9nT3pyb0NVRFNpUmY4ZDJ1QzFpVFl4RTNsOFk4S2JENEhJYUs2Nzl3X1J5Z0JkNGc?oc=5",
+   "published": "2026-08-28T19:26:20+00:00"
   },
   {
-   "title": "Judge rules Trump administration illegally punished AI firm Anthropic",
-   "source": "CBS News",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQWjhTUHM2dVhOTEFzb1p3elhvSHhZTGFFLWhVZWhnbWVGRmdFMllwbGViYUE5RDl4WmUzbW1vXzUyZXUyVnJOWGd5ZkF2dlJqRWtYZWxtZHlCUVplZnVYemJrdUVOWHdFZWFxZnEtdktraDJUS1IxZFd3ckNPUXJxY1NwOVY4NXpGcmNhdHVPWWhVNmoxMXB2azZPZ1lwRUhF?oc=5",
-   "published": "2026-08-28T03:09:00+00:00"
+   "title": "Why the tween years are a good time to talk to your kids about AI",
+   "source": "PBS",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQVGNBTy05OW10Q1BleDA5X3VpQms5VzFqQ0J0X1M2NHlWbFZaTm9yMjBXVWVKVlRxRDFoS2NLcHZwR1RmdTlfX1lLVHRSRkptYWhPaWNpNHRtMUdHREhQWUYxQlRVSF9qRXRaeGxLMVQxOVlINFZvWEhyMFJma3k0VVlsSzVSRmZlQVJUX0FSMklmYVlaQVI5UF9EeHY4b2pnSjgw?oc=5",
+   "published": "2026-08-28T21:22:36+00:00"
   },
   {
-   "title": "Paul Claude Gigot: Why I Am Right About AI",
-   "source": "The Atlantic",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOSUFrQWNKdVVFWi1fTWpCQ3A2RlBzWXNMMEJWZEd2UmxsUnQ0cTdleWNHVEQwV3dfV2dmbDNIdkR4YTU1WFB1OFVTdUM4ZmZDWDFQei00eG9aQlhEamV3bHlqNTMyc0s2RDY4ZXlwaWFNVl8tc0d2bjdMRFc1SHpJNzV6WUVOZkRMNU9sWkVHMmZodzFHQkcxeUFTZGM?oc=5",
-   "published": "2026-08-27T21:11:28+00:00"
+   "title": "Wall Street ends lower after Fed Chair Warsh reaffirms inflation fight",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPYzh4MV92bkEtZUxKUlZLdW5KN2RKeGVEa2xtekxiVnhNbF9RMWxGVGRCZkZJOWEwQkhaVEhBV2hpb3A2S000Vjd0VklkeTdqRFJGeXpYTFdwb19mclEtbEtneVB0M3VlWE84Q0tGeVdhcUM4QU90a2Rmb1pfR3ljSFNWaDVWbGhFT3lLMzQtQnl2VmR5S2lsVUF1RWQyN2diQWdwaHlqUGRwV3lyUkZJ?oc=5",
+   "published": "2026-08-28T21:28:52+00:00"
   }
  ]
 }
