@@ -1,18 +1,18 @@
 {
- "generated_at": "2026-08-28T03:33:48+00:00",
+ "generated_at": "2026-08-28T14:30:14+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 53,
+  "sessions": 54,
   "too_young": true,
   "validated": false
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~53 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~54 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -29,7 +29,7 @@
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 53 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 54 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
     "pos": 100.0,
     "labels": [
@@ -40,7 +40,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "100% ann.",
+   "value": "99% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -48,13 +48,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "33.4%",
+   "value": "33.0%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 33.4% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 33.0% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 66.8,
+    "pos": 66.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -63,15 +63,15 @@
   },
   {
    "name": "Trading history",
-   "value": "53 sessions",
+   "value": "54 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 53 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 54 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.5 (p4), F&G 58",
+   "value": "VIX 14.7 (p5), F&G 56",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -87,13 +87,13 @@
   }
  ],
  "fund": {
-  "price": 140.87,
-  "day_change_pct": 0.89,
-  "sma50": 138.57,
+  "price": 141.56,
+  "day_change_pct": 0.49,
+  "sma50": 137.56,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 33.4,
+  "drawdown_pct": 33.0,
   "series": [
    {
     "d": "2026-06-12",
@@ -412,6 +412,12 @@
     "c": 140.87,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-08-28",
+    "c": 141.56,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -419,14 +425,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-08-27",
-  "days_total": 53,
+  "end": "2026-08-28",
+  "days_total": 54,
   "backfilled_days": 40,
   "fg_coverage_start": "2025-08-28",
   "baseline": {
-   "n": 32,
-   "avg_pct": -10.04,
-   "median_pct": -18.91
+   "n": 33,
+   "avg_pct": -8.94,
+   "median_pct": -15.96
   },
   "bands": [
    {
@@ -446,9 +452,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 32,
-    "avg_pct": -10.04,
-    "median_pct": -18.91
+    "n": 33,
+    "avg_pct": -8.94,
+    "median_pct": -15.96
    }
   ]
  },
@@ -458,13 +464,13 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 140.87,
+  "price": 141.56,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 100.0
+  "level": 98.6
  },
  "fomc": {
   "next": "2026-09-16",
@@ -482,19 +488,31 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-08-27",
+  "end": "2026-08-28",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1200.0,
-  "dca_value": 1193.55,
-  "dca_return_pct": -0.54,
-  "dip_value": 1179.72,
-  "dip_return_pct": -1.69,
+  "dca_value": 1199.39,
+  "dca_return_pct": -0.05,
+  "dip_value": 1185.5,
+  "dip_return_pct": -1.21,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 11,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "Facing Complaints, Starlink Offers New Plan for Small Boat Owners",
+   "source": "PCMag",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQcGZTeXczVllyam1lUE5nSVotMU5iT1BWajFOa3hnXy1wQ3U4NV9uOUpfTVJqT0VURDZWVTlNdnlBZ2lSdl9UQVQ2dHhwLUlwN1Mxa1hYLUJERGVJbDJ2T3VoTjJFemVTdDRhUzhXM2lVczN0ak1vSVdhWnBKb3E1SjdidmxXZVlBZnpiRWpZOFVRaXdLU1E?oc=5",
+   "published": "2026-08-28T11:15:54+00:00"
+  },
+  {
+   "title": "SpaceX in Vermilion Parish, Louisiana - LED - Louisiana Economic Development",
+   "source": "LED (.gov)",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9EZnMyMVNlck83TGNCY0I1SjBYQjRIWDRjQUtxR0w2cnAxNVR1angxemVWUTF2cTlYd2NsczZBVTNPVnJOY0xCT0hYSEVyRVdFaGo5ZzVR?oc=5",
+   "published": "2026-08-25T16:22:47+00:00"
+  },
   {
    "title": "SpaceX shares are doing something very unusual. Options traders are taking note",
    "source": "CNBC",
@@ -502,10 +520,10 @@
    "published": "2026-08-27T17:42:04+00:00"
   },
   {
-   "title": "SpaceX Pushes FCC to Scrutinize Rocket Lab-Iridium Deal Amid Spectrum Clash",
-   "source": "PCMag",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOd01tNmg4eHVjQ2FtbEQyRWhCQnQ1bGxXcE1BNTVYNlBUZDNXTUNzYURkQU93Q0dIWWppZWJseXdKSjN1VnIwblJibzdFb01QSF95dFdCekVIand0LTJ2MXZGbU9XdkZQNW92VmthaExzVWx4Q2RXZ2RoaTc0OXgweElrUjJmUks1V2sza1pDT3FKTS1iNUNfT1Z0ajJWWWhaV01yVg?oc=5",
-   "published": "2026-08-28T00:01:26+00:00"
+   "title": "Starlink Goes Live in Turks and Caicos Islands - BASENOR",
+   "source": "Tesla Accessories",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQMi1PQ0FSRFFsTXk4TzFnOG8xYVg4ZVJKbDJ4NHY4VTYyb3ZLNnV3ZjZadkpZN0NJNkVYV0pnTmM5azRkOFd3dlFKdWVlTkJVdHVhT2hHbFhCWVZnc0UzaXJ3ZHdKRE5wbDd3c1d0dkM3U2FMUkltUHpaQW1DR05nUmV0SzRwMkNH?oc=5",
+   "published": "2026-08-28T04:05:41+00:00"
   },
   {
    "title": "SpaceX Ends Falcon 9 Starlink Launches From Florida As Starship Takes Over: 'End Of An Era'",
@@ -514,22 +532,10 @@
    "published": "2026-08-27T18:01:06+00:00"
   },
   {
-   "title": "SpaceX Stock: 3 Things Nvidia Said About the Company on Its Earnings Call",
+   "title": "Elon Musk Thinks SpaceX Can Hit $3.5 Trillion in Revenue. Wall Street Isn\u2019t Buying It.",
    "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPZGgyRGVVS2hrRXcwSGlkUVoyalpLTm8xczFSeUFFbk44eHctYmZVcXVTcmd3bkNzLTA4cDFsQjJ3S2VqXzFfN3FsNTVUcWdaUTJ4MGZXUFlZUUdJb0YxWGs4emg5ckRvamMycFNKMmlSRXNrVGZHSElkZmZfSXMySlV3?oc=5",
-   "published": "2026-08-27T20:08:00+00:00"
-  },
-  {
-   "title": "EXCLUSIVE: Russian-speaking cybercriminals used SpaceX\u2019s Cursor AI tool to hack seven companies",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNaXdXdy00QS15UDVRUERiUFlHYlp5QXI5X0d2b05GMlUzZjFYZG1FcFJkd2FQbGRoWFVKMWJiU21ydmpyNU1kRTVvSWMwUXg2bGRhZmNkMTRtaFNQTmYtQjZmOGFXVG9aNW1ReDRwUk9XRzdDSlU3WDRMUUhhNEtrY2tLOUo3eE82ajlFYWJlRTdfLUJ6RzJ6RmtlcFByUWN3emt0aUxDTVIwV016bTNmR1N1cWhyWVB2QzBuV0tESQ?oc=5",
-   "published": "2026-08-27T22:31:35+00:00"
-  },
-  {
-   "title": "SpaceX Launches New Era of Commercial Spaceflight with $100 Billion Louisiana Campus - LED - Louisiana Economic Development",
-   "source": "LED (.gov)",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQUV92V1lDTWY2QUtwUXF3akNEc180VkNkZUNtMnRsT29VeVJXV1BMNFBWaVZuNS05T1JzallrRVYtanVDM01WZEtOVFA1Q3hjOXZDNE5pTHB3azNHd25CMWVvMkQ1N2sycWJIUUdDZU9ValdHX3FrT2VKWjcxYzd0NUE1UXBtZ1kzQ3ppcERJN1JZRlJZdzMwb3FlVmNzQ0lZWS1ZQmltaHA1STZNVkQtV25OZ2p2aE56TDFlakdwdUJMMlk?oc=5",
-   "published": "2026-08-25T15:24:28+00:00"
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNZzBBWUMtcFZHbnlLQ0loQlk1WFozNUdIczc0MklKbngtQjNrUUY3RE5FMk9CT0Z5SExJa0I5SE9HekgzTG03OHhRaGNqcHQyMC1VUTFOdnpEZ2dtQ1FfV0pJOVNXcGNEQjFHalo0UUFEZ1hZNXNFZWN4VGFYRTFBUEJuUGZobFVOUzUyVlBfb1Bqb0VZZDVrd2VIS2x5cGc?oc=5",
+   "published": "2026-08-28T12:58:00+00:00"
   }
  ]
 }

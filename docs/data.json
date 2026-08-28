@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-28T03:33:46+00:00",
+ "generated_at": "2026-08-28T14:30:11+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "14.5 (p4)",
+   "value": "14.7 (p5)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 3.6,
+    "pos": 5.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 31.6,
+    "pos": 32.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.0 pts",
+   "value": "+4.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 66.8,
+    "pos": 69.8,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+2.2%",
+   "value": "+2.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 68.3,
+    "pos": 67.5,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.67% (-0.17 1mo)",
+   "value": "2.63% (-0.24 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 16.8,
+    "pos": 15.7,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "58 (greed)",
+   "value": "56 (greed)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 58.2,
+    "pos": 55.5,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 56.42,
-  "day_change_pct": 0.59,
-  "sma50": 55.54,
-  "sma200": 53.55,
+  "price": 56.425,
+  "day_change_pct": 0.01,
+  "sma50": 55.57,
+  "sma200": 53.57,
   "high52w": 56.67,
   "drawdown_pct": 0.4,
   "series": [
-   {
-    "d": "2025-12-09",
-    "c": 52.57,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-10",
     "c": 52.86,
@@ -1316,6 +1310,12 @@
     "c": 56.42,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-08-28",
+    "c": 56.425,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1333,30 +1333,30 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 58) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 56) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 14.5) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.7) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.67%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.63%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-27",
-  "days_total": 710,
+  "end": "2026-08-28",
+  "days_total": 711,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-08-28",
   "baseline": {
-   "n": 689,
+   "n": 690,
    "avg_pct": 1.7,
-   "median_pct": 2.07
+   "median_pct": 2.08
   },
   "bands": [
    {
@@ -1376,9 +1376,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 498,
+    "n": 499,
     "avg_pct": 1.29,
-    "median_pct": 1.75
+    "median_pct": 1.77
    }
   ]
  },
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 771.1,
-  "sma200": 709.41,
+  "price": 771.35,
+  "sma200": 709.86,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 14.51
+  "level": 14.69
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1512,54 +1512,54 @@
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-08-27",
+  "end": "2026-08-28",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 14900.0,
-  "dca_value": 19476.85,
-  "dca_return_pct": 30.72,
-  "dip_value": 19244.48,
-  "dip_return_pct": 29.16,
+  "dca_value": 19478.58,
+  "dca_return_pct": 30.73,
+  "dip_value": 19246.09,
+  "dip_return_pct": 29.17,
   "dip_cash_uninvested": 1100.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Fed Governor Lisa Cook responds to Trump administration\u2019s letter stating that it is \u201cconsidering\u201d her removal",
-   "source": "SCOTUSblog",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPUXhaRFNoNjRkb3dQNU9BWUs2OVVGWV9Ob3U1S3VHQ21oRU9fbThqYU95WUlmRzF2Rl9ydmRrUTRJWFFnTDhrLUVQV0FabEwxaGcycWJndVNjUDFZYURGRHc5MG5pWjliWmVFUmpzbzZBNVdmWmpoZDBONHhSLW4yMFB1R25uS0ZjZzFydV9kNVN4U01mMHdJNnF5aEJPOFNHZ0VIZUkxa2kxTEFXaW5WMUJZOEQ5M0lsZXNTQlB6Nm5nYjVmVWRZLWFpQXQ?oc=5",
-   "published": "2026-08-27T14:15:38+00:00"
-  },
-  {
-   "title": "Fed's Collins says latest US inflation readings are 'mixed'",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZEZxRzhaX2l4QWpKOTZzYXQwT3FoNFJQcmdwejFGV3hXVGsweDZyZXRvMmN4Z0djNFpPVnJ5eE9YTG9WaWNrcU5iQWlJNnpoYmh6b3VURk5rYjhKSHU4bGpucmFtWDVsRllMVks2SDU5NVVuRDA1ajV2bDRUTS1MX2NvNGMtT1ZBV01mTU9INTJVSVdTYmg0ZkVYS29qbUNUSnZn?oc=5",
-   "published": "2026-08-27T18:05:51+00:00"
-  },
-  {
-   "title": "Fed's Hammack says 'now is the time to act' on raising interest rates",
+   "title": "Fed Chairman Warsh expresses concern about inflation advocates for 'quieter' central bank: Watch live",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOYzhMUzYyajNpakhHREF2VjBuaGFYbzQ4VXd6dUtNMTV0VHBJcVh2a21Lb0pSZFNTaVFHczdHeEUzT1JmRnFWMmQ4bm1hZC1XNlQxeWFpV2FUazVIVXQzZWl3QkM4TGZxak4wUWwxU0dKNW5BUHVWVS01NWMyXzlqODE5ZzRZenZIRGNubjdLeW5OZVdSZHNlSG1SZTJ4M202VjZmZUxn0gGrAUFVX3lxTE55QjRqWHBxbVNNakk1RDlBZTNVTkJEZUljbS1wUXFCVE5XdVhMMFlOOTNwQTJ5YTAxM1RiNDVtQVJHVWctV1JwMXN2Z29HUkNiU2NvWnVyWjFUclFpWm9RektWNFBGR3hQclNjcTE3Y09rRWtTRG5hR1FPNVJEdjA3UzBDc2lxSmswV3U0N0ZWd00xTGlyMUgtXzdjYWc1aHhMLTBBd29PUFdrdw?oc=5",
-   "published": "2026-08-27T14:27:17+00:00"
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPSDgxMWMxLTZHbGRNUGgxeExaV0VyY2dqZ0ZaeVJaZTNsQ28wSldKeEpYRGN5NEpRNmV1Vjl3QWdheHFoSHFGQ3ZRSEVQQnZWd3R1OWw2dEhlQzBDS1hoanFlWlRaN0YwbVZIN2tUTE91LTRWWEI2MXBVVl9VczFCNm1LVjFFY0c5a3FCZHpFdDDSAZYBQVVfeXFMUC1lQUszSmUyc2dXV1FDVFA0QnFtWXVsLXVicFp0NDk5MVUzX01jOHhaRTBvcm1PbDRpWTFRUWZOa1I1LXNMUnJHX1pxNnlmbWdSUExuLTh6SU5qdEJJVU5vUU1FMDdpSkJMb0dvWUpDeFFjV0VoVWQtRXhpYmozS3pnc0Q4T1BjZXZ3VEpBT0JKOHV6eEpB?oc=5",
+   "published": "2026-08-28T14:00:06+00:00"
   },
   {
-   "title": "What to know about the Federal Reserve's big Jackson Hole conference",
+   "title": "WATCH LIVE: Fed chair Warsh speaks at Jackson Hole Economic Policy Symposium",
+   "source": "PBS",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNeTZYd1JtU2tpSmRvbTJqT2J5VHpCQzJMVFR5WWJlZ3ppLTNjU3prR01jeUtWSXVEbWZScmw5S2RfdmVES3dEOThSeGwwMGVvOWs5NWpjNjU3M3JFdmpsVlRyaFJ6cEU4SWptdUM2MWotckR3dDYzSkxzUUJyOEtWbDFkMzJWZG1sSWd3d3Q3d3BndjlIb2ZfaGthSDlWdFZESEpkdERKbEJ4VnVGRmJGZFRR?oc=5",
+   "published": "2026-08-28T14:00:04+00:00"
+  },
+  {
+   "title": "Fed's Warsh: Interest rate increases in play if inflation doesn't fall",
    "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE53RDQwYVVqdTBubGE3dWdpVmlqbWdUNVF1a0ZYMFBQRHRTdFVEY0dHUEM1bDZYXzN1Qkw4bm5YVS1MY2RhMndwa1RrQjcwUmtMQUJqNUt0ZmJzZ2o4akJwcG5EaXhLeHNEeUJndWN3?oc=5",
-   "published": "2026-08-27T11:57:48+00:00"
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5fU2NrT2pZRFlPeVdhWDNtNHZDNHJCa3FaZ0xXQnE1anlRRFNvZFVlZWRYdEV4cFkxSlU5eUZpMkZodXRPTjNNOHRJd3N3YjBWdkdYbi1sNi13Yk9fcDZaX0hmTTBoRGZJdlVBU0VxOGp4aTFNa1M0QVAwNmJ1QQ?oc=5",
+   "published": "2026-08-28T14:01:23+00:00"
+  },
+  {
+   "title": "Fed Chair Warsh Speaks at the Federal Reserve Bank of Kansas City - C-SPAN",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPUDRuNGtXTmRkTTA4am5PY1p1aFhDcVBDcGdJbmxoYzU2NlZGSzE5cURKdUZZa0JtdWxCRnpIYzJHLVZTenE3M0ZXSXZaZW1UcW5jeHV0bW1wcGlqSjBSQU9YV09CMEtyYmVnS3FkSzNfUHdFUkJQMDBhNmdSTnlXekNjUHJBR1ctWThPREpzeXZOOEdmM19leVdZNlZGVE80RGgycGtfcXRybG9qcGV2QzJuVnJNTzJRY05tejRWTQ?oc=5",
+   "published": "2026-08-28T11:19:51+00:00"
+  },
+  {
+   "title": "Exclusive | Fed\u2019s Collins Says Rate Increase Warranted If Inflation Disappoints",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPRjZLbGdNM25UZWdUTVdOdzdXbjR0ZU9GeWZqbVgyWHB5WjlEVXJXa2g4clppS29NbkRmaVI0Y3VuWmtHU0ptUU95emVTeWJWTDJfUkRwa0UtTXlBekU2UU9aMDAwLUxOSVlMbS1jcFlkckRhbFYwUHRHcWg3T1hHZHJadXVVeHJ6cDB4TkpZNkpFbEJITGFOZU5VaF9oM1I0Mnk2N3c0aU45VlNBRWFTWU5WWFhkT0t2dDZV?oc=5",
+   "published": "2026-08-27T18:04:00+00:00"
   },
   {
    "title": "Preparing workers for an uncertain AI future",
    "source": "Federal Reserve Bank of Minneapolis",
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOb0V3c0dqT0hKa184bDk5RzJSZFFGWE9ZU3lQTmI5aEZSQktfVnJjZFYxN3MzTmJ3MUFMZjBSQ2Yxckh5OTFUSWtoU1o3aWltSkhEaVRBaVNSRzYzdnlROC1HR0lsVFFUV3g0ZzdKbThEQjdTYlNmMFNfWU94aFNqMzFTUHRyRVlsaExjbFJqTGQzQQ?oc=5",
-   "published": "2026-08-27T23:03:54+00:00"
-  },
-  {
-   "title": "Federal Reserve chief faces pivotal moment in Jackson Hole",
-   "source": "The Hill",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE93YThSZlpaZVBvSEF4RFNoZnFZSmhYMXJRMjlPUlhabFQ3MVVGWXcyekNITWhJMHlCODlpbHJGM0NQa0M2LTJSd1psOUhrbmh5bmlPNzlRS3Z5emhNM2JyYWlUZE5ERjIyMkZzQ0VpU3VNbXBhZlN3eGRXMA?oc=5",
-   "published": "2026-08-27T21:34:00+00:00"
+   "published": "2026-08-28T08:17:49+00:00"
   }
  ]
 }

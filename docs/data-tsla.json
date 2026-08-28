@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-08-28T03:33:48+00:00",
+ "generated_at": "2026-08-28T14:30:13+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true
  },
@@ -31,7 +31,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 100.0,
+    "pos": 80.9,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -48,13 +48,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "37% ann. (p22)",
+   "value": "38% ann. (p24)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 22.2,
+    "pos": 24.2,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -71,13 +71,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "27.6%",
+   "value": "28.1%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 55.2,
+    "pos": 56.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -111,7 +111,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.5 (p4), F&G 58",
+   "value": "VIX 14.7 (p5), F&G 56",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -127,20 +127,14 @@
   }
  ],
  "fund": {
-  "price": 354.81,
-  "day_change_pct": 2.6,
-  "sma50": 361.43,
-  "sma200": 401.41,
+  "price": 352.45,
+  "day_change_pct": -0.67,
+  "sma50": 360.55,
+  "sma200": 400.95,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 27.6,
+  "drawdown_pct": 28.1,
   "series": [
-   {
-    "d": "2025-12-09",
-    "c": 445.17,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-10",
     "c": 451.45,
@@ -1214,6 +1208,12 @@
     "c": 354.81,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-08-28",
+    "c": 352.45,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1221,19 +1221,19 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 37%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 38%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-27",
-  "days_total": 710,
+  "end": "2026-08-28",
+  "days_total": 711,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-08-28",
   "baseline": {
-   "n": 689,
-   "avg_pct": 2.58,
+   "n": 690,
+   "avg_pct": 2.6,
    "median_pct": 0.25
   },
   "bands": [
@@ -1247,9 +1247,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 160,
-    "avg_pct": 8.88,
-    "median_pct": 4.7
+    "n": 161,
+    "avg_pct": 8.91,
+    "median_pct": 4.74
    },
    {
     "tone": "neutral",
@@ -1273,13 +1273,13 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 354.81,
-  "sma200": 401.41,
+  "price": 352.45,
+  "sma200": 400.95,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 37.3
+  "level": 37.6
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1297,54 +1297,54 @@
  },
  "backtest": {
   "start": "2022-08-29",
-  "end": "2026-08-27",
+  "end": "2026-08-28",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 29243.18,
-  "dca_return_pct": 39.92,
-  "dip_value": 29251.85,
-  "dip_return_pct": 39.96,
+  "dca_value": 29048.67,
+  "dca_return_pct": 38.99,
+  "dip_value": 29057.28,
+  "dip_return_pct": 39.03,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 206,
   "winner": "dip"
  },
  "headlines": [
   {
+   "title": "Tesla Stock Has Trailed the S&P 500 for 5 Years. There Are 3 Reasons Why.",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB0ZGxVVUxxTGlmRFVDWmZwTlJZXzBNaTk1YUozYmlIcG8wV0wydENUelNMZjJ2N05RRTQ5Z1R5YUZGRy1NX1J1Z0hKZVpzNjNqWFpyUEZpSjBRazQ5WllhdUJ0c1NfWFl1eWV2ektHS19KZnQtN2ZsbFY3Xy1EUGM?oc=5",
+   "published": "2026-08-28T13:51:00+00:00"
+  },
+  {
    "title": "Tesla Stock Sits Nearly 30% Below Its High and Still Trades at 330 Times Earnings",
    "source": "The Motley Fool",
    "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPU2RKZXcxcUhYYWZwbEM3THVId1NoemhIMWVxQVltRWJQeGJXUVZvU21kR1F2YXA0X084aHZ6VXRoLU95NFpMVGpiN1F0Z20tdng2cWhqajdmV0REMnBVZHNQQ3VLUmsyYnlJbkFZWVQya0NRZUhRMlVwNjhIYkRpM1J4WE5HV2U2SmlQSGU0Y2p2N3l0blFaS2wzSEQ0cGhyX2JRcTVOVFlTUUctcDhkY2UwTTlZbG9kWHRiYUs2SWE?oc=5",
-   "published": "2026-08-28T03:14:26+00:00"
+   "published": "2026-08-28T03:51:00+00:00"
   },
   {
-   "title": "The Demand Signal Underneath Tesla Stock\u2019s Cash-Burn Debate",
-   "source": "Trefis",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQczZPdmRndWg5NFZmSlUxSlhodXh4aTRFX0NQdWNfV25tVmxWZDRxRHAzakJfclJWQmlaMGlxMkxlRy0wN3N3aHV3TGlKaDhWVWZOWkptSHdvUEY4RkxMT1c2YXVjck1VSkFyMlJ2OGx1OVlHcVZJeUdNRldhZElwa2s4dG51MktxOGRXVktCRjJDTmFnS2dHaWxxZjY2WlpkV2NSNlFnd015Q3RSSGpGMXdmNi1tNV9yQU1N?oc=5",
-   "published": "2026-08-27T13:34:09+00:00"
-  },
-  {
-   "title": "Why Nvidia Earnings Matter for Tesla Stock: AI Compute and FSD Training",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOTF9tVTUtTXQ0VUw1Q2lfa21iY3NRUFdPaXdtQTBOZm9iTUxnVDNtaWRPODVlbEJGLXdZbXE4bE00LTl0eTlKV3o3ZWxCNElQQnBNM2MwTUFyRlVQSjFEdWVvYklnNEVnNWU0ZVhHQ2FneGhYbmJ0ZE1IMHZDV0NPRjNmS0dkbFozZWlsOWlfMHVJUHpTZ2c?oc=5",
-   "published": "2026-08-27T12:42:00+00:00"
-  },
-  {
-   "title": "Tesla Stock And 2 Fast Growing Insider Owned AI Infrastructure Plays",
-   "source": "simplywall.st",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOQk9IbWkxYTVuUFpJVnBGZnFJS1QwSF9hdXI1XzN4VkZZWE1pZmg0ZURiOTh2cDh3dU9SZDhoZDhPVXdtV2F6SXdMUmpvYTQ3TEx4ZGVGQjRTRW9RbGxDU3ZOM0REbnlPVUUwZEJxS2FKSURJaEc3aE94eUZjWHhpRFlCdDFDdVNxT3RjaFR4bklYMHNyLXBjRVpqclI1WjdhVFA1cFM2MWpvTmJYZWlZZTkyOERnakl0RlJtQ0MxNzLSAcYBQVVfeXFMTzdmbUxBWkR0THktUlI3dGNfYkp0VWNRTGFMZDhXTGpqbTVnb0VGOW9ud3REUFBDQnZJVTAwOXhab25Kc3ZMcG1EWXBSb011TVZTZU11QmZaZGNfTTc3OWJZeHgzOTFibFlnWXpZWlJ2aUtuaFp6M3ptczUtOHhDR1U1aGRYWjJoZDRqZWQ1WlVxR3VUbjhPR0JIdHpSQnVJeDVpMG9QMnh5RDdfN1VpVmNxdHFsbVk0cW9wT2hhLXNacEdVQnR3?oc=5",
-   "published": "2026-08-28T00:34:56+00:00"
-  },
-  {
-   "title": "Tesla (TSLA) Stock Looks Overvalued Following Its 41% Five Year Gain",
+   "title": "TSLA Stock\u2019s 3-Week Rally Faces A Test \u2014 Why Waymo\u2019s \u2018Defensive\u2019 Turn Makes This Bullish Analyst Love Tesla Even More",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPS09iRkhDQVdYdGFpdW85NUg5YW5vTzBnWEFDSXoyQ0hxR21GanJ0SDJXMFh5d3JKRmRkaXZUZkdjYXJMeWwteDA2OW10cTdESi1UdHFGWHNBbGliR1RQNjZHQWIzNUUyMndYeXRSSWZ1WjAtS3JtVUdsY1B6MlZLbDdrb1E3ODkyVFNXT0JkMGpOTEhIaWFucmU1UkZ2bGc?oc=5",
-   "published": "2026-08-27T01:09:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVnFRRXZ5OUZ6NE9vVHFfLVJDZDRvWHpiRUFVUEFKMElYQzlNdGVXYTJuZW9nTUZIT0lodHpoZ2x1VUFLZHlRMXpOdzlDSXZFMnNnam5mNW5iQVVYYWdyYjlxOUVkalRkVDdtSzNOWUlvRWdxR1QtelpGblhGM2tGWW5hSU9fNHNFR2tpOW1qN1RUZw?oc=5",
+   "published": "2026-08-28T07:09:55+00:00"
+  },
+  {
+   "title": "Is Tesla Stock Underperforming the S&P 500?",
+   "source": "Barchart.com",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxONGpBNHo0eWlsZ3BmODREaW9JZEw0akVwTVhjZjZRZ2NES0xRRjBaN29RaWlmTXJtR1pTa04tc1BrRnhxUDFLdmpnWWNIeG5FVC1IZ1RRazgtbDRwXzFEeVlyRWlOTDU5eUNqWGNlQm5JbEVxQ2p1Z0dTNXRTX0twbXh1WnpkLUtIZlhoUExQWQ?oc=5",
+   "published": "2026-08-28T14:09:41+00:00"
   },
   {
    "title": "After Earnings, Is Tesla Stock a Buy, a Sell, or Fairly Valued?",
    "source": "Morningstar",
    "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNOVdEaXFTSVM5MTB6anVqT1ZzN242dVZyeDdIc01GU2tRTzc4Vm1acTluTlctZXN4Q1lwRWpYeTl2Si0yOTdhbFBUSHBUdGNkMlBXcDM0NHlqX19wb3NqY2RPWVVHZ3BiaFh6ak9QVkdCRW1GMEQ1MFctSmJETmV5RmtUQnV2NDFaMkd1cEdlSHdGeVVqNW1tbW5HelUtTTk3WVhB?oc=5",
    "published": "2026-08-05T07:00:00+00:00"
+  },
+  {
+   "title": "The Demand Signal Underneath Tesla Stock\u2019s Cash-Burn Debate",
+   "source": "Trefis",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQczZPdmRndWg5NFZmSlUxSlhodXh4aTRFX0NQdWNfV25tVmxWZDRxRHAzakJfclJWQmlaMGlxMkxlRy0wN3N3aHV3TGlKaDhWVWZOWkptSHdvUEY4RkxMT1c2YXVjck1VSkFyMlJ2OGx1OVlHcVZJeUdNRldhZElwa2s4dG51MktxOGRXVktCRjJDTmFnS2dHaWxxZjY2WlpkV2NSNlFnd015Q3RSSGpGMXdmNi1tNV9yQU1N?oc=5",
+   "published": "2026-08-27T13:34:09+00:00"
   }
  ]
 }
