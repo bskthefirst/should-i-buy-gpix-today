@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-08-29T02:09:11+00:00",
+ "generated_at": "2026-08-31T14:10:21+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true
  },
@@ -25,13 +25,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-3.9% in 5 sessions",
+   "value": "no pullback",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 74.1,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -71,13 +71,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "28.8%",
+   "value": "26.3%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 57.6,
+    "pos": 52.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -111,7 +111,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.4 (p3), F&G 54",
+   "value": "VIX 15.3 (p12), F&G 51",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -119,7 +119,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 13d",
+   "value": "CPI in 11d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -127,20 +127,14 @@
   }
  ],
  "fund": {
-  "price": 348.75,
-  "day_change_pct": -1.71,
-  "sma50": 360.47,
-  "sma200": 400.93,
+  "price": 360.98,
+  "day_change_pct": 3.51,
+  "sma50": 359.68,
+  "sma200": 400.54,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 28.8,
+  "drawdown_pct": 26.3,
   "series": [
-   {
-    "d": "2025-12-10",
-    "c": 451.45,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-11",
     "c": 446.89,
@@ -1214,6 +1208,12 @@
     "c": 348.75,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-08-31",
+    "c": 360.98,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1227,13 +1227,13 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-28",
-  "days_total": 711,
+  "end": "2026-08-31",
+  "days_total": 712,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-08-29",
+  "fg_coverage_start": "2025-09-02",
   "baseline": {
-   "n": 690,
-   "avg_pct": 2.6,
+   "n": 691,
+   "avg_pct": 2.62,
    "median_pct": 0.25
   },
   "bands": [
@@ -1247,9 +1247,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 161,
-    "avg_pct": 8.9,
-    "median_pct": 4.74
+    "n": 162,
+    "avg_pct": 8.95,
+    "median_pct": 4.79
    },
    {
     "tone": "neutral",
@@ -1273,8 +1273,8 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 348.75,
-  "sma200": 400.93,
+  "price": 360.98,
+  "sma200": 400.54,
   "above_200d": false
  },
  "vol": {
@@ -1283,12 +1283,12 @@
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 18,
+  "days_until": 16,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 13
+  "days_until": 11
  },
  "earnings": {
   "next": null,
@@ -1296,31 +1296,31 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-08-29",
-  "end": "2026-08-28",
+  "start": "2022-08-31",
+  "end": "2026-08-31",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 28743.72,
-  "dca_return_pct": 37.53,
-  "dip_value": 28752.24,
-  "dip_return_pct": 37.57,
+  "invested": 21000.0,
+  "dca_value": 29855.94,
+  "dca_return_pct": 42.17,
+  "dip_value": 29845.14,
+  "dip_return_pct": 42.12,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 206,
-  "winner": "dip"
+  "dip_buy_days": 205,
+  "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Tesla Stock Has a Huge Catalyst Ahead. Here\u2019s How High It Could Go",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPZzgzZzlrR0wwN0pFOUlTektzTFNVekx0NUxJYlNUNkl4TGxLdnd4eGFPVlAwRmI5c0I0QzJ4Y0VieExEM1laS19mV0RJRjRrWmp5aHFLUmNwWGNZR2k5SVZKc01naWN4R3pzNkF3T0NSaXcwZUpfeVFvX21oUkFOVGlfNy1VaFZRQlNkS2hHSWZhMHlmTEhOYThIVVdkRzV5cEY5VjFObDlmWGxl?oc=5",
-   "published": "2026-08-28T16:00:00+00:00"
+   "title": "tsla stock sharing",
+   "source": "Moomoo",
+   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE12bV9IbXVEU1EwMzNSTnJWZWdlOUZ4YThVQVVZYXhvV3NhTHBRbVVVdDZiRkhyU0NXSV9kOEdmM0Izb0Voem1YWDR5TmVSRy1UZ3ZwbEZReDlZbmI5VkZJMHJWRzJfYjBaSEJFQVhLUExtdXltQUtLTXRrMGw?oc=5",
+   "published": "2026-08-31T10:34:50+00:00"
   },
   {
-   "title": "Massive News for Tesla Stock Investors",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQOVlGemYxNzEwWVd0TnRGd241OHBhd084VnR3UktabnVjZHdMbjBjOWExWGtvVnAtdExxeWhhUmZOd0ZMdU84cE9Zd2w2bHNYN2NoaWVQc1h0OG1vZ0FuVUVpSDloTVl6RGg2TWpVaGxodmxMZDd3bXNsaFRCeVJJY1YzNGo0Z0hL?oc=5",
-   "published": "2026-08-28T18:02:00+00:00"
+   "title": "Next Up For Tesla\u2019s Self-Driving Tech: Potholes",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPUUNwckV3bTN3dUU0TGwwRkR5SGpZUjFlc0I2eEJuUzY2dEFZY0Y4RFF3N1llcWdNQWplQklMV0FSR016N0RlSEdrQkRaaFVFc1VKZjk5dnI3dmI0Q2IzNHAtSVo0LTJEdndoSVVKdUFvRFNNcjVrQjBYbVJraUlLbHMyUkN0MDYyNlFZd3pR?oc=5",
+   "published": "2026-08-31T11:55:00+00:00"
   },
   {
    "title": "Tesla Stock Has a Huge Catalyst Ahead. Here\u2019s How High It Could Go",
@@ -1329,22 +1329,22 @@
    "published": "2026-08-28T16:00:04+00:00"
   },
   {
-   "title": "Tesla Stock: 3 Reasons It Hasn\u2019t Kept Up With the S&P 500 Over the Past 5 Years",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB0ZGxVVUxxTGlmRFVDWmZwTlJZXzBNaTk1YUozYmlIcG8wV0wydENUelNMZjJ2N05RRTQ5Z1R5YUZGRy1NX1J1Z0hKZVpzNjNqWFpyUEZpSjBRazQ5WllhdUJ0c1NfWFl1eWV2ektHS19KZnQtN2ZsbFY3Xy1EUGM?oc=5",
-   "published": "2026-08-28T13:51:00+00:00"
+   "title": "Why is Tesla stock climbing today?",
+   "source": "Investing.com",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbFhtbmxBVWE3N0owU2hkMHZLWTZ2bVNIb2RFb3lNQWhERVE0dmVvaDVCUDExOGY2XzlEVkx1bEFRSHlxaTV6RXZSREN0XzdsaGxoN2Y1RjE0SmZDS2FPc0FnWHV3QVRlWHpocUpBWUlnc0hhTElvY08yVVJPSkhqcUQ5V3haRGVHMC1nckVtWjg2ek1NM24zTi1pYw?oc=5",
+   "published": "2026-08-31T14:02:20+00:00"
   },
   {
-   "title": "Is Tesla Stock Underperforming the S&P 500?",
+   "title": "The Biggest Risk Facing Tesla Stock Right Now",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQQmd6ODBGR04zZkdYaDFOajlRMG9RSHQyMWRUcDFMbjM0UFpHRWRUZEdiTERWSTYzYTRiTWlDVE0tM1hiWEtvLVJ3VWMzcVNqOTJndUpWRDV6VktXZ2wzZXgyMnZ6WXpiR1F6ZnN2dmNUelJFZ01ObndYaVFBbjV1c1RWNzJualN5Tkl6WWs3ZGVtQQ?oc=5",
+   "published": "2026-08-30T20:14:00+00:00"
+  },
+  {
+   "title": "Tesla Stock Could Benefit as Trump Locks Down the U.S. Power Grid",
    "source": "Barchart.com",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxONGpBNHo0eWlsZ3BmODREaW9JZEw0akVwTVhjZjZRZ2NES0xRRjBaN29RaWlmTXJtR1pTa04tc1BrRnhxUDFLdmpnWWNIeG5FVC1IZ1RRazgtbDRwXzFEeVlyRWlOTDU5eUNqWGNlQm5JbEVxQ2p1Z0dTNXRTX0twbXh1WnpkLUtIZlhoUExQWQ?oc=5",
-   "published": "2026-08-28T14:09:41+00:00"
-  },
-  {
-   "title": "After Earnings, Is Tesla Stock a Buy, a Sell, or Fairly Valued?",
-   "source": "Morningstar",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNOVdEaXFTSVM5MTB6anVqT1ZzN242dVZyeDdIc01GU2tRTzc4Vm1acTluTlctZXN4Q1lwRWpYeTl2Si0yOTdhbFBUSHBUdGNkMlBXcDM0NHlqX19wb3NqY2RPWVVHZ3BiaFh6ak9QVkdCRW1GMEQ1MFctSmJETmV5RmtUQnV2NDFaMkd1cEdlSHdGeVVqNW1tbW5HelUtTTk3WVhB?oc=5",
-   "published": "2026-08-05T07:00:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPSmdpd08yM01PdmpUX3JMRGhFa1BvRFlwUVZiNVJ6YnlQbzN2UHUyYTY3QXFBLUkzSlZKZmYtS0VEdzlBcElJTUo0a2Z6bFBJVWpoOTg0cS12SWM5OGloUjQzWTd1QkRGbG5YTDZFU3hubXRVN0pKRVhlRzZjcXY2bUtDdHJtWWZjakREZklaLVFucVkxTkhOYS1JNDBFWjN6dDVEbVk1U2stcmpM?oc=5",
+   "published": "2026-08-30T20:30:02+00:00"
   }
  ]
 }
