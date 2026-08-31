@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T14:10:22+00:00",
+ "generated_at": "2026-08-31T14:33:43+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
@@ -8,7 +8,8 @@
   "ipo": "2026-06-12",
   "sessions": 55,
   "too_young": true,
-  "validated": false
+  "validated": false,
+  "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
@@ -48,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "32.8%",
+   "value": "32.4%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 32.8% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 32.4% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 65.6,
+    "pos": 64.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -71,11 +72,11 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.3 (p12), F&G 51",
+   "value": "VIX 15.3 (p12), F&G 50",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "The market-wide panic conditions that score for the index funds (VIX top-decile, curve inversion, Fear & Greed <= 25) were tested directly against SPCX's forward returns - and every one era-flipped. Single-company risk swamps macro timing, so this card informs and never scores."
+   "note": "The market-wide panic conditions that score for the index funds (VIX top-decile, curve inversion, Fear & Greed <= 25) were tested directly against single-stock forward returns on the calibrated name - and every one era-flipped. Single-company risk swamps macro timing, so this card informs and never scores."
   },
   {
    "name": "Event calendar",
@@ -87,13 +88,13 @@
   }
  ],
  "fund": {
-  "price": 141.9515,
-  "day_change_pct": 0.32,
-  "sma50": 136.7,
+  "price": 142.94,
+  "day_change_pct": 1.02,
+  "sma50": 136.72,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 32.8,
+  "drawdown_pct": 32.4,
   "series": [
    {
     "d": "2026-06-12",
@@ -421,7 +422,7 @@
    },
    {
     "d": "2026-08-31",
-    "c": 141.9515,
+    "c": 142.94,
     "t": "neutral",
     "s": 50
    }
@@ -437,7 +438,7 @@
   "fg_coverage_start": "2025-09-02",
   "baseline": {
    "n": 34,
-   "avg_pct": -7.77,
+   "avg_pct": -7.74,
    "median_pct": -14.24
   },
   "bands": [
@@ -459,7 +460,7 @@
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
     "n": 34,
-    "avg_pct": -7.77,
+    "avg_pct": -7.74,
     "median_pct": -14.24
    }
   ]
@@ -470,13 +471,13 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 141.9515,
+  "price": 142.94,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 97.4
+  "level": 97.3
  },
  "fomc": {
   "next": "2026-09-16",
@@ -498,10 +499,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1300.0,
-  "dca_value": 1302.71,
-  "dca_return_pct": 0.21,
-  "dip_value": 1288.78,
-  "dip_return_pct": -0.86,
+  "dca_value": 1311.08,
+  "dca_return_pct": 0.85,
+  "dip_value": 1297.05,
+  "dip_return_pct": -0.23,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 12,
   "winner": "dca"

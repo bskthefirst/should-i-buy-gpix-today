@@ -1,0 +1,1345 @@
+{
+ "generated_at": "2026-08-31T14:33:44+00:00",
+ "rules_version": 4,
+ "ticker": "NVDA",
+ "asset": {
+  "kind": "stock",
+  "name": "Nvidia",
+  "ipo": null,
+  "sessions": 1003,
+  "too_young": false,
+  "validated": true,
+  "evidence": "tsla_framework"
+ },
+ "verdict": {
+  "label": "Mild tailwind - fine day to buy",
+  "summary": "A validated single-stock condition is in your favor on NVDA today. Nothing dramatic - and single-stock risk still dwarfs entry timing. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
+  "tone": "ok",
+  "score": 1.5,
+  "score100": 59,
+  "weights_max": 4.5
+ },
+ "meter": {
+  "min": 40,
+  "max": 73
+ },
+ "signals": [
+  {
+   "name": "Short-term pullback (reversal)",
+   "value": "no pullback",
+   "score": 0.0,
+   "weight": 2.0,
+   "lean": "neutral",
+   "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
+   "viz": {
+    "pos": 100.0,
+    "labels": [
+     "\u221215% in 5d",
+     "flat"
+    ],
+    "zones": [
+     [
+      0,
+      20,
+      "good"
+     ]
+    ],
+    "marker": 20
+   }
+  },
+  {
+   "name": "Realized volatility vs its past year",
+   "value": "45% ann. (p92)",
+   "score": 1.5,
+   "weight": 1.5,
+   "lean": "good",
+   "note": "NVDA's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on NVDA): elevated single-name chaos tended to mark better entries on the calibrated name.",
+   "viz": {
+    "pos": 91.7,
+    "labels": [
+     "quiet year",
+     "p90+ scores"
+    ],
+    "zones": [
+     [
+      90,
+      100,
+      "good"
+     ]
+    ],
+    "marker": 90
+   }
+  },
+  {
+   "name": "Distance from 52-week high",
+   "value": "6.4%",
+   "score": 0.0,
+   "weight": 1.0,
+   "lean": "neutral",
+   "note": "A modest 6.4% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "viz": {
+    "pos": 12.8,
+    "labels": [
+     "at the high",
+     "\u221250%"
+    ],
+    "zones": [
+     [
+      0,
+      1,
+      "good"
+     ],
+     [
+      20,
+      40,
+      "bad"
+     ],
+     [
+      70,
+      100,
+      "good"
+     ]
+    ]
+   }
+  },
+  {
+   "name": "NVDA regime",
+   "value": "uptrend",
+   "score": 0,
+   "weight": 0,
+   "lean": "good",
+   "note": "NVDA above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+  },
+  {
+   "name": "Market backdrop (VIX & fear)",
+   "value": "VIX 15.3 (p12), F&G 50",
+   "score": 0,
+   "weight": 0,
+   "lean": "neutral",
+   "note": "The market-wide panic conditions that score for the index funds (VIX top-decile, curve inversion, Fear & Greed <= 25) were tested directly against single-stock forward returns on the calibrated name - and every one era-flipped. Single-company risk swamps macro timing, so this card informs and never scores."
+  },
+  {
+   "name": "Event calendar",
+   "value": "CPI in 11d",
+   "score": 0,
+   "weight": 0,
+   "lean": "neutral",
+   "note": "No event risk in the next few days (CPI 2026-09-11, FOMC 2026-09-16). (Earnings date unavailable today - Yahoo's calendar endpoint didn't answer.)"
+  }
+ ],
+ "fund": {
+  "price": 220.29,
+  "day_change_pct": 1.26,
+  "sma50": 208.61,
+  "sma200": 195.96,
+  "high52w": 235.74,
+  "high_label": "52-week high",
+  "drawdown_pct": 6.6,
+  "series": [
+   {
+    "d": "2025-12-11",
+    "c": 180.93,
+    "t": "neutral",
+    "s": 47
+   },
+   {
+    "d": "2025-12-12",
+    "c": 175.02,
+    "t": "neutral",
+    "s": 47
+   },
+   {
+    "d": "2025-12-15",
+    "c": 176.29,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2025-12-16",
+    "c": 177.72,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2025-12-17",
+    "c": 170.94,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2025-12-18",
+    "c": 174.14,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2025-12-19",
+    "c": 180.99,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2025-12-22",
+    "c": 183.69,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2025-12-23",
+    "c": 189.21,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2025-12-24",
+    "c": 188.61,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2025-12-26",
+    "c": 190.53,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2025-12-29",
+    "c": 188.22,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2025-12-30",
+    "c": 187.54,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2025-12-31",
+    "c": 186.5,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-01-02",
+    "c": 188.85,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-01-05",
+    "c": 188.12,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-01-06",
+    "c": 187.24,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-01-07",
+    "c": 189.11,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-01-08",
+    "c": 185.04,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-01-09",
+    "c": 184.86,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-01-12",
+    "c": 184.94,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-01-13",
+    "c": 185.81,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-01-14",
+    "c": 183.14,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-01-15",
+    "c": 187.05,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-01-16",
+    "c": 186.23,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-01-20",
+    "c": 178.07,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-01-21",
+    "c": 183.32,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-01-22",
+    "c": 184.84,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-01-23",
+    "c": 187.67,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-01-26",
+    "c": 186.47,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-01-27",
+    "c": 188.52,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-01-28",
+    "c": 191.52,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-01-29",
+    "c": 192.51,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-01-30",
+    "c": 191.13,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-02",
+    "c": 185.61,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-02-03",
+    "c": 180.34,
+    "t": "neutral",
+    "s": 47
+   },
+   {
+    "d": "2026-02-04",
+    "c": 174.19,
+    "t": "neutral",
+    "s": 47
+   },
+   {
+    "d": "2026-02-05",
+    "c": 171.88,
+    "t": "neutral",
+    "s": 47
+   },
+   {
+    "d": "2026-02-06",
+    "c": 185.41,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-02-09",
+    "c": 190.04,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-10",
+    "c": 188.54,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-11",
+    "c": 190.05,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-12",
+    "c": 186.94,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-13",
+    "c": 182.81,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-02-17",
+    "c": 184.97,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-02-18",
+    "c": 187.98,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-19",
+    "c": 187.9,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-20",
+    "c": 189.82,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-23",
+    "c": 191.55,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-24",
+    "c": 192.85,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-25",
+    "c": 195.56,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-02-26",
+    "c": 184.89,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-02-27",
+    "c": 177.19,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-02",
+    "c": 182.48,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-03",
+    "c": 180.05,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-04",
+    "c": 183.04,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-05",
+    "c": 183.34,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-06",
+    "c": 177.82,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-09",
+    "c": 182.65,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-10",
+    "c": 184.77,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-11",
+    "c": 186.03,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-12",
+    "c": 183.14,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-13",
+    "c": 180.25,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-16",
+    "c": 183.22,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-17",
+    "c": 181.93,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-18",
+    "c": 180.4,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-19",
+    "c": 178.56,
+    "t": "neutral",
+    "s": 47
+   },
+   {
+    "d": "2026-03-20",
+    "c": 172.7,
+    "t": "neutral",
+    "s": 47
+   },
+   {
+    "d": "2026-03-23",
+    "c": 175.64,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-24",
+    "c": 175.2,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-25",
+    "c": 178.68,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-26",
+    "c": 171.24,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-27",
+    "c": 167.52,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-03-30",
+    "c": 165.17,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-03-31",
+    "c": 174.4,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-04-01",
+    "c": 175.75,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-04-02",
+    "c": 177.39,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-04-06",
+    "c": 177.64,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-04-07",
+    "c": 178.1,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-04-08",
+    "c": 182.08,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-04-09",
+    "c": 183.91,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-04-10",
+    "c": 188.63,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-13",
+    "c": 189.31,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-14",
+    "c": 196.51,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-15",
+    "c": 198.87,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-16",
+    "c": 198.35,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-17",
+    "c": 201.68,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-20",
+    "c": 202.06,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-21",
+    "c": 199.88,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-22",
+    "c": 202.5,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-23",
+    "c": 199.64,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-24",
+    "c": 208.27,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-04-27",
+    "c": 216.61,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-04-28",
+    "c": 213.17,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-29",
+    "c": 209.25,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-04-30",
+    "c": 199.57,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-05-01",
+    "c": 198.45,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-05-04",
+    "c": 198.48,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-05-05",
+    "c": 196.5,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-05-06",
+    "c": 207.83,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-05-07",
+    "c": 211.5,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-05-08",
+    "c": 215.2,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-05-11",
+    "c": 219.44,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-05-12",
+    "c": 220.78,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-05-13",
+    "c": 225.83,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-05-14",
+    "c": 235.74,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-05-15",
+    "c": 225.32,
+    "t": "ok",
+    "s": 59
+   },
+   {
+    "d": "2026-05-18",
+    "c": 222.32,
+    "t": "ok",
+    "s": 59
+   },
+   {
+    "d": "2026-05-19",
+    "c": 220.61,
+    "t": "ok",
+    "s": 66
+   },
+   {
+    "d": "2026-05-20",
+    "c": 223.47,
+    "t": "ok",
+    "s": 59
+   },
+   {
+    "d": "2026-05-21",
+    "c": 219.51,
+    "t": "ok",
+    "s": 59
+   },
+   {
+    "d": "2026-05-22",
+    "c": 215.33,
+    "t": "ok",
+    "s": 59
+   },
+   {
+    "d": "2026-05-26",
+    "c": 214.86,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-05-27",
+    "c": 212.6,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-05-28",
+    "c": 214.25,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-05-29",
+    "c": 211.14,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-06-01",
+    "c": 224.36,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-02",
+    "c": 222.82,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-03",
+    "c": 214.75,
+    "t": "ok",
+    "s": 59
+   },
+   {
+    "d": "2026-06-04",
+    "c": 218.66,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-05",
+    "c": 205.1,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-08",
+    "c": 208.64,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-09",
+    "c": 208.19,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-10",
+    "c": 200.42,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-11",
+    "c": 204.87,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-12",
+    "c": 205.19,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-15",
+    "c": 212.45,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-16",
+    "c": 207.41,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-17",
+    "c": 204.65,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-18",
+    "c": 210.69,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-22",
+    "c": 208.65,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-23",
+    "c": 200.04,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-24",
+    "c": 199.0,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-06-25",
+    "c": 195.74,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-06-26",
+    "c": 192.53,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-06-29",
+    "c": 194.97,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-06-30",
+    "c": 200.09,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-01",
+    "c": 197.58,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-02",
+    "c": 194.83,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-06",
+    "c": 195.55,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-07",
+    "c": 196.93,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-08",
+    "c": 204.12,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-09",
+    "c": 202.78,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-10",
+    "c": 210.96,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-13",
+    "c": 203.53,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-14",
+    "c": 211.8,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-15",
+    "c": 212.5,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-07-16",
+    "c": 207.4,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-17",
+    "c": 202.81,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-20",
+    "c": 203.28,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-21",
+    "c": 207.29,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-22",
+    "c": 212.06,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-07-23",
+    "c": 208.76,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-24",
+    "c": 206.84,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-27",
+    "c": 196.51,
+    "t": "neutral",
+    "s": 47
+   },
+   {
+    "d": "2026-07-28",
+    "c": 197.01,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-29",
+    "c": 190.01,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-30",
+    "c": 195.04,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-07-31",
+    "c": 200.75,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-08-03",
+    "c": 206.64,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-08-04",
+    "c": 211.94,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-08-05",
+    "c": 219.22,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-06",
+    "c": 218.99,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-07",
+    "c": 223.96,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-10",
+    "c": 217.55,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-11",
+    "c": 217.5,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-12",
+    "c": 224.09,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-13",
+    "c": 225.3,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-14",
+    "c": 225.16,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-17",
+    "c": 225.01,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-18",
+    "c": 219.74,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-08-19",
+    "c": 217.56,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-08-20",
+    "c": 216.85,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-08-21",
+    "c": 214.72,
+    "t": "ok",
+    "s": 56
+   },
+   {
+    "d": "2026-08-24",
+    "c": 208.48,
+    "t": "neutral",
+    "s": 47
+   },
+   {
+    "d": "2026-08-25",
+    "c": 213.05,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-26",
+    "c": 209.66,
+    "t": "caution",
+    "s": 41
+   },
+   {
+    "d": "2026-08-27",
+    "c": 227.98,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-08-28",
+    "c": 217.55,
+    "t": "ok",
+    "s": 59
+   },
+   {
+    "d": "2026-08-31",
+    "c": 220.29,
+    "t": "ok",
+    "s": 59
+   }
+  ]
+ },
+ "flips": [],
+ "report_card": {
+  "horizon_days": 21,
+  "start": "2023-10-27",
+  "end": "2026-08-31",
+  "days_total": 712,
+  "backfilled_days": 711,
+  "fg_coverage_start": "2025-09-02",
+  "baseline": {
+   "n": 691,
+   "avg_pct": 5.55,
+   "median_pct": 3.38
+  },
+  "bands": [
+   {
+    "tone": "good",
+    "label": "Better-than-usual entry (score \u2265 69)",
+    "n": 3,
+    "avg_pct": 17.83,
+    "median_pct": 10.86
+   },
+   {
+    "tone": "ok",
+    "label": "Mild tailwind (score 56\u201368)",
+    "n": 194,
+    "avg_pct": 7.1,
+    "median_pct": 4.12
+   },
+   {
+    "tone": "neutral",
+    "label": "No edge either way (score ~50)",
+    "n": 367,
+    "avg_pct": 4.03,
+    "median_pct": 1.96
+   },
+   {
+    "tone": "caution",
+    "label": "Worse-than-average zone (score \u2264 44)",
+    "n": 127,
+    "avg_pct": 7.3,
+    "median_pct": 6.1
+   }
+  ]
+ },
+ "income": {
+  "ttm_yield_pct": null,
+  "tbill_3mo": 3.84
+ },
+ "underlying": {
+  "symbol": "NVDA",
+  "price": 220.29,
+  "sma200": 195.96,
+  "above_200d": true
+ },
+ "vol": {
+  "index": "20d realized",
+  "level": 45.5
+ },
+ "fomc": {
+  "next": "2026-09-16",
+  "days_until": 16,
+  "imminent": false
+ },
+ "cpi": {
+  "next": "2026-09-11",
+  "days_until": 11
+ },
+ "earnings": {
+  "next": null,
+  "days_until": null,
+  "estimate": false
+ },
+ "backtest": {
+  "start": "2022-08-31",
+  "end": "2026-08-31",
+  "weekly_amount": 100.0,
+  "dip_threshold_pct": 3.0,
+  "invested": 21000.0,
+  "dca_value": 87456.4,
+  "dca_return_pct": 316.46,
+  "dip_value": 87517.63,
+  "dip_return_pct": 316.75,
+  "dip_cash_uninvested": 0.0,
+  "dip_buy_days": 183,
+  "winner": "dip"
+ },
+ "headlines": [
+  {
+   "title": "Nvidia to Invest $3.5 Billion in Chipmaker MediaTek",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNb0cxUWZ1RkliNUJxdEcwWUZsZksxNUcybS1Ha3ZEeU4zV1pCTnhYdEhmUkNvXzQxSkk4aXVYV09RZnZSLVlrMTRKeXRORmhSc0VJWUprU0ZZN1FPTnpxWEU0YlZ5OGsxT2FGNk5PWUp5djdDR1FtOHJHWV9FR1o1YmpUUmdyOUxJT1NXaHdZZHliUmROYllnU2JsRlZqV3NuMlRj?oc=5",
+   "published": "2026-08-31T12:30:00+00:00"
+  },
+  {
+   "title": "Prediction: Nvidia Stock Will Trade at $350 on This Date",
+   "source": "24/7 Wall St.",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNjZlNmJYaFgzS1N5RGtrcF9palRuX1J0WFR0OTFwQzd5Z0tsOE9FaWg3WHNfRThfZkt0UEYxN1V0OFRrRGZaTC1VTXJXRGRzSUI0bTdveE9wVnZ6N1Y0b1VHWVZobXlITTJpR2lweC1EUjI5UkREWURCS3B5NHVTZ0tQX1JSRS1KTi1idXdtTXJ5bXVYUURmS1FubGZEMEE?oc=5",
+   "published": "2026-08-31T14:00:00+00:00"
+  },
+  {
+   "title": "Nvidia to invest $3.5 billion in chipmaker MediaTek, expand partnership",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQNGg1el9MUWRYTnBSbW42NnllVGxRSmwxLUloa1ppa01jamtTRXhiMEo0cUd0dk5iMDVPZEpMdDFBbGMtd2FzSVJFRjRIM3BSVVU1RFhEaTB1TDhHQzVNb2VnLTZWXzhQMmthTG5VRzk1STBaRVlsNENZOHNnWTJ4TURjR2hPUDNlS1VtSDd4NlB0UUxBLXprTnRJM25XOXNLVWt4amprQ3YyeWM?oc=5",
+   "published": "2026-08-31T13:58:12+00:00"
+  },
+  {
+   "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027",
+   "source": "NVIDIA Newsroom",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOcjZPeVV6eC01Z2tWOHlyVEhmMG9uZDgyaXdvVTV3MVVMWGdKVVhJdlNiRHBvejd0UnlSNFJfTFA4dXAxUk9fVi1RQ2h2VU1kd2FkSUoydEJheDVMNWRnYUdMa2RFcG8zcTROTl9ZX1lJQ0tRU1VZR2pkQjFRdEtkM0tpUUlOcXhsYTFGcGY5RHFQYWZyNkh6LXVCSmN0Y1J3WWc?oc=5",
+   "published": "2026-08-26T20:25:18+00:00"
+  },
+  {
+   "title": "What caused Nvidia's nasty reversal Friday? Look to the Fed for clues",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNRVFsaUhJX2RITjlRbkpILUlPdzJKQUV0LWFtaUFLSEU3R1pWcFdYMDBMZy1qc1lwamtuMDJ3V0FVUDNURmRDWE5SZUtwSWtKUHdLQkYxTGxDZTRxdkxtT09zOUVKM210Tnp4OU0wd2YxLTVuYnA4eThickJCbHF2MmNRN3ZVbHJtV2lvT1RVMnZ3MFVtNlE4cy1aSkNDNl9pdVM0QTdwSQ?oc=5",
+   "published": "2026-08-30T23:26:35+00:00"
+  },
+  {
+   "title": "Nvidia Stock Shifts from a Value Play Back to Growth. Watch Cathie Wood.",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5qdm9uSTFqRFBvWFNIQ18zNlFpTEd2R2ZRMWttR2ltUURrOUtGeklCSW1XdVE2T0ptRURfUHc2MFU0VUhfR2tvTURxeXk1YS1YR2pjbURoMFhKd0p2Qm5ZVzRiaWtxNldvUm1aYThiY2pJSkZrR3draTdrTjVLQQ?oc=5",
+   "published": "2026-08-31T13:36:00+00:00"
+  }
+ ]
+}

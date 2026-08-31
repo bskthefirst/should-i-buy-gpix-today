@@ -137,6 +137,8 @@ FUNDS = [
         "history_out": "history-tsla.json",
         "page": "tsla.html",
         "validated": True,
+        # Weights/thresholds come from this ticker's own validation pass.
+        "evidence": "own",
         "range": "4y",  # full 1y lead-in before the Oct 2023 history start
         "history_start": "2023-10-27",  # same window as GPIX/GPIQ report cards
         "news_query": "Tesla+OR+TSLA+stock+OR+%22Elon+Musk%22",
@@ -163,6 +165,42 @@ FUNDS = [
         "news_query": "SpaceX+OR+Starlink+OR+%22Space+Exploration+Technologies%22",
         "meter": (50, 100),
         "weights_max": 0,
+    },
+    {
+        # Mature mega-cap; same single-stock engine as TSLA. Weights and
+        # thresholds are the TSLA-validated framework applied provisionally
+        # (honest on-page copy) until a dedicated NVDA pass exists.
+        "key": "nvda",
+        "kind": "stock",
+        "ticker": "NVDA",
+        "asset_name": "Nvidia",
+        "out": "data-nvda.json",
+        "history_out": "history-nvda.json",
+        "page": "nvda.html",
+        "validated": True,
+        "evidence": "tsla_framework",
+        "range": "4y",
+        "history_start": "2023-10-27",
+        "news_query": "Nvidia+OR+NVDA+OR+GPU+OR+%22artificial+intelligence%22",
+        "meter": (40, 73),
+        "weights_max": 4.5,
+    },
+    {
+        # Alphabet Class C; same provisional single-stock framework as NVDA.
+        "key": "goog",
+        "kind": "stock",
+        "ticker": "GOOG",
+        "asset_name": "Alphabet",
+        "out": "data-goog.json",
+        "history_out": "history-goog.json",
+        "page": "goog.html",
+        "validated": True,
+        "evidence": "tsla_framework",
+        "range": "4y",
+        "history_start": "2023-10-27",
+        "news_query": "Alphabet+OR+Google+OR+GOOG+OR+%22search+ads%22+OR+YouTube",
+        "meter": (40, 73),
+        "weights_max": 4.5,
     },
 ]
 
@@ -927,7 +965,7 @@ def write_feed(hist_by_key: dict[str, list[dict]]) -> int:
             el.text = text
         return el
 
-    sub(feed, "title", "Should I buy GPIX/GPIQ/TSLA/SPCX today? - verdict changes")
+    sub(feed, "title", "Should I buy GPIX/GPIQ/TSLA/SPCX/NVDA/GOOG today? - verdict changes")
     sub(feed, "id", SITE + "feed.xml")
     sub(feed, "link", rel="self", href=SITE + "feed.xml")
     sub(feed, "link", rel="alternate", href=SITE)
@@ -1612,7 +1650,8 @@ def build_stock_history(fund: dict, rows: list, rv: list, live_row: dict) -> lis
 
 
 def build_stock(fund: dict) -> dict:
-    """Single-stock page build (TSLA validated, SPCX context-only).
+    """Single-stock page build (TSLA validated, SPCX context-only,
+    NVDA/GOOG use the TSLA framework provisionally).
 
     Deliberately leaner than the fund build: only conditions the TSLA
     validation pass proved (or explicitly demoted to context) appear, and
@@ -1622,6 +1661,9 @@ def build_stock(fund: dict) -> dict:
     ticker = fund["ticker"]
     name = fund["asset_name"]
     validated = fund["validated"]
+    # "own" = this ticker's dedicated validation; "tsla_framework" =
+    # same weights/thresholds applied provisionally (NVDA/GOOG).
+    own_evidence = fund.get("evidence") == "own"
 
     result = yahoo_chart(ticker, fund["range"], events=True)
     rows = chart_rows(result)
@@ -1668,26 +1710,47 @@ def build_stock(fund: dict) -> dict:
         )
         pb_lean = "neutral"
     elif s == WS_CRASH:
-        pb_note = (
-            f"{ticker} is down {abs(ret5):.1f}% over 5 sessions - the vol-scaled crash band. In 16 years "
-            f"of {ticker} history these days averaged +0.9pt next-day excess (t=2.2) and +11pt over the "
-            f"next quarter, positive in every era at every horizon - the strongest single-name edge "
-            f"this tool found, hence the 2.0 weight."
-        )
+        if own_evidence:
+            pb_note = (
+                f"{ticker} is down {abs(ret5):.1f}% over 5 sessions - the vol-scaled crash band. In 16 years "
+                f"of {ticker} history these days averaged +0.9pt next-day excess (t=2.2) and +11pt over the "
+                f"next quarter, positive in every era at every horizon - the strongest single-name edge "
+                f"this tool found, hence the 2.0 weight."
+            )
+        else:
+            pb_note = (
+                f"{ticker} is down {abs(ret5):.1f}% over 5 sessions - the crash band from the TSLA-validated "
+                f"single-stock framework (5d ≤ −12%, weight 2.0). Applied here provisionally pending a "
+                f"dedicated {ticker} pass; the qualitative bet is that sharp single-name washouts bounce."
+            )
         pb_lean = "good"
     elif s == WS_DOWN3:
-        pb_note = (
-            f"{ticker} has closed down {streak} straight sessions. Historically bounced the next day "
-            f"(+0.35pt excess, t=1.7, positive in every era at the 1-day horizon). Longer horizons were "
-            f"mixed, so it earns 1.0 - half the crash band's weight."
-        )
+        if own_evidence:
+            pb_note = (
+                f"{ticker} has closed down {streak} straight sessions. Historically bounced the next day "
+                f"(+0.35pt excess, t=1.7, positive in every era at the 1-day horizon). Longer horizons were "
+                f"mixed, so it earns 1.0 - half the crash band's weight."
+            )
+        else:
+            pb_note = (
+                f"{ticker} has closed down {streak} straight sessions. Under the TSLA single-stock "
+                f"framework this earns +1.0 (provisional on {ticker}): three down closes tended to "
+                f"bounce the next day on the calibrated name."
+            )
         pb_lean = "good"
     else:
-        pb_note = (
-            f"No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ "
-            f"five-session drop (+2.0). The thresholds are {ticker}-specific: at roughly 3x index "
-            f"volatility, the index's -3% band would fire a third of all days and tested as noise here."
-        )
+        if own_evidence:
+            pb_note = (
+                f"No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ "
+                f"five-session drop (+2.0). The thresholds are {ticker}-specific: at roughly 3x index "
+                f"volatility, the index's -3% band would fire a third of all days and tested as noise here."
+            )
+        else:
+            pb_note = (
+                f"No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session "
+                f"drop (+2.0) — thresholds from the TSLA validation (high-vol single name), applied here "
+                f"provisionally. The index's milder −3% band is not used."
+            )
         pb_lean = "neutral"
     pb_sig = {
         "name": "Short-term pullback (reversal)",
@@ -1723,11 +1786,18 @@ def build_stock(fund: dict) -> dict:
     elif s:
         rvol_value = f"{rv_now:.0f}% ann. (p{rv_pct:.0f})"
         rvol_lean = "good"
-        rvol_note = (
-            f"{ticker}'s realized volatility is in the top decile of its own past year. In validation, "
-            f"these days averaged +0.35pt next-day excess (t=1.7) and +15.5pt over the next quarter, "
-            f"positive in every era - chaos has been the single-name buyer's friend. Weight 1.5."
-        )
+        if own_evidence:
+            rvol_note = (
+                f"{ticker}'s realized volatility is in the top decile of its own past year. In validation, "
+                f"these days averaged +0.35pt next-day excess (t=1.7) and +15.5pt over the next quarter, "
+                f"positive in every era - chaos has been the single-name buyer's friend. Weight 1.5."
+            )
+        else:
+            rvol_note = (
+                f"{ticker}'s realized volatility is in the top decile of its own past year. The "
+                f"TSLA-validated framework scores this +1.5 (provisional on {ticker}): elevated "
+                f"single-name chaos tended to mark better entries on the calibrated name."
+            )
     elif rv_pct >= 70:
         rvol_value = f"{rv_now:.0f}% ann. (p{rv_pct:.0f})"
         rvol_lean = "good"
@@ -1773,20 +1843,34 @@ def build_stock(fund: dict) -> dict:
         )
     elif s == WS_HIGH:
         dd_lean = "good"
-        dd_note = (
-            f"{ticker} is at (or within a whisker of) its 52-week high. For a single stock this is "
-            f"MOMENTUM, not a warning: in 16 years of validation, at-the-high days averaged +0.62pt "
-            f"next-day excess (t=2.05), positive in every era - the opposite of what this line means "
-            f"for the index funds. Weight 1.0."
-        )
+        if own_evidence:
+            dd_note = (
+                f"{ticker} is at (or within a whisker of) its 52-week high. For a single stock this is "
+                f"MOMENTUM, not a warning: in 16 years of validation, at-the-high days averaged +0.62pt "
+                f"next-day excess (t=2.05), positive in every era - the opposite of what this line means "
+                f"for the index funds. Weight 1.0."
+            )
+        else:
+            dd_note = (
+                f"{ticker} is at (or within a whisker of) its 52-week high. Under the TSLA single-stock "
+                f"framework this is MOMENTUM (+1.0), provisional on {ticker} — the opposite of the "
+                f"index-fund at-the-high read."
+            )
     elif s == WS_KNIFE:
         dd_lean = "bad"
-        dd_note = (
-            f"{ticker} sits {drawdown_adj:.1f}% below its 52-week high - the falling-knife band "
-            f"(10-20% down). The one zone in this entire project with era-robust evidence of "
-            f"BELOW-average forward returns (negative in every era, t=-2.6 next-day, t=-1.9 monthly). "
-            f"Single names in mid-drawdown lean momentum, not mean-reversion. Weight -1.5."
-        )
+        if own_evidence:
+            dd_note = (
+                f"{ticker} sits {drawdown_adj:.1f}% below its 52-week high - the falling-knife band "
+                f"(10-20% down). The one zone in this entire project with era-robust evidence of "
+                f"BELOW-average forward returns (negative in every era, t=-2.6 next-day, t=-1.9 monthly). "
+                f"Single names in mid-drawdown lean momentum, not mean-reversion. Weight -1.5."
+            )
+        else:
+            dd_note = (
+                f"{ticker} sits {drawdown_adj:.1f}% below its 52-week high - the falling-knife band "
+                f"(10-20% down, weight −1.5) from the TSLA framework, applied provisionally. Mid-drawdown "
+                f"single names tended to keep drifting on the calibrated name, not bounce."
+            )
     elif drawdown_adj >= 35:
         dd_lean = "good"
         dd_note = (
@@ -1804,7 +1888,8 @@ def build_stock(fund: dict) -> dict:
         dd_lean = "neutral"
         dd_note = (
             f"A modest {drawdown_adj:.1f}% off the 52-week high. Note the index funds' 3%+ discount "
-            f"band does NOT transfer: on {ticker} it tested as noise, so no points for small dips here."
+            f"band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no "
+            f"points for small dips here."
         )
     signals.append({
         "name": f"Distance from {high_label}",
@@ -1831,7 +1916,7 @@ def build_stock(fund: dict) -> dict:
             "note": (
                 f"{ticker} {'above' if above else 'below'} its own 200-day average. Descriptive only - "
                 f"the fund audits showed below-200-day is not a buy signal, and no regime band was "
-                f"validated on {ticker} either. The lean just reads the tape."
+                f"validated on the single-stock pass either. The lean just reads the tape."
             ),
         })
     else:
@@ -1871,9 +1956,9 @@ def build_stock(fund: dict) -> dict:
             "lean": "neutral",
             "note": (
                 f"The market-wide panic conditions that score for the index funds (VIX top-decile, "
-                f"curve inversion, Fear & Greed <= 25) were tested directly against {ticker}'s forward "
-                f"returns - and every one era-flipped. Single-company risk swamps macro timing, so "
-                f"this card informs and never scores."
+                f"curve inversion, Fear & Greed <= 25) were tested directly against single-stock "
+                f"forward returns on the calibrated name - and every one era-flipped. Single-company "
+                f"risk swamps macro timing, so this card informs and never scores."
             ),
         }
 
@@ -1950,18 +2035,36 @@ def build_stock(fund: dict) -> dict:
             ),
         }
     else:
+        framework_caveat = (
+            "" if own_evidence
+            else f" Weights come from the TSLA-validated single-stock framework, applied provisionally to {ticker}."
+        )
         verdict = {
             "good": {
                 "label": "Better-than-usual entry",
-                "summary": f"Rare validated conditions aligned on {ticker} today - the kind of setup that rewarded buyers across 16 years of history. If you were planning to add, this is a sensible day. (Still one company: size the position accordingly.)",
+                "summary": (
+                    f"Rare validated conditions aligned on {ticker} today - the kind of setup that "
+                    f"rewarded buyers across the calibrated single-stock history. If you were planning "
+                    f"to add, this is a sensible day. (Still one company: size the position accordingly.)"
+                    f"{framework_caveat}"
+                ),
             },
             "ok": {
                 "label": "Mild tailwind - fine day to buy",
-                "summary": f"A validated {ticker}-specific condition is in your favor today. Nothing dramatic - and single-stock risk still dwarfs entry timing.",
+                "summary": (
+                    f"A validated single-stock condition is in your favor on {ticker} today. Nothing "
+                    f"dramatic - and single-stock risk still dwarfs entry timing."
+                    f"{framework_caveat}"
+                ),
             },
             "neutral": {
                 "label": "No edge either way",
-                "summary": f"None of the validated {ticker} conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
+                "summary": (
+                    f"None of the scored {ticker} conditions are present. Unlike the index funds, this "
+                    f"page can't add \"any day is fine\": that logic was proven on diversified indexes, "
+                    f"not single companies."
+                    f"{framework_caveat}"
+                ),
             },
             "caution": {
                 "label": "Worse-than-average zone",
@@ -1970,6 +2073,7 @@ def build_stock(fund: dict) -> dict:
                     f"zone in this whole project with era-robust evidence of below-average forward "
                     f"returns: single names in mid-drawdown tend to keep drifting, not bounce. Nothing "
                     f"here says sell; it says this specific dip has historically kept dipping."
+                    f"{framework_caveat}"
                 ),
             },
         }[tone]
@@ -2071,6 +2175,7 @@ def build_stock(fund: dict) -> dict:
             "sessions": n,
             "too_young": too_young,
             "validated": validated,
+            "evidence": fund.get("evidence"),
         },
         "verdict": verdict,
         "meter": {"min": meter_min, "max": meter_max},

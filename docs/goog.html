@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f5f0">
-<meta name="description" content="Eleven transparent market checks - volatility, credit stress, sentiment, short-term pullbacks, yield vs cash, trend - watched daily for the six rare conditions that independent backtests found actually mark better-than-average days to buy GPIX.">
+<meta name="description" content="Six transparent daily checks on Alphabet stock - pullbacks, realized volatility, distance from the high, regime, market backdrop, events - scored with the single-stock framework validated on TSLA, applied provisionally to GOOG, including the evidence-backed zone that's WORSE than average to buy.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23004225'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%23f6f5f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<title>Should I buy GPIX today?</title>
+<title>Should I buy GOOG today?</title>
 <link rel="alternate" type="application/atom+xml" title="GPIX/GPIQ/TSLA/SPCX/NVDA/GOOG verdict-change alerts" href="feed.xml">
 <style>
   :root {
@@ -85,14 +85,16 @@
   .verdict.good .label    { color: var(--good); }
   .verdict.ok .label      { color: var(--ok); }
   .verdict.neutral .label { color: var(--neutral); }
+  .verdict.caution .label { color: var(--bad); }
   .verdict .summary { color: var(--muted); margin-top: 6px; max-width: 64ch; }
 
   /* arc gauge: the 0-100 buy score as a semicircular dial with the
-     verdict-band zones painted on the arc (56 = mild, 69 = strong). */
+     verdict-band zones painted on the arc */
   .vgauge { justify-self: center; }
   .vgauge .gnum { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; fill: var(--faint); font-variant-numeric: tabular-nums; }
   .verdict.good .gnum { fill: var(--good); }
   .verdict.ok .gnum { fill: var(--ok); }
+  .verdict.caution .gnum { fill: var(--bad); }
   .vgauge .gden { font-size: 11px; font-weight: 600; fill: var(--faint); letter-spacing: .04em; }
   .vgauge .gtick { font-size: 10px; fill: var(--faint); }
   .scorenote { margin-top: 8px; font-size: 12.5px; color: var(--faint); max-width: 62ch; }
@@ -102,6 +104,11 @@
     background: var(--surface2); border-left: 3px solid var(--brg); border-radius: 0 8px 8px 0;
   }
   .execnote b { color: var(--text); }
+  .honesty {
+    margin-top: 14px; padding: 12px 16px; font-size: 13px; color: var(--muted);
+    background: var(--surface2); border-left: 3px solid var(--rich); border-radius: 0 8px 8px 0;
+  }
+  .honesty b { color: var(--text); }
 
   h2 { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 34px 0 6px; padding-left: 12px; border-left: 3px solid var(--brg); line-height: 1.25; }
   .h2sub { color: var(--faint); font-size: 13px; margin-bottom: 14px; }
@@ -152,6 +159,7 @@
   .rc-table .b-good td:first-child { color: var(--good); font-weight: 600; }
   .rc-table .b-ok td:first-child { color: var(--ok); font-weight: 600; }
   .rc-table .b-neutral td:first-child { color: var(--neutral); font-weight: 600; }
+  .rc-table .b-caution td:first-child { color: var(--bad); font-weight: 600; }
   .rc-table .baseline td { color: var(--muted); }
   .rc-table .few { color: var(--faint); font-size: 11.5px; font-weight: 400; }
   .rcbar { width: 26%; }
@@ -231,21 +239,21 @@
 <div class="wrap">
   <div class="topbar">
     <nav class="fundtoggle" aria-label="Choose asset">
-      <a href="./" class="active">GPIX <small>S&amp;P 500</small></a>
+      <a href="./">GPIX <small>S&amp;P 500</small></a>
       <a href="gpiq.html">GPIQ <small>Nasdaq 100</small></a>
       <a href="tsla.html">TSLA <small>stock</small></a>
       <a href="spcx.html">SPCX <small>stock</small></a>
       <a href="nvda.html">NVDA <small>stock</small></a>
-      <a href="goog.html">GOOG <small>stock</small></a>
+      <a href="goog.html" class="active">GOOG <small>stock</small></a>
       <a href="retire.html">RETIRE <small>when?</small></a>
     </nav>
     <a class="rsslink" href="feed.xml" title="Atom feed — a new entry appears only when a fund's verdict band changes from the prior day. Quiet by design.">Alerts (RSS)</a>
   </div>
   <header>
     <div>
-      <div class="kicker">Daily timing signal · S&amp;P 500 premium income</div>
-      <h1>Should I buy GPIX today?</h1>
-      <div class="sub">Eleven market checks every weekday morning - six rare conditions scored and weighted by evidence, the rest shown as context - turned into one honest 0-100 buy score.</div>
+      <div class="kicker">Daily timing signal · Single stock, TSLA framework</div>
+      <h1>Should I buy GOOG today?</h1>
+      <div class="sub">Six daily checks using the single-stock scoring framework validated on TSLA (2010–2026), applied provisionally to Alphabet - including the one zone that's provably WORSE than average to buy.</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -253,14 +261,7 @@
   <div id="app"></div>
 
   <footer>
-    Not financial advice; a personal decision aid. Rules v4: after two independent backtests of
-    every scoring band plus a literature review with independent revalidation, only the rare
-    conditions that proved era-robust score - five market extremes and a short-term pullback
-    reversal - each weighted by the effect size the validation actually measured, then mapped to
-    a 0-100 buy score where 50 means "typical day". Nothing scores negative, because the audits
-    showed this tool couldn't spot bad days, so it stopped claiming to. It flags rare good days;
-    the rest of the time the answer is "buy on schedule." Data: Yahoo Finance, FRED, CNN, Google
-    News, Federal Reserve calendar.
+    Not financial advice; a personal decision aid. GOOG uses the same single-stock engine and weights as TSLA (crash pullback, top-decile realized vol, at-the-high momentum, falling-knife caution), applied provisionally pending a dedicated Alphabet validation pass. The score can fall below 50 when the 10–20% drawdown band fires. Single-stock caveat: none of this protects against company-specific impairment; size positions accordingly. Data: Yahoo Finance, FRED, CNN, Google News, Federal Reserve calendar.
   </footer>
 </div>
 
@@ -277,7 +278,7 @@ const ago = iso => {
 const fmtPct = v => (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
 
 // Per-signal bullet bar: today's position on the signal's scale, scored
-// band(s) tinted, threshold ticked. Pure presentation from data.json's viz.
+// band(s) tinted, threshold ticked. Pure presentation from the data JSON's viz.
 const bullet = v => {
   const zones = (v.zones || []).map(z =>
     `<i class="bz ${z[2]}" style="left:${z[0]}%;width:${z[1] - z[0]}%"></i>`).join("");
@@ -317,38 +318,8 @@ function gauge(s100, MIN, MAX, zones) {
 }
 // Verdict-band colors for the score timeline strip — same palette as the
 // buy-meter zones above.
-const TONE_FILL = {neutral: "rgba(125,138,129,.30)", ok: "rgba(77,124,15,.35)", good: "rgba(0,66,37,.45)"};
-const TONE_NAME = {good: "better-than-usual entry", ok: "mild tailwind", neutral: "no edge"};
-
-// Monthly payout bar chart: one bar per ex-date, dashed 12-month average,
-// latest payout highlighted. Same real-pixel-width approach as the price chart.
-function renderDistChart(dist) {
-  const box = document.getElementById("distcard");
-  if (!box || !dist || !dist.history || !dist.history.length) return;
-  const narrow = window.innerWidth <= 620;
-  const W = Math.max(300, box.clientWidth - (narrow ? 24 : 36));
-  const H = 150, L = 46, R = 10, T = 14, B = 26;
-  const hist = dist.history;
-  const maxA = Math.max(...hist.map(h => h.amount)) * 1.18;
-  const slot = (W - L - R) / hist.length;
-  const bw = Math.max(4, slot * 0.62);
-  const x = i => L + (i + 0.5) * slot;
-  const y = v => T + (1 - v / maxA) * (H - T - B);
-  const last12 = hist.slice(-12);
-  const avg = last12.reduce((s, h) => s + h.amount, 0) / last12.length;
-  const grid = [maxA * 0.33, maxA * 0.66, maxA * 0.99];
-  const labEvery = Math.ceil(hist.length / (narrow ? 4 : 8));
-  box.innerHTML = `
-  <svg width="${W}" height="${H}" role="img" aria-label="Monthly distributions per share, last ${hist.length} payouts">
-    ${grid.map(v => `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e4e7dd" stroke-width="1"/>
-      <text x="2" y="${y(v) + 4}">$${v.toFixed(2)}</text>`).join("")}
-    ${hist.map((h, i) => `<rect x="${(x(i) - bw / 2).toFixed(1)}" y="${y(h.amount).toFixed(1)}" width="${bw.toFixed(1)}" height="${(y(0) - y(h.amount)).toFixed(1)}" rx="2"
-      fill="${i === hist.length - 1 ? "var(--brg)" : "rgba(0,66,37,.35)"}"><title>${h.date} · $${h.amount.toFixed(3)}/share</title></rect>`).join("")}
-    ${hist.map((h, i) => i % labEvery === 0 ? `<text x="${x(i)}" y="${H - 8}" text-anchor="middle">${h.date.slice(2, 7)}</text>` : "").join("")}
-    <line x1="${L}" x2="${W - R}" y1="${y(avg)}" y2="${y(avg)}" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4"/>
-    <text x="${W - R - 4}" y="${y(avg) - 5}" text-anchor="end">12-mo avg $${avg.toFixed(3)}</text>
-  </svg>`;
-}
+const TONE_FILL = {neutral: "rgba(125,138,129,.30)", ok: "rgba(77,124,15,.35)", good: "rgba(0,66,37,.45)", caution: "rgba(185,28,28,.32)"};
+const TONE_NAME = {good: "better-than-usual entry", ok: "mild tailwind", neutral: "no edge", caution: "worse-than-average zone"};
 
 // Renders the chart at the container's real pixel width (no viewBox scaling),
 // so axis text stays readable on a phone. Re-renders on resize/rotation.
@@ -416,7 +387,7 @@ function renderChart(series, sma50, sma200) {
 
   box.innerHTML = `
   <div class="chartwrap">
-  <svg id="pxchart" width="${W}" height="${H + EXT}" viewBox="0 0 ${W} ${H + EXT}" role="img" aria-label="GPIX closing price with 50- and 200-day averages and daily verdict band, last ${series.length} trading days">
+  <svg id="pxchart" width="${W}" height="${H + EXT}" viewBox="0 0 ${W} ${H + EXT}" role="img" aria-label="GOOG closing price with 50- and 200-day averages and daily verdict band, last ${series.length} trading days">
     <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="rgba(0,66,37,.18)"/><stop offset="1" stop-color="rgba(0,66,37,0)"/>
     </linearGradient></defs>
@@ -465,50 +436,60 @@ function renderChart(series, sma50, sma200) {
   svg.addEventListener("pointercancel", hide);
 }
 
-fetch("data.json").then(r => r.json()).then(d => {
+fetch("data-goog.json").then(r => r.json()).then(d => {
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
-  // Meter axis is the 0-100 buy score, floored at 50 (rules v4).
-  const METER_MIN = d.meter ? d.meter.min : 50;
-  const METER_MAX = d.meter ? d.meter.max : 100;
-  // Headline buy score: 50 + weighted W * 6.25 (never below 50 by design).
+  // Meter axis: 40-73. GOOG's score CAN fall below 50 (the falling-knife
+  // band scores -1.5), unlike the index-fund pages.
+  const METER_MIN = d.meter ? d.meter.min : 40;
+  const METER_MAX = d.meter ? d.meter.max : 73;
   const s100 = v.score100 ?? Math.round(50 + v.score * 6.25);
+  // Zone boundaries: 43.75 (caution|neutral, W=-1), 56.25 (neutral|ok, W=1),
+  // 68.75 (ok|good, W=3) — rendered on the gauge as 44 / 56 / 69. GOOG is
+  // the one asset with a red zone: its falling-knife band scores negative.
+  const GAUGE_ZONES = [
+    [METER_MIN, 43.75, "rgba(185,28,28,.40)"],
+    [43.75, 56.25, "rgba(125,138,129,.30)"],
+    [56.25, 68.75, "rgba(77,124,15,.45)"],
+    [68.75, METER_MAX, "rgba(0,66,37,.55)"],
+  ];
   const chg = g.day_change_pct ?? 0;
   document.getElementById("pricebox").innerHTML = `
     <div class="px">$${fmt2(g.price)}</div>
     <div class="chg ${chg >= 0 ? "up" : "dn"}">${chg >= 0 ? "▲" : "▼"} ${Math.abs(chg).toFixed(2)}% vs prior close</div>
     <div class="stamp">updated ${new Date(d.generated_at).toLocaleString([], {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"})}</div>`;
 
-  const GAUGE_ZONES = [
-    [METER_MIN, 56.25, "rgba(125,138,129,.30)"],
-    [56.25, 68.75, "rgba(77,124,15,.45)"],
-    [68.75, METER_MAX, "rgba(0,66,37,.55)"],
-  ];
   const dcaWins = bt.winner === "dca";
 
   document.getElementById("app").innerHTML = `
-    <div class="verdict ${v.tone}" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 8}">
+    <div class="verdict ${v.tone}" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 4.5}">
       <div class="vgrid">
         <div class="vtext">
           <div class="label">${v.label}</div>
           <div class="summary">${v.summary}</div>
-          <div class="scorenote">50 = typical day; the score only rises above it, because no reliable "bad day" signal survived our audits. Mild tailwind at 56+, strong case to buy at 69+.</div>
+          <div class="scorenote">50 = typical day. Unlike the index-fund pages, GOOG's score CAN fall below 50 — the red arc: its 10–20% drawdown band preceded below-average returns in every era tested, the one evidence-backed bad zone this project has found. Mild tailwind at 56+, strong case at 69+.</div>
         </div>
         <div class="vgauge">${gauge(s100, METER_MIN, METER_MAX, GAUGE_ZONES)}</div>
       </div>
     </div>
 
-    <div class="execnote"><b>Whatever day you buy, place the order near the close:</b> nearly all of the
-    index's return has historically accrued overnight, not intraday (Lou–Polk–Skouras 2019; our
-    validation: SPY ≈ +3.3bp per night, t=4.6, positive in every era). Buying near today's close
-    instead of tomorrow's open captures it — a small free edge, worth basis points, not fortunes.</div>
+    <div class="honesty"><b>This is one company, not an index.</b> The "any day is fine, 50 is the floor"
+    logic on the GPIX/GPIQ pages was validated on diversified indexes, which can't go to zero and always
+    recovered. A single stock can suffer permanent company-specific impairment that no timing signal sees
+    coming — so for GOOG, position sizing matters far more than entry timing, and this page uses the
+    TSLA-validated single-stock framework applied provisionally pending a dedicated Alphabet validation pass.</div>
+
+    <div class="execnote"><b>If you buy, place the order near the close:</b> the overnight-premium
+    evidence (Lou–Polk–Skouras 2019; our validation: SPY ≈ +3.3bp per night, t=4.6, positive in every
+    era) was measured on indexes. Single-stock overnight behavior is noisier, so treat this as a mild
+    default habit here, not a proven edge.</div>
 
     <h2>Why</h2>
-    <div class="h2sub">Eleven checks each morning, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score, each weighted by the effect size our validation work measured (short-term reversal 2.0, discount and top-decile vol 1.5, the rest 1.0); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
+    <div class="h2sub">Six checks each morning. Scoring uses the TSLA-validated single-stock framework (2010–2026), applied provisionally to GOOG: crash pullback 2.0, top-decile realized vol 1.5, 3 straight down closes 1.0, at-the-high momentum 1.0 — and the 10–20% falling-knife band <b>subtracts</b> 1.5, the one signal in this project allowed to score negative, because the evidence is unambiguous. Index-validated bands that failed on TSLA (the 3% discount, market-wide VIX panic) render as context only.</div>
     <div class="signals">
       ${d.signals.map(s => {
         const lean = s.lean || "neutral";
-        const cls = s.score > 0 || lean === "good" ? "pos" : lean === "bad" ? "neg" : "zero";
-        const tag = s.score > 0 ? `+${s.score.toFixed(1)} · helps ▲` : lean === "good" ? "looks good ▲" : lean === "bad" ? "looks bad ▼" : "neutral";
+        const cls = s.score > 0 || (s.score === 0 && lean === "good") ? "pos" : s.score < 0 || lean === "bad" ? "neg" : "zero";
+        const tag = s.score > 0 ? `+${s.score.toFixed(1)} · helps ▲` : s.score < 0 ? `${s.score.toFixed(1)} · hurts ▼` : lean === "good" ? "looks good ▲" : lean === "bad" ? "looks bad ▼" : "neutral";
         return `
         <div class="sig">
           <div class="top">
@@ -523,9 +504,9 @@ fetch("data.json").then(r => r.json()).then(d => {
 
     ${d.flips && d.flips.length ? `
     <h2>What would change this verdict</h2>
-    <div class="h2sub">The nearest scoring thresholds from today's values, with their impact on the 0-100 buy score. Every row would push the score up — no condition can push it down anymore.</div>
+    <div class="h2sub">The nearest scoring thresholds from today's values, with their impact on the 0-100 buy score. Unlike the index-fund pages, rows here can point down — GOOG has an evidence-backed negative zone.</div>
     <div class="card"><ul class="flips">
-      ${d.flips.map(f => `<li class="up"><span class="dir">helps ▲</span><span>${f.text}</span></li>`).join("")}
+      ${d.flips.map(f => `<li class="${f.direction > 0 ? "up" : "down"}"><span class="dir">${f.direction > 0 ? "helps ▲" : "hurts ▼"}</span><span>${f.text}</span></li>`).join("")}
     </ul></div>` : ""}
 
     <h2>What the market is chewing on</h2>
@@ -535,13 +516,8 @@ fetch("data.json").then(r => r.json()).then(d => {
     </ul></div>
 
     <h2>Price context</h2>
-    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices; dashed lines mark the 50- and 200-day averages. 52-week high: $${fmt2(g.high52w)} (today is ${g.drawdown_pct.toFixed(1)}% below it in raw-price terms — the scored discount uses distributions-reinvested closes instead).${d.income && d.income.ttm_yield_pct != null && d.income.tbill_3mo != null ? ` GPIX has paid ${d.income.ttm_yield_pct.toFixed(1)}% over the trailing year vs ${d.income.tbill_3mo.toFixed(1)}% on 3-month T-bills.` : ""}</div>
+    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices; dashed lines mark the 50- and 200-day averages. 52-week high: $${fmt2(g.high52w)}, today ${g.drawdown_pct.toFixed(1)}% below it. The validated bands: within 0.5% of the high = momentum (+), 10–20% below = the falling knife (−), 35%+ = deep value (context only).</div>
     <div class="card" id="chartcard"></div>
-
-    ${d.distributions && d.distributions.history && d.distributions.history.length ? `
-    <h2>What it actually pays</h2>
-    <div class="h2sub">Per-share distribution at each ex-date — payout drift shows up here long before the trailing-yield average admits it. Trailing 12 months: $${d.distributions.ttm_sum.toFixed(2)}/share.${d.distributions.next_ex_estimate ? ` Next ex-div ≈ <b>${d.distributions.next_ex_estimate}</b> (estimated from the payout cadence — own shares before that date to receive the month's payout).` : ""}</div>
-    <div class="card" id="distcard"></div>` : ""}
 
     <h2>Does waiting even work? A running experiment</h2>
     <div class="h2sub">Two imaginary savers, $${bt.weekly_amount}/week each since ${bt.start} (${fmt$(bt.invested)} in). Distributions reinvested.</div>
@@ -557,19 +533,19 @@ fetch("data.json").then(r => r.json()).then(d => {
       <div class="lane ${dcaWins ? "" : "winner"}">
         ${dcaWins ? "" : '<span class="crown">ahead</span>'}
         <div class="who">The dip-waiter</div>
-        <div class="how">Saves cash and only buys when GPIX is ≥${bt.dip_threshold_pct}% off its high. Got ${bt.dip_buy_days} chances so far.</div>
+        <div class="how">Saves cash and only buys when GOOG is ≥${bt.dip_threshold_pct}% off its high. Got ${bt.dip_buy_days} chances so far.</div>
         <div class="flow">${fmt$(bt.invested)} in → <b>${fmt$(bt.dip_value)}</b></div>
         <div class="ret">+${bt.dip_return_pct}% total return${bt.dip_cash_uninvested > 0 ? " · " + fmt$(bt.dip_cash_uninvested) + " still waiting in cash" : ""}</div>
         <div class="lanebar"><i style="width:${(bt.dip_value / Math.max(bt.dca_value, bt.dip_value) * 100).toFixed(1)}%"></i></div>
       </div>
     </div>
     <div class="moral">${dcaWins
-      ? "The robot is ahead. Every day the dip-waiter spends in cash is a day of missed distributions — that's the timing tax, and it's why the verdict above never tells you to skip a scheduled buy."
-      : "The dip-waiter is narrowly ahead over this stretch — a young fund with one big drawdown can do that. Note the cash drag it carries; historically this edge shrinks as time passes."}</div>
+      ? "The robot is ahead. On a stock this volatile, dips come often enough that waiting rarely buys much cheaper — and the cash spends long stretches idle."
+      : "The dip-waiter is narrowly ahead over this stretch — on a stock with 60%+ swings, a 3% dip rule triggers constantly, so the two strategies track closely. Neither line is a timing argument; it's a reminder that WHEN matters far less than HOW MUCH for a single name."}</div>
 
     ${rc && rc.baseline && rc.baseline.n ? `
     <h2>Report card: has the verdict meant anything?</h2>
-    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what GPIX actually returned over the following ${rc.horizon_days} trading days (distributions included).</div>
+    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what GOOG actually returned over the following ${rc.horizon_days} trading days. Note the caution band: the falling-knife zone's negative read has held up in this recent window too.</div>
     <div class="card">
       <table class="rc-table">
         <tr><th>Verdict that day</th><th>Days</th><th>Avg next ${rc.horizon_days}d</th><th>Median</th><th></th></tr>
@@ -584,17 +560,13 @@ fetch("data.json").then(r => r.json()).then(d => {
     </div>` : ""}
   `;
   renderChart(g.series, g.sma50, g.sma200);
-  renderDistChart(d.distributions);
   let rT;
   window.addEventListener("resize", () => {
     clearTimeout(rT);
-    rT = setTimeout(() => {
-      renderChart(g.series, g.sma50, g.sma200);
-      renderDistChart(d.distributions);
-    }, 150);
+    rT = setTimeout(() => renderChart(g.series, g.sma50, g.sma200), 150);
   });
 }).catch(e => {
-  document.getElementById("app").innerHTML = `<div class="err">Could not load data.json — ${e}</div>`;
+  document.getElementById("app").innerHTML = `<div class="err">Could not load data-goog.json — ${e}</div>`;
 });
 </script>
 </body>

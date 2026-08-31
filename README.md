@@ -14,7 +14,9 @@ Two single-stock pages (`tsla.html`, `spcx.html`) extend the same machinery to T
 and SpaceX with an asset-aware engine - see "Single-stock pages" below. TSLA scores
 only what a dedicated 16-year validation pass proved (including the project's one
 evidence-backed *negative* zone); SPCX (IPO June 2026) is an honest context-only page
-that pins at 50 until enough history accumulates to test anything.
+that pins at 50 until enough history accumulates to test anything. Two more stock pages
+(`nvda.html`, `goog.html`) sit adjacent to SPCX and reuse the TSLA-validated single-stock
+framework provisionally for Nvidia and Alphabet (Class C), with on-page copy that says so.
 
 The pipeline runs **twice per weekday** (13:35 and 19:15 UTC): a morning refresh and
 an early-afternoon one so the buy score is fresh for the buy-at-close window. The
@@ -121,7 +123,7 @@ W = 0 (score 50). `verdict.score` in the JSON stays the weighted W for compatibi
 `weight` (0 for context signals), and both history files were regenerated under
 `rules_version` 4 with per-day `score` (W) and `score100`.
 
-## Single-stock pages: TSLA and SPCX
+## Single-stock pages: TSLA, SPCX, NVDA, GOOG
 
 Single stocks are not index funds, and the engine treats them differently
 (`kind: "stock"` in the `FUNDS` config): index-validated bands were **not** assumed to
@@ -154,6 +156,13 @@ young" notes with the dates each measure unlocks (50d SMA ~Aug 2026, 200d ~Mar 2
 the "any day is fine" floor was validated on diversified indexes and does not protect
 against company-specific impairment - position sizing beats timing for single names.
 
+NVDA and GOOG reuse the same stock engine, meter (40–73), and weights as TSLA
+(`evidence: "tsla_framework"`). They score and backfill from Oct 2023 like the other
+mature assets, but every scored card and the verdict summary state that the thresholds
+come from the TSLA pass and are provisional pending a dedicated audit. That keeps the
+Pages tabs useful without pretending Nvidia or Alphabet got their own era-robustness
+study.
+
 Stock pages add **earnings dates** to the event calendar (Yahoo quoteSummary
 `calendarEvents` via its cookie+crumb handshake - keyless, guarded, omitted with a
 note if the endpoint breaks). Earnings within 5 days flags as the dominant
@@ -169,13 +178,14 @@ most of the time, the no-timing strategy wins, and the page says so out loud.
 
 Each daily run appends the day's composite score to a per-asset history file
 (`docs/history.json`, `docs/history-gpiq.json`, `docs/history-tsla.json`,
-`docs/history-spcx.json`). History was backfilled to Oct 2023 (the funds' inception,
-also used for TSLA so the report cards cover the same window; SPCX backfills from its
-June 2026 IPO) by replaying the current rules on historical data (no lookahead in
-the inputs: trailing percentiles and 52-week highs all end at each date; backfilled rows
-are flagged). The files carry a `rules_version` stamp - when the rules change, old rows
-are discarded and the whole history is regenerated under the new rules. CNN's Fear &
-Greed history only reaches back ~1 year, so earlier days score that signal neutral.
+`docs/history-spcx.json`, `docs/history-nvda.json`, `docs/history-goog.json`). History
+was backfilled to Oct 2023 (the funds' inception, also used for TSLA/NVDA/GOOG so the
+report cards cover the same window; SPCX backfills from its June 2026 IPO) by replaying
+the current rules on historical data (no lookahead in the inputs: trailing percentiles
+and 52-week highs all end at each date; backfilled rows are flagged). The files carry a
+`rules_version` stamp - when the rules change, old rows are discarded and the whole
+history is regenerated under the new rules. CNN's Fear & Greed history only reaches
+back ~1 year, so earlier days score that signal neutral.
 
 The history powers three page features:
 
@@ -189,18 +199,19 @@ The history powers three page features:
   short-term reversal, the vol index's p90 level, VIX-curve inversion, credit OAS 5%,
   Fear & Greed 25). All rows push the score up; nothing can push it down anymore.
 
-`docs/feed.xml` is a combined Atom feed for all four assets that only emits an entry
+`docs/feed.xml` is a combined Atom feed for all six assets that only emits an entry
 when an asset's verdict band changes from the prior day — subscribe via the "Alerts
 (RSS)" link on any page.
 
 ## Development
 
 ```bash
-python3 scripts/build_data.py   # regenerates all four data-*.json files (stdlib only)
+python3 scripts/build_data.py   # regenerates all six data-*.json files (stdlib only)
 python3 -m http.server -d docs  # view locally at http://localhost:8000
 ```
 
 Pages serves from the `docs/` folder on `main`. The workflow in
-`.github/workflows/update-data.yml` refreshes all four data files each weekday at 13:35 UTC.
+`.github/workflows/update-data.yml` refreshes all six data files each weekday at 13:35
+and 19:15 UTC.
 
 Not financial advice. Built as a personal decision aid.

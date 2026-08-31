@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T14:10:21+00:00",
+ "generated_at": "2026-08-31T14:33:42+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
@@ -8,11 +8,12 @@
   "ipo": null,
   "sessions": 1003,
   "too_young": false,
-  "validated": true
+  "validated": true,
+  "evidence": "own"
  },
  "verdict": {
   "label": "No edge either way",
-  "summary": "None of the validated TSLA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
+  "summary": "None of the scored TSLA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -48,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "38% ann. (p27)",
+   "value": "39% ann. (p33)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 27.4,
+    "pos": 32.5,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -71,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "26.3%",
+   "value": "25.6%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 52.6,
+    "pos": 51.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -107,15 +108,15 @@
    "score": 0,
    "weight": 0,
    "lean": "bad",
-   "note": "TSLA below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on TSLA either. The lean just reads the tape."
+   "note": "TSLA below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.3 (p12), F&G 51",
+   "value": "VIX 15.3 (p12), F&G 50",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "The market-wide panic conditions that score for the index funds (VIX top-decile, curve inversion, Fear & Greed <= 25) were tested directly against TSLA's forward returns - and every one era-flipped. Single-company risk swamps macro timing, so this card informs and never scores."
+   "note": "The market-wide panic conditions that score for the index funds (VIX top-decile, curve inversion, Fear & Greed <= 25) were tested directly against single-stock forward returns on the calibrated name - and every one era-flipped. Single-company risk swamps macro timing, so this card informs and never scores."
   },
   {
    "name": "Event calendar",
@@ -127,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 360.98,
-  "day_change_pct": 3.51,
-  "sma50": 359.68,
-  "sma200": 400.54,
+  "price": 364.4,
+  "day_change_pct": 4.49,
+  "sma50": 359.75,
+  "sma200": 400.55,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 26.3,
+  "drawdown_pct": 25.6,
   "series": [
    {
     "d": "2025-12-11",
@@ -1211,7 +1212,7 @@
    },
    {
     "d": "2026-08-31",
-    "c": 360.98,
+    "c": 364.4,
     "t": "neutral",
     "s": 50
    }
@@ -1221,7 +1222,7 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 38%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 39%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1248,7 +1249,7 @@
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
     "n": 162,
-    "avg_pct": 8.95,
+    "avg_pct": 8.96,
     "median_pct": 4.79
    },
    {
@@ -1273,13 +1274,13 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 360.98,
-  "sma200": 400.54,
+  "price": 364.4,
+  "sma200": 400.55,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 38.2
+  "level": 39.3
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1301,15 +1302,21 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 29855.94,
-  "dca_return_pct": 42.17,
-  "dip_value": 29845.14,
-  "dip_return_pct": 42.12,
+  "dca_value": 30137.85,
+  "dca_return_pct": 43.51,
+  "dip_value": 30126.96,
+  "dip_return_pct": 43.46,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 205,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "Why is Tesla stock climbing today?",
+   "source": "Investing.com",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbFhtbmxBVWE3N0owU2hkMHZLWTZ2bVNIb2RFb3lNQWhERVE0dmVvaDVCUDExOGY2XzlEVkx1bEFRSHlxaTV6RXZSREN0XzdsaGxoN2Y1RjE0SmZDS2FPc0FnWHV3QVRlWHpocUpBWUlnc0hhTElvY08yVVJPSkhqcUQ5V3haRGVHMC1nckVtWjg2ek1NM24zTi1pYw?oc=5",
+   "published": "2026-08-31T14:02:20+00:00"
+  },
   {
    "title": "tsla stock sharing",
    "source": "Moomoo",
@@ -1317,22 +1324,16 @@
    "published": "2026-08-31T10:34:50+00:00"
   },
   {
-   "title": "Next Up For Tesla\u2019s Self-Driving Tech: Potholes",
+   "title": "Tesla Stock Rises. Next Up For Musk\u2019s Self-Driving Tech\u2014Potholes.",
    "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPUUNwckV3bTN3dUU0TGwwRkR5SGpZUjFlc0I2eEJuUzY2dEFZY0Y4RFF3N1llcWdNQWplQklMV0FSR016N0RlSEdrQkRaaFVFc1VKZjk5dnI3dmI0Q2IzNHAtSVo0LTJEdndoSVVKdUFvRFNNcjVrQjBYbVJraUlLbHMyUkN0MDYyNlFZd3pR?oc=5",
-   "published": "2026-08-31T11:55:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNVW9Ba1Q3UTRBclBUeGZST2ZEQVRhQ2VZU2toaFZhUXNnM2RLZjZnUUpxZXpaZ0Z6Q3QtbG1RZFNmOUpzQmdrUjlndGRkNmdnLWN5UERLQ3ltOFBVSkpzNm5TbWd4cmE5VWEydndHWTBvbVM1RnlObDBXTkl0M2hTcV9MZWQtZVZK?oc=5",
+   "published": "2026-08-31T13:57:00+00:00"
   },
   {
    "title": "Tesla Stock Has a Huge Catalyst Ahead. Here\u2019s How High It Could Go",
    "source": "Yahoo Finance",
    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPQngzQUR3bzFPaGUxa3AyMGNPRE5tU056TWoxbkp6TjByc1pyRF9UbjRSTUZwY3Z2aHQyZXFzZzBPQkZZNWRuYzFKYzZia1FtWlZ5RDdqR3EycV9nZE5DMjRVT19iaWJyUWRDNnl1eURFc3VWZU5hOTF2bkJUNmxCcjN3ZFlxdENpMnhVM0JPNGZOU0ZSeTJ5U2VJUWM?oc=5",
    "published": "2026-08-28T16:00:04+00:00"
-  },
-  {
-   "title": "Why is Tesla stock climbing today?",
-   "source": "Investing.com",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbFhtbmxBVWE3N0owU2hkMHZLWTZ2bVNIb2RFb3lNQWhERVE0dmVvaDVCUDExOGY2XzlEVkx1bEFRSHlxaTV6RXZSREN0XzdsaGxoN2Y1RjE0SmZDS2FPc0FnWHV3QVRlWHpocUpBWUlnc0hhTElvY08yVVJPSkhqcUQ5V3haRGVHMC1nckVtWjg2ek1NM24zTi1pYw?oc=5",
-   "published": "2026-08-31T14:02:20+00:00"
   },
   {
    "title": "The Biggest Risk Facing Tesla Stock Right Now",
