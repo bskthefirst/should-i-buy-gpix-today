@@ -31,4 +31,14 @@ jobs:
                   docs/history.json docs/history-gpiq.json docs/history-tsla.json docs/history-spcx.json \
                   docs/feed.xml
           git diff --cached --quiet && echo "no changes" || git commit -m "data: daily refresh $(date -u +%F)"
-          git push
+          # Retry push: GitHub occasionally returns 500 Internal Server Error.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              break
+            fi
+            if [ "$attempt" -eq 5 ]; then
+              echo "git push failed after ${attempt} attempts" >&2
+              exit 1
+            fi
+            sleep $((attempt * 5))
+          done
