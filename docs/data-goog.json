@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T19:36:43+00:00",
+ "generated_at": "2026-08-31T23:11:25+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
@@ -12,11 +12,11 @@
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "No edge either way",
-  "summary": "None of the scored GOOG conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies. Weights come from the TSLA-validated single-stock framework, applied provisionally to GOOG.",
-  "tone": "neutral",
-  "score": -0.5,
-  "score100": 47,
+  "label": "Worse-than-average zone",
+  "summary": "GOOG sits in its 10-20% drawdown band - the falling knife. This is the one zone in this whole project with era-robust evidence of below-average forward returns: single names in mid-drawdown tend to keep drifting, not bounce. Nothing here says sell; it says this specific dip has historically kept dipping. Weights come from the TSLA-validated single-stock framework, applied provisionally to GOOG.",
+  "tone": "caution",
+  "score": -1.5,
+  "score100": 41,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "4 down days",
-   "score": 1.0,
+   "value": "no pullback",
+   "score": 0.0,
    "weight": 2.0,
-   "lean": "good",
-   "note": "GOOG has closed down 4 straight sessions. Under the TSLA single-stock framework this earns +1.0 (provisional on GOOG): three down closes tended to bounce the next day on the calibrated name.",
+   "lean": "neutral",
+   "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 87.1,
+    "pos": 82.2,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "27% ann. (p40)",
+   "value": "23% ann. (p27)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 39.7,
+    "pos": 26.6,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "16.0%",
+   "value": "15.9%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 16.0% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.9% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 32.0,
+    "pos": 31.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.0 (p9), F&G 50",
+   "value": "VIX 14.9 (p8), F&G 50",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 335.13,
-  "day_change_pct": -0.76,
-  "sma50": 347.85,
-  "sma200": 333.47,
+  "price": 335.41,
+  "day_change_pct": -2.18,
+  "sma50": 347.37,
+  "sma200": 333.73,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 16.0,
+  "drawdown_pct": 15.9,
   "series": [
-   {
-    "d": "2025-12-10",
-    "c": 321.0,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-11",
     "c": 313.7,
@@ -1211,10 +1205,16 @@
     "s": 47
    },
    {
+    "d": "2026-08-28",
+    "c": 342.88,
+    "t": "caution",
+    "s": 41
+   },
+   {
     "d": "2026-08-31",
-    "c": 335.13,
-    "t": "neutral",
-    "s": 47
+    "c": 335.41,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,12 +1222,12 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.92 (+7.1% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.92 (+7.0% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 27%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 23%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1275,17 +1275,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 3.84
+  "tbill_3mo": 3.9
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 335.13,
-  "sma200": 333.47,
+  "price": 335.41,
+  "sma200": 333.73,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 27.3
+  "level": 23.2
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1302,15 +1302,15 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-08-31",
+  "start": "2022-09-01",
   "end": "2026-08-31",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 44361.85,
-  "dca_return_pct": 111.25,
-  "dip_value": 44457.74,
-  "dip_return_pct": 111.7,
+  "dca_value": 44394.9,
+  "dca_return_pct": 111.4,
+  "dip_value": 44494.8,
+  "dip_return_pct": 111.88,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
@@ -1326,7 +1326,7 @@
    "title": "Google unveils \u2018Lake America\u2019 for U.S. users",
    "source": "The Washington Post",
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOaTIxYW5jT3ZaMXQwdW9CSXlhdV9jZU55NmEzYjFidlAyVkprMjBxNzBmbjJ3QWNVYl9iYk1RbjZmamJfRmhETENlWVFXZW5ZX2lnRjRuaF9nNGs3cXFvQTdxT2ZCdERNaU9hYTBwcGJtczEtMjhraU5YUzNsTXFGNHdvNDZHSHNOcFV0ZVdHdjZKZw?oc=5",
-   "published": "2026-08-31T19:14:59+00:00"
+   "published": "2026-08-31T19:56:42+00:00"
   },
   {
    "title": "Google Maps renames \"Lake Ontario\" to \"Lake America\" even faster than US government",
@@ -1335,22 +1335,22 @@
    "published": "2026-08-31T15:33:32+00:00"
   },
   {
-   "title": "Google Maps Changes \u2018Lake Ontario\u2019 to \u2018Lake America\u2019 for U.S. Users",
-   "source": "Time Magazine",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNQ3M2VlZXQ1J6U0xiYVYyU01TTWR1Qk92ZFZjSTlnelVqcUdhM09nbkFlVHZFdzRCOVNSSXFta05fbXpvcEVVNDlmS0pxdDMyNE5ldDFsTGtsLXphRGFqMzFZbEY4RXhjYmJpTS1Vd1dkT0F4SnpHODZDeS04SGxOaVdoQzExdVpOYzQyWWx3?oc=5",
-   "published": "2026-08-31T05:30:00+00:00"
-  },
-  {
    "title": "TimesFM-3: A zero-shot foundation model for multivariate forecasting",
-   "source": "Google Research",
+   "source": "research.google",
    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNd1daRnV4bXpXR2FzN2JZOHQtVjY3LUx1RlpzaVc5cVh0cEdSREVNZ0xXYUxkLUJtQXNrLTFUT3BuUjBNQ3NlVzJFNDZDQmswQ0FQQkwwTlFXd2NIamdBMmlWbWM1a0lFTEhTRTE2WHZLTFcwZkxjRjBVNDBFVXNFRkpoUzlZYnFtVnVkUDF5WnFSbnhpYm1qa0pyTTlfZw?oc=5",
    "published": "2026-08-31T17:20:18+00:00"
   },
   {
-   "title": "Google Maps switches to \"Lake America\" as Canada compares change to \"SNL\" skit",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9YcGJBQWIwd2kwN01rQlkzUzZpMUlnZTZRZURRWUtWamxBUUQ0RGI1YnB3WFNxdWF1bFBjX21KRjJZTXRrLVhYVmJpTVNVdGd1UkY3NHNCMkc1MWFGWVpGSTM5U1RWMVVDc0tTSU10M2dyR2NMay1NTA?oc=5",
-   "published": "2026-08-31T01:35:52+00:00"
+   "title": "Google Maps changes Lake Ontario to 'Lake America'",
+   "source": "NBC News",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOSk5DTW9XZkxpNDY3Znp2d21sb3BkZ25GdTdVczQ4RDRDbTVfeFVHa2dQeFhPWTBvMVVvUHA1Ym1ORHkzaTJ6Q0VBbm5RU0dWNzZVcnlUWDNYMVlGOUd1UGRDTEhUakM5eEFuY2lqZDRka1NtSlY1cExlTVZzX255UFZrMTdYdV84aE1wLXpVNzlfMnlOamQwMnJLMUdfTkk?oc=5",
+   "published": "2026-08-31T20:47:40+00:00"
+  },
+  {
+   "title": "Google Maps Changes \u2018Lake Ontario\u2019 to \u2018Lake America\u2019 for U.S. Users",
+   "source": "Time Magazine",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNQ3M2VlZXQ1J6U0xiYVYyU01TTWR1Qk92ZFZjSTlnelVqcUdhM09nbkFlVHZFdzRCOVNSSXFta05fbXpvcEVVNDlmS0pxdDMyNE5ldDFsTGtsLXphRGFqMzFZbEY4RXhjYmJpTS1Vd1dkT0F4SnpHODZDeS04SGxOaVdoQzExdVpOYzQyWWx3?oc=5",
+   "published": "2026-08-31T05:30:00+00:00"
   }
  ]
 }
