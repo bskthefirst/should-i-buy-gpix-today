@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T14:33:40+00:00",
+ "generated_at": "2026-08-31T19:36:38+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.3 (p12)",
+   "value": "15.0 (p9)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 12.3,
+    "pos": 8.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 38.7,
+    "pos": 38.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.7 pts",
+   "value": "+5.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 81.0,
+    "pos": 80.3,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.1%",
+   "value": "0.9%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 11.0,
+    "pos": 9.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.4%",
+   "value": "+1.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 61.7,
+    "pos": 63.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 42.3,
+    "pos": 42.1,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 50.2,
+    "pos": 49.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 56.065,
-  "day_change_pct": -0.49,
+  "price": 56.1799,
+  "day_change_pct": -0.28,
   "sma50": 55.58,
   "sma200": 53.59,
   "high52w": 56.67,
-  "drawdown_pct": 1.1,
+  "drawdown_pct": 0.9,
   "series": [
    {
     "d": "2025-12-11",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-08-31",
-    "c": 56.065,
+    "c": 56.1799,
     "t": "neutral",
     "s": 50
    }
@@ -1328,7 +1328,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.97 (-2.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.97 (-2.2% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1343,7 +1343,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.3) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.0) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1356,7 +1356,7 @@
   "baseline": {
    "n": 691,
    "avg_pct": 1.7,
-   "median_pct": 2.07
+   "median_pct": 2.09
   },
   "bands": [
    {
@@ -1383,7 +1383,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.07,
+  "ttm_yield_pct": 8.05,
   "tbill_3mo": 3.84
  },
  "distributions": {
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 764.99,
+  "price": 766.6,
   "sma200": 710.26,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.26
+  "level": 15.03
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,50 +1516,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 19454.3,
-  "dca_return_pct": 29.7,
-  "dip_value": 19230.31,
-  "dip_return_pct": 28.2,
+  "dca_value": 19493.96,
+  "dca_return_pct": 29.96,
+  "dip_value": 19267.26,
+  "dip_return_pct": 28.45,
   "dip_cash_uninvested": 1200.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Fed's Kevin Warsh warns inflation is too high, sparking bets rate hikes are coming",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNZ29adFdRZFdqaTlNc3d2bGY0N29nNUtfd3ByZkIxc0dWRmJ0OHNuS0pJME42enEzd01od1ZhZ1lOQ3BDUGFEODhzcFpxanU4T0hLLWItenZMNHduOGhOTXNreFJjYWMtZ0VlMklzTmhpbjVBc1pHdFhXdVg5S1RObGM5MUlHbGRrMEE0eWp6cWliOUxQUzFwNHQ2WlEza3c?oc=5",
-   "published": "2026-08-28T16:05:40+00:00"
+   "title": "Challenges and Opportunities in Multifamily Affordable Housing Finance",
+   "source": "Federal Reserve Bank of New York",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQTlloSHB5ZTFNQXQxVkh3MEgxX1BVMGRiRUJnbWY2OUpHZkk4YTFHS1Vxa2FKS1g4S3c1TFZVUTFlWk00aS1NOHllcENvM0NwaTlyd016TDc5MFh6bXo2ME5Dd2QyTXNNckdlN2dlRXdoQkFtUzRPZUhhaEtQVDlIaGhqaw?oc=5",
+   "published": "2026-08-31T17:33:32+00:00"
+  },
+  {
+   "title": "No rate-hiking map from the Federal Reserve",
+   "source": "invesco.com",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxONjFRV0ttT3Z0WmRRN1Qza1A5VFpDMW5vMDEtYkprLVhHZ05zMElKaWtXOUtnb29zdDNjc25sd2l4TkUyY09EQU43ZUlETW4zbDZpczgzUG9MUzNtS3ZyUlNicVoyaVpWdUVRcUFYaXlNNGtrWFZyZUNwSHE3VWNjRXl2bXI3WmxSM1JuN0d2RVI1ZzgwWkNuUS13?oc=5",
+   "published": "2026-08-31T16:19:47+00:00"
   },
   {
    "title": "Fed Chair Warsh signals rate hikes may be needed with US inflation stubbornly elevated",
-   "source": "AP News",
+   "source": "apnews.com",
    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNTUFJSHBlaThPY3QxNm1TZEpORnhMam5QQUZTc203emxiY0pKSWJLYWtvaFZNMUd0UGluNzJHVHNhcTZERkpOdmpQR2ZsWC10Q1IxMTFIaDVVRkQ3WjhFWFZsX254RVVJUG9QemZ6ZEtIbndJZk1iYUtuNDEzUGFmejVPZTZlQXl5SEx5WGZPSzh1WHlXalY1dldNR2l3a0RkT0t2M1RZTEdLZw?oc=5",
    "published": "2026-08-28T18:27:00+00:00"
   },
   {
-   "title": "Jackson Hole analyst roundup: Warsh's speech sends hike chances higher, may put Fed 'at odds' with Treasury",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOenZTV1NsMHJpeG9oSThNclEwSlR1SFpHZlNaN0xCMy1jRzNjcC1scTB4V1NpRDNzZnR2VDluZVoyWDRoRU5UYVZna1RvNFRKa0p4YVBCMS1lSGs4TDItQWp1T2pUcTY5NG9pNDJjYkJQMDhHT0I5LTF1UzZ4NXFOQ1Bkb0Y3YnhNclF6UzEyWTk5eHdBZ09UNXl6ZmUtRnp10gGmAUFVX3lxTFB3Nml5V1E2Q3RnT1lZbUpwN21uXzk0T0VoSjIzaVlMSkFCNmhGYXRISm5wYTh5dUlTTjZ5VWltNlhMTExMc1ExTGJ0QTh2c3JIVzhreDZOMGdSQy1MYzhiYnFMcENZRU4xOEhGSFRhQy1mVjZRVFA3X1Fia3FjNkRwbElDY1VfZ191dW80MUlSNi13MUZTQm1uRkgwQ19BaVMyRklaUGc?oc=5",
-   "published": "2026-08-31T03:47:00+00:00"
+   "title": "Warsh Sounds Hawkish, but Will There Be a September Rate Hike in the US?",
+   "source": "global.morningstar.com",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPX3UyMFBOaTd4REtkSERIa2lZV3FfSFJxanBOQkFORkh4ZWNJT3JfZmxvaTNFdUpVMkJPNkxic0VrSXJhZVlkQUtWZDRMQ1BVTGtLMTFFZUQ1cGdRemJjMW5lenk2TzRUMnQ2X0hUcXJXdElyYzdVWmItUVdnam5ISGJET1dUeHdnNTVMVEQtVV9Fb3F2RU9yLTNSZEoxbVFz?oc=5",
+   "published": "2026-08-31T10:10:53+00:00"
   },
   {
-   "title": "Tennessee slightly sheds jobs for 8th month in row, inflation at 3.4%",
-   "source": "Tennessee Lookout",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxObmN3MFFkNzRrNUFWSTVFWmIwQnBKTTg4REFDZENVU1NzbVQxdklmTXJBVEV3d2c0aTVuUWRhR1dVUmUwWnRYSnJkNUV1ZUpBb1VUVmVMU0NQQ2VXdjN3RFlRZk0wZzhmd25uYkdERHlfcHJGaVB1ZW9YMExtX1JHSDFHMURBQmJNTHoydWtjc3l3b1BqR1JraEdqNHlEaGxnN1hsV0ZNMFNPUmxn?oc=5",
-   "published": "2026-08-31T10:15:22+00:00"
+   "title": "Fed's Kevin Warsh warns inflation is too high, sparking bets rate hikes are coming",
+   "source": "npr.org",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNZ29adFdRZFdqaTlNc3d2bGY0N29nNUtfd3ByZkIxc0dWRmJ0OHNuS0pJME42enEzd01od1ZhZ1lOQ3BDUGFEODhzcFpxanU4T0hLLWItenZMNHduOGhOTXNreFJjYWMtZ0VlMklzTmhpbjVBc1pHdFhXdVg5S1RObGM5MUlHbGRrMEE0eWp6cWliOUxQUzFwNHQ2WlEza3c?oc=5",
+   "published": "2026-08-28T16:05:40+00:00"
   },
   {
-   "title": "Warsh raises stakes for Fed's next meeting, and other takeaways from Jackson Hole conference",
-   "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQU0VoNFJqVUpidzB5X3h6WXlxcDhZdjlpWEt4UXFsMWlyTjNjVS03VjgtRjZoLVg1UWY5Xy01alNUdVZNN1ZmejlnaVZaMElfSkVyenlwcldkWnlXeW9UZXpLWEZ1M3cyZzd1SDBObEZ4Wm1oVXZqLTVkcXRlTzd3QU1HZ2dRVXBKWExTLXVNeGY0aktpSUhzOE5DU2VSbTQ4N0pYQ0o5VGhEdlZUZ3lvYlBUOGY4bU9HQ084aVd0SGR0Yy0wNUHSAcsBQVVfeXFMTzREZzM3d0IyUDgwNTB1ZW1xY0tWaGQ1QjZocmlnckU0NFE2bTgtMmRUalFGeVRUeEJad05mTllhZVVGTjVWcjRSOVFpV2xqLXViM196X0xOTkhETzNhZXRpc1BzTVBlUUlJNVVrYldxQ05EUXdpNTlLRWNFZ2d1cUNWMGFGWHdia2xpdmxRX2ljbnlJNG5XWndQamt5ZmUxaGlpZGQ1ckpwTEF1TE0wYTlGMGxsS2pGTkJPZzY4RzJjbnU4SjBYckIzNkk?oc=5",
-   "published": "2026-08-29T15:25:24+00:00"
-  },
-  {
-   "title": "Gold feeble as Fed rate-hike bets rise; eyes best month since January",
+   "title": "Barclays sees two more Fed rate hikes this year after Warsh speech",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZ0RWUzI1UllwOTY2MWljS0syQ3hHRHQtZlVTV2g0WlNzalQ1eVdqSlVZb285NEZhck1VS1czbU1KUlF2azBfMkZ4X1JUdlNaZkNZdkF4bnczbS1jR0hVX01iaW1RZzRINkhjZDNuelJIa1JUY2pVWkFnMzlGRzh5Y1p1MUhEdlJ5N2lseVZ3X2RzV1Y3eUQ4YUtJN2NFQnNJVS1R?oc=5",
-   "published": "2026-08-31T12:37:50+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQcjVHcjZWTGVra3FoZ29XVXdDS05fZlh6S3ZwZHdzb2Z1bHo1Tm12NUNBZWZxN21sTG5hYkdfVVA5VmlBMm5xOERKNXJYZDJURkI2Yk5Lb1JNZFFyNEJVZUdKSjhtdFZtbm5MdHJfN3cwN1FTUzRlUkJwUWxnWjlqLVVpdHZrQkRnaUx0Y1oyZlQ1VzY0LUhmRlI5d2RKbU9lQWVZUC0xTG81QjljYzRwdDRQRndsY3FXZWdR?oc=5",
+   "published": "2026-08-31T04:29:00+00:00"
   }
  ]
 }

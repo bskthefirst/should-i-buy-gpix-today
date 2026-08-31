@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-08-31T14:33:41+00:00",
+ "generated_at": "2026-08-31T19:36:39+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
-  "tone": "ok",
-  "score": 1.5,
-  "score100": 59,
+  "label": "No edge either way - buy on schedule",
+  "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.1 (p27)",
+   "value": "20.4 (p22)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
+   "lean": "bad",
+   "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 27.5,
+    "pos": 21.5,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 38.7,
+    "pos": 38.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.38x (p73)",
+   "value": "1.36x (p69)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 72.5,
+    "pos": 69.3,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+3.7 pts",
+   "value": "+3.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 64.2,
+    "pos": 59.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.0%",
-   "score": 1.5,
+   "value": "2.8%",
+   "score": 0.0,
    "weight": 1.5,
-   "lean": "good",
-   "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
+   "lean": "neutral",
+   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 30.0,
+    "pos": 28.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.3%",
+   "value": "+0.5%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 52.5,
+    "pos": 54.2,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 61.4,
+    "pos": 61.2,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -227,7 +227,7 @@
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 50.2,
+    "pos": 49.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,13 +257,19 @@
   }
  ],
  "fund": {
-  "price": 56.735,
-  "day_change_pct": -0.34,
-  "sma50": 56.9,
-  "sma200": 54.37,
+  "price": 56.865,
+  "day_change_pct": -0.66,
+  "sma50": 56.96,
+  "sma200": 54.36,
   "high52w": 59.52,
-  "drawdown_pct": 4.7,
+  "drawdown_pct": 4.5,
   "series": [
+   {
+    "d": "2025-12-10",
+    "c": 53.5,
+    "t": "neutral",
+    "s": 50
+   },
    {
     "d": "2025-12-11",
     "c": 53.39,
@@ -1333,20 +1339,19 @@
     "s": 50
    },
    {
-    "d": "2026-08-28",
-    "c": 56.93,
+    "d": "2026-08-31",
+    "c": 56.865,
     "t": "neutral",
     "s": 50
-   },
-   {
-    "d": "2026-08-31",
-    "c": 56.735,
-    "t": "ok",
-    "s": 59
    }
   ]
  },
  "flips": [
+  {
+   "label": "Real discount",
+   "direction": 1,
+   "text": "GPIQ at $56.73 (-0.2% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+  },
   {
    "label": "Short-term pullback",
    "direction": 1,
@@ -1365,12 +1370,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.1) = top decile of its past year (+9 pts)"
-  },
-  {
-   "label": "Extreme credit stress",
-   "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.60%) = extreme credit stress (+6 pts)"
+   "text": "VXN above 28.6 (now 20.4) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.98,
+  "ttm_yield_pct": 9.96,
   "tbill_3mo": 3.84
  },
  "distributions": {
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 713.76,
-  "sma200": 655.63,
+  "price": 715.47,
+  "sma200": 655.64,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.1
+  "level": 20.41
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1543,10 +1543,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 20376.51,
-  "dca_return_pct": 35.84,
-  "dip_value": 20143.8,
-  "dip_return_pct": 34.29,
+  "dca_value": 20422.97,
+  "dca_return_pct": 36.15,
+  "dip_value": 20189.73,
+  "dip_return_pct": 34.6,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 58,
   "winner": "dca"
@@ -1559,34 +1559,34 @@
    "published": "2026-08-31T10:18:59+00:00"
   },
   {
-   "title": "FSB Chair warns of risks arising from frontier Artificial Intelligence (AI) models",
-   "source": "Financial Stability Board",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQbmJIcDlHZ0Y3aGJ0VHA1ZUNOaTIzSkR3YThzNVdKdkVMQUhRU252NWpTV3ZQMHoyYnNjZWEtcWowTW9jNjhPaWxuT1JZQjUxb0tlS3ROaTJkVmNfRDh0dGxZVWs4OG5mTXFib3lsMVd5TVczZEEwTWlPMnd6R0hlZHQ0WXVtaTdUTWt1WWFqU0h1ZWhwLWd2bWV4WmlKVU4ybWVfT1lZNkVob0J0R2c?oc=5",
-   "published": "2026-08-31T06:04:42+00:00"
+   "title": "Department of War Launches Starshield AI's Grok for Government on GenAI.mil",
+   "source": "U.S. Department of War (.gov)",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNYWxnTVVjWFNDU1ZfWllpYUROQTU4SENleUFadjdmRnhwMVE0YUREQXR3R09EWEN5OUI1N2x0TDF2bjFyaGY3eWREZHlWbVFyRll3bFlYMUMtYlBDWHBUcjJEUERLNmt4dFZCQUNSN1dzcGdmejV5MHJmeTV4eHpTaEFmX3ppMnFUMHN0X2g3M3Z3aVBOTk1nY01pNGxYMXhaTWFwS1AxRVZZLUI4RHdnSEt2MU12UmY0ZjhwM2NEZzl4Vkk0UGctWFpOTHU?oc=5",
+   "published": "2026-08-31T15:05:32+00:00"
+  },
+  {
+   "title": "Study A.I. Consciousness? The Bots Would Like a Word With You.",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNMkpQcFN6ZnItTTBIS1RBeFQ3UllmZ1RVTjhSSHlDR1FYZ0JlNjhZOHlqb1BpVFc5VnZIYzZVUE5UWm9SODNiZFh6YThSLUlVNkdyeGZyYUo5S1ZDSmw4VlFOSEJybWpHcS1XclBQNWFtUFdSZS1XemFzaEJmc1FLUWtKdw?oc=5",
+   "published": "2026-08-31T13:44:51+00:00"
+  },
+  {
+   "title": "AI-driven cyber risk is top concern for global financial stability, watchdog says",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNX0JqSFg4eDZVZkJmMFBBd1BoeDRrMlBQNkY3cFNWckJlVEVWQUFocjM4QkktNkFSdTFVMWFfbzJhbU13LXBQMlZWTnVFQm5mNFNlX2ptTVZqTUg5UktpcndDdVM3Q0p2RzIwckRUajRWRzZ0ZTUxQXExdnJzZkRldDJiUnQ3ZXcxcHppRTVGZjhZYjRnbzFIbFdIQ0dWczhoaDdtbWdWazlTSllkbDZuaWJQMW9LLXNabXNhVzB2Y2Q4MnFXeUxqOQ?oc=5",
+   "published": "2026-08-31T14:56:03+00:00"
+  },
+  {
+   "title": "AI is watching your spending and setting your prices accordingly. Lawmakers want to stop it",
+   "source": "Los Angeles Times",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPTVMwTnhkcEtabkhNZTBuRjdVZkd3Z2I5Q1NKOXNER3JTN1haYUU2SXlXb1c5eHplX2lKbmQtTy1mVkUzVU8zQmZCUU9uZjNlbjYxNjhIcDRHUjlPcnN5eE9BdWpEMFNmejRGMmNpdWVsTlNSU3pkUmpRc1VFY2MyNjhHUXZ1NnUwejlIdXB6eE9weDdjNUxHZzJscHdHVVpEcURCc3BQQWcya243eE5kTHRFbHpSbkk3X3lXcnc4WWJleGhweVZnaExTY1dyWFFkcGNVSw?oc=5",
+   "published": "2026-08-31T17:00:00+00:00"
   },
   {
    "title": "A milestone in expanding access to AI",
    "source": "OpenAI",
    "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1IQXl3UDE5ODU3V19fY3huVmVDMHZDZkFsR3UzZTRwdkJFcmpUZXNFRmZxM1JndE1iVWZIbmloeEZXLTZkcERlU0JrOVNWZTdpbFVhUy1wVTdibkV0eDhLaDBMRFdTczV1UkVYTDRRRjFObzA?oc=5",
    "published": "2026-08-31T13:05:10+00:00"
-  },
-  {
-   "title": "CMU Researchers Envision Humans and AI as Teammates",
-   "source": "Carnegie Mellon University",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPOTVUU19yNkU3WEgzRFJHX3VKUWE3eVlNdS1mY3RkVHpCMXZoRXJ4Sk0tZDB0OHVzdU9OSXBSQ2trUWcxYVVNeTlkdG9rbVd6T1hZNHFqVWRGTnM1SUdTUHAtblBIQUJieEpFeExNMFpGY0IweWRabUxGR3hVZnhoTjRQMUtfM21ydmhkSkt4MW5iVGxUZHNfWjZzWjlSNkNtb2wwdkRXOUE?oc=5",
-   "published": "2026-08-31T13:52:11+00:00"
-  },
-  {
-   "title": "Trapped Workers: What\u2019s the Cost of Leaving an AI-Exposed Job?",
-   "source": "Bipartisan Policy Center",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPazhuYk1YeUNKTng3ZDN6YzdzUF9rRDR1eFJMcFZVTDA4U2dPdEZubjVsYnNPaE9KV3k0YUZOWEcteEtxZVgxS1JNcktMWW9NMkZPV1gxWklMTndMdkFqbWpKUzVGRmdxR0dBYnFvR0t3MzBVX2cwYnN2VExaamJ1ekFHQnF4TXFBZ0N2dkJqVVVXV2xPY0Y2aXc4bkxtejRlckI4?oc=5",
-   "published": "2026-08-31T13:20:14+00:00"
-  },
-  {
-   "title": "AMD, Cisco and HUMAIN Expand Saudi Arabia\u2019s AI Infrastructure as AMD Instinct Systems Go Live",
-   "source": "Cisco Newsroom",
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNWU5KM0Jrbi0xeXRibjZNelkzUFpFTFRfMElETmV5eFRxbC1scWlReS1ocGI0dVFIMEd1ZDhXc08tb3JPQnFKZFJQM095MEtpcjZYSC1uNGtnck1ydGphZHpRNEVhVkdWSDNpTjB2SHliRkt4SW9PMFNoZ2RfUUNZaTVIb0dBOXhPbE5lVGtFYnN2TndrSmg4bnlzTjhvZnBqa0hGTW5jajAtQlF4V2lPRll0YktlOXpuYzkwbDVhdWxqQ0NsM0E?oc=5",
-   "published": "2026-08-31T11:21:35+00:00"
   }
  ]
 }
