@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T17:25:37+00:00",
+ "generated_at": "2026-09-01T21:44:44+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.2 (p28)",
+   "value": "22.0 (p35)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 27.8,
+    "pos": 35.3,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 46.4,
+    "pos": 47.9,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.32x (p63)",
+   "value": "1.34x (p67)",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
+   "lean": "bad",
+   "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 63.1,
+    "pos": 67.1,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.1 pts",
+   "value": "+8.8 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-1.1%",
+   "value": "-1.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 40.8,
+    "pos": 40.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 62.4,
+    "pos": 62.3,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -227,7 +227,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 44.8,
+    "pos": 44.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,8 +257,8 @@
   }
  ],
  "fund": {
-  "price": 55.855,
-  "day_change_pct": -1.97,
+  "price": 55.84,
+  "day_change_pct": -2.0,
   "sma50": 56.84,
   "sma200": 54.39,
   "high52w": 59.52,
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-01",
-    "c": 55.855,
+    "c": 55.84,
     "t": "ok",
     "s": 59
    }
@@ -1360,7 +1360,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.2) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 22.0) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1406,7 +1406,7 @@
  },
  "income": {
   "ttm_yield_pct": 10.14,
-  "tbill_3mo": 3.9
+  "tbill_3mo": 3.91
  },
  "distributions": {
   "history": [
@@ -1515,13 +1515,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 708.11,
+  "price": 707.64,
   "sma200": 656.08,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.16
+  "level": 21.96
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1538,15 +1538,27 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 20060.03,
-  "dca_return_pct": 33.73,
-  "dip_value": 19832.9,
-  "dip_return_pct": 32.22,
+  "dca_value": 20054.64,
+  "dca_return_pct": 33.7,
+  "dip_value": 19827.6,
+  "dip_return_pct": 32.18,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 59,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "Judge rebukes HHS over AI use in cutting teen pregnancy prevention grants",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZFlBR2lIQkRoR2FlVjNvYTFCbW1IS0xsbUQ3SU9FSTh4aXMtSVlXanUydkNGZHBBenl0YTVQWXIzSm1OeVdsb3NWdGV0SlhfcTVfQ0taN2EzN015dnQxR0RrT3poUllHT2MxYjJpcUppemJndFdBbml6YmtwRHh6bTZPQTlYYkNTUFhzTHh6Q3ZCa1BVM2t6cXBuQ2ZxcVBVcnI2MjlldXhCNU90NUwzRjJMOUhWelhUbkJLVw?oc=5",
+   "published": "2026-09-01T20:17:25+00:00"
+  },
+  {
+   "title": "'It can outthink me': How a major manufacturer came to embrace AI",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQTBMV2RmYmE1dExFQmlOZ1VId1VGWWE1M0k1cnczdVpDa2Q5TmdfT2ZWajhCaEpGM29ZcFN2c1FkTDRRZ2ZQUTNKRVJiNkRKTzZxRlh6NllWOFF2RmxoQXhRcHNSYVZYaHpQUHZGTVQwc3BNMDlIWFE2OV8tM3N0bEIxUVM0Zw?oc=5",
+   "published": "2026-09-01T09:00:00+00:00"
+  },
   {
    "title": "US urges hands-off approach to AI regulation at G20 tech meeting",
    "source": "Reuters",
@@ -1554,34 +1566,22 @@
    "published": "2026-09-01T15:39:39+00:00"
   },
   {
-   "title": "AI wealth is creating a 'mansion shortage' and upending San Francisco's housing market",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQb0wzR1o0VER5d2gxZWZydm5GOWI4T29lWWFJeVJIMEJEMEhwVjRteEZ1SGtFRll5REpPV3JCV3NkaGpuTlMySnppS0NxS0tIX3dtTHk1SG0tWG9yekxac1F0SFg1d25Nc2hZRnBQaXVnZW1MZUM0ZlROZFp2RVJnejM5NnBGZkR3bmdoOERDYWJQdw?oc=5",
-   "published": "2026-09-01T09:00:00+00:00"
+   "title": "Exclusive | New Google AI Model Said to Narrow Gap on Coding Ability",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPemN2WTNNcVZ4QnRJT2IzQzNqZXR4NGlhY3R4UXhvbEptNDcxcUJ5X3hrbnRkcjRaalNkQmVuN3N3MXFjQzRkN2pXSU83OThtT0xPOU81aEIxaWlxUTlZX1Y3eFpFX2IyWU5sM0I3ajF1d0pmSTBfTGFvbGpzUmxXdDZMR25hekZFbjlLQmhNenZrcV9yRmVBZA?oc=5",
+   "published": "2026-09-01T21:05:00+00:00"
   },
   {
-   "title": "AI minor introduces students to a \u2018helpful teammate\u2019",
-   "source": "The University of North Carolina at Chapel Hill",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPbXd2bldqMWdwcHh3WVdfd3hpX0VEUmtJRFRJQllJNlJFaFFiVksyNXlIVXpDQTBxc2JubmZVOElSZWx3QURNLTY3eGp1bzBhX29WZmVicGRld1BTOW93dVdRX2NvSUwzN1lQY2Q1YWRIR0l5dDRGU2J2b1V1cVJuY0llRDVqOVVSUmJ1Nm1NdGNyQQ?oc=5",
-   "published": "2026-09-01T13:18:51+00:00"
+   "title": "From theory to delivery: How Atos upskilled 400 engineers in agentic AI",
+   "source": "Amazon Web Services (AWS)",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNaHhraHplN25xbHhtcWozTFBFX0o3T2c0bVg0clQyTXRlcDROMUtxQkhEeUpwY3hwNVdPMnc1cm5WNUVZUHNDbS1CRk5mRWMtSGE5eDJrclpuam9OcnA2Nkw2T3c3MzZ2ZUJRdktmYzBRTnlEaGF3dWp1UTJsV2xaYmloX0pfeS1tcTFYRGZiT08tX1hSVXYzWnJCVGdZWnlUQ1ZiNTdLanBoajFXU2xJaTR1MEVPeDQ3?oc=5",
+   "published": "2026-09-01T16:17:54+00:00"
   },
   {
-   "title": "Apple enters John Ternus era as AI challenges and memory crunch intensify",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMEJSdHB2UlNFcTd3RVBRQW9lS0FQeHowT21lQllvNWhkaDVWYmMzd3F4ZVF2dnhrYm9XXzlFSzVZMk1aMEpGVWFnM1ZzcjFlNlZXZDFSYzVRNzZtQlExdDF4UUxWWWN5VHJ3QW9jZmVHaFpqVlpZdDdXSTFwNEQzWjFBUUk4LVhjanByckY3WmlISnFXMWpWdUxyNXYxeFN2SGowVkY1cU7SAa4BQVVfeXFMUFVyRHR2cjZPeF9mVmM1dnFzUV9lbXgtRWpPbGRJMzhyS2xZUldNcXQ3dVo5S09UZ29KRWdwQ2FPaDgyMGtXOF9kZ0RlMHBibDZNYUluejhyOHNSMHpBNnNnemFnNTJIaWFkV3FEcW9qMHVFN1hpT1dpb3RlMmRTem10SUNTSHlQd0NPWFlJVmtZZnRRZWdyYm4wcnJTM0VVeHJoOXk3WTdMZ09UdTJR?oc=5",
-   "published": "2026-09-01T11:00:01+00:00"
-  },
-  {
-   "title": "Mount Sinai Launches Center for Genomic AI and Microbiome Medicine to Advance Precision Medicine",
-   "source": "Mount Sinai",
-   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQODZOc1R5cmgyVE1CakFEeXhfZmpuUTZoREg3MlI4LUIzdUxucVBPZEotWGJ5WDZqNl80UjA0TFlqWlNleTcyYnNnUVdSRE40QXpnd002WkZ4YlhKdlkzbXYxOHlTUTc3ekRqV1JtQW9DREJNdXhqSVhVNE4zQ0lzVTh3cmllWlN6enlnT3NYMUVWMTdvaEE0b3BwX1BsSlk3VTlwMjJibnNxOHFkMTdySVBkbEwtZmhNMVFEa0FTZXZHRXhkSFA0bjhKMGdEZk9zN3RRZmg3N3B3bFE?oc=5",
-   "published": "2026-09-01T15:50:46+00:00"
-  },
-  {
-   "title": "Businesses Are Using AI to Transform Work, Not Cut Jobs",
-   "source": "Liberty Street Economics",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQSERxaEcwa2JNZVRCRGd2TDRIN3hJYUoxXzV6YTEzQjNmQ0NSRE5QR2lJTFI1VktublhncnFCbUc4SGRGT3dQN1UxblJZVkRfX2x5dFJpMUFJeFpVLUtGSHItMEIySldrdGpncDF0SklOTm9YcllIWVhuMWVXYTNaSzBOTHpub056SV94RE5aUmVZSFYxMld0eFplSlpLZTlKNjBHWm5VQTdyVm9uNEE?oc=5",
-   "published": "2026-09-01T11:03:37+00:00"
+   "title": "GoPro Is Now An AI Company\u2014Sending Stock 40% Higher",
+   "source": "Forbes",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOaUdhY21QdWVjcEtnXzJkSmZQSWMxWVBwdldZa09hWlphMTZtdW04VXNkUUNYUmhUVENHQ19tSUVPRDF5SzNSRFZGNk9JMld3Q01RNVRQM0stNlpqeFRra3dRYUtzOXh0Y19DMVlaS2xpRUhYU2ZqMnZqQlFrRVBkNDhLQW9XQTd2TUJWSGVRTkxaMHhjYkJRTl9TRUxBWld0Q2t4cjlwSE1YMjdWdHJXbVF1d1hYQzN4TTdhMkx0bXE1czUzZ0prSG5BQWE?oc=5",
+   "published": "2026-09-01T17:04:53+00:00"
   }
  ]
 }
