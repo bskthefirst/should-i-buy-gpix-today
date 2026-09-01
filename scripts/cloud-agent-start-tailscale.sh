@@ -75,7 +75,7 @@ if ! pgrep -x tailscaled >/dev/null 2>&1; then
 fi
 
 for _ in $(seq 1 30); do
-  if [[ -S "${SOCKET_DIR}/tailscaled.sock" ]] && timeout 2 "${TAILSCALE_BIN}" status >/dev/null 2>&1; then
+  if [[ -S "${SOCKET_DIR}/tailscaled.sock" ]] && timeout 2 "${TAILSCALE_BIN}" status --json >/dev/null 2>&1; then
     break
   fi
   if ! pgrep -x tailscaled >/dev/null 2>&1; then
@@ -85,7 +85,7 @@ for _ in $(seq 1 30); do
   sleep 1
 done
 
-if ! timeout 2 "${TAILSCALE_BIN}" status >/dev/null 2>&1; then
+if ! timeout 2 "${TAILSCALE_BIN}" status --json >/dev/null 2>&1; then
   echo "cloud-agent-start-tailscale: tailscaled did not become ready; see /tmp/tailscaled-userspace.log"
   exit 1
 fi
