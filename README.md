@@ -252,6 +252,12 @@ before the commit, so a bad ruleset fails CI instead of going live. Run against 
 configuration it fails on six counts, including NVDA and GOOG carrying the falling-knife
 band.
 
+`scripts/test_fetchers.py` covers the external-data contracts offline. Guarded fetches
+degrade to a note on the page, so a broken source looks exactly like a quiet one - which
+is how the earnings handshake stayed dead for weeks. The tests stub curl and assert the
+shape of each request, including that the `fc.yahoo.com` cookie hop tolerates its own
+404 while every other hop still fails loudly.
+
 Pages serves from the `docs/` folder on `main`. The workflow in
 `.github/workflows/update-data.yml` refreshes all six data files each weekday at 13:35
 and 19:15 UTC.
