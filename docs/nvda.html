@@ -524,7 +524,7 @@ fetch("data-nvda.json").then(r => r.json()).then(d => {
     </ul></div>
 
     <h2>Price context</h2>
-    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices; dashed lines mark the 50- and 200-day averages. 52-week high: $${fmt2(g.high52w)}, today ${g.drawdown_pct.toFixed(1)}% below it. The validated bands: within 0.5% of the high = momentum (+), 10–20% below = the falling knife (−), 35%+ = deep value (context only).</div>
+    <div class="h2sub">Last ${g.series.length} trading days. Touch or hover for exact prices; dashed lines mark the 50- and 200-day averages. 52-week high: $${fmt2(g.high52w)}, today ${g.drawdown_pct.toFixed(1)}% below it. No drawdown band scores here: the at-the-high momentum and 10–20% falling-knife bands that score on TSLA were both re-tested on NVDA and failed, so distance from the high is context on this page.</div>
     <div class="card" id="chartcard"></div>
 
     <h2>Does waiting even work? A running experiment</h2>
