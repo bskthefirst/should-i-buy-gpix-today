@@ -40,8 +40,8 @@ if [[ -z "${TAILSCALE_BIN}" || ! -x "${TAILSCALE_BIN}" ]]; then
 fi
 
 backend=""
-if "${TAILSCALE_BIN}" status --json >/dev/null 2>&1; then
-  backend="$("${TAILSCALE_BIN}" status --json 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin).get('BackendState',''))" 2>/dev/null || true)"
+if timeout 2 "${TAILSCALE_BIN}" status --json >/dev/null 2>&1; then
+  backend="$(timeout 2 "${TAILSCALE_BIN}" status --json 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin).get('BackendState',''))" 2>/dev/null || true)"
 fi
 if [[ "${backend}" == "Running" ]]; then
   echo "cloud-agent-start-tailscale: already Running as ${HOSTNAME}."
@@ -51,6 +51,18 @@ fi
 if [[ -z "${TAILSCALED_BIN}" || ! -x "${TAILSCALED_BIN}" ]]; then
   echo "cloud-agent-start-tailscale: tailscaled not found; cannot start userspace networking."
   exit 0
+fi
+
+# Default LocalAPI socket is /var/run/tailscale/tailscaled.sock. /var/run is
+# tmpfs, so the directory must be created on every boot (not during install).
+SOCKET_DIR="/var/run/tailscale"
+if [[ ! -d "${SOCKET_DIR}" || ! -w "${SOCKET_DIR}" ]]; then
+  if [[ "$(id -u)" -ne 0 ]] && command -v sudo >/dev/null 2>&1; then
+    sudo mkdir -p "${SOCKET_DIR}"
+    sudo chown "$(id -u):$(id -g)" "${SOCKET_DIR}"
+  else
+    mkdir -p "${SOCKET_DIR}"
+  fi
 fi
 
 if ! pgrep -x tailscaled >/dev/null 2>&1; then
@@ -63,11 +75,20 @@ if ! pgrep -x tailscaled >/dev/null 2>&1; then
 fi
 
 for _ in $(seq 1 30); do
-  if "${TAILSCALE_BIN}" status >/dev/null 2>&1; then
+  if [[ -S "${SOCKET_DIR}/tailscaled.sock" ]] && timeout 2 "${TAILSCALE_BIN}" status >/dev/null 2>&1; then
     break
+  fi
+  if ! pgrep -x tailscaled >/dev/null 2>&1; then
+    echo "cloud-agent-start-tailscale: tailscaled exited; see /tmp/tailscaled-userspace.log"
+    exit 1
   fi
   sleep 1
 done
+
+if ! timeout 2 "${TAILSCALE_BIN}" status >/dev/null 2>&1; then
+  echo "cloud-agent-start-tailscale: tailscaled did not become ready; see /tmp/tailscaled-userspace.log"
+  exit 1
+fi
 
 # Do not print AUTH_KEY. It may still appear in this process's argv.
 "${TAILSCALE_BIN}" up \
