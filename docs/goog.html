@@ -548,12 +548,12 @@ fetch("data-goog.json").then(r => r.json()).then(d => {
       </div>
     </div>
     <div class="moral">${dcaWins
-      ? "The robot is ahead. On a stock this volatile, dips come often enough that waiting rarely buys much cheaper — and the cash spends long stretches idle."
-      : "The dip-waiter is narrowly ahead over this stretch — on a stock with 60%+ swings, a 3% dip rule triggers constantly, so the two strategies track closely. Neither line is a timing argument; it's a reminder that WHEN matters far less than HOW MUCH for a single name."}</div>
+      ? `The robot is ahead. A single name swings enough that dips come around often, so waiting rarely buys much cheaper — and the cash spends long stretches idle.`
+      : `The dip-waiter is narrowly ahead over this stretch. A 3% dip rule triggers constantly on a single name — it fired ${bt.dip_buy_days} times — so the two strategies track closely. Neither line is a timing argument; it's a reminder that WHEN matters far less than HOW MUCH for one company.`}</div>
 
     ${rc && rc.baseline && rc.baseline.n ? `
     <h2>Report card: has the verdict meant anything?</h2>
-    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what GOOG actually returned over the following ${rc.horizon_days} trading days. This table is the check on the rules, not a showcase for them: a band that lands below the baseline row is a band that needs revisiting${negBand ? "" : " — which is exactly how the three unscored bands on this page lost their weight"}.</div>
+    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what GOOG actually returned over the following ${rc.horizon_days} trading days. This table is the check on the rules, not a showcase for them: a band that lands below the baseline row is a band that needs revisiting${negBand ? "" : ` — which is exactly how the ${nRejected} unscored bands on this page lost theirs`}.</div>
     <div class="card">
       <table class="rc-table">
         <tr><th>Verdict that day</th><th>Days</th><th>Avg next ${rc.horizon_days}d</th><th>Median</th><th></th></tr>
