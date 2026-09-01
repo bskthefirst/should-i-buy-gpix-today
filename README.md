@@ -237,9 +237,20 @@ when an asset's verdict band changes from the prior day — subscribe via the "A
 ## Development
 
 ```bash
-python3 scripts/build_data.py   # regenerates all six data-*.json files (stdlib only)
-python3 -m http.server -d docs  # view locally at http://localhost:8000
+python3 scripts/build_data.py                  # regenerate all six data-*.json files (stdlib only)
+python3 -m unittest discover -s scripts        # scoring invariants + checks on the built files
+python3 scripts/validate_stock_bands.py NVDA   # re-run a ticker's band validation
+python3 -m http.server -d docs                 # view locally at http://localhost:8000
 ```
+
+`scripts/test_rules.py` is the guard that rules v4 lacked: it asserts that no ticker
+scores a band outside its validated set, that every scored band carries the evidence
+string its card prints and every rejected band carries its reason, that the gauge axis
+and `weights_max` describe reachable scores, and that the committed JSON and history
+files agree with the rules that produced them. The workflow runs it after the build and
+before the commit, so a bad ruleset fails CI instead of going live. Run against the v4
+configuration it fails on six counts, including NVDA and GOOG carrying the falling-knife
+band.
 
 Pages serves from the `docs/` folder on `main`. The workflow in
 `.github/workflows/update-data.yml` refreshes all six data files each weekday at 13:35

@@ -79,6 +79,7 @@ import math
 import re
 import statistics
 import subprocess
+import time
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import date, datetime, timedelta, timezone
@@ -579,6 +580,25 @@ def fetch_json(url: str, headers: dict | None = None) -> dict:
         return json.load(resp)
 
 
+def fetch_json_retry(url: str, tries: int = 5) -> dict:
+    """fetch_json with backoff, alternating Yahoo's two API hosts.
+
+    Yahoo rate-limits by source IP and answers 429 when a shared range is busy.
+    The chart fetches are core - a single 429 fails the whole daily build - and
+    the two hosts are independently throttled, so alternating plus a short
+    backoff turns a hard failure into a pause.
+    """
+    last: Exception | None = None
+    for attempt in range(tries):
+        target = url.replace("query1.", "query2.") if attempt % 2 else url
+        try:
+            return fetch_json(target)
+        except Exception as exc:  # HTTPError 429/5xx, timeouts, transient DNS
+            last = exc
+            time.sleep(2 * (attempt + 1))
+    raise RuntimeError(f"giving up on {url} after {tries} tries: {last}")
+
+
 def curl_fetch(url: str, headers: dict | None = None) -> bytes:
     """FRED and CNN stall or reject Python's urllib (TLS/header
     fingerprinting) but serve curl instantly - so use curl for them."""
@@ -639,7 +659,7 @@ def yahoo_chart(symbol: str, range_: str, events: bool = False) -> dict:
     )
     if events:
         url += "&events=div"
-    return fetch_json(url)["chart"]["result"][0]
+    return fetch_json_retry(url)["chart"]["result"][0]
 
 
 def chart_rows(result: dict) -> list[tuple[date, float, float]]:
