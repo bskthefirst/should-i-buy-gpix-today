@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-08-31T23:11:25+00:00",
+ "generated_at": "2026-09-01T14:30:18+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 82.2,
+    "pos": 80.4,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "23% ann. (p27)",
+   "value": "23% ann. (p23)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "Realized volatility mid-range for GOOG's own past year.",
+   "lean": "bad",
+   "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 26.6,
+    "pos": 23.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "15.9%",
+   "value": "16.4%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 15.9% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 16.4% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 31.8,
+    "pos": 32.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "uptrend",
+   "value": "downtrend",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "bad",
+   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.9 (p8), F&G 50",
+   "value": "VIX 15.6 (p17), F&G 46",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 11d",
+   "value": "CPI in 10d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 335.41,
-  "day_change_pct": -2.18,
-  "sma50": 347.37,
-  "sma200": 333.73,
+  "price": 333.26,
+  "day_change_pct": -0.64,
+  "sma50": 347.06,
+  "sma200": 333.96,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 15.9,
+  "drawdown_pct": 16.5,
   "series": [
-   {
-    "d": "2025-12-11",
-    "c": 313.7,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-12",
     "c": 310.52,
@@ -1215,14 +1209,25 @@
     "c": 335.41,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-01",
+    "c": 333.26,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "GOOG has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
+  },
+  {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.92 (+7.0% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.92 (+7.7% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1233,13 +1238,13 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-31",
-  "days_total": 712,
+  "end": "2026-09-01",
+  "days_total": 713,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-09-02",
   "baseline": {
-   "n": 691,
-   "avg_pct": 3.35,
+   "n": 692,
+   "avg_pct": 3.33,
    "median_pct": 3.27
   },
   "bands": [
@@ -1253,9 +1258,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 194,
-    "avg_pct": 1.48,
-    "median_pct": 1.93
+    "n": 195,
+    "avg_pct": 1.42,
+    "median_pct": 1.85
    },
    {
     "tone": "neutral",
@@ -1279,22 +1284,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 335.41,
-  "sma200": 333.73,
-  "above_200d": true
+  "price": 333.26,
+  "sma200": 333.96,
+  "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 23.2
+  "level": 22.6
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 16,
+  "days_until": 15,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 11
+  "days_until": 10
  },
  "earnings": {
   "next": null,
@@ -1303,14 +1308,14 @@
  },
  "backtest": {
   "start": "2022-09-01",
-  "end": "2026-08-31",
+  "end": "2026-09-01",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 44394.9,
-  "dca_return_pct": 111.4,
-  "dip_value": 44494.8,
-  "dip_return_pct": 111.88,
+  "dca_value": 44110.33,
+  "dca_return_pct": 110.05,
+  "dip_value": 44209.58,
+  "dip_return_pct": 110.52,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
@@ -1323,34 +1328,34 @@
    "published": "2026-08-30T04:15:29+00:00"
   },
   {
-   "title": "Google unveils \u2018Lake America\u2019 for U.S. users",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOaTIxYW5jT3ZaMXQwdW9CSXlhdV9jZU55NmEzYjFidlAyVkprMjBxNzBmbjJ3QWNVYl9iYk1RbjZmamJfRmhETENlWVFXZW5ZX2lnRjRuaF9nNGs3cXFvQTdxT2ZCdERNaU9hYTBwcGJtczEtMjhraU5YUzNsTXFGNHdvNDZHSHNOcFV0ZVdHdjZKZw?oc=5",
-   "published": "2026-08-31T19:56:42+00:00"
+   "title": "Fervo signs 396-MW geothermal power supply deal with Google; shares jump",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNZkN0cENkZTJhN3hEaE9NYTNlX2R2c3lsd0p6Y0VySFNEUnZiVFlGYUNXS1NyRlNjZzl3b1pqQk5CdHoxNTBEa3liZHFOb3MxWlFOMjUyeVVCb2o5YV9ueV9ZcVkyTnplanp5Z1VJTG1yNlctNDFOeUJCb3lBblU2dkJ2NUZLbDRLTXhxWVpZSS1Iemk1QkJxYzNpY2VTQzFodFFBV0szT3V6M1JMU3FiOGI5cktGcWcyOU1NVEdDUlBzdw?oc=5",
+   "published": "2026-09-01T14:04:29+00:00"
   },
   {
-   "title": "Google Maps renames \"Lake Ontario\" to \"Lake America\" even faster than US government",
-   "source": "Ars Technica",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQMlpudVBzX2tqajhUdzVMQnNRZWJ2bGw2LXpRSUdHVmZ6czJRb3hUM1M1Y1FBUk1fYnBWVkl4c1Axbkg3NVk0emxyOUZXQ29KZ2lRSWtmVm5xVWt0dVlMckVSMVFPVlRLc09kSEc2X0pWQ2dxVXZjTWVLdjR5WFk2amhoMm9zZ2l4U19XUTMtVzhmbF9zUFZ1N3NjZlpHdndzSDdSSnpmemRKWktsWHdTZ3l0eTVESXpHaWI2aA?oc=5",
-   "published": "2026-08-31T15:33:32+00:00"
+   "title": "Alphabet stock has tanked to close out the summer because of a 'brain drain' \u2014 what may happen to it next",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQakM2c0h0bWVtREVLSm13Mm1rSHdZd1V6LTU0RW96a3dack5SOUlNNDBOZ05KYTR3dm1HR2NyTHc2RmE2dTdYWWlwMkYydWpRcEp3Wi1vbVc0THhVQUp5X0FNOTV2SXdXSmtYWFBnZzM3T21yX28zOVRlQkRqb0RPVGtwR1JQQzVQWHE1RDJrQnMxUFpZVE5uQU5rdkpsTzNFZU84eGxwVEpRLVNiUnZXbWxfYTkteUxPNzg4Z05SS2t1aG13TU02Q3BpRGZUcWo4bG1lSXFybXI1OUtRNE9yNHZJZUVOVjhkejdkTnVGOGZSZjMzNS0tdzZ3?oc=5",
+   "published": "2026-09-01T10:22:19+00:00"
   },
   {
    "title": "TimesFM-3: A zero-shot foundation model for multivariate forecasting",
-   "source": "research.google",
+   "source": "Google Research",
    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNd1daRnV4bXpXR2FzN2JZOHQtVjY3LUx1RlpzaVc5cVh0cEdSREVNZ0xXYUxkLUJtQXNrLTFUT3BuUjBNQ3NlVzJFNDZDQmswQ0FQQkwwTlFXd2NIamdBMmlWbWM1a0lFTEhTRTE2WHZLTFcwZkxjRjBVNDBFVXNFRkpoUzlZYnFtVnVkUDF5WnFSbnhpYm1qa0pyTTlfZw?oc=5",
    "published": "2026-08-31T17:20:18+00:00"
   },
   {
-   "title": "Google Maps changes Lake Ontario to 'Lake America'",
-   "source": "NBC News",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOSk5DTW9XZkxpNDY3Znp2d21sb3BkZ25GdTdVczQ4RDRDbTVfeFVHa2dQeFhPWTBvMVVvUHA1Ym1ORHkzaTJ6Q0VBbm5RU0dWNzZVcnlUWDNYMVlGOUd1UGRDTEhUakM5eEFuY2lqZDRka1NtSlY1cExlTVZzX255UFZrMTdYdV84aE1wLXpVNzlfMnlOamQwMnJLMUdfTkk?oc=5",
-   "published": "2026-08-31T20:47:40+00:00"
+   "title": "He Was a Top Lawn Care Influencer on YouTube. Then Everything Went Haywire.",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQdTFNRHkxd1BsS1h6ZHl1OHROVXphMkF6YnNyN0tDa0pYTk1PTTdYUUF2VGRxcWQxcUV1ZjFkM3Z4OU5hbnppSWJxbmdkaU5heHBYUTd6ZG5SbGR1VS1xY01xTkV6eTVhSjVpdUpGeDZxanUzOVpVR0h1cDBZazFBMHB3?oc=5",
+   "published": "2026-08-30T09:00:35+00:00"
   },
   {
-   "title": "Google Maps Changes \u2018Lake Ontario\u2019 to \u2018Lake America\u2019 for U.S. Users",
-   "source": "Time Magazine",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNQ3M2VlZXQ1J6U0xiYVYyU01TTWR1Qk92ZFZjSTlnelVqcUdhM09nbkFlVHZFdzRCOVNSSXFta05fbXpvcEVVNDlmS0pxdDMyNE5ldDFsTGtsLXphRGFqMzFZbEY4RXhjYmJpTS1Vd1dkT0F4SnpHODZDeS04SGxOaVdoQzExdVpOYzQyWWx3?oc=5",
-   "published": "2026-08-31T05:30:00+00:00"
+   "title": "Google Maps updates Lake Ontario to Lake America",
+   "source": "Lohud",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMnhBaUdmRl82NU1vMnBSbGtIaE5jbmFGZnhERU4ybXY1dVNzME56U2FLYmx0MjByLWlzVEI4cjJuaTMtSVpMMjdMUld6VFJySGxZdENURFhaS0hDbWdlMmU2bThYUnE3cnNCXzhDbE0zR2tBQ1g2bzZGZ1lNMW4tUUl1eURtd1UzOGZXMWFCMjB2akJoZmZJNEF5U3ByR0ZlZmNoSkNUTU4?oc=5",
+   "published": "2026-09-01T11:33:00+00:00"
   }
  ]
 }

@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-08-31T23:11:22+00:00",
+ "generated_at": "2026-09-01T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 55,
+  "sessions": 56,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~55 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~56 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -30,7 +30,7 @@
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 55 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 56 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
     "pos": 100.0,
     "labels": [
@@ -41,7 +41,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "97% ann.",
+   "value": "93% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "55 sessions",
+   "value": "56 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 55 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 56 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.9 (p8), F&G 50",
+   "value": "VIX 15.6 (p17), F&G 46",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -80,7 +80,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 11d",
+   "value": "CPI in 10d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -88,9 +88,9 @@
   }
  ],
  "fund": {
-  "price": 143.69,
-  "day_change_pct": 1.55,
-  "sma50": 136.74,
+  "price": 143.79,
+  "day_change_pct": 0.07,
+  "sma50": 136.52,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
@@ -425,6 +425,12 @@
     "c": 143.69,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-01",
+    "c": 143.79,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -432,14 +438,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-08-31",
-  "days_total": 55,
+  "end": "2026-09-01",
+  "days_total": 56,
   "backfilled_days": 40,
   "fg_coverage_start": "2025-09-02",
   "baseline": {
-   "n": 34,
-   "avg_pct": -7.72,
-   "median_pct": -14.24
+   "n": 35,
+   "avg_pct": -6.77,
+   "median_pct": -12.52
   },
   "bands": [
    {
@@ -459,9 +465,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 34,
-    "avg_pct": -7.72,
-    "median_pct": -14.24
+    "n": 35,
+    "avg_pct": -6.77,
+    "median_pct": -12.52
    }
   ]
  },
@@ -471,22 +477,22 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 143.69,
+  "price": 143.79,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 97.4
+  "level": 92.8
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 16,
+  "days_until": 15,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 11
+  "days_until": 10
  },
  "earnings": {
   "next": null,
@@ -495,19 +501,37 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-08-31",
+  "end": "2026-09-01",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1300.0,
-  "dca_value": 1317.44,
-  "dca_return_pct": 1.34,
-  "dip_value": 1303.34,
-  "dip_return_pct": 0.26,
+  "dca_value": 1318.36,
+  "dca_return_pct": 1.41,
+  "dip_value": 1304.24,
+  "dip_return_pct": 0.33,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 12,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "New Backpack Designed Specifically For Starlink Mini",
+   "source": "General Aviation News",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNWHQ0MkNFM0pMaEhHMUY4UHJSRGxhUE5fVmNsUmRHX29hUy01WmU0WldFNUx3Z1IxeTlmVzBvdHJUVE1jWHY4ZV9INWpOaEV1NzFIX2VFcFo1dkVxY0tWN19uR25xeGNmSjdUU3psUkpRMnBPYV9GbFRfVG5vaVlnUEhDTlFQMHpyQTFUbVVMNkJOSHJZNk5mVmR5bzI?oc=5",
+   "published": "2026-09-01T14:09:00+00:00"
+  },
+  {
+   "title": "Exclusive: SpaceX Lays Groundwork For Turbine-Blade Factory to Solve Data Center Power Crunch",
+   "source": "The Information",
+   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNbjZJbXowc1htYzgyMFppeVBpc0h5NjFvbmtTbU1wbUlGbU5vYVJaN2JGaE4tY3l4QTBqY1NDenhJZ3NLQzFCbTZUV003Zk5vWkFwdkRrTDNSMnFIeUY1Y1N1aGFuekhRMTFSNFBWbUxkUGhDSXhWNERjUzJHcnNBTDVudC1kN1VoV0VpWk1RX3YtSmRMTF93LS16T1RyRnNrcXV3YnhHcUhNUU9xQ1RobGRfamIyRHNHUjBMMFI4N2VyTGdKR092VkJTenN4dU02clZNMjUxV2ZCRVpiaFk0?oc=5",
+   "published": "2026-09-01T01:17:43+00:00"
+  },
+  {
+   "title": "Why SpaceX Is the Next Amazon\u2014and What It Means for the Stock",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9KM01FdXByTXl0OVptN3lXNW1VVDBlZ1RWV0hxZG1YbFRMbE92dmpuelA5LU84bzBfTVc4ZGp3clE4aEZpcFoyYXlKckl0NTVoRERQTlFGS3FXRzBhdzRHNG5fb0o1ZDg0ZzFYdkJXcTlRQWZGNHc?oc=5",
+   "published": "2026-09-01T13:05:00+00:00"
+  },
   {
    "title": "SpaceX Logs NASA Launch Success, Jumps Into Gas Turbine Business",
    "source": "Investor's Business Daily",
@@ -515,34 +539,16 @@
    "published": "2026-08-31T20:35:00+00:00"
   },
   {
-   "title": "Index Funds Will Buy More SpaceX Stock Just As Insiders Are Selling",
-   "source": "Morningstar",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNOFFYbGJFcXNpZjNWMVFBcG45N1ppX2dPV1JXQXprWnVoeGFEUTNtdWUzNXBvT29tMmxKVE91Q1F5bi1uV1lQNXVVRkctQWNPT2NaUlF0OUROMldhUk4xWEtCblhSM1pxbXAtc19yQU83T09RSjhpMTR0aDI1OW5fbndxdndVd3RHNmhPc1l3WGtPXzNGNXhaRk1DSVU1b2dnOEpyanlzaVFFOF9v?oc=5",
-   "published": "2026-08-31T10:30:31+00:00"
+   "title": "Why Florida rocket launches are slowing after SpaceX\u2019s latest liftoff",
+   "source": "Florida Today",
+   "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNbkxfOHNKSmJMN3FNWnMyUXpqQUIzd3JzUl9ER0ZLMFMyQmRrMlZLS050RFZ0M0ZmSjJjT0dNWktqNXNtd1J6N3pOaGZMZHZjZDhlRFE2dFl6aDA0eFZjN3d1dDdWT2tiUXlyVXBLN21aYkd4Q1g4d2ZBVTVRMU92M1Q5MzdxZmJhTF90QWpmNmdQcndZV1YyNWQzMmNkMTRGbEVuZVgyOVpxYUF3N3l2WlFZNGdrOW9EdGRFYXFDRUc5emlQX0pJWXVnU0FUY2k1S0FYYlNhMWtVbVpJOUxxYXFacmZnUTJiNWF4OExOQnZvaXBONzV2S19UN05fNjNRLVE?oc=5",
+   "published": "2026-09-01T09:01:00+00:00"
   },
   {
    "title": "Here's how much it could cost SpaceX to take on Verizon, T-Mobile, and AT&T",
    "source": "Yahoo Finance",
    "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOS29ZRnIzQ1BwamRmZDI5eTk0SHdZNFlnRTQ5dlo4NjVXckY3dWZRRDN1cmp3VFV3MUtXaFhicTVOQkExNFFLb0JhRWJwNmFqNWx0Tmd4dHl3cG5VaVhudU44RTZPd1dBRFRvbjc0cGR0RWthUHU3UVNtTFZJN3M0d3ZPRktyUUE3ODh3Ri1vanpTdUkxcDhXc0NrQUllcWt0a0doOUZhOFdkT3hyTWJ1cFFCTkhLcmJQUlNjR3BqVlZDaV9haTJJNEJUZnpuRDVf?oc=5",
    "published": "2026-08-31T16:53:05+00:00"
-  },
-  {
-   "title": "2 Reasons to Buy SpaceX Stock -- and 1 Reason to Wait",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNV1VsMTRzTU5PSFZyNFpwQ01wMndiRWY1X3Q3MEh0VmJETTY4SHJUREg0WmRFOGRyNWIyZ1FRUGlhaVA5SEdmTVJfRUE3WWdOYk1WWDU5cGc3bmVwaXp4NjJnWjVEQkowR0ZQZDh3bXdnOWRoVDlJMU9mT24zVlhNd3NWcEtERnpyQXVySnFrRGZQUDJtMG1RTQ?oc=5",
-   "published": "2026-08-31T20:00:00+00:00"
-  },
-  {
-   "title": "SpaceX, NASA delay next astronaut launch to ISS due to leak on Dragon spacecraft",
-   "source": "Space",
-   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNSXV6aXFldUVqS0Znb0swX3ZpOVctRTlrOWdhOEd2U1d3di0zckRvZkRGeEJpZ1VmOFRLeEFGNEI3MjJOMEtsdTFqZlVOeGRpWXVqWTZWUWV4S1RVQzR0cFNDeVRQYXliRXZ4by15RmtjZXBLMndOSVhobko2OUpHWGZBVjhmYjZrUHU3ODRkVktCcmxZY081WmdjMWdLUUgyMmxJY1lrZ055UnNicTI2d2pra1ZzYVNDZVVQc1lQSXF6T1RwdUhBWmJrUTRiR1dNRFBVOWxn?oc=5",
-   "published": "2026-08-31T15:00:00+00:00"
-  },
-  {
-   "title": "GE Vernova Stock Drops. Is SpaceX Coming for Them Too?",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPWjROVjNFbVktRmlkamtLeUE5eDdLMmlGMlVqRjlEUkFMbGlRWHVlQ1luaXNveWRpbmZwOEJmQ2M3NW9nY3hXZ1VXQWF0WFpCUjZRaXJRbHhPb25jTzl4cXlJcVdYRkljOGZCd1NUbnhibldCMlBsblR0YjRFQWQ0cQ?oc=5",
-   "published": "2026-08-31T20:44:00+00:00"
   }
  ]
 }

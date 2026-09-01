@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-08-31T23:11:23+00:00",
+ "generated_at": "2026-09-01T14:30:17+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "46% ann. (p92)",
+   "value": "45% ann. (p91)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "NVDA's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on NVDA): elevated single-name chaos tended to mark better entries on the calibrated name.",
    "viz": {
-    "pos": 91.7,
+    "pos": 90.9,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "6.2%",
+   "value": "7.6%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 6.2% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 7.6% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 12.4,
+    "pos": 15.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.9 (p8), F&G 50",
+   "value": "VIX 15.6 (p17), F&G 46",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 11d",
+   "value": "CPI in 10d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 220.78,
-  "day_change_pct": 1.48,
-  "sma50": 208.62,
-  "sma200": 195.96,
+  "price": 217.585,
+  "day_change_pct": -1.45,
+  "sma50": 208.8,
+  "sma200": 196.08,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 6.3,
+  "drawdown_pct": 7.7,
   "series": [
-   {
-    "d": "2025-12-11",
-    "c": 180.93,
-    "t": "neutral",
-    "s": 47
-   },
    {
     "d": "2025-12-12",
     "c": 175.02,
@@ -1215,19 +1209,31 @@
     "c": 220.78,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-09-01",
+    "c": 217.585,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
- "flips": [],
+ "flips": [
+  {
+   "label": "Falling-knife zone",
+   "direction": -1,
+   "text": "NVDA at $211.92 (-2.6% from here) enters the 10-20% falling-knife band (\u22129 pts)"
+  }
+ ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-08-31",
-  "days_total": 712,
+  "end": "2026-09-01",
+  "days_total": 713,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-09-02",
   "baseline": {
-   "n": 691,
+   "n": 692,
    "avg_pct": 5.55,
    "median_pct": 3.38
   },
@@ -1256,9 +1262,9 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 127,
-    "avg_pct": 7.31,
-    "median_pct": 6.1
+    "n": 128,
+    "avg_pct": 7.29,
+    "median_pct": 6.08
    }
   ]
  },
@@ -1268,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 220.78,
-  "sma200": 195.96,
+  "price": 217.585,
+  "sma200": 196.08,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 45.5
+  "level": 45.2
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 16,
+  "days_until": 15,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 11
+  "days_until": 10
  },
  "earnings": {
   "next": null,
@@ -1292,54 +1298,54 @@
  },
  "backtest": {
   "start": "2022-09-01",
-  "end": "2026-08-31",
+  "end": "2026-09-01",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 87772.48,
-  "dca_return_pct": 317.96,
-  "dip_value": 87986.4,
-  "dip_return_pct": 318.98,
+  "dca_value": 86502.28,
+  "dca_return_pct": 311.92,
+  "dip_value": 86713.12,
+  "dip_return_pct": 312.92,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Nvidia stock flashes unusual signal for investors",
-   "source": "thestreet.com",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQcVlfTE5lRG5teGNaZm1oRmgzT0hDaVJ6TjEzYWMxek9tS2lNR2d6YmYxbUdjZjFfMlN2RVYwYW82c1VUYzllV09mdzNWeC1xb1NhU3gwWWtfZVcyY0dCU0FKVFpJbEJCU0JZQWs1VFRwZG5LQ0s5cHppYTZXSTBmd1dnc1N1cEdr?oc=5",
-   "published": "2026-08-31T20:37:00+00:00"
+   "title": "DLSS 5: 3D-Guided Neural Rendering Debuts in NBA 2K27",
+   "source": "NVIDIA",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWHc3SVI4YWxNQUoybk51dWh5R1ZJb09iZHRkdUVoaXpJRUFOX3pFQnRPaXVjYkhxcGpZSGpVdERNV3Y4YzlSUF9yU2hHckhwWEs5azlkbHkzWjV0TE1mNFdGdFY0Q3VzalJZRk1lRlc4WTIzOXNmc29kVnRHUVE1VDd3?oc=5",
+   "published": "2026-09-01T13:00:00+00:00"
   },
   {
-   "title": "Prediction: Nvidia Stock Will Trade at $350 on This Date",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQa09tSTRvcDBJR2NRSEFWQXE3LXJaODZXbnlfVnJEb0xjay0zYTVmdUsydUhTQlpVajBHN3BUc01va3VIN0Q3ajFZWlpHbnRXX0l2amNqS1Q1d1NMcFI2SjY2VEN5TG94TWJrZXdzdmloRXZISmxLY3pVUjB5RGJ0X3Frb3p3NHVCRmVIN0Y2bU1kWGdIajcyX3hoTks1TlU?oc=5",
-   "published": "2026-08-31T14:00:53+00:00"
+   "title": "Exclusive | Anthropic Signs $35 Billion Cloud Deal Backed by Nvidia",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOVXJtVnpBU3B5TnhYUHdrUVc4QnlaeXBTemhxZ21ETG43empKbHZwTV9mN3huN1JNWjViOWYwMGhvVlNiX1VwU1VaVmE4RGRkV29SMFE1WWtNTVZiNXFKSUZlelFxdDAxbm9uUHNmQnhsbWlxMkdZaFRLMVNhUURYVGV0SGtBY2xlMVlid1dXcFJPaVV6NEE?oc=5",
+   "published": "2026-08-31T23:25:00+00:00"
   },
   {
-   "title": "Prediction: This Is Where Nvidia Stock Will Be When September Ends",
+   "title": "Prediction: This Will Be Nvidia's Stock Price by the End of 2027, Based on Its Latest Forecast",
    "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONFRsVHhKNG9FWXRiVF9oV2Ryei1YZlFLckVoWFFYeEZpa253cEVmSjBEZUpGT3ZObDdqSkpBNGhhT19kejg0NjhHRDJhZ1YwbXFfeEt5STZFbDlUZDJEd2dVTTVZUmFCcngtVGd5VTZQSWpacnlRSXI1aG5GTHV6OUxNdmZPRld5X1NlMXRvenZBdXE2Zk5DZQ?oc=5",
-   "published": "2026-08-31T18:49:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPT2RyZkJqUlpvRVJRUW9BRzZKMDRJaFV0a2w4OTV4djJhMTRiUXBOTlZuaC1mbWdpcEZaZjVUOVE4ckhhR3MwTkJxZjN6cXU3N01oNVRjZDhidjNGNU9UdmQ1QnFmalh3bXdDMlhMcXR4YTYzYVZETVJlZmtUSVFOVU9vaThwc0xZblNITm16YVpKanJmYU9mSTRaa0NaSzJ2SVE?oc=5",
+   "published": "2026-09-01T08:02:00+00:00"
   },
   {
-   "title": "Nvidia to invest $3.5 billion in chipmaker MediaTek, expand partnership",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQNGg1el9MUWRYTnBSbW42NnllVGxRSmwxLUloa1ppa01jamtTRXhiMEo0cUd0dk5iMDVPZEpMdDFBbGMtd2FzSVJFRjRIM3BSVVU1RFhEaTB1TDhHQzVNb2VnLTZWXzhQMmthTG5VRzk1STBaRVlsNENZOHNnWTJ4TURjR2hPUDNlS1VtSDd4NlB0UUxBLXprTnRJM25XOXNLVWt4amprQ3YyeWM?oc=5",
-   "published": "2026-08-31T14:48:40+00:00"
+   "title": "OneRail launches AI platform with Nvidia for retailers to make faster delivery decisions",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9iYVVrQVJERlpLS3dwTlFPNm9WMHJ2dkdaTUdmWV9FY3piSTlUd0FXQk9YbjBVUlp3dkRlTjMzSXVzbUtSam1hZlhIVGpHSXZFa3ZERUJOY0h3cjZFTkhIRlN3MGptLW9xY0VZZ3p0eHNyNjk1ME8yelZibzfSAYIBQVVfeXFMUFV0TlV5RGgwcmI5QUtlNGlxNE9VZkphSXRIdllpdHdDMTRQQXVxZXhRaVUyX0VOMmZfVjJ6TzdqbENTUm50ODY0QnIxVlFvdlQyXzZFNzlrRExPU1hWZERBYjVNS3F6eUFoWnp6VGttSG1YVVJya01aR0F4X2ltd2ZqUQ?oc=5",
+   "published": "2026-09-01T11:00:01+00:00"
   },
   {
-   "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027",
-   "source": "NVIDIA Newsroom",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOcjZPeVV6eC01Z2tWOHlyVEhmMG9uZDgyaXdvVTV3MVVMWGdKVVhJdlNiRHBvejd0UnlSNFJfTFA4dXAxUk9fVi1RQ2h2VU1kd2FkSUoydEJheDVMNWRnYUdMa2RFcG8zcTROTl9ZX1lJQ0tRU1VZR2pkQjFRdEtkM0tpUUlOcXhsYTFGcGY5RHFQYWZyNkh6LXVCSmN0Y1J3WWc?oc=5",
-   "published": "2026-08-26T20:25:18+00:00"
+   "title": "Why Dell\u2019s stock stands to gain from developments at Nvidia and SpaceX",
+   "source": "MarketWatch",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTmJrRFFyYVBzem5WUmQ4clJKLTJrUFZBdGVBeHlXcENMNVduTzR0MVNKeFlnNzBVMFJuMVZLaUZZSExZUmppam82eDAzdDhRMkFQSDdZWkFQMElWQU5yOHhKVzI0R2lrZnE0ZEtqdlhOM283NGU3ckRiM0ptTDZZcDM1RmNFSWpkQW1LMUJtcC1oby12M0cyWWhIUHNCZFRTejZwZUVQRWlmZDh6Y25TNUtR?oc=5",
+   "published": "2026-09-01T11:26:00+00:00"
   },
   {
-   "title": "Nvidia to Invest $3.5 Billion in Chipmaker MediaTek",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNb0cxUWZ1RkliNUJxdEcwWUZsZksxNUcybS1Ha3ZEeU4zV1pCTnhYdEhmUkNvXzQxSkk4aXVYV09RZnZSLVlrMTRKeXRORmhSc0VJWUprU0ZZN1FPTnpxWEU0YlZ5OGsxT2FGNk5PWUp5djdDR1FtOHJHWV9FR1o1YmpUUmdyOUxJT1NXaHdZZHliUmROYllnU2JsRlZqV3NuMlRj?oc=5",
-   "published": "2026-08-31T12:30:00+00:00"
+   "title": "Anthropic Seals $35 Billion Cloud Deal With Nvidia-Backed Lambda",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOcDd1emRvMmV1OUJFQVRFWGQ1T2I2Y3JxVXoxMTFxaDYzdnVfWXRzTF8xay1aMFVBR0x5YVRzbzY1NjZlYTBCR0FQd2VaVU9kMmU3ZlhGQlY4NWFxRGxaS0FhdzN5dEN6Y0JJcE1KaUFmZ1BzTGJvMS02V0NVcUcxNUZ2VXd1SjN4ZUtxWkl3cXBKT3g5amZiLTBKRmk?oc=5",
+   "published": "2026-08-31T23:54:04+00:00"
   }
  ]
 }
