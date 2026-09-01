@@ -260,6 +260,8 @@ shape of each request, including that the `fc.yahoo.com` cookie hop tolerates it
 
 Pages serves from the `docs/` folder on `main`. The workflow in
 `.github/workflows/update-data.yml` refreshes all six data files each weekday at 13:35
-and 19:15 UTC.
+and 19:15 UTC, and also on any push to `main` that touches `scripts/` - a rules change
+otherwise lands with the pages describing rules the published JSON hasn't been rebuilt
+under yet.
 
 Not financial advice. Built as a personal decision aid.

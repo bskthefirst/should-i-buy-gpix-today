@@ -9,6 +9,17 @@ on:
     # score right before the buy-at-close window. The engine updates today's
     # history row in place, so the two runs never duplicate a date.
     - cron: "15 19 * * 1-5"
+  # A rules change lands with the pages already describing the new rules while
+  # docs/*.json still holds the old ones, and a RULES_VERSION bump additionally
+  # leaves the histories stale until something rebuilds them. Rebuild on the
+  # merge instead of waiting for the next cron. The job's own commit only
+  # touches docs/, so it cannot retrigger this filter (and pushes made with
+  # GITHUB_TOKEN do not start workflows in any case).
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - ".github/workflows/update-data.yml"
   workflow_dispatch:
 
 permissions:
