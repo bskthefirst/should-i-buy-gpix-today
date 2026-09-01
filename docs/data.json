@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T14:30:13+00:00",
+ "generated_at": "2026-09-01T17:25:36+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.6 (p17)",
+   "value": "16.1 (p27)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "bad",
-   "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
+   "lean": "neutral",
+   "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 17.5,
+    "pos": 26.9,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.87",
+   "value": "0.89",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 42.2,
+    "pos": 46.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,7 +63,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.7 pts",
+   "value": "+8.9 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.9%",
+   "value": "2.1%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 19.0,
+    "pos": 21.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+0.6%",
+   "value": "+0.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 55.0,
+    "pos": 51.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.60% (-0.24 1mo)",
+   "value": "2.63% (-0.22 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 15.0,
+    "pos": 15.7,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -167,13 +167,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "8.1% vs 3.9% cash",
+   "value": "8.2% vs 3.9% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 42.4,
+    "pos": 42.6,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "46 (neutral)",
+   "value": "45 (fear)",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "Sentiment in the normal range - no contrarian edge either way.",
+   "lean": "good",
+   "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 46.1,
+    "pos": 44.8,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 55.595,
-  "day_change_pct": -1.09,
-  "sma50": 55.57,
-  "sma200": 53.59,
+  "price": 55.455,
+  "day_change_pct": -1.34,
+  "sma50": 55.58,
+  "sma200": 53.6,
   "high52w": 56.67,
-  "drawdown_pct": 1.9,
+  "drawdown_pct": 2.1,
   "series": [
-   {
-    "d": "2025-12-11",
-    "c": 52.96,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-12",
     "c": 52.52,
@@ -1306,6 +1300,12 @@
     "s": 50
    },
    {
+    "d": "2026-08-28",
+    "c": 56.34,
+    "t": "neutral",
+    "s": 50
+   },
+   {
     "d": "2026-08-31",
     "c": 56.21,
     "t": "neutral",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-01",
-    "c": 55.595,
+    "c": 55.455,
     "t": "ok",
     "s": 62
    }
@@ -1323,27 +1323,27 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.97 (-1.1% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.97 (-0.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.87) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 46) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 45) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.6) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 16.1) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.60%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.63%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1383,7 +1383,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.14,
+  "ttm_yield_pct": 8.16,
   "tbill_3mo": 3.9
  },
  "distributions": {
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 763.89,
-  "sma200": 710.67,
+  "price": 761.71,
+  "sma200": 710.66,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.58
+  "level": 16.08
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,10 +1516,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 19290.96,
-  "dca_return_pct": 28.61,
-  "dip_value": 19079.16,
-  "dip_return_pct": 27.19,
+  "dca_value": 19242.38,
+  "dca_return_pct": 28.28,
+  "dip_value": 19034.13,
+  "dip_return_pct": 26.89,
   "dip_cash_uninvested": 1200.0,
   "dip_buy_days": 31,
   "winner": "dca"
@@ -1544,22 +1544,22 @@
    "published": "2026-08-28T16:05:40+00:00"
   },
   {
+   "title": "Bond yields surge and stocks tumble as inflation fears ripple through markets.",
+   "source": "NBC News",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPX1k2M25nYzF5bW1Db3RnMldRZ19jWklIUWthSDVPNkhIRk5QQXZfd2dCMHdvNmdrbU1KMlVwYjJZaEtPZzhEa3R3bTBvTEl4MDJ6Q2dWby1NZlJsYi15TzdnWVZLcmg2TTBkVm1NNWhWYlgtM3VFa3RieUJMN2V6NTBSQTFvck1HVkU5NzQ0aHQ2eXJDNGZIVmVKZVNRZw?oc=5",
+   "published": "2026-09-01T14:34:02+00:00"
+  },
+  {
+   "title": "Global Bond Yields Surge as Oil Prices Fuel Inflation Worries",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPVE1melJkWU5uSUtsb1U4aEo2Q0NIQmx5SVB2dGpOaHMzeFdJVm81TzRxYUkzYlFMMUxhdW44NktaMzFKQS1aU21aZ1JQd3N3UGFFSGtfMmo5R1lrTTNSQ1VUVmhSdWlxYkxRVmdvOXBaM0JqSEgtb0h2TUx6QURhUHg1YVJKY3dlZWtyanJJT0pTbFhveDN2YlZEdEZVdG8xUE02SmIwejY?oc=5",
+   "published": "2026-09-01T14:59:00+00:00"
+  },
+  {
    "title": "Fed's Barr open to rate hike if inflation does not moderate",
    "source": "Reuters",
    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNTnRXRVF2Z0VJNFMzWHl3SGtLREF1SEpKRVAxeHA3LXFWTnJEMmk3YTNRRENoNEd2ZzF4YlB4dHVkbERlSm04T1FoSkdic2ZkQVVKMUtyN3lHNDNSaTZhS0o0NGlNcVN1aXNRS0RfMkFueUpkalRYeHN2LW81MElydlBwYnpyX1ROQkhiZU12ZTVVUW0wTVZEWTZsLXU1ZUxsbUE?oc=5",
    "published": "2026-09-01T13:17:47+00:00"
-  },
-  {
-   "title": "Bond Yields Surge as Oil Prices Fuel Inflation Worries",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPVE1melJkWU5uSUtsb1U4aEo2Q0NIQmx5SVB2dGpOaHMzeFdJVm81TzRxYUkzYlFMMUxhdW44NktaMzFKQS1aU21aZ1JQd3N3UGFFSGtfMmo5R1lrTTNSQ1VUVmhSdWlxYkxRVmdvOXBaM0JqSEgtb0h2TUx6QURhUHg1YVJKY3dlZWtyanJJT0pTbFhveDN2YlZEdEZVdG8xUE02SmIwejY?oc=5",
-   "published": "2026-09-01T13:11:00+00:00"
-  },
-  {
-   "title": "Fed\u2019s Barr Says Higher Rates Needed If Inflation Doesn\u2019t Cool",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPNU5fSVdyRFRrNTFDbElYRWYyTXZ4RjViekFyb2FRR180bFVrczd2UHJlZ29QMG5FTDU3MlNWVHBlN3J0N01lRHU4M3Q1UnRIbE9iSHduRXp6M1hVdDY0aXlHOU9JcXdYRC1tV2hEZDMyTTZ0Z29yX05tM1pCc3JRSEV4bWppdEFRZkNJclNWeVV1aEszM0RtRFVKbE1CN0hRWE1rTVE3cG9TajBfTUNhckd3?oc=5",
-   "published": "2026-09-01T13:05:00+00:00"
   }
  ]
 }

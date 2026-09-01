@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T14:30:14+00:00",
+ "generated_at": "2026-09-01T17:25:37+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,7 +17,7 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.1 (p28)",
+   "value": "21.2 (p28)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.87",
+   "value": "0.89",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 42.2,
+    "pos": 46.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.36x (p69)",
+   "value": "1.32x (p63)",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
+   "lean": "neutral",
+   "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 69.3,
+    "pos": 63.1,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "4.4%",
+   "value": "4.5%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 44.0,
+    "pos": 45.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.60% (-0.24 1mo)",
+   "value": "2.63% (-0.22 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 15.0,
+    "pos": 15.7,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 62.3,
+    "pos": 62.4,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "46 (neutral)",
+   "value": "45 (fear)",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "Sentiment in the normal range - no contrarian edge either way.",
+   "lean": "good",
+   "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 46.1,
+    "pos": 44.8,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 55.9,
-  "day_change_pct": -1.9,
-  "sma50": 56.89,
-  "sma200": 54.37,
+  "price": 55.855,
+  "day_change_pct": -1.97,
+  "sma50": 56.84,
+  "sma200": 54.39,
   "high52w": 59.52,
-  "drawdown_pct": 6.1,
+  "drawdown_pct": 6.2,
   "series": [
-   {
-    "d": "2025-12-11",
-    "c": 53.39,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-12",
     "c": 52.6,
@@ -1333,6 +1327,12 @@
     "s": 50
    },
    {
+    "d": "2026-08-28",
+    "c": 56.93,
+    "t": "neutral",
+    "s": 50
+   },
+   {
     "d": "2026-08-31",
     "c": 56.98,
     "t": "neutral",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-01",
-    "c": 55.9,
+    "c": 55.855,
     "t": "ok",
     "s": 59
    }
@@ -1350,22 +1350,22 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.87) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 46) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 45) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.1) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.2) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.60%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.63%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1405,7 +1405,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.13,
+  "ttm_yield_pct": 10.14,
   "tbill_3mo": 3.9
  },
  "distributions": {
@@ -1515,13 +1515,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 708.7099,
-  "sma200": 656.09,
+  "price": 708.11,
+  "sma200": 656.08,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.13
+  "level": 21.16
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1538,15 +1538,21 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 20076.19,
-  "dca_return_pct": 33.84,
-  "dip_value": 19848.8,
-  "dip_return_pct": 32.33,
+  "dca_value": 20060.03,
+  "dca_return_pct": 33.73,
+  "dip_value": 19832.9,
+  "dip_return_pct": 32.22,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 59,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "US urges hands-off approach to AI regulation at G20 tech meeting",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbmFFcTlLcU1BTjFTOXBjTE80ZGFzSUc5ZUtPREdXX2tDcTJZODd4UTNwekU1M3JFdXlZdUhPcFl6Z0RqcWhjQ3VvLW92cmtZMHlLY0ZmTktxNlUtVXJLRlFfTXhWWXpvbGRBTU1Vb0FEY0dVNWE1Y3VNZTJ5SVhoU19hU0lsU0xmUnpoSkJrMVY5T1ZIaHlzTHRBS2JRTjdRU0U0R0tB?oc=5",
+   "published": "2026-09-01T15:39:39+00:00"
+  },
   {
    "title": "AI wealth is creating a 'mansion shortage' and upending San Francisco's housing market",
    "source": "NPR",
@@ -1560,28 +1566,22 @@
    "published": "2026-09-01T13:18:51+00:00"
   },
   {
-   "title": "House Intelligence Committee warns of 'Black Swan' AI risks",
+   "title": "Apple enters John Ternus era as AI challenges and memory crunch intensify",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPSldFa0VOb0pOQTkxckR0ZHBOSWJFalQ1NVIyaFdPVDM5SEQ3RXFxOEJjY0Y3cEU3QWcwMC1kTWRyak00THMxNXhuTGZ5THdvLVZuTFdTTXBDbjhFVWxibVhYdGNYQmF2S3p6bzA3TnBuR3ZEbVNlLXNwWEZpMFhQdWJR0gGHAUFVX3lxTE9BbzhvdWdiTFcxcXB0SDcxSVlDekRsZlcwUldyTEtoU09rc21aTk9iU3I3WXV2cW1wcXJmQ0s3LTR1VnEyWm9nU21GaFlvZEg1ZFgtZ1V3YUY3UjBDd0c4c3ZnaUVZNFYxeUdLZV9hZ1hBaEs0bUtPbjNHQnRMSnA3T3dzd29hRQ?oc=5",
-   "published": "2026-08-31T21:18:37+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMEJSdHB2UlNFcTd3RVBRQW9lS0FQeHowT21lQllvNWhkaDVWYmMzd3F4ZVF2dnhrYm9XXzlFSzVZMk1aMEpGVWFnM1ZzcjFlNlZXZDFSYzVRNzZtQlExdDF4UUxWWWN5VHJ3QW9jZmVHaFpqVlpZdDdXSTFwNEQzWjFBUUk4LVhjanByckY3WmlISnFXMWpWdUxyNXYxeFN2SGowVkY1cU7SAa4BQVVfeXFMUFVyRHR2cjZPeF9mVmM1dnFzUV9lbXgtRWpPbGRJMzhyS2xZUldNcXQ3dVo5S09UZ29KRWdwQ2FPaDgyMGtXOF9kZ0RlMHBibDZNYUluejhyOHNSMHpBNnNnemFnNTJIaWFkV3FEcW9qMHVFN1hpT1dpb3RlMmRTem10SUNTSHlQd0NPWFlJVmtZZnRRZWdyYm4wcnJTM0VVeHJoOXk3WTdMZ09UdTJR?oc=5",
+   "published": "2026-09-01T11:00:01+00:00"
   },
   {
-   "title": "Broadcom Announces VMware AI Factory, Enabling Faster Time to Production AI and Greater Control Over AI Tokenomics",
-   "source": "broadcom.com",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQaUlyREV3SC0xNHAyZGhqUDJZblhqYkNuUW92NVBKY3Z5Q0l3aWQ1SFpNdndXSU11VGlFZ3Y4X2w1RXJta25UcFJaZTJGcXR3VVdUZTVYWGFKMXRBV0lGYnBHdWR4cUhsME5uTllvU0RCZENoYVNweUdLSmxscnBqZDB5alpUbjRuVEdJ?oc=5",
-   "published": "2026-08-31T22:22:36+00:00"
+   "title": "Mount Sinai Launches Center for Genomic AI and Microbiome Medicine to Advance Precision Medicine",
+   "source": "Mount Sinai",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQODZOc1R5cmgyVE1CakFEeXhfZmpuUTZoREg3MlI4LUIzdUxucVBPZEotWGJ5WDZqNl80UjA0TFlqWlNleTcyYnNnUVdSRE40QXpnd002WkZ4YlhKdlkzbXYxOHlTUTc3ekRqV1JtQW9DREJNdXhqSVhVNE4zQ0lzVTh3cmllWlN6enlnT3NYMUVWMTdvaEE0b3BwX1BsSlk3VTlwMjJibnNxOHFkMTdySVBkbEwtZmhNMVFEa0FTZXZHRXhkSFA0bjhKMGdEZk9zN3RRZmg3N3B3bFE?oc=5",
+   "published": "2026-09-01T15:50:46+00:00"
   },
   {
-   "title": "OpenAI supports California\u2019s bill to advance youth AI safety",
-   "source": "OpenAI",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNQ0puazl3MjhZNm1TdmpZZnRleXRud0NLMEFETVJVeE96d29BcmIwRmRRbmVOdE5GaGZTOUJidkk1c0xOSG9XSm5NR3lnbURta2NJN0JwSnduMUJBaDVPNWNPTkVXaHc3TFpUY3NUMEhKNXlFaHROMXRfUmFxbEFhQkV3?oc=5",
-   "published": "2026-09-01T04:51:11+00:00"
-  },
-  {
-   "title": "US to urge hands-off AI regulation at G20 tech meeting, official says",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbmFFcTlLcU1BTjFTOXBjTE80ZGFzSUc5ZUtPREdXX2tDcTJZODd4UTNwekU1M3JFdXlZdUhPcFl6Z0RqcWhjQ3VvLW92cmtZMHlLY0ZmTktxNlUtVXJLRlFfTXhWWXpvbGRBTU1Vb0FEY0dVNWE1Y3VNZTJ5SVhoU19hU0lsU0xmUnpoSkJrMVY5T1ZIaHlzTHRBS2JRTjdRU0U0R0tB?oc=5",
-   "published": "2026-09-01T13:34:56+00:00"
+   "title": "Businesses Are Using AI to Transform Work, Not Cut Jobs",
+   "source": "Liberty Street Economics",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQSERxaEcwa2JNZVRCRGd2TDRIN3hJYUoxXzV6YTEzQjNmQ0NSRE5QR2lJTFI1VktublhncnFCbUc4SGRGT3dQN1UxblJZVkRfX2x5dFJpMUFJeFpVLUtGSHItMEIySldrdGpncDF0SklOTm9YcllIWVhuMWVXYTNaSzBOTHpub056SV94RE5aUmVZSFYxMld0eFplSlpLZTlKNjBHWm5VQTdyVm9uNEE?oc=5",
+   "published": "2026-09-01T11:03:37+00:00"
   }
  ]
 }
