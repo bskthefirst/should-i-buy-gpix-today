@@ -38,6 +38,22 @@ score100 = round(50 + W * 6.25). 50 means "typical day - buy on
 schedule"; the score never goes below 50 by design, because two audits
 found no reliable negative signal, so the tool doesn't claim any.
 
+Rules v5 changes nothing about the funds and everything about how the
+single-stock pages earn their weights. v4 shipped NVDA and GOOG on the
+weights TSLA's validation pass produced, on the assumption that a
+single-stock framework transfers between single stocks. Running the same
+audit-grade test on their own histories (scripts/validate_stock_bands.py,
+2016-2026) showed it does not: of TSLA's five bands, only two survive on
+NVDA and only one on GOOG, and three of them - top-decile realized vol,
+at-the-high momentum and the 10-20% "falling knife" - come out with the
+WRONG SIGN on the new tickers. The falling knife is the worst offender:
+it is the project's only negative band, and on NVDA and GOOG those days
+were ABOVE baseline, so v4 was docking points for a good setup. Each
+ticker now carries its own `bands` tuple and only those bands score;
+rejected bands still render, annotated with the numbers that rejected
+them. NVDA and GOOG consequently have no negative band and floor at 50,
+like the funds.
+
 GPIX is scored against the S&P 500 and the VIX; GPIQ against the
 Nasdaq-100 (QQQ) and the VXN. GPIQ also displays the VXN/VIX "tech fear
 premium" - the audit found its intuitive scoring backwards, so it no
@@ -136,15 +152,20 @@ FUNDS = [
         "out": "data-tsla.json",
         "history_out": "history-tsla.json",
         "page": "tsla.html",
-        "validated": True,
-        # Weights/thresholds come from this ticker's own validation pass.
-        "evidence": "own",
-        "range": "4y",  # full 1y lead-in before the Oct 2023 history start
+        # Bands this ticker's own validation pass proved. Nothing outside
+        # this tuple can move the score; see scripts/validate_stock_bands.py.
+        "bands": ("crash", "down3", "rvol_p90", "at_high", "knife"),
+        "range": "5y",  # 2y lead-in before the Oct 2023 history start
         "history_start": "2023-10-27",  # same window as GPIX/GPIQ report cards
         "news_query": "Tesla+OR+TSLA+stock+OR+%22Elon+Musk%22",
-        # score100 span: W in [-1.5 .. +3.5] -> 41 .. 72 (see stock weights)
-        "meter": (40, 73),
-        "weights_max": 4.5,  # crash reversal 2.0 + realized-vol 1.5 + at-high 1.0
+        "band_stats": {
+            "crash": "+0.87pt next-day excess (t=2.2) and +11.2pt over the next quarter, positive in every era at every horizon",
+            "down3": "+0.35pt next-day excess (t=1.7), positive in all four eras at the 1-day horizon (longer horizons mixed, hence half the crash weight)",
+            "rvol_p90": "+0.35pt next-day excess (t=1.7) and +15.5pt over the next quarter, positive in every era",
+            "at_high": "+0.62pt next-day excess (t=2.05), positive in every era",
+            "knife": "negative in every era at both 1 day (t=-2.6) and 21 days (t=-1.9)",
+        },
+        "band_failed": {},
     },
     {
         # SpaceX IPO'd 2026-06-12: ~2 months of data. NOTHING can be
@@ -158,18 +179,23 @@ FUNDS = [
         "out": "data-spcx.json",
         "history_out": "history-spcx.json",
         "page": "spcx.html",
-        "validated": False,
+        "bands": (),  # nothing validated, nothing scores
         "range": "1y",
         "history_start": None,  # from IPO
         "ipo": "2026-06-12",
         "news_query": "SpaceX+OR+Starlink+OR+%22Space+Exploration+Technologies%22",
-        "meter": (50, 100),
-        "weights_max": 0,
+        "band_stats": {},
+        "band_failed": {},
     },
     {
-        # Mature mega-cap; same single-stock engine as TSLA. Weights and
-        # thresholds are the TSLA-validated framework applied provisionally
-        # (honest on-page copy) until a dedicated NVDA pass exists.
+        # Mature mega-cap on the same engine as TSLA - but the TSLA weights
+        # were NOT assumed to transfer. NVDA got its own pass
+        # (scripts/validate_stock_bands.py, 2016-2026, 2513 sessions) and
+        # only two of TSLA's five bands survived it: the pullback family.
+        # Top-decile realized vol, at-the-high momentum and the falling-knife
+        # drawdown all failed on NVDA's own history - the first two are noise
+        # here and the knife is outright wrong-signed - so they render as
+        # context. NVDA therefore has no negative band and floors at 50.
         "key": "nvda",
         "kind": "stock",
         "ticker": "NVDA",
@@ -177,16 +203,31 @@ FUNDS = [
         "out": "data-nvda.json",
         "history_out": "history-nvda.json",
         "page": "nvda.html",
-        "validated": True,
-        "evidence": "tsla_framework",
-        "range": "4y",
+        "bands": ("crash", "down3"),
+        "range": "5y",
         "history_start": "2023-10-27",
         "news_query": "Nvidia+OR+NVDA+OR+GPU+OR+%22artificial+intelligence%22",
-        "meter": (40, 73),
-        "weights_max": 4.5,
+        "band_stats": {
+            "crash": "+1.30pt next-day excess (t=2.0), positive in all four eras",
+            "down3": "+0.76pt next-day excess (t=2.6), positive in all four eras",
+        },
+        "band_failed": {
+            "rvol_p90": "On NVDA's own 10-year history the TSLA sign inverts: top-decile "
+                        "realized-vol days ran −0.12pt next-day and −6.0pt over the next "
+                        "month, below baseline in every era at the monthly horizon.",
+            "at_high": "On NVDA, at-the-high days were flat next-day (+0.04pt) and split "
+                       "between eras - nothing like TSLA's +0.62pt momentum edge.",
+            "knife": "The 10–20% drawdown band is not a falling knife on NVDA: those days "
+                     "ran +0.19pt next-day and +1.3pt over the next month, ABOVE baseline. "
+                     "TSLA's one negative band does not transfer here.",
+        },
     },
     {
-        # Alphabet Class C; same provisional single-stock framework as NVDA.
+        # Alphabet Class C. Same treatment as NVDA: its own validation pass,
+        # and only the plain 3-down-close reversal survived it. The -12%
+        # crash band is untestable on GOOG (10 occurrences in 10 years - the
+        # threshold is calibrated to TSLA's ~2x higher 5-session sigma), and
+        # the vol-scaled equivalent was era-mixed, so neither scores.
         "key": "goog",
         "kind": "stock",
         "ticker": "GOOG",
@@ -194,13 +235,27 @@ FUNDS = [
         "out": "data-goog.json",
         "history_out": "history-goog.json",
         "page": "goog.html",
-        "validated": True,
-        "evidence": "tsla_framework",
-        "range": "4y",
+        "bands": ("down3",),
+        "range": "5y",
         "history_start": "2023-10-27",
         "news_query": "Alphabet+OR+Google+OR+GOOG+OR+%22search+ads%22+OR+YouTube",
-        "meter": (40, 73),
-        "weights_max": 4.5,
+        "band_stats": {
+            "down3": "+0.23pt next-day excess (t=1.8), positive in all four eras",
+        },
+        "band_failed": {
+            "crash": "A 12% five-session drop has happened 10 times in GOOG's last decade - "
+                     "too rare to test. The threshold is calibrated to TSLA, whose "
+                     "5-session swings are more than twice as wide; the vol-equivalent "
+                     "−5.5% band was era-mixed, so neither scores here.",
+            "rvol_p90": "On GOOG the TSLA sign inverts: top-decile realized-vol days ran "
+                        "−0.19pt next-day, below baseline in every era.",
+            "at_high": "On GOOG, at-the-high days ran −0.07pt next-day and −2.2pt over the "
+                       "next month, below baseline in all four eras - the opposite of "
+                       "TSLA's momentum result.",
+            "knife": "The 10–20% drawdown band is not a falling knife on GOOG: those days "
+                     "ran +0.01pt next-day and +1.3pt over the next month, at or above "
+                     "baseline. TSLA's one negative band does not transfer here.",
+        },
     },
 ]
 
@@ -237,9 +292,13 @@ SKIPPED_NOTE = "Data source unavailable today - signal skipped."
 # Report-card horizon: ~1 trading month.
 FWD_DAYS = 21
 
+# Sessions of lead-in a day needs before any trailing-year measure is real:
+# 251 for the 52-week window plus the 20-day realized-vol lookback.
+WARMUP_SESSIONS = 271
+
 # Bump this whenever the scoring rules change: history files carry it, and
 # rows built under an older ruleset are discarded and rebuilt from scratch.
-RULES_VERSION = 4
+RULES_VERSION = 5
 
 # Short verdict-band labels (feed titles, report card, timeline tooltip).
 # "caution" exists only for validated single stocks: TSLA's 10-20%
@@ -288,7 +347,12 @@ WEIGHTS_MAX = W_REVERSAL + W_DISCOUNT + W_VOL + W_TERM + W_CREDIT + W_FG  # 8.0
 
 
 # ---------------------------------------------------------------------------
-# Single-stock weights (TSLA only; SPCX is unvalidated and scores nothing).
+# Single-stock weights. The WEIGHTS are TSLA's; which of them apply to a given
+# ticker is decided per ticker by that ticker's own pass
+# (scripts/validate_stock_bands.py) and listed in its FUNDS["bands"] tuple.
+# A band absent from that tuple can never move the score, no matter what the
+# market does - it renders as context with the reason it failed.
+#
 # Sized from the dedicated TSLA validation pass (2010-2026, 4054 sessions,
 # same forward-excess-return / era-split / effective-N method as the fund
 # audits; artifacts in /tmp/tsla_validation):
@@ -323,35 +387,77 @@ WS_HIGH = 1.0
 WS_KNIFE = -1.5
 
 
-def score_stock_pullback(down_streak: int, ret5: float | None) -> float:
+def score_stock_pullback(down_streak: int, ret5: float | None, bands: tuple) -> float:
     """Crash reversal (5d <= -12%) at 2.0, plain 3-down-close streak at 1.0.
     The crash band supersedes the streak when both fire."""
-    if ret5 is not None and ret5 <= -12.0:
+    if "crash" in bands and ret5 is not None and ret5 <= -12.0:
         return WS_CRASH
-    if down_streak >= 3:
+    if "down3" in bands and down_streak >= 3:
         return WS_DOWN3
     return 0.0
 
 
-def score_stock_rvol(pct: float | None) -> float:
+def score_stock_rvol(pct: float | None, bands: tuple) -> float:
     """Realized vol >= p90 of its own trailing year."""
-    return WS_RVOL if pct is not None and pct >= 90 else 0.0
+    return WS_RVOL if "rvol_p90" in bands and pct is not None and pct >= 90 else 0.0
 
 
-def score_stock_high_or_knife(dd: float) -> float:
+def score_stock_high_or_knife(dd: float, bands: tuple) -> float:
     """Distance from the 52-week high, single-name edition: at the high is
     momentum (+1.0), the 10-20% band is the falling knife (-1.5)."""
-    if dd <= 0.5:
+    if "at_high" in bands and dd <= 0.5:
         return WS_HIGH
-    if 10.0 <= dd < 20.0:
+    if "knife" in bands and 10.0 <= dd < 20.0:
         return WS_KNIFE
     return 0.0
 
 
+def stock_weight_range(bands: tuple) -> tuple[float, float]:
+    """(lowest, highest) weighted composite W a band set can actually reach.
+
+    Not a naive sum of the positive weights: a 12% five-session drop leaves the
+    price at least 12% under its 52-week high, so the crash and at-the-high
+    bands are mutually exclusive. TSLA's arithmetic maximum of 4.5 is
+    unreachable; its real ceiling is 3.5, and the gauge must not advertise a
+    denominator nobody can hit.
+    """
+    rvol = WS_RVOL if "rvol_p90" in bands else 0.0
+    crash = WS_CRASH if "crash" in bands else 0.0
+    down3 = WS_DOWN3 if "down3" in bands else 0.0
+    high = WS_HIGH if "at_high" in bands else 0.0
+    knife = WS_KNIFE if "knife" in bands else 0.0
+    return knife, max(crash + rvol, down3 + rvol + high)
+
+
+def stock_meter(bands: tuple) -> tuple[int, int]:
+    """Gauge axis covering exactly the reachable buy scores, plus a hair of
+    margin so the needle never sits on the rim."""
+    lo, hi = stock_weight_range(bands)
+    if hi <= 0:  # nothing scores (SPCX): keep the fund pages' axis
+        return (50, 100)
+    return (50 if lo == 0 else score100_of(lo) - 1, score100_of(hi) + 1)
+
+
+def stock_tones(bands: tuple) -> tuple:
+    """Verdict bands a ticker can actually land in, in display order. A ticker
+    with no negative band never shows "caution"; one that can't reach W=3 never
+    shows "good", so the report card stops listing rows that can never fill."""
+    lo, hi = stock_weight_range(bands)
+    tones = []
+    if hi >= 3:
+        tones.append("good")
+    if hi >= 1:
+        tones.append("ok")
+    tones.append("neutral")
+    if lo <= -1:
+        tones.append("caution")
+    return tuple(tones)
+
+
 def verdict_tone_stock(score: float) -> str:
-    """Stock verdict bands add "caution" below W <= -1: unlike the index
-    funds, TSLA has one empirically negative zone, so the score CAN drop
-    below 50 - the honest reading of the single-name evidence."""
+    """Stock verdict bands add "caution" below W <= -1, reachable only where a
+    ticker's own pass validated a negative band (TSLA's falling knife). On
+    tickers without one the score cannot go below 50 in the first place."""
     if score >= 3:
         return "good"
     if score >= 1:
@@ -487,23 +593,28 @@ def fetch_earnings(ticker: str) -> tuple[str, bool] | None:
     """Next earnings date via Yahoo quoteSummary calendarEvents.
 
     The endpoint has required a cookie+crumb handshake since 2023, but both
-    steps are keyless and serve curl fine (verified from this environment
-    and GitHub Actions uses the same plain egress). Returns
-    (iso_date, is_estimate) or None; callers treat None as "omit with a
-    note" - earnings display is a nice-to-have, never build-critical.
+    steps are keyless and serve curl fine. Returns (iso_date, is_estimate) or
+    None; callers treat None as "omit with a note" - earnings display is a
+    nice-to-have, never build-critical.
+
+    The cookie-priming hop is the fiddly part: fc.yahoo.com answers 404 while
+    still setting the session cookies the crumb endpoint requires. Running it
+    under curl --fail turns that expected 404 into exit 22, which aborted the
+    whole handshake and left every stock page permanently without an earnings
+    date - so this one request must not use --fail.
     """
     import tempfile
     import urllib.parse
 
     moz = CNN_HEADERS["User-Agent"]
     with tempfile.NamedTemporaryFile() as jar:
-        def crl(args):
+        def crl(args, fail=True):
             return subprocess.run(
-                ["curl", "-sS", "--fail", "-m", "20", "-A", moz] + args,
+                ["curl", "-sS", "-m", "20", "-A", moz] + (["--fail"] if fail else []) + args,
                 capture_output=True, check=True,
             ).stdout
 
-        crl(["-c", jar.name, "-o", "/dev/null", "https://fc.yahoo.com"])
+        crl(["-c", jar.name, "-o", "/dev/null", "https://fc.yahoo.com"], fail=False)
         crumb = crl(["-b", jar.name, "https://query1.finance.yahoo.com/v1/test/getcrumb"]).decode().strip()
         if not crumb or "<" in crumb:
             return None
@@ -1598,31 +1709,40 @@ def build(fund: dict) -> dict:
 def build_stock_history(fund: dict, rows: list, rv: list, live_row: dict) -> list[dict]:
     """Backfill for single stocks: same as-of discipline as the fund
     backfill, but scored with the stock rules (which are all derived from
-    the stock's own series - no external fetches to guard)."""
+    the stock's own series - no external fetches to guard).
+
+    Rows before WARMUP_SESSIONS of lead-in are skipped rather than scored on a
+    truncated window: a 52-week high taken over 30 sessions is not a 52-week
+    high, and would hand out at-the-high or falling-knife points that the data
+    can't support. Normally the history file already covers those dates, but a
+    RULES_VERSION bump throws the file away and rebuilds it from whatever the
+    fetch range happens to reach, which is exactly when the guard matters.
+    """
     path = DOCS / fund["history_out"]
     hist = load_history(path)
     have = {r["date"] for r in hist}
     start = date.fromisoformat(fund["history_start"]) if fund["history_start"] else None
     adj = [a for _, _, a in rows]
-    validated = fund["validated"]
+    bands = fund["bands"]
 
     changed = False
     for i in range(len(rows) - 1):
         d = rows[i][0]
-        if start and d < start:
+        if (start and d < start) or (bands and i < WARMUP_SESSIONS):
             continue
         iso = d.isoformat()
         if iso in have:
             continue
         sc: list[tuple[str, float]] = []
-        if validated:
+        if bands:
             streak, ret5 = reversal_inputs(adj, i)
             hi52 = max(adj[max(0, i - 251): i + 1])
             dd = round((1 - adj[i] / hi52) * 100, 1)
             sc = [
-                ("Short-term pullback (reversal)", score_stock_pullback(streak, ret5)),
-                ("Realized volatility vs its past year", score_stock_rvol(trailing_pct(rv, i))),
-                ("Distance from 52-week high", score_stock_high_or_knife(dd)),
+                ("Short-term pullback (reversal)", score_stock_pullback(streak, ret5, bands)),
+                ("Realized volatility vs its past year",
+                 score_stock_rvol(trailing_pct(rv, i), bands)),
+                ("Distance from 52-week high", score_stock_high_or_knife(dd, bands)),
             ]
         total = round(sum(s for _, s in sc), 2)
         drivers = [
@@ -1633,7 +1753,7 @@ def build_stock_history(fund: dict, rows: list, rv: list, live_row: dict) -> lis
             "date": iso,
             "score": total,
             "score100": score100_of(total),
-            "tone": verdict_tone_stock(total) if validated else "neutral",
+            "tone": verdict_tone_stock(total) if bands else "neutral",
             "price": rows[i][1],
             "adj": rows[i][2],
             "backfilled": True,
@@ -1650,20 +1770,23 @@ def build_stock_history(fund: dict, rows: list, rv: list, live_row: dict) -> lis
 
 
 def build_stock(fund: dict) -> dict:
-    """Single-stock page build (TSLA validated, SPCX context-only,
-    NVDA/GOOG use the TSLA framework provisionally).
+    """Single-stock page build.
 
-    Deliberately leaner than the fund build: only conditions the TSLA
-    validation pass proved (or explicitly demoted to context) appear, and
-    every 1-year-window signal carries a min-history guard so SPCX renders
-    honest "too young" cards instead of fake percentiles.
+    Which bands score is per ticker: TSLA scores all five its own pass proved,
+    NVDA the two that survived its pass, GOOG the one that survived its, SPCX
+    none (it has ~2 months of history). Bands a ticker's pass rejected still
+    render - with the numbers that rejected them - but carry score 0.
+
+    Deliberately leaner than the fund build, and every 1-year-window signal
+    carries a min-history guard so SPCX shows honest "too young" cards instead
+    of fake percentiles.
     """
     ticker = fund["ticker"]
     name = fund["asset_name"]
-    validated = fund["validated"]
-    # "own" = this ticker's dedicated validation; "tsla_framework" =
-    # same weights/thresholds applied provisionally (NVDA/GOOG).
-    own_evidence = fund.get("evidence") == "own"
+    bands = fund["bands"]
+    validated = bool(bands)
+    failed = fund["band_failed"]
+    stats = fund["band_stats"]
 
     result = yahoo_chart(ticker, fund["range"], events=True)
     rows = chart_rows(result)
@@ -1693,9 +1816,9 @@ def build_stock(fund: dict) -> dict:
 
     signals = []
 
-    # 1. Short-term pullback - TSLA-specific thresholds from the
-    # validation pass; unvalidated (SPCX) shows the same math as context.
-    s = score_stock_pullback(streak, ret5) if validated else 0.0
+    # 1. Short-term pullback. Thresholds come from the TSLA pass; whether they
+    # score here is decided by this ticker's own pass (fund["bands"]).
+    s = score_stock_pullback(streak, ret5, bands)
     if streak >= 3:
         pb_value = f"{streak} down days"
     elif ret5 is not None and ret5 <= -3:
@@ -1710,67 +1833,53 @@ def build_stock(fund: dict) -> dict:
         )
         pb_lean = "neutral"
     elif s == WS_CRASH:
-        if own_evidence:
-            pb_note = (
-                f"{ticker} is down {abs(ret5):.1f}% over 5 sessions - the vol-scaled crash band. In 16 years "
-                f"of {ticker} history these days averaged +0.9pt next-day excess (t=2.2) and +11pt over the "
-                f"next quarter, positive in every era at every horizon - the strongest single-name edge "
-                f"this tool found, hence the 2.0 weight."
-            )
-        else:
-            pb_note = (
-                f"{ticker} is down {abs(ret5):.1f}% over 5 sessions - the crash band from the TSLA-validated "
-                f"single-stock framework (5d ≤ −12%, weight 2.0). Applied here provisionally pending a "
-                f"dedicated {ticker} pass; the qualitative bet is that sharp single-name washouts bounce."
-            )
+        pb_note = (
+            f"{ticker} is down {abs(ret5):.1f}% over 5 sessions - the crash band (5d ≤ −12%). "
+            f"On {ticker}'s own history these days ran {stats['crash']}, so the band carries the "
+            f"heaviest single-stock weight, 2.0."
+        )
         pb_lean = "good"
     elif s == WS_DOWN3:
-        if own_evidence:
-            pb_note = (
-                f"{ticker} has closed down {streak} straight sessions. Historically bounced the next day "
-                f"(+0.35pt excess, t=1.7, positive in every era at the 1-day horizon). Longer horizons were "
-                f"mixed, so it earns 1.0 - half the crash band's weight."
-            )
-        else:
-            pb_note = (
-                f"{ticker} has closed down {streak} straight sessions. Under the TSLA single-stock "
-                f"framework this earns +1.0 (provisional on {ticker}): three down closes tended to "
-                f"bounce the next day on the calibrated name."
-            )
+        pb_note = (
+            f"{ticker} has closed down {streak} straight sessions. On {ticker}'s own history that "
+            f"ran {stats['down3']} - a real but modest edge, so it earns 1.0."
+        )
         pb_lean = "good"
     else:
-        if own_evidence:
-            pb_note = (
-                f"No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ "
-                f"five-session drop (+2.0). The thresholds are {ticker}-specific: at roughly 3x index "
-                f"volatility, the index's -3% band would fire a third of all days and tested as noise here."
-            )
-        else:
-            pb_note = (
-                f"No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session "
-                f"drop (+2.0) — thresholds from the TSLA validation (high-vol single name), applied here "
-                f"provisionally. The index's milder −3% band is not used."
-            )
+        pays = []
+        if "down3" in bands:
+            pays.append("3 straight down closes (+1.0)")
+        if "crash" in bands:
+            pays.append("a 12%+ five-session drop (+2.0)")
+        pb_note = (
+            f"No qualifying pullback. This check pays after {' or '.join(pays)}. The index pages' "
+            f"milder −3% five-session band is not used on a single name: it would fire on a large "
+            f"share of days and tested as noise."
+        )
+        if failed.get("crash"):
+            pb_note += " " + failed["crash"]
         pb_lean = "neutral"
     pb_sig = {
         "name": "Short-term pullback (reversal)",
         "value": pb_value,
         "score": s,
-        "weight": WS_CRASH if validated else 0,
+        "weight": WS_CRASH if "crash" in bands else (WS_DOWN3 if "down3" in bands else 0),
         "lean": pb_lean,
         "note": pb_note,
     }
     if ret5 is not None:
+        scores_crash = "crash" in bands
         pb_sig["viz"] = viz(
             (ret5 + 15) / 15 * 100, ["−15% in 5d", "flat"],
-            zones=[[0, 20, "good"]] if validated else None,
-            marker=20 if validated else None,
+            zones=[[0, 20, "good"]] if scores_crash else None,
+            marker=20 if scores_crash else None,
         )
     signals.append(pb_sig)
 
     # 2. Realized volatility vs its own past year (the single-stock
     # substitute for a vol index - no keyless TSLA IV series exists).
-    s = score_stock_rvol(rv_pct) if validated else 0.0
+    s = score_stock_rvol(rv_pct, bands)
+    scores_rvol = "rvol_p90" in bands
     if rv_now is None:
         rvol_value = "n/a"
         rvol_lean = "neutral"
@@ -1786,18 +1895,19 @@ def build_stock(fund: dict) -> dict:
     elif s:
         rvol_value = f"{rv_now:.0f}% ann. (p{rv_pct:.0f})"
         rvol_lean = "good"
-        if own_evidence:
-            rvol_note = (
-                f"{ticker}'s realized volatility is in the top decile of its own past year. In validation, "
-                f"these days averaged +0.35pt next-day excess (t=1.7) and +15.5pt over the next quarter, "
-                f"positive in every era - chaos has been the single-name buyer's friend. Weight 1.5."
-            )
-        else:
-            rvol_note = (
-                f"{ticker}'s realized volatility is in the top decile of its own past year. The "
-                f"TSLA-validated framework scores this +1.5 (provisional on {ticker}): elevated "
-                f"single-name chaos tended to mark better entries on the calibrated name."
-            )
+        rvol_note = (
+            f"{ticker}'s realized volatility is in the top decile of its own past year. On {ticker}'s "
+            f"own history these days ran {stats['rvol_p90']} - chaos has been the single-name buyer's "
+            f"friend here. Weight 1.5."
+        )
+    elif not scores_rvol and validated:
+        rvol_value = f"{rv_now:.0f}% ann. (p{rv_pct:.0f})"
+        rvol_lean = "neutral"
+        rvol_note = (
+            f"20-day realized volatility ranked against {ticker}'s own past year. This band scores "
+            f"+1.5 on TSLA, but it was tested on {ticker} and rejected: {failed['rvol_p90']} "
+            f"Shown as context; it cannot move the score."
+        )
     elif rv_pct >= 70:
         rvol_value = f"{rv_now:.0f}% ann. (p{rv_pct:.0f})"
         rvol_lean = "good"
@@ -1820,20 +1930,23 @@ def build_stock(fund: dict) -> dict:
         "name": "Realized volatility vs its past year",
         "value": rvol_value,
         "score": s,
-        "weight": WS_RVOL if validated else 0,
+        "weight": WS_RVOL if scores_rvol else 0,
         "lean": rvol_lean,
         "note": rvol_note,
     }
     if rv_pct is not None:
-        rvol_sig["viz"] = viz(rv_pct, ["quiet year", "p90+ scores"],
-                              zones=[[90, 100, "good"]], marker=90)
+        rvol_sig["viz"] = viz(rv_pct, ["quiet year", "p90+ scores" if scores_rvol else "busy year"],
+                              zones=[[90, 100, "good"]] if scores_rvol else None,
+                              marker=90 if scores_rvol else None)
     signals.append(rvol_sig)
 
-    # 3. Distance from the 52-week high - the single-name edition, where
-    # the evidence INVERTS the index intuition: at the high = momentum
-    # (+1.0), the 10-20% band = the falling knife (-1.5, the one
-    # evidence-backed worse-than-average zone in this whole project).
-    s = score_stock_high_or_knife(drawdown_adj) if validated else 0.0
+    # 3. Distance from the 52-week high. On TSLA the evidence INVERTS the index
+    # intuition - at the high is momentum (+1.0) and the 10-20% band is the
+    # falling knife (-1.5, the project's one evidence-backed bad zone. Neither
+    # band survived its own test on NVDA or GOOG, where both render as context.
+    s = score_stock_high_or_knife(drawdown_adj, bands)
+    scores_high = "at_high" in bands
+    scores_knife = "knife" in bands
     if not validated:
         dd_lean = "neutral"
         dd_note = (
@@ -1843,34 +1956,34 @@ def build_stock(fund: dict) -> dict:
         )
     elif s == WS_HIGH:
         dd_lean = "good"
-        if own_evidence:
-            dd_note = (
-                f"{ticker} is at (or within a whisker of) its 52-week high. For a single stock this is "
-                f"MOMENTUM, not a warning: in 16 years of validation, at-the-high days averaged +0.62pt "
-                f"next-day excess (t=2.05), positive in every era - the opposite of what this line means "
-                f"for the index funds. Weight 1.0."
-            )
-        else:
-            dd_note = (
-                f"{ticker} is at (or within a whisker of) its 52-week high. Under the TSLA single-stock "
-                f"framework this is MOMENTUM (+1.0), provisional on {ticker} — the opposite of the "
-                f"index-fund at-the-high read."
-            )
+        dd_note = (
+            f"{ticker} is at (or within a whisker of) its 52-week high. For this stock that is "
+            f"MOMENTUM, not a warning: at-the-high days ran {stats['at_high']} - the opposite of what "
+            f"this line means for the index funds. Weight 1.0."
+        )
     elif s == WS_KNIFE:
         dd_lean = "bad"
-        if own_evidence:
-            dd_note = (
-                f"{ticker} sits {drawdown_adj:.1f}% below its 52-week high - the falling-knife band "
-                f"(10-20% down). The one zone in this entire project with era-robust evidence of "
-                f"BELOW-average forward returns (negative in every era, t=-2.6 next-day, t=-1.9 monthly). "
-                f"Single names in mid-drawdown lean momentum, not mean-reversion. Weight -1.5."
-            )
-        else:
-            dd_note = (
-                f"{ticker} sits {drawdown_adj:.1f}% below its 52-week high - the falling-knife band "
-                f"(10-20% down, weight −1.5) from the TSLA framework, applied provisionally. Mid-drawdown "
-                f"single names tended to keep drifting on the calibrated name, not bounce."
-            )
+        dd_note = (
+            f"{ticker} sits {drawdown_adj:.1f}% below its 52-week high - the falling-knife band "
+            f"(10-20% down), {stats['knife']}. The one zone in this entire project with era-robust "
+            f"evidence of BELOW-average forward returns. Single names in mid-drawdown lean momentum, "
+            f"not mean-reversion. Weight -1.5."
+        )
+    elif not (scores_high or scores_knife):
+        # Both drawdown bands were tested on this ticker and rejected: say which
+        # one today's reading would have tripped, and why it no longer counts.
+        which = "knife" if 10.0 <= drawdown_adj < 20.0 else ("at_high" if drawdown_adj <= 0.5 else None)
+        dd_lean = "neutral"
+        dd_note = (
+            f"{ticker} is {drawdown_adj:.1f}% below its 52-week high. Neither single-stock drawdown "
+            f"band scores here: both were tested on {ticker}'s own history and rejected. "
+        )
+        if which:
+            dd_note += failed[which] + " "
+        dd_note += (
+            "The index funds' 3%+ discount band does not transfer to single names either, so this "
+            "card informs and never scores."
+        )
     elif drawdown_adj >= 35:
         dd_lean = "good"
         dd_note = (
@@ -1891,16 +2004,23 @@ def build_stock(fund: dict) -> dict:
             f"band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no "
             f"points for small dips here."
         )
+    dd_zones = []
+    if scores_high:
+        dd_zones.append([0, 1, "good"])
+    if scores_knife:
+        dd_zones.append([20, 40, "bad"])
+    if validated:
+        dd_zones.append([70, 100, "good"])
     signals.append({
         "name": f"Distance from {high_label}",
         "value": f"{drawdown_adj:.1f}%",
         "score": s,
-        "weight": WS_KNIFE if s == WS_KNIFE else (WS_HIGH if validated else 0),
+        "weight": WS_KNIFE if s == WS_KNIFE else (WS_HIGH if scores_high else 0),
         "lean": dd_lean,
         "note": dd_note,
         "viz": viz(
             drawdown_adj * 2, ["at the high", "−50%"],
-            zones=[[0, 1, "good"], [20, 40, "bad"], [70, 100, "good"]] if validated else None,
+            zones=dd_zones or None,
         ),
     })
 
@@ -2035,26 +2155,31 @@ def build_stock(fund: dict) -> dict:
             ),
         }
     else:
-        framework_caveat = (
-            "" if own_evidence
-            else f" Weights come from the TSLA-validated single-stock framework, applied provisionally to {ticker}."
+        # How much of TSLA's five-band framework survived this ticker's own
+        # test. Stated on every verdict so a thin scorer never looks like a
+        # rich one.
+        rejected = len(failed)
+        scope = (
+            f" {ticker} scores {len(bands)} of the 5 single-stock bands: the other {rejected} "
+            f"were tested on {ticker}'s own history and rejected, so they show as context only."
+            if rejected else ""
         )
         verdict = {
             "good": {
                 "label": "Better-than-usual entry",
                 "summary": (
                     f"Rare validated conditions aligned on {ticker} today - the kind of setup that "
-                    f"rewarded buyers across the calibrated single-stock history. If you were planning "
+                    f"rewarded buyers across {ticker}'s own history. If you were planning "
                     f"to add, this is a sensible day. (Still one company: size the position accordingly.)"
-                    f"{framework_caveat}"
+                    f"{scope}"
                 ),
             },
             "ok": {
                 "label": "Mild tailwind - fine day to buy",
                 "summary": (
-                    f"A validated single-stock condition is in your favor on {ticker} today. Nothing "
+                    f"A condition validated on {ticker}'s own history is in your favor today. Nothing "
                     f"dramatic - and single-stock risk still dwarfs entry timing."
-                    f"{framework_caveat}"
+                    f"{scope}"
                 ),
             },
             "neutral": {
@@ -2063,7 +2188,7 @@ def build_stock(fund: dict) -> dict:
                     f"None of the scored {ticker} conditions are present. Unlike the index funds, this "
                     f"page can't add \"any day is fine\": that logic was proven on diversified indexes, "
                     f"not single companies."
-                    f"{framework_caveat}"
+                    f"{scope}"
                 ),
             },
             "caution": {
@@ -2073,14 +2198,14 @@ def build_stock(fund: dict) -> dict:
                     f"zone in this whole project with era-robust evidence of below-average forward "
                     f"returns: single names in mid-drawdown tend to keep drifting, not bounce. Nothing "
                     f"here says sell; it says this specific dip has historically kept dipping."
-                    f"{framework_caveat}"
+                    f"{scope}"
                 ),
             },
         }[tone]
     verdict["tone"] = tone
     verdict["score"] = score
     verdict["score100"] = score100
-    verdict["weights_max"] = fund["weights_max"]
+    verdict["weights_max"] = stock_weight_range(bands)[1]
 
     # ---- flips (validated stocks only; SPCX has nothing to flip) ----
     def build_flips() -> list[dict]:
@@ -2094,31 +2219,32 @@ def build_stock(fund: dict) -> dict:
         def pts(w: float) -> str:
             return f"{'+' if w > 0 else '−'}{abs(round(w * 6.25))} pts"
 
-        cur_pb = score_stock_pullback(streak, ret5)
-        if cur_pb < WS_CRASH and ret5 is not None and ret5 > -12 and ret5 <= -6:
+        cur_pb = score_stock_pullback(streak, ret5, bands)
+        if ("crash" in bands and cur_pb < WS_CRASH and ret5 is not None
+                and -12 < ret5 <= -6):
             need = abs(-12.0 - ret5)
             add(need, +1, "Crash band",
                 f"{ticker} 5-session return {ret5:+.1f}% - another -{need:.1f}% reaches the validated crash band ({pts(WS_CRASH - cur_pb)})")
-        if cur_pb == 0 and streak == 2:
+        if "down3" in bands and cur_pb == 0 and streak == 2:
             add(0.5, +1, "Short-term pullback",
                 f"{ticker} has fallen 2 straight sessions - one more down close = pullback signal ({pts(WS_DOWN3)})")
 
-        if rv_pct is not None and rv_pct < 90 and rv_now is not None:
+        if "rvol_p90" in bands and rv_pct is not None and rv_pct < 90 and rv_now is not None:
             window = sorted(x for x in rv[-252:] if x is not None)
             lvl = window[min(len(window) - 1, int(0.90 * len(window)))]
             add(abs(lvl / rv_now - 1) * 100, +1, "Top-decile volatility",
                 f"20-day realized vol above {lvl:.0f}% annualized (now {rv_now:.0f}%) = top decile of its year ({pts(WS_RVOL)})")
 
-        if 0.5 < drawdown_adj <= 3.5:
+        if "at_high" in bands and 0.5 < drawdown_adj <= 3.5:
             move = high52_adj * 0.995 / adj[-1] - 1
             add(abs(move) * 100, +1, "Momentum: new high",
                 f"{ticker} at ${price * (1 + move):.2f} ({move * 100:+.1f}% from here) = back within 0.5% of the 52-week high ({pts(WS_HIGH)})")
 
-        if 6.5 <= drawdown_adj < 10:
+        if "knife" in bands and 6.5 <= drawdown_adj < 10:
             move = high52_adj * 0.90 / adj[-1] - 1
             add(abs(move) * 100, -1, "Falling-knife zone",
                 f"{ticker} at ${price * (1 + move):.2f} ({move * 100:+.1f}% from here) enters the 10-20% falling-knife band ({pts(WS_KNIFE)})")
-        if 10 <= drawdown_adj < 20:
+        if "knife" in bands and 10 <= drawdown_adj < 20:
             move = high52_adj * 0.90 / adj[-1] - 1
             add(abs(move) * 100, +1, "Exiting the knife zone",
                 f"{ticker} at ${price * (1 + move):.2f} ({move * 100:+.1f}% from here) climbs out of the falling-knife band ({pts(-WS_KNIFE)})")
@@ -2162,8 +2288,8 @@ def build_stock(fund: dict) -> dict:
     except Exception:
         pass
 
-    meter_min, meter_max = fund["meter"]
-    rc_tones = ("good", "ok", "neutral", "caution") if validated else ("good", "ok", "neutral")
+    meter_min, meter_max = stock_meter(bands)
+    rc_tones = stock_tones(bands)
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "rules_version": RULES_VERSION,
@@ -2175,7 +2301,12 @@ def build_stock(fund: dict) -> dict:
             "sessions": n,
             "too_young": too_young,
             "validated": validated,
-            "evidence": fund.get("evidence"),
+            # Which of the five single-stock bands survived THIS ticker's own
+            # validation pass. The pages render their scoring copy from this,
+            # so a page can never claim an edge the ticker didn't earn.
+            "bands_scored": list(bands),
+            "bands_rejected": sorted(failed),
+            "has_negative_band": "knife" in bands,
         },
         "verdict": verdict,
         "meter": {"min": meter_min, "max": meter_max},

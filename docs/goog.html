@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f5f0">
-<meta name="description" content="Six transparent daily checks on Alphabet stock - pullbacks, realized volatility, distance from the high, regime, market backdrop, events - scored with the single-stock framework validated on TSLA, applied provisionally to GOOG, including the evidence-backed zone that's WORSE than average to buy.">
+<meta name="description" content="Six transparent daily checks on Alphabet stock - pullbacks, realized volatility, distance from the high, regime, market backdrop, events - scored only where GOOG's own 2016-2026 history holds up under an era-robustness test, and shown as context everywhere it doesn't.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23004225'/%3E%3Cpath d='M5 22 L12 14 L17 18 L27 7' stroke='%23f6f5f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Should I buy GOOG today?</title>
 <link rel="alternate" type="application/atom+xml" title="GPIX/GPIQ/TSLA/SPCX/NVDA/GOOG verdict-change alerts" href="feed.xml">
@@ -251,9 +251,9 @@
   </div>
   <header>
     <div>
-      <div class="kicker">Daily timing signal · Single stock, TSLA framework</div>
+      <div class="kicker">Daily timing signal · Single stock, own validation</div>
       <h1>Should I buy GOOG today?</h1>
-      <div class="sub">Six daily checks using the single-stock scoring framework validated on TSLA (2010–2026), applied provisionally to Alphabet - including the one zone that's provably WORSE than average to buy.</div>
+      <div class="sub">Six daily checks, scored only where Alphabet's own history backs them up. One of the five single-stock bands earned a weight here; the rest were tested on GOOG and rejected, so they inform and never score.</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -261,7 +261,7 @@
   <div id="app"></div>
 
   <footer>
-    Not financial advice; a personal decision aid. GOOG uses the same single-stock engine and weights as TSLA (crash pullback, top-decile realized vol, at-the-high momentum, falling-knife caution), applied provisionally pending a dedicated Alphabet validation pass. The score can fall below 50 when the 10–20% drawdown band fires. Single-stock caveat: none of this protects against company-specific impairment; size positions accordingly. Data: Yahoo Finance, FRED, CNN, Google News, Federal Reserve calendar.
+    Not financial advice; a personal decision aid. GOOG runs the same single-stock engine as TSLA, but not the same weights: every band was re-tested on Alphabet's own 2016–2026 history (<code>scripts/validate_stock_bands.py</code>) and only the three-down-closes reversal survived. Top-decile realized volatility, at-the-high momentum and the 10–20% "falling knife" all came out wrong-signed on GOOG, so none of them score and GOOG's buy score cannot fall below 50. Single-stock caveat: none of this protects against company-specific impairment; size positions accordingly. Data: Yahoo Finance, FRED, CNN, Google News, Federal Reserve calendar.
   </footer>
 </div>
 
@@ -438,20 +438,28 @@ function renderChart(series, sma50, sma200) {
 
 fetch("data-goog.json").then(r => r.json()).then(d => {
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
-  // Meter axis: 40-73. GOOG's score CAN fall below 50 (the falling-knife
-  // band scores -1.5), unlike the index-fund pages.
-  const METER_MIN = d.meter ? d.meter.min : 40;
-  const METER_MAX = d.meter ? d.meter.max : 73;
+  // Meter axis comes from the data: it spans exactly the buy scores GOOG's
+  // validated bands can reach, so the needle is never boxed in by an axis
+  // built for a different ticker's rule set.
+  const METER_MIN = d.meter ? d.meter.min : 50;
+  const METER_MAX = d.meter ? d.meter.max : 57;
   const s100 = v.score100 ?? Math.round(50 + v.score * 6.25);
   // Zone boundaries: 43.75 (caution|neutral, W=-1), 56.25 (neutral|ok, W=1),
-  // 68.75 (ok|good, W=3) — rendered on the gauge as 44 / 56 / 69. GOOG is
-  // the one asset with a red zone: its falling-knife band scores negative.
+  // 68.75 (ok|good, W=3). Only the ones inside the reachable axis are drawn —
+  // GOOG has no validated negative band, so it has no red zone at all.
   const GAUGE_ZONES = [
     [METER_MIN, 43.75, "rgba(185,28,28,.40)"],
     [43.75, 56.25, "rgba(125,138,129,.30)"],
     [56.25, 68.75, "rgba(77,124,15,.45)"],
     [68.75, METER_MAX, "rgba(0,66,37,.55)"],
-  ];
+  ].filter(z => z[1] > METER_MIN && z[0] < METER_MAX)
+   .map(z => [Math.max(z[0], METER_MIN), Math.min(z[1], METER_MAX), z[2]]);
+  const negBand = d.asset && d.asset.has_negative_band;
+  const nScored = d.asset ? d.asset.bands_scored.length : 0;
+  const nRejected = d.asset ? d.asset.bands_rejected.length : 0;
+  const scopeNote = nRejected
+    ? `Scoring uses the ${nScored} of 5 single-stock bands that survived a dedicated GOOG validation pass; the other ${nRejected} were tested on GOOG's own history, failed, and render as context.`
+    : "";
   const chg = g.day_change_pct ?? 0;
   document.getElementById("pricebox").innerHTML = `
     <div class="px">$${fmt2(g.price)}</div>
@@ -461,12 +469,12 @@ fetch("data-goog.json").then(r => r.json()).then(d => {
   const dcaWins = bt.winner === "dca";
 
   document.getElementById("app").innerHTML = `
-    <div class="verdict ${v.tone}" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 4.5}">
+    <div class="verdict ${v.tone}" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 3.5}">
       <div class="vgrid">
         <div class="vtext">
           <div class="label">${v.label}</div>
           <div class="summary">${v.summary}</div>
-          <div class="scorenote">50 = typical day. Unlike the index-fund pages, GOOG's score CAN fall below 50 — the red arc: its 10–20% drawdown band preceded below-average returns in every era tested, the one evidence-backed bad zone this project has found. Mild tailwind at 56+, strong case at 69+.</div>
+          <div class="scorenote">50 = typical day, and on GOOG it is also the floor: the 10–20% drawdown band that scores negative on TSLA was re-tested on GOOG's own history and came out on the <b>wrong side</b> — those days ran slightly above baseline — so this page claims no bad days. Mild tailwind at 56+. ${scopeNote}</div>
         </div>
         <div class="vgauge">${gauge(s100, METER_MIN, METER_MAX, GAUGE_ZONES)}</div>
       </div>
@@ -475,8 +483,8 @@ fetch("data-goog.json").then(r => r.json()).then(d => {
     <div class="honesty"><b>This is one company, not an index.</b> The "any day is fine, 50 is the floor"
     logic on the GPIX/GPIQ pages was validated on diversified indexes, which can't go to zero and always
     recovered. A single stock can suffer permanent company-specific impairment that no timing signal sees
-    coming — so for GOOG, position sizing matters far more than entry timing, and this page uses the
-    TSLA-validated single-stock framework applied provisionally pending a dedicated Alphabet validation pass.</div>
+    coming — so for GOOG, position sizing matters far more than entry timing, and this page scores only
+    the bands Alphabet's own 2016–2026 history stood behind.</div>
 
     <div class="execnote"><b>If you buy, place the order near the close:</b> the overnight-premium
     evidence (Lou–Polk–Skouras 2019; our validation: SPY ≈ +3.3bp per night, t=4.6, positive in every
@@ -484,7 +492,7 @@ fetch("data-goog.json").then(r => r.json()).then(d => {
     default habit here, not a proven edge.</div>
 
     <h2>Why</h2>
-    <div class="h2sub">Six checks each morning. Scoring uses the TSLA-validated single-stock framework (2010–2026), applied provisionally to GOOG: crash pullback 2.0, top-decile realized vol 1.5, 3 straight down closes 1.0, at-the-high momentum 1.0 — and the 10–20% falling-knife band <b>subtracts</b> 1.5, the one signal in this project allowed to score negative, because the evidence is unambiguous. Index-validated bands that failed on TSLA (the 3% discount, market-wide VIX panic) render as context only.</div>
+    <div class="h2sub">Six checks each morning. Exactly one scores on GOOG: three straight down closes, worth 1.0, positive in all four eras of Alphabet's 2016–2026 history. Everything else on the single-stock list failed its test here — top-decile realized volatility, at-the-high momentum and the 10–20% falling knife all came out wrong-signed on GOOG, and the 12% crash band has fired ten times in a decade, too rare to test. They render as context with the numbers that rejected them. Index-fund bands — the 3% discount, market-wide VIX panic — do not transfer to single names either.</div>
     <div class="signals">
       ${d.signals.map(s => {
         const lean = s.lean || "neutral";
@@ -504,7 +512,7 @@ fetch("data-goog.json").then(r => r.json()).then(d => {
 
     ${d.flips && d.flips.length ? `
     <h2>What would change this verdict</h2>
-    <div class="h2sub">The nearest scoring thresholds from today's values, with their impact on the 0-100 buy score. Unlike the index-fund pages, rows here can point down — GOOG has an evidence-backed negative zone.</div>
+    <div class="h2sub">The nearest scoring thresholds from today's values, with their impact on the 0-100 buy score. Every row points up: GOOG has no validated negative band, so nothing here can push the score below 50.</div>
     <div class="card"><ul class="flips">
       ${d.flips.map(f => `<li class="${f.direction > 0 ? "up" : "down"}"><span class="dir">${f.direction > 0 ? "helps ▲" : "hurts ▼"}</span><span>${f.text}</span></li>`).join("")}
     </ul></div>` : ""}
@@ -545,7 +553,7 @@ fetch("data-goog.json").then(r => r.json()).then(d => {
 
     ${rc && rc.baseline && rc.baseline.n ? `
     <h2>Report card: has the verdict meant anything?</h2>
-    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what GOOG actually returned over the following ${rc.horizon_days} trading days. Note the caution band: the falling-knife zone's negative read has held up in this recent window too.</div>
+    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what GOOG actually returned over the following ${rc.horizon_days} trading days. This table is the check on the rules, not a showcase for them: a band that lands below the baseline row is a band that needs revisiting${negBand ? "" : " — which is exactly how the three unscored bands on this page lost their weight"}.</div>
     <div class="card">
       <table class="rc-table">
         <tr><th>Verdict that day</th><th>Days</th><th>Avg next ${rc.horizon_days}d</th><th>Median</th><th></th></tr>
