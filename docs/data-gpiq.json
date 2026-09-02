@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T21:44:44+00:00",
+ "generated_at": "2026-09-02T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.0 (p35)",
+   "value": "21.7 (p32)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 35.3,
+    "pos": 32.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.89",
+   "value": "0.86",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 47.9,
+    "pos": 41.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.34x (p67)",
+   "value": "1.40x (p74)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 67.1,
+    "pos": 73.9,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.8 pts",
+   "value": "+8.9 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "4.5%",
+   "value": "3.5%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 45.0,
+    "pos": 35.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-1.2%",
+   "value": "-0.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 40.0,
+    "pos": 48.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.63% (-0.22 1mo)",
+   "value": "2.65% (-0.13 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 15.7,
+    "pos": 16.2,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.1% vs 3.9% cash",
+   "value": "11.0% vs 3.9% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 62.3,
+    "pos": 71.0,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "45 (fear)",
+   "value": "35 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 44.6,
+    "pos": 35.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 10d",
+   "value": "CPI in 9d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 55.84,
-  "day_change_pct": -2.0,
-  "sma50": 56.84,
-  "sma200": 54.39,
+  "price": 55.92,
+  "day_change_pct": 0.14,
+  "sma50": 56.8,
+  "sma200": 54.41,
   "high52w": 59.52,
-  "drawdown_pct": 6.2,
+  "drawdown_pct": 6.0,
   "series": [
-   {
-    "d": "2025-12-12",
-    "c": 52.6,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-15",
     "c": 52.4,
@@ -1343,42 +1337,48 @@
     "c": 55.84,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-09-02",
+    "c": 55.92,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
  "flips": [
   {
-   "label": "VIX curve inversion",
-   "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
-  },
-  {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 45) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
+  },
+  {
+   "label": "VIX curve inversion",
+   "direction": 1,
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.86) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.0) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.7) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.63%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.65%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-01",
-  "days_total": 713,
+  "end": "2026-09-02",
+  "days_total": 714,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-09-02",
   "baseline": {
-   "n": 692,
+   "n": 693,
    "avg_pct": 1.94,
-   "median_pct": 2.19
+   "median_pct": 2.18
   },
   "bands": [
    {
@@ -1398,22 +1398,18 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 448,
-    "avg_pct": 1.31,
-    "median_pct": 1.71
+    "n": 449,
+    "avg_pct": 1.3,
+    "median_pct": 1.69
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.14,
+  "ttm_yield_pct": 11.01,
   "tbill_3mo": 3.91
  },
  "distributions": {
   "history": [
-   {
-    "date": "2024-09-04",
-    "amount": 0.411
-   },
    {
     "date": "2024-10-02",
     "amount": 0.418
@@ -1505,83 +1501,87 @@
    {
     "date": "2026-08-03",
     "amount": 0.486
+   },
+   {
+    "date": "2026-09-01",
+    "amount": 0.497
    }
   ],
-  "ttm_sum": 5.661,
-  "last_ex": "2026-08-03",
-  "last_amount": 0.486,
-  "next_ex_estimate": "2026-09-02",
+  "ttm_sum": 6.158,
+  "last_ex": "2026-09-01",
+  "last_amount": 0.497,
+  "next_ex_estimate": "2026-10-01",
   "is_estimate": true
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 707.64,
-  "sma200": 656.08,
+  "price": 709.03,
+  "sma200": 656.59,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.96
+  "level": 21.72
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 15,
+  "days_until": 14,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 10
+  "days_until": 9
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-01",
+  "end": "2026-09-02",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 20054.64,
-  "dca_return_pct": 33.7,
-  "dip_value": 19827.6,
-  "dip_return_pct": 32.18,
+  "dca_value": 20260.09,
+  "dca_return_pct": 35.07,
+  "dip_value": 20029.84,
+  "dip_return_pct": 33.53,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 59,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "The turbulent AI era is here. The choices we make now are critical.",
+   "source": "gatesnotes.com",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
+   "published": "2026-09-02T12:46:41+00:00"
+  },
+  {
+   "title": "ChatGPT, Grok Added to War Department's AI System Options",
+   "source": "U.S. Department of War (.gov)",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOdVhIc1N2SUcwTGpmR1Q0N3JEeTBhaWw3WVZielNBbXNXNnJuS251cHNNdFk3U3Q5ZVliNHYwYVpqM21ZV0JKeHZiSmhJRTlYRUNfUEpGQ2hUQ1prX2d0OTFQZGdWS0tNVkZSUTY4ZVQwLVJHZnVCWFd1d3lCU1p3WG5TYUc4UjA5TW96TnhpZXlvb0JVdmYxZTg5b2RzRXUtbnZzQnIxeldURjRqNmV1VjdZZXp0WnhpN1E?oc=5",
+   "published": "2026-09-01T21:59:50+00:00"
+  },
+  {
+   "title": "Trump's AI team fractures over strategy against G20 backdrop",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAwRVhtOTBZYTNYQzE5WmNOZVBfbjI1LTRudUhzZkhuVnQwcU1OUXM1bTUwd3RydVdlTjVzMlhPdWFKTTBMZlNYeWRYb3F6RnlsNG5Ta3V6clFYd2NWaEFGdUF1aWFILUxDalM4dGdQRnU?oc=5",
+   "published": "2026-09-02T08:48:12+00:00"
+  },
+  {
+   "title": "Berkshire CEO Abel says Alphabet a 'significant player' in AI after growing stake in Q2",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQLU40OEhJS3gyd25QTW1BeDlId29IWjlfZ3ktWXJianZzQmVsODJGSThLclR4ME4yV0ZKT29CT3F1ZW5RUmlzY002eUdXVDhHbmhQOXdWSUd3cHEyVVNpTTJUX3B2NkVuM0EyWTFrTnRraDVZd29KSGtYZ19XbXdaWkFNWWF3Z1Z4SXNYNUc5bk14LUI4bEh2aE1Nanhhem1fRklzSEZTdG85LW9NTnpQa283bWFtb0UtajEyd3VtVdIBxAFBVV95cUxNaXpLeEl0LTBtZFdtN3FDY2dqNVR3R1lNNnJtcHQ2N0lMbFRjckFuVWRYd3RiNzdIQzRYVVJSZWhZYjZ1ZWw3dGVSUC03S1hrV1ZVQXE0LTlzN2Z4LWwyS0ZUc1RDVFhfV0J4ZjBaUUFkRlJDWWtrYWxhbVZoWlVPSmVIWlNnV1dvdHYzUThmZDcyVmdkSTY0VnM3US1UZjNaMFZjUFhsdFJBTXRXMS01UHBWbDd0QTVMeUNYQ2VKcnljUk1E?oc=5",
+   "published": "2026-09-02T10:54:24+00:00"
+  },
+  {
+   "title": "AI will provide \u2018an explosion of creativity, but brakes are needed\u2019",
+   "source": "vaticannews.va",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNVk1faF81cXRRT0lhdEVxYVhhbFBqSUxvWUNmTjllT1pJWjNhRkI5NWdwVGc2Vmh2ZnZZUXExcUJVRU50VE40NVpTZGpMSkxzaWhXaUctWjhSem11T3ZZT3pVNHcxMkVFQmp1WDN6R01zSWVGQ0JScmlwY2J6cHdXNE4ybnhpN25vd2t3ZDJXVlQ5a3UtZ2QtNTRGUkNVbURfSW1KUFF6MEpzRmNoM3U5Q0ZueW9ESWcxNEdn?oc=5",
+   "published": "2026-09-02T13:55:35+00:00"
+  },
+  {
    "title": "Judge rebukes HHS over AI use in cutting teen pregnancy prevention grants",
-   "source": "The Washington Post",
+   "source": "washingtonpost.com",
    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZFlBR2lIQkRoR2FlVjNvYTFCbW1IS0xsbUQ3SU9FSTh4aXMtSVlXanUydkNGZHBBenl0YTVQWXIzSm1OeVdsb3NWdGV0SlhfcTVfQ0taN2EzN015dnQxR0RrT3poUllHT2MxYjJpcUppemJndFdBbml6YmtwRHh6bTZPQTlYYkNTUFhzTHh6Q3ZCa1BVM2t6cXBuQ2ZxcVBVcnI2MjlldXhCNU90NUwzRjJMOUhWelhUbkJLVw?oc=5",
-   "published": "2026-09-01T20:17:25+00:00"
-  },
-  {
-   "title": "'It can outthink me': How a major manufacturer came to embrace AI",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQTBMV2RmYmE1dExFQmlOZ1VId1VGWWE1M0k1cnczdVpDa2Q5TmdfT2ZWajhCaEpGM29ZcFN2c1FkTDRRZ2ZQUTNKRVJiNkRKTzZxRlh6NllWOFF2RmxoQXhRcHNSYVZYaHpQUHZGTVQwc3BNMDlIWFE2OV8tM3N0bEIxUVM0Zw?oc=5",
-   "published": "2026-09-01T09:00:00+00:00"
-  },
-  {
-   "title": "US urges hands-off approach to AI regulation at G20 tech meeting",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbmFFcTlLcU1BTjFTOXBjTE80ZGFzSUc5ZUtPREdXX2tDcTJZODd4UTNwekU1M3JFdXlZdUhPcFl6Z0RqcWhjQ3VvLW92cmtZMHlLY0ZmTktxNlUtVXJLRlFfTXhWWXpvbGRBTU1Vb0FEY0dVNWE1Y3VNZTJ5SVhoU19hU0lsU0xmUnpoSkJrMVY5T1ZIaHlzTHRBS2JRTjdRU0U0R0tB?oc=5",
-   "published": "2026-09-01T15:39:39+00:00"
-  },
-  {
-   "title": "Exclusive | New Google AI Model Said to Narrow Gap on Coding Ability",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPemN2WTNNcVZ4QnRJT2IzQzNqZXR4NGlhY3R4UXhvbEptNDcxcUJ5X3hrbnRkcjRaalNkQmVuN3N3MXFjQzRkN2pXSU83OThtT0xPOU81aEIxaWlxUTlZX1Y3eFpFX2IyWU5sM0I3ajF1d0pmSTBfTGFvbGpzUmxXdDZMR25hekZFbjlLQmhNenZrcV9yRmVBZA?oc=5",
-   "published": "2026-09-01T21:05:00+00:00"
-  },
-  {
-   "title": "From theory to delivery: How Atos upskilled 400 engineers in agentic AI",
-   "source": "Amazon Web Services (AWS)",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNaHhraHplN25xbHhtcWozTFBFX0o3T2c0bVg0clQyTXRlcDROMUtxQkhEeUpwY3hwNVdPMnc1cm5WNUVZUHNDbS1CRk5mRWMtSGE5eDJrclpuam9OcnA2Nkw2T3c3MzZ2ZUJRdktmYzBRTnlEaGF3dWp1UTJsV2xaYmloX0pfeS1tcTFYRGZiT08tX1hSVXYzWnJCVGdZWnlUQ1ZiNTdLanBoajFXU2xJaTR1MEVPeDQ3?oc=5",
-   "published": "2026-09-01T16:17:54+00:00"
-  },
-  {
-   "title": "GoPro Is Now An AI Company\u2014Sending Stock 40% Higher",
-   "source": "Forbes",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOaUdhY21QdWVjcEtnXzJkSmZQSWMxWVBwdldZa09hWlphMTZtdW04VXNkUUNYUmhUVENHQ19tSUVPRDF5SzNSRFZGNk9JMld3Q01RNVRQM0stNlpqeFRra3dRYUtzOXh0Y19DMVlaS2xpRUhYU2ZqMnZqQlFrRVBkNDhLQW9XQTd2TUJWSGVRTkxaMHhjYkJRTl9TRUxBWld0Q2t4cjlwSE1YMjdWdHJXbVF1d1hYQzN4TTdhMkx0bXE1czUzZ0prSG5BQWE?oc=5",
-   "published": "2026-09-01T17:04:53+00:00"
+   "published": "2026-09-01T22:45:00+00:00"
   }
  ]
 }
