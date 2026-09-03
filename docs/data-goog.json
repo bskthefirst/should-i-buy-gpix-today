@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T14:30:16+00:00",
+ "generated_at": "2026-09-03T17:09:03+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "20% ann. (p7)",
+   "value": "20% ann. (p6)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 6.7,
+    "pos": 6.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "15.0%",
+   "value": "15.1%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 15.0% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.1% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 30.0,
+    "pos": 30.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.9 (p9), F&G 35",
+   "value": "VIX 14.6 (p5), F&G 36",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 339.0351,
-  "day_change_pct": 1.57,
-  "sma50": 346.67,
-  "sma200": 334.54,
+  "price": 338.49,
+  "day_change_pct": 1.41,
+  "sma50": 346.66,
+  "sma200": 334.53,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 15.0,
+  "drawdown_pct": 15.2,
   "series": [
    {
     "d": "2025-12-16",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-03",
-    "c": 339.0351,
+    "c": 338.49,
     "t": "caution",
     "s": 41
    }
@@ -1222,7 +1222,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.92 (+5.9% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.92 (+6.0% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1279,13 +1279,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 339.0351,
-  "sma200": 334.54,
+  "price": 338.49,
+  "sma200": 334.53,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 19.8
+  "level": 19.7
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1307,13 +1307,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 44565.34,
-  "dca_return_pct": 113.23,
-  "dip_value": 44650.92,
-  "dip_return_pct": 113.64,
+  "dca_value": 44493.69,
+  "dca_return_pct": 112.89,
+  "dip_value": 44579.13,
+  "dip_return_pct": 113.3,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
  },
- "headlines": []
+ "headlines": [
+  {
+   "title": "Introducing agentic video understanding with Gemini",
+   "source": "blog.google",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPYnNBZEhrNTRRREhoaG5BSGhQMUM2dUU4WWpHQ1gyZTdWQUZMNVlqZk5jV0lMTEl5Ujduby1XOHhTZjB6aXNLQlkxeWdzcDhRUkVQQnRTbzVPalZfYUwzNUF2VGpCTWZHV3lYUWg2cWVrejhhN1NTeDNBV1Zza2lVeERqeFFWQmFkRG5uLWxyY2MwVHFvdDRKa2tyUl9Kb19Oa2Y3UUhMUkdXWW4y?oc=5",
+   "published": "2026-09-01T17:02:52+00:00"
+  },
+  {
+   "title": "Something Is Happening With Alphabet Stock That Wall Street Isn\u2019t Talking About",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQUjNWUGZGVEdob2ZCRWhadC1pdElsV1Zib2JYSWZ1MzJZd1k5MVA5STdoQWFUMFNjUTRYZmkwQ29ha003VElSZTFzdVdLb0FXT0w0eW5OaFJQaG1XLTdMWWE2MU15MmhfRmthVjNoLU9FZ0VkdjQ4dmY4bVgzeHo5cTUySGlaTmM1SWdZQWlObVM4TVQ5amxPX21ValFYUy1RMlR3Mkgzbw?oc=5",
+   "published": "2026-09-03T12:35:03+00:00"
+  },
+  {
+   "title": "Santee Cooper partners with Google in shift toward AI-driven forecasting",
+   "source": "utilitydive.com",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQaHpmTEZBR3RFTkxIRU4tZi04N0JwNmNIekNkMmFIRFhVaFJrRjZ1SUVZMUFaNi1fOGdsTGxZZklzRW55bjBoMW0wTmtkWm8xNzROT2VTWi00aERzSnNzX3pmUnlyZTZodWlkdGppcWlVSElGWENKdGs1Skx2RWFhSHg2dHhyTXNtVGZpcXhOVF9CSkMtMEVoeGRXZXJGSkJ6OUFfMDgxU0J2UTAtSUlTdmZxWQ?oc=5",
+   "published": "2026-09-03T16:50:18+00:00"
+  },
+  {
+   "title": "Google spared from ad-business breakup, but judge orders changes to how it operates",
+   "source": "TechCrunch",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOYmtWODYzMFdHYmNKbERFd25EV1Z4OHRMcjg0RDVEMVduOEc4eWdGd0h3V0Z5SHE3WW43UUFlY2FTdEdrblBaaXV5c19yQUtscU1WRlRUVEJsYmtJQ1JnUEIwR1RwSEkyejVTYnZqQ2xFQ0ZWQ0Q1Z3JIUDhSTGwzMTEzMVIybWpmTGNiaGUyZTViaDV5aEVsbUhUTmpCSTlNOFVyQzlHZFFwZnJkSnZxcnYzallZR2lB?oc=5",
+   "published": "2026-09-02T21:38:34+00:00"
+  },
+  {
+   "title": "Google starts September with AI momentum after longest monthly losing streak in over a decade",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNekV4X2IzT2hRdElVbXlXa0pVY3B0cE9va0tNYlNMMDJmb1I0NUxSellhbUs1TUw5aFBlZmtrdlB2bVV4ZW54VkNrOEs2Wkh5VGF5dUNadjlCQ3hqaUhVd1RSaDdyYXp2Qmx6YWN3WTF4blhhT3piSGJuMzF3UE83Z0lWOWVlVDVCRWtEZFJLVzRPdTdIRUw0OHdqbGFNbUxHVTNGRdIBqgFBVV95cUxOWnZTc0wtbjlNdi1FYUtpc19zWVpfVUxVZnJtSlpid0hTTUhnM1FZMmNyeVlXV0VCeEhHTi1WVE1QNzg4N0d6aDZ3b09xd2stRjljSU1ONXVsb1RTWWF2VWg4ZXMtQUVmR2lCb2dLM1dFT3l0R0VGNUo3S1FmZi01MzRHSU52NmNoaEpQSWdFWkp2Vk51Rk10Y0kyTmY4WW1nbWRGY0lETmpLUQ?oc=5",
+   "published": "2026-09-03T03:28:00+00:00"
+  },
+  {
+   "title": "In a Big Win, Google Won\u2019t Have to Break Up Its Ad Tech Business, Court Rules",
+   "source": "nytimes.com",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE54SXBLXzJKcERSbmdjRXIwRmF6ZTgyUkl6VmpWbjFTSGNzZlFwRW5VRE9STVJSVnFsVG5zT2JCREZRMnZUXzU5MkZvOTJudDUtRUkyOUFaY2xiVnR6SU9Sa05jN3RBQ1lhLTl4ZzFjN1Y0d3Zfd19oLXQ2R1BvSzg?oc=5",
+   "published": "2026-09-02T14:43:31+00:00"
+  }
+ ]
 }

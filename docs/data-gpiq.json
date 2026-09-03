@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-09-03T14:30:13+00:00",
+ "generated_at": "2026-09-03T17:09:00+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
-  "tone": "ok",
-  "score": 1.5,
-  "score100": 59,
+  "label": "No edge either way - buy on schedule",
+  "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.0 (p27)",
+   "value": "20.5 (p22)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
+   "lean": "bad",
+   "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 27.3,
+    "pos": 21.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.85",
+   "value": "0.83",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 36.3,
+    "pos": 33.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.41x (p74)",
+   "value": "1.40x (p74)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 74.3,
+    "pos": 73.9,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.1 pts",
+   "value": "+7.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 100.0,
+    "pos": 92.3,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.1%",
-   "score": 1.5,
+   "value": "2.7%",
+   "score": 0.0,
    "weight": 1.5,
-   "lean": "good",
-   "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
+   "lean": "neutral",
+   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 31.0,
+    "pos": 27.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.3%",
+   "value": "+0.7%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 52.5,
+    "pos": 55.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.2% vs 3.9% cash",
+   "value": "10.1% vs 3.9% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 62.5,
+    "pos": 62.1,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "35 (fear)",
+   "value": "36 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 34.8,
+    "pos": 35.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 56.1701,
-  "day_change_pct": 0.47,
+  "price": 56.43,
+  "day_change_pct": 0.93,
   "sma50": 56.78,
-  "sma200": 54.42,
+  "sma200": 54.43,
   "high52w": 59.52,
-  "drawdown_pct": 5.6,
+  "drawdown_pct": 5.2,
   "series": [
    {
     "d": "2025-12-16",
@@ -1340,27 +1340,32 @@
    },
    {
     "d": "2026-09-03",
-    "c": 56.1701,
-    "t": "ok",
-    "s": 59
+    "c": 56.43,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
+   "label": "Real discount",
+   "direction": 1,
+   "text": "GPIQ at $56.23 (-0.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+  },
+  {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.0) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 20.5) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1405,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.17,
+  "ttm_yield_pct": 10.13,
   "tbill_3mo": 3.92
  },
  "distributions": {
@@ -1515,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 713.09,
-  "sma200": 657.11,
+  "price": 716.83,
+  "sma200": 657.13,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.04
+  "level": 20.48
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1538,10 +1543,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 20350.7,
-  "dca_return_pct": 35.67,
-  "dip_value": 20119.42,
-  "dip_return_pct": 34.13,
+  "dca_value": 20444.86,
+  "dca_return_pct": 36.3,
+  "dip_value": 20212.52,
+  "dip_return_pct": 34.75,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 59,
   "winner": "dca"
