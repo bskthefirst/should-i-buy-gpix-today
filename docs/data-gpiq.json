@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T17:09:00+00:00",
+ "generated_at": "2026-09-03T21:41:10+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "20.5 (p22)",
+   "value": "20.2 (p17)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 21.7,
+    "pos": 17.5,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.83",
+   "value": "0.82",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 33.0,
+    "pos": 30.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.40x (p74)",
+   "value": "1.41x (p74)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 73.9,
+    "pos": 74.2,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+7.1 pts",
+   "value": "+6.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 92.3,
+    "pos": 88.5,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "2.7%",
+   "value": "2.6%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 27.0,
+    "pos": 26.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.7%",
+   "value": "+0.8%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 55.8,
+    "pos": 56.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 62.1,
+    "pos": 62.0,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "36 (fear)",
+   "value": "35 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 35.6,
+    "pos": 35.3,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 56.43,
-  "day_change_pct": 0.93,
+  "price": 56.47,
+  "day_change_pct": 1.0,
   "sma50": 56.78,
   "sma200": 54.43,
   "high52w": 59.52,
-  "drawdown_pct": 5.2,
+  "drawdown_pct": 5.1,
   "series": [
    {
     "d": "2025-12-16",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-03",
-    "c": 56.43,
+    "c": 56.47,
     "t": "neutral",
     "s": 50
    }
@@ -1350,22 +1350,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.23 (-0.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.23 (-0.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.82) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 20.5) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 20.2) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.13,
+  "ttm_yield_pct": 10.12,
   "tbill_3mo": 3.92
  },
  "distributions": {
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 716.83,
+  "price": 717.67,
   "sma200": 657.13,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 20.48
+  "level": 20.16
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1543,13 +1543,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 20444.86,
-  "dca_return_pct": 36.3,
-  "dip_value": 20212.52,
-  "dip_return_pct": 34.75,
+  "dca_value": 20459.36,
+  "dca_return_pct": 36.4,
+  "dip_value": 20226.85,
+  "dip_return_pct": 34.85,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 59,
   "winner": "dca"
  },
- "headlines": []
+ "headlines": [
+  {
+   "title": "The turbulent AI era is here. The choices we make now are critical.",
+   "source": "Gates Notes",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
+   "published": "2026-09-03T18:14:47+00:00"
+  },
+  {
+   "title": "Los Angeles District Bans Most A.I. for Students",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOcnVGZFNVdFlpRXBrNmMzYkt1Z2xjTVp6eC1uczFycnVVZWhkbVFocGVVZHJHNlp5UU5CLXdGazVDN1JoTTNFVFNxNkM5cVhNdWhqRTlsYV9udjRheFp0ZnMtU2pEZ1U2dElKMWZBVGRsU0c3bldUNXlQSzlOREUyXzIzektibV93dXMtbDR2QUM?oc=5",
+   "published": "2026-09-03T18:41:57+00:00"
+  },
+  {
+   "title": "Sanders proposes ban on \u2018artificial superintelligence\u2019 after rogue AI incidents",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNNUM2S0d4bnRiVmNRdE5JaHRVb0xCYXFTWkh1dnZPSWI1a0VoMEtlNzRZSzJHZG1PNjZobnBzV2licHEwVWg0RkdIenFEeV96eDRWYTZzXzhXZ2pUZWRPRHhBdENmRnIwNEtnUVZNekE5djd4TzZ6NnBQRHhkaFdUT3VTOWphUHdzWFR4d1NLc0tzNmZ4MDRPWFduRXZMeWhHYmpndGRhYm10S2sweEt3VE5oeGxtdmUxQnJMelhtbzlzZTVZZklV?oc=5",
+   "published": "2026-09-03T16:00:00+00:00"
+  },
+  {
+   "title": "Zuckerberg opposed White House AI proposal in private call with Trump",
+   "source": "Politico",
+   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNX05ZdHdWOW1wVXU1My11RHBMX3Z1Q19STWRjVkpRemFrQmhqRkI3UnlXQVRscnA0SjRTSTdWOVhKQ3ZKUzkwX2J4Z0YwVW9yNXZpRnRwZGFNREpoUW1KeG11OF82c3VOeEg3QjAweWp5WHlGclRFVU9lSl9JZ19QWWM1OEtkOHptTTR3N1hENmZsam9oaGFYaC1aSE53SHpDTF8xcEpDdHFGWmhwdzdqU0hLSTUzaWFBYTNhQ0haMU1CSnRBMzVTV3diQ3RDWUJ4eEs0Wmg2SkM4eWk5enBFRFdsYkc?oc=5",
+   "published": "2026-09-03T18:32:00+00:00"
+  },
+  {
+   "title": "Sparks Fly: NVIDIA Accelerates Local AI at IFA 2026",
+   "source": "NVIDIA Blog",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOc19tWkhaOGg5NWFFWGN5R0dnVkctSk1OTlQzdlJFeGxyOFdpcDl2VllVZTU3Vl9CeWZLTEkxZ3MtUG9Xam4yeVlvU0wtZTdaWmtUOFppY0ZDdVFWczNNWWVQd1FVM05XS09NZ3diemlBYlNoc0RCcUttaTB4VUozci1qbw?oc=5",
+   "published": "2026-09-03T16:05:29+00:00"
+  },
+  {
+   "title": "Widespread AI outage underway",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBmMzJDQXFSRzZoazlBWjJxOVdrZS1DUlR1S0xLM0xvTzAtRzBBUFBNeTk1RzZXM1l0MGZaenVBOFY4WGtXeDUwc2ZRQXZSelBGZWlQcFFoTHFwMDBSRGp4MDlIZGhCRXBkZjZOQg?oc=5",
+   "published": "2026-09-03T16:38:44+00:00"
+  }
+ ]
 }

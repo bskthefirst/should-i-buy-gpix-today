@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T17:08:58+00:00",
+ "generated_at": "2026-09-03T21:41:08+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "14.6 (p5)",
+   "value": "14.3 (p2)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 4.7,
+    "pos": 2.4,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.83",
+   "value": "0.82",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 33.0,
+    "pos": 30.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.5 pts",
+   "value": "+6.0 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 87.2,
+    "pos": 83.7,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.3%",
+   "value": "0.2%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 3.0,
+    "pos": 2.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+2.0%",
+   "value": "+2.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 66.7,
+    "pos": 67.5,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 42.0,
+    "pos": 41.9,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "36 (fear)",
+   "value": "35 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 35.6,
+    "pos": 35.3,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 56.1202,
-  "day_change_pct": 0.77,
+  "price": 56.18,
+  "day_change_pct": 0.88,
   "sma50": 55.63,
   "sma200": 53.64,
   "high52w": 56.67,
-  "drawdown_pct": 1.0,
+  "drawdown_pct": 0.9,
   "series": [
    {
     "d": "2025-12-16",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-03",
-    "c": 56.1202,
+    "c": 56.18,
     "t": "neutral",
     "s": 50
    }
@@ -1323,22 +1323,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.58 (-2.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.58 (-2.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.82) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 14.6) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.3) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1355,7 +1355,7 @@
   "fg_coverage_start": "2025-09-03",
   "baseline": {
    "n": 694,
-   "avg_pct": 1.69,
+   "avg_pct": 1.7,
    "median_pct": 2.07
   },
   "bands": [
@@ -1383,7 +1383,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.12,
+  "ttm_yield_pct": 8.11,
   "tbill_3mo": 3.92
  },
  "distributions": {
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 772.52,
+  "price": 773.17,
   "sma200": 711.63,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 14.6
+  "level": 14.32
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,18 +1516,18 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 19611.71,
-  "dca_return_pct": 30.74,
-  "dip_value": 19376.44,
-  "dip_return_pct": 29.18,
+  "dca_value": 19632.6,
+  "dca_return_pct": 30.88,
+  "dip_value": 19395.81,
+  "dip_return_pct": 29.31,
   "dip_cash_uninvested": 1200.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Fed's Waller says central bank's next rate move depends on upcoming inflation report - ABC News",
-   "source": "Breaking News, Latest News and Videos",
+   "title": "Fed's Waller says central bank's next rate move depends on upcoming inflation report",
+   "source": "abcnews.com",
    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNX2RscFVwaVc4aWJVT0lkMHQ0RlpRX1AwN1FpNjEzZFdjVUt1U2E1ak5iX0RBeU9DSklPdFN1dzZFbTRRSmR3OV9vZXJoNzRZRkgxcHhYOElVZ2NOWmhpWEFvSm4xMFBnRnpDMzFaZHkyMjd3RTAySklGNDhnenN6M3RVRm1JdWw5bExQd0RFR0E3OXo2Mjg0bGJVa9IBoAFBVV95cUxNV3VyTnpDZGVUZWt0eTBhZ29pQVZ3TkRZOUR5STZxOEpLU0JOYmpiS3hjY1JCeUEwcXUtekVPU0VaVmJEazdVVWQ3SXBqQmhfUmlBUWtZRlJpN2tkR29EeF9TR1RQeTFaY2RUdDQ1cmVDMnZvYkR2bWhqTDJPb1BHam80cDRIb3BqMDNyb2R6MGIyYm1KM1V1dlpnNGxmYWpJ?oc=5",
    "published": "2026-09-03T14:08:40+00:00"
   },
@@ -1535,31 +1535,31 @@
    "title": "Fed's Waller channels his inner John Lennon with a plea to 'give disinflation a chance'",
    "source": "Reuters",
    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPLVJjV3EyRTlHeFIwYWxSa0EtRkM1YzFQOExsR0cwaFRrVEo0MUlXWTMtdHhpam5seDNOQWJYQ0NYVGJkVDJNMkR4NHFsX2RJTkxPM1dDd1Z4T2s3R1ZZaFdoQV9CXzE1WUw3YXNZdnpFZFJBZnVGWnkxbVpUeVdoRk11eTdHWHBLVjIwREZldUNmYzQ4TFd0WWlKWXhNYm50MW5hYkpnUE5PaHdaUHhVUUlQWnN4UTE1U21jamtTVQ?oc=5",
-   "published": "2026-09-03T15:05:07+00:00"
+   "published": "2026-09-03T18:11:10+00:00"
   },
   {
-   "title": "A War That Won\u2019t End Is Complicating the Fed\u2019s Next Move",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdEdwM2xWYm40aHA4ZzBSN1ZOZWZQR0k1YzF3cnpsOHQzYlMxOWZQYTRSS2lfUENZdzN3WTZibGJDakpYM2FnTkcxRHE5aGM5WHhMTjZnWWN2dEIyR0lJTzMtaU50NXROSUlSTGdMQUJBa0ozcjhNMk1fSUZXb1BFQ3dEUS1WZ2gxc0JRcVVRTGdab0otN21fVjFidkt4cmMyZWRZSEc3a292Rmc?oc=5",
-   "published": "2026-09-03T13:50:34+00:00"
+   "title": "Vance says Fed should lower interest rates: 'Would be nice to have some help'",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQX3ZGQmxraTBxUFRDaUFUVVZlM3NIM0JsbHVCY1VTVzRnVHBORFRXbldFbXRjYTVyZDRyRFpNV3o3TDgyU2lLVnJCdUxSNl9nY3FRbnRzd25nQkExcUZJb1hrWHUtUFp2amtrdW9BbTJTdlAxSDNLMmxlYk40VEtaaUY5aDR3Z9IBiwFBVV95cUxQb1VUX2p4NlhOSEN2X2tTMmE0M3hJS2QwMmZ5Y3VOeVhnbGMxRUMzbG5saTdGWFc5TTMyNlMwekg4WHVjTkNYT2xmZk80WE1DRWptSmFzVTJiR2hKQVA1X3F3OWowUWtsbDVhVUEtLWRpbHFFWGJZbV9WTGg1UVRmMWs4M1pLbWNpNFdv?oc=5",
+   "published": "2026-09-03T19:18:59+00:00"
   },
   {
    "title": "Rate Rise in Play as Fed Officials Await Inflation Data",
    "source": "The New York Times",
    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOa0xMWWJMdUtQMXdlQVVXcF85dWpCX1BSTDNPNG5yVXhYUVowc2xCamNwc245WW91b0NRa1c5OXRoRkxhb08xWFRlanpBd3dJZGNMSjZ2WlJKVGt4T21reE4tckRqbkNLNTV6SGcwdmdjTEVBOVJNYXQ1R0JVS0p5V0JYYUk1YnMwcnZ1SFdyUFRyNjQ?oc=5",
-   "published": "2026-09-03T12:30:45+00:00"
+   "published": "2026-09-03T18:19:18+00:00"
   },
   {
-   "title": "Will Federal Reserve hike rates later this month? Waller muddies the outlook | National News | 2news.com",
-   "source": "KTVN",
-   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNbVM4WjJsbDhod0F4VDAyd1JMNVFJX2h6RGRFOEp5Q19XeVhBcC1wZ1ZJek1vVnVMajJFMDlIS3gzSm52YjNtYVo1TEUyVW5IOXl5MHhWT0FFNjZxZ0VfSWVjVUxfV0FpQjN3R245MTdEeWhiSUFyNFlIUERheU92cVpRdk81dTNSVGphN21wVDFEMFRKalRwV0pnRVNwVFlLalpaNVViSWJqVVplb3p3ck1ua21FS3Q0SDFoaUstWF9ZODhaR2ZUZ3I3emVUNUxEN1k5MHFDT0xvZGZPQ0psQXNGMWpxSWhPX3VGaEFXUlE?oc=5",
-   "published": "2026-09-03T15:35:24+00:00"
+   "title": "Not so fast on rate hikes, some Fed officials say",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1xWHBtQmZjbGZySmcteGF0R3VqMVprbjlPbHZhQzdUUi0wRWZNaEhNNmxTWnRqT2ZDdjh5QkV3TGJvTk1PS2FEeW94bFROaTBZbVQzZGg4R3l4aHFWTW1pNWtfc3hWR2VDckxrNXVmZFRWcG0yYnc?oc=5",
+   "published": "2026-09-03T16:34:08+00:00"
   },
   {
-   "title": "Bank of Japan and Federal Reserve Divergence Is Driving the Yen Higher",
-   "source": "stonex.com",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQSUdRcEI1MFlnRy04d0dvOFYyWlFFcFV6LWxXNTU0VDZ2UTRaVHdqVjN1ek41VjVxWkY1UFhDV1BPVlJnXzVqbXRGM0dTN3IzWUlCRjFGNWxDYU1HTDhQT0lSd1RaUV9hdnRUWHdTUWZHSmduM1dGSm1Qb1FJUWFfZnpza2g2Q1BXODhVRWxWX1lybzY0YlNvd19IcGdWYWFkUTZERVVTb3VJZw?oc=5",
-   "published": "2026-09-03T16:19:57+00:00"
+   "title": "Will Federal Reserve hike rates later this month? Waller muddies the outlook",
+   "source": "Greenwich Time",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPVnhtTU1hODgtS3NvSlNrU2x3LUxxc1VDM2NRcWdIUzl5N3VpdUVNQzF0Y21jYUJ6aGFySHpLZHNxRWdFUmp1WTFZeV9IbnBhMXJ2Vzd5NjhoWkRyZnpHZ2hqSWsyeVhJTnJMUjBtQVRuMXRXUFd0dTlPZzl4TUwxd1FUaFZfdFpZcExXNUM2RVdNUWJ3Y21hTG82bEZWa29QakZTaDJlS0Zuc0E?oc=5",
+   "published": "2026-09-03T17:32:58+00:00"
   }
  ]
 }
