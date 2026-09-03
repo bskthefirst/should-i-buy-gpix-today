@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-02T21:47:16+00:00",
+ "generated_at": "2026-09-03T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 89.5,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "19% ann. (p4)",
+   "value": "20% ann. (p7)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 4.0,
+    "pos": 6.7,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "16.3%",
+   "value": "15.0%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 16.3% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.0% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 32.6,
+    "pos": 30.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "downtrend",
+   "value": "uptrend",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "good",
+   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.2 (p12), F&G 33",
+   "value": "VIX 14.9 (p9), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 9d",
+   "value": "CPI in 8d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 333.78,
-  "day_change_pct": 0.53,
-  "sma50": 346.79,
-  "sma200": 334.22,
+  "price": 339.0351,
+  "day_change_pct": 1.57,
+  "sma50": 346.67,
+  "sma200": 334.54,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 16.4,
+  "drawdown_pct": 15.0,
   "series": [
-   {
-    "d": "2025-12-15",
-    "c": 309.32,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2025-12-16",
     "c": 307.73,
@@ -1215,6 +1209,12 @@
     "c": 333.78,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-03",
+    "c": 339.0351,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,25 +1222,25 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.92 (+7.5% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.92 (+5.9% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 19%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 20%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-02",
-  "days_total": 714,
+  "end": "2026-09-03",
+  "days_total": 715,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-02",
+  "fg_coverage_start": "2025-09-03",
   "baseline": {
-   "n": 693,
-   "avg_pct": 3.31,
-   "median_pct": 3.27
+   "n": 694,
+   "avg_pct": 3.3,
+   "median_pct": 3.26
   },
   "bands": [
    {
@@ -1253,9 +1253,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 196,
-    "avg_pct": 1.35,
-    "median_pct": 1.79
+    "n": 197,
+    "avg_pct": 1.31,
+    "median_pct": 1.73
    },
    {
     "tone": "neutral",
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 333.78,
-  "sma200": 334.22,
-  "above_200d": false
+  "price": 339.0351,
+  "sma200": 334.54,
+  "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 18.8
+  "level": 19.8
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 14,
+  "days_until": 13,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 9
+  "days_until": 8
  },
  "earnings": {
   "next": null,
@@ -1303,54 +1303,17 @@
  },
  "backtest": {
   "start": "2022-09-06",
-  "end": "2026-09-02",
+  "end": "2026-09-03",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 43874.57,
-  "dca_return_pct": 109.93,
-  "dip_value": 43958.82,
-  "dip_return_pct": 110.33,
+  "dca_value": 44565.34,
+  "dca_return_pct": 113.23,
+  "dip_value": 44650.92,
+  "dip_return_pct": 113.64,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
  },
- "headlines": [
-  {
-   "title": "MrBeast partners with Gemini to turn impossibly big ideas into reality",
-   "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNQXB5Sms5NzNXdVdEM0FBcGU1WmJxNkUwVlBZNFUyd3lmdVNaTWRLWVA3b1FQX1NaNHFVR3g1aDZvQkZnd1g0N1ExRnZRVFhPYVBHdENSWWhkWjRSVWNQTHVZYndJMm5tSjZJc3o0R2FWRnItd1YwajlBUkFYNU5td01lYjdiYndtSHh2aU1adjlkXzBwYWJBT0hoUjRPOG8?oc=5",
-   "published": "2026-09-02T13:21:46+00:00"
-  },
-  {
-   "title": "Berkshire CEO Abel says Alphabet a 'significant player' in AI after growing stake in Q2",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQLU40OEhJS3gyd25QTW1BeDlId29IWjlfZ3ktWXJianZzQmVsODJGSThLclR4ME4yV0ZKT29CT3F1ZW5RUmlzY002eUdXVDhHbmhQOXdWSUd3cHEyVVNpTTJUX3B2NkVuM0EyWTFrTnRraDVZd29KSGtYZ19XbXdaWkFNWWF3Z1Z4SXNYNUc5bk14LUI4bEh2aE1Nanhhem1fRklzSEZTdG85LW9NTnpQa283bWFtb0UtajEyd3VtVdIBxAFBVV95cUxNaXpLeEl0LTBtZFdtN3FDY2dqNVR3R1lNNnJtcHQ2N0lMbFRjckFuVWRYd3RiNzdIQzRYVVJSZWhZYjZ1ZWw3dGVSUC03S1hrV1ZVQXE0LTlzN2Z4LWwyS0ZUc1RDVFhfV0J4ZjBaUUFkRlJDWWtrYWxhbVZoWlVPSmVIWlNnV1dvdHYzUThmZDcyVmdkSTY0VnM3US1UZjNaMFZjUFhsdFJBTXRXMS01UHBWbDd0QTVMeUNYQ2VKcnljUk1E?oc=5",
-   "published": "2026-09-02T10:54:24+00:00"
-  },
-  {
-   "title": "Google won't be forced to break up its ads business",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBQMDV0cnpnck9MVFdmUFl0X045MTQ4OVNjajF4N05nWTRJRGhMYmVLMl9iaXJjcGZ4VlN6eEhoWWIwNkdhOWthbmw1aS1JWktaTjhxX0ZMbXVNc0gzY1dSeURrZ085QURMdm12dHpfMzhJdl9o?oc=5",
-   "published": "2026-09-02T19:23:28+00:00"
-  },
-  {
-   "title": "US judge rejects bid to break up Google\u2019s ad business",
-   "source": "Al Jazeera",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNMUV2QlNxeVRmaVY1cy00cFo1eExyVVhEUVp4a1BNZ1pRc0Fjcy12bTBtZS02bmxsZGZCRXFfb293d19aQ2RIV2ZHTVlNMjh5UFpXNUh6c0hSVFdZYzlFbGJJXy1ZSnBDTl9icGdEd08zOHVyNHBjanVQTEhzTFdKNGFiRUZxY1FPbGZiUmdVekE4QnRsdlh4ODZDUdIBoAFBVV95cUxQTTBZZ3V3VTdPVnota3J2emRsVjlMVXpKREJ2NnRmUk5YU05Tcmh0SjZiT3gzNXRNZ01YTGw0VFZTbXNueWNva1RIUDRlT3ROMGtRczhVci1XYktwNWc0c2x2eFF1enZQRUxMT1dHdThRdWM0Q0Zpb3NTNUVQbVBQeWZ4X0VpUzBxWHJ5WTM5SG9aclRjQldDaDZqZGp6ZU91?oc=5",
-   "published": "2026-09-02T20:22:38+00:00"
-  },
-  {
-   "title": "Alphabet Stock Rises as Google Avoids Another Business Breakup Attempt",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNTGJTMjVKM1h6cXI3empIRVgwMFllNi05dTNsRk83emM5NnI4dUVpRzdvZXBaNlAwWHdFdHFJd2JRZTZuNnVrdkRrTG5jODFaRXpQZWtxWlFlaU1sTkV4S0VpTXlCT2NpOE9FcUNjdTlLa000ZUVicUxMMldzdHV2WGNEMjcxZ2VIY0E?oc=5",
-   "published": "2026-09-02T17:43:00+00:00"
-  },
-  {
-   "title": "The Athletic Launches \u2018The Athletic LIVE,\u2019 Its First YouTube Live Show",
-   "source": "nytco.com",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNNVNHMmUzVVBiLUIwYUlxc0ZsaUVHeEJNblIwdEk0N05FSDQybTliQ1FpZU1FWUxqZXBTblQ4WkVPeGpSc0k3OXdkOENVNjNxaS1iQkdUaDlVUzBzNEpycGxRdVJJYVk1MnhTSmkxT21YVGxucGJoU0s3UFoxS2h6N3JZaG5EWWFtb01MdmNCSGJfT3hkYUZieEJMNGI?oc=5",
-   "published": "2026-09-02T17:28:29+00:00"
-  }
- ]
+ "headlines": []
 }

@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-02T21:47:14+00:00",
+ "generated_at": "2026-09-03T14:30:14+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "42% ann. (p44)",
+   "value": "46% ann. (p56)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 44.4,
+    "pos": 55.6,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "27.1%",
+   "value": "22.6%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 54.2,
+    "pos": 45.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.2 (p12), F&G 33",
+   "value": "VIX 14.9 (p9), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 9d",
+   "value": "CPI in 8d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 357.01,
-  "day_change_pct": 0.26,
-  "sma50": 358.35,
-  "sma200": 399.97,
+  "price": 379.0,
+  "day_change_pct": 6.16,
+  "sma50": 358.42,
+  "sma200": 399.85,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 27.1,
+  "drawdown_pct": 22.6,
   "series": [
-   {
-    "d": "2025-12-15",
-    "c": 475.31,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-16",
     "c": 489.88,
@@ -1215,6 +1209,12 @@
     "c": 357.01,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-03",
+    "c": 379.0,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1222,20 +1222,20 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 42%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 46%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-02",
-  "days_total": 714,
+  "end": "2026-09-03",
+  "days_total": 715,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-02",
+  "fg_coverage_start": "2025-09-03",
   "baseline": {
-   "n": 693,
-   "avg_pct": 2.64,
-   "median_pct": 0.32
+   "n": 694,
+   "avg_pct": 2.66,
+   "median_pct": 0.33
   },
   "bands": [
    {
@@ -1248,9 +1248,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 164,
-    "avg_pct": 8.97,
-    "median_pct": 4.84
+    "n": 165,
+    "avg_pct": 9.03,
+    "median_pct": 4.86
    },
    {
     "tone": "neutral",
@@ -1274,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 357.01,
-  "sma200": 399.97,
+  "price": 379.0,
+  "sma200": 399.85,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 42.0
+  "level": 46.0
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 14,
+  "days_until": 13,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 9
+  "days_until": 8
  },
  "earnings": {
   "next": null,
@@ -1298,54 +1298,17 @@
  },
  "backtest": {
   "start": "2022-09-06",
-  "end": "2026-09-02",
+  "end": "2026-09-03",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 29396.18,
-  "dca_return_pct": 40.65,
-  "dip_value": 29392.83,
-  "dip_return_pct": 40.64,
+  "dca_value": 31206.84,
+  "dca_return_pct": 49.32,
+  "dip_value": 31203.28,
+  "dip_return_pct": 49.3,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 205,
   "winner": "dca"
  },
- "headlines": [
-  {
-   "title": "SpaceX investors may be overlooking a major risk: There\u2019s no replacing Elon Musk",
-   "source": "CNN",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPUjgyLTU0N1pHNjIzNUMycXlyeU8talJXcmQ3bWpvSFU0WHlMWEhxSk80NmoxUXZKdndIdG8yalpnNzYyZlV2N1R5cGtHdTgxYUIxcUgyWk5sRjNoRFpPMms4ZW81MVl2OUVybXZkTjJ1TC0weDVmTU9RLWJrdDV6VFVLNXE?oc=5",
-   "published": "2026-09-02T09:00:30+00:00"
-  },
-  {
-   "title": "Why Tesla Stock Stepped on the Gas Monday Morning",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOWW5jbWlyYjNIQU9LS1Z3ams2QWpQTGJWLXBqd0NrYzhGbENHMzV1bXJxQkpDUzg5QkhKTXpBWXJVQndnYjk4WUpxRllvSF85ZFktNEh3RUN5bTZYYkR3NGVkRzIzQU5pRi1HZDNiRTBXNXIyN3FUbGFSS0Y1SU9ORWUtU0s5MGxZSHdmQlZaOU91QnRSYzdV?oc=5",
-   "published": "2026-08-31T16:30:00+00:00"
-  },
-  {
-   "title": "Tesla Stock: Cybercab Event Thursday Could Set the Agenda for Shares",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE10d1Q3eVJDendSYWMyRjdXQ1I4QzhXaXYyMEluZnYwVzhRcE5mU1lxWlRXOE8ydFFQek94dHNQLVpDZ1hla05yNkVBOW4tMHZfd1BWX2FJN2ZBbkdPMENpNnNSYnNZSzdpb2dmcWV1Qm51NUZQLTNXaVRCdXd6b1E?oc=5",
-   "published": "2026-09-02T13:51:00+00:00"
-  },
-  {
-   "title": "Tesla\u2019s Much-Awaited Cybercab Launch Is Here \u2014 Morgan Stanley Says One Thing Could Decide TSLA Stock Reaction",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQM0N1QVQ4QUtKbXlvdFd2VnprbHhwejBTeWVjOTFOSGR2SEl6aHlSZktDZXlPS3o0VWZydW9fWVBaMnM4X05DS200M1ZZTjhIVVlzYlRiXzF5TkJzclQ4b0tmc05iMjJyUzFzUHhBXzNpYTMxRkJ6eDQxem1mV0JZRS1WNUQ4SEhBbVRFTGlJNTluN3FLbW1XTGp4Q2N0WElN?oc=5",
-   "published": "2026-09-02T12:36:12+00:00"
-  },
-  {
-   "title": "Morgan Stanley Warns Tesla Stock Could Sink If Cybercab Launch Falls Short",
-   "source": "TradingView",
-   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQRDJQOVRpamR3cnVMMzdwMmJDUWZaSzZiZzJMa3R2NEI3TG5NS0lZT0FUcEdLNXJMNktqT3A0S1FoR3YxT2VvS25iODM4MHB6OUxsTEM2dFkxczVWSzVFWG9hX3d6QWFzWEo3RHo5ektodURBV3dZd3hyYjF4MW1hRFdRb1VMdXhqVjdDSEZ5ZjRMaExaTWxrQkJ4a21NZXBCTFN0aE1XSTI0dmZyVTRrTlRNbE8yVi1tSXpVanhta1VWY0tlUFI1cHpCX0VHX2s?oc=5",
-   "published": "2026-09-02T20:49:25+00:00"
-  },
-  {
-   "title": "Dow Jones Futures: Snowflake, Broadcom, HPE Are Big Earnings Movers; Tesla Cybercab Event Due",
-   "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPSkZOeGVKMnczSWdGQm02WF9GNk5fN0w1SDY1X1hmZGl6ZXZNUE55eGZMdVEzZWxWS1VZWTFRY0pUYzhsYUJnZ1hjU0FMX3NyVjEzSkhtT0EzQXl0MlpaMTJDZ0pCNDVDSEhzdC01YzhvcmJkY2l2RXdlMFBaazFKUkU4Ml9vai1fV2tJRFNINFdVQnpHcHdjZ1hnLVUzQmRaNE5pTTF5aWtTNHNfWHZoa05aVlhUMm9lbkc4SzFoamZwSldMWTZGXw?oc=5",
-   "published": "2026-09-02T20:52:00+00:00"
-  }
- ]
+ "headlines": []
 }

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-02T21:47:12+00:00",
+ "generated_at": "2026-09-03T14:30:12+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.2 (p12)",
+   "value": "14.9 (p9)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 12.2,
+    "pos": 8.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.86",
+   "value": "0.85",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 39.3,
+    "pos": 36.3,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+7.8 pts",
+   "value": "+7.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 98.5,
+    "pos": 95.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.0%",
+   "value": "0.7%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 10.0,
+    "pos": 7.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.3%",
+   "value": "+1.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 60.8,
+    "pos": 63.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.65% (-0.13 1mo)",
+   "value": "2.66% (-0.07 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 16.2,
+    "pos": 16.5,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -167,13 +167,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "8.8% vs 3.9% cash",
+   "value": "8.2% vs 3.9% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 49.1,
+    "pos": 42.4,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "33 (fear)",
+   "value": "35 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 33.2,
+    "pos": 34.8,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 9d",
+   "value": "CPI in 8d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 55.69,
-  "day_change_pct": 0.47,
-  "sma50": 55.6,
-  "sma200": 53.62,
+  "price": 55.885,
+  "day_change_pct": 0.35,
+  "sma50": 55.63,
+  "sma200": 53.64,
   "high52w": 56.67,
-  "drawdown_pct": 1.7,
+  "drawdown_pct": 1.4,
   "series": [
-   {
-    "d": "2025-12-15",
-    "c": 52.48,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-16",
     "c": 52.35,
@@ -1316,6 +1310,12 @@
     "c": 55.69,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-03",
+    "c": 55.885,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1323,39 +1323,39 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.58 (-2.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.58 (-2.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 33) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.86) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.2) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.9) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.65%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.66%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-02",
-  "days_total": 714,
+  "end": "2026-09-03",
+  "days_total": 715,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-02",
+  "fg_coverage_start": "2025-09-03",
   "baseline": {
-   "n": 693,
-   "avg_pct": 1.7,
+   "n": 694,
+   "avg_pct": 1.69,
    "median_pct": 2.07
   },
   "bands": [
@@ -1376,14 +1376,14 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 502,
+    "n": 503,
     "avg_pct": 1.28,
-    "median_pct": 1.75
+    "median_pct": 1.74
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.83,
+  "ttm_yield_pct": 8.16,
   "tbill_3mo": 3.92
  },
  "distributions": {
@@ -1485,7 +1485,7 @@
     "amount": 0.397
    }
   ],
-  "ttm_sum": 4.92,
+  "ttm_sum": 4.558,
   "last_ex": "2026-09-01",
   "last_amount": 0.397,
   "next_ex_estimate": "2026-10-01",
@@ -1493,73 +1493,73 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 765.16,
-  "sma200": 711.12,
+  "price": 768.58,
+  "sma200": 711.61,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.2
+  "level": 14.95
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 14,
+  "days_until": 13,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 9
+  "days_until": 8
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-02",
+  "end": "2026-09-03",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 19461.37,
-  "dca_return_pct": 29.74,
-  "dip_value": 19237.11,
-  "dip_return_pct": 28.25,
+  "dca_value": 19529.52,
+  "dca_return_pct": 30.2,
+  "dip_value": 19300.26,
+  "dip_return_pct": 28.67,
   "dip_cash_uninvested": 1200.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Downside Risk to the Stock Market and Consumption - Atlanta",
-   "source": "Federal Reserve Bank",
-   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOYTBzZEUwUk5XQmpmbTV4WWhEdWp2dGNxaGlJWE03aGFUQk13VFZVTjhUZ2dGOUVOSXFfOWR2X3FERkg3bDVXQmJfa3lIY2dXZ2hoUFgtNE9yWmY3SmprbEZUcmdCRVJfb3otWEpSTEJISkNNQTZBaUgxaUZ0cXF4Mmt5WFBieTQ5UlJjOVJUMFhlU3pZeW9Wc1FCTUNoTDBiR0FWczlJTy1sZGljdC1pSUJRSy04cmhfQ1kzOVV2UDhHMHIwSUh6amNiVHBGNTBW?oc=5",
-   "published": "2026-09-02T18:15:05+00:00"
+   "title": "Fed Governor Waller indicates he will support holding rates steady at September meeting",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxON2J1REZ3U04tQUUxbFk2SjB5b1lHLU5kXzhaZi1GUmdaa0c3SVJuTldqZ3ppWEc1STBsMzBKMlVLQ2oycUF5SVh0WXh4X1ZMbDRRaDZRYlB3TFVmNV9CUDkzbjFtT2Jka2UycVF6N0pfQzMwU21mdDNxUFA3RlRxTU1nUFJVUU1IQnFrS1FabER0N3ZBX2ZJRXNKbGU4U19CZUdBeEpuX1VsZUhWdVBFOXZUUE1Ubl9SejIwQnhjS0ppZ9IBxwFBVV95cUxPRHlvbVBOcHFJVm40TGtsUWFBbmZUWjBIXzdGMHAwU2VXSmlHS1FhVnJlYmxFX1hHNEFsNUg4VmFFZUp1SzAydzllc3BBaEVrMFdzQ0hlV2oxVDJBd2dpNldpLWUybjJsX3hRdGdmdWtWUGEwOEI2MGFBYlBiRjZYSUEzeHhHcnpNQ002QjdYUGNueWZrcHJTU0RBNUlEYVRtTHV6WFZTN2hTeUl2MHJyOFJ5ejZqSkU4VEtrWG5xVjNhWWExZGZR?oc=5",
+   "published": "2026-09-03T12:30:21+00:00"
   },
   {
-   "title": "Will the US Fed Hike Interest Rates in September?",
-   "source": "Morningstar",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPRTNZMUd5VmhBMXRRT1lKeUVVNGc3NUZROFVNclJTM2RhR1p5MnBDdUFheXBnME56S3EyYkk0T0VOSnIzVjZXUTVGQ2VyWlFJQkdGd3VfNklOWHhDWWFveEJlSUs1Rk41aTJ3VW9qM0xINGtQLW1TR1dncmJtU0dUT2lIdXhrd1dOMVVrZFlaUQ?oc=5",
-   "published": "2026-09-02T08:30:20+00:00"
+   "title": "Rate Rise in Play as Fed Officials Await Inflation Data",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOa0xMWWJMdUtQMXdlQVVXcF85dWpCX1BSTDNPNG5yVXhYUVowc2xCamNwc245WW91b0NRa1c5OXRoRkxhb08xWFRlanpBd3dJZGNMSjZ2WlJKVGt4T21reE4tckRqbkNLNTV6SGcwdmdjTEVBOVJNYXQ1R0JVS0p5V0JYYUk1YnMwcnZ1SFdyUFRyNjQ?oc=5",
+   "published": "2026-09-03T12:30:45+00:00"
   },
   {
-   "title": "Fed Chair Warsh signals rate hikes may be needed with US inflation stubbornly elevated",
-   "source": "AP News",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNTUFJSHBlaThPY3QxNm1TZEpORnhMam5QQUZTc203emxiY0pKSWJLYWtvaFZNMUd0UGluNzJHVHNhcTZERkpOdmpQR2ZsWC10Q1IxMTFIaDVVRkQ3WjhFWFZsX254RVVJUG9QemZ6ZEtIbndJZk1iYUtuNDEzUGFmejVPZTZlQXl5SEx5WGZPSzh1WHlXalY1dldNR2l3a0RkT0t2M1RZTEdLZw?oc=5",
-   "published": "2026-08-28T18:27:00+00:00"
+   "title": "Inflation is a drug and Washington is high on it",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBNY1Y3TUxCQzRQYVlHV3VfNVBQakYzMl9uNkJ2NWlrd2lfbnB2ZUptc2NENnoyWkJuaEtORDVlcXZrM29BTk5ya25yaEwzQzJuTVMwSXFndFo1U3BkeTBlWUFtYkZnRVhwU1liYnJaUzk4bnMx?oc=5",
+   "published": "2026-09-03T10:00:29+00:00"
   },
   {
-   "title": "Iran war is testing how long the Fed can look past higher energy prices",
-   "source": "WGME",
-   "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPSTd6c3V3ZlNlOG14b28zYXJwTG1NaXl4el90NTY1b2JmZ2tSM0RKaVlrUU1pdFJSRm8wemh1YzZ5Q3lSazlOUVZQZXNvZUZpc2xHU2RjdU9XaDlUdTZJTmxoMnJjenpyaFJEOEczQzNkWmtzb21sUDJEdVVUd2ROUE5DT3dBamNCS2pUZmRReFhVUTJkalNfOVRNcDRTNG9kMVVEaUxaNGRtdmNoQ09iWXVWVng4RXJNSElVWmlyQ0JIOFFJNkkxMy1DLUpyM3UwVllUTkg2dGJsVi1pMlVHblVWeGZKTXFhOENIZQ?oc=5",
-   "published": "2026-09-02T16:49:33+00:00"
+   "title": "Fed's Waller says central bank's next rate move depends on upcoming inflation report",
+   "source": "Greenwich Time",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPVnhtTU1hODgtS3NvSlNrU2x3LUxxc1VDM2NRcWdIUzl5N3VpdUVNQzF0Y21jYUJ6aGFySHpLZHNxRWdFUmp1WTFZeV9IbnBhMXJ2Vzd5NjhoWkRyZnpHZ2hqSWsyeVhJTnJMUjBtQVRuMXRXUFd0dTlPZzl4TUwxd1FUaFZfdFpZcExXNUM2RVdNUWJ3Y21hTG82bEZWa29QakZTaDJlS0Zuc0E?oc=5",
+   "published": "2026-09-03T13:15:44+00:00"
   },
   {
-   "title": "Federal Reserve Inflation Concerns Are Muting the Payrolls Reaction",
-   "source": "stonex.com",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbjhYZ2V5M0RRNF92aFl6MFJ4T1ZIUlNzWGtna3k5OWl5TmUwYVRTMUNqOU14QkxkQlVTMkY4RFVOT3k2NGo5cjVaazFWWXlRdmNOWW12VFhGbGlwbEJEMVk2TU1aSm9hQm0wX25uOWJIS242RkFQX3pBbmpjSFpPQjZ0ODl1SXE1T1Iwd294WUZGYTkwaUE1NzRRaEFYUVQxZG84UFJNQmtTQQ?oc=5",
-   "published": "2026-09-02T15:41:17+00:00"
+   "title": "US Fed official joins growing group open to rate hike if inflation rises",
+   "source": "France 24",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPekkxUnR4NGxLc2dOa0UwNm9LU0tjZXo3THE2X3ZtU0U3R0N3UUJXMmVjc3VMZm4zSlU0UUxuaGJZU1VtOXJGTThoc1pvdldaa0F6NTdtald3T0VWdk84dzBXT29wb0dBaE9IZVdKZTZKaHdBaGk2bVVXdHFYQWppVlU2WXZiYzMzYnZKU041NzlYWHg3aEJDUGFtT2pxcUFiRl9oV291VnhoVXlyUl84MHZoZS1wVFBCWi13?oc=5",
+   "published": "2026-09-03T14:07:11+00:00"
   },
   {
-   "title": "Warsh's Jackson Hole encore may put Trump's inflation record under a microscope",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQR1R1MzRzd281NmluU3cyRUNUV1VRY2h0UFFKbU40ZVExWWVXdGIwNGltaEwyUXJ4UWVzU3owNXlsd3FFbTBYVTRxMW1SQlBvLTRpT1dSeE9TRG5qbmUwUmJSa3NYZ29IRGxFRmZLVzBKdjNpZXFPZGhEamJOWmRiX3VQNlBmNDJMM0ZTS0xBSks3Z2NfOUJURGZPU1pWWGJrVGRMT2o5dFczNXhxdVhCSXpBZ1VGT1FCazgzcg?oc=5",
-   "published": "2026-09-02T10:31:28+00:00"
+   "title": "Federal Reserve\u2019s Chris Waller \u2018inclined\u2019 to keep interest rates on hold",
+   "source": "Financial Times",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxONV9sN1lwMEpHa3MwdV9WQWRFQ1UwZzJycnNxM25DZU45WVhEZGdqN3EyU3pBYkw3WnlvS1FkekplTFdUNUdHel9xa0JBeGJWOS1IdlE5OEdKNzhFc0VOb3F1dHF4RURUMWZhektSemRTVzZ2V3U2OEttVTA5aVlQbHJGc04?oc=5",
+   "published": "2026-09-03T12:30:23+00:00"
   }
  ]
 }

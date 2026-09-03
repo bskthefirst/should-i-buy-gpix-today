@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-02T21:47:15+00:00",
+ "generated_at": "2026-09-03T14:30:15+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 100.0,
+    "pos": 98.5,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -55,7 +55,7 @@
    "lean": "good",
    "note": "NVDA's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on NVDA): elevated single-name chaos tended to mark better entries on the calibrated name.",
    "viz": {
-    "pos": 90.1,
+    "pos": 90.5,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "4.7%",
+   "value": "3.4%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 4.7% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 3.4% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 9.4,
+    "pos": 6.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.2 (p12), F&G 33",
+   "value": "VIX 14.9 (p9), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 9d",
+   "value": "CPI in 8d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 224.41,
-  "day_change_pct": 3.21,
-  "sma50": 209.28,
-  "sma200": 196.27,
+  "price": 227.47,
+  "day_change_pct": 1.36,
+  "sma50": 209.85,
+  "sma200": 196.46,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 4.8,
+  "drawdown_pct": 3.5,
   "series": [
-   {
-    "d": "2025-12-15",
-    "c": 176.29,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2025-12-16",
     "c": 177.72,
@@ -1215,19 +1209,31 @@
     "c": 224.41,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-09-03",
+    "c": 227.47,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
- "flips": [],
+ "flips": [
+  {
+   "label": "Momentum: new high",
+   "direction": 1,
+   "text": "NVDA at $234.29 (+3.0% from here) = back within 0.5% of the 52-week high (+6 pts)"
+  }
+ ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-02",
-  "days_total": 714,
+  "end": "2026-09-03",
+  "days_total": 715,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-02",
+  "fg_coverage_start": "2025-09-03",
   "baseline": {
-   "n": 693,
+   "n": 694,
    "avg_pct": 5.55,
    "median_pct": 3.38
   },
@@ -1249,9 +1255,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 367,
+    "n": 368,
     "avg_pct": 4.03,
-    "median_pct": 1.96
+    "median_pct": 1.99
    },
    {
     "tone": "caution",
@@ -1268,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 224.41,
-  "sma200": 196.27,
+  "price": 227.47,
+  "sma200": 196.46,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 45.0
+  "level": 45.2
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 14,
+  "days_until": 13,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 9
+  "days_until": 8
  },
  "earnings": {
   "next": null,
@@ -1292,54 +1298,54 @@
  },
  "backtest": {
   "start": "2022-09-06",
-  "end": "2026-09-02",
+  "end": "2026-09-03",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 87600.95,
-  "dca_return_pct": 319.14,
-  "dip_value": 87803.79,
-  "dip_return_pct": 320.11,
+  "dca_value": 88795.47,
+  "dca_return_pct": 324.86,
+  "dip_value": 89001.08,
+  "dip_return_pct": 325.84,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 181,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Nvidia didn't like Wall Street's estimates. So it tried to reset them.",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOQmp3d1dLMGJmNFl5UnU5dW01Z2g3X3lYLUZxVmxMb3RsaGNzbEJNa0xESXkyZDJuOUdfc3dBWUd4OEM4VlRud1JqZE9FVE96dFkzbGpqdTdIc3UwMTA5RlRVUENwSkJSMXAtQXd3Vl9Bd1B2R3FGTzV1cmpiQXgwYlR6RVJaTGNDaUNRckRXSmF0R00zM0ZNcEMzNHBTQ1pubzJYRF9IY3QtcTlwdk9ncjVpNzFYaU90cFJ3QV9aNmU2UUVh?oc=5",
-   "published": "2026-09-02T12:22:18+00:00"
+   "title": "Nvidia Buys Hugging Face in $12.9 Billion Deal",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0yMlJhVkx6YWNlSEdlelNIVXNzaG9oUWVVdWlJcFQ3NHVzVXJvOC1RWmJqN1NKQXlSbmVTU2l3WHdrdTBSbEhvaHh6NVVIa3h6b1BENWJYZnRpZnNMU0RRQl9fQ1NKSk9MLVdEcFZQcjZDRzZ2QWVBeTNB?oc=5",
+   "published": "2026-09-03T13:01:43+00:00"
   },
   {
-   "title": "What to watch in Broadcom\u2019s upcoming earnings \u2013 and why Nvidia is running",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOUXFyS2FoVDgyeFgwRmZjTzJnb2RkMEc0eDZ1dy16cEgydFVacUItZC1paWNiT3QzREpTTUhnenZzNk9ZZGJuR2tlN3hLQ21TWXg4WTVWV0ZJd1dxMTBYakhSUWxsVGtTcHJTdFJRaE5hdk5XU2h2N1oyQTg0Vnc0YUhVajRZRWlUREdEZlRsSFh4VUE1V3lrM1BWd3cyYWRseENzdC1BMzFfbWtT?oc=5",
-   "published": "2026-09-02T15:54:23+00:00"
+   "title": "Nvidia Agrees to Buy Hugging Face for $13 Billion",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOVjY5cThVdThiY190NHZEOExnc3hpX1ZZRWthY1hCanVMOGtYOHFjTXp5c254MkpKa19IcUdZR2c3LVFQRS1jTzRvRjhaTHVmRG9KYkJON3BxbWNkdlZqYnVrejBBb0FNeHNsWXVra0RTb1Nua05DVUtRVS1oQWxITE1XNTd0bENlcWtFdG93?oc=5",
+   "published": "2026-09-03T12:36:00+00:00"
   },
   {
-   "title": "Jim Cramer Says One Stock Is More Important Than Nvidia Today, and It's Up 240% This Year",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQZjFNS1dnX0RlZzQxY0Q3NTdrMXpLc2RzdkhYcnlQWWR4b2ZEOUQ1emtNbFdneEpkRHJTTDNoaHZoTk9LOEE5UzRaRndGYWlGTUNyU3c2Y2QxMWJYZmwyeklKZjFqeVR2aE12eV9QcUxOQzhGZkNNS01HMjB5TWowbldOeFhTZ0o4THhRUUxKRksxVGVQdWZxak95YmRvWHJGUFQ0cVpmb3JQSm5CWEVtdDJlY3MzTW8yTWhlU1FOUkVZWlB3ZWw3bUxn?oc=5",
-   "published": "2026-09-02T15:30:00+00:00"
+   "title": "Nvidia to buy Hugging Face for $13 billion in big bet on open AI models",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPSktMTEFzVUpJM09CZGMxcnEtMVJHTElxMllESE9QbHdMbjl4MmQ2TjJvSjRXY1Q3RUVmNGMxQ2xIMTVtOWhnVHYyWGluNmNDektRcVloUmZfTmdWMDJyMFRrTjZHYzl6aUYyd1JYM3hQenBmeFJ1N3FleW01SF9HeFVSZ3oxMlBsS3BrcHZiblZBWTNSWDQyMzdSWGMwMnJ3NnNTbG14R3FTb1BUdGc?oc=5",
+   "published": "2026-09-03T13:18:06+00:00"
   },
   {
-   "title": "Nvidia Just Returned a Record $26 Billion to Shareholders After Increasing Its Dividend by 2,400%. I Predict Another Massive Dividend Increase.",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQQWxTQmlzVlgzaFo4M3g0V2VoODNmQ0JvN19aOTR0S1pKNUlBUktkcXBRUkdiNDhvRjNTWDlMNTdob3QyMjVfbnBNZjlKOHZ4T2FyZEhDTGd6emdUazRNTHdFQ0ZxdGtqdTloa24zU2FjOHRlRFJDa0lHZV9yTUp5ZDBJcVJWb250UHAyLU52TzUweThKZ2tVaw?oc=5",
-   "published": "2026-09-02T09:00:00+00:00"
+   "title": "It's official: Nvidia is buying Hugging Face for $13 billion",
+   "source": "Business Insider",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONzhxUGZ1eVQ3NURPNUdNcTl0U1UxUVp5T3lyN0tjeFhldUZnaUlWczZUeDFLN2o5SFFhek96LTdsanZCWDA1NWUxb1VJa21OV0NEVUtmeXVnOFJwa3lCU2F1T2tZZDBUekZ6QlZOODd2Y0E3eE9HSFRTTHU3Ylc1YkM0ZjhJd0t2Q0lSZjB2STAwQUJnbEg0S1BRWGF5b1pZQ0VzMWJXcmZxNGF2?oc=5",
+   "published": "2026-09-03T12:22:25+00:00"
   },
   {
-   "title": "Equinix Accelerates AI Inference for Enterprises with NVIDIA and Together AI",
-   "source": "PR Newswire",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQS3JxQmVzVXZlVzNOYVllVnlrbHR6YWZUVV90UTV0enZyNFR2M004QlFRV0hyaGFERnlqNVM4ckNZbDRwOVZzdzNqUmZMbG85VnRYVjMtbklvLUJKWHJHcGJqUHpDbGo5NDJVYjhleGswc1Y0X1BoLVdSUDg5MTFZRWQ5c05xOER2MVZESXV0LXpiUWlJeDNFZ0ptMUV6aGFSUmU2RGl6dm00aXA5N2RMZ0NieHoycTZhdE1iS3cyNEZ2N1RIMHVwTUZ2Rnc?oc=5",
-   "published": "2026-09-02T12:02:00+00:00"
+   "title": "Nvidia confirms it will buy Hugging Face for $12.9 billion",
+   "source": "TechCrunch",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdUpWeVh2RnZRaHhUR0RaQnpwZ0JPbmRCckUzbVpiVTlPbDZrTGkxMDA1cGM3ek9SalFrUGNMM3pKbUhfZlZWU2hzckNHX2R5dU5pYmpMNzRkZDNVMEt0ZHNxQmY2QmJwRDVPT2JXbDkwM0FnZHpxbjJyZi03ZzRCZHZiS3NGeEpTYUs0bGR0UDkzejI0XzJN?oc=5",
+   "published": "2026-09-03T12:42:45+00:00"
   },
   {
-   "title": "Nvidia Stock: How $14B Hugging Face Acquisition Could Secure Its AI Dominance",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWVVDSThXWms1LXd6R2dQZ3d6aFBmQVZvbXJydkNQSDVVV0RlMnl3WTdQOWxxTHBBcm85bnp4NGxzVE51bExLR3d1X3ZHMWpoeTNlQ2JURy12Wm5oNm5rTzlNd3ZNNkhaSHJnbTRCZi10V2lKZWg4dm9ELVdrenRneWs1VGo?oc=5",
-   "published": "2026-09-02T17:42:00+00:00"
+   "title": "Nvidia is buying AI startup Hugging Face that was hacked by OpenAI models for nearly $13 billion",
+   "source": "ABC7 New York",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPSjA4S21xOGtFdWdEN2FtZkR0UEpNUEwxTUxNNFpGbC1sZG1BVkgwX192dElzZXZMR19ESDlTRGJmRlVwSjRsODBHN0QteFpybG92RTRrVHpQdHF5akhmNzN3QTJXOFZRNF9NeXJNMVhVM2huZWE0VlJ2THZxMlJZUTZJZmNISVJEbmYtUjlhQTQyLURhay14WGx1dm1jR2RWTEZBOVk2emtkTll2bWtDcg?oc=5",
+   "published": "2026-09-03T14:23:53+00:00"
   }
  ]
 }
