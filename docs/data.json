@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T17:01:19+00:00",
+ "generated_at": "2026-09-04T21:25:18+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "14.0 (p1)",
+   "value": "14.5 (p5)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 0.8,
+    "pos": 4.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.81",
+   "value": "0.83",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 27.7,
+    "pos": 31.3,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.9 pts",
+   "value": "+6.4 pts",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
+   "lean": "good",
+   "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 82.5,
+    "pos": 86.9,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.8%",
+   "value": "+1.7%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 65.0,
+    "pos": 64.2,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 42.1,
+    "pos": 42.4,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -200,7 +200,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 41.7,
+    "pos": 41.9,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,8 +230,8 @@
   }
  ],
  "fund": {
-  "price": 56.05,
-  "day_change_pct": -0.23,
+  "price": 56.04,
+  "day_change_pct": -0.25,
   "sma50": 55.66,
   "sma200": 53.66,
   "high52w": 56.67,
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-04",
-    "c": 56.05,
+    "c": 56.04,
     "t": "neutral",
     "s": 50
    }
@@ -1333,12 +1333,12 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 14.0) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.5) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1384,7 +1384,7 @@
  },
  "income": {
   "ttm_yield_pct": 8.13,
-  "tbill_3mo": 3.92
+  "tbill_3mo": 3.89
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 770.7867,
-  "sma200": 712.16,
+  "price": 770.19,
+  "sma200": 712.15,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 13.96
+  "level": 14.53
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,15 +1516,21 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 19587.18,
-  "dca_return_pct": 30.58,
-  "dip_value": 19353.7,
-  "dip_return_pct": 29.02,
+  "dca_value": 19583.68,
+  "dca_return_pct": 30.56,
+  "dip_value": 19350.47,
+  "dip_return_pct": 29.0,
   "dip_cash_uninvested": 1200.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "Strong job gains signal Fed hike as Trump levels new rate-cut demand",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOOF9yZEh3LUNwbXhOOE05b01rVHlLVld4OXkwYXdOczZxZF9DUTUxVU9Ta3pCTGRla0RfMXZTR1phZEx6aVU0VmRWcGVZZzlsd3dhZF9yYjc0UHFfaUZMNEoxaElSSE1YSzY5aEExTEMzNV9oOVpSSEc1SXlsZ0R5UkF4cFFMTWVxQi1SYk43cDlhU204aklNNzhB?oc=5",
+   "published": "2026-09-04T17:56:40+00:00"
+  },
   {
    "title": "The Federal Reserve's Initial September Inflation Forecast Has Arrived, and It Contains a Glaring Red Flag for Wall Street",
    "source": "Yahoo Finance",
@@ -1532,13 +1538,13 @@
    "published": "2026-09-04T08:26:00+00:00"
   },
   {
-   "title": "Trump says if the Fed doesn't cut rates, he'll stop trading with some nations",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNDEzUC1Bb0lOczVCbDlVWGJ1VlQtWGdrYlRrZ2ozUGhqRzFramtncUZZeEFLTWFVZUMwY19zWHMyR1VmbmphSTVPNDAzb1R5T3MzMGVMZzN5SmVYWXE5QmRaR3BJaXZWX0xTdV9pNGpoN3hVdjNkUFlmc2FCSUNUZ3JBRVMtcVU0M05QQUhDX1lkdi1ORzNGaFZZVjVnWWZtWmZuVms0NXZZY1pwYlRzM3E4NnpVQQ?oc=5",
-   "published": "2026-09-04T14:16:03+00:00"
+   "title": "Week Ahead for FX, Bonds: U.S. Inflation Data in Focus; ECB Expected to Raise Rates",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYUg3NndUYW1HNGpfSzJxNUVyU3A1ZzFVbXhGMjBhVndjbFpZaHM4c0N4NTdsczFkS19XUkFEbHAyazFvbXA4T1RmY2thTUpYZHdMTXZGLTk5d1NuNmJGeGhZWnp4RFdGXzNtakUzWVpBVXhxUDZxOGFPamVmZFRQUkJ4el9ETUgxbTByc25JRGVwcGo4RlhtMTZBeUJfMGFjeC0yb212QXNPZk9wZEU3T0hZU0NSSWM?oc=5",
+   "published": "2026-09-04T15:09:00+00:00"
   },
   {
-   "title": "Trump tells Fed to slash rates or he'll end trade with countries with U.S. surpluses",
+   "title": "Trump doubles down on threat to halt trade with top partners unless Fed cuts rates",
    "source": "CNBC",
    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE52cjlSWm5LQ1doMElfb2xlcWFaUkRoWlV6Smt6dFdRQ3dRUEdaYzNZWl9YVHMza1pxN3JUTklKQ2pMOEVmalhSUGlGMklmOHB6WE9zZWRTakJ0cHUxRGZSajkxclRkbEZ0VkNXeFhqUHbSAXZBVV95cUxPZ1RsQW1NOWNfdUswMm9MTlE3VGtFdmpDc19ZWnR1Mm1BaXZfcGdmcXhYRGpmRDdZZ3FmNl9MOUp0YVJmUVVZTlZLSkFOQVVmRmpCVmdmZ0x3UlY0NXVkYUVCV0pFNGkxUWVLcHQ5WDJhRVNkMnV3?oc=5",
    "published": "2026-09-04T13:56:57+00:00"
@@ -1550,16 +1556,10 @@
    "published": "2026-09-04T14:45:21+00:00"
   },
   {
-   "title": "Not so fast on rate hikes, some Fed officials say",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1xWHBtQmZjbGZySmcteGF0R3VqMVprbjlPbHZhQzdUUi0wRWZNaEhNNmxTWnRqT2ZDdjh5QkV3TGJvTk1PS2FEeW94bFROaTBZbVQzZGg4R3l4aHFWTW1pNWtfc3hWR2VDckxrNXVmZFRWcG0yYnc?oc=5",
-   "published": "2026-09-04T08:43:57+00:00"
-  },
-  {
-   "title": "Week Ahead for FX, Bonds: U.S. Inflation Data in Focus; ECB Expected to Raise Rates",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYUg3NndUYW1HNGpfSzJxNUVyU3A1ZzFVbXhGMjBhVndjbFpZaHM4c0N4NTdsczFkS19XUkFEbHAyazFvbXA4T1RmY2thTUpYZHdMTXZGLTk5d1NuNmJGeGhZWnp4RFdGXzNtakUzWVpBVXhxUDZxOGFPamVmZFRQUkJ4el9ETUgxbTByc25JRGVwcGo4RlhtMTZBeUJfMGFjeC0yb212QXNPZk9wZEU3T0hZU0NSSWM?oc=5",
-   "published": "2026-09-04T15:09:00+00:00"
+   "title": "Job growth rebounds in August, opening door for Fed to act on inflation",
+   "source": "The Christian Science Monitor",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5MOHZjYkxKUEpHMVpyTGt5a3pfVzk3d1VYYWFLX3FfNVgxSXBPVVJCSnFlU1RBTVdaNFctZTBraXNibVRrejJRUDFmLWxucHRVSHhldmJ2TEJ2TVdHeS1UQ3k3b2JmNVFTenBENGozS3cyMzNTR2VKNtIBkgFBVV95cUxQbzNzQUxBS0ktZXZ2M1Jzb3k0aWtoZFpQWjhyMUJydjBHa1BNYkNBMHR4LWFiVVlkSktoU2dicV9FbWVpQk1DS3VvN25DWEl2S1hnc0t3RWlmQlB2TXRBcUh5R055ZlRCanM0VC1qeGhtVFlVQ2NNWUkzdmRid215UkVqYzVVNVNsT3dBMVhHN2Mwdw?oc=5",
+   "published": "2026-09-04T19:11:09+00:00"
   }
  ]
 }
