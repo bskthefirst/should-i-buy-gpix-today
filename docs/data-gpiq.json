@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T21:41:10+00:00",
+ "generated_at": "2026-09-04T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "20.2 (p17)",
+   "value": "19.9 (p11)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 17.5,
+    "pos": 11.5,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.82",
+   "value": "0.81",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 30.5,
+    "pos": 27.9,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.41x (p74)",
+   "value": "1.41x (p75)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 74.2,
+    "pos": 75.1,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.6 pts",
+   "value": "+7.0 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 88.5,
+    "pos": 91.5,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "2.6%",
+   "value": "2.3%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 26.0,
+    "pos": 23.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.8%",
+   "value": "+1.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 56.7,
+    "pos": 59.2,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.66% (-0.07 1mo)",
+   "value": "2.65% (-0.10 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 16.5,
+    "pos": 16.2,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 62.0,
+    "pos": 61.7,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "35 (fear)",
+   "value": "42 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 35.3,
+    "pos": 42.3,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 8d",
+   "value": "CPI in 7d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 56.47,
-  "day_change_pct": 1.0,
-  "sma50": 56.78,
-  "sma200": 54.43,
+  "price": 56.65,
+  "day_change_pct": 0.32,
+  "sma50": 56.76,
+  "sma200": 54.45,
   "high52w": 59.52,
-  "drawdown_pct": 5.1,
+  "drawdown_pct": 4.8,
   "series": [
-   {
-    "d": "2025-12-16",
-    "c": 52.51,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-17",
     "c": 51.63,
@@ -1343,6 +1337,12 @@
     "c": 56.47,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-04",
+    "c": 56.65,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1350,40 +1350,40 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.23 (-0.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.23 (-0.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 42) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.82) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 20.2) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 19.9) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.66%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.65%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-03",
-  "days_total": 715,
+  "end": "2026-09-04",
+  "days_total": 716,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-03",
+  "fg_coverage_start": "2025-09-04",
   "baseline": {
-   "n": 694,
+   "n": 695,
    "avg_pct": 1.93,
-   "median_pct": 2.18
+   "median_pct": 2.17
   },
   "bands": [
    {
@@ -1396,9 +1396,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 139,
-    "avg_pct": 2.61,
-    "median_pct": 2.79
+    "n": 140,
+    "avg_pct": 2.59,
+    "median_pct": 2.76
    },
    {
     "tone": "neutral",
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.12,
+  "ttm_yield_pct": 10.09,
   "tbill_3mo": 3.92
  },
  "distributions": {
@@ -1520,33 +1520,33 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 717.67,
-  "sma200": 657.13,
+  "price": 719.6,
+  "sma200": 657.71,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 20.16
+  "level": 19.87
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 13,
+  "days_until": 12,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 8
+  "days_until": 7
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-03",
+  "end": "2026-09-04",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15000.0,
-  "dca_value": 20459.36,
-  "dca_return_pct": 36.4,
-  "dip_value": 20226.85,
-  "dip_return_pct": 34.85,
+  "dca_value": 20524.57,
+  "dca_return_pct": 36.83,
+  "dip_value": 20291.32,
+  "dip_return_pct": 35.28,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 59,
   "winner": "dca"
@@ -1556,37 +1556,37 @@
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-03T18:14:47+00:00"
+   "published": "2026-09-04T11:32:08+00:00"
   },
   {
-   "title": "Los Angeles District Bans Most A.I. for Students",
+   "title": "EXCLUSIVE: OpenAI agents hijacked German website in previously undisclosed AI breakout this spring",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQb0lsYkxySy1tYUVZRnlHQmN5Q1loNW14dl9oYWZ4UFpWX0N6TGNMdUdTSFRHMDBsMzMwazV2RkFkM01jTGFvbHpJUTk4ZVNzVGZJc3FtaWlHMGViMEp2ZHFUcEZuNmF3MUd3UjF3eEc4ZC04MDEwWmp3RlYzSmFPZTNLTVlpTURsdENEdE1FMlNzRjc1TzFQd2tSSUNoQmtxRF9DQUVIR0Ftams3Zm5KUFZ1dHhrZEtKUFlSQUFyeVozSmxk?oc=5",
+   "published": "2026-09-04T13:20:26+00:00"
+  },
+  {
+   "title": "AI Use in the Job Market Is Creating an Infinite Doom Loop",
+   "source": "WIRED",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBzN0FwM2FMNkV5Sjk0dXF6c1hDZFZUUmEyRm8tMDJRYlVEZnF0MVFzSkQ4dkhCUlVjc1RQUzdrVHVJOS1DQzRuVGd5emlpbnF3OHB1eEFvN0xZNWFBbGpYVWE2eVdmV1Q5TXlaLVF3?oc=5",
+   "published": "2026-09-04T10:00:00+00:00"
+  },
+  {
+   "title": "This city is one of the world\u2019s most important AI hubs. It\u2019s not where you\u2019d expect",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE53UDI3b01qanVXWFV3aGJoTlN3aENvY3RhQ014S0I0TDJHU05QdVdleHJxVUQ1dU5nVlFZenc2TGtPUFlwZzNqR0dzQnZ3QmM0RlZCbVRpUG5NSndjaVFvd1NybzA3NmhRZF82ZE8tQWtOcXFs?oc=5",
+   "published": "2026-09-04T09:00:29+00:00"
+  },
+  {
+   "title": "Why the Hugging Face Hack Should Make You Worry More About A.I.",
    "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOcnVGZFNVdFlpRXBrNmMzYkt1Z2xjTVp6eC1uczFycnVVZWhkbVFocGVVZHJHNlp5UU5CLXdGazVDN1JoTTNFVFNxNkM5cVhNdWhqRTlsYV9udjRheFp0ZnMtU2pEZ1U2dElKMWZBVGRsU0c3bldUNXlQSzlOREUyXzIzektibV93dXMtbDR2QUM?oc=5",
-   "published": "2026-09-03T18:41:57+00:00"
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOVW01WkdOYkJpZEVLSUVvNWt0N1QyS1lQbHlEVFV4MkF6ZUZRY3lqSjRQYU9HSGZ6cjlwM1JXWTJVZmhjN2hRTXlfUlFKVUg1NmRJTzdPamFyUzF6YVJhWnFUZlktdHlDcnowM3dDM3paaGdJRnpxaVlsSVIzMkk5STJEcEY?oc=5",
+   "published": "2026-09-04T00:06:04+00:00"
   },
   {
-   "title": "Sanders proposes ban on \u2018artificial superintelligence\u2019 after rogue AI incidents",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNNUM2S0d4bnRiVmNRdE5JaHRVb0xCYXFTWkh1dnZPSWI1a0VoMEtlNzRZSzJHZG1PNjZobnBzV2licHEwVWg0RkdIenFEeV96eDRWYTZzXzhXZ2pUZWRPRHhBdENmRnIwNEtnUVZNekE5djd4TzZ6NnBQRHhkaFdUT3VTOWphUHdzWFR4d1NLc0tzNmZ4MDRPWFduRXZMeWhHYmpndGRhYm10S2sweEt3VE5oeGxtdmUxQnJMelhtbzlzZTVZZklV?oc=5",
-   "published": "2026-09-03T16:00:00+00:00"
-  },
-  {
-   "title": "Zuckerberg opposed White House AI proposal in private call with Trump",
-   "source": "Politico",
-   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNX05ZdHdWOW1wVXU1My11RHBMX3Z1Q19STWRjVkpRemFrQmhqRkI3UnlXQVRscnA0SjRTSTdWOVhKQ3ZKUzkwX2J4Z0YwVW9yNXZpRnRwZGFNREpoUW1KeG11OF82c3VOeEg3QjAweWp5WHlGclRFVU9lSl9JZ19QWWM1OEtkOHptTTR3N1hENmZsam9oaGFYaC1aSE53SHpDTF8xcEpDdHFGWmhwdzdqU0hLSTUzaWFBYTNhQ0haMU1CSnRBMzVTV3diQ3RDWUJ4eEs0Wmg2SkM4eWk5enBFRFdsYkc?oc=5",
-   "published": "2026-09-03T18:32:00+00:00"
-  },
-  {
-   "title": "Sparks Fly: NVIDIA Accelerates Local AI at IFA 2026",
-   "source": "NVIDIA Blog",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOc19tWkhaOGg5NWFFWGN5R0dnVkctSk1OTlQzdlJFeGxyOFdpcDl2VllVZTU3Vl9CeWZLTEkxZ3MtUG9Xam4yeVlvU0wtZTdaWmtUOFppY0ZDdVFWczNNWWVQd1FVM05XS09NZ3diemlBYlNoc0RCcUttaTB4VUozci1qbw?oc=5",
-   "published": "2026-09-03T16:05:29+00:00"
-  },
-  {
-   "title": "Widespread AI outage underway",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBmMzJDQXFSRzZoazlBWjJxOVdrZS1DUlR1S0xLM0xvTzAtRzBBUFBNeTk1RzZXM1l0MGZaenVBOFY4WGtXeDUwc2ZRQXZSelBGZWlQcFFoTHFwMDBSRGp4MDlIZGhCRXBkZjZOQg?oc=5",
-   "published": "2026-09-03T16:38:44+00:00"
+   "title": "Mayor Mamdani and Chancellor Samuels Put Students First with Nation\u2019s Broadest Generative AI Moratorium in Schools",
+   "source": "NYC.gov",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxONzE3SExkNzRLMmJHaFJWZk9UcmpMX0w1Ul9NNzcxQUpBZUlycVFpRDN3OUo3Q2dzWUlYNGdyLV95ZHM4TWpVc2tEbW5YVWRYOElwbGdTbFAzbTFaMzQ3QnB6cjBhcUE4TmJKTWhvRGtzVm5WZi1xZ1NfRkJMQUFnejF4TzRIczI1elRMejZQUGlHTDdhdGVfX1pIZU1POVo1TTZ0RWdLNDFoTHVrZVU2OA?oc=5",
+   "published": "2026-09-02T15:41:53+00:00"
   }
  ]
 }

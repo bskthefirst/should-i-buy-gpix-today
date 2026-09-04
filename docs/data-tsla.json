@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-03T21:41:11+00:00",
+ "generated_at": "2026-09-04T14:30:17+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "45% ann. (p53)",
+   "value": "51% ann. (p74)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "Realized volatility mid-range for TSLA's own past year.",
+   "lean": "good",
+   "note": "Realized volatility elevated vs TSLA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
    "viz": {
-    "pos": 53.2,
+    "pos": 73.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "23.2%",
+   "value": "27.9%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 46.4,
+    "pos": 55.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.3 (p2), F&G 35",
+   "value": "VIX 14.1 (p1), F&G 42",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 8d",
+   "value": "CPI in 7d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 376.365,
-  "day_change_pct": 5.42,
-  "sma50": 358.37,
-  "sma200": 399.83,
+  "price": 353.1787,
+  "day_change_pct": -6.16,
+  "sma50": 357.93,
+  "sma200": 399.55,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 23.2,
+  "drawdown_pct": 27.9,
   "series": [
-   {
-    "d": "2025-12-16",
-    "c": 489.88,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2025-12-17",
     "c": 467.26,
@@ -1212,7 +1206,13 @@
    },
    {
     "d": "2026-09-03",
-    "c": 376.365,
+    "c": 376.37,
+    "t": "neutral",
+    "s": 50
+   },
+   {
+    "d": "2026-09-04",
+    "c": 353.1787,
     "t": "neutral",
     "s": 50
    }
@@ -1222,19 +1222,19 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 45%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 51%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-03",
-  "days_total": 715,
+  "end": "2026-09-04",
+  "days_total": 716,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-03",
+  "fg_coverage_start": "2025-09-04",
   "baseline": {
-   "n": 694,
-   "avg_pct": 2.66,
+   "n": 695,
+   "avg_pct": 2.67,
    "median_pct": 0.33
   },
   "bands": [
@@ -1248,9 +1248,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 165,
-    "avg_pct": 9.02,
-    "median_pct": 4.86
+    "n": 166,
+    "avg_pct": 9.03,
+    "median_pct": 4.89
    },
    {
     "tone": "neutral",
@@ -1274,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 376.365,
-  "sma200": 399.83,
+  "price": 353.1787,
+  "sma200": 399.55,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 45.0
+  "level": 51.0
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 13,
+  "days_until": 12,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 8
+  "days_until": 7
  },
  "earnings": {
   "next": null,
@@ -1298,42 +1298,30 @@
  },
  "backtest": {
   "start": "2022-09-06",
-  "end": "2026-09-03",
+  "end": "2026-09-04",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 30989.87,
-  "dca_return_pct": 48.28,
-  "dip_value": 30986.34,
-  "dip_return_pct": 48.26,
+  "dca_value": 29080.71,
+  "dca_return_pct": 39.14,
+  "dip_value": 29077.4,
+  "dip_return_pct": 39.13,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 205,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Tesla Stock Has Been on a Hot Streak Ahead of Big Event This Week",
-   "source": "Investopedia",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNYVRQY0NlUU84S2ZraXRTMTFLZXB2dGtlX3hpaHltSExPd0lvM0MtakNQQjBMNFdRSlFMYjgtNUxTOUJrTWdaVGVYdFc4dWJ6MC1oUW5oX1N3Q3F2WGVqZnVtYjZNaUdKZGVjVmI2c01Da2gwemFBNk40VTROTzRwSm9WNlp1d2JnR19XekktUnZReDQ3bEhWWW5qeWVWM3pCZE9nYmtNRDNpcUVfRTktRWRxOFZ2YWFHNnk0TmVsQ0M?oc=5",
-   "published": "2026-09-03T15:00:00+00:00"
+   "title": "Tesla\u2019s stock falls as Cybercab launch lands with a thud",
+   "source": "MarketWatch",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNcjVfZ0pSV3ZXbENpLTByRW5DY1VhTXFBOE9pRzZ5czJSYjVWd1JpOGRwb0EySzBSTGRwcnl2eTRGM2h1R29Cdk5WV0MxMmdZSnRRWG51d21XYU9Va0l0M0l6a29lTGx1WGhURk9DTDFxVlJmOVRZUlN6X04wVWc4ZTE4VnFtYVVBTmFmelB2YmFTaFA1TVFhNG1hc28xMWM?oc=5",
+   "published": "2026-09-04T13:25:00+00:00"
   },
   {
-   "title": "Tesla (TSLA) Stock Surges Ahead of Cybercab Launch: The Bull and Bear Case",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOSGhacnlXMndGcUtpV0VqWmpZeG41bGZPVHZxNDhMZEZzVks5bHE0aUY1SzFmSmZHNlE4dUJoQl9hTm5XZHptbVVLb1F0MkpjYjlNNGR2SmdEUUhmUnM5eDc3T1hBMWxRdFFVNHJQTGQ1bUxYMWJ4VFBhRnhDZHpBUzV4RHVpOFdwTksyeg?oc=5",
-   "published": "2026-09-03T20:13:00+00:00"
-  },
-  {
-   "title": "Why Tesla Stock Surged 18% in August -- and Why the Robotaxi Story Is Just Getting Started",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOQXgxZWUyQ2dRS3A3a25oRWZJTERSdzdNeTc2WEttYzJNUjA2Z01sdHQ3aEd6bGNYemJXN0VlekFXWFRINFBoZVRiVXZJTzRSVDV5RXV2TnBzbzc4X0Y4cEZmUldxZmJvdUpqYXdCa01tSkpsSk9hZHh1d3VHNkd3TkpuQTdyR2N2QnZQSlVHOFdxUUdu?oc=5",
-   "published": "2026-09-03T10:12:03+00:00"
-  },
-  {
-   "title": "Why is Tesla stock rallying 4% today?",
-   "source": "Investing.com",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOSkV6SW5yRWZFVmE1aWlidkxQbHhVdTFKa0dGRzFlblZOcWdzdG1UMnpnMDJZTFNxdGVIMlJlM1JSZUtCOE9TVTVRNGFGekNZeUgyNndta1BYWncwVzRNdFJHaU1lR05Gd1ozWDNXV2ZNRDIweHRFUVlRa2dFcEhvQ1RHU1J3b2hkcEltREdMVzdpa19qVndveUhmc3FTdw?oc=5",
-   "published": "2026-09-03T13:56:23+00:00"
+   "title": "TSLA Stock Slips Overnight As Safety Regulator Scrutinizes Cybercab \u2014 Retail Fumes Over Event Blackout",
+   "source": "finance.yahoo.com",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQakotNEd1SHEyVUpSWk5xUE9xLUlZdnVKMWNXcXJzUzgzR3NUSmtzeXdMN3pkaGlhT0pIRkZCUHQ0VFBKbmZxQkY2V0FSSnRkSVQwdk04bjVlb01QdGZLcGMtRHo2dTZUQ2Z4UjlfblZmZmlJTjJZN3ZQLXpDRE54aUR0dDlOdHdCdGZnc0Z5STZIQTNFc2lnNkRacVB0NHc?oc=5",
+   "published": "2026-09-04T01:58:00+00:00"
   },
   {
    "title": "Here\u2019s Why Tesla Stock Is Up 7% Today\u2014Its Best Day In Months",
@@ -1342,10 +1330,22 @@
    "published": "2026-09-03T19:38:47+00:00"
   },
   {
-   "title": "Tesla\u2019s stock is rallying as investors prepare for a \u2018storm of Cybercabs\u2019",
-   "source": "marketwatch.com",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPV1RyZmJEci1JdndPVE45WVFiLTBXOHhUaUo2MHlHdURwNmFZLThsYWt4SjlBS0hzaHJFTXRyUmZRR3pQUTdmeTlCOGtKb25fRTZsbTRpSWlic1hmN2hyejNnYlVQeVRQYmNET0dISk11Zl82ajh0MGVZWFNDVlFnakNSbXRjaWg3MjJCS3lmNVBxcVdYWkU4THR3TkFqWnBDd3NkYWRfZGxMZDBpcHlSajVEdw?oc=5",
-   "published": "2026-09-03T16:50:00+00:00"
+   "title": "Tesla Stock Has Been on a Hot Streak Ahead of Big Event This Week",
+   "source": "Investopedia",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNYVRQY0NlUU84S2ZraXRTMTFLZXB2dGtlX3hpaHltSExPd0lvM0MtakNQQjBMNFdRSlFMYjgtNUxTOUJrTWdaVGVYdFc4dWJ6MC1oUW5oX1N3Q3F2WGVqZnVtYjZNaUdKZGVjVmI2c01Da2gwemFBNk40VTROTzRwSm9WNlp1d2JnR19XekktUnZReDQ3bEhWWW5qeWVWM3pCZE9nYmtNRDNpcUVfRTktRWRxOFZ2YWFHNnk0TmVsQ0M?oc=5",
+   "published": "2026-09-03T15:00:00+00:00"
+  },
+  {
+   "title": "Tesla Stock Slips After Meh Cybercab Launch. Here\u2019s What We Know.",
+   "source": "barrons.com",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQUV9aenlYTkZwSnhGNkxmdjJqanRSbGV5ZzM1OTNubnJLcHhNZGZ3YUkxUG9BOVdFX2UzRjVsWDdYUXdQaFNHX2VmS2lRTjNNdTZtSVBHczJlQzVMUGwtVnF5MmxWNnUxaEc3VEJDY0MyNnQyOUZiSTdHUVJVWTBfbQ?oc=5",
+   "published": "2026-09-04T13:06:00+00:00"
+  },
+  {
+   "title": "Dow Jones Futures Fall, Techs Rise After Market Rally; Tesla Cybercab, Jobs Report In Focus",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPR0M3ZTZtdEdVYUFxdzNzM0N5cGR1Tm1EdWlwdmF4ZDAtVk1BZklrRERfR3I1b0syUUh5TkNQSUIyLURTVURBNWhnNHdnOWR2UmltNkw5R0EyemFuWExZekFOaTBQQ0xnWnVvREZhbEdTa3VyQjI4V1BicHItUzhGTDJTbEgzNk5XZHBZSHFwZmd2SnYwN0NKMnJZYUw1TG91X1ZJR2UxakxReDhKSjdoOWF4a28?oc=5",
+   "published": "2026-09-04T12:13:00+00:00"
   }
  ]
 }

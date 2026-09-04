@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-03T21:41:13+00:00",
+ "generated_at": "2026-09-04T14:30:18+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -15,8 +15,8 @@
   "label": "Mild tailwind - fine day to buy",
   "summary": "A validated single-stock condition is in your favor on NVDA today. Nothing dramatic - and single-stock risk still dwarfs entry timing. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
   "tone": "ok",
-  "score": 1.5,
-  "score100": 59,
+  "score": 2.5,
+  "score100": 66,
   "weights_max": 4.5
  },
  "meter": {
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "45% ann. (p91)",
+   "value": "46% ann. (p92)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "NVDA's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on NVDA): elevated single-name chaos tended to mark better entries on the calibrated name.",
    "viz": {
-    "pos": 91.3,
+    "pos": 92.1,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "3.0%",
-   "score": 0.0,
+   "value": "0.4%",
+   "score": 1.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "A modest 3.0% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "lean": "good",
+   "note": "NVDA is at (or within a whisker of) its 52-week high. Under the TSLA single-stock framework this is MOMENTUM (+1.0), provisional on NVDA \u2014 the opposite of the index-fund at-the-high read.",
    "viz": {
-    "pos": 6.0,
+    "pos": 0.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.3 (p2), F&G 35",
+   "value": "VIX 14.1 (p1), F&G 42",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 8d",
+   "value": "CPI in 7d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 228.45,
-  "day_change_pct": 1.8,
-  "sma50": 209.87,
-  "sma200": 196.46,
+  "price": 234.43,
+  "day_change_pct": 2.62,
+  "sma50": 210.65,
+  "sma200": 196.7,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 3.1,
+  "drawdown_pct": 0.6,
   "series": [
-   {
-    "d": "2025-12-16",
-    "c": 177.72,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2025-12-17",
     "c": 170.94,
@@ -1215,25 +1209,25 @@
     "c": 228.45,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-09-04",
+    "c": 234.43,
+    "t": "ok",
+    "s": 66
    }
   ]
  },
- "flips": [
-  {
-   "label": "Momentum: new high",
-   "direction": 1,
-   "text": "NVDA at $234.29 (+2.6% from here) = back within 0.5% of the 52-week high (+6 pts)"
-  }
- ],
+ "flips": [],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-03",
-  "days_total": 715,
+  "end": "2026-09-04",
+  "days_total": 716,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-03",
+  "fg_coverage_start": "2025-09-04",
   "baseline": {
-   "n": 694,
+   "n": 695,
    "avg_pct": 5.55,
    "median_pct": 3.38
   },
@@ -1255,9 +1249,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 368,
-    "avg_pct": 4.03,
-    "median_pct": 1.99
+    "n": 369,
+    "avg_pct": 4.04,
+    "median_pct": 2.01
    },
    {
     "tone": "caution",
@@ -1274,22 +1268,22 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 228.45,
-  "sma200": 196.46,
+  "price": 234.43,
+  "sma200": 196.7,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 45.4
+  "level": 45.6
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 13,
+  "days_until": 12,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 8
+  "days_until": 7
  },
  "earnings": {
   "next": null,
@@ -1298,19 +1292,25 @@
  },
  "backtest": {
   "start": "2022-09-06",
-  "end": "2026-09-03",
+  "end": "2026-09-04",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 89178.0,
-  "dca_return_pct": 326.69,
-  "dip_value": 89384.5,
-  "dip_return_pct": 327.68,
+  "dca_value": 91512.39,
+  "dca_return_pct": 337.86,
+  "dip_value": 91724.28,
+  "dip_return_pct": 338.87,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 181,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Nvidia's investments grow to $99 billion as chip giant becomes major backer of AI companies",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4xY1VMRWpNNnF5TVZFV3I1c2pRVURDaEN6VERDQTctRXpsdWxQLUxqanlZUWhlTnl1ekRvNWUzdS0xMHl3dlBfVUdvcWFqSUw1RnBnTzdoMUtSV2ZBb3NCbTFUWmZXX2VnaGthTTFKTzN2UFVNS0lmNNIBfkFVX3lxTE5vS2VVMndVYUJ6SkU0aC14VzMwY3dKYkNTekowZnJZUW9zNllkeTg5d0kyNlk3Y0pNei1FOHNqZ2NKbFV1QWNrbWpocGRTLUpWTmZWR185dlh0S3VCdTd0Rjdpc1lSX1o0NDI0cTNDOThSMXVyRkxLMFpkZjl4QQ?oc=5",
+   "published": "2026-09-04T08:08:51+00:00"
+  },
   {
    "title": "Sparks Fly: NVIDIA Accelerates Local AI at IFA 2026",
    "source": "NVIDIA Blog",
@@ -1318,10 +1318,16 @@
    "published": "2026-09-03T16:05:29+00:00"
   },
   {
-   "title": "Hugging Face approached Nvidia\u2019s Huang weeks ahead of $12.9B acquisition, CEO tells CNBC",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdkNmN2xvLUV5ZmwxTUJ2dHV0dGtLT0VwcU1EZFRMWGhMTjNpbUNQeDBoTm5FMkh4SktTVnoyWXFLVk1VSzFSV2Mtd0xuYkd4ei03VVdsUlJEa0k4MlJjRlJYRmtiOHlrcDliRmF4MmJZcl9iRExOZUtxck9mYmVuWG5JWHRWbTd6dnBUcXpkeXNmLVpxTC12TmEtQ1duUmh6SnNpU1BuY0_SAa4BQVVfeXFMTjByalk1Q0lUekR1RXVHeWxTakJPZ2htN0syWlIzWHhHRU5hR2xycjhtSTktd19BTEJiX1hjdFA1RW9JdzhYcUwyempqcV9GcWRqNjVCQVBUMUhKS0xGSXE0NENVOEZHYmhlRWVndm9LTGVOd09sY2Vtc08xRi1mX2lJRVYxVGNXblJhV1ptRmNiVmMyUXJxSW9OZ2t1UDBsR1R4UG9DOTRrazYxZEhR?oc=5",
-   "published": "2026-09-03T12:04:26+00:00"
+   "title": "After Earnings, Is Nvidia Stock a Buy, a Sell, or Fairly Valued?",
+   "source": "Morningstar",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPTF9IOEpMNE1RdnN0YlhSZ21LMnZ2T3V4dG0tUGVURFd0THFHYllyc1dmdFI5a19jX2xTdmFjZlkteW1jMGxGbUswaDVkRmRwMjk5S0RtUzV4MWF0eU03SmxjNjZrVTNRU3Q4dUJHY1hELVFSZXB5Z05tTndlbTNMQXlTV0kyZWZsUUdkVV9JOExoRjBvZEJheXAyMmNPLXJ1SmNUOA?oc=5",
+   "published": "2026-09-04T08:12:09+00:00"
+  },
+  {
+   "title": "Nvidia buying Hugging Face for nearly $13B",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB6YkkzNzZQYmxTWHo0d243SlhYWFJQWlpaczk5eU1rdFoxZjJZNlpaNHFheVlfREp5VU5ib09TbjNmdHBxQmlOMElmM3Rmc2wyZVFWVG1lcVd4ZUw2d0RtRGdNYmVscW8?oc=5",
+   "published": "2026-09-03T19:36:39+00:00"
   },
   {
    "title": "Nvidia Buys Hugging Face in $12.9 Billion Deal",
@@ -1330,22 +1336,10 @@
    "published": "2026-09-03T18:38:58+00:00"
   },
   {
-   "title": "Nvidia confirms $13 billion acquisition of open-weight AI platform Hugging Face",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOc2FYMnA1eEs4OGhIcmw4MTdSU3FBcmtJbkJjUHN2TDNCOUxOSnhYV0tfVWUwU2M2TnFieFBkX3dCS1phdjVKUTMtMVhGeVcwMVlkVV9BNVgyX3h5dVAwY1c5dlFMWVA3ZGxjU21od2ZIcFVBVWg5MjVtb1RrbzlDLW92Rkk0aDZaUHlXQXF1TmpFMy1vSk1wbVNIeGNiNnZuSEpWa2RNZ3ZsYm9BbWdUT191RXdNQXVaQ1QtU2Z0VF9vMFZwVlpzMnJZSzE3TFo1?oc=5",
-   "published": "2026-09-03T20:18:03+00:00"
-  },
-  {
-   "title": "Industry Insights: NVIDIA, Hugging Face and the $399 Microduck Robot",
-   "source": "A3 Association for Advancing Automation",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQY0NrYzhmbDc1c0poU2VyQTVBU2JTYlRCWGN2RlZ3Q1FVeHhPUERJcUJiRTdQc2dHZGJUNy1LYmtlam9DSmkwTlAzdjBTUG9JT3lYUzhUbjJjb2I1WHZyZU94NXFIVzVvNEVZVXZjSkxoMGIxYXJGZVZsUmpfUURpN1B4dElaVEI3RmY0bU9DbmZPT1NpM1pmdmJYeGlUcWNHYkNYU2tDZXQwaWdwbDk0TkVrUTNPbmRMMi14X0laRnpUN1lMMWJSNG5B?oc=5",
-   "published": "2026-09-03T19:22:56+00:00"
-  },
-  {
-   "title": "Nvidia bets $13 billion on open AI models with Hugging Face deal",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPSktMTEFzVUpJM09CZGMxcnEtMVJHTElxMllESE9QbHdMbjl4MmQ2TjJvSjRXY1Q3RUVmNGMxQ2xIMTVtOWhnVHYyWGluNmNDektRcVloUmZfTmdWMDJyMFRrTjZHYzl6aUYyd1JYM3hQenBmeFJ1N3FleW01SF9HeFVSZ3oxMlBsS3BrcHZiblZBWTNSWDQyMzdSWGMwMnJ3NnNTbG14R3FTb1BUdGc?oc=5",
-   "published": "2026-09-03T17:28:13+00:00"
+   "title": "The Stuff AI Is Made Of: A Human Ecology of Artificial Intelligence",
+   "source": "College of the Atlantic",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdjM1RVVDNFFfaGFzTnE1OXNYT1Mzc1VndlMwVE0xemE4NUhTRkc1R3c1VGc4TWZkaVU3b25ER0RwZDNvcVlraWxLWHNaNVo0TnpXZFFOU2lFVXdWTjZ5YWhEX292S0hPV1E1YWtCRGczN0ZJbWhTSDFWcGxTY21PRFQ3dmF1NWZPWHJGNHJhLUFOaDVjbmlVTg?oc=5",
+   "published": "2026-09-04T13:26:38+00:00"
   }
  ]
 }
