@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T14:30:19+00:00",
+ "generated_at": "2026-09-04T17:01:25+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 83.8,
+    "pos": 85.1,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -55,7 +55,7 @@
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 7.9,
+    "pos": 7.5,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "16.1%",
+   "value": "15.9%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 16.1% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.9% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 32.2,
+    "pos": 31.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "downtrend",
+   "value": "uptrend",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "good",
+   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.1 (p1), F&G 42",
+   "value": "VIX 14.0 (p1), F&G 42",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 334.555,
-  "day_change_pct": -1.33,
-  "sma50": 346.52,
+  "price": 335.21,
+  "day_change_pct": -1.14,
+  "sma50": 346.53,
   "sma200": 334.78,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 16.2,
+  "drawdown_pct": 16.0,
   "series": [
    {
     "d": "2025-12-17",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-04",
-    "c": 334.555,
+    "c": 335.21,
     "t": "caution",
     "s": 41
    }
@@ -1222,7 +1222,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.92 (+7.3% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.92 (+7.1% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1279,13 +1279,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 334.555,
+  "price": 335.21,
   "sma200": 334.78,
-  "above_200d": false
+  "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 20.1
+  "level": 20.0
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1307,15 +1307,21 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 43976.44,
-  "dca_return_pct": 110.41,
-  "dip_value": 44060.89,
-  "dip_return_pct": 110.82,
+  "dca_value": 44062.54,
+  "dca_return_pct": 110.83,
+  "dip_value": 44147.15,
+  "dip_return_pct": 111.23,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Why Google told drivers to drive the wrong way on purpose",
+   "source": "SFGATE",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFAxaG94UEh6ZDQ4RjJSaG1qN2tEczVIZVRmWjkwc2JNLXBPZkRVWVltLWhORUtfa0wySUFQSU5NMUVGZVgwajdRR1VYNkNqSlBhVE9XajNfZUN0RjNUQjBXaWk5XzRuYjFsZllWU1JkOExvOE01S093YlBrckN3Zw?oc=5",
+   "published": "2026-09-04T14:03:50+00:00"
+  },
   {
    "title": "Use your voice to get more done in Gmail, Docs, and Keep",
    "source": "blog.google",
@@ -1323,10 +1329,10 @@
    "published": "2026-09-03T16:04:55+00:00"
   },
   {
-   "title": "Why Google is helping homeowners buy heat pumps",
-   "source": "Fast Company",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQNHBrUm5WbXgwc2doTDFpMDNaS1l4UHQ2MXYweVRuOG0zcW00YWlocDhGWFJNRWlidWN0ajVGUy1BaVNJYllxc3laTHdzemtrZE5NUGFVZ3Ewd0ppMDNKel9MUzFHVDFVYnlFdW8yRi1vbVBkelAzeXpXQi1rZ0lVMlQ1TFM4M0N0RTdFaA?oc=5",
-   "published": "2026-09-04T08:46:48+00:00"
+   "title": "Back-to-school shopping brought to you by AI \u2014 how Amazon, Google are positioned to win",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQcHozQWFsUllQV0ZwRkpITWtza2w4ZFgySDJUb3g1VkdwOWtIYUoyX1ZCVEdkSTQxZDF3akt1UkY1U2VpZVpweVIxWmdfWHFUZHV0cDNDd2o4T3E3TS1PVDd1WUsxZlU4TE5xZ2J3V0Y1dVUwU1p4b21oSjYtRXNZYWNody1kMjNGMjdtZFdRbXRRbkpqLVVkS3NLWXk3ZnJ4NEVndlFxVUNsWjZKZFpGZVUyclJsNnMtNWxPbjJ3?oc=5",
+   "published": "2026-09-04T14:47:15+00:00"
   },
   {
    "title": "Google Releases Chrome Update to Patch Actively Exploited V8 Zero-Day",
@@ -1335,22 +1341,16 @@
    "published": "2026-09-04T07:18:00+00:00"
   },
   {
+   "title": "Why Google is helping homeowners buy heat pumps",
+   "source": "Fast Company",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQNHBrUm5WbXgwc2doTDFpMDNaS1l4UHQ2MXYweVRuOG0zcW00YWlocDhGWFJNRWlidWN0ajVGUy1BaVNJYllxc3laTHdzemtrZE5NUGFVZ3Ewd0ppMDNKel9MUzFHVDFVYnlFdW8yRi1vbVBkelAzeXpXQi1rZ0lVMlQ1TFM4M0N0RTdFaA?oc=5",
+   "published": "2026-09-04T08:46:48+00:00"
+  },
+  {
    "title": "The Google Ad Tech Remedies Matter to You, Too",
    "source": "Tech Policy Press",
    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNeDJWSE9uaVlEWWtaZHgydFlQY2VHYnhyY2JSS1M3Q2FCWGxWUXhmTVZ6WXJKUmFxRHNkSU5fd01UeElMTW1BbkM0RjBuVEl2SEJVT1ljZjMzYVhWdWhERjNZSEdxWU44SG9zNXF6Y3hjb1dPNTMzZXo5dENIaXlVVg?oc=5",
    "published": "2026-09-04T13:01:13+00:00"
-  },
-  {
-   "title": "Is Google paying for Cypress Solar\u2014or are you?",
-   "source": "Arkansas Times",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOTGdESFZvb04tU0dhUEpDWE0zVWwxVnA4NlEyQkNFM0w5WDB5MW42MkNGcmJNc2t2MDNaZVdtcWhpZTFnVGJQOHB0U2RYbUdvVHhTSUk0ckt3MTNkejlkYnFwNjdpNVNmcTd4QXZTYkIyb1JSbjU5ek1YdDR4b0Q5bktGOUZvWEdNQlRBZ1NNczJiR2JVNXc?oc=5",
-   "published": "2026-09-04T13:49:50+00:00"
-  },
-  {
-   "title": "Google patches actively exploited Chrome zero-day (CVE-2026-85046)",
-   "source": "Help Net Security",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNZkZ0bk8yX3d4eF9fei1QZUhLbjZLVFNGRFJHLVVfUnItRkk2UldsNkdTMzVmdGpaNGJPUklOR3pEWmljZ2xlSU84d3R2Q1g3N2pxZDlVM2tyaWVzVEdUNHVJOVJCaTljYXVIb3hDbkVwbWloVXRBMEJxSUxVU1RFRkYtYW8wMVQw?oc=5",
-   "published": "2026-09-04T12:09:13+00:00"
   }
  ]
 }

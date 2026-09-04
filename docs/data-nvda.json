@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T14:30:18+00:00",
+ "generated_at": "2026-09-04T17:01:24+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
@@ -12,11 +12,11 @@
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated single-stock condition is in your favor on NVDA today. Nothing dramatic - and single-stock risk still dwarfs entry timing. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
-  "tone": "ok",
-  "score": 2.5,
-  "score100": 66,
+  "label": "No edge either way",
+  "summary": "None of the scored NVDA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 4.5
  },
  "meter": {
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "46% ann. (p92)",
-   "score": 1.5,
+   "value": "45% ann. (p89)",
+   "score": 0.0,
    "weight": 1.5,
    "lean": "good",
-   "note": "NVDA's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on NVDA): elevated single-name chaos tended to mark better entries on the calibrated name.",
+   "note": "Realized volatility elevated vs NVDA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
    "viz": {
-    "pos": 92.1,
+    "pos": 88.9,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "0.4%",
-   "score": 1.0,
+   "value": "1.7%",
+   "score": 0.0,
    "weight": 1.0,
-   "lean": "good",
-   "note": "NVDA is at (or within a whisker of) its 52-week high. Under the TSLA single-stock framework this is MOMENTUM (+1.0), provisional on NVDA \u2014 the opposite of the index-fund at-the-high read.",
+   "lean": "neutral",
+   "note": "A modest 1.7% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 0.8,
+    "pos": 3.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.1 (p1), F&G 42",
+   "value": "VIX 14.0 (p1), F&G 42",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 234.43,
-  "day_change_pct": 2.62,
-  "sma50": 210.65,
-  "sma200": 196.7,
+  "price": 231.49,
+  "day_change_pct": 1.33,
+  "sma50": 210.59,
+  "sma200": 196.69,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 0.6,
+  "drawdown_pct": 1.8,
   "series": [
    {
     "d": "2025-12-17",
@@ -1212,13 +1212,24 @@
    },
    {
     "d": "2026-09-04",
-    "c": 234.43,
-    "t": "ok",
-    "s": 66
+    "c": 231.49,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
- "flips": [],
+ "flips": [
+  {
+   "label": "Top-decile volatility",
+   "direction": 1,
+   "text": "20-day realized vol above 45% annualized (now 45%) = top decile of its year (+9 pts)"
+  },
+  {
+   "label": "Momentum: new high",
+   "direction": 1,
+   "text": "NVDA at $234.29 (+1.2% from here) = back within 0.5% of the 52-week high (+6 pts)"
+  }
+ ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
@@ -1250,7 +1261,7 @@
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
     "n": 369,
-    "avg_pct": 4.04,
+    "avg_pct": 4.03,
     "median_pct": 2.01
    },
    {
@@ -1268,13 +1279,13 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 234.43,
-  "sma200": 196.7,
+  "price": 231.49,
+  "sma200": 196.69,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 45.6
+  "level": 44.9
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1296,20 +1307,20 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 91512.39,
-  "dca_return_pct": 337.86,
-  "dip_value": 91724.28,
-  "dip_return_pct": 338.87,
+  "dca_value": 90364.72,
+  "dca_return_pct": 332.37,
+  "dip_value": 90573.97,
+  "dip_return_pct": 333.37,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 181,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Nvidia's investments grow to $99 billion as chip giant becomes major backer of AI companies",
+   "title": "Why Nvidia's 'defensive move' to acquire Hugging Face is about much more than chips",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4xY1VMRWpNNnF5TVZFV3I1c2pRVURDaEN6VERDQTctRXpsdWxQLUxqanlZUWhlTnl1ekRvNWUzdS0xMHl3dlBfVUdvcWFqSUw1RnBnTzdoMUtSV2ZBb3NCbTFUWmZXX2VnaGthTTFKTzN2UFVNS0lmNNIBfkFVX3lxTE5vS2VVMndVYUJ6SkU0aC14VzMwY3dKYkNTekowZnJZUW9zNllkeTg5d0kyNlk3Y0pNei1FOHNqZ2NKbFV1QWNrbWpocGRTLUpWTmZWR185dlh0S3VCdTd0Rjdpc1lSX1o0NDI0cTNDOThSMXVyRkxLMFpkZjl4QQ?oc=5",
-   "published": "2026-09-04T08:08:51+00:00"
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBud0FiNkhvS2wyMUhqdFFKR2RCdkRRbGl0VXZ5Y3Uwc3lOLVZrZFVuVUlIelkyLXoxVEJRVkhHTm9KOVZBXzNCallnell5MVg1clhwMWhRVExfUGRuLWdTQWxCRnVSdDRETUpOYjN1LVdlZEVpTEHSAXtBVV95cUxQNWNHaE1RcFhTVGpWSVFHajMxQjhrTklWSFotSmo2S1ZVWjFBOXYxMTc4M09HOVlCWVQ3cGhfM18zSE44X19qZ2FOWlYxbzVCT1NqWTZ4MEFNMjV6dm5pZzRVbkx5bVdZMVRlbjVpMy1weEZJeWE2RGtuWGc?oc=5",
+   "published": "2026-09-04T11:00:01+00:00"
   },
   {
    "title": "Sparks Fly: NVIDIA Accelerates Local AI at IFA 2026",
@@ -1318,28 +1329,28 @@
    "published": "2026-09-03T16:05:29+00:00"
   },
   {
-   "title": "After Earnings, Is Nvidia Stock a Buy, a Sell, or Fairly Valued?",
-   "source": "Morningstar",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPTF9IOEpMNE1RdnN0YlhSZ21LMnZ2T3V4dG0tUGVURFd0THFHYllyc1dmdFI5a19jX2xTdmFjZlkteW1jMGxGbUswaDVkRmRwMjk5S0RtUzV4MWF0eU03SmxjNjZrVTNRU3Q4dUJHY1hELVFSZXB5Z05tTndlbTNMQXlTV0kyZWZsUUdkVV9JOExoRjBvZEJheXAyMmNPLXJ1SmNUOA?oc=5",
-   "published": "2026-09-04T08:12:09+00:00"
+   "title": "Nvidia is driving the AI boom. Good",
+   "source": "The Economist",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPYzVrYWFJSldGNkxRaTBicmg5M2lZYkJSWFhPeDNwT2w3NnYtcE5BSXJLOF9tUXE0aDdfTWltZmdOLTJqU3AtUTlGbXFxcG5rdEh6UkZjSV9iX2Y3X2hXQ1BjejY1NmI5RkdqQ2RUN01ZWFgySWJDVkc4WEtGa05WOVNyeTg4UQ?oc=5",
+   "published": "2026-09-03T09:57:51+00:00"
   },
   {
-   "title": "Nvidia buying Hugging Face for nearly $13B",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB6YkkzNzZQYmxTWHo0d243SlhYWFJQWlpaczk5eU1rdFoxZjJZNlpaNHFheVlfREp5VU5ib09TbjNmdHBxQmlOMElmM3Rmc2wyZVFWVG1lcVd4ZUw2d0RtRGdNYmVscW8?oc=5",
-   "published": "2026-09-03T19:36:39+00:00"
+   "title": "Here\u2019s the Real Reason Nvidia Is Buying Hugging Face",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1pTWN0Wkc3RTBDNWNCdU5vMERZenNSbkFIejZfR244VG9DWDV4S2FLM0tkQTJSSUktQXlIMDNjVTVRUzc4dlFpQ1pPelZxcDY5SFlKWFNTZUE4a21mM3hwRXlXNURJMldpYUlKZU1Zd2ZuR0VYRmU0WU1B?oc=5",
+   "published": "2026-09-04T12:16:00+00:00"
   },
   {
-   "title": "Nvidia Buys Hugging Face in $12.9 Billion Deal",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE0yMlJhVkx6YWNlSEdlelNIVXNzaG9oUWVVdWlJcFQ3NHVzVXJvOC1RWmJqN1NKQXlSbmVTU2l3WHdrdTBSbEhvaHh6NVVIa3h6b1BENWJYZnRpZnNMU0RRQl9fQ1NKSk9MLVdEcFZQcjZDRzZ2QWVBeTNB?oc=5",
-   "published": "2026-09-03T18:38:58+00:00"
+   "title": "Nvidia\u2019s $13 billion Hugging Face bet reveals Jensen Huang\u2019s vision for the next AI battleground",
+   "source": "Fortune",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQQVd2X1dnTS12d3ozWnJ4VWV4eW8wRFV2Qkg1TjR2T0E2WDdqTUg1SDMySE40NXJLUkp6RktXU2ZGYkgtc3oxRGVjWjM4Z1UxNU9wSDBJTFRIQm52MC1WQnlzcUlRYmpNTm5oZzdlVGpFYy05TXdfMWNMVEJVcDhyd09JS1k0Q294VkV1R2NIYmlFYkVIQmZBcWxfVW5uWDd1NDRObDBVTW55REZvMmI5ZzZGaW1GQQ?oc=5",
+   "published": "2026-09-04T12:10:00+00:00"
   },
   {
-   "title": "The Stuff AI Is Made Of: A Human Ecology of Artificial Intelligence",
-   "source": "College of the Atlantic",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdjM1RVVDNFFfaGFzTnE1OXNYT1Mzc1VndlMwVE0xemE4NUhTRkc1R3c1VGc4TWZkaVU3b25ER0RwZDNvcVlraWxLWHNaNVo0TnpXZFFOU2lFVXdWTjZ5YWhEX292S0hPV1E1YWtCRGczN0ZJbWhTSDFWcGxTY21PRFQ3dmF1NWZPWHJGNHJhLUFOaDVjbmlVTg?oc=5",
-   "published": "2026-09-04T13:26:38+00:00"
+   "title": "Nvidia\u2019s DLSS 5 looks incredible. I\u2019m just not sure whose vision I\u2019m seeing",
+   "source": "PCWorld",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPdThIaExTRktnOWpEM0hENVI2WmxzZ2dqNzFCam5ibHR6aEhjTXF6YWxfZHdZLUR2QV9CU1FvWGNzcUhlanMxcVoza0ZRbjdENERxZDdFSThCS29ncVJ1RFM1Rngtdnk4MHFjVEd1UWxxUkRPZDJQcXp0cnRVSi1nUjYxLUJIN0c1dW9TRTE2ZjBqcWdIMGltSndUREdIYl9XNU5QaTQ1ekNYUkU2M2dwSjU2Q2hXQzNuZGxrNm9RR2VQWlFsSXJmZ2JRSVQ0b0s5cGQ4?oc=5",
+   "published": "2026-09-04T12:00:57+00:00"
   }
  ]
 }
