@@ -81,7 +81,11 @@ class ResearchBriefTests(unittest.TestCase):
         root = Path(__file__).resolve().parent.parent / "openclaw"
         comment_block = re.compile(r"/\*[\s\S]*?\*/")
         line_comment = re.compile(r"//.*?$", re.M)
-        for name in ("equity-research-build.js", "equity-research-deliver.js"):
+        for name in (
+            "equity-research-build.js",
+            "equity-research-build-trigger.js",
+            "equity-research-deliver.js",
+        ):
             src = (root / name).read_text()
             code = line_comment.sub("", comment_block.sub("", src))
             self.assertNotIn("Intl", code)
