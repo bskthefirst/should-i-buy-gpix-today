@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T21:25:18+00:00",
+ "generated_at": "2026-09-07T14:30:11+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "14.5 (p5)",
+   "value": "15.2 (p12)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 4.7,
+    "pos": 12.3,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.83",
+   "value": "0.86",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 31.3,
+    "pos": 40.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.4 pts",
+   "value": "+7.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 86.9,
+    "pos": 92.3,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 7d",
+   "value": "CPI in 4d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1326,19 +1326,19 @@
    "text": "GPIX at $54.58 (-2.6% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
+   "label": "VIX curve inversion",
+   "direction": 1,
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.86) = inverted vol curve, genuine panic (+6 pts)"
+  },
+  {
    "label": "Extreme fear",
    "direction": 1,
    "text": "Fear & Greed at 25 or below (now 42) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
-   "label": "VIX curve inversion",
-   "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
-  },
-  {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 14.5) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.2) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1352,7 +1352,7 @@
   "end": "2026-09-04",
   "days_total": 716,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-04",
+  "fg_coverage_start": "2025-09-08",
   "baseline": {
    "n": 695,
    "avg_pct": 1.69,
@@ -1499,16 +1499,16 @@
  },
  "vol": {
   "index": "VIX",
-  "level": 14.53
+  "level": 15.18
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 12,
+  "days_until": 9,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 7
+  "days_until": 4
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1518,7 +1518,7 @@
   "invested": 15000.0,
   "dca_value": 19583.68,
   "dca_return_pct": 30.56,
-  "dip_value": 19350.47,
+  "dip_value": 19350.46,
   "dip_return_pct": 29.0,
   "dip_cash_uninvested": 1200.0,
   "dip_buy_days": 31,
@@ -1526,40 +1526,40 @@
  },
  "headlines": [
   {
-   "title": "Strong job gains signal Fed hike as Trump levels new rate-cut demand",
+   "title": "Currency Print Orders",
+   "source": "Federal Reserve (.gov)",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9mRXBEWWczNkU5V1o3TWpTN1p3Mm1SbHk5RnFPbzZ3dDAtOEhMU18zblF4YjF4MnVuLXpkNFJjdkdvZ0U2bVVWc3RBTk5DaC1pSURYNExKRnJNUDRiWGNTVTZ5MWtEamVpOS1mS2NGX3ZSWXRmT0hYZHNR?oc=5",
+   "published": "2026-09-03T07:00:00+00:00"
+  },
+  {
+   "title": "UBS forecasts two US Fed rate hikes in 2026 after strong jobs report",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOOF9yZEh3LUNwbXhOOE05b01rVHlLVld4OXkwYXdOczZxZF9DUTUxVU9Ta3pCTGRla0RfMXZTR1phZEx6aVU0VmRWcGVZZzlsd3dhZF9yYjc0UHFfaUZMNEoxaElSSE1YSzY5aEExTEMzNV9oOVpSSEc1SXlsZ0R5UkF4cFFMTWVxQi1SYk43cDlhU204aklNNzhB?oc=5",
-   "published": "2026-09-04T17:56:40+00:00"
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPNXNXbFhiR0xaOTliU21YN051SmZxSndRR1d0WkFHUEFBbHRsSS1EdE1zMUJ6ZlQ2NFRwNFZFWVlSMGx5WUc5RFVhYmE0WnNpTWJfbXRraUVTemlyU0U3ZFMzSGxwZDdMWVloTERkSkdfa2NiX3N2cThqbkRIUzhSVGNaRl9wak9YZVV2YXg0UVVZRWtXaG9PYUllRnl6dnNoY0NIQlZwNkRwVEpDOHIw?oc=5",
+   "published": "2026-09-07T09:07:43+00:00"
   },
   {
-   "title": "The Federal Reserve's Initial September Inflation Forecast Has Arrived, and It Contains a Glaring Red Flag for Wall Street",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQRTRIYXVYUGJPa2dDdVFpSVhubGxISmlnYko2TXlnN0VydFMyZ0dSa0ZMMkV2dnlBZmVBMUgwaGJkNUJPc3hISlFUTGNiTmJVZGszb1I5T3dRZVFVUzNCYm1xM3VDZTE0eVNqLTlJcnJTbXdjak5PQk1EaHlZaXJmTnlONmdRaTI0dDBMR1drMzBwMm0yeVplUXcwUnBwZ1hibGYxYVdJLXM5dXEtbGc?oc=5",
-   "published": "2026-09-04T08:26:00+00:00"
-  },
-  {
-   "title": "Week Ahead for FX, Bonds: U.S. Inflation Data in Focus; ECB Expected to Raise Rates",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYUg3NndUYW1HNGpfSzJxNUVyU3A1ZzFVbXhGMjBhVndjbFpZaHM4c0N4NTdsczFkS19XUkFEbHAyazFvbXA4T1RmY2thTUpYZHdMTXZGLTk5d1NuNmJGeGhZWnp4RFdGXzNtakUzWVpBVXhxUDZxOGFPamVmZFRQUkJ4el9ETUgxbTByc25JRGVwcGo4RlhtMTZBeUJfMGFjeC0yb212QXNPZk9wZEU3T0hZU0NSSWM?oc=5",
-   "published": "2026-09-04T15:09:00+00:00"
-  },
-  {
-   "title": "Trump doubles down on threat to halt trade with top partners unless Fed cuts rates",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE52cjlSWm5LQ1doMElfb2xlcWFaUkRoWlV6Smt6dFdRQ3dRUEdaYzNZWl9YVHMza1pxN3JUTklKQ2pMOEVmalhSUGlGMklmOHB6WE9zZWRTakJ0cHUxRGZSajkxclRkbEZ0VkNXeFhqUHbSAXZBVV95cUxPZ1RsQW1NOWNfdUswMm9MTlE3VGtFdmpDc19ZWnR1Mm1BaXZfcGdmcXhYRGpmRDdZZ3FmNl9MOUp0YVJmUVVZTlZLSkFOQVVmRmpCVmdmZ0x3UlY0NXVkYUVCV0pFNGkxUWVLcHQ5WDJhRVNkMnV3?oc=5",
-   "published": "2026-09-04T13:56:57+00:00"
-  },
-  {
-   "title": "Hiring burst of 162,000 jobs in August puts the focus squarely back on inflation in the U.S.",
+   "title": "Fed governor Waller muddies outlook on possible rate hike later this month",
    "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNVGJRNGhQVDVGM1NHb1pVZkZXeU9aUU5EN0hvdEhRNENlRm5QR2VEaGpWTGNKano2THZua2UzMlBrdDRSbmZVdFBQTk91OTg1UUVZSUdJZGlvQzZQdGpSQXNGZWRDZGR4S1I3OGNDRUtQbk5BZ0UyZUM5ZkplaHAtTzRqMm9wZmFJUEVYMXBzc2o2TDl0MUljM2E5YkJ2dUp6Z2RIRkRCQ1Eyc0V4cVJrVWRYMVEtMlZyRnNacThNdzRZMjVsT0HSAcsBQVVfeXFMTTQ2QjFTYS1VWTJZSUpXTG9xWEZNMlJOQTU0UGRaRHNGVmxtU0JqblAyS29xZS1TSC1TNUEtMmNvX190Q1RuaG5tbGl3NU1jT0twcTIxcWdRMVZKS18wUmlUWENoRC1ESGxySGZUMTY1dnVrN2hPS1dUNXIxQ3FQLXQ5dEtmTl9XVHctUVhZQlpRbUZyWkVxVjJtWEVETmlTZ29IUUUyeVYwZktDT2ZSbW9lVlJmOFNrVDFPQzZYOFZKWlpEcXczZ1lfa3M?oc=5",
-   "published": "2026-09-04T14:45:21+00:00"
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNYkprM1h1WDVtVjB0dDlscGZNeUxuUkw3TWhYZFhDYkZyYl93UmJSM3NYcXdRN2tfQzRuS2V4WTBBb2VtVmE2VTlGcnU2Nk9KeUVfYjBIbkswX2pMUHNfSk5xT2FDVXBaaHllX2lUZEgyVjdzR1F3REJIN284SnF6WUtha0Vtb0NSVmNCSm1FTUFPYXJzYW9fcERTNHFYYXY4TGg4a1FhM0VmdFJoWnhlTdIBtgFBVV95cUxPY1VTZzBtaXdkUll5UEFzY0daeWtWUGM0U05nTk96SHNveVdEd3RtdG9fMjNuSjB4bHdSSmtTdmlJYUlVZmotQWs1Qk9sMFdwcDNhelJ5NElBM2tRaDFxU2d5LW9sVzQzMGhyd0t4a3ZrNS1kVElnaGNfR0xLYl9yU3FwOU1EenpWeUhZTHh6bDRYMVR2RjZIMnUxODBBNWJEcE5aQ0NsSklQU0xZdE9aZ1F6MXpWZw?oc=5",
+   "published": "2026-09-04T00:08:19+00:00"
   },
   {
-   "title": "Job growth rebounds in August, opening door for Fed to act on inflation",
-   "source": "The Christian Science Monitor",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5MOHZjYkxKUEpHMVpyTGt5a3pfVzk3d1VYYWFLX3FfNVgxSXBPVVJCSnFlU1RBTVdaNFctZTBraXNibVRrejJRUDFmLWxucHRVSHhldmJ2TEJ2TVdHeS1UQ3k3b2JmNVFTenBENGozS3cyMzNTR2VKNtIBkgFBVV95cUxQbzNzQUxBS0ktZXZ2M1Jzb3k0aWtoZFpQWjhyMUJydjBHa1BNYkNBMHR4LWFiVVlkSktoU2dicV9FbWVpQk1DS3VvN25DWEl2S1hnc0t3RWlmQlB2TXRBcUh5R055ZlRCanM0VC1qeGhtVFlVQ2NNWUkzdmRid215UkVqYzVVNVNsT3dBMVhHN2Mwdw?oc=5",
-   "published": "2026-09-04T19:11:09+00:00"
+   "title": "September US Stock Market Outlook: How to Position Your Portfolio During a Risky Stage",
+   "source": "Morningstar",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQMnRrUEprUnd3bEJNUkEzUThYMGVzN3YtTWFJUlp3VjZLZmIzSHFkUEFtRXJzMldNMUd0UGZvRnFEMkl5REFRRFFhSWMzMVFIalpuU3hIOUtUWVBfY0dncEh1b2IyVGREZ3ZrYWNJblowVEFJd2NhcFZBVmpLd0lnR3VpX3pfZTBEaGJfZ1pHeVVxNXVXMkhiZjIzNjgtNmR0VEZJcUJhbDkybGF0VzBwMG83X0drZkRZb2FhczRtRDI0UQ?oc=5",
+   "published": "2026-09-07T08:58:55+00:00"
+  },
+  {
+   "title": "Five Market Events to Watch This Week: U.S. Inflation, ECB Rates, Iran and Earnings",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQLTBqcFZ3NHpqZjEzaVhrSElfaUdLOWJUcFVmVlJlQTh5M2VPYnRaWFJhRTJxdEpaczBGUjFVdXZBN1JnT2ZrMHdkX2J3cTYxMkEwMnpBUGxlWmNJb1JWbF9jQjVBamdZLWZnM1AxdVdjaTlIRzFDU0wzOE8tNzR5VkZxeVJNWDVlUUYyUFdDTDU?oc=5",
+   "published": "2026-09-07T10:38:54+00:00"
+  },
+  {
+   "title": "Tenth District Beige Book",
+   "source": "kansascityfed.org",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOSEVoRlV1TG5idllmUUJMUG5oMEhZaE1ORjY4VldSQV9JTE9iZlQ3TUhGRjRNSVIxU2QxcWZyWmVpclRENEh5bFlaQm9wYXRNcF9HQWVIVnhPeW5Xa25tcmJkNkwwc0xnN0RFS2FHQUNqS3dPZEh2WFdoc3lUNkJ0dA?oc=5",
+   "published": "2026-09-02T07:00:00+00:00"
   }
  ]
 }

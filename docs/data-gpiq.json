@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-04T21:25:18+00:00",
+ "generated_at": "2026-09-07T14:30:12+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.83",
+   "value": "0.86",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 31.3,
+    "pos": 40.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -69,7 +69,7 @@
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 71.0,
+    "pos": 70.9,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 7d",
+   "value": "CPI in 4d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1353,14 +1353,14 @@
    "text": "GPIQ at $56.23 (-0.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
+   "label": "VIX curve inversion",
+   "direction": 1,
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.86) = inverted vol curve, genuine panic (+6 pts)"
+  },
+  {
    "label": "Extreme fear",
    "direction": 1,
    "text": "Fear & Greed at 25 or below (now 42) = extreme fear, a contrarian buy zone (+6 pts)"
-  },
-  {
-   "label": "VIX curve inversion",
-   "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
@@ -1379,7 +1379,7 @@
   "end": "2026-09-04",
   "days_total": 716,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-04",
+  "fg_coverage_start": "2025-09-08",
   "baseline": {
    "n": 695,
    "avg_pct": 1.93,
@@ -1530,12 +1530,12 @@
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 12,
+  "days_until": 9,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 7
+  "days_until": 4
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1545,7 +1545,7 @@
   "invested": 15000.0,
   "dca_value": 20513.7,
   "dca_return_pct": 36.76,
-  "dip_value": 20280.57,
+  "dip_value": 20280.58,
   "dip_return_pct": 35.2,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 59,
@@ -1556,37 +1556,37 @@
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-04T18:45:45+00:00"
+   "published": "2026-09-07T09:07:02+00:00"
   },
   {
-   "title": "Corporate America Is Getting Hooked on Open-Source A.I.",
+   "title": "Trump says he's made 'Hundreds of Billions of Dollars on Stocks' for the U.S., in stream of AI posts",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZk9UZ1N2d2pack13Um5mcUNYOXFSMFE4elo0Rnh1UVZLU21RZGhKbWlFZHRvWVdhS3lwUVZabDZtR000VFZ6bWJMcWJ4OWxLUkc1REl1N0VfcTJOLURZSVNReUtnYWRRc1VZaThaRW82czU4VDc3M3prY2l4VnFiYThiTVI2UdIBiwFBVV95cUxQWWo4RjNJbmtRQlY3S0x6Rnc3WUo4T2t6TmVXODB2WEVfUmlrb0U0UnlFYnpWbDNDYmFIZ1NyNnlna2Y1Wng2dW5oeXFvM3E1ZzUtQm9LbWNCSW9nWjBfMGU3Rl82ZjJZbHFHSUZvd1NJLTU5bEhUTXZnbkE4SEtMTlJ6Um42akZrVjk0?oc=5",
+   "published": "2026-09-07T11:06:20+00:00"
+  },
+  {
+   "title": "When A.I. Starts Scheming",
    "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQV2FXaWpJTHFhTkJaSmNqeWxrTVo0TTNQNE1saFp5SDFUbmJRZ05vUWRJaXl2cnZmZE0zc2huMzhDVHZHaGYxSEdQNFVrcnFaMThtWl85UkxIWm1HZkdoa19QbVF1cG5halo1ZEVtLUotTE9US0wteXZ0RnU2STBfaWRXLTJYRm5FUWc?oc=5",
-   "published": "2026-09-04T14:55:38+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPcjQxb19IbFpjSzA0NUhQaW5vV1JoVFZTREZqR3Fjb1RqOTd2dVB3ci1kbTJRdDJNel8tOU0xc2JodUdYT2hHM05yZmlDdVdQU0RYRExKVzVZc2lTclF1NkJwT1QzakRkd1dOSzNqMk9jcWJNUHREcXhmOFB5NjVqYmFEakRTMTR5eVE?oc=5",
+   "published": "2026-09-07T07:56:00+00:00"
   },
   {
-   "title": "EXCLUSIVE: US, China gear up for mid-September AI safety talks",
+   "title": "AI could pose \u2018existential\u2019 risk to humanity, UN rights chief warns",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPd0dTWnZWcm1zc3pGR2l0R0c3YWhnUWFZa2JQeDFSeDA0OHNBdXlULTgya3ZKQ192OXI3NU0xZEEyRmdYb01zaHRQTEt6N01CNFZxU1NnOEZ3WVI0MGtkOUNQSmI3UTJyaWVVTE1hY19NOGJMOWJESVYycVpRU3NvaTdIamVWX2k4dXlIUXVhMUtzZXo4SWV6S01JblIwMGJ5UDF1VA?oc=5",
-   "published": "2026-09-04T20:14:40+00:00"
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV3llNF9IYW5jOC1zYWZwY2hlYVR4RndlVWkxemtJNjlOSVhuZkhZR3d1TnE4c2sxcFlvSEd2YmJaQXBTeHpJV1NqQ0t6OGgtOGVRWXRTTDJmdHFFd0tvZ2VYZzJUU3BGTzVqZHJqRV9CUHN6VkpSWkZsdUZJV0p5ZDR0TlFSZ2dqNkRvdWMzSG44bTZFV3B4QW9pcmhmN1lmUlNtSmRvdWVuX2Fo?oc=5",
+   "published": "2026-09-07T09:08:19+00:00"
   },
   {
-   "title": "RELEASE: Gottheimer Unveils Bipartisan Back-to-School Agenda for AI in K-12 Education",
-   "source": "House.gov",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNVERpMVhrMTVpYjFsaDgyeEVBbGJjTkF4SEp1ZHplU2w1VW83aE4yQTNNYU9RQ2R4QXFSZzZWdWR2ZkhibDRrR3E1VUkwVnZudDBpbEdrRWNGc2RyYlh2QVJvWXhuSjhUeTZtcnBoVy1RVkhMYlZkbFlTYVJwczJVdy0zX2JDTkstVkZ1NFl1MkMxZ1FjaDhOTmQ2dlhqaU92NkFhUnR5T1oxNjV5Si02V3pkX3E0ODVSNGt3?oc=5",
-   "published": "2026-09-04T20:48:45+00:00"
+   "title": "GPT-6 Astra: A new generation of intelligence",
+   "source": "OpenAI",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE11QUxBUVJLdC1jSmtJbmcxQzg4Qm9yUlNPS3JEMEVBanIyY1FRT2k2R0hBTlNnX2VqcWpTSDJUMDV0TjBJN1VGamlrZzVPZw?oc=5",
+   "published": "2026-09-07T14:25:04+00:00"
   },
   {
-   "title": "Tech bills of the week: Ban on AI superintelligence; AI oversight at the Pentagon; and more",
-   "source": "Nextgov/FCW",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPY3dxSktpYW1tSzE3TFc0ZGgwbUZfQ0xreG5iZXJkWWZ3LWxoX2hSTk9yUklpcTNENHEyM01BR0l0WXJ5bTU0SktuT3NwalRTUHQwR3NuMWpORWdNdUdHZXhuQXpmYl9ZUVoyLTZVVkZvQ04zZnk0OTNoQlduYUhLZnFINzdoNkprbkdhRXROUlFZR3ZmUzcxTGhtMF96XzFIOXk0YVU3MVFicnZRNm00RmNyRW5XLXZtdHc?oc=5",
-   "published": "2026-09-04T19:58:00+00:00"
-  },
-  {
-   "title": "Lawmakers Behind State AI Safety Laws Call For Industry-Wide AI Safety Pact to Protect the Public",
-   "source": "Senator Scott Wiener (.gov)",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNb0Y4SEY0NzRGNEZOTlZPODJ1VXR5dWVaWDNLN2pFOHMxY3hBc0sxdEtNLVNJTDhfUWVDQXdpQUY4eWJRN3JpNnZFaUlSZ0VVQW1aWE00TGRkSnJULXdmRldlLU9idzFTQk51UmRHcUNVWS1sblRRVU5tUy13cFdWay1aa3NyVTRmUWJMX2loNVFWVVhoZExzUUV1cG9FUGN6Q1pQbDJGMkpzcDRVWGFiMFFWWUxCWHdEU3c?oc=5",
-   "published": "2026-09-04T21:00:05+00:00"
+   "title": "People Make The AI Reinvention Engine Work",
+   "source": "Forrester",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxONEdZbGRTU25sRzlnSG5aUEhfSk42TzBiMGZXSml4YlVUQng5czJfSE1qZUpmUzBWYkhQU24weGI2RFNnU2dVNjJEcVRWTkhjSG04TjFhRzRKUzBKam5UQ3paaUtxemFKZU1HSVhtTXFrNWdhc0VvWl9iaXNzdVYyWQ?oc=5",
+   "published": "2026-09-07T10:17:55+00:00"
   }
  ]
 }
