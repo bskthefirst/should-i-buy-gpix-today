@@ -10,13 +10,12 @@ SPY - and displays one extra check of its own: the **tech fear premium** (VXN/VI
 ranked against its own past year). That check is context-only: the audit found its
 intuitive scoring backwards, so it shows but never scores.
 
-Two single-stock pages (`tsla.html`, `spcx.html`) extend the same machinery to Tesla
-and SpaceX with an asset-aware engine - see "Single-stock pages" below. TSLA scores
-only what a dedicated 16-year validation pass proved (including the project's one
-evidence-backed *negative* zone); SPCX (IPO June 2026) is an honest context-only page
-that pins at 50 until enough history accumulates to test anything. Two more stock pages
-(`nvda.html`, `goog.html`) sit adjacent to SPCX and reuse the TSLA-validated single-stock
-framework provisionally for Nvidia and Alphabet (Class C), with on-page copy that says so.
+Four single-stock pages (`tsla.html`, `spcx.html`, `nvda.html`, `goog.html`) extend the
+same machinery to Tesla, SpaceX, Nvidia and Alphabet (Class C) with an asset-aware
+engine - see "Single-stock pages" below. Every one of them scores only what *its own*
+history proved: TSLA all five single-stock bands (including the project's one
+evidence-backed *negative* zone), NVDA two, GOOG one, and SPCX (IPO June 2026) none at
+all - it pins at 50 until enough history accumulates to test anything.
 
 The pipeline runs **twice per weekday** (13:35 and 19:15 UTC): a morning refresh and
 an early-afternoon one so the buy score is fresh for the buy-at-close window. The
@@ -121,7 +120,9 @@ W ≥ 1 (score 56–68 — any single condition; reversal alone is W 2 → 62), 
 W = 0 (score 50). `verdict.score` in the JSON stays the weighted W for compatibility;
 `verdict.score100` and `verdict.weights_max` (8) are new, each signal carries its
 `weight` (0 for context signals), and both history files were regenerated under
-`rules_version` 4 with per-day `score` (W) and `score100`.
+`rules_version` 4 with per-day `score` (W) and `score100`. The fund rules are unchanged
+in v5, which only touches the single-stock pages (see below); the version bump still
+regenerates every history file, as designed.
 
 ## Single-stock pages: TSLA, SPCX, NVDA, GOOG
 
@@ -145,7 +146,11 @@ before anything was allowed to score. The results inverted several index intuiti
 Because of the falling-knife band, **TSLA's buy score can fall below 50** (floor 41,
 verdict band "worse-than-average zone" at W ≤ −1) - the only page where the tool
 claims a bad day, because the evidence there was unambiguous. Its meter runs 40-73
-accordingly, and its report card carries a fourth "caution" row.
+accordingly, and its report card carries a fourth "caution" row. Note the meter tops
+out at 73 rather than at the arithmetic sum of the positive weights (4.5): a 12%
+five-session crash leaves the price at least 12% under its 52-week high, so the crash
+and at-the-high bands can never fire together and the real ceiling is W 3.5 (score 72).
+`verdict.weights_max` reports the reachable ceiling, not the naive sum.
 
 SPCX (Space Exploration Technologies Corp., first traded 2026-06-12) has ~2 months of
 history: no 52-week high, no 200-day average, no 1-year percentile, no validation
@@ -156,17 +161,43 @@ young" notes with the dates each measure unlocks (50d SMA ~Aug 2026, 200d ~Mar 2
 the "any day is fine" floor was validated on diversified indexes and does not protect
 against company-specific impairment - position sizing beats timing for single names.
 
-NVDA and GOOG reuse the same stock engine, meter (40–73), and weights as TSLA
-(`evidence: "tsla_framework"`). They score and backfill from Oct 2023 like the other
-mature assets, but every scored card and the verdict summary state that the thresholds
-come from the TSLA pass and are provisional pending a dedicated audit. That keeps the
-Pages tabs useful without pretending Nvidia or Alphabet got their own era-robustness
-study.
+### NVDA and GOOG: the framework did not transfer
+
+NVDA and GOOG shipped in rules v4 on TSLA's weights, on the assumption that a
+single-stock framework generalises between single stocks. Running the same
+audit-grade test on their own histories (`scripts/validate_stock_bands.py`, Nasdaq
+daily closes 2016-2026, forward 1/21/63-day excess returns, effective-N t-stats, four
+era splits) showed it does not. Three of TSLA's five bands come out with the **wrong
+sign** on the new tickers:
+
+| Band | TSLA sign | NVDA (1d excess) | GOOG (1d excess) |
+| --- | --- | --- | --- |
+| Crash pullback (5d ≤ −12%) | positive | **+1.30pt, all four eras — scores 2.0** | 10 events in a decade — untestable, no score |
+| 3 consecutive down closes | positive | **+0.76pt, all four eras — scores 1.0** | **+0.23pt, all four eras — scores 1.0** |
+| 20d realized vol ≥ p90 | positive | −0.12pt, and −6.0pt/21d below baseline in *every* era | −0.19pt, below baseline in every era |
+| Within 0.5% of 52-week high | positive | +0.04pt, era-split | −0.07pt, below baseline in all four eras |
+| Drawdown 10–20% ("falling knife") | **negative** | **+0.19pt — above baseline** | **+0.01pt — at or above baseline** |
+
+The falling knife is the one that mattered most: it is the project's only negative
+band, and on NVDA and GOOG those days ran *above* average, so v4 was docking points
+for a decent setup. On 2026-08-31 that produced a GOOG verdict of "worse-than-average
+zone, 41/100" on a day the page's own report card showed the caution band beating
+baseline. Under rules v5 each ticker carries its own `bands` tuple in `FUNDS` and only
+those bands score. Rejected bands still render as cards, annotated with the numbers
+that rejected them. NVDA and GOOG therefore have no negative band and floor at 50 like
+the funds, with meters of 50–63 and 50–57 (their reachable ceilings) instead of TSLA's
+40–73.
+
+The same script is how any future ticker earns its weights - run it, put what passes in
+`bands`, and put what fails in `band_failed` so the page can say why.
 
 Stock pages add **earnings dates** to the event calendar (Yahoo quoteSummary
 `calendarEvents` via its cookie+crumb handshake - keyless, guarded, omitted with a
 note if the endpoint breaks). Earnings within 5 days flags as the dominant
-single-stock volatility event.
+single-stock volatility event. The handshake's first hop primes a cookie from
+`fc.yahoo.com`, which answers **404** while still setting the session cookie; running
+that request under `curl --fail` turns the 404 into a hard error and kills the whole
+handshake, so that one call deliberately omits `--fail`.
 
 ## The point of the backtest
 
@@ -206,12 +237,31 @@ when an asset's verdict band changes from the prior day — subscribe via the "A
 ## Development
 
 ```bash
-python3 scripts/build_data.py   # regenerates all six data-*.json files (stdlib only)
-python3 -m http.server -d docs  # view locally at http://localhost:8000
+python3 scripts/build_data.py                  # regenerate all six data-*.json files (stdlib only)
+python3 -m unittest discover -s scripts        # scoring invariants + checks on the built files
+python3 scripts/validate_stock_bands.py NVDA   # re-run a ticker's band validation
+python3 -m http.server -d docs                 # view locally at http://localhost:8000
 ```
+
+`scripts/test_rules.py` is the guard that rules v4 lacked: it asserts that no ticker
+scores a band outside its validated set, that every scored band carries the evidence
+string its card prints and every rejected band carries its reason, that the gauge axis
+and `weights_max` describe reachable scores, and that the committed JSON and history
+files agree with the rules that produced them. The workflow runs it after the build and
+before the commit, so a bad ruleset fails CI instead of going live. Run against the v4
+configuration it fails on six counts, including NVDA and GOOG carrying the falling-knife
+band.
+
+`scripts/test_fetchers.py` covers the external-data contracts offline. Guarded fetches
+degrade to a note on the page, so a broken source looks exactly like a quiet one - which
+is how the earnings handshake stayed dead for weeks. The tests stub curl and assert the
+shape of each request, including that the `fc.yahoo.com` cookie hop tolerates its own
+404 while every other hop still fails loudly.
 
 Pages serves from the `docs/` folder on `main`. The workflow in
 `.github/workflows/update-data.yml` refreshes all six data files each weekday at 13:35
-and 19:15 UTC.
+and 19:15 UTC, and also on any push to `main` that touches `scripts/` - a rules change
+otherwise lands with the pages describing rules the published JSON hasn't been rebuilt
+under yet.
 
 Not financial advice. Built as a personal decision aid.
