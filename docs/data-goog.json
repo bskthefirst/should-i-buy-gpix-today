@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-07T21:59:25+00:00",
+ "generated_at": "2026-09-08T14:30:17+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 85.7,
+    "pos": 93.3,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "20% ann. (p8)",
+   "value": "20% ann. (p6)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 7.5,
+    "pos": 6.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "15.9%",
+   "value": "16.7%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 15.9% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 16.7% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 31.8,
+    "pos": 33.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "uptrend",
+   "value": "downtrend",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "bad",
+   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.3 (p14), F&G 42",
+   "value": "VIX 15.6 (p19), F&G 41",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 4d",
+   "value": "CPI in 3d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 335.31,
-  "day_change_pct": -1.11,
-  "sma50": 346.53,
-  "sma200": 334.78,
+  "price": 331.8,
+  "day_change_pct": -1.05,
+  "sma50": 346.47,
+  "sma200": 335.02,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 16.0,
+  "drawdown_pct": 16.9,
   "series": [
-   {
-    "d": "2025-12-17",
-    "c": 298.06,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2025-12-18",
     "c": 303.75,
@@ -1215,14 +1209,25 @@
     "c": 335.31,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-08",
+    "c": 331.8,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "GOOG has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
+  },
+  {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+7.0% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+8.1% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1233,14 +1238,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-04",
-  "days_total": 716,
+  "end": "2026-09-08",
+  "days_total": 717,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-09-08",
   "baseline": {
-   "n": 695,
-   "avg_pct": 3.28,
-   "median_pct": 3.25
+   "n": 696,
+   "avg_pct": 3.27,
+   "median_pct": 3.23
   },
   "bands": [
    {
@@ -1253,9 +1258,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 197,
-    "avg_pct": 1.31,
-    "median_pct": 1.73
+    "n": 198,
+    "avg_pct": 1.28,
+    "median_pct": 1.66
    },
    {
     "tone": "neutral",
@@ -1279,22 +1284,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 335.31,
-  "sma200": 334.78,
-  "above_200d": true
+  "price": 331.8,
+  "sma200": 335.02,
+  "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 19.9
+  "level": 19.8
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 9,
+  "days_until": 8,
   "imminent": false
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 4
+  "days_until": 3
  },
  "earnings": {
   "next": null,
@@ -1302,55 +1307,55 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-06",
-  "end": "2026-09-04",
+  "start": "2022-09-08",
+  "end": "2026-09-08",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 44104.3,
-  "dca_return_pct": 111.03,
-  "dip_value": 44188.99,
-  "dip_return_pct": 111.43,
+  "invested": 21000.0,
+  "dca_value": 43737.09,
+  "dca_return_pct": 108.27,
+  "dip_value": 43826.42,
+  "dip_return_pct": 108.7,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 164,
+  "dip_buy_days": 165,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Our new contrail avoidance trial in Asia-Pacific",
+   "title": "Exclusive | Google Cloud, Accenture Launch Unit to Put AI Engineers On-Site With Customers",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPdlp6U3FkM1JYbjNMN3FBbjJjUGt5eTJCaF9qSklnNzUtOFYtTk1taDJkQk1zUU5XelU2MGU3V2djQ0owbk92Y2YzQ3I4WkpqaWJGOGFRVWxQRldiTWpTYnpkZU9jazFKWnVISVVCc1NNVWIyV3NiR2dmWVVYMjNIOXdSbkFjbTBJcGFpU2pmMmN6b1B3aVZiYUNMbWk2U1k5Z0JVeUxwNGI4ZnRCbUEtbGxRVXhHRVFzTmc?oc=5",
+   "published": "2026-09-08T12:00:00+00:00"
+  },
+  {
+   "title": "EXCLUSIVE: Google warns of lower quality as it revamps Europe search results to avoid EU fines",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNcUx1SUpiY29kQzBaZ0I0UmVKN0J1UkFoRlRmN0I1c0xwUjZackt2T3BVNHBvSFYwTzg3YUd6VUZlV3JrZ1FYUXVVUVpJWlRqZGN1VTNxUTZVNndVWXNJTkZ5Ui1YVjkyUDZuSW9ZWmNiR1NQYmtfOEhaVVhFWUE0dDROaVBOckhYZ3pvcnFwNXR4M3lkdmpxdUZ5eFRBT01jOGpzR0oyX2t1UHNValpzRmZJOWhnWGc?oc=5",
+   "published": "2026-09-08T11:41:15+00:00"
+  },
+  {
+   "title": "Helping small businesses win with AI",
    "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPd3pSdFVOcVVscU9vVFFjUFM5TXFPZm83R2trb1BRdlpseTdHQmlRTDY3bm1hczMza3F1VVFzcy04Z1RBZ3U1V0FKX0lzWll0cWk2UHZ0cndJeTRjMWxyeEYxTTQ4WUJUZWdudDBVVFhMZ2M1eUR6cHNxSWN5S2FZOUxUc1pLZXUydEdFZ2IwWlJDcHF0cHhSTGRMZG9vYUx2cFp0ZE4wU0RLWVJmVjd5NTBjaXlkUDli?oc=5",
-   "published": "2026-09-07T08:01:39+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbTlEVllYTFI3MEdmaWthbzBLUS1nbVU3RnlHX1A5ZkdmdGFXSi1oUGQ1R0JSQ1JLWXRUSDllRmtnMUVwbkFOeVlycXJYa1c4ZVp6V21aUDYtaUh5dU01dTJuTXl3M2RuLXhyWmFYb1c5ZU9rLUdrUnNPRVNVendyZjVQdk5yYW54NURvcjVuODhURVQ2NjVXakMwVzZLNW5PRGhr?oc=5",
+   "published": "2026-09-08T13:09:52+00:00"
   },
   {
-   "title": "Billionaire Bill Ackman Sells Alphabet Stock and Buys a Mega-Cap Stock Down 42% From Its High",
+   "title": "Madison schools block AI tools like Google Gemini on student computers",
+   "source": "captimes.com",
+   "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNVTJZd1BhRkpLeXdGMDI2LUR2NmVuazRFYlhaUHZUVlFObWQ3dllwVS1HVWN1S0JnM0EyQmlWSFBRMWpmbGE4X2hXS2hnZ1hpalpxekVVWHZzNEozS0MxLW91UC0wZ2pUT0FDNTRvaDRnTzZ6WnV3RjA5SHBDa0RpQ0U2RWVlNVVjclRlNXZRQUJ4VTdTZGRaMDFKd19QbE1TQ0RSWS1vM25USFVZUUFnaGJpNlRyT05jVXdtaXRGQndIaFlYUDQwRGkxcVpZc0xZNl81MVFjNTZaUWprTWZzSFhWMmJtbzRNTnFLRg?oc=5",
+   "published": "2026-09-08T10:00:00+00:00"
+  },
+  {
+   "title": "YouTube TV & DirecTV Stream subscribers have until Tuesday to file a claim in $50 million settlement",
+   "source": "9News",
+   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPcmxjeUE2OWQwZWxyazBkdzN2QUZNZHVyc2NqZjJJeW1hS3o5bWh6X2IySXJxVUlPSHdydkVhNGdkTTZHek9KeHBjTEJYdFh4dTZ4dFpYZ05Wd2d6NnlnWGJOVXlVZ3ZLZndnSVBzSlBTZ1d3clNuWUtWbHlPdWJyNURkc3k1bEZZWS1xUjZSWDFNYlpzRzJWakdic1c0NWZuSzlXQUJfdjhudm9aaXpuZWdzbkhkM085clRRR2Z5ek54M25qZjNTSXdKaE96TjNsbS1nSVVHbUVLRXZ0SEFVM1BkbEdGeS1pc0dhSG5jTQ?oc=5",
+   "published": "2026-09-07T20:39:00+00:00"
+  },
+  {
+   "title": "Alphabet vs. Meta Platforms: Which \"Magnificent Seven\" Titan Has More Room to Run in September?",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPZkVIX01CTk1hTHc0SWY2blkzZjB0NFRvTjBlN2EyUXcyTVZORVE0enZLZnJ0c1lvZTN6clMtaURYZFNxRVc2V3kwYjk1S0RCSklFTUtrQ3lOY1JxV3RyMTRQd1A0WHNvOFRSOWtTb1lXZGd2QV9pWFM4U051dkQ0YlBVS1gzTUZEbmJSY2FPby03RkxXTGhuT05XTHpvc3cyZ0g3anBB?oc=5",
-   "published": "2026-09-07T09:08:01+00:00"
-  },
-  {
-   "title": "Google Messages slowly rolling out fix for bug that randomly sends old texts to other people",
-   "source": "9to5Google",
-   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1UZktEay1IUkU1a2dZWURwOXZKVVZtQlFtMDFiZzFiN3o5d1JnM01mYUY2SDBKdnZxR09pYzNEU1VsN0JPLXEwUTRhQmxoUUtsdzY3MFd2cWNYXzZ1SXBMc2R1dkxWd2t1TU5VUVNtWmtZWHlRREJj?oc=5",
-   "published": "2026-09-07T14:25:00+00:00"
-  },
-  {
-   "title": "Pixel 11 review: Google sets the bar for standard flagship phones",
-   "source": "The Guardian",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQbTNROWpZLTBLWHRqQ2p1NDFIWVExVnVPVjV2WlBkeFVrY0t2VU1wRnUzMzVWTmNURUI0UjBoWjgwNmE1OHZwTjlZb21QZnNlTDMtdjZNYUhCXzg5Q0d6ekQyVHdyX3FtMXdFVTBOdXFOenhOUm10dkZPbFlqN1U0OVV3V3BjR2lLTlZGMXRyeVcxSHgyQnA0YzYyN2Fxa25pdnRwV29mQS1ZRlFfMHFwaWYtYw?oc=5",
-   "published": "2026-09-07T06:00:00+00:00"
-  },
-  {
-   "title": "Alphabet May Be the Mag 7 Stock Investors Are Underestimating",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNX2VPb3g3VEdacm1YYXNxbmZzcmljamlneEU0a0s0cGUwSV8yVklIQlpBR1J5c29uZGdOc3FraXp6S1BEZ21tT1R3NEVZUWVXZ1M2bk05Q3hqSTd6WFNaZ3ZDeE1idjdyUS1VZXBVaWJIUkxqR0hXcVRDTzdaZTdVT043NDJlQ1RQQ1J3ODhUYmRrVzhPYlNBalUtTFZWSVRfYUFEQzFHVGs?oc=5",
-   "published": "2026-09-07T13:50:00+00:00"
-  },
-  {
-   "title": "New Google Ads Automated Promotions",
-   "source": "Search Engine Roundtable",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1icjJsM08tcWc0dHlhWF8tWTFWWnlRNXVwTUhTR1ppUTY5WHpzdEcyVDNQZWRJNVFuSHhqb2VmMWVpZ0tZZFVCWFZSZGo1WW8yYVd6TXZYTEZRN01rVGRtOGFRVjB1d3FQczFyc3lWTEJXaFVoUG0yMGJXQQ?oc=5",
-   "published": "2026-09-07T11:51:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPay11ZFU3M1FjUkN0M0d3cU1ISWhqeF9NMlZoN2FONEkxSDBseWMwckRwSV9oQUNBcGREM25rWHdrM0pPcmZVeXlObVRwYXhMSWJOTEdTZFdtNWcyZmxpOW50U3U0c0xfSVFhTUJwZ1NGbkFYeDY5ZlZnZ1R6T3lLWG01TUgtckhReW0ybktmZEdVWGNXUHZMTWpfZHpXRU5aLWZDZUp3?oc=5",
+   "published": "2026-09-08T10:35:00+00:00"
   }
  ]
 }
