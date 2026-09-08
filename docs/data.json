@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T17:25:27+00:00",
+ "generated_at": "2026-09-08T21:49:03+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.3 (p14)",
+   "value": "15.7 (p20)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 13.8,
+    "pos": 20.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.84",
+   "value": "0.85",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 36.0,
+    "pos": 38.7,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+7.1 pts",
+   "value": "+7.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 92.5,
+    "pos": 95.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.7%",
+   "value": "0.8%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 7.0,
+    "pos": 8.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.3%",
+   "value": "+1.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 60.8,
+    "pos": 60.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 42.7,
+    "pos": 42.6,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "42 (fear)",
+   "value": "41 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 41.9,
+    "pos": 40.8,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 55.87,
-  "day_change_pct": -0.3,
+  "price": 55.82,
+  "day_change_pct": -0.39,
   "sma50": 55.69,
   "sma200": 53.69,
   "high52w": 56.67,
-  "drawdown_pct": 1.4,
+  "drawdown_pct": 1.5,
   "series": [
    {
     "d": "2025-12-18",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-08",
-    "c": 55.87,
+    "c": 55.82,
     "t": "neutral",
     "s": 50
    }
@@ -1328,22 +1328,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.58 (-2.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.58 (-2.2% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 42) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 41) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.3) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.7) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1383,8 +1383,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.16,
-  "tbill_3mo": 3.89
+  "ttm_yield_pct": 8.17,
+  "tbill_3mo": 3.91
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 767.36,
-  "sma200": 712.69,
+  "price": 765.96,
+  "sma200": 712.68,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.29
+  "level": 15.72
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,15 +1516,21 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15100.0,
-  "dca_value": 19624.27,
-  "dca_return_pct": 29.96,
-  "dip_value": 19395.41,
-  "dip_return_pct": 28.45,
+  "dca_value": 19606.8,
+  "dca_return_pct": 29.85,
+  "dip_value": 19379.21,
+  "dip_return_pct": 28.34,
   "dip_cash_uninvested": 1300.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "Labor demand policies connect workers to jobs",
+   "source": "Federal Reserve Bank of Minneapolis",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMnAzbFJNNHlrMXBDM2FnMENuUU5mTXJQeEFtS0FZOWJ4WU5IVjZXeGo4ckJMV1Z5LVJxaDl5OUNvSWlIZURfMGtTdVpfUVNoM3VXaVpoVE1rU1RHTWtUMWczNG5HQVF5TzY5Y2Y2a2ZfLWt5OU15Y1JYMGFqejBkV1V2V2tqTjA1UmQyWTJEQWJpaW8?oc=5",
+   "published": "2026-09-08T21:27:19+00:00"
+  },
   {
    "title": "Currency Print Orders",
    "source": "Federal Reserve (.gov)",
@@ -1532,34 +1538,28 @@
    "published": "2026-09-03T07:00:00+00:00"
   },
   {
-   "title": "Investors Brace for a Choppier Fall as the Fed, Inflation Return to Center Stage",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOZVB4WHFtZ0x2NUk4aWRVV2hQVWlYOG9PelV0Vm83RjYxeXVPQjZ3aFhwbnAwMU5ESUVqazktdXFENE9XcDJ1cXhiaVJWWUZ6TDloRzdNTlFLSFNraTAxU19DX21paE8zbzA3Q3FodlN5ZjJYeERyYmM3VkdIemZhSUZ2Q0MyTWlXS21aU3RhU010NTZNSnZ2ZEV5ZFg0YlM3V0V1amFfVkZwdVhPT0g1TFNEcllSU1hnOVBDSU9IZ2xTOHJu?oc=5",
-   "published": "2026-09-08T09:54:00+00:00"
+   "title": "COMMENTARY: Trump's baffling Fed threat could be gift to Warsh: Mike Dolan",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUlJyMEZjMzY1WGZkdzZwdlJ3c0NYc1RBOU9yZkRYb1FpNjBCUElLSWU1ejVfemROSmhWOVBUWkhGV1VNWU1XTVlJd3VNcmlXdDZfc01taXJVTnppazFSS05iQ1A4Smw0OVNPS3l0VWNZenBVT1JONkg4U2RsaUozR2xWR3ZubUo3XzVlZXptNEhJOHZGelJtRl92aWRhLS1sSXplRm5TdUQ3Mk1SMnlpdHRiT3JXTk5IMDREWll0dGlsanlNQ1VNTA?oc=5",
+   "published": "2026-09-08T10:52:48+00:00"
+  },
+  {
+   "title": "Why the Fed's interest rate call could come down to a few hundredths of a percentage point",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQVFlvci1qSTJXOWUzS2UyWDFOYW01ZWpPOFJ2eTdibHE1T0NHbXR3RndadzhfOURid2VHNkY2dmJLeERJSkdZbFZ3TkJxSnk5VHhURm13ZUUtLVZGTEVidW1jUnBmMk1CUEJfZUtYNm5LcUxjUnBia0RDSzVzNTdrbEdJcmNEaXpoTU9zazllWFBNVEhvaHZUcw?oc=5",
+   "published": "2026-09-08T18:35:32+00:00"
+  },
+  {
+   "title": "Q&A: What can rent prices reveal about inflation and the economy?",
+   "source": "The Pennsylvania State University",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQbmluR3RHY3NuS2l3SVpjM2psWUZnZUhhTmFtTUdJR25pV0hJTng0ZXd6NEJpM1J3RTFmN21lWnVaR3FuQThjamdfMTFMNHZCbFBQaFA0cm14cEthTmdHQzQtTGN2YkJHY2ZWcHpxOEdKdXhlWmplTVNDNkFfajNWU1R2N19Qa2RHUDFwU29uSmZtRzRIbkltODItTDVCQnM?oc=5",
+   "published": "2026-09-08T13:00:00+00:00"
   },
   {
    "title": "Kentucky State to Host 2026 Federal Reserve Luncheon",
    "source": "The Lane Report",
    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQaDJaYktncWhXSjl5MVdGVWI4Tjc0TC1zeDUwZ1k4R2JjRzU1ckJxRVc0aXZFX0RiRHhYU2FNbmJVVE1fVFFvYVNTY2JiUHZoYU53S0xrMUszSHlDbTVEMm14VDJvU0dOYU9mQ2VMaGZ0MEhNaTQ1Uy1qSThsYzdOcTBjTEhUMk1PM2F4QTlQLXg?oc=5",
-   "published": "2026-09-08T15:53:37+00:00"
-  },
-  {
-   "title": "COMMENTARY: Trump's baffling Fed threat could be gift to Warsh: Mike Dolan",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUlJyMEZjMzY1WGZkdzZwdlJ3c0NYc1RBOU9yZkRYb1FpNjBCUElLSWU1ejVfemROSmhWOVBUWkhGV1VNWU1XTVlJd3VNcmlXdDZfc01taXJVTnppazFSS05iQ1A4Smw0OVNPS3l0VWNZenBVT1JONkg4U2RsaUozR2xWR3ZubUo3XzVlZXptNEhJOHZGelJtRl92aWRhLS1sSXplRm5TdUQ3Mk1SMnlpdHRiT3JXTk5IMDREWll0dGlsanlNQ1VNTA?oc=5",
-   "published": "2026-09-08T06:00:00+00:00"
-  },
-  {
-   "title": "Commodity inflation is hot, but Fed is still focused on core inflation",
-   "source": "HousingWire",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNRFF0RXhxRzREWWdaSGkyZFlkUUdvZk9GOHdpNnVmeGlwamZlMXdNS09xdnNSQ1lpVTdDQWlqRTBZbDM4ZjM2MFZ4TVBjVlVnS0NacVhuRWxESTRPOTBMbmN1cWxNTTdiUnFpdjhjOVNROUJ6cVBqY1B6TU5hTDhvc2t4dVRvNHBnYkdBU0lYMzlaY3pfbFpENDBVWmlVZDlJLXIzQlFweVZ3dlU?oc=5",
-   "published": "2026-09-08T16:29:43+00:00"
-  },
-  {
-   "title": "NY Fed: Inflation expectations largely unchanged at elevated level",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOOC1RNFRIV2k5R0tNR2ZwazBhRjVxNjYzUFExWHBEd3M5NG8tTjNfQjFHY1FyRndQTl9FOXF5cHZhTHltaE51TEIxWlFYS3ZQZ3NuUGZ2R2ZTM2MzUTJnQ1BRMWtaVHJuMGp4N3BZcFp3cGd1VWR3dTRRN3JhbDdlYjhnQ2ZZTW5VZGNIcTMtbmcyM3R1M3BDNWdpXzkwb2RWUzd2dWJnV0RKNlJL?oc=5",
-   "published": "2026-09-08T15:18:53+00:00"
+   "published": "2026-09-08T16:54:47+00:00"
   }
  ]
 }

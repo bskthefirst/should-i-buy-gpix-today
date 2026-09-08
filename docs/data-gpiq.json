@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-08T17:25:29+00:00",
+ "generated_at": "2026-09-08T21:49:04+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.4 (p30)",
+   "value": "21.7 (p31)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 29.8,
+    "pos": 31.5,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.84",
+   "value": "0.85",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 36.0,
+    "pos": 38.7,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.40x (p73)",
+   "value": "1.38x (p71)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 73.4,
+    "pos": 71.3,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.6 pts",
+   "value": "+8.9 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "2.2%",
+   "value": "2.4%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 22.0,
+    "pos": 24.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+1.2%",
+   "value": "+1.0%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 60.0,
+    "pos": 58.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "42 (fear)",
+   "value": "41 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 41.9,
+    "pos": 40.8,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 56.715,
-  "day_change_pct": 0.17,
+  "price": 56.6,
+  "day_change_pct": -0.04,
   "sma50": 56.75,
   "sma200": 54.48,
   "high52w": 59.52,
-  "drawdown_pct": 4.7,
+  "drawdown_pct": 4.9,
   "series": [
    {
     "d": "2025-12-18",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-08",
-    "c": 56.715,
+    "c": 56.6,
     "t": "neutral",
     "s": 50
    }
@@ -1350,22 +1350,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.23 (-0.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.23 (-0.6% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 42) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 41) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.4) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.7) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1382,7 +1382,7 @@
   "fg_coverage_start": "2025-09-08",
   "baseline": {
    "n": 696,
-   "avg_pct": 1.93,
+   "avg_pct": 1.92,
    "median_pct": 2.16
   },
   "bands": [
@@ -1410,8 +1410,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.08,
-  "tbill_3mo": 3.89
+  "ttm_yield_pct": 10.1,
+  "tbill_3mo": 3.91
  },
  "distributions": {
   "history": [
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 720.22,
-  "sma200": 658.33,
+  "price": 718.36,
+  "sma200": 658.32,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.42
+  "level": 21.71
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1543,20 +1543,26 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15100.0,
-  "dca_value": 20648.12,
-  "dca_return_pct": 36.74,
-  "dip_value": 20414.61,
-  "dip_return_pct": 35.2,
+  "dca_value": 20606.46,
+  "dca_return_pct": 36.47,
+  "dip_value": 20373.41,
+  "dip_return_pct": 34.92,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 59,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "On the Navier\u2013Stokes Millennium Prize Problem",
+   "source": "OpenAI",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9WeUdwVDNOQkR0VFo3SjJHY1BFdUFCMzhsTGhKbUh6ZVBYTDQzRHlTdGtVYlVzbmVnbWh5X2NZMUU5R2p4STNaVVY1M3FoWnczS0UyNDBDOUhJNTQ3?oc=5",
+   "published": "2026-09-08T17:20:23+00:00"
+  },
+  {
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-08T15:15:06+00:00"
+   "published": "2026-09-08T18:23:43+00:00"
   },
   {
    "title": "Making sovereign, open-weight AI the technology frontier",
@@ -1565,28 +1571,22 @@
    "published": "2026-09-08T05:03:58+00:00"
   },
   {
+   "title": "Alpha Chicago opens as first AI school in city without teachers; created by Mackenzie Price",
+   "source": "ABC7 Chicago",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNSmlrYXhsSEtSbmY2akVXTWc2d25pNWJTcTAzN25obHR0Y01KU3l3SXNFUUYxQjZyOFppLUVfUENpRHRGc2lYelRxT2FNRC03SkRVU1JKakFNUlkteTV1UC0yTHQwMTFUZUF2SmhjemFQTjhtbFVmamFkRzVrdzNVQXhheHhpaVlaTVdCbWcyUXM5akNLOWhHdW0zaHhQclhDbEhPWUdNejROcTJkaVRQcUJ30gG3AUFVX3lxTE80TktEODJOdXpoX0dDWW01aTE2ckdIWGQyQ2h0aXI2bHRtOURfV0tPcFd3RkJ4a2JQZGlqZU1RUThrMHgwN3hsVGRXNThod3RXMW5GRWU5RzRlNlpIc1RGcU42VEl2c1p6RF9yZm5fbThUT2QyMmxFdlcxZW5Ub2JEZmh1WDNKLV9EVEpNeFZVcDdReS1PWFBNMkFaT2UwVjRTMi1uTnAyZzB6V1F3VE8ycDhzaGdLaw?oc=5",
+   "published": "2026-09-08T13:18:45+00:00"
+  },
+  {
    "title": "Exclusive | Google Cloud, Accenture Launch Unit to Put AI Engineers On-Site With Customers",
    "source": "WSJ",
    "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPdlp6U3FkM1JYbjNMN3FBbjJjUGt5eTJCaF9qSklnNzUtOFYtTk1taDJkQk1zUU5XelU2MGU3V2djQ0owbk92Y2YzQ3I4WkpqaWJGOGFRVWxQRldiTWpTYnpkZU9jazFKWnVISVVCc1NNVWIyV3NiR2dmWVVYMjNIOXdSbkFjbTBJcGFpU2pmMmN6b1B3aVZiYUNMbWk2U1k5Z0JVeUxwNGI4ZnRCbUEtbGxRVXhHRVFzTmc?oc=5",
    "published": "2026-09-08T15:36:00+00:00"
   },
   {
-   "title": "Qualcomm Announces Multi-Generational Product Collaboration with Amazon to Build Next-Generation AI Data Center Infrastructure",
-   "source": "Qualcomm",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQaEg3TlU0dE54MjJpRk1OelViNFJud2hjUnJiOWhnTHVVVjRQUmhKOGcwY0NrZFBndG5fb3ZBRFk4RkZ0eU9VdXNfM3NvZk5SWWdJX0MwTC1UX2N6dzg2dEN5Y3UzVFJyN1hWZUZiWmpHQlNQU1dacG5jLXhJMHBCZmNMcXlfQVJWenhmUHpNMkRYWlpEZXM5OWdoUkIwXzBsQ1lqUlNBM1hhV0xCZDY0TQ?oc=5",
-   "published": "2026-09-08T13:27:35+00:00"
-  },
-  {
-   "title": "Autonomous AI Agents Compromise Thousands of Credentials in Under Six Hours",
-   "source": "The Hacker News",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB4T21ja096NmpiY3d0UHVja3dDRUlaajZiRWZ4LVd4eVlhYm9jbFBpeHZ4UC1sYzRvMjZCdlNsZlAzRy1ZemdhaGF0OFZfMDhlaDBuRXNCcG1ROWJrMDBsUDRDWHdVNjdTTjhJamR5UXFQRW9aUVM3UHpB?oc=5",
-   "published": "2026-09-08T13:48:00+00:00"
-  },
-  {
-   "title": "A.I. Models Built a Computer Worm That Could Rapidly Hack WeChat Accounts",
+   "title": "A Hacking Tool Built With A.I. Can Breach Phones Without a Click",
    "source": "The New York Times",
    "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOMndLNHd3NkVkNmtTb3NMSlh3emJ5VTVZamVfaEUzVmhheFdrd1NIMjFsVnJnRHJfQWJ0M09BOEMzY25mNVFYZFZPWWY0cHpiMjM3RFQzclFIZk9RNW5ERmdkaUpEUlhMUXY2SW9XVnQtby0yMko0MUY3LS1oUF9PeWtpQQ?oc=5",
-   "published": "2026-09-08T09:05:10+00:00"
+   "published": "2026-09-08T16:50:25+00:00"
   }
  ]
 }
