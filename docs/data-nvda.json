@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-08T21:49:06+00:00",
+ "generated_at": "2026-09-09T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "4.1%",
+   "value": "4.5%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 4.1% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 4.5% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 8.2,
+    "pos": 9.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.7 (p20), F&G 41",
+   "value": "VIX 16.0 (p26), F&G 41",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,28 +120,22 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 3d",
+   "value": "CPI in 2d",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "No event risk in the next few days (CPI 2026-09-11, FOMC 2026-09-16). (Earnings date unavailable today - Yahoo's calendar endpoint didn't answer.)"
+   "lean": "bad",
+   "note": "CPI print within 2 days - a market-wide volatility event. Expect a swing either way."
   }
  ],
  "fund": {
-  "price": 225.73,
-  "day_change_pct": -2.01,
-  "sma50": 211.23,
-  "sma200": 196.9,
+  "price": 224.925,
+  "day_change_pct": -0.36,
+  "sma50": 211.83,
+  "sma200": 197.09,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 4.2,
+  "drawdown_pct": 4.6,
   "series": [
-   {
-    "d": "2025-12-18",
-    "c": 174.14,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2025-12-19",
     "c": 180.99,
@@ -1215,10 +1209,21 @@
     "c": 225.73,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-09",
+    "c": 224.925,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
+  {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "NVDA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
+  },
   {
    "label": "Top-decile volatility",
    "direction": 1,
@@ -1228,12 +1233,12 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-08",
-  "days_total": 717,
+  "end": "2026-09-09",
+  "days_total": 718,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-08",
+  "fg_coverage_start": "2025-09-09",
   "baseline": {
-   "n": 696,
+   "n": 697,
    "avg_pct": 5.54,
    "median_pct": 3.38
   },
@@ -1255,9 +1260,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 370,
+    "n": 371,
     "avg_pct": 4.02,
-    "median_pct": 1.99
+    "median_pct": 2.01
    },
    {
     "tone": "caution",
@@ -1274,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 225.73,
-  "sma200": 196.9,
+  "price": 224.925,
+  "sma200": 197.09,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 44.1
+  "level": 44.2
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 8,
-  "imminent": false
+  "days_until": 7,
+  "imminent": true
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 3
+  "days_until": 2
  },
  "earnings": {
   "next": null,
@@ -1298,54 +1303,54 @@
  },
  "backtest": {
   "start": "2022-09-09",
-  "end": "2026-09-08",
+  "end": "2026-09-09",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 88108.04,
-  "dca_return_pct": 319.56,
-  "dip_value": 88420.28,
-  "dip_return_pct": 321.05,
+  "dca_value": 87793.83,
+  "dca_return_pct": 318.07,
+  "dip_value": 88104.96,
+  "dip_return_pct": 319.55,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "3 Things Bears Have Wrong About Nvidia Right Now",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNYW54VVJWOEI5TFNLVmszLTV6eUY2UnlqZVNkOWFKM1ExQlB1Z2xHSHJ5YmRDZ1pjM2xGZHQzVFdnc1FqVDlaQWItcTZuWnBfb0d0aHZzVjRzTU5nSExzdlZ3Q2NVVFN3ZmhXdkU2eFcxQlJkVjBtbzhKNDM4aUJBSDNUM2pQWXRGamlOd2lxMmlLZm1TTFBR?oc=5",
-   "published": "2026-09-08T16:12:00+00:00"
-  },
-  {
-   "title": "Dear Nvidia Stock Fans, Mark Your Calendars for September 10",
-   "source": "Barchart.com",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQVkgwdkU0a1VmdFBndEhZVmMwOTVMNFpyN3hBSmQydEdxUmJYX292bGd2eGlzaXJaZlhjZFJBRGpPM1Q1eFUwcVptZnI0aUV3bkxxQ0hVajRnS1FUVHRGNlZpdi0wQzZ1Vk1MUEdQN003WmN1X2FZWjhBUENmQUtFcWc2TzZvNnBxY3hpaTZpM2xuUXFnQ3hVTHZJWDRWRXFUdVR3M2FR?oc=5",
-   "published": "2026-09-08T19:42:39+00:00"
-  },
-  {
-   "title": "Price Prediction: Nvidia Stock Could Be Worth This Much by 2030",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQmFxOEpDU0FYRmxreDVNenlmckNlZW9mRWp4SzBEcDB3aHpoUFBzWlV4TTh5dXFReGhGVW1NNlA3bFFPcGtjVnJ4dmRFRmptZkpKSV9fdEx1YmpCMDBrS215ZG5RamtYRDNvREFxLTJBR0ZYdVlGYzZxMzd5NHF5R3dsNm1hNGQ2QXc5dm5VUlZ6MWN6bk5XNTBJaVdtQ0V4SVJmeGhBWWtQQQ?oc=5",
-   "published": "2026-09-08T16:00:00+00:00"
-  },
-  {
-   "title": "Nvidia supplier Wistron's shares drop after it announces $1.5 billion global stock sale",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFA3cUkxRTNkckFPV0E1alVORURUem9QV3RSYWxaV1RScXY5X200LWRWVU02WVdjUHlrTElOd1loNlYwcmFJdTRUWGUwX01GdUcydjJySHlxVGVJWFEycjlHQW1RQm93czVPdEdvMTB3eVcwX1Uwb0N4R2NoZ9IBgAFBVV95cUxQSlprSjA1bjhJMlUtdzVaX2NKc05GSlhfRHBaVVdzSll4QzM4bGtrRGt0T3gyMnVxLWRQSHJSVWlDcno5UlhJaTVtczloMVFLRm1WdEZUc3kwQTZQMEhQeWRDZzNtNG13bi1GLUV5bnhXT3FVME9oa3lzOG5aTlo2Mg?oc=5",
-   "published": "2026-09-08T02:44:00+00:00"
-  },
-  {
    "title": "Inside the Arm Mali G2-Ultra NX GPU: Delivering desktop-class mobile gameplay with AI-native graphics",
    "source": "newsroom.arm.com",
    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOUUxqZS1wUTRCbW5sUUZZbnlFem90cWY1Ql9aZmU5bVlHWWdPczV5eXpzenlSMi1KdE1WbWFPR2hIbW5aSjNXRVQ4eHFCb3Zvb3MybGtUWDNEUjhseUFLQTd2QzEwc2FRRmRMWVJ0R21WdFVqMDJoNEpIZUVFTVRvckJ3?oc=5",
-   "published": "2026-09-08T07:46:21+00:00"
+   "published": "2026-09-09T14:27:18+00:00"
   },
   {
-   "title": "Introducing CUDA Rust: Two Tracks for Writing GPU Kernels | NVIDIA Technical Blog",
-   "source": "NVIDIA Developer",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNTHU4bTNfMV9DOThPNENkaVlQazROZnNmalh3TEdOdnFSLW1sUS1ueDkyaUs0a3B1amhoLW1QQXBjTGNzR1gzMW9JMWk0a2hkeVlsN3dUd25CRFFLbUV4Y09ROW8wWm5PdG51M1BuSm1jVTViclpoYTlSeXI4c2R5ampOeE1ra2lhbzJHNDFoN252aHB3T2c?oc=5",
-   "published": "2026-09-08T12:02:31+00:00"
+   "title": "AGI is here, Nvidia CEO Jensen Huang has declared. Here\u2019s why the market doesn\u2019t care",
+   "source": "fortune.com",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE95NFV1T1pXQ3laX1dzbXVMSXZ1bzJabHZDZDR6THVoRi1fT1lNdkFsRW5pOUZfT1E0UmpQZmFaSWRDamtNUFhxRkFDQWhnM0hfeEg4OE1fU21sWkhfOE5wZTU0aE9GNl84cXFsdXl3bUZYUnJUcVZYV291SGJCZzg?oc=5",
+   "published": "2026-09-09T07:00:00+00:00"
+  },
+  {
+   "title": "Here's My Nvidia Stock Price Forecast for the End of September",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRXo5REwxYVVLejdCbjdUN0lkS1YzR1JpQU05ME5iSFZXQVlBb05nZTZIa0xpbDYyLVI3azItQWVtbHpUaVZHeGd6c044d1htTHJxNnBJVjJleUVYVW9ScklzMzVEUjdBNkFETmhaNXVWcmtudnVVU21WdEdqSl9XN2Vxd0pKUWtTa21BRXRjcWw0cEZVNmYtNA?oc=5",
+   "published": "2026-09-09T14:09:40+00:00"
+  },
+  {
+   "title": "Prediction: Sept. 10 Will Be a Big Day for Nvidia Shareholders. Here\u2019s What to Watch.",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPTFBrMVZXRmhNcmpkTlRaS0V2U2JuYWxpckNVZ0xyLWhXWHc3SFU1UV9OMDhPcjhMZjBTX3B5RTdhall1RERzcVFQV1Jnd2JoN0RmUlBwZ3RCN0pGdHJZNnFhQjVENS1uRGJEME9GeWJURmdwLUpEYkFnVC13RDRlTExtbGlWX2xLdmJTdFo4UC1iQ2N0dlE?oc=5",
+   "published": "2026-09-08T23:35:01+00:00"
+  },
+  {
+   "title": "Cantor Has Strong Message for Nvidia Stock Investors",
+   "source": "TradingView",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNWU1uaVhEQXdONDNsTGlzOGlFeDZWdTMzQzJET1NUZjA5TGdsbUstM0RWZ1RCaHpWcnpFcnQ4YlF0UGxDaWVvRWttNjc1bmQxVjZRX0c5MTVvYUtHUndxTFl5cG1kUHFpSGRzZ0tmdExqUzViOWpaMHNrQXRfTjl3al9ES1VkdUFsTmppREF5ZnJLaFU0WUVKbE5HQkplbE5FVWJUVHdYVk4wcmVyM1hTSWp3?oc=5",
+   "published": "2026-09-09T12:52:08+00:00"
+  },
+  {
+   "title": "A new Anthropic model seeks to test how AI could impact the U.S. economy",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5zbl9Ya1QyeGVtRDVaTTNqVktBeFFUdXVza1VOdVh1UDZEX0FzR0hsVTdEaDg4ZG9OYWVoZlhTM0s3SHZZT3M3cG5LWFpPdThrUzJPRWdwWjEzRFU4WnZuRTYtREFXam5pV2Qwby1ta1c5bjQ?oc=5",
+   "published": "2026-09-09T13:34:48+00:00"
   }
  ]
 }
