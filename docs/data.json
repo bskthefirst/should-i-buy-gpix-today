@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T17:14:41+00:00",
+ "generated_at": "2026-09-09T21:40:07+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "16.3 (p31)",
+   "value": "16.5 (p38)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 31.5,
+    "pos": 37.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 42.0,
+    "pos": 43.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+7.9 pts",
+   "value": "+8.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 99.5,
+    "pos": 100.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.3%",
+   "value": "1.4%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 13.0,
+    "pos": 14.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+0.7%",
+   "value": "+0.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 55.8,
+    "pos": 55.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 43.0,
+    "pos": 42.7,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "40 (fear)",
+   "value": "39 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 40.2,
+    "pos": 39.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,8 +230,8 @@
   }
  ],
  "fund": {
-  "price": 55.54,
-  "day_change_pct": -0.5,
+  "price": 55.51,
+  "day_change_pct": -0.56,
   "sma50": 55.7,
   "sma200": 53.71,
   "high52w": 56.67,
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-09",
-    "c": 55.54,
+    "c": 55.51,
     "t": "ok",
     "s": 62
    }
@@ -1326,19 +1326,19 @@
    "text": "GPIX at $54.58 (-1.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
+   "label": "Extreme fear",
+   "direction": 1,
+   "text": "Fear & Greed at 25 or below (now 39) = extreme fear, a contrarian buy zone (+6 pts)"
+  },
+  {
    "label": "VIX curve inversion",
    "direction": 1,
    "text": "VIX/VIX3M ratio at 1.00 (now 0.87) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
-   "label": "Extreme fear",
-   "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 40) = extreme fear, a contrarian buy zone (+6 pts)"
-  },
-  {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 16.3) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 16.5) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1384,7 +1384,7 @@
  },
  "income": {
   "ttm_yield_pct": 8.21,
-  "tbill_3mo": 3.91
+  "tbill_3mo": 3.94
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 763.0801,
+  "price": 762.4,
   "sma200": 713.18,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 16.29
+  "level": 16.46
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,10 +1516,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15100.0,
-  "dca_value": 19508.45,
-  "dca_return_pct": 29.2,
-  "dip_value": 19288.53,
-  "dip_return_pct": 27.74,
+  "dca_value": 19497.91,
+  "dca_return_pct": 29.13,
+  "dip_value": 19278.81,
+  "dip_return_pct": 27.67,
   "dip_cash_uninvested": 1300.0,
   "dip_buy_days": 31,
   "winner": "dca"
@@ -1527,7 +1527,7 @@
  "headlines": [
   {
    "title": "Market Minute: Inflation data set to support Fed rate hike",
-   "source": "The Real Economy Blog",
+   "source": "realeconomy.rsmus.com",
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQazQzWm14UG1LcG9zTzhUb2ZxcmFzSnJMVmlaa3RjSnNlcjZQdERsc3RwNEs5VXFHcGY0LTZqUkRMUFBwYng5TWRaS2d1blFNalNhVlZRQ1Z6RGVJamdLMWR2Z3RrbHpJYWJqdWJOajFyVmxIVDRFMVM4LWdIcVJZYXpxZXlDLXBMQkVGLTgtX0ZRdw?oc=5",
    "published": "2026-09-09T10:00:11+00:00"
   },
@@ -1536,6 +1536,12 @@
    "source": "Reuters",
    "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOZ0NreUFoTnFxX3ZzQnd3YU9FNFVkQmhfZlBrSVBUUm12Q0lCckxRTHdWcUVHbmJpcDZKbVhNZG5RektYQlpqaUZGMjl2TnJ0amhPMGJBWnB6OG9FVTB5dVJPTlc1ZjJaa2djUl9HR3VhYzIxODJjVEx1NUswdkVkblYxNVNSY1dYWlpUdzlEQU9UNTNzaUtVWXVtdXljVEUzSnVOQTV2bTJHSXN6Q2E3U0pzcVk5U19qUmc?oc=5",
    "published": "2026-09-09T13:29:11+00:00"
+  },
+  {
+   "title": "Francis Kim advocates for an independent Federal Reserve",
+   "source": "Furman University",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQRkE5ZWozZkI1elltRzVyVU9zQ0pVU2FVbkN4QWVXczBtWGlyN00zdTZMRjRocnZLaHlMc0NnMXJhZTdKOFhLQjNHN0xNbVh2RWIwVmU0VXQzaG9yZWwxNzY5VXNGNkxWenFFRHhuLVdma3NXY2NSdV9GTDFyTHpVeTZHSXVDcDRtZ2pCQ1hR?oc=5",
+   "published": "2026-09-09T18:38:07+00:00"
   },
   {
    "title": "Trump pushes Fed for lower rates, but consumers may be better off with a hike, experts say",
@@ -1550,16 +1556,10 @@
    "published": "2026-09-09T08:18:08+00:00"
   },
   {
-   "title": "BPI and The Clearing House Association Comment on Federal Reserve AML/CFT Program Proposal",
-   "source": "Bank Policy Institute",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPemp6UHd5UjBPQVpwRWJFX3hIbGMyUDlMVVRFUDEzcVJPOUpmV3JsYVQxbDg0QmRIeVFnVlNWd0tZOWtfT3B2dmkzYWhpMWN6dDU2emhUaEtHS09VTDFZSnRjc2Iwa0J4TU5kTHRJYTJPMjNXUmFmVWpzaG9lLTVzanlFdkJ1UE02VW5ZUDVVWVc2RWcxUy1NSmdvRjNzYUNUbnhDaXp4QVM1ZXc?oc=5",
-   "published": "2026-09-08T22:21:23+00:00"
-  },
-  {
-   "title": "Fed's interest rate decision may come down to hair-splitting inflation data",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFB1Zk9ZOFJXWEpFRVhVMENrSFVkam5jdGtkVzE3Q1hPcXlRMkJwNDJCZkpucVc3SXQ4VjBiTjZpWC1sMTFzWHRUeGRZWGIwaC1iNDAyYjIzckgyM19nSURkWEk2cC1OSkEzZEFROWJsTQ?oc=5",
-   "published": "2026-09-09T16:24:01+00:00"
+   "title": "Midterm mindset seeping into the U.S. stock market",
+   "source": "RBC Wealth Management",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSEI3TFBEREljbXJvQkhzOU1VYUtZQm40NWZabm43eWd2TnIzV2E2MVJaVjA2b3hjbnpPMmhCQnV2SXVYUnRFZUgxTGRiMW1tT3pOazNRR185R3VDSXVhLThvNndpN0hfeS1Ja2dXMENEYUgzeUVBVzh4ZDFJSGd6NmMzMlVHMUc4MV9zaXNjUjh4SER0TG1CVEJ6UktxT2Zy?oc=5",
+   "published": "2026-09-09T20:26:25+00:00"
   }
  ]
 }
