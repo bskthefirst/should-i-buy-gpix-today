@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T14:30:14+00:00",
+ "generated_at": "2026-09-09T17:14:41+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.0 (p35)",
+   "value": "22.3 (p38)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 35.3,
+    "pos": 38.5,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.86",
+   "value": "0.87",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 40.0,
+    "pos": 42.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.38x (p70)",
+   "value": "1.37x (p69)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 70.2,
+    "pos": 69.4,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+9.2 pts",
+   "value": "+9.5 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "2.5%",
+   "value": "2.7%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 25.0,
+    "pos": 27.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.9%",
+   "value": "+0.7%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 57.5,
+    "pos": 55.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 62.0,
+    "pos": 62.2,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "41 (fear)",
+   "value": "40 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 41.3,
+    "pos": 40.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 56.54,
-  "day_change_pct": -0.11,
+  "price": 56.425,
+  "day_change_pct": -0.31,
   "sma50": 56.71,
   "sma200": 54.5,
   "high52w": 59.52,
-  "drawdown_pct": 5.0,
+  "drawdown_pct": 5.2,
   "series": [
    {
     "d": "2025-12-19",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-09",
-    "c": 56.54,
+    "c": 56.425,
     "t": "neutral",
     "s": 50
    }
@@ -1348,29 +1348,29 @@
  },
  "flips": [
   {
+   "label": "Real discount",
+   "direction": 1,
+   "text": "GPIQ at $56.23 (-0.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+  },
+  {
    "label": "Short-term pullback",
    "direction": 1,
    "text": "QQQ has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
   },
   {
-   "label": "Real discount",
-   "direction": 1,
-   "text": "GPIQ at $56.23 (-0.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
-  },
-  {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.86) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.87) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 41) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 40) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.0) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 22.3) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.11,
+  "ttm_yield_pct": 10.13,
   "tbill_3mo": 3.91
  },
  "distributions": {
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 718.09,
-  "sma200": 658.91,
+  "price": 716.905,
+  "sma200": 658.9,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.98
+  "level": 22.31
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1543,10 +1543,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15100.0,
-  "dca_value": 20584.61,
-  "dca_return_pct": 36.32,
-  "dip_value": 20351.92,
-  "dip_return_pct": 34.78,
+  "dca_value": 20542.74,
+  "dca_return_pct": 36.04,
+  "dip_value": 20310.73,
+  "dip_return_pct": 34.51,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 59,
   "winner": "dca"
@@ -1556,13 +1556,13 @@
    "title": "Making sovereign, open-weight AI the technology frontier",
    "source": "mistral.ai",
    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRzU0cTlwNHctb0FiY092UVlJZFh4UmxsQ2lPLTdkVEU2SlRzVU12VzI2RGRYWEFqS2NMcVlXdXNTUGczTjFTbjZGMXY4bHhZYXN6bVpGQ0M0cndmMmthYjhUcGhPWlZsb1ZWeHhHOUdZWE93bTdUMjBNMzZQNTR6Mw?oc=5",
-   "published": "2026-09-09T14:23:08+00:00"
+   "published": "2026-09-09T16:33:40+00:00"
   },
   {
-   "title": "Exclusive | Anthropic Researcher Quits Over \u2018Out-of-Control\u2019 AI Fears",
-   "source": "wsj.com",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNNkJNMUhyUzQ3M1FsRFZMcUhKMGFFeFpsdnJaVzM4T2duWVVFYTk4ZUpXN0dRemFMUjZ3bC1CZ29ETjF4dWlScEQ5UVZDYVhLOUt0YVVmV1JfdjVoZWVpcXVyTFhDdjNTN0NIc2h6bXdRbkZDek5RX3poR0JkRE5XdG55ZFFJRGNqRWllSzllQk56LWJHYURn?oc=5",
-   "published": "2026-09-08T23:46:00+00:00"
+   "title": "A new Anthropic model seeks to test how AI could impact the U.S. economy",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5zbl9Ya1QyeGVtRDVaTTNqVktBeFFUdXVza1VOdVh1UDZEX0FzR0hsVTdEaDg4ZG9OYWVoZlhTM0s3SHZZT3M3cG5LWFpPdThrUzJPRWdwWjEzRFU4WnZuRTYtREFXam5pV2Qwby1ta1c5bjQ?oc=5",
+   "published": "2026-09-09T13:34:48+00:00"
   },
   {
    "title": "The turbulent AI era is here. The choices we make now are critical.",
@@ -1577,16 +1577,16 @@
    "published": "2026-09-06T16:09:46+00:00"
   },
   {
-   "title": "A new Anthropic model seeks to test how AI could impact the U.S. economy",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5zbl9Ya1QyeGVtRDVaTTNqVktBeFFUdXVza1VOdVh1UDZEX0FzR0hsVTdEaDg4ZG9OYWVoZlhTM0s3SHZZT3M3cG5LWFpPdThrUzJPRWdwWjEzRFU4WnZuRTYtREFXam5pV2Qwby1ta1c5bjQ?oc=5",
-   "published": "2026-09-09T13:34:48+00:00"
+   "title": "Google deepens its commitment to Finland with a \u20ac13 billion investment in AI infrastructure",
+   "source": "blog.google",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWHFqVUxBYVJnaWdudjhTVVZoakRwSUZqbHVKcWFxNlNRT2JNTDdwQk0tT3ppYmxNczFwWXluNDhoVHh4UUR1TlZHSlpWaGpBdDZwMTZsdldCMXVkd0t3eXJWVEl4RmpUVGJ4aHBrT1RpZEt2Umw3dDBXTVQ5VDM2a3c0a1l6QlZVRmxuUzZqLUtaVlVNYUYxanAyZDVlVVpIdUFXbzFuYXhScmNleE9R?oc=5",
+   "published": "2026-09-09T07:12:20+00:00"
   },
   {
-   "title": "Anthropic insiders warn AI could kill all humans",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPa3NGZXN5Vkw0MC1ZM0RPX0Uybzl3SmREbEtvVmpoT0g2SWhHbjVMMjhGSWxSSWpJbFBXQTdhOVFjM1N2RnFWZFJqYUxiOWtMTTFWSkV1bUUzMThmZnF6RUVWYnA1aW5SQXk4dUNtN1YxbmNpZGFnTFBTX1Bib3RRQmRTaHh3X18z?oc=5",
-   "published": "2026-09-09T13:11:22+00:00"
+   "title": "Anthropic researcher says more than 10% chance AI \"could kill all humans\"",
+   "source": "CBS News",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSjVITktVaHcwaVluRVgzYlVzT0ZhWjhWR3pQLV9HMnZVX2ZBVE12MnM3QmQ2c2xCOE1FYU5IVUhSTGtOaElrN2taenIwUjFDRlBoR1FIRjltZmVLMXNvYmdjOVRlUmxNZ2xTcUJ4eDFuSnZZeVdHMXNtSVcta2hBNEJOOGVFcm1NUl93MHljVlZKTkNzLUlGdWp3?oc=5",
+   "published": "2026-09-09T12:15:00+00:00"
   }
  ]
 }
