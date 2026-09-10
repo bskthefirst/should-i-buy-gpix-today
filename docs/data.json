@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T21:40:07+00:00",
+ "generated_at": "2026-09-10T14:30:12+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "16.5 (p38)",
+   "value": "17.8 (p59)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 37.8,
+    "pos": 59.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.87",
+   "value": "0.90",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 43.1,
+    "pos": 51.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,7 +63,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.1 pts",
+   "value": "+9.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.4%",
+   "value": "1.8%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 14.0,
+    "pos": 18.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -113,21 +113,21 @@
   },
   {
    "name": "Short-term pullback (reversal)",
-   "value": "3 down days",
+   "value": "4 down days",
    "score": 2.0,
    "weight": 2.0,
    "lean": "good",
-   "note": "SPY has closed down 3 straight sessions. Short selling streaks like this have reliably bounced the next day - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.21% next-day excess (t=3.6) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
+   "note": "SPY has closed down 4 straight sessions. Short selling streaks like this have reliably bounced the next day - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.21% next-day excess (t=3.6) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+0.6%",
+   "value": "+0.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 55.0,
+    "pos": 51.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 42.7,
+    "pos": 43.1,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "39 (fear)",
+   "value": "35 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 39.0,
+    "pos": 35.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 2d",
+   "value": "CPI in 1d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 55.51,
-  "day_change_pct": -0.56,
-  "sma50": 55.7,
-  "sma200": 53.71,
+  "price": 55.2701,
+  "day_change_pct": -0.43,
+  "sma50": 55.69,
+  "sma200": 53.73,
   "high52w": 56.67,
-  "drawdown_pct": 2.0,
+  "drawdown_pct": 2.5,
   "series": [
-   {
-    "d": "2025-12-19",
-    "c": 52.66,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-22",
     "c": 52.96,
@@ -1316,6 +1310,12 @@
     "c": 55.51,
     "t": "ok",
     "s": 62
+   },
+   {
+    "d": "2026-09-10",
+    "c": 55.2701,
+    "t": "ok",
+    "s": 62
    }
   ]
  },
@@ -1323,22 +1323,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.58 (-1.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.58 (-1.2% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 39) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.87) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.90) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 16.5) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 17.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1349,14 +1349,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-09",
-  "days_total": 718,
+  "end": "2026-09-10",
+  "days_total": 719,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-09",
+  "fg_coverage_start": "2025-09-10",
   "baseline": {
-   "n": 697,
+   "n": 698,
    "avg_pct": 1.68,
-   "median_pct": 2.05
+   "median_pct": 2.04
   },
   "bands": [
    {
@@ -1376,14 +1376,14 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 506,
-    "avg_pct": 1.27,
-    "median_pct": 1.73
+    "n": 507,
+    "avg_pct": 1.26,
+    "median_pct": 1.72
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.21,
+  "ttm_yield_pct": 8.25,
   "tbill_3mo": 3.94
  },
  "distributions": {
@@ -1493,73 +1493,73 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 762.4,
-  "sma200": 713.18,
+  "price": 758.97,
+  "sma200": 713.71,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 16.46
+  "level": 17.82
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 7,
+  "days_until": 6,
   "imminent": true
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 2
+  "days_until": 1
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-09",
+  "end": "2026-09-10",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15100.0,
-  "dca_value": 19497.91,
-  "dca_return_pct": 29.13,
-  "dip_value": 19278.81,
-  "dip_return_pct": 27.67,
+  "dca_value": 19413.65,
+  "dca_return_pct": 28.57,
+  "dip_value": 19201.11,
+  "dip_return_pct": 27.16,
   "dip_cash_uninvested": 1300.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Market Minute: Inflation data set to support Fed rate hike",
-   "source": "realeconomy.rsmus.com",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQazQzWm14UG1LcG9zTzhUb2ZxcmFzSnJMVmlaa3RjSnNlcjZQdERsc3RwNEs5VXFHcGY0LTZqUkRMUFBwYng5TWRaS2d1blFNalNhVlZRQ1Z6RGVJamdLMWR2Z3RrbHpJYWJqdWJOajFyVmxIVDRFMVM4LWdIcVJZYXpxZXlDLXBMQkVGLTgtX0ZRdw?oc=5",
-   "published": "2026-09-09T10:00:11+00:00"
+   "title": "A Tiny Shift in the Inflation Rate Could Decide the Fed\u2019s Next Move",
+   "source": "wsj.com",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQU2VrRkdPcXF6U3ZvMTdqQ1pLT2Jua0N1MHlyQXM4c2hNN1M0SEY4bHZMakxwZm9jRjRKUHpsdnFuemtxSjFLZUhSVFJSTE41NzJQajl5M09PSlZNbkczMlZHTGN4U2wyalN2SnJiZG1JT3Roem00c0hmRXlRX3gtZzRNM2RBaS05VkRabUVSenVyUUV1ODQwUUNyTlE?oc=5",
+   "published": "2026-09-10T01:02:21+00:00"
   },
   {
-   "title": "Fed to hold rates steady in rest of 2026; rising number of analysts see at least one hike: Reuters poll",
+   "title": "Wholesale inflation picked up in August, as energy costs kept rising",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBwRzBoMm96TDB5Y0tSQUZaaG1iZktfNjJXNkg3cVlQS0c4djlxUEk0eUtBTE1rOXNhZUlUTGljNVZoM1l5Xy1Ud3h5dmpDdVZxbkVKWFJKb1pxTE04aHlZOGk1eTYxLWZRdVVWZVVxT0tkT3hPaG9zMHJSR20?oc=5",
+   "published": "2026-09-10T12:39:44+00:00"
+  },
+  {
+   "title": "Gold falls as dollar, yields rise ahead of inflation data",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOZ0NreUFoTnFxX3ZzQnd3YU9FNFVkQmhfZlBrSVBUUm12Q0lCckxRTHdWcUVHbmJpcDZKbVhNZG5RektYQlpqaUZGMjl2TnJ0amhPMGJBWnB6OG9FVTB5dVJPTlc1ZjJaa2djUl9HR3VhYzIxODJjVEx1NUswdkVkblYxNVNSY1dYWlpUdzlEQU9UNTNzaUtVWXVtdXljVEUzSnVOQTV2bTJHSXN6Q2E3U0pzcVk5U19qUmc?oc=5",
-   "published": "2026-09-09T13:29:11+00:00"
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQU00zRjlwdjRLNzNsRDluVS1Rc0hCVmhNSTc0TThXMVUtMVgyYU1Mc3FVY1p4YlVIX0p2NzhYbEFCSkVUMEhHR2MtTlFRUHZlbXVGNkxINUVSc1FZNVB5S2hGOXdIUzMydEhHSllEcVVqbWM0VHlOajEzeHBQMlY4UW5nUnRNMm5NS1lvR3RYN2E5M1dIV3NMd3VuZDJOZDg2U0cxa1JR?oc=5",
+   "published": "2026-09-10T02:56:00+00:00"
   },
   {
-   "title": "Francis Kim advocates for an independent Federal Reserve",
-   "source": "Furman University",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQRkE5ZWozZkI1elltRzVyVU9zQ0pVU2FVbkN4QWVXczBtWGlyN00zdTZMRjRocnZLaHlMc0NnMXJhZTdKOFhLQjNHN0xNbVh2RWIwVmU0VXQzaG9yZWwxNzY5VXNGNkxWenFFRHhuLVdma3NXY2NSdV9GTDFyTHpVeTZHSXVDcDRtZ2pCQ1hR?oc=5",
-   "published": "2026-09-09T18:38:07+00:00"
-  },
-  {
-   "title": "Trump pushes Fed for lower rates, but consumers may be better off with a hike, experts say",
+   "title": "Treasury yields move higher as investors await key wholesale inflation data",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOU1FFbFpVa3M2WXNaN21VSmp0aEgteF9aaUNJVVFULVVpMndyQ1Nzd3R6c1pJdDBrQS1xWE9XQXFHVmd4dGRSQkRwRndScHVGZ2doR04yM0NTaE9tNmxiUVdEMVBRN0ZDRHhaN1FSTDF0WmtJM2d5Y2lmUTRCUUpla1Q4WXViNlBSeGJWNU9jNU5OT2RXSUHSAZsBQVVfeXFMTktsSGdLX3N3R1F6MVRpQWJpdXFQQi1KMTBwcTJfcGRTQkNGZFZ2aVFJZVhjYlpEWjJoVXczcmhvS25QZFc2NEdqWmFlYkk3RzRUQ0lwS1VjQnJKT0JtbFZwQnV3dlNnQ2piWDlreFVSN1hvZFV0TTYzS3JVM3ZJUWl5ak1EUDFDYk56dzViS3pjU0ZwVXREbS1hcFk?oc=5",
-   "published": "2026-09-09T14:58:55+00:00"
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9EaFNHbGNZVzJjeVppT2pHMkg3NW9EMnk2S3V5MExsRVNVeUxlNVRrb3N1aWh4Ni1VaWJmakFWVUZ1UHN3T0lSZTNMWkx2Y2d6ZmxvY0xUTGFiUnJ6MjlwOXJtTGRkQ3M0RE5QMnl30gFzQVVfeXFMTTRucHY0eHZ5TU5CbG8xWGZDUF9CR1dHaXBXUFJwLUxBMTZMTnRnaG5vSl93S2E3aDRfUU5meEcxMGVYcEhWSDNWQThsNjIyelZYZFJUVVFfTVM4c0lLNlVnM0xQLWNTVWI4VTc5bDdtYVMwQQ?oc=5",
+   "published": "2026-09-10T08:13:17+00:00"
   },
   {
-   "title": "Labor demand policies connect workers to jobs",
-   "source": "Federal Reserve Bank of Minneapolis",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMnAzbFJNNHlrMXBDM2FnMENuUU5mTXJQeEFtS0FZOWJ4WU5IVjZXeGo4ckJMV1Z5LVJxaDl5OUNvSWlIZURfMGtTdVpfUVNoM3VXaVpoVE1rU1RHTWtUMWczNG5HQVF5TzY5Y2Y2a2ZfLWt5OU15Y1JYMGFqejBkV1V2V2tqTjA1UmQyWTJEQWJpaW8?oc=5",
-   "published": "2026-09-09T08:18:08+00:00"
+   "title": "UW Extension\u2019s Hewlett Helps Organize Federal Reserve Agricultural Roundtable in Cheyenne",
+   "source": "University of Wyoming",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxORnZSZ3lEYS1KZllOTVF2cWhIaFpydktHRUdYVVFZcEJmM2p1Szg0Rm93SnZvNlFyM2tGamZ1eUNhYmd6T3pNUWN6cnZYRU1HRUM5MUtfYU41aFdtcUYzdnlPckZFOVBSclVuWXI1d1M1S1V1LWNKVzNTN1haajVRVjluaFhGa0RNcWI1Z0NtLUw3V2J3aUtKNTg4NkFKamlNREpxX1huOGhCaE9JdmFNWGFmaDVTdXBfdFBFTzZtTWFQTzl1Z3c?oc=5",
+   "published": "2026-09-09T16:13:11+00:00"
   },
   {
-   "title": "Midterm mindset seeping into the U.S. stock market",
-   "source": "RBC Wealth Management",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSEI3TFBEREljbXJvQkhzOU1VYUtZQm40NWZabm43eWd2TnIzV2E2MVJaVjA2b3hjbnpPMmhCQnV2SXVYUnRFZUgxTGRiMW1tT3pOazNRR185R3VDSXVhLThvNndpN0hfeS1Ja2dXMENEYUgzeUVBVzh4ZDFJSGd6NmMzMlVHMUc4MV9zaXNjUjh4SER0TG1CVEJ6UktxT2Zy?oc=5",
-   "published": "2026-09-09T20:26:25+00:00"
+   "title": "What a Fed Rate Hike Actually Means for the US Economy and Inflation",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTnd6R0J2a3A3T3U2VHZVTmt1RzdNa0htSHMtZkJ0cjB2XzRCMnR6SU83dnVtbDJGb3Rqc2dRMG5zaHg5TWdXdUt5V013N0tVbjNrY0hNeExLUFVuVERMa0hzMU83SkhwVUdCZkl2N2RLaHRaa0V1Q0JrR0lDenV5dF9FbnZlcG5fTHozc01rRHExejlfaERENA?oc=5",
+   "published": "2026-09-10T11:00:00+00:00"
   }
  ]
 }

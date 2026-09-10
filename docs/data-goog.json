@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-09T21:40:13+00:00",
+ "generated_at": "2026-09-10T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 93.1,
+    "pos": 90.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "17% ann. (p0)",
+   "value": "17% ann. (p1)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 0.4,
+    "pos": 0.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.5 (p38), F&G 39",
+   "value": "VIX 17.8 (p59), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 2d",
+   "value": "CPI in 1d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 328.38,
-  "day_change_pct": -2.09,
-  "sma50": 346.09,
-  "sma200": 335.21,
+  "price": 328.555,
+  "day_change_pct": 0.05,
+  "sma50": 345.59,
+  "sma200": 335.41,
   "high52w": 399.04,
   "high_label": "52-week high",
   "drawdown_pct": 17.7,
   "series": [
-   {
-    "d": "2025-12-19",
-    "c": 308.61,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-22",
     "c": 311.33,
@@ -1215,6 +1209,12 @@
     "c": 328.38,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-10",
+    "c": 328.555,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1233,14 +1233,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-09",
-  "days_total": 718,
+  "end": "2026-09-10",
+  "days_total": 719,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-09",
+  "fg_coverage_start": "2025-09-10",
   "baseline": {
-   "n": 697,
-   "avg_pct": 3.26,
-   "median_pct": 3.22
+   "n": 698,
+   "avg_pct": 3.24,
+   "median_pct": 3.19
   },
   "bands": [
    {
@@ -1260,8 +1260,8 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 331,
-    "avg_pct": 4.21,
+    "n": 332,
+    "avg_pct": 4.19,
     "median_pct": 4.38
    },
    {
@@ -1279,8 +1279,8 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 328.38,
-  "sma200": 335.21,
+  "price": 328.555,
+  "sma200": 335.41,
   "above_200d": false
  },
  "vol": {
@@ -1289,12 +1289,12 @@
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 7,
+  "days_until": 6,
   "imminent": true
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 2
+  "days_until": 1
  },
  "earnings": {
   "next": null,
@@ -1303,14 +1303,14 @@
  },
  "backtest": {
   "start": "2022-09-12",
-  "end": "2026-09-09",
+  "end": "2026-09-10",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 42982.27,
-  "dca_return_pct": 105.66,
-  "dip_value": 43058.85,
-  "dip_return_pct": 106.02,
+  "dca_value": 43005.17,
+  "dca_return_pct": 105.77,
+  "dip_value": 43081.8,
+  "dip_return_pct": 106.13,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 165,
   "winner": "dip"
@@ -1329,28 +1329,28 @@
    "published": "2026-09-09T07:12:20+00:00"
   },
   {
-   "title": "Alphabet (GOOG) Surges Over 20% Revenue Growth, Cloud Strength",
+   "title": "Pixel 11 Pro review: Google\u2019s best pocket camera goes customisable",
+   "source": "theguardian.com",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPWnJjVDR1M1JWRzlIN3h1aEZ6MTRzaEtKSThCX211WW1QZzZ0WTNZcU5iY1hEejFaTkllV1pqbUdnRTlOYW5iM0VDdXZ5bE0tUGlENGtic291MTViVk5zN3hvYmVaaGRvRGxmdG1IakpJRC1UUVZIb1J3cHpwcWNfRHJOZ2kyeGttaG5CdDBpekx1bWtpYTFOTFRJQUpQN0xsY0JsRGluUEVVT0ZCYTA2cU9WSnBDZw?oc=5",
+   "published": "2026-09-10T06:01:00+00:00"
+  },
+  {
+   "title": "Jimmy Kimmel\u2019s Interview With James Talarico Heading to YouTube to Avoid FCC Hassle",
+   "source": "The Hollywood Reporter",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQaWpORXBNcERCTm5WYnpFQi1lY3djQ0dnd1N4QWROTjlyLWJuZ09UY2V2U1padVdhTjdSLW8xYWo5VWxiZE5fNTJlY3ZMbFBvV2MtcmY1d0pHbTdUMzdnZFVJQ21XYnE3T2JxNnBjcXlCS0lobi1BQlNpZ3Z6U3F3MnM1Z3ZaNVhnamNLaGpocUZJRVNrTzRPbmt2MnNLazZEQjd0WWU1SlVCOUdSWHNfQQ?oc=5",
+   "published": "2026-09-10T11:12:29+00:00"
+  },
+  {
+   "title": "\u2018Jimmy Kimmel Live\u2019 Moves Interview With Texas Senate Candidate James Talarico From TV to YouTube Due to FCC Threats",
+   "source": "Variety",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPTXhnNXRKalM4MmhBM2lkVEhjcGZzdTlpVW9tMkVOYjRmNzExMkhBNkZPSUVkVlVyQkJxMU1yN0FBMFY2QmxuR3FqUGZseXZIWXJKbU5oTkMwbEdXdjJCSV9seXZiZU1CVG12VmlTMVltdWNLNnhwV0tpNDBVZkVFM245NUV3RTNIbVZYNFlLZFhtTXM?oc=5",
+   "published": "2026-09-10T05:28:00+00:00"
+  },
+  {
+   "title": "Jim Cramer on Alphabet (GOOGL): \u201cI Don\u2019t Care Where It Went, I Care Where It\u2019s Going\u201d",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOM1MzSk82Y2JYMFF6dzFWeGlJSVRNUl9Md2R3TFhvTFY0TXlHWGxoYWRKWGNTSDgzWjVwOHhNeWRnY2VvU2JoeVByRkM1SFNmWHN3aXViVzRBZnpJMFdmbU9jeHk0dzljTnJTdUFqb0dXZGFtZGUtdllSQ3RRelZtWFdwNnJub0VweGRjZDNWTVNmUkRpYUthUQ?oc=5",
-   "published": "2026-09-09T14:26:26+00:00"
-  },
-  {
-   "title": "Google, Blackstone Venture Faces Delays at Data-Center Sites",
-   "source": "Bloomberg",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPT2ItR05FdUhwSXBlLXBmYXBlN2JMRDNlaTBTUEVwUFd6bzlyTXF3OFlnWW1YN1hiNDJHT3ROdndPOThwaVJ0aFBqSXN5aXFCRDA0T0VXUDdLOTJ3dG1ndEgxMDZ0aVc1T09CSjB4ZVhqUDRFbGpWNmhtTWlNWGswZFRHR2l3Y0ZlQWVNbm05el85Z1Q2bkJVQ1FFUDExOFRmSl9MenpKTG0yU2JHVE5B?oc=5",
-   "published": "2026-09-09T18:49:22+00:00"
-  },
-  {
-   "title": "Google to invest record $15 billion in AI infrastructure in the 'Texas of Europe'",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNSVlBVDVfVTQ3WGd1MlRsZ2NaZjB4V2pxUnQtM3hmS1RXZ3loTmw3NGdFdzI4R2JRM2xodnFickRXb00xbTBya0tKVnpCQmUyQTIzejh0RmNBZG5QQVRJTGNJbHRGeWt2OG1wLTBXbTlpT2MzUzBidGkyR2NEY2xIUlYzajFfaXPSAYwBQVVfeXFMTndMOWU2SmdmUGZ4UjNzU1g3WXlSTmZKZmdrakhYZlkyZDRFZzdnTHd5YzN6STNWVnlRTWxLcEhjZUlNUXl1WVhrQ1lpc3lTLVhWRHVtVHVsWll6SE41aER6ZnpHR1dONjhUbkJwanRVeFVyLUV5ZlY5eHNYYThqX24wLS15bHJnNUFpbEw?oc=5",
-   "published": "2026-09-09T07:24:56+00:00"
-  },
-  {
-   "title": "Google to invest $15 billion in AI infrastructure and buy nuclear power in Finland",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNcGlWeGFlRDRYZVowU2Y0Y0FJTlRmQW5ubjJwNGcxb3NsQnRBUVo5eWtMdnhoSlAzM0FKdlJHWkpJR2lxZUZHcWg5cFBqb1NxNm9Ma0MwR3AweEZpUEFTZ1JRZ3pjSDN6V2VOdE1nUjhBQU1PdlJ5Z29xSDloZHZOOExRbHotYVlRUDd0X2tpa2JVR3U1NTBHc3VhZkYzMDN4ZE9KWl9lZnFBZzkwZEE?oc=5",
-   "published": "2026-09-09T15:03:04+00:00"
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQLUlRbHZmTVJrbDZ0Q0hDbDVhWllEV1ZOUmZkU0pLZ3JRdHh1VEVjLWlhSkdkODMzUTJ3QUlJRHVNZ3IzVnV4b2tkNFhGMmhzUGZUbk8zc1NBaGRxVUNGOFV1QUxPbXdrRS1TMm5YcVYwM3haS3pCVTJ3T1RfQzdPOEl6QVRoVXdYaExUMUV0RENEWUttRGItcmRn?oc=5",
+   "published": "2026-09-09T17:12:50+00:00"
   }
  ]
 }

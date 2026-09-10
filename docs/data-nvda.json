@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-09-09T21:40:12+00:00",
+ "generated_at": "2026-09-10T14:30:15+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "No edge either way",
-  "summary": "None of the scored NVDA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
-  "tone": "neutral",
-  "score": 0.0,
-  "score100": 50,
+  "label": "Mild tailwind - fine day to buy",
+  "summary": "A validated single-stock condition is in your favor on NVDA today. Nothing dramatic - and single-stock risk still dwarfs entry timing. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
+  "tone": "ok",
+  "score": 1.0,
+  "score100": 56,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "no pullback",
-   "score": 0.0,
+   "value": "3 down days",
+   "score": 1.0,
    "weight": 2.0,
-   "lean": "neutral",
-   "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
+   "lean": "good",
+   "note": "NVDA has closed down 3 straight sessions. Under the TSLA single-stock framework this earns +1.0 (provisional on NVDA): three down closes tended to bounce the next day on the calibrated name.",
    "viz": {
-    "pos": 100.0,
+    "pos": 81.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "44% ann. (p87)",
+   "value": "44% ann. (p83)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "good",
    "note": "Realized volatility elevated vs NVDA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
    "viz": {
-    "pos": 86.5,
+    "pos": 82.5,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "5.0%",
+   "value": "7.3%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 5.0% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 7.3% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 10.0,
+    "pos": 14.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.5 (p38), F&G 39",
+   "value": "VIX 17.8 (p59), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 2d",
+   "value": "CPI in 1d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 223.67,
-  "day_change_pct": -0.91,
-  "sma50": 211.8,
-  "sma200": 197.09,
+  "price": 218.23,
+  "day_change_pct": -2.43,
+  "sma50": 212.17,
+  "sma200": 197.28,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 5.1,
+  "drawdown_pct": 7.4,
   "series": [
-   {
-    "d": "2025-12-19",
-    "c": 180.99,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2025-12-22",
     "c": 183.69,
@@ -1215,31 +1209,37 @@
     "c": 223.67,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-10",
+    "c": 218.23,
+    "t": "ok",
+    "s": 56
    }
   ]
  },
  "flips": [
   {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "NVDA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
-  },
-  {
    "label": "Top-decile volatility",
    "direction": 1,
    "text": "20-day realized vol above 45% annualized (now 44%) = top decile of its year (+9 pts)"
+  },
+  {
+   "label": "Falling-knife zone",
+   "direction": -1,
+   "text": "NVDA at $211.92 (-2.9% from here) enters the 10-20% falling-knife band (\u22129 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-09",
-  "days_total": 718,
+  "end": "2026-09-10",
+  "days_total": 719,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-09",
+  "fg_coverage_start": "2025-09-10",
   "baseline": {
-   "n": 697,
-   "avg_pct": 5.54,
+   "n": 698,
+   "avg_pct": 5.53,
    "median_pct": 3.38
   },
   "bands": [
@@ -1260,9 +1260,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 371,
-    "avg_pct": 4.02,
-    "median_pct": 2.01
+    "n": 372,
+    "avg_pct": 4.01,
+    "median_pct": 1.99
    },
    {
     "tone": "caution",
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 223.67,
-  "sma200": 197.09,
+  "price": 218.23,
+  "sma200": 197.28,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 44.3
+  "level": 43.9
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 7,
+  "days_until": 6,
   "imminent": true
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 2
+  "days_until": 1
  },
  "earnings": {
   "next": null,
@@ -1303,54 +1303,54 @@
  },
  "backtest": {
   "start": "2022-09-12",
-  "end": "2026-09-09",
+  "end": "2026-09-10",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 85745.44,
-  "dca_return_pct": 310.27,
-  "dip_value": 85905.76,
-  "dip_return_pct": 311.03,
+  "dca_value": 83659.99,
+  "dca_return_pct": 300.29,
+  "dip_value": 83816.4,
+  "dip_return_pct": 301.04,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Inside the Arm Mali G2-Ultra NX GPU: Delivering desktop-class mobile gameplay with AI-native graphics",
-   "source": "Arm Newsroom",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOUUxqZS1wUTRCbW5sUUZZbnlFem90cWY1Ql9aZmU5bVlHWWdPczV5eXpzenlSMi1KdE1WbWFPR2hIbW5aSjNXRVQ4eHFCb3Zvb3MybGtUWDNEUjhseUFLQTd2QzEwc2FRRmRMWVJ0R21WdFVqMDJoNEpIZUVFTVRvckJ3?oc=5",
-   "published": "2026-09-09T19:26:25+00:00"
+   "title": "NVIDIA Expands AI Infrastructure Capacity in Partnership With Australia\u2019s Data Center Ecosystem",
+   "source": "NVIDIA Newsroom",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPd2dkbUp0Zi13THRQMU1kMXNIZVktQVN5NVR2cEszemg1RWM1cURfcDBCRGhLMGJfc3NTaW12anhJeGVDb1FfTC1SaHUzcnVUTzBnVmJseHBuUngteFBFLUZQT2FkMzBaTEEzclA0WFJGT0FmZ1htaFFSX1YwNnVTNk1yT0dnNVhzUm9Vbms0U0N0ck5UNVpyUlNZZ2JaQ3NDZ0hHUEw1VE5BMjZ0dGFIX2plWTRqRHRDeG5yQTFnY3pHZlFhcG9Ndw?oc=5",
+   "published": "2026-09-10T00:09:56+00:00"
   },
   {
-   "title": "New GeForce Game Ready Driver Released For 007 First Light\u2019s Path Tracing Update, Active Matter, Aniimo & WARDOGS",
-   "source": "NVIDIA",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPMmlCUmlGNkIxV2taZDBvcGFyNHlZaU9PVHNhZGxncEhFYkpUcGZobTZyQmRfeUtxTHpmamdKVXpPbFhJRzRVY1lpNFdtTEdKOWl3NEhfWUJvR0Q4TURZSUJsYUx2XzhxSWxRV01sYjFfREoyRnJ0YmZxNUJWZmdNaGk4Q1Z2LTBjamhqSjVOWkE0QVRkM3V2anhJN1lwbHYzWXRIakdDQzVieWhmVTdrVC1R?oc=5",
-   "published": "2026-09-09T13:00:00+00:00"
+   "title": "Justice Dept. Investigates Nvidia Deal With Groq",
+   "source": "nytimes.com",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE01YXZUUFJEdW9IOFQ1dWpqME5faHM4MXV5ZDRyMXdJTUZJQXhuXzY0Z0FrTTQ1WGNHanhIT1pQN2FtYlhLcm90SFRGcmxpNlZTMFpzdDV2Z1pHcnVoeENJQ25mNGU3U3RQVkJqOWxKNTJINVRWbmkxeXBn?oc=5",
+   "published": "2026-09-10T00:23:24+00:00"
   },
   {
-   "title": "Nvidia Bears Mount 13.6 Million Share Short Volume Surge Near Peak: Short Seller Tracker",
-   "source": "Moomoo",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeF94VmlzV3BWOTl0S1RaeDFWS19mYTJ2UzIwR195XzltaVVZTFVYT2JpNkVzbG1EbHRQUmZndHgzT2poOUU2SVQ3Mmx0OUticC1idU1sbUJEanpTYUtKdmRaRlNGUnppb1FZckREalQxN1pvUHN4b251RUV3SzJtYndWTnBwN0tuSDUxOFNHUWc5eURXVG13VmVzdWZpdmV1ZWZwN0lDQXQzRWFQN0E?oc=5",
-   "published": "2026-09-09T14:47:27+00:00"
-  },
-  {
-   "title": "Here's My Nvidia Stock Price Forecast for the End of September",
-   "source": "currently.att.yahoo.com",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQUy1lbU9tQVU1VmpuMDZGSnhaX2s4QkF3MTdZOWFXcUtXblBYVUpKazdGVXBkdHh4RGpUNmtNSWdfQjRSUzhnRHNrUWc2V2lhSTZIY0tTaVlQYXNIbk5KaE53QjhockhnaVBCNm54cWk4MlBMSHZXWkpSTWYzNU5ZYmgydmpCYmIxV0VjSA?oc=5",
-   "published": "2026-09-09T13:58:00+00:00"
-  },
-  {
-   "title": "AGI is here, Nvidia CEO Jensen Huang has declared. Here\u2019s why the market doesn\u2019t care",
-   "source": "Fortune",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE95NFV1T1pXQ3laX1dzbXVMSXZ1bzJabHZDZDR6THVoRi1fT1lNdkFsRW5pOUZfT1E0UmpQZmFaSWRDamtNUFhxRkFDQWhnM0hfeEg4OE1fU21sWkhfOE5wZTU0aE9GNl84cXFsdXl3bUZYUnJUcVZYV291SGJCZzg?oc=5",
-   "published": "2026-09-09T07:00:00+00:00"
-  },
-  {
-   "title": "Here's My Nvidia Stock Price Forecast for the End of September",
+   "title": "Here's Where Wall Street Analysts See Nvidia's Share Price Going",
    "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRXo5REwxYVVLejdCbjdUN0lkS1YzR1JpQU05ME5iSFZXQVlBb05nZTZIa0xpbDYyLVI3azItQWVtbHpUaVZHeGd6c044d1htTHJxNnBJVjJleUVYVW9ScklzMzVEUjdBNkFETmhaNXVWcmtudnVVU21WdEdqSl9XN2Vxd0pKUWtTa21BRXRjcWw0cEZVNmYtNA?oc=5",
-   "published": "2026-09-09T14:38:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPYmZXQ3dYUXFPZGgzZV9nQWZTREtkODRMdVpwbUlJZ25CbFE2MWt6UVdBUFpPbnZCbkNaOTlMVmxYcDRrUlpqNGJZbnprRDFiM29NX2Z0LWVEYU1DU3VncTEydjBaOWtjVWlXSE9MWURTdGwxNVYydzh1NzB3dHNURlkwUmtpWVpIU2dtUDdXdw?oc=5",
+   "published": "2026-09-10T10:30:00+00:00"
+  },
+  {
+   "title": "DOJ probes Nvidia's licensing deal with AI startup Groq, NYT reports",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOM04tamJVM0lINldJeEdvdDNHbTMxM2NMY0FzZjlGbWQzRVRjWGMweU9WM1NFeXU2U0NwdDdxZ1JOSVVUM0tjZVlkQTZvbE41VGlOT2FVbVJrRjN4Wk1ldW1od2tBcUR2T1ZKR244TjQwdWtHTm5qVFRyOFdzSGVGWVNtbFUwdHVZdl9Fak9SR1JlUWN0VUNXdFZPajZuTGVMRVJ0QUFCNzlRajdUWjVGVGNJQkotdlhFQjFoREQ1WQ?oc=5",
+   "published": "2026-09-10T01:07:00+00:00"
+  },
+  {
+   "title": "Latham & Watkins buys Nvidia servers to set up in-house AI systems",
+   "source": "Financial Times",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVnFPNnhOMnhyQ04temgycHAySld0OGFiVjdFZUppS25Ob3RLMS1mTDJGY2ZYMm1wTjdObzU2aDdjbkdQTkFxM2hrc3NwREdtamdqOHRvY2VNazJfMWhVYTcwZ1dGcm9fWGx5elVtcUNhTnNvS0RBSTBzMUJSeWF6ZFlDcGI?oc=5",
+   "published": "2026-09-10T10:00:11+00:00"
+  },
+  {
+   "title": "Artificial Intelligence and Spiritual Intelligence",
+   "source": "Catholic Stand",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOV19uUVd6VzRTQ0EwS05aalNfOXJfcnVuTzVQbW5BVWE2Yk5pR1RMSWRCWlJncnFLN0kxRS02TWFPWHFpeFA4ams3TU1WY0J1LXBPQURSVk1hYlBxeDhKVW81WlYtUVh0VEM3clZxUW9ZV0dfcnlwa0drZnlhY2tiRVhtTQ?oc=5",
+   "published": "2026-09-10T07:05:38+00:00"
   }
  ]
 }

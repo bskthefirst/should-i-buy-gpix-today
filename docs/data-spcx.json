@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-09-09T21:40:11+00:00",
+ "generated_at": "2026-09-10T14:30:14+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 61,
+  "sessions": 62,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~61 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~62 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -30,7 +30,7 @@
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 61 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 62 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
     "pos": 100.0,
     "labels": [
@@ -41,7 +41,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "55% ann.",
+   "value": "45% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "30.2%",
+   "value": "28.9%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 30.2% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 28.9% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 60.4,
+    "pos": 57.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "61 sessions",
+   "value": "62 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 61 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 62 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.5 (p38), F&G 39",
+   "value": "VIX 17.8 (p59), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -80,7 +80,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 2d",
+   "value": "CPI in 1d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -88,13 +88,13 @@
   }
  ],
  "fund": {
-  "price": 147.55,
-  "day_change_pct": -3.86,
-  "sma50": 135.65,
+  "price": 150.21,
+  "day_change_pct": 1.8,
+  "sma50": 135.24,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 30.2,
+  "drawdown_pct": 28.9,
   "series": [
    {
     "d": "2026-06-12",
@@ -461,6 +461,12 @@
     "c": 147.55,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-10",
+    "c": 150.21,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -468,14 +474,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-09-09",
-  "days_total": 61,
+  "end": "2026-09-10",
+  "days_total": 62,
   "backfilled_days": 40,
-  "fg_coverage_start": "2025-09-09",
+  "fg_coverage_start": "2025-09-10",
   "baseline": {
-   "n": 40,
-   "avg_pct": -3.43,
-   "median_pct": 0.17
+   "n": 41,
+   "avg_pct": -3.04,
+   "median_pct": 4.55
   },
   "bands": [
    {
@@ -495,9 +501,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 40,
-    "avg_pct": -3.43,
-    "median_pct": 0.17
+    "n": 41,
+    "avg_pct": -3.04,
+    "median_pct": 4.55
    }
   ]
  },
@@ -507,22 +513,22 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 147.55,
+  "price": 150.21,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 54.8
+  "level": 44.5
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 7,
+  "days_until": 6,
   "imminent": true
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 2
+  "days_until": 1
  },
  "earnings": {
   "next": null,
@@ -531,54 +537,54 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-09-09",
+  "end": "2026-09-10",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1400.0,
-  "dca_value": 1448.97,
-  "dca_return_pct": 3.5,
-  "dip_value": 1434.49,
-  "dip_return_pct": 2.46,
+  "dca_value": 1475.09,
+  "dca_return_pct": 5.36,
+  "dip_value": 1460.35,
+  "dip_return_pct": 4.31,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 13,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "GE Aerospace Buys Turbine Maker in Blow to SpaceX. These Stocks Could Benefit.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQOUZ6RU5FcjZGMkxlcVk4TzNEejZtM3hKU1I2NFRtSTFWbzFyM1FBbmVrTzNGem1Bb0NuZVNNUmNISHk4V1dvRi0zUmZmSHl3eXZVeXRtWFhMQ1k1aUdyQmNTak5WU21qQV81eTBCRUJfUzVLZmJUN1NmQllCSWFDZw?oc=5",
-   "published": "2026-09-09T20:15:00+00:00"
-  },
-  {
-   "title": "SpaceX plans to launch last O3b mPOWER satellites",
-   "source": "Spectrum News 13",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9uVHZGZkxadDNDTzdjTmtsc2t5dm8wbWJIRnNJX3lhdmhFTHRWcU45VnBJU2ZubUR0dktaWGRIbHBuNzN4Zy02Tmt5MEF6WlVia1M1X01CLVFMTXN0QnEzdVMzRnFZTVdiZk1hQnE2V0NRLUFvQkRNOXJZY0hXN2s?oc=5",
-   "published": "2026-09-09T17:19:00+00:00"
-  },
-  {
-   "title": "Prediction: Here's What a $5,000 Investment in SpaceX Stock Could Be Worth in 2031",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQMEdPNU5xZjNJXzhuMWVoY19wekUtRlZLYnRYZkpwWjBHZ3lNUXk4NGtoOGY3bUJULUdxU1BkRlk2cE1MWEoyaEstajZIemVaYl92SEVhMlhpelRnR2RDYlBTMXpUeTZrRGlWRDZHalVMQmZ3VzJxTEtId3B3bWNYaFZ1bGtYQnlUYndEQW5LbE1IbmpoZldEclRtQVFGb2s?oc=5",
-   "published": "2026-09-09T12:05:00+00:00"
-  },
-  {
-   "title": "Starlink Router 4 Unveiled: Wi-Fi 7, 3,500 sq ft Coverage, 510 Devices - BASENOR",
-   "source": "Tesla Accessories",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQYmd0RGpzZXlrMVI4TmRIX1R1ZFdLQVIydC12dUU5cUJMYzhDb2pNS2NnQ2laVXByb2RQOWowOFdxc2xLQ3Z0amJTTkl2YlkyVVVLZDE2Q3pxRDZkWlgtanhIRVZDNzdTaWR4TVVQSG9xMHFKX190RVRkc2dzQWJhZmdhaUlLRXhRM0lDQzdvWjBKbEV5ZFIzemxEaUlERl9ILTNiRQ?oc=5",
-   "published": "2026-09-09T20:04:15+00:00"
-  },
-  {
-   "title": "SpaceX launches 80th Starlink mission of 2026",
-   "source": "Spaceflight Now",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQazQ3ZUFCTDNzV0ZaT2U3MnN6Z0FVdFZpT1dhaHlQU3RtSjRaTDBIdjVYTXRhdlc4bDBKVmVFci1lbDZpRkRrTDNpeUs0NlN5UlhSenJlbHBocTVMV1AyajN6QmF4dUJadEZncmdBQjZrMy1VOEZ0anhtUVBaSEFSWEhoRG5iRUZOMHNtbGxQU0RXMGRZSTlTVElXNDhnWEZS?oc=5",
-   "published": "2026-09-05T22:08:37+00:00"
-  },
-  {
-   "title": "SpaceX Falcon 9 rocket launches 27 Starlink satellites, lands on ship at sea (video)",
+   "title": "Watch SpaceX launch classified mission for the US Space Force today",
    "source": "Space",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQWXNNSXZXejJnZXcyZ1VSSWNXZUVCR1VLaDhxLWZibU1iY1RNT3hZbU5WMnFJRTJUYXY2STF6UnM0X1kzZm5fTk1nRGFHTTNwMjl1WWRuTEVnbGhGTnlTaGlYSzNxbkNoamI1ZnU2aDljUnRmbGtmOUxrdGVmeGxTb0d5V1F2YnZwcUg3SlZfa2xJRDJYcDhiWVZTbnMtRXpoY0xR?oc=5",
-   "published": "2026-09-06T15:54:11+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNSDRsbC1ibVk5VmZselJCUkV6a05GeTZSeTRJYTg0QVNNa3NmeXg4YVlkdUhLZm9aN2d3elJNRHlyd0JmdFhNa2J4QXY3Sm9lSHc2LU9abjZ3ZFpPVURTcV9ITzQtbE1iTGVMazlBZm43Q2hqMGdzZUFnWHNRaVYxQUxkZGpyR19wbGhQekljUGRFZWMzeG9ON3pjT0FnaVM2WFJ4eU1OUDUyczc4cnl1SW43TQ?oc=5",
+   "published": "2026-09-10T04:05:00+00:00"
+  },
+  {
+   "title": "Live coverage: SpaceX to launch classified payload for the U.S. Space Force",
+   "source": "Spaceflight Now",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQak5xVjdWbnY4NEV1WGJ6TlFVcDNnbkFFUml1TjM0TTduTXFqOXcwQWc2bVh1bENGelR1N2ZqSGc3SGg2d2FqeE5Sd1JsenlPQ25EbjA3MzJIVm02a2laaGhZajVCc29Jbmd4aFlXUmk5d0tNT2pPczZiaDNBSGI5R2NZa3RWMUh5b1ota0xNandjVk5uYUtza1BwbzBqc0VQaEFxWUZoSWZqTDZ0Z0pCVFdR?oc=5",
+   "published": "2026-09-09T22:33:34+00:00"
+  },
+  {
+   "title": "In A SpaceX-Tesla Merger, Elon Musk May Be The Big Winner. What It May Mean For Other Investors.",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNVWlDMmg1T1RVMWxhQklIRWZZTFFWcmNTcy1sZ1dFdGJGVmlJU0xqalN1RFkzdURZZmZfVEctcldzd0hXRHhCTVp3N1MtQTFQeEJIM0EyWnFYR09YdVF2NE0tOHhneE9ETVNzN0cxVHpDcW9rbEZzU1B2MklzQ3I1X09DcDNURE96M1E?oc=5",
+   "published": "2026-09-10T11:37:00+00:00"
+  },
+  {
+   "title": "Why AT&T CEO sees a 'complementary dynamic' with Elon Musk's Starlink",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNRHZweV9wbUJqTTNLbkhQaXhGb2NkVEZZQ1dkanhwWUhQRnNkcjg2NG9BeU5tMUhkazVqcGpHUUdEU3pRXzBESzJGVnR3SGFyaVgxS3N6RVA5N2dPWlNPdWxyUlRIeW5KT1I0MFpCQ1NyRVFuZXBmWngycU1qUlhVYTdaMWVnbFRGNVZ0UURsRm5WSmZpMDZQcE5ZWUZrcUdKLTE0Zmg1RW02QkY1NjA4dU9DclhyRHZPOVhhN2pnMA?oc=5",
+   "published": "2026-09-10T12:10:00+00:00"
+  },
+  {
+   "title": "EXCLUSIVE: UK deepens reliance on Musk's SpaceX, spending nearly $40 million on satellite services",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPcF8wRjhoNmZTN3dwUnNGQ0lteGZ4OHd4QnFMUEpsY1dhaUI4YUFnSzg2UFpIQ1QyYnJVVTdKZzJoNGFCSVVIdGx2YUdaWm1aVEdKNGZYblJySzdGOTQwMHoxRWpua3pQWGRHdWNIb1FXUzN4TXRQelM0aEFkRGFFZWFKVmhtYWpMSFQ1VkZFQVJjOEN2Q28zanBUZkl5YmhJT1IxMHg1UlBXb2VnUTBGUURSUHpiRnhBZ2FWQ3lBT1hIbTJkX1FvaEtqZjVxeDYtUE5Z?oc=5",
+   "published": "2026-09-10T11:50:21+00:00"
+  },
+  {
+   "title": "SpaceX Launches Space Force Payload Today. It Has Lost Some Market Share This Year.",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOS1ZqTUFwUG5SZnJrNzlnQVN6bDQzVzJVUi0yaXNaZHZnTDBoR0huX2VhdUR6RTlrbFU3ajFHY2hmUS1LTkkzOENPeXdNZEhuYTR2N2dZLWViWDZtWmNnQnZmamVSSmdjUDh2M196dXM3aDdQVXZPQzNTQm5tYVk2LS1uRVhDRGwy?oc=5",
+   "published": "2026-09-10T13:53:00+00:00"
   }
  ]
 }
