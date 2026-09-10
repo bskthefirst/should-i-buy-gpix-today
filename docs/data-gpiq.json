@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10T14:30:13+00:00",
+ "generated_at": "2026-09-10T17:08:19+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "23.7 (p56)",
+   "value": "23.1 (p47)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 55.6,
+    "pos": 46.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.90",
+   "value": "0.89",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 51.1,
+    "pos": 48.6,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+10.9 pts",
+   "value": "+10.3 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.4%",
+   "value": "3.3%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 34.0,
+    "pos": 33.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-0.0%",
+   "value": "+0.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 50.0,
+    "pos": 50.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.67% (-0.03 1mo)",
+   "value": "2.71% (-0.01 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 16.8,
+    "pos": 17.8,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 62.7,
+    "pos": 62.6,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "35 (fear)",
+   "value": "36 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 35.1,
+    "pos": 35.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 55.985,
-  "day_change_pct": -0.75,
+  "price": 56.0542,
+  "day_change_pct": -0.63,
   "sma50": 56.64,
   "sma200": 54.53,
   "high52w": 59.52,
-  "drawdown_pct": 5.9,
+  "drawdown_pct": 5.8,
   "series": [
    {
     "d": "2025-12-22",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-10",
-    "c": 55.985,
+    "c": 56.0542,
     "t": "good",
     "s": 72
    }
@@ -1350,22 +1350,22 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.90) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 23.7) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 23.1) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.67%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.71%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1405,7 +1405,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.21,
+  "ttm_yield_pct": 10.2,
   "tbill_3mo": 3.94
  },
  "distributions": {
@@ -1515,13 +1515,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 710.72,
-  "sma200": 659.52,
+  "price": 711.0872,
+  "sma200": 659.53,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 23.71
+  "level": 23.07
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1538,10 +1538,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15100.0,
-  "dca_value": 20382.55,
-  "dca_return_pct": 34.98,
-  "dip_value": 20153.12,
-  "dip_return_pct": 33.46,
+  "dca_value": 20407.75,
+  "dca_return_pct": 35.15,
+  "dip_value": 20177.91,
+  "dip_return_pct": 33.63,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 60,
   "winner": "dca"
@@ -1551,13 +1551,13 @@
    "title": "Making sovereign, open-weight AI the technology frontier",
    "source": "mistral.ai",
    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRzU0cTlwNHctb0FiY092UVlJZFh4UmxsQ2lPLTdkVEU2SlRzVU12VzI2RGRYWEFqS2NMcVlXdXNTUGczTjFTbjZGMXY4bHhZYXN6bVpGQ0M0cndmMmthYjhUcGhPWlZsb1ZWeHhHOUdZWE93bTdUMjBNMzZQNTR6Mw?oc=5",
-   "published": "2026-09-10T13:57:54+00:00"
+   "published": "2026-09-10T15:50:12+00:00"
   },
   {
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-10T12:30:47+00:00"
+   "published": "2026-09-10T15:33:40+00:00"
   },
   {
    "title": "Governor Newsom signs first-in-the-nation AI safeguards to protect Californians, calls on the federal government to do its part",
@@ -1566,22 +1566,22 @@
    "published": "2026-09-09T23:20:57+00:00"
   },
   {
-   "title": "Rapidly spreading AI fears show how we're living in an AI twilight zone",
-   "source": "axios.com",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE83VDZqWWxtdnFsM0tteERpVi1jZ3IzUXJkcDFad0RLSWp4d1B3Nk1WSVVLMTdhVnZHaWxoVVU0SnBicFFLWFVIRm1EZkRQNkh6WnFmcklOUHNSRXZVOG9ILV8zX0VTdGx6N2V1VkM0Yw?oc=5",
-   "published": "2026-09-10T10:05:21+00:00"
+   "title": "AI's extinction debate breaks containment",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQM3ZlN0Y3WUhVM3J1eE5IN0NTX2lfdERvUTlWalMwaEJsM0taU2Y4LXRwWThvZnkxMVQ5b3pMM2I3aklWeWh4emMzOXd2ZEhjS056NHVrblhENXAzUmZnRmg0ZzVnTk80aDBuNU5kd1A4ZGVVNWNtNUlRVHNWZGh5YWQxOU5LV3M4?oc=5",
+   "published": "2026-09-10T14:28:21+00:00"
   },
   {
-   "title": "NVIDIA Expands AI Infrastructure Capacity in Partnership With Australia\u2019s Data Center Ecosystem",
-   "source": "NVIDIA Newsroom",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPd2dkbUp0Zi13THRQMU1kMXNIZVktQVN5NVR2cEszemg1RWM1cURfcDBCRGhLMGJfc3NTaW12anhJeGVDb1FfTC1SaHUzcnVUTzBnVmJseHBuUngteFBFLUZQT2FkMzBaTEEzclA0WFJGT0FmZ1htaFFSX1YwNnVTNk1yT0dnNVhzUm9Vbms0U0N0ck5UNVpyUlNZZ2JaQ3NDZ0hHUEw1VE5BMjZ0dGFIX2plWTRqRHRDeG5yQTFnY3pHZlFhcG9Ndw?oc=5",
-   "published": "2026-09-10T00:09:56+00:00"
+   "title": "Nasdaq invests $100 million in Kraken parent, eyeing 2027 launch of 'tokenized' stock trading",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQWHRvako5T0cwb1hGVGREcmdSR3JlU3hwMm9IRlItZkZWbVlnSnMxVEFPNWFvcV9OTEg0VHNwUi1XNjZjUUxMOG55NWxEdjVDZG5lRlUwZnpzallQSE52aTB6UmRmamY1WG5MVkRHdjBsUGw3V0Jpd1FLaTdRTE5vRWdKWWRrdUJtam9lYllURkM0RlUzN2FFelN6cDRYUC1sRFJyZ2FPUVFrQTdpOURfcHIwdm9mUdIBuwFBVV95cUxOa1hwTGktckFqczNMY1RsM2VmYXY1RzF6VDVrNjBHRHU5dUZlejNqTTNWcVlxUWg5R3Y0U1p1UVlXX0swOXE2RUotdHZmWm5Tc01iZXJQQ1RRYWVGbVhqVG5xYU1QVzlnV2JrMlljaTZ5QS1GUWJyRTR2ZEpHczdvMWY1UFIzZFBITlpVbEpYZ1p5eDJPWU5zQmJaLXNreXdzNVlleGpCVzNlTEVjaWd6c0hxRi04b3lRWndF?oc=5",
+   "published": "2026-09-10T12:48:02+00:00"
   },
   {
-   "title": "Star AI Researcher Is Leaving Meta for Anthropic",
-   "source": "wsj.com",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5sMWpEemtXMER4MTJWdnl0V0tUQlh1VUpFc0dRdFBZWFM2SUk2NzEzdUstaXV5dmhkbXljWHNlMjdsUFhDNUF2MlJUSlhiUVVjQlprZ0RBOVFLUENfZnU4NTF3MWdldFgxa3M4ZkNmXzIzRC03M0xVNkhVVQ?oc=5",
-   "published": "2026-09-10T13:34:00+00:00"
+   "title": "For years, they warned AI could kill all humans. Now people are listening.",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQanR3SlM2c3E1V2NUQVpxSWxzMnJQLUZFUXhaNG5WNWZSRjhqR3FaNzV5VjZZZE9NVXJNNVZ3aklaVHhGb2hITVFVYTlpMWVFVFU5ZnpIN2FvbnVYb3d3dkVwcmVsY0dPX3FpdXZSZTQydDZaSHFCUmpZRmtoS09peTU2TE12cGllMDVGUHNodDRpSmYteTh6R0Y0eHV1R1BLcV8xWGplU0U1MkFRbG1BMHp3ODNNQjE0YlpTYUtB?oc=5",
+   "published": "2026-09-10T16:00:00+00:00"
   }
  ]
 }
