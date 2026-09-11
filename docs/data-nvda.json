@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T17:09:17+00:00",
+ "generated_at": "2026-09-11T21:41:39+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
@@ -12,11 +12,11 @@
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "No edge either way",
-  "summary": "None of the scored NVDA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
-  "tone": "neutral",
-  "score": 0.0,
-  "score100": 50,
+  "label": "Mild tailwind - fine day to buy",
+  "summary": "A validated single-stock condition is in your favor on NVDA today. Nothing dramatic - and single-stock risk still dwarfs entry timing. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
+  "tone": "ok",
+  "score": 1.0,
+  "score100": 56,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-4.0% in 5 sessions",
-   "score": 0.0,
+   "value": "4 down days",
+   "score": 1.0,
    "weight": 2.0,
-   "lean": "neutral",
-   "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
+   "lean": "good",
+   "note": "NVDA has closed down 4 straight sessions. Under the TSLA single-stock framework this earns +1.0 (provisional on NVDA): three down closes tended to bounce the next day on the calibrated name.",
    "viz": {
-    "pos": 73.4,
+    "pos": 71.1,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -55,7 +55,7 @@
    "lean": "good",
    "note": "Realized volatility elevated vs NVDA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
    "viz": {
-    "pos": 82.1,
+    "pos": 81.7,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "6.8%",
+   "value": "7.2%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 6.8% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 7.2% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 13.6,
+    "pos": 14.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.8 (p20), F&G 34",
+   "value": "VIX 15.8 (p22), F&G 33",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 219.101,
-  "day_change_pct": 0.34,
-  "sma50": 212.6,
-  "sma200": 197.48,
+  "price": 218.29,
+  "day_change_pct": -0.03,
+  "sma50": 212.58,
+  "sma200": 197.47,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 7.1,
+  "drawdown_pct": 7.4,
   "series": [
    {
     "d": "2025-12-23",
@@ -1212,9 +1212,9 @@
    },
    {
     "d": "2026-09-11",
-    "c": 219.101,
-    "t": "neutral",
-    "s": 50
+    "c": 218.29,
+    "t": "ok",
+    "s": 56
    }
   ]
  },
@@ -1227,7 +1227,7 @@
   {
    "label": "Falling-knife zone",
    "direction": -1,
-   "text": "NVDA at $211.68 (-3.4% from here) enters the 10-20% falling-knife band (\u22129 pts)"
+   "text": "NVDA at $211.68 (-3.0% from here) enters the 10-20% falling-knife band (\u22129 pts)"
   }
  ],
  "report_card": {
@@ -1275,12 +1275,12 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 3.95
+  "tbill_3mo": 4.0
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 219.101,
-  "sma200": 197.48,
+  "price": 218.29,
+  "sma200": 197.47,
   "above_200d": true
  },
  "vol": {
@@ -1307,10 +1307,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 84087.9,
-  "dca_return_pct": 302.33,
-  "dip_value": 84245.12,
-  "dip_return_pct": 303.09,
+  "dca_value": 83776.64,
+  "dca_return_pct": 300.85,
+  "dip_value": 83933.28,
+  "dip_return_pct": 301.59,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dip"
@@ -1323,34 +1323,34 @@
    "published": "2026-09-10T00:09:56+00:00"
   },
   {
-   "title": "I was an Nvidia DLSS 5 hater\u2026until I used it myself",
-   "source": "PCWorld",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOYkoyb0dZV29qN0ZJaEFicDhDSnppbllyVVFIYTJsdTVJUnhObEVlYTZsMWo1VkF3aTU2c2g1Z0c1aXY1bkVyTDhsYlZQZnFQVnkxdFFpbEpWZ1ljajJUX3JOeXZXRzdRQ2UyRmJIVzRwbTN3NEdUTEdXenUwYVQ5eVAzRGVNMDQ1czRYVFYzVV9IVGptQ2RMUXZSS3E?oc=5",
-   "published": "2026-09-11T11:32:21+00:00"
-  },
-  {
-   "title": "Chinese Nvidia rival Enflame soars 206% on stock market debut as AI demand stays hot",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNb3NRZnFyUlUzaHZKaEZCV19MVjJ6U0tHRnh3eXc1NzBTRWk0U3VYOEZrSlJLaWdxdWRaaFh1MXVpbjRzb3lKNzBtY0NrQ3ZabmxKNXdWVHJaeW5Pb1ZHemIyTmtwQ2RxMTBWRXVfUjBxZjhoRzNWSjFtWDlPYUpTNFZRVlBEZF9YOWdXdEdzMETSAZYBQVVfeXFMT2gyeDQ0M2xEdTM5MFh5MHdoYUd6elJxSUxVYTdQaGtpdkgxelRnRUpCYTczQzN3dDRHc0kzaHBDdnNJTGdCOXk4eXlhOWdBbHgzVjFfRF9Nc19pblI3MnZmOVBqUmRIMlNET3R1SGUwaUl2Y3hnVi1RdmcxLU1GbUNzdDdJeF9fdXZVcnBkTkJpazB0XzlB?oc=5",
-   "published": "2026-09-11T01:53:00+00:00"
-  },
-  {
    "title": "Why Nvidia\u2019s Chip Rivals Have Left It in the Dust This Week",
    "source": "Barron's",
    "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9UNXo2RG9fVnBrYWE5cjlpS0ZpLWxhVk9Hb2FqdFZXVEFKSkNRQ0lxeXh2eDU5UTJySVA0WkNSNnIzNU1rVnpQNEtEYmt3azFSV01PdHZOb3U0VjJEbFBvWHVHeE5XNmgxaG5tZVFiODVXVWEzeXV6Z2J4ZUo?oc=5",
    "published": "2026-09-11T13:46:00+00:00"
   },
   {
-   "title": "Jensen Huang explains why Nvidia will grow an astounding 70% next year",
-   "source": "TechCrunch",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNR0MzWHlsQmg2a0g0RGE1UUp0OTVjUkpsTG8wVHUya2V0clh0RERnRWFaVi1udEVPSzZJMGVaeE5iT2xZbXJoM0thVDV2UEZxNGRWWmRWcC1ZRTBzZk0yMU16cEpqWXZ5Z3hfTGxQdHR3dmNRd3VFU0htQWdoaWxTZGtIdE5HZmlTNDJCMEZFNWRCN1c3MGdhV1JxVUFEY0VXaF9kUUFMTQ?oc=5",
-   "published": "2026-09-10T21:51:59+00:00"
+   "title": "China-modified Nvidia RTX 5090 with massive 96GB of memory appears on Alibaba for less than $4,000 \u2014 3x more VRAM at 65% the cost of the original",
+   "source": "Tom's Hardware",
+   "link": "https://news.google.com/rss/articles/CBMipwJBVV95cUxOYm9td29NWG9COFRMZEJickpxang3THpuQ3ZtWW82ZzE0bldKQ2phbnJxNmU5UEJoeUpUc2hBWmo1WVB3Ny1uNTdOUFNfdzEyNXh0WFAtNVZ2QVk5VnVrZHM4c1Fyc0VKaWVrVmtnSWdJVHlJMDBBOU9QT1FIT0RuS0doamFXX291dXlQYnlxU1dHLUVpdHBzU3JqMEZ0eFVmY1ZkRnlDZEtLZVRwVWVnOU83b24yRWU2Wm5UMWdya1V6Rms2bmJWMDF1ZE9TWG1UY3RJSVJFbHk3aE53MzNQZlFFbnUtV3hHSVgwNXpyU0ttNlhnTXpfZHNPU0xfTWFKeVdBYVpFakczdUJLTkItc3o0bFEyenZsYzZhRng2QnNPVDIxM2JB?oc=5",
+   "published": "2026-09-11T16:32:36+00:00"
   },
   {
-   "title": "Jensen Huang Mocks Nvidia \u2018Circular Financing\u2019 Fears: \u2018If That Is, Let\u2019s Do More of That\u2019",
+   "title": "The Better Nvidia Killer: Broadcom or AMD?",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNbm45RWxTUWd4dHlDV0RCcnlmRkIzd3laZ2VfSk1KV0hNcVJRam55UjExVklSOFl4bG9fOW00WjRidmNxNEdxNlpWTS1MU3FNWXFfcjFlTzh4QUZIS25zRWx3S1ppenFKVDR5RjlMZUZYS3lXMTJleXNlZl9aajhHazBtT2ZaR24tdFVLN1R1M3Rta1E1QjBwcVAyQjBRT293?oc=5",
-   "published": "2026-09-11T14:19:58+00:00"
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPanVPdzVXS05scERwbTB6S216eG15S3U3ZHdGM2tjMDh5dFpoaVlTRmN3TW1kSWluMHhFUmpXbmJDc1pNVEh1ZktpRGY5RTVLT1FxMmlxNDVWSFRtYTRDalVoSFQtNWRDNXJEa2ZMTzVmekNmUmx2YUtudWlYem96ZTdGU2t1OGs1dC13cHBRUVlKc3dNSXRZWjlCdEJWN0E?oc=5",
+   "published": "2026-09-11T16:40:12+00:00"
+  },
+  {
+   "title": "I was an Nvidia DLSS 5 hater\u2026until I used it myself",
+   "source": "PCWorld",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOYkoyb0dZV29qN0ZJaEFicDhDSnppbllyVVFIYTJsdTVJUnhObEVlYTZsMWo1VkF3aTU2c2g1Z0c1aXY1bkVyTDhsYlZQZnFQVnkxdFFpbEpWZ1ljajJUX3JOeXZXRzdRQ2UyRmJIVzRwbTN3NEdUTEdXenUwYVQ5eVAzRGVNMDQ1czRYVFYzVV9IVGptQ2RMUXZSS3E?oc=5",
+   "published": "2026-09-11T11:32:21+00:00"
+  },
+  {
+   "title": "Nvidia Becomes the World\u2019s Most Active $100 Million-Plus VC Investor",
+   "source": "PYMNTS.com",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPenhiX20ySVF3SkxjZ0tjMXV1c1c5YVBKSjhJVGZBYm45YnJhWWtrT2hmVE9MbHlBNmdMWTU5aGpQRWw0eWhCT01HZ3VwaExIVTFUV0tZX0s3STFhUUJZQzdzZWtFTFctdUNYeUdST1BOdTlucXE5czh0eU02OUJwZnItbS0xXzFBM0ltWEU3NU5wbmUzUl9fUFdrN0hSS0RLb1lXVG5GaEhqazJSYWVJM0tSSjBndVNmblp2WThaWGhHZw?oc=5",
+   "published": "2026-09-11T20:53:56+00:00"
   }
  ]
 }

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T17:09:18+00:00",
+ "generated_at": "2026-09-11T21:41:40+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 98.6,
+    "pos": 93.3,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "19% ann. (p6)",
+   "value": "18% ann. (p2)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 5.6,
+    "pos": 1.6,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "15.2%",
+   "value": "15.8%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 15.2% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 30.4,
+    "pos": 31.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "uptrend",
+   "value": "downtrend",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "bad",
+   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.8 (p20), F&G 34",
+   "value": "VIX 15.8 (p22), F&G 33",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 338.13,
-  "day_change_pct": 2.34,
-  "sma50": 345.23,
-  "sma200": 335.61,
+  "price": 335.45,
+  "day_change_pct": 1.53,
+  "sma50": 345.18,
+  "sma200": 335.59,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 15.3,
+  "drawdown_pct": 15.9,
   "series": [
    {
     "d": "2025-12-23",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-11",
-    "c": 338.13,
+    "c": 335.45,
     "t": "caution",
     "s": 41
    }
@@ -1222,12 +1222,12 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+6.1% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+6.9% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 19%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 18%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1275,17 +1275,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 3.95
+  "tbill_3mo": 4.0
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 338.13,
-  "sma200": 335.61,
-  "above_200d": true
+  "price": 335.45,
+  "sma200": 335.59,
+  "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 19.0
+  "level": 17.8
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1307,21 +1307,15 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 44258.46,
-  "dca_return_pct": 111.76,
-  "dip_value": 44337.32,
-  "dip_return_pct": 112.14,
+  "dca_value": 43907.67,
+  "dca_return_pct": 110.08,
+  "dip_value": 43985.91,
+  "dip_return_pct": 110.46,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 165,
   "winner": "dip"
  },
  "headlines": [
-  {
-   "title": "( YOUTUBE LIVE ) 49ers vs Rams NFL \ud835\udc0b\ud835\udc08\ud835\udc15\ud835\udc04 \uff26\uff52\uff45\uff45 \uff33\uff54\uff52\uff45\uff41\uff4d \uff2f\uff2e \uff34\uff56 \uff23\uff48\uff41\uff4e\uff4e\uff45\uff4c",
-   "source": "cpp.edu",
-   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQS1BTamdvMUQ3OXdGUXZPMEZtV0pGTjZXNkk4SXNJeGZvTnBFcVZXOU02UGpUYXZjdHI3UENpZHI1VFJQWjhhZ3RJZS13NGNFSDBjcUxKQmU5dWozdTh5UzU2aHViS3R3bHVxWmNPazdZTXRUQWwtTkdKOVQ3MEpjNWRlVmxPUDl5dk1icVl4V3ppN3FaLTc1SGtBbXZFLXZKLS10RHRHSDNtWTZ3Rm1VZ2FvSG1TQkN0ajA2YW15bmFNbFZQRUFNcnV4N0VFM1EyWHc?oc=5",
-   "published": "2026-09-11T01:09:50+00:00"
-  },
   {
    "title": "The Gemini app is now available for Windows",
    "source": "blog.google",
@@ -1335,22 +1329,28 @@
    "published": "2026-09-09T07:04:35+00:00"
   },
   {
+   "title": "Join us on a YouTube 'Live' Stream for the 25th 9/11 Remembrance Ceremony",
+   "source": "Los Angeles City Fire Department",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOWmdQNnJFc0V5cVpxMXZOYURjMHd0bFczd1hwMENVUllaRWIxdnlYTkp0MFB4SlRBZjZvZXlLU0p4MVpuSmFsanpJeFRHTG50SV96UXBpRWtvc29wLWN3NGpfTUhHTElDYnhLbHcxd3k2ZWszeFVtOXVYS2QwUHF1OGFSQzkxdw?oc=5",
+   "published": "2026-09-11T18:38:32+00:00"
+  },
+  {
    "title": "ToolGrad: Efficient tool-use dataset generation with textual \"gradients\"",
    "source": "Google Research",
    "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxORkdwamVlMkIxem5jRGNldW04V2ViS2laR3l1eU9vazZ4MUI2dU9ORXA1Rmd3UW4wMTlsNVdkVE5HeERUTm9IVXhHQ05kM2ZSOUlCVDFxZU10VHc1b1VEY0NEbWtyNzI2ckFnYlp2SmJQT1haOTZZSEZ1cHZkS2liRWk2MDMtM0RxUWlHMWdqZlYzSlA2OUI4MGlyc21NOFhy?oc=5",
    "published": "2026-09-10T22:50:39+00:00"
   },
   {
-   "title": "Alphabet Inc. (GOOGL) Is a Trending Stock: Facts to Know Before Betting on It",
+   "title": "Why Alphabet Stock Just Popped",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNOTE3d21JS0d3dmM2ZzZNQkp1c0otTVRCYmdQbU1Zbk5tWGFVQ0lQMjc2bUI5SGtlQUV5LU4wbmVXbmVpbXZyTFBUU3RrNk1MUVJXWHcwamJ0RVlKSG5PVHVsaVc4XzAwVVIwUGNRcFhQVXkxTTVhSUV6RzBQdkFtMGpVUURLdHJfUDB4SGlBbFh0bnFuQzVDckJFTUoxcnM?oc=5",
-   "published": "2026-09-11T13:00:07+00:00"
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQOWxlb1h2VnpsZzFOLVd5WmVCbkgtNnFIcUt6Y01TZEkxaGJQaG9uM2t1d0I3dl94b1p6MDczVFNIQWxGR0ZoOUhPNVExTmx5b2VScVFQeTQ5Qk1pUEJyR3ZQWWNieDhxY2Q1TTFvY2dOTWtfOWxlYVVnanR3VDMweV9QOVQ5UWg2dGVRSDlKX291cThIeE1KdVlsNA?oc=5",
+   "published": "2026-09-11T19:13:01+00:00"
   },
   {
-   "title": "Google, stepping in for Crusoe, pitches 700-acre data center campus to Laramie County",
-   "source": "Oil City News",
-   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQUXFTWTE3d180YUFuT2ZhQ0daLURORHNkamxBYXl1NklxaF9aY2lyZmdhMVpocUlWY2Z6dWVmYjdGbjNabkFzbjdjZFdTMVhNeUdnbVdIRTRTN29uZG9vRGxsZVpteDloNlY3cWhNU1I1MDlfam5Vc2x4N2wxeHo5QngxZ3ZWMlVYVUtUSmt0Rkc0TE9EZUdfazBYM3dYRGlPbjdPS1NnZVJMdlVTTGhiTTIyMTJkcFFNU2pLOHRHaGJfV2dGSWxYVEszeGczVXBMU2NCUXVsemNhM1laMHFnMWt3?oc=5",
-   "published": "2026-09-11T12:58:16+00:00"
+   "title": "Watch Jimmy Kimmel\u2019s James Talarico Interview That\u2019s Been Banished to YouTube",
+   "source": "The Hollywood Reporter",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQOXdxdVFYR0JxdDVmX3pXRWRwU29TcVhzSVVCdmpKMlpTcnNHVFM1b21uSmRlamFuVUZ0NlVHMUxhVXJBeC1jLTdVMEhCNWFtTmVMUGJSNXo2aTZEd3lEVU11NUhfQktBajhMRW1uOFRVMDlvVGdGSU5GUmdOY0J6QUU1OEIyQlREdHNlNDY5SERnY3cwa2pVbEI1WXlLUkp0bVF6ekFVLUVBOC1RS2hWTA?oc=5",
+   "published": "2026-09-11T14:59:39+00:00"
   }
  ]
 }
