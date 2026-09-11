@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T14:30:14+00:00",
+ "generated_at": "2026-09-11T17:09:14+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.6 (p30)",
+   "value": "21.1 (p26)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 30.2,
+    "pos": 26.2,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.85",
+   "value": "0.84",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 37.4,
+    "pos": 36.2,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.35x (p66)",
+   "value": "1.34x (p63)",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
+   "lean": "neutral",
+   "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 65.9,
+    "pos": 63.5,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.7 pts",
+   "value": "+8.2 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "35 (fear)",
+   "value": "34 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 35.1,
+    "pos": 34.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,8 +257,8 @@
   }
  ],
  "fund": {
-  "price": 56.425,
-  "day_change_pct": 0.94,
+  "price": 56.429,
+  "day_change_pct": 0.95,
   "sma50": 56.61,
   "sma200": 54.55,
   "high52w": 59.52,
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-11",
-    "c": 56.425,
+    "c": 56.429,
     "t": "neutral",
     "s": 50
    }
@@ -1355,17 +1355,17 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 34) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.6) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.1) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 716.46,
+  "price": 716.37,
   "sma200": 660.15,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.6
+  "level": 21.09
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1543,21 +1543,15 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15100.0,
-  "dca_value": 20542.74,
-  "dca_return_pct": 36.04,
-  "dip_value": 20311.67,
-  "dip_return_pct": 34.51,
+  "dca_value": 20544.2,
+  "dca_return_pct": 36.05,
+  "dip_value": 20313.11,
+  "dip_return_pct": 34.52,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 60,
   "winner": "dca"
  },
  "headlines": [
-  {
-   "title": "Detecting and countering misuse of AI: September 2026",
-   "source": "Anthropic",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBBeTNVQy1tcnZPVW9SM3drbmxGN1UxRktiY3JfLW9rMDdIMm9SOUd3b3RJNHpSRXVzS1JKckctcFUyZHpNTVE3aEtWVFhka3o3UmlLUzk1ZEs3dUhyVmRJYVctb0IyN1JuNDB6N0hZdTR2TWJTVXc?oc=5",
-   "published": "2026-09-10T17:10:27+00:00"
-  },
   {
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
@@ -1565,28 +1559,34 @@
    "published": "2026-09-11T12:44:32+00:00"
   },
   {
+   "title": "Detecting and countering misuse of AI: September 2026",
+   "source": "Anthropic",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBBeTNVQy1tcnZPVW9SM3drbmxGN1UxRktiY3JfLW9rMDdIMm9SOUd3b3RJNHpSRXVzS1JKckctcFUyZHpNTVE3aEtWVFhka3o3UmlLUzk1ZEs3dUhyVmRJYVctb0IyN1JuNDB6N0hZdTR2TWJTVXc?oc=5",
+   "published": "2026-09-10T17:10:27+00:00"
+  },
+  {
    "title": "Opinion | This Is Really Bad",
-   "source": "nytimes.com",
+   "source": "The New York Times",
    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNTlVNVmVmRkpaMmdEZ2dFdTB6Q0JsUUM1YVpCTC1DcHBVVE45b1otS1djRWJHSFlFX0N2bVAzVkRaaTdpVVpmVFU4UEdQc0NYSVllZ0lxcGliaWpBbmVaZFZGMHRWLVlkYWVSWDVzZ3BaVWtCdXE0b1hBMF8yVWJZWA?oc=5",
    "published": "2026-09-11T09:02:30+00:00"
   },
   {
-   "title": "Why So Many AI Researchers Think the Machines Could Kill Everyone",
-   "source": "WIRED",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSExxeTJWdGJza0poTkd1UEJpX0lNYnlONGFWNnhmQXliUjJ1RDluVnB1UmxCbllydG5QVzdOS1lDTm5VbUFkU1lMYWg3XzlGcGlPX2poX056UG42U3JQYVFRRDYxSlBhVk9iSlFpRUhCWGlWX2wyUUtjRGdFSzRYWllDUzZiSDZXSzhwdHhNNnlHZE51WU1wdlJn?oc=5",
-   "published": "2026-09-11T09:00:00+00:00"
-  },
-  {
-   "title": "Could AI really kill off humanity within the decade? Expert Q&A",
-   "source": "theconversation.com",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNcmY4c3dlVDdlQjVGemdpVGJjRVJaT2ZudWNHeVUyS0hMbjdVbjM5TzFpbnpObjFFQk1ZZGxkbF9fenYydlRZbjgyTFZXVzFMV0VweV9LaklETzhnZVFId1g1MVhxbUVxaWd2Q2NiS0g5emFycTBNQklOSkk4VGpVOTBtcEs2dUw3TmVyOFB5VDQwMUZBeUpCb3RwMlFjdWJK?oc=5",
-   "published": "2026-09-11T11:19:23+00:00"
-  },
-  {
-   "title": "Why fears of AI self-improvement are causing \u2018existential\u2019 concerns at Anthropic and OpenAI",
+   "title": "Trump dismisses AI extinction risks as more than a dozen OpenAI, Anthropic insiders call for a slowdown",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNLXdFTmVGVWVBRlRkN0ktd3ZJTXBKTE1Da1RnTXB2bmpMTDhHeHR3Wjk1R1Z4el9ZOWxTVVYxTkNzTVk4dlBtTHpoZWNzUHkxZDVnSnZEMkNreERKZW9jekh5M1NhZU9oVGZPODRYMkhBQXpISVF2T1hBV1hfa1N0cjJBSdIBiAFBVV95cUxPR3VZZDNYM2x6VTVzeHM0aG16RmdBZ1JFQ00tc25OOFhjSTFHVmxoclVGanRob1Awb2ZzSXcxQ1o2cW9MS1BtUW45U2xhNG1DVEZUMlVGQjR1STZ0TFd6eDJoQ19fblVYZnRjVnNidHNkeF9Ka2xJbVNrWlJsN2ZIVUVUZ05NTURn?oc=5",
-   "published": "2026-09-11T11:00:01+00:00"
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBFQmxROTdQNUMtdlp6WWt5NEJ4clJ3cXhXcmhCbWNSeHo3RWpkUzlsNVBqYldaVlFtYmtGdGl6ZklWczgyem0zbzcxWEM3R0Q5S2RwZElPNDdFYmtfbG9TeWFvc0tyVWt3U1FHd18wb9IBdEFVX3lxTE1ITHNmX3NhN1dBQ29pS3gzZ0JnX1dmQzNNUHdERWZuY3AwZXJmUXNDWVFaVFIxbF9GYkk3QWJKTkdabGdYX1F5Vkh6YU1OYVRaMUQ3aGMyVFVuM1VEOG1yTDFPS045d1NXd1o2VDcxMjhrUGF6?oc=5",
+   "published": "2026-09-11T10:58:24+00:00"
+  },
+  {
+   "title": "How Would AI Actually Kill Us All? What to Know About the AI Doomsday Debate",
+   "source": "wsj.com",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPbUotdlJET1huVjdSelVtX19weWxyRjBBS3ViZGZUTXVETE1vMGR2cjhKbEFrYjd1OEZaQ1VZYUlMYmhEdm1rWTFYT3ZzQVE1MzFwYWNESElrUUFocHIxNmdOWUM5TlpCanhObk9nQUNHQ1N5NllWRGxfbGhPUGtfSzByUmdXSlFseUhIejFiZ3V5MWlBdnN5UVhTblJ0T0lKOENDMHBMQ1BGNU1rYVBHcGZn?oc=5",
+   "published": "2026-09-11T16:31:33+00:00"
+  },
+  {
+   "title": "The AI Researcher Who Just Quit Anthropic Says It\u2019s \u2018Crunch Time for Humanity\u2019",
+   "source": "WIRED",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNRWFmeTFDc1VyVkdBM00tWkYwRGJiaDlTWU5nbjVwalFFb1I3MDRIbFZ6LTVYTkwxZTZXSDZVWU96dWhJMndWSV9oNjE0ZHFSUnh3dzdBRHhIMUNfdWFPb2dSYktCU09qQVdpY0JlZHdGMnlxczlyeXh0TXc5alIyWktKN0wtNW5uT0pzRDJn?oc=5",
+   "published": "2026-09-09T22:11:00+00:00"
   }
  ]
 }

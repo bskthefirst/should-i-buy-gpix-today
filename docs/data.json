@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T14:30:12+00:00",
+ "generated_at": "2026-09-11T17:09:13+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "16.0 (p25)",
+   "value": "15.8 (p20)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 24.8,
+    "pos": 20.5,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.85",
+   "value": "0.84",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 37.4,
+    "pos": 36.2,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.9 pts",
+   "value": "+6.7 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 91.1,
+    "pos": 89.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.0%",
+   "value": "0.9%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 10.0,
+    "pos": 9.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+0.9%",
+   "value": "+1.0%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 57.5,
+    "pos": 58.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "35 (fear)",
+   "value": "34 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 35.1,
+    "pos": 34.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 55.73,
-  "day_change_pct": 0.94,
+  "price": 55.7394,
+  "day_change_pct": 0.96,
   "sma50": 55.7,
   "sma200": 53.75,
   "high52w": 56.67,
-  "drawdown_pct": 1.7,
+  "drawdown_pct": 1.6,
   "series": [
    {
     "d": "2025-12-23",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-11",
-    "c": 55.73,
+    "c": 55.7394,
     "t": "neutral",
     "s": 50
    }
@@ -1328,17 +1328,17 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 34) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 16.0) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 765.775,
+  "price": 765.71,
   "sma200": 714.24,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.97
+  "level": 15.77
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1516,50 +1516,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15100.0,
-  "dca_value": 19575.19,
-  "dca_return_pct": 29.64,
-  "dip_value": 19350.06,
-  "dip_return_pct": 28.15,
+  "dca_value": 19578.49,
+  "dca_return_pct": 29.66,
+  "dip_value": 19353.11,
+  "dip_return_pct": 28.17,
   "dip_cash_uninvested": 1300.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "U.S. inflation accelerated last month as gas prices spiked, squeezing Americans' finances",
+   "source": "PBS",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNejZvT2dPR1FuOFBHT3JybFdwRTJLNEttQUNSTzZBUDlIcXh3elM3blhxeDVoQ05WWFdmbndvdTZoV3VaczdEZTJRNTFPQ013QWRmYlkyN0JZUVdObDlaSlZQTm5uSnZjSWlOR3BPbVpTQnR1MlJrU3BNMmxSZU91S0hieDBJNERmZUFvS3owelRYRUtSb2xfTVJ2amZaM3RQNkotdGE5N3B0YnF4bDBYWjViWUo3OE5sSnNPM2ZGWWTSAcYBQVVfeXFMT1hWb1dmaHZpUlBkcE56S0QyVUhJdGV1ZEtxV05DOXlfOGJLZlY3Wnh6QlVlaW5XUWVqMnhvRzZ1eHRicEJBSi1aUEk0Vk1jbFBhaHdaaVI3MXJjODZmMWZLd21GanFTQWFpUEVmTko2Zm1BUEY3b3pVNGFGWHZaVWtZRE5RV1RycFljQWxlZ3d4cl9zaEt6b1V1dlczdHBnNURpNklVU2xnYUZMakhobEFCQVpyNkhVU29oUTRyWkF6LTl6S0xn?oc=5",
+   "published": "2026-09-11T15:36:13+00:00"
+  },
+  {
+   "title": "Fed rate-hike case builds as inflation fails to cool",
+   "source": "reuters.com",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOU2R5eFJ0eFBfbWR4dnNKaUdDZC1MTVY5aWYxc3BlaUY1S2ZMM0xwaFhMbEh1cWtsSFhFVGk5eEE4NkRTb3FxREhvbkpKVjdXdVY1VHhNT2NaUkhUNmEtSzdoQno5aWFRUGpWS0ZBMXcwUEFKSHFOVF9jcFJQSExCbjBYaU5JNTdMdlladkpZdkp2TURmcW94ZkxtV1dwbTR3TkJhUXlmc1A?oc=5",
+   "published": "2026-09-11T15:18:42+00:00"
+  },
+  {
+   "title": "Elevated Inflation Keeps Pressure on Fed to Raise Interest Rates",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5IMFFtaTVreE9NQ2hRcW9hc0JHQ21zU2w1OUY3Nm85MHVuZXZMejVBN2xrUFZORm1mRjRvYTdpNDdVWUIxRENhTWxJd0lTWGxzdlBSQjhoN1gzd0duaWxXTWQybC1QSjNVelU2cVRQa0hmdGg3V040Ng?oc=5",
+   "published": "2026-09-11T15:48:15+00:00"
+  },
+  {
+   "title": "Firm Inflation Reading Pushes Fed Closer to a Rate Increase",
+   "source": "wsj.com",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5YeGlveWlreGUwUGJJNVh0d3A3OEl6UG9CLWJhdGtoWGVjNFl1MEpuMC1jelBXRmVjOS1TYTJDV1JOV0JpYld5Z0lmWHQ5M0l6QWJ2T3lDSWUyQWNfSjBZbG83ZVdNdkt3dlRwSnBVN3BuV2NIOHFqYw?oc=5",
+   "published": "2026-09-11T14:52:00+00:00"
+  },
+  {
+   "title": "Fed's Warsh faces new pressure to hike rates after inflation heats up",
+   "source": "Politico",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNYU9wQUQ2MjZzdlVka3B4SlU2LWY1X2IzSlEzR2lsbDZ6d1ZYblhETHp6MGUxbC1tQWo4OEdzSzlVOXFkQmNxZVpCYXpfTzk1cEh4WDhsWUV3c1Jsc2FPNVRZMm5YX2kzSTY5MmNJSkU0ako3Wks1QlJvMmtxMzVqN2VWZnpXd1ZpZGxZ?oc=5",
+   "published": "2026-09-11T15:11:00+00:00"
+  },
+  {
    "title": "Inflation ticked up in August, setting the stage for the Fed to hike interest rates",
    "source": "NBC News",
    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQWm44cERNRk96Tm5Mc3JwMzZKLUJFYzctbDFTLUZqRFJRbTM2N1hjOXIzZzlFWnJtSlFRcDRZZzhjQWQyM1lyR0ZHSUhJLTJ2Z3JiVG84d0E3d25IYndacXR4MHllaGtCTUhYNUhZT0xiTjdJZ0NNa2gtZGZ0d3ZTUmowQ0R1RGxnRUVGMzZodlo1X2txUk5PeUZjSjBOUQ?oc=5",
    "published": "2026-09-11T13:11:13+00:00"
-  },
-  {
-   "title": "Firm Inflation Reading Pushes Fed Closer to a Rate Increase",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5YeGlveWlreGUwUGJJNVh0d3A3OEl6UG9CLWJhdGtoWGVjNFl1MEpuMC1jelBXRmVjOS1TYTJDV1JOV0JpYld5Z0lmWHQ5M0l6QWJ2T3lDSWUyQWNfSjBZbG83ZVdNdkt3dlRwSnBVN3BuV2NIOHFqYw?oc=5",
-   "published": "2026-09-11T14:00:00+00:00"
-  },
-  {
-   "title": "August inflation data demands rate hikes from the Fed",
-   "source": "The Real Economy Blog",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPRFppdGdIUThsMkpJNk1Ba2ZXLUoySmVqanZIVGVUVWNwV3FfenB5UWFuLVAtQ1VPV3BLeVl4VDRPcmQxZFctYUF3Qm5qUm1zako2U1BzX0IzX1dRb0VHa2NyREVYV2Z0UEJWdlpIV3cxekJGcmRqUHVQR0VEMElpTmFxTEt6XzRMU3NyNA?oc=5",
-   "published": "2026-09-11T14:10:37+00:00"
-  },
-  {
-   "title": "Inflation stayed hot in August with annual pace of 3.4%, raising the odds of a Fed hike",
-   "source": "CBS News",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5LTU1TOTRNdWpDME5UU2d4Rm44aDB0a1ptLVVSMjNzWUlmRjc0N1p2UlNVVU1IVHZxWWhBWEtQUHpCcVhzU3pha1BEWXk0U3l0VkVKQjJ2VzY3Ylhsek5id2tBN2tsN2NMQmQtR1M5MkdXRnR6VHc?oc=5",
-   "published": "2026-09-11T14:07:16+00:00"
-  },
-  {
-   "title": "Inflation persisted in August, potentially locking in a Fed interest rate hike",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE45NWtYSmQ5R05raVhQakVkMUdmLWJVTmlCR0R3WWZBbmVsVVQ3SEpnS181Wk5qRUt1cWJhelI4cEZtUDVwb0c5U2dNN0hiZVd0NkdQU1Y0SWRrMlJnQjlXZ1BtdlBHbzF2WkswVFhUVTNXQ3dkcmc5WtIBfkFVX3lxTE9FQ0o0emFuVFUxWFIyNEpyaXpvaS0wVVlydUtLSHhBVDh1blJ6LTdreGozdjZjdmo5eXF5cFdYc05xQjFCMVhnQzFMRkpJVkk2VWwzUlJ3a3F6bjZXTEt4dW1aUDdEWFdHek9FSTVUVTAxdmNSVk8xa0dUMXk5dw?oc=5",
-   "published": "2026-09-11T12:32:19+00:00"
-  },
-  {
-   "title": "US inflation held steady at 3.4% in August as high fuel prices persist",
-   "source": "Financial Times",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPaU11OG1TVmxJZC1hcVgyX09selQzQUZ0NjJ0ZEhEeXl4ajFXY2M4VElKOXR2dkFXTnBXbGl3YW9WMXZqVWw4QjFVYmwzOHFBQ2xYUnNDeDVoT2g3elYwVWZqU0h3UEQ3akdxd2l5a0lVdkp2SHN6dUEzUXluTXRCMkpSaGE?oc=5",
-   "published": "2026-09-11T12:30:53+00:00"
   }
  ]
 }
