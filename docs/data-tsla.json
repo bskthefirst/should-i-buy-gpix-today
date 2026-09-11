@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-10T21:35:33+00:00",
+ "generated_at": "2026-09-11T14:30:15+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 100.0,
+    "pos": 82.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "52% ann. (p75)",
+   "value": "51% ann. (p69)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "good",
-   "note": "Realized volatility elevated vs TSLA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
+   "lean": "neutral",
+   "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 74.6,
+    "pos": 69.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "25.8%",
+   "value": "25.2%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 51.6,
+    "pos": 50.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.8 (p60), F&G 33",
+   "value": "VIX 16.0 (p25), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 1d",
+   "value": "CPI in 0d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 363.56,
-  "day_change_pct": -1.16,
-  "sma50": 355.7,
-  "sma200": 399.05,
+  "price": 366.19,
+  "day_change_pct": 0.72,
+  "sma50": 354.51,
+  "sma200": 398.93,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 25.8,
+  "drawdown_pct": 25.2,
   "series": [
-   {
-    "d": "2025-12-22",
-    "c": 488.73,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2025-12-23",
     "c": 485.56,
@@ -1215,32 +1209,33 @@
     "c": 363.56,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-11",
+    "c": 366.19,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "TSLA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
-  },
-  {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 52%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 51%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-10",
-  "days_total": 719,
+  "end": "2026-09-11",
+  "days_total": 720,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-10",
+  "fg_coverage_start": "2025-09-11",
   "baseline": {
-   "n": 698,
-   "avg_pct": 2.71,
-   "median_pct": 0.39
+   "n": 699,
+   "avg_pct": 2.72,
+   "median_pct": 0.42
   },
   "bands": [
    {
@@ -1253,8 +1248,8 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 169,
-    "avg_pct": 9.06,
+    "n": 170,
+    "avg_pct": 9.08,
     "median_pct": 5.02
    },
    {
@@ -1279,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 363.56,
-  "sma200": 399.05,
+  "price": 366.19,
+  "sma200": 398.93,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 51.9
+  "level": 50.5
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 6,
+  "days_until": 5,
   "imminent": true
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 1
+  "days_until": 0
  },
  "earnings": {
   "next": null,
@@ -1303,54 +1298,54 @@
  },
  "backtest": {
   "start": "2022-09-12",
-  "end": "2026-09-10",
+  "end": "2026-09-11",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 29901.77,
-  "dca_return_pct": 43.07,
-  "dip_value": 29906.39,
-  "dip_return_pct": 43.09,
+  "dca_value": 30118.08,
+  "dca_return_pct": 44.11,
+  "dip_value": 30122.74,
+  "dip_return_pct": 44.13,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 206,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "You Can Take a Tesla Cybercab Later Today. The Stock Isn\u2019t Feeling Any Excitement.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQUV9aenlYTkZwSnhGNkxmdjJqanRSbGV5ZzM1OTNubnJLcHhNZGZ3YUkxUG9BOVdFX2UzRjVsWDdYUXdQaFNHX2VmS2lRTjNNdTZtSVBHczJlQzVMUGwtVnF5MmxWNnUxaEc3VEJDY0MyNnQyOUZiSTdHUVJVWTBfbQ?oc=5",
-   "published": "2026-09-10T11:54:02+00:00"
-  },
-  {
    "title": "In A SpaceX-Tesla Merger, Elon Musk May Be The Big Winner. What It May Mean For Other Investors.",
    "source": "Investor's Business Daily",
    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNVWlDMmg1T1RVMWxhQklIRWZZTFFWcmNTcy1sZ1dFdGJGVmlJU0xqalN1RFkzdURZZmZfVEctcldzd0hXRHhCTVp3N1MtQTFQeEJIM0EyWnFYR09YdVF2NE0tOHhneE9ETVNzN0cxVHpDcW9rbEZzU1B2MklzQ3I1X09DcDNURE96M1E?oc=5",
-   "published": "2026-09-10T11:37:00+00:00"
+   "published": "2026-09-11T11:12:00+00:00"
+  },
+  {
+   "title": "Tesla Shares Suffer Slow Summer After SpaceX IPO, Earnings Rout",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQSUNSdDdROUtRU3lNUE1xY3Frb2NrTTVZQ1ZWSk5WQWpfQTBHWllyd1B5S2UxM2R1T1lWcU1RZi13TXNTTkdpRG1RMmJDbzRWZFZBUkh1ZXQ1VEI0YVdtUFc2NlRiTk42WnNodFphSzR4ZkpaZDc5aUh4N3dnT1VwNk40aGRONGtqa0FRWE13SmNFSDAxRGd1MDFSeGxNUWxwUG8yUmdMd2N6aWhraGZlTFdyNA?oc=5",
+   "published": "2026-09-11T13:15:50+00:00"
+  },
+  {
+   "title": "TSLA Stock Rises Premarket On Global Blitz \u2014 Cybercab In Japan, Hotter Model Y In China, Powershare In US",
+   "source": "Stocktwits",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQX0p5ZmdOUllBdHg3ZktyQ2ZhaE9RUWlhRUs4ZEFIdVE3MmNKQkdrUXY4S1A4RE5lNThvNEp4bUhETnRISDI4YXVtUkVvaUZjb1dGeEhTWU9yMUlrZTNUUEtoWlpMZmdVcnBveEQ0VjZhYmMya0pkTVJvTFI0MWhITlo1MW1yWVlibndZZVNsUjl1Z2YteE9Gb3ZOUGY2UmVJZXRFalczRVh4b0s2VXlrV05vdkRtcEpy?oc=5",
+   "published": "2026-09-11T13:11:52+00:00"
+  },
+  {
+   "title": "From DOGE to space lasers, Alex Gibney peels back the many layers of Elon Musk",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNQXdUOGNvUUxnQ1pNdnl2Y0U1Yms2WWhZVWpJUEpST2k3aEFfV2lHOHB1OUhYbjhKTkJielZBd00yRGFGd3FTQ0V1M0NJZllzYmhSSTVNWC1fa2xyUHdERFBHWWZkbzAta2hQZWZwT216ZWstNFpubXNBNEJmcHRLYy02bWVkUTd0UWlsbFlR?oc=5",
+   "published": "2026-09-11T09:00:00+00:00"
+  },
+  {
+   "title": "Tesla\u2019s Electric Semi Could Win From High Diesel Prices",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQUmNlNF9XSVpwcm54ci1RU1VEckVPNkxfTWZ3RWY4UmszQnZnX0trdGFwSDR3YzMxYkQ5akpUazN6aHVuNVJrN2JLaEZnLURWS1RLXzJLZ3BvY3NkN0ZzWG9YWWRQZUJteDRzVXk0aURTMlJTeXM3cFUtMHlCclVEQ3ppNnM1VF93dXpyd3BwcjU?oc=5",
+   "published": "2026-09-11T11:16:00+00:00"
   },
   {
    "title": "Tesla's stock drops 6% as Cybercab update 'underwhelms' Wall Street",
    "source": "CNBC",
    "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOR0t5RzhPYWdIZ3hPSzBuN2dVTGdnRFhrUzRBd2RLM1NHUXNvUFlTWjYzdXE2UzlGc3lETkM5Tm9FMDFhOGJNSnVudnZqYXNmdG9NaWl3T1NwcjhkVWcxZ3pROGxmbXZSMFBGODVURzJNV0h6Nm1hRFdhNENmUTlZelFQZnRSTm9iZDhGc190WlBYdmRvTTVVUGNKOEhLVVXSAaQBQVVfeXFMT1FHblZwckdBTVFmY1BSSklTdW9ZdGw4RmNheHRRTFphZkVZZWRjdGd2LVpXU1NzZ0N6Yi1HVFdYWW1rWk11Z0htRDBIcGdqbk5fVXVncC0wTGZqcXdsUW04cVNvUnBwRmhhODFTTEtkUjlScW5Vc0p3SmpHNnBZQ2RuUVBNek1hc3lKVVFTMFkyOUdEdHZBOWJrVVFTS0JETlR5Ni0?oc=5",
    "published": "2026-09-04T17:33:08+00:00"
-  },
-  {
-   "title": "Tesla Stock Slips as China's Auto Attack Expands Beyond EVs",
-   "source": "sg.finance.yahoo.com",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNUzdkaEJ1RmpxUjBUdGRhT0VCaTRjRGR4aEJVa1dhXzR3aUIyU0NURTFVSmlDa0ZwYkp3bGMzQnJRYm9zck0tbmZ4aE85SnFxemVEUWhFeEMtcnBka1cxLXVWdDUtSXNqSEhwZl9NYXQtc0R0MVVydEdaY1VwM055QzVOaEc?oc=5",
-   "published": "2026-09-10T18:47:07+00:00"
-  },
-  {
-   "title": "Feds open probe into Musk's steering-wheel-free taxis a day after he began offering rides in Tesla Cybercabs",
-   "source": "ABC7 Bay Area",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOR1JCQ1FXUjZMcVZFZC01TWJjMWtSdEF6OGRicEVidTlJb1hwc19jZS0tSXlEd3d5YVJ5OVI1b0M2UzB1WFF1dmRXbF9kZ0VSZE1KdmtySV9qV2xrVXJRVzRGREMtSmxKMU5PbnNVdFlvaUlZeTJ3eS1OLWd6Z3h5bXVSQ2VZaG0xUVVVYW5IVXB0WHktdDdBcWxsY2RWT0pFOE56dTNyek80UldlcGpkQ2g1S0xIekNQZmNob2FteHQyck1qWUN2OUJ2VDY?oc=5",
-   "published": "2026-09-04T17:23:50+00:00"
-  },
-  {
-   "title": "Elon Musk rips ABC News over fatal NYC Tesla crash report",
-   "source": "Teslarati",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQd0JEWC1YUkZod2hfWlExOFctZ1I5cEw0OHQ5WHpkRGVQd0pSbXNOczNvTFRWNjBOenVKSGo2RlUtc3JVdXVlSGhqR2h6TXp6akE0ZURfLS1sbEdyektjM0VfbnpyVTVJb2JSaUNGdkNORXhOckdrUUxKRzU2TDFrN1BoalBXYVJQWjZwTg?oc=5",
-   "published": "2026-09-10T08:26:51+00:00"
   }
  ]
 }

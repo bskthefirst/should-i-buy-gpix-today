@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-09-10T21:35:32+00:00",
+ "generated_at": "2026-09-11T14:30:14+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
-  "label": "Better-than-usual entry",
-  "summary": "Heavily-weighted rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for GPIQ, this is a sensible day to deploy it.",
-  "tone": "good",
-  "score": 3.5,
-  "score100": 72,
+  "label": "No edge either way - buy on schedule",
+  "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "23.3 (p51)",
+   "value": "21.6 (p30)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 51.4,
+    "pos": 30.2,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.90",
+   "value": "0.85",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 51.1,
+    "pos": 37.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.31x (p59)",
+   "value": "1.35x (p66)",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
+   "lean": "bad",
+   "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 59.0,
+    "pos": 65.9,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+10.3 pts",
+   "value": "+8.7 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.6%",
-   "score": 1.5,
+   "value": "2.7%",
+   "score": 0.0,
    "weight": 1.5,
-   "lean": "good",
-   "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
+   "lean": "neutral",
+   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 36.0,
+    "pos": 27.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -140,21 +140,21 @@
   },
   {
    "name": "Short-term pullback (reversal)",
-   "value": "3 down days",
-   "score": 2.0,
+   "value": "no pullback",
+   "score": 0.0,
    "weight": 2.0,
-   "lean": "good",
-   "note": "QQQ has closed down 3 straight sessions. Short selling streaks like this have reliably bounced the next day - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.39% next-day excess (t=4.0) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
+   "lean": "neutral",
+   "note": "No short-term pullback in QQQ - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.39% next-day excess (t=4.0) in our validation, positive in every era - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-0.2%",
+   "value": "+0.8%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
+   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 48.3,
+    "pos": 56.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.71% (-0.01 1mo)",
+   "value": "2.70% (-0.01 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 17.8,
+    "pos": 17.5,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.2% vs 4.0% cash",
+   "value": "10.1% vs 4.0% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 62.7,
+    "pos": 61.8,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "33 (fear)",
+   "value": "35 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 33.3,
+    "pos": 35.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 1d",
+   "value": "CPI in 0d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 55.9,
-  "day_change_pct": -0.9,
-  "sma50": 56.64,
-  "sma200": 54.52,
+  "price": 56.425,
+  "day_change_pct": 0.94,
+  "sma50": 56.61,
+  "sma200": 54.55,
   "high52w": 59.52,
-  "drawdown_pct": 6.1,
+  "drawdown_pct": 5.2,
   "series": [
-   {
-    "d": "2025-12-22",
-    "c": 53.16,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-23",
     "c": 53.37,
@@ -1343,40 +1337,51 @@
     "c": 55.9,
     "t": "good",
     "s": 72
+   },
+   {
+    "d": "2026-09-11",
+    "c": 56.425,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
+   "label": "Real discount",
+   "direction": 1,
+   "text": "GPIQ at $56.23 (-0.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+  },
+  {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 33) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.90) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 23.3) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.6) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.71%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-10",
-  "days_total": 719,
+  "end": "2026-09-11",
+  "days_total": 720,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-10",
+  "fg_coverage_start": "2025-09-11",
   "baseline": {
-   "n": 698,
+   "n": 699,
    "avg_pct": 1.91,
    "median_pct": 2.13
   },
@@ -1398,14 +1403,14 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 453,
+    "n": 454,
     "avg_pct": 1.28,
     "median_pct": 1.67
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.22,
+  "ttm_yield_pct": 10.13,
   "tbill_3mo": 3.95
  },
  "distributions": {
@@ -1515,33 +1520,33 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 708.69,
-  "sma200": 659.51,
+  "price": 716.46,
+  "sma200": 660.15,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 23.33
+  "level": 21.6
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 6,
+  "days_until": 5,
   "imminent": true
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 1
+  "days_until": 0
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-10",
+  "end": "2026-09-11",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15100.0,
-  "dca_value": 20351.6,
-  "dca_return_pct": 34.78,
-  "dip_value": 20122.68,
-  "dip_return_pct": 33.26,
+  "dca_value": 20542.74,
+  "dca_return_pct": 36.04,
+  "dip_value": 20311.67,
+  "dip_return_pct": 34.51,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 60,
   "winner": "dca"
@@ -1554,34 +1559,34 @@
    "published": "2026-09-10T17:10:27+00:00"
   },
   {
-   "title": "Making sovereign, open-weight AI the technology frontier",
-   "source": "mistral.ai",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRzU0cTlwNHctb0FiY092UVlJZFh4UmxsQ2lPLTdkVEU2SlRzVU12VzI2RGRYWEFqS2NMcVlXdXNTUGczTjFTbjZGMXY4bHhZYXN6bVpGQ0M0cndmMmthYjhUcGhPWlZsb1ZWeHhHOUdZWE93bTdUMjBNMzZQNTR6Mw?oc=5",
-   "published": "2026-09-10T20:59:35+00:00"
-  },
-  {
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-10T15:33:40+00:00"
+   "published": "2026-09-11T12:44:32+00:00"
   },
   {
-   "title": "AI Is Developing a Culture of Its Own. That Could Be Dangerous",
-   "source": "Time Magazine",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPYzVRRjZmUmtoRHNwUDd4Mld2dFhqc2JFYnU1RUVPTzdNTVdlUHhtblpvYnc4SGJnYk5RNXlpeGxYV0UteFIyNy1pUjlGbzVNUWZjaFlNM3pNcVp1UTFsNnMyLUJwVU9fM0RESndDMURfZ3lWU3l2eGRkWEFVdHFUdVRSanU?oc=5",
-   "published": "2026-09-10T17:40:09+00:00"
+   "title": "Opinion | This Is Really Bad",
+   "source": "nytimes.com",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNTlVNVmVmRkpaMmdEZ2dFdTB6Q0JsUUM1YVpCTC1DcHBVVE45b1otS1djRWJHSFlFX0N2bVAzVkRaaTdpVVpmVFU4UEdQc0NYSVllZ0lxcGliaWpBbmVaZFZGMHRWLVlkYWVSWDVzZ3BaVWtCdXE0b1hBMF8yVWJZWA?oc=5",
+   "published": "2026-09-11T09:02:30+00:00"
   },
   {
-   "title": "For years, they warned AI could kill all humans. Now people are listening.",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQanR3SlM2c3E1V2NUQVpxSWxzMnJQLUZFUXhaNG5WNWZSRjhqR3FaNzV5VjZZZE9NVXJNNVZ3aklaVHhGb2hITVFVYTlpMWVFVFU5ZnpIN2FvbnVYb3d3dkVwcmVsY0dPX3FpdXZSZTQydDZaSHFCUmpZRmtoS09peTU2TE12cGllMDVGUHNodDRpSmYteTh6R0Y0eHV1R1BLcV8xWGplU0U1MkFRbG1BMHp3ODNNQjE0YlpTYUtB?oc=5",
-   "published": "2026-09-10T16:00:00+00:00"
+   "title": "Why So Many AI Researchers Think the Machines Could Kill Everyone",
+   "source": "WIRED",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSExxeTJWdGJza0poTkd1UEJpX0lNYnlONGFWNnhmQXliUjJ1RDluVnB1UmxCbllydG5QVzdOS1lDTm5VbUFkU1lMYWg3XzlGcGlPX2poX056UG42U3JQYVFRRDYxSlBhVk9iSlFpRUhCWGlWX2wyUUtjRGdFSzRYWllDUzZiSDZXSzhwdHhNNnlHZE51WU1wdlJn?oc=5",
+   "published": "2026-09-11T09:00:00+00:00"
   },
   {
-   "title": "AI is losing its stranglehold on the U.S. stock market. Here's why",
+   "title": "Could AI really kill off humanity within the decade? Expert Q&A",
+   "source": "theconversation.com",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNcmY4c3dlVDdlQjVGemdpVGJjRVJaT2ZudWNHeVUyS0hMbjdVbjM5TzFpbnpObjFFQk1ZZGxkbF9fenYydlRZbjgyTFZXVzFMV0VweV9LaklETzhnZVFId1g1MVhxbUVxaWd2Q2NiS0g5emFycTBNQklOSkk4VGpVOTBtcEs2dUw3TmVyOFB5VDQwMUZBeUpCb3RwMlFjdWJK?oc=5",
+   "published": "2026-09-11T11:19:23+00:00"
+  },
+  {
+   "title": "Why fears of AI self-improvement are causing \u2018existential\u2019 concerns at Anthropic and OpenAI",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPc1IwZzA0QVg3QkNBZ1pIVEI5WFRNNDhMZnNITjRYaHlrQWtCNXV6WXZXSVZ5cElBOXJzY25PVHdBTkFnWVl0aGxoaHNfWE04WVM0ZUw2TmMxN2RiVjV2UmZXazNGdGN2RHVOOTVOZmlzOGYzVWJVMU1mZDR0QWRQYy1mdThvOW5pVDBXOWN1d2xGX0hobXZ2LVhOWDZseWRR0gGmAUFVX3lxTE1DWm4xNllDUWtSNXNWQ1dvTmExOXhHRTZBVUE4SmU2Y1ZnSUZ2LVEtZlJYYmM3amhfcnpiZUdhWWlEVS04MTE5NFFSeFhGRVFrbTJzc05GM0wxY3hmS0VzMmtIODNQZXA3M0FBV2p4U1ZSaDYzeTNsU1I3a3NnSDBTc3h5dzBjVnczQmd6REs3TmlRcFFjcmpTbHhVbkx6ZGV4YmtKY2c?oc=5",
-   "published": "2026-09-10T17:42:24+00:00"
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNLXdFTmVGVWVBRlRkN0ktd3ZJTXBKTE1Da1RnTXB2bmpMTDhHeHR3Wjk1R1Z4el9ZOWxTVVYxTkNzTVk4dlBtTHpoZWNzUHkxZDVnSnZEMkNreERKZW9jekh5M1NhZU9oVGZPODRYMkhBQXpISVF2T1hBV1hfa1N0cjJBSdIBiAFBVV95cUxPR3VZZDNYM2x6VTVzeHM0aG16RmdBZ1JFQ00tc25OOFhjSTFHVmxoclVGanRob1Awb2ZzSXcxQ1o2cW9MS1BtUW45U2xhNG1DVEZUMlVGQjR1STZ0TFd6eDJoQ19fblVYZnRjVnNidHNkeF9Ka2xJbVNrWlJsN2ZIVUVUZ05NTURn?oc=5",
+   "published": "2026-09-11T11:00:01+00:00"
   }
  ]
 }

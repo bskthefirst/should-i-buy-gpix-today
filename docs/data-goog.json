@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-10T21:35:36+00:00",
+ "generated_at": "2026-09-11T14:30:18+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 93.7,
+    "pos": 97.7,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "17% ann. (p1)",
+   "value": "19% ann. (p5)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 0.8,
+    "pos": 4.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "17.1%",
+   "value": "15.3%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 17.1% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.3% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 34.2,
+    "pos": 30.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "downtrend",
+   "value": "uptrend",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "good",
+   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.8 (p60), F&G 33",
+   "value": "VIX 16.0 (p25), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 1d",
+   "value": "CPI in 0d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 330.39,
-  "day_change_pct": 0.61,
-  "sma50": 345.63,
-  "sma200": 335.41,
+  "price": 337.675,
+  "day_change_pct": 2.2,
+  "sma50": 345.22,
+  "sma200": 335.61,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 17.2,
+  "drawdown_pct": 15.4,
   "series": [
-   {
-    "d": "2025-12-22",
-    "c": 311.33,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-23",
     "c": 315.68,
@@ -1215,6 +1209,12 @@
     "c": 330.39,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-11",
+    "c": 337.675,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,25 +1222,25 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+8.6% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+6.2% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 17%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 19%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-10",
-  "days_total": 719,
+  "end": "2026-09-11",
+  "days_total": 720,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-10",
+  "fg_coverage_start": "2025-09-11",
   "baseline": {
-   "n": 698,
-   "avg_pct": 3.25,
-   "median_pct": 3.19
+   "n": 699,
+   "avg_pct": 3.24,
+   "median_pct": 3.17
   },
   "bands": [
    {
@@ -1260,9 +1260,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 332,
-    "avg_pct": 4.19,
-    "median_pct": 4.38
+    "n": 333,
+    "avg_pct": 4.17,
+    "median_pct": 4.37
    },
    {
     "tone": "caution",
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 330.39,
-  "sma200": 335.41,
-  "above_200d": false
+  "price": 337.675,
+  "sma200": 335.61,
+  "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 16.9
+  "level": 18.8
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 6,
+  "days_until": 5,
   "imminent": true
  },
  "cpi": {
   "next": "2026-09-11",
-  "days_until": 1
+  "days_until": 0
  },
  "earnings": {
   "next": null,
@@ -1303,14 +1303,14 @@
  },
  "backtest": {
   "start": "2022-09-12",
-  "end": "2026-09-10",
+  "end": "2026-09-11",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 43245.36,
-  "dca_return_pct": 106.92,
-  "dip_value": 43322.42,
-  "dip_return_pct": 107.28,
+  "dca_value": 44198.91,
+  "dca_return_pct": 111.48,
+  "dip_value": 44277.66,
+  "dip_return_pct": 111.85,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 165,
   "winner": "dip"
@@ -1323,34 +1323,34 @@
    "published": "2026-09-10T16:07:26+00:00"
   },
   {
-   "title": "Jimmy Kimmel moves Senate interview to YouTube in latest collision with FCC",
-   "source": "Al Jazeera",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOcGRZQjhzMlFKQ2ZPTXc5bk0xWGd2ZXFTNU1FUEFGSjdKMUlUbUM0S0RjS3g1a1QzZGdtbGViX0VNUjNrcnMzcWZwcVFFOWRETkl3WDVnZXlVaU94UGZ0ZVpmRTRpbEFVclRCWG5lTzJEWEF2SkZjR0pxdVZrMnZUZWFlNUFOVGlsR09PU3ZJbldFT2YySXJ4XzFTS2p3UG1YaVBmbUs4LUZjQnhjc3MzOW1NUzk2NW_SAbwBQVVfeXFMTk9RRVhVQlg0Qk0wZkVCSnpuOVE4c3YyTWlubzJBQXNvMW1vTzduOWpSZkJoOVpQN21rODROcTd5LTA3eUFjUjI5amJvalRPeW1VR1VFRVdUYTg2MzhOcUI1c2pSUjBMbE02V2RGRDVhVUhycVlqWExmbzFtOWd5Unhtam1Sb1FLN2ZDX2RhU3BoVnZfMERBRU03NVVxX3JabDNHX2ZsWi1BQmY2aV9kM3BOYWpwQ3R2dWFYem8?oc=5",
-   "published": "2026-09-10T19:09:35+00:00"
-  },
-  {
-   "title": "Jimmy Kimmel\u2019s interview with James Talarico won\u2019t air on ABC, will go to YouTube instead",
-   "source": "houstonpublicmedia.org",
-   "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOMHZRY2x0SEdjYUtSa194SGdUNnhsLXl0X1lrVkdsTVR0SjNqS1llc1EyY2FqblZFU01QNTRrRlR0ck9PQUFHclM4ckIydXU1b3lBWUg2UkM1UDRacGxtZk9aOHRiSjR3ajlnMjhYRmpnWjVBS3VodTVlMHE2ZFlfWWJoYWlyT2UxZmV4eGJEa0NhckZzU3hWZUZpVjdTMGEzajZabXktVmF0dXZmUjRiX3U5NUozWkxlaUZld0RzUmdlMlNLX2wzc1Q2TnJ5Tkstcl9PTHFueXBLTVdtUXFma3Nnd3B1azZqeERWZ1lWTXdyMGZGZWRRSG52MjF3SWkxdVByN0tpaG7SAZACQVVfeXFMTTFHZVEteUZudU1OcUNfdWxteWxOWEk5VW9adTBXbEx2aEdTcWlfTXhEX2ZIU1lMU1lETktGM0x3MDMwRllWaG5KbE5uc04xeUMyR3NaamhPTENZSUY3ZmIyc0EzNGo5ekVRME9rMU12MGl4aXpBVmY5SUxTZEVsZnRlaUVONVJPRmRrbXBNRG8wSkcyMDZmR1RMOGxlOGtYa1dLS0wzV3hTQ01GazYxWkJPOVZoZmgzODFISlU1UkxIY3FNSml6S1ZZcDNLUVctcW5MUk4tbUVUS3pfejJzZEY3TU9Ca3lQUVk4eXVHbC0yT0VuWDhMN0hmeXNCVEJmVUlsYi1DRm15NUgyZlpCSmY?oc=5",
-   "published": "2026-09-10T15:24:00+00:00"
-  },
-  {
-   "title": "Jimmy Kimmel Moves Talarico Interview to YouTube Because of F.C.C. \u2018Threat\u2019",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQSjZfZzlyVWdaZWVvYUlFN1Rmdk9zMWRFX0tSVFBKTVJmcFlFWTQxQVI0aWY5anZ6S1ZManM1eTJCaWhEQVNUYWhKSlg3SjNSWGlYMzc4Y2c4cVdBX3h1bzk3cTdYb2g2QTExQUwya29LS1YtbU9rbFVrV0RhenlBc2RnZEZ0Umc?oc=5",
-   "published": "2026-09-10T17:35:02+00:00"
+   "title": "( YOUTUBE LIVE ) 49ers vs Rams NFL \ud835\udc0b\ud835\udc08\ud835\udc15\ud835\udc04 \uff26\uff52\uff45\uff45 \uff33\uff54\uff52\uff45\uff41\uff4d \uff2f\uff2e \uff34\uff56 \uff23\uff48\uff41\uff4e\uff4e\uff45\uff4c",
+   "source": "Cal Poly Pomona",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQS1BTamdvMUQ3OXdGUXZPMEZtV0pGTjZXNkk4SXNJeGZvTnBFcVZXOU02UGpUYXZjdHI3UENpZHI1VFJQWjhhZ3RJZS13NGNFSDBjcUxKQmU5dWozdTh5UzU2aHViS3R3bHVxWmNPazdZTXRUQWwtTkdKOVQ3MEpjNWRlVmxPUDl5dk1icVl4V3ppN3FaLTc1SGtBbXZFLXZKLS10RHRHSDNtWTZ3Rm1VZ2FvSG1TQkN0ajA2YW15bmFNbFZQRUFNcnV4N0VFM1EyWHc?oc=5",
+   "published": "2026-09-11T01:09:50+00:00"
   },
   {
    "title": "Google Deepens Commitment to Finland with Two-Year \u20ac13 Billion investment in AI Infrastructure",
-   "source": "googlecloudpresscorner.com",
+   "source": "Google Cloud Press Corner",
    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxORUh0cVRJb2JtWWxYWUV3NF9CSFZweVdNNzFVeWRuV0MyX0xkaE51RkF6VXFjWXg4WWRWYmtWenpkQTZTVmdkbUZkWk5fUWpBOEdYVEZyS2Z0SnI3Rnl2SHRmUTBDLTBmeHhxTzUwb2R5OXg4aTRUd21QdWd2NFpuNTZDaHNoVTdRbjNZaHBPajlmNWhtUDZxTXJkQmF6WGFRWGN1VHFXckRFSlhaYmZKamdSMmtUT1J0VmU2ZzY1cnRpb1ZYWHFOQVhseFMzRjFBUWJLSXc0QVZnZ2QzN21j?oc=5",
    "published": "2026-09-09T07:04:35+00:00"
   },
   {
-   "title": "Kimmel moves Talarico interview to YouTube over FCC threat | CNN Business",
-   "source": "CNN",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPX1FwZndhMkRtalY0U1FEUUJIU25jczQyRF91TDFMWFV1SFpfWHBybzlkMWtkMlNDMjMwZmFJQmZBZ2FGRFhCOFJzaE1aZnI4dG42dF9tYlVTZEpKLS1WU09CeWZfN0lyOHhiQmk3WFhRR1lwVmc2cVpnaXZPT0QzeGtFbUh4ZmhlN01CbGkxMGJqdXdvMy1oMUpvWVhzdjQ0c1IyUWxjWTd3TWI2SU5EZQ?oc=5",
-   "published": "2026-09-10T16:29:00+00:00"
+   "title": "ToolGrad: Efficient tool-use dataset generation with textual \"gradients\"",
+   "source": "Google Research",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxORkdwamVlMkIxem5jRGNldW04V2ViS2laR3l1eU9vazZ4MUI2dU9ORXA1Rmd3UW4wMTlsNVdkVE5HeERUTm9IVXhHQ05kM2ZSOUlCVDFxZU10VHc1b1VEY0NEbWtyNzI2ckFnYlp2SmJQT1haOTZZSEZ1cHZkS2liRWk2MDMtM0RxUWlHMWdqZlYzSlA2OUI4MGlyc21NOFhy?oc=5",
+   "published": "2026-09-10T22:50:39+00:00"
+  },
+  {
+   "title": "Google, stepping in for Crusoe, pitches 700-acre data center campus to Laramie County",
+   "source": "Oil City News",
+   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQUXFTWTE3d180YUFuT2ZhQ0daLURORHNkamxBYXl1NklxaF9aY2lyZmdhMVpocUlWY2Z6dWVmYjdGbjNabkFzbjdjZFdTMVhNeUdnbVdIRTRTN29uZG9vRGxsZVpteDloNlY3cWhNU1I1MDlfam5Vc2x4N2wxeHo5QngxZ3ZWMlVYVUtUSmt0Rkc0TE9EZUdfazBYM3dYRGlPbjdPS1NnZVJMdlVTTGhiTTIyMTJkcFFNU2pLOHRHaGJfV2dGSWxYVEszeGczVXBMU2NCUXVsemNhM1laMHFnMWt3?oc=5",
+   "published": "2026-09-11T12:58:16+00:00"
+  },
+  {
+   "title": "New Mexico leaders ask Apple and Google not to use \u2018New America\u2019 on their maps",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNYmZKd1AzRXo1Tk1hLXNkQUZVd0lQRmZkVzRQVzh1eTFkc2RBbzAxVDlrR09ydnhKd0NiZGFoUkUxVU1EQ2p0X0ROQUZjZUZGakNOTy1DX3Z6VG9RUzh6N1lDSUo3ZWdwTXJWRi1FVHlhUXJ3NXh2WHRVV3psSHZlU0x2VlJuYXctTFM3VGgySVJWM2pua1Y3bUNDbmJPRXZQSUN1SXRoZ0ZXUE9hMzlpX1RsSERXRmtBMXc?oc=5",
+   "published": "2026-09-10T23:52:51+00:00"
   }
  ]
 }
