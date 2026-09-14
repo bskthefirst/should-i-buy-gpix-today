@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-11T21:41:36+00:00",
+ "generated_at": "2026-09-14T14:30:11+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.8 (p22)",
+   "value": "17.2 (p51)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "bad",
-   "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
+   "lean": "neutral",
+   "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 22.4,
+    "pos": 50.6,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.85",
+   "value": "0.89",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 37.9,
+    "pos": 47.2,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+7.1 pts",
+   "value": "+8.2 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 92.5,
+    "pos": 100.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.1%",
+   "value": "1.7%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 11.0,
+    "pos": 17.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+0.8%",
+   "value": "+0.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 56.7,
+    "pos": 50.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.70% (-0.01 1mo)",
+   "value": "2.65% (-0.06 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 17.5,
+    "pos": 16.2,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 41.9,
+    "pos": 42.4,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "33 (fear)",
+   "value": "32 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 33.3,
+    "pos": 32.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,27 +222,21 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 0d",
+   "value": "FOMC in 2d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
-   "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but expect a swing."
+   "note": "Rate decision within 2 days - a volatility event ahead. Not a reason to skip a scheduled buy, but expect a swing either way."
   }
  ],
  "fund": {
-  "price": 55.66,
-  "day_change_pct": 0.82,
+  "price": 55.305,
+  "day_change_pct": -0.64,
   "sma50": 55.7,
-  "sma200": 53.75,
+  "sma200": 53.77,
   "high52w": 56.67,
-  "drawdown_pct": 1.8,
+  "drawdown_pct": 2.4,
   "series": [
-   {
-    "d": "2025-12-23",
-    "c": 53.13,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-24",
     "c": 53.28,
@@ -1316,6 +1310,12 @@
     "c": 55.66,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-14",
+    "c": 55.305,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1323,38 +1323,38 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.58 (-1.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.58 (-1.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 33) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 32) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.8) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 17.2) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.65%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-11",
-  "days_total": 720,
+  "end": "2026-09-14",
+  "days_total": 721,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-11",
+  "fg_coverage_start": "2025-09-15",
   "baseline": {
-   "n": 699,
+   "n": 700,
    "avg_pct": 1.67,
    "median_pct": 2.03
   },
@@ -1376,14 +1376,14 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 508,
-    "avg_pct": 1.26,
-    "median_pct": 1.72
+    "n": 509,
+    "avg_pct": 1.25,
+    "median_pct": 1.71
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.19,
+  "ttm_yield_pct": 8.24,
   "tbill_3mo": 4.0
  },
  "distributions": {
@@ -1493,73 +1493,73 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 764.29,
-  "sma200": 714.23,
+  "price": 758.91,
+  "sma200": 714.68,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.84
+  "level": 17.24
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 5,
+  "days_until": 2,
   "imminent": true
  },
  "cpi": {
-  "next": "2026-09-11",
-  "days_until": 0
+  "next": "2026-10-14",
+  "days_until": 30
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-11",
+  "end": "2026-09-14",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 15100.0,
-  "dca_value": 19550.6,
-  "dca_return_pct": 29.47,
-  "dip_value": 19327.39,
-  "dip_return_pct": 28.0,
-  "dip_cash_uninvested": 1300.0,
+  "invested": 15200.0,
+  "dca_value": 19525.91,
+  "dca_return_pct": 28.46,
+  "dip_value": 19312.41,
+  "dip_return_pct": 27.06,
+  "dip_cash_uninvested": 1400.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "No relief from inflation as Middle East clashes lifts fuel prices to painful levels",
-   "source": "AP News",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxONWM0aThybmN6MTZaLWFwUmx1UFJabXpuaDhNWVVHYTljanpwdFFuYWx1T1FKZmlBMHdsWDNsLXRubjcxRGk0anhWai1wYnUtQVFjZ2FWNGFxOE5nWlpXbXBzSHV2ZGN1Y2xMeGkzaUhtaGdqNUNNVVdMYkREbjVvd1BMTnBrcHNRc1F0MDhlallMZFJfVTA1MFF5cFBNaHhwMUdtRGMzdw?oc=5",
-   "published": "2026-09-11T16:30:00+00:00"
+   "title": "Why the Odds of a US Fed Interest Rate Hike Just Shot Higher",
+   "source": "Morningstar",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNTzBZZlkwZWhpeGhFSmpPNzc3eGVJdl90Zk1PTXVmV3VpM1lwcFpnZTY5ckV3NmhrekJGendHSEpTYzNkZlMyUXF1M21jTHNUNWhIV3c3U1hHcnF0X3ZNSkNZSnBiV200b3R5WVZVb3A2NkN5N19lUWpjUTVGNF9vVjczNmlQQ1BVVUpiSXNIYUV0R3R3SDVxZXdUbng?oc=5",
+   "published": "2026-09-14T09:19:25+00:00"
   },
   {
-   "title": "Week Ahead for FX, Bonds: All Eyes on Fed Rate Decision",
-   "source": "wsj.com",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOT2FWUnZ2OXJzNkR6VEpTYXhoMDZ2Mm1VYkZ3N1NCT051SHk2S1FxbnNIcGtBam1pNGN5M2lCazQwMFV5UHBNQUVERTVyTHd5VmFHaXBmRWdRVG9IY0gzWWNkT1Q5cXl3VUw2eVFkeVc2ZVA2R1JTcnA0NE5BU1BjUWI2dTVTMXQ0cURjTGw0N0t3cERhdnNfMHlvbW80MGZ5aVhRRWFZX3Fadw?oc=5",
-   "published": "2026-09-11T15:49:00+00:00"
-  },
-  {
-   "title": "U.S. inflation accelerated last month as gas prices spiked, squeezing Americans' finances",
-   "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNejZvT2dPR1FuOFBHT3JybFdwRTJLNEttQUNSTzZBUDlIcXh3elM3blhxeDVoQ05WWFdmbndvdTZoV3VaczdEZTJRNTFPQ013QWRmYlkyN0JZUVdObDlaSlZQTm5uSnZjSWlOR3BPbVpTQnR1MlJrU3BNMmxSZU91S0hieDBJNERmZUFvS3owelRYRUtSb2xfTVJ2amZaM3RQNkotdGE5N3B0YnF4bDBYWjViWUo3OE5sSnNPM2ZGWWTSAcYBQVVfeXFMT1hWb1dmaHZpUlBkcE56S0QyVUhJdGV1ZEtxV05DOXlfOGJLZlY3Wnh6QlVlaW5XUWVqMnhvRzZ1eHRicEJBSi1aUEk0Vk1jbFBhaHdaaVI3MXJjODZmMWZLd21GanFTQWFpUEVmTko2Zm1BUEY3b3pVNGFGWHZaVWtZRE5RV1RycFljQWxlZ3d4cl9zaEt6b1V1dlczdHBnNURpNklVU2xnYUZMakhobEFCQVpyNkhVU29oUTRyWkF6LTl6S0xn?oc=5",
-   "published": "2026-09-11T15:36:13+00:00"
-  },
-  {
-   "title": "Fed rate-hike case builds as inflation fails to cool",
+   "title": "Global banks coalesce around Fed hike call after inflation surprises",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOU2R5eFJ0eFBfbWR4dnNKaUdDZC1MTVY5aWYxc3BlaUY1S2ZMM0xwaFhMbEh1cWtsSFhFVGk5eEE4NkRTb3FxREhvbkpKVjdXdVY1VHhNT2NaUkhUNmEtSzdoQno5aWFRUGpWS0ZBMXcwUEFKSHFOVF9jcFJQSExCbjBYaU5JNTdMdlladkpZdkp2TURmcW94ZkxtV1dwbTR3TkJhUXlmc1A?oc=5",
-   "published": "2026-09-11T15:18:42+00:00"
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNTnlqS1c0ZUI3VGExTWl4c3VCbXVLUi1NMFZZNUNaMmdLYzR2RnRDZjFPbGhPVG83M2ZBSms4YTc0b04wMUtNTG9GWmJnM29BU1ZzOWpHTjVxWXhjNHd6TmhndFV0VWJEc2ZkVm45OWtTMEktQ2NBMEdsd3J0XzNTWE1SNXVUQ3hKWFQ1WUJKLVc1bjRVWlg5NnFyaw?oc=5",
+   "published": "2026-09-14T02:49:00+00:00"
   },
   {
-   "title": "Elevated Inflation Keeps Pressure on Fed to Raise Interest Rates",
-   "source": "nytimes.com",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5IMFFtaTVreE9NQ2hRcW9hc0JHQ21zU2w1OUY3Nm85MHVuZXZMejVBN2xrUFZORm1mRjRvYTdpNDdVWUIxRENhTWxJd0lTWGxzdlBSQjhoN1gzd0duaWxXTWQybC1QSjNVelU2cVRQa0hmdGg3V040Ng?oc=5",
-   "published": "2026-09-11T19:29:05+00:00"
+   "title": "Federal Reserve Chair Warsh Holds News Conference on Interest Rates - C-SPAN",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNYklTYm91SU1CREwzYUtqSFN5MG15M0lvUnpVY3NfcmF3R3gzb25zVHVQSU1LbF9tdFlHWllhN2FqV0dNdW02aVJGUG9yV2FGTnk3dVZkRTVIRjVxMnNiV19OaVJwSkw3eU1Qb2hzV3djZ0xOa1NBeU13X0hoQjJvMjRLQ3ZrZzBDeHNQYl9wc1BtS18zeG90T0hPYlFGbkNTYmlmcGNuczQ3dFA3R2pNSV9uajdBbXZ1RUk0?oc=5",
+   "published": "2026-09-14T10:15:50+00:00"
   },
   {
-   "title": "Fed's Warsh faces new pressure to hike rates after inflation heats up",
-   "source": "Politico",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNYU9wQUQ2MjZzdlVka3B4SlU2LWY1X2IzSlEzR2lsbDZ6d1ZYblhETHp6MGUxbC1tQWo4OEdzSzlVOXFkQmNxZVpCYXpfTzk1cEh4WDhsWUV3c1Jsc2FPNVRZMm5YX2kzSTY5MmNJSkU0ako3Wks1QlJvMmtxMzVqN2VWZnpXd1ZpZGxZ?oc=5",
-   "published": "2026-09-11T15:11:00+00:00"
+   "title": "The Fed is preparing to raise rates. What if it doesn\u2019t work?",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQQzF1NEVQblNId1pHOU1fTlY5cndudGk3MXR5MWh5d2pwNHdxYlVUamQ5TW5VbXk1a3pTRDhxbXhKOTFFUkN0YlhUMVAwTWVCNWNHdzF1MG1XZUZxcU9YSFJSZWhiZzBXVDI0S2lCS2JQNFVTYzNiYjVpUnBfRDM4cWpWVQ?oc=5",
+   "published": "2026-09-14T09:00:30+00:00"
+  },
+  {
+   "title": "Trump Urges Federal Reserve To Cut Rates As Market Bets On Warsh Hike",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaEVOMUNfTUZvb2hraDdJWDJDMTVJM21kSjJVV2lOdll4R09DQWZtcVZCZmIySE9QMW11dU1NMlUzazdRYmQzcUhTLURxcDhYeXQwbldmeGMyNGlpREJlMTQ2SXl0bEc1YWFUUzdWdnlkZTNYUjZLSnBwUkp6QXlTd18yVGlZYnJSTnktN0JpSU82amFfRk1uWXhwMA?oc=5",
+   "published": "2026-09-13T23:34:00+00:00"
+  },
+  {
+   "title": "The market says a Fed rate hike is a done deal. Here's why it might hold steady.",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNQ1pzcVpwYlJueU10b2lzTTJCd0VwUFJjZmhFckpZMVJfVm9yMXFnaE9seklLMWQ1VHBGemJrcXhlX2tHQUN3dllBZ0hnUXduYmNNWTNhRkxUODJKbXRiay0tQ1JNN2JoUUFkSzAtcFVNMWVFR1RxNmNwc0M3SkthWnlKNzlUWF8tSHYwbW42dGwwSUFBV09vQjJMcHFoV0w1Y0pXazd0ZG9HZzVwNXRSYS1jTllTNk13aW9JdThhYTBaMEZvTGY0VzQ3b2RGWmRoU2JjVXZhckE?oc=5",
+   "published": "2026-09-14T10:00:00+00:00"
   }
  ]
 }

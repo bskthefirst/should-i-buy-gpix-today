@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-09-11T21:41:38+00:00",
+ "generated_at": "2026-09-14T14:30:15+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 63,
+  "sessions": 64,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~63 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~64 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -30,7 +30,7 @@
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 63 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 64 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
     "pos": 100.0,
     "labels": [
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "28.5%",
+   "value": "29.7%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 28.5% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 29.7% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 57.0,
+    "pos": 59.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "63 sessions",
+   "value": "64 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 63 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 64 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.8 (p22), F&G 33",
+   "value": "VIX 17.2 (p51), F&G 32",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -80,21 +80,21 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 0d",
+   "value": "FOMC in 2d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
-   "note": "CPI print within 2 days - a market-wide volatility event. Expect a swing either way."
+   "note": "Rate decision within 2 days - a market-wide volatility event. Expect a swing either way."
   }
  ],
  "fund": {
-  "price": 151.21,
-  "day_change_pct": 2.04,
-  "sma50": 135.07,
+  "price": 148.57,
+  "day_change_pct": -1.75,
+  "sma50": 134.81,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 28.5,
+  "drawdown_pct": 29.7,
   "series": [
    {
     "d": "2026-06-12",
@@ -473,6 +473,12 @@
     "c": 151.21,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-14",
+    "c": 148.57,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -480,14 +486,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-09-11",
-  "days_total": 63,
+  "end": "2026-09-14",
+  "days_total": 64,
   "backfilled_days": 40,
-  "fg_coverage_start": "2025-09-11",
+  "fg_coverage_start": "2025-09-15",
   "baseline": {
-   "n": 42,
-   "avg_pct": -2.92,
-   "median_pct": 4.0
+   "n": 43,
+   "avg_pct": -2.74,
+   "median_pct": 4.55
   },
   "bands": [
    {
@@ -507,9 +513,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 42,
-    "avg_pct": -2.92,
-    "median_pct": 4.0
+    "n": 43,
+    "avg_pct": -2.74,
+    "median_pct": 4.55
    }
   ]
  },
@@ -519,22 +525,22 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 151.21,
+  "price": 148.57,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 42.7
+  "level": 43.1
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 5,
+  "days_until": 2,
   "imminent": true
  },
  "cpi": {
-  "next": "2026-09-11",
-  "days_until": 0
+  "next": "2026-10-14",
+  "days_until": 30
  },
  "earnings": {
   "next": null,
@@ -543,54 +549,54 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-09-11",
+  "end": "2026-09-14",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 1400.0,
-  "dca_value": 1484.91,
-  "dca_return_pct": 6.07,
-  "dip_value": 1470.07,
-  "dip_return_pct": 5.01,
+  "invested": 1500.0,
+  "dca_value": 1558.99,
+  "dca_return_pct": 3.93,
+  "dip_value": 1544.41,
+  "dip_return_pct": 2.96,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 13,
+  "dip_buy_days": 14,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "SpaceX launches 700th Falcon rocket, carries final 3 O3b mPOWER satellites to orbit for SES",
+   "source": "Spaceflight Now",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPUzllanRITFdPSHNOVTdFeDBFamJ3RnJ5SmFWYnYtakxaX1BqSW15eFNRZ18xb3p2T2ljUTJ5dmI5aUdWNm5hZEp4UXlNb3lyWHdpejBEQ2t5VHROTFoyUF9KcGxVWEpoc1ZCbWE5Rm1iVmd2amhQbGFyNG96SU1wb2c2cVhmdkNTQlVRc1V5Y24wZnIyZjRBSTd5SDBUUFR6cF9hUU1GQm04ODg?oc=5",
+   "published": "2026-09-13T22:38:00+00:00"
+  },
+  {
+   "title": "Boy, We Were Wrong About SpaceX",
+   "source": "barrons.com",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1PMGwteGdkbVFGREl3RG5WMDRTTkE1dDRVbnR4QlFsZmN1QjNWWmhNVWctVG1kYUhveTR6WXZDT2RJM3E5NUU1aGhOS2F3enNpX3lhUUk4aEZncWdZa3hzZVhHbGVXeVEzNUk1bHk2NmJpZ0tnSWc?oc=5",
+   "published": "2026-09-14T10:29:00+00:00"
+  },
+  {
+   "title": "SpaceX launches 3 telecom satellites to orbit on 700th Falcon mission of all time (video)",
+   "source": "Space",
+   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNRmt2VWlNMlQycW12RXdEV0VncHBDUDUyeS1uZDVuVUdvcFM2OWZSbDRaWC16MFNVWTJid3NmTlpSSmhHSVY0RXJnSzVwYTVsSmFWREdLc2V5SlZIWG5Fc1BlMnBraHVlWDV6ZmpEMzU4UDdnMk5qbmdkWDY4VTdLYTZ1MnJ1ZlNSaE9zRzdJSS1IeElweEdadVFrMkVsLXVKSlpVUlRhSVVsS1Fya0ZCQkVILWd2LVpfUGY4aXVOS3dRU3ZtZjZSOXJlaHJsYVlLTUNwTWNrd3hBVzdIOVZWaA?oc=5",
+   "published": "2026-09-13T21:41:26+00:00"
+  },
+  {
    "title": "O3b mPOWER Mission",
    "source": "SpaceX",
    "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBIYUsyVG9uT19hQ3VRelpYX3RvZUVkclgxbXJFdGtvSFJGa0pqU0dxbnBnX1N0b3pKNTh0V3BjSFVROXFDMkQ5Zk43SU9sc0o2alE?oc=5",
-   "published": "2026-09-11T19:27:25+00:00"
+   "published": "2026-09-13T07:00:00+00:00"
   },
   {
-   "title": "SpaceX just revealed an important timeline for launching data centers in space",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOV1M4YzBGZ0hjdHNZLUwxNUE2cmZkQkpkVV90U2VEZUtYYlhRU0NhZ2xTN2RmN2puWldfSTZKS2FaN2xkbXNhbHBKckoxbjZaMGpuZHF1YTFMRkJsZHVSZ3hVeWVYOHhFSUVySmFPUktTZHVaUVhWN3dhd2ZETDczeWdLTHJoVGVTMnhGUXYzZ19TYnBIT1Z2WUZHX0xHQmRfTzkzYk5mMEVXbG5GOHpXMndOd25MQ3pBVUl4SWhsS3lxdXZuTGxKVGUza2w2cXZFT2ZNM3gxeEhoQQ?oc=5",
-   "published": "2026-09-11T17:03:46+00:00"
+   "title": "Money Is Flowing Into Space Start-Ups. Some Investors See a SpaceX Effect.",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbjBJOTI0dnhhbS1XTEI3dnFUUy1mS2hJWjN2UW56QnRLRUFkeVp6UTZrV2ZKd3RvS25ENWJVMC1yUE93R1pBNVhKYl9NTGo5a3FxaE03SURJR3ZkZE9PT29mZmJ4dkFsSVpIUFhzRkNVbEJQM1JmYTUzZ0trUEdSSF9FbG1ZM21Zcm1rMzVKOXdNYzc0UFc4?oc=5",
+   "published": "2026-09-14T11:53:21+00:00"
   },
   {
-   "title": "SpaceX confirms plans to launch Starlink satellites on next Starship mission",
-   "source": "SpaceNews",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQN29xcTdsVUJwMFltdEx4SVJWWXlrTmNEMjQ0Mm5NbGVIbjZtVHA1VXNCcERyLXdaT0JaTmxIVmdsdmNpZC1oN08zRVExZEVYUmR3QWh2TE5GcnpXUkRZS0VrcXc4eUwzUVhxNTBaS2VVOTMyOXNaNXNFcTVoZFcwOGwxTlBHQTl3QzA2RE5NeVc1TDIwUmt1SkRnUG9IWWhi?oc=5",
-   "published": "2026-09-11T03:41:35+00:00"
-  },
-  {
-   "title": "Drowning in Starlink",
-   "source": "Sail Magazine",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBWV3FaR013OGFNcXZjc0djODZVeDUxVlJvcFNLM0RqMHZucjhmelFzcGRYRS1jbW9nZ0MwSUw2SXFzdnZmbWZiY3RTWkR0MzdLTFJDamVnVUpTZ19LREt2Y2FzcXBkZW95Z1UwYlBheE8?oc=5",
-   "published": "2026-09-11T14:52:08+00:00"
-  },
-  {
-   "title": "NASA\u2019s SpaceX Crew-12 to Discuss Station Mission, Upcoming Return",
-   "source": "NASA (.gov)",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSnZJanYwMWhIN3JoaDJpWVVPc19CcEYtZzNjR1RYa2Q3SGpHZ2RhNUJmU1FXTFJ0d2FlTF9ZUlJ2UEszb2x1eEVzQlFqbldkYXZKYTBCNUw0UURPVnc4Nks4TlMyei1iOTFpRzR1eUg4TzhyS0ZIbnJLenVabU51M3VSWERvamtwUUpTZFVQcVBqbGdmek43M2duNFZNenc?oc=5",
-   "published": "2026-09-11T15:08:26+00:00"
-  },
-  {
-   "title": "Buy Rocket Lab Stock. It Has Something SpaceX Doesn\u2019t.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBJT3pXeDlmTVZBQjF1NlhucTd5OUk5OE1kOEE3VkVJbUE1cFQ0dl96YWJFWnpxdlFJcDNvXzVfTjRUMnZCQVFUWHBPa3hQY0hDdGttTzVhRjdOallHQlBjRFc2UUdRRjIyVi10Ti1CcHZ6MjNjalV2aw?oc=5",
-   "published": "2026-09-11T20:17:00+00:00"
+   "title": "SpaceX eyes 2 California rocket launches this week. Here's what they are",
+   "source": "Ventura County Star",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOQ3Myc1hhNGxyUkpad04xY0gzaWN4cERtRkR3UEE3UjQ0U1l1amhTQU9oMmZwVHN6TFk0Rm4tNHl4NGNPY0lyU1pKZFdnblNaYV9NRjYzZzA3ZDZQME5IZmVxWkM2Z3pkQnV3cmxlZGx0RktNQXhWSTNXWUk2TXVEUDBhMjZvYmJfUTVrRnVNbk9hNm1kYjRhU0V4N29LX1V6YTdDcVVCTXVnNVlh?oc=5",
+   "published": "2026-09-14T13:01:00+00:00"
   }
  ]
 }

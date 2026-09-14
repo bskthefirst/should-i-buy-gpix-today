@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-11T21:41:40+00:00",
+ "generated_at": "2026-09-14T14:30:17+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 93.3,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "18% ann. (p2)",
+   "value": "19% ann. (p5)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 1.6,
+    "pos": 5.2,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "15.8%",
+   "value": "14.6%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 15.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 14.6% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 31.6,
+    "pos": 29.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "downtrend",
+   "value": "uptrend",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "good",
+   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.8 (p22), F&G 33",
+   "value": "VIX 17.2 (p51), F&G 32",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,28 +120,22 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 0d",
+   "value": "FOMC in 2d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
-   "note": "CPI print within 2 days - a market-wide volatility event. Expect a swing either way."
+   "note": "Rate decision within 2 days - a market-wide volatility event. Expect a swing either way."
   }
  ],
  "fund": {
-  "price": 335.45,
-  "day_change_pct": 1.53,
-  "sma50": 345.18,
-  "sma200": 335.59,
+  "price": 340.525,
+  "day_change_pct": 1.51,
+  "sma50": 344.87,
+  "sma200": 335.7,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 15.9,
+  "drawdown_pct": 14.7,
   "series": [
-   {
-    "d": "2025-12-23",
-    "c": 315.68,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-24",
     "c": 315.67,
@@ -1215,6 +1209,12 @@
     "c": 335.45,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-14",
+    "c": 340.525,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,24 +1222,24 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+6.9% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+5.3% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 18%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 19%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-11",
-  "days_total": 720,
+  "end": "2026-09-14",
+  "days_total": 721,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-11",
+  "fg_coverage_start": "2025-09-15",
   "baseline": {
-   "n": 699,
-   "avg_pct": 3.24,
+   "n": 700,
+   "avg_pct": 3.23,
    "median_pct": 3.17
   },
   "bands": [
@@ -1260,9 +1260,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 333,
-    "avg_pct": 4.17,
-    "median_pct": 4.37
+    "n": 334,
+    "avg_pct": 4.15,
+    "median_pct": 4.36
    },
    {
     "tone": "caution",
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 335.45,
-  "sma200": 335.59,
-  "above_200d": false
+  "price": 340.525,
+  "sma200": 335.7,
+  "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 17.8
+  "level": 18.7
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 5,
+  "days_until": 2,
   "imminent": true
  },
  "cpi": {
-  "next": "2026-09-11",
-  "days_until": 0
+  "next": "2026-10-14",
+  "days_until": 30
  },
  "earnings": {
   "next": null,
@@ -1302,55 +1302,55 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-12",
-  "end": "2026-09-11",
+  "start": "2022-09-14",
+  "end": "2026-09-14",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 43907.67,
-  "dca_return_pct": 110.08,
-  "dip_value": 43985.91,
-  "dip_return_pct": 110.46,
+  "invested": 21000.0,
+  "dca_value": 44689.36,
+  "dca_return_pct": 112.81,
+  "dip_value": 44783.97,
+  "dip_return_pct": 113.26,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 165,
+  "dip_buy_days": 164,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Exclusive: Netflix, Amazon, YouTube launch new streaming coalition",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNeE54cHhFM1hhU3ZQTHd1Qko3Z0tmYjZ4LTlmM2JsazZEbm9NSUJGZDZQeEE2dkRlTnR4VExwUmc5VlJRWlN1YXBINWdmR25RNU9maDhfU1FEbEk1bURmdjVWcVVmWG9XSHFwRUxER05RLWZzNUFHQWpfbW42eWZlNg?oc=5",
+   "published": "2026-09-14T13:26:45+00:00"
+  },
+  {
+   "title": "Why Google and Meta Stocks Are the Big Winners From the Latest AI Concerns",
+   "source": "barrons.com",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5RR3JsN0djU2JiMVZvbVduTm1wTk1KVGlUZHFvTVU5aEd3c1FqclFQUTI2eXloa1F1VVFJU3R6Q3R6NmFtQzhFMVBROFJ5TERITUFzeU1LV3Z1aGpWV1R0dUktd0EwSUV2WS1nZmRPTXFMUFZ4aE13bEtWUQ?oc=5",
+   "published": "2026-09-14T13:37:00+00:00"
+  },
+  {
+   "title": "I worked at Google DeepMind. You should listen to the warnings about AI | Alex Turner",
+   "source": "The Guardian",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPQ293cEVsbzZabVBzajMtUW1fdmxKNzk3d05fNlUtTzJ3M2pZNi04STBQWlZwMkRxU0ZVVEpCRmpjRTVmcHh2OHhFQ1FEejZLVEhSSElLaXZZeWNtVDlteVhZMUJnYW85NUVOc3NmazhTeURSUjZoZlpfalVBU0IydlEwZ3I?oc=5",
+   "published": "2026-09-14T12:00:00+00:00"
+  },
+  {
+   "title": "Alphabet's Rapidly Growing $50 Billion Business Is a Huge Advantage in the AI Arms Race",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQcC11OGRPRzNZUlY2OVYtVUEwNTQ1Nm45MHRIYktQcXlzTGp0VElteUJ4Nk5SQm5FendjbVA4Q0lkY3NCU0VETno0cUMyY2s3MDF1TzNRMzZsd2Q2allPWEdCRTY3VUlXT19lNkx6VUlwb1ZtRmpOdF8yQjNJV2x1ZjBPMGllelJIZ29oWUJqelVoeE9PWENJTg?oc=5",
+   "published": "2026-09-14T10:42:00+00:00"
+  },
+  {
+   "title": "2 Numbers Matter More to Alphabet Stock's Performance Than Anything Else Right Now",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQRk1zUkRfZ2ZDczBlM01lOGRfS1UzYkpYWUwyWDduajYxX2JHaXBuVjFUbTExZkpmcHVOTERrdi1Icy1LeE4yR2xDNXpiTmotZ2pRUVZwRTdfMnpINGM3X3lkTl9xUkk0VTVrXzdEeGpmOEczdXBmaFhsN0pmOGVBdHpqWlNMY0prUUtrZU4wdzk3bnBBd3diTmhSYw?oc=5",
+   "published": "2026-09-14T12:19:00+00:00"
+  },
   {
    "title": "The Gemini app is now available for Windows",
    "source": "blog.google",
    "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOVDIzNzRDTUpFM3hvblJLcHFBX3B6YUV4OVR1Qmc5TnMwd1dfU1RleU9tdlNpb1R6NDBkRVdNX2lzX0lZd0ZER2l6UENTQkw1NEQ3N2xOOFBuLW5SWTFWMmFKdlJnc1RWdWhoaVpNWUFBU1l3Z3JQMjlYYUNOZXRHNFhOckYwR1ZUbXRpWA?oc=5",
    "published": "2026-09-10T16:07:26+00:00"
-  },
-  {
-   "title": "Google Deepens Commitment to Finland with Two-Year \u20ac13 Billion investment in AI Infrastructure",
-   "source": "Google Cloud Press Corner",
-   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxORUh0cVRJb2JtWWxYWUV3NF9CSFZweVdNNzFVeWRuV0MyX0xkaE51RkF6VXFjWXg4WWRWYmtWenpkQTZTVmdkbUZkWk5fUWpBOEdYVEZyS2Z0SnI3Rnl2SHRmUTBDLTBmeHhxTzUwb2R5OXg4aTRUd21QdWd2NFpuNTZDaHNoVTdRbjNZaHBPajlmNWhtUDZxTXJkQmF6WGFRWGN1VHFXckRFSlhaYmZKamdSMmtUT1J0VmU2ZzY1cnRpb1ZYWHFOQVhseFMzRjFBUWJLSXc0QVZnZ2QzN21j?oc=5",
-   "published": "2026-09-09T07:04:35+00:00"
-  },
-  {
-   "title": "Join us on a YouTube 'Live' Stream for the 25th 9/11 Remembrance Ceremony",
-   "source": "Los Angeles City Fire Department",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOWmdQNnJFc0V5cVpxMXZOYURjMHd0bFczd1hwMENVUllaRWIxdnlYTkp0MFB4SlRBZjZvZXlLU0p4MVpuSmFsanpJeFRHTG50SV96UXBpRWtvc29wLWN3NGpfTUhHTElDYnhLbHcxd3k2ZWszeFVtOXVYS2QwUHF1OGFSQzkxdw?oc=5",
-   "published": "2026-09-11T18:38:32+00:00"
-  },
-  {
-   "title": "ToolGrad: Efficient tool-use dataset generation with textual \"gradients\"",
-   "source": "Google Research",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxORkdwamVlMkIxem5jRGNldW04V2ViS2laR3l1eU9vazZ4MUI2dU9ORXA1Rmd3UW4wMTlsNVdkVE5HeERUTm9IVXhHQ05kM2ZSOUlCVDFxZU10VHc1b1VEY0NEbWtyNzI2ckFnYlp2SmJQT1haOTZZSEZ1cHZkS2liRWk2MDMtM0RxUWlHMWdqZlYzSlA2OUI4MGlyc21NOFhy?oc=5",
-   "published": "2026-09-10T22:50:39+00:00"
-  },
-  {
-   "title": "Why Alphabet Stock Just Popped",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQOWxlb1h2VnpsZzFOLVd5WmVCbkgtNnFIcUt6Y01TZEkxaGJQaG9uM2t1d0I3dl94b1p6MDczVFNIQWxGR0ZoOUhPNVExTmx5b2VScVFQeTQ5Qk1pUEJyR3ZQWWNieDhxY2Q1TTFvY2dOTWtfOWxlYVVnanR3VDMweV9QOVQ5UWg2dGVRSDlKX291cThIeE1KdVlsNA?oc=5",
-   "published": "2026-09-11T19:13:01+00:00"
-  },
-  {
-   "title": "Watch Jimmy Kimmel\u2019s James Talarico Interview That\u2019s Been Banished to YouTube",
-   "source": "The Hollywood Reporter",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQOXdxdVFYR0JxdDVmX3pXRWRwU29TcVhzSVVCdmpKMlpTcnNHVFM1b21uSmRlamFuVUZ0NlVHMUxhVXJBeC1jLTdVMEhCNWFtTmVMUGJSNXo2aTZEd3lEVU11NUhfQktBajhMRW1uOFRVMDlvVGdGSU5GUmdOY0J6QUU1OEIyQlREdHNlNDY5SERnY3cwa2pVbEI1WXlLUkp0bVF6ekFVLUVBOC1RS2hWTA?oc=5",
-   "published": "2026-09-11T14:59:39+00:00"
   }
  ]
 }

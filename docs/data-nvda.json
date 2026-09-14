@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-11T21:41:39+00:00",
+ "generated_at": "2026-09-14T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "4 down days",
+   "value": "5 down days",
    "score": 1.0,
    "weight": 2.0,
    "lean": "good",
-   "note": "NVDA has closed down 4 straight sessions. Under the TSLA single-stock framework this earns +1.0 (provisional on NVDA): three down closes tended to bounce the next day on the calibrated name.",
+   "note": "NVDA has closed down 5 straight sessions. Under the TSLA single-stock framework this earns +1.0 (provisional on NVDA): three down closes tended to bounce the next day on the calibrated name.",
    "viz": {
-    "pos": 71.1,
+    "pos": 43.5,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "44% ann. (p82)",
-   "score": 0.0,
+   "value": "45% ann. (p90)",
+   "score": 1.5,
    "weight": 1.5,
    "lean": "good",
-   "note": "Realized volatility elevated vs NVDA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
+   "note": "NVDA's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on NVDA): elevated single-name chaos tended to mark better entries on the calibrated name.",
    "viz": {
-    "pos": 81.7,
+    "pos": 90.5,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "7.2%",
-   "score": 0.0,
-   "weight": 1.0,
-   "lean": "neutral",
-   "note": "A modest 7.2% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "value": "10.5%",
+   "score": -1.5,
+   "weight": -1.5,
+   "lean": "bad",
+   "note": "NVDA sits 10.5% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 14.4,
+    "pos": 21.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.8 (p22), F&G 33",
+   "value": "VIX 17.2 (p51), F&G 32",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,28 +120,22 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 0d",
+   "value": "FOMC in 2d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
-   "note": "CPI print within 2 days - a market-wide volatility event. Expect a swing either way."
+   "note": "Rate decision within 2 days - a market-wide volatility event. Expect a swing either way."
   }
  ],
  "fund": {
-  "price": 218.29,
-  "day_change_pct": -0.03,
-  "sma50": 212.58,
-  "sma200": 197.47,
+  "price": 210.59,
+  "day_change_pct": -3.53,
+  "sma50": 212.9,
+  "sma200": 197.61,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 7.4,
+  "drawdown_pct": 10.7,
   "series": [
-   {
-    "d": "2025-12-23",
-    "c": 189.21,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-24",
     "c": 188.61,
@@ -1215,32 +1209,38 @@
     "c": 218.29,
     "t": "ok",
     "s": 56
+   },
+   {
+    "d": "2026-09-14",
+    "c": 210.59,
+    "t": "ok",
+    "s": 56
    }
   ]
  },
  "flips": [
   {
-   "label": "Top-decile volatility",
+   "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "20-day realized vol above 45% annualized (now 44%) = top decile of its year (+9 pts)"
+   "text": "NVDA at $211.68 (+0.5% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
-   "label": "Falling-knife zone",
-   "direction": -1,
-   "text": "NVDA at $211.68 (-3.0% from here) enters the 10-20% falling-knife band (\u22129 pts)"
+   "label": "Crash band",
+   "direction": 1,
+   "text": "NVDA 5-session return -8.5% - another -3.5% reaches the validated crash band (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-11",
-  "days_total": 720,
+  "end": "2026-09-14",
+  "days_total": 721,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-11",
+  "fg_coverage_start": "2025-09-15",
   "baseline": {
-   "n": 699,
-   "avg_pct": 5.52,
-   "median_pct": 3.38
+   "n": 700,
+   "avg_pct": 5.5,
+   "median_pct": 3.37
   },
   "bands": [
    {
@@ -1260,9 +1260,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 373,
-    "avg_pct": 3.99,
-    "median_pct": 1.96
+    "n": 374,
+    "avg_pct": 3.96,
+    "median_pct": 1.94
    },
    {
     "tone": "caution",
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 218.29,
-  "sma200": 197.47,
+  "price": 210.59,
+  "sma200": 197.61,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 43.7
+  "level": 45.3
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 5,
+  "days_until": 2,
   "imminent": true
  },
  "cpi": {
-  "next": "2026-09-11",
-  "days_until": 0
+  "next": "2026-10-14",
+  "days_until": 30
  },
  "earnings": {
   "next": null,
@@ -1302,55 +1302,55 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-12",
-  "end": "2026-09-11",
+  "start": "2022-09-14",
+  "end": "2026-09-14",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 83776.64,
-  "dca_return_pct": 300.85,
-  "dip_value": 83933.28,
-  "dip_return_pct": 301.59,
+  "invested": 21000.0,
+  "dca_value": 81074.31,
+  "dca_return_pct": 286.07,
+  "dip_value": 81281.81,
+  "dip_return_pct": 287.06,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "NVIDIA Expands AI Infrastructure Capacity in Partnership With Australia\u2019s Data Center Ecosystem",
+   "title": "NVIDIA Expands Open Source CUDA-Q Platform for Fault-Tolerant Quantum Computing",
    "source": "NVIDIA Newsroom",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPd2dkbUp0Zi13THRQMU1kMXNIZVktQVN5NVR2cEszemg1RWM1cURfcDBCRGhLMGJfc3NTaW12anhJeGVDb1FfTC1SaHUzcnVUTzBnVmJseHBuUngteFBFLUZQT2FkMzBaTEEzclA0WFJGT0FmZ1htaFFSX1YwNnVTNk1yT0dnNVhzUm9Vbms0U0N0ck5UNVpyUlNZZ2JaQ3NDZ0hHUEw1VE5BMjZ0dGFIX2plWTRqRHRDeG5yQTFnY3pHZlFhcG9Ndw?oc=5",
-   "published": "2026-09-10T00:09:56+00:00"
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPMjBPVXRfZFRUYmRtTUVFSXVfaUdHNTBFNjFONTkxWDhMMmUzRjBPcjdvRmNKbVNTLUxodExCS2RDZ1p2ZzhaaVM2ZTlFbUxmSnVfaWlaaTFnTzJHT09iMlZXTVRoTGxHNl9mS1NoZWJ1bDBPeXQyaFRUUEJyZGJJM3ZKOTZ1Nk03d3dnYk5YN3VFYm9RRnpYc0VabmUzb2lLZENBcUU2Z3B3ekd0YWtzcEtxRUg?oc=5",
+   "published": "2026-09-14T13:06:29+00:00"
   },
   {
-   "title": "Why Nvidia\u2019s Chip Rivals Have Left It in the Dust This Week",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9UNXo2RG9fVnBrYWE5cjlpS0ZpLWxhVk9Hb2FqdFZXVEFKSkNRQ0lxeXh2eDU5UTJySVA0WkNSNnIzNU1rVnpQNEtEYmt3azFSV01PdHZOb3U0VjJEbFBvWHVHeE5XNmgxaG5tZVFiODVXVWEzeXV6Z2J4ZUo?oc=5",
-   "published": "2026-09-11T13:46:00+00:00"
-  },
-  {
-   "title": "China-modified Nvidia RTX 5090 with massive 96GB of memory appears on Alibaba for less than $4,000 \u2014 3x more VRAM at 65% the cost of the original",
-   "source": "Tom's Hardware",
-   "link": "https://news.google.com/rss/articles/CBMipwJBVV95cUxOYm9td29NWG9COFRMZEJickpxang3THpuQ3ZtWW82ZzE0bldKQ2phbnJxNmU5UEJoeUpUc2hBWmo1WVB3Ny1uNTdOUFNfdzEyNXh0WFAtNVZ2QVk5VnVrZHM4c1Fyc0VKaWVrVmtnSWdJVHlJMDBBOU9QT1FIT0RuS0doamFXX291dXlQYnlxU1dHLUVpdHBzU3JqMEZ0eFVmY1ZkRnlDZEtLZVRwVWVnOU83b24yRWU2Wm5UMWdya1V6Rms2bmJWMDF1ZE9TWG1UY3RJSVJFbHk3aE53MzNQZlFFbnUtV3hHSVgwNXpyU0ttNlhnTXpfZHNPU0xfTWFKeVdBYVpFakczdUJLTkItc3o0bFEyenZsYzZhRng2QnNPVDIxM2JB?oc=5",
-   "published": "2026-09-11T16:32:36+00:00"
-  },
-  {
-   "title": "The Better Nvidia Killer: Broadcom or AMD?",
+   "title": "Jim Cramer Tries To Predict NVIDIA Corporation (NASDAQ:NVDA) Share Price Movement Following Anthropic CEO\u2019s Remarks",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPanVPdzVXS05scERwbTB6S216eG15S3U3ZHdGM2tjMDh5dFpoaVlTRmN3TW1kSWluMHhFUmpXbmJDc1pNVEh1ZktpRGY5RTVLT1FxMmlxNDVWSFRtYTRDalVoSFQtNWRDNXJEa2ZMTzVmekNmUmx2YUtudWlYem96ZTdGU2t1OGs1dC13cHBRUVlKc3dNSXRZWjlCdEJWN0E?oc=5",
-   "published": "2026-09-11T16:40:12+00:00"
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNWVhZM0FqUkQ1dEpUQU5ZNzBkbHZuYWJpaWxIendUTDNDQjhNb20wVGEtampJcHNPYlhtRENrY002VXhrZ1VnV3BLVFdSa3dJOW9nZmxyRFBIbnUzd2NrelJteXpKbFFwcXpSa0llbk1mQXJGdVRDVDZUNUdPbmFCWnZCUkdJUE9ZaUpzaHNaa3A2X3d6LUpNQTFOb3c?oc=5",
+   "published": "2026-09-14T09:57:28+00:00"
   },
   {
-   "title": "I was an Nvidia DLSS 5 hater\u2026until I used it myself",
-   "source": "PCWorld",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOYkoyb0dZV29qN0ZJaEFicDhDSnppbllyVVFIYTJsdTVJUnhObEVlYTZsMWo1VkF3aTU2c2g1Z0c1aXY1bkVyTDhsYlZQZnFQVnkxdFFpbEpWZ1ljajJUX3JOeXZXRzdRQ2UyRmJIVzRwbTN3NEdUTEdXenUwYVQ5eVAzRGVNMDQ1czRYVFYzVV9IVGptQ2RMUXZSS3E?oc=5",
-   "published": "2026-09-11T11:32:21+00:00"
+   "title": "Tech stocks are tumbling as AI apocalypse fears go mainstream",
+   "source": "Business Insider",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQNG5sa1kyUTFwUEs5eW4tNjRxbVhZWUIzNkloRHRiNFVXV0RXWG5CLWxjTTg3RXBjYXh1RTZ1TGxncklpUG1VY0hFSWg0b2tCYm03N1k1U2JNTVUxWGY0dnlPRmZCdnRUR2VicWljdVZodEgyTjFYa2g0eVktRG53TWR3QnpNcjJCMVpsekJWREVQNWlNTUNIVw?oc=5",
+   "published": "2026-09-14T10:30:23+00:00"
   },
   {
-   "title": "Nvidia Becomes the World\u2019s Most Active $100 Million-Plus VC Investor",
-   "source": "PYMNTS.com",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPenhiX20ySVF3SkxjZ0tjMXV1c1c5YVBKSjhJVGZBYm45YnJhWWtrT2hmVE9MbHlBNmdMWTU5aGpQRWw0eWhCT01HZ3VwaExIVTFUV0tZX0s3STFhUUJZQzdzZWtFTFctdUNYeUdST1BOdTlucXE5czh0eU02OUJwZnItbS0xXzFBM0ltWEU3NU5wbmUzUl9fUFdrN0hSS0RLb1lXVG5GaEhqazJSYWVJM0tSSjBndVNmblp2WThaWGhHZw?oc=5",
-   "published": "2026-09-11T20:53:56+00:00"
+   "title": "Anthropic Data Fears Prompt Nvidia, Palantir and Booz Allen to Restrict Model Use",
+   "source": "The Information",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPb0Vkb3BoV3lsNElhVzd2SEJCR0hjd3FXbWlmTnE0ZlBLZXk0QkliX0pMY1JFelNhMF8tNlZYUTI4bkNQeUh1M3RsU29UZWRZSkhVUC12RWpQczN0U1hMblBkSGlQNURDQVh5S0VhbEEtOHRKejJxckxKRndFbDlwTzkyWm1CSFZRQXpndGJPV2lVdTlOWUM3RFcxcmdGSFFCSmZBc3N2WkR6RzBLVEpmajFibw?oc=5",
+   "published": "2026-09-14T13:00:00+00:00"
+  },
+  {
+   "title": "Why is NVIDIA stock sliding today?",
+   "source": "Investing.com",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOZ3RWRnhocHBpbHlUVTQwTU5pS2xDcTdtUktENDNlZ1I5WTNPaVZYZVYxSUluUU9zUFZQd1RzQy1VM2R6UkYya3dUUDNNS3U1bzg4SWRKZDJwcTVEQXh2UWszNW4xaWFHZkVYSkdzVFdnT2xyNGxUN3JzMVMzUXc5d0dEX3hHcV9mXy03ckhxVEZSaXEySm9SMW5fTQ?oc=5",
+   "published": "2026-09-14T09:46:28+00:00"
+  },
+  {
+   "title": "Chip Stocks Tumble as AI Pacing Call Reaches Beyond Memory: Intel Drops 7%, AMD Sinks 6%, NVIDIA Pulls Back",
+   "source": "247wallst.com",
+   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNWVotaFlCUllmUDFoWHpPdmtPamVBQzNkcTZCaW9TelVPa3ZmNGVnZ3dqRDE0ajduS0hUSEF1ekZRamNtb2Q5MXlnb0RBd1g4QXMweG50ZWFfdUp0ZS1DaFp2dEJfdDNkWGVQWHotOXZBeEFrU0wxNWtKTjRNX3F6b1lOaHNkOGJ5SGswMkV4aGFKbzlIMWJHXzlxdnNwTHpTaE1FbFBLYkN4M3JEZk1DWVdsODZ6VkhraEctYWVKRzcyRWJWN01kczJSdWtGVVFmUjRhYnAxUkJMbWE3SXFZ?oc=5",
+   "published": "2026-09-14T13:23:00+00:00"
   }
  ]
 }
