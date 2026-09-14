@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-14T18:50:37+00:00",
+ "generated_at": "2026-09-14T22:27:46+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "20% ann. (p10)",
+   "value": "21% ann. (p13)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 10.3,
+    "pos": 12.7,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "13.7%",
+   "value": "13.3%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 13.7% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 13.3% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 27.4,
+    "pos": 26.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.7 (p42), F&G 31",
+   "value": "VIX 17.1 (p49), F&G 31",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 344.135,
-  "day_change_pct": 2.59,
-  "sma50": 344.94,
-  "sma200": 335.72,
+  "price": 345.71,
+  "day_change_pct": 3.06,
+  "sma50": 344.97,
+  "sma200": 335.73,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 13.8,
+  "drawdown_pct": 13.4,
   "series": [
    {
     "d": "2025-12-24",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-14",
-    "c": 344.135,
+    "c": 345.71,
     "t": "caution",
     "s": 41
    }
@@ -1222,12 +1222,12 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+4.2% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+3.8% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 20%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 21%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1275,17 +1275,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.0
+  "tbill_3mo": 4.07
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 344.135,
-  "sma200": 335.72,
+  "price": 345.71,
+  "sma200": 335.73,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 20.2
+  "level": 21.0
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1302,25 +1302,37 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-14",
+  "start": "2022-09-15",
   "end": "2026-09-14",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 45162.07,
-  "dca_return_pct": 115.06,
-  "dip_value": 45257.67,
-  "dip_return_pct": 115.51,
+  "dca_value": 45374.55,
+  "dca_return_pct": 116.07,
+  "dip_value": 45476.82,
+  "dip_return_pct": 116.56,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
  },
  "headlines": [
   {
+   "title": "Alphabet has been in a correction since May. Katie Stockton sees the Google parent breaking out",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOS3dPRUFMS1J3MWZpeGd5MzNaa0pQMXJUaVdoTDlrZkZoVzdsYXZqeFFscmxVNUNjN1A2R0tfZ3lqSnhZbm00VlNKSG1haFc1blVQUHZFZ2N3TmN6dTB5c2d1UmtGZllPbEZHMEc0Qk5RVDFoOVNDVGpPZXZXSmNUNFVkNU5hVC1CRklvZ1FLY0k3Q2dmR1R2aU1JUzJkLW5GejZ6T205SHI5T3hqbnR4UFhNTDNGNlVSZW91RG9n?oc=5",
+   "published": "2026-09-14T18:00:01+00:00"
+  },
+  {
    "title": "Why Google and Meta Stocks Are the Big Winners From the Latest AI Concerns",
    "source": "Barron's",
    "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5RR3JsN0djU2JiMVZvbVduTm1wTk1KVGlUZHFvTVU5aEd3c1FqclFQUTI2eXloa1F1VVFJU3R6Q3R6NmFtQzhFMVBROFJ5TERITUFzeU1LV3Z1aGpWV1R0dUktd0EwSUV2WS1nZmRPTXFMUFZ4aE13bEtWUQ?oc=5",
-   "published": "2026-09-14T13:37:00+00:00"
+   "published": "2026-09-14T19:51:00+00:00"
+  },
+  {
+   "title": "Google rolls out pay-per-value AI licensing program to publishers",
+   "source": "Digiday",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQU3d4S0tWd3c4bEtDZnRrQllJLWtFT19jZXdaanhJbUVXbXhhVGxvWGxHM1I3aExNcS0taWlibFd2T1g1M1FYVWNUZG5aR0JiTG9OMEd1ekFHZHpHb2FrQ05kQy05OXRObDZ5RWM2U1ZWdkE5all6aTk0ZXJGOXY4SnVEM3VoT0ZfeVNxSXFieXY1UQ?oc=5",
+   "published": "2026-09-14T09:22:03+00:00"
   },
   {
    "title": "Exclusive: Netflix, Amazon, YouTube launch new streaming coalition",
@@ -1339,18 +1351,6 @@
    "source": "Android Police",
    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNMU5Nc2ZsQjgwZFdtc2hSNXZUZ3BrNERfeno0NEhpOXV2ZWxJVUZxZ3I3QW9NQ1lVdWRsUnFCcTVDYUx5cGU0YUJnTDhxSl83bjdLNm5xN2V5UHZ2OWgwUmFfV0E2ZGdvU2JuQ216aVlONl9HQV9seXNNSjZaTlR3akk1WkRDejNoYm5SdWxVeThGQTVMS1J1ZFFLcXhlNGRvcWNBNUZCRzJrLWdBQzk4?oc=5",
    "published": "2026-09-14T15:15:10+00:00"
-  },
-  {
-   "title": "Netflix, YouTube and Amazon Launch a Streaming Public Policy Group",
-   "source": "The Hollywood Reporter",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQSGVwYnpaNHAtcE11WlVqVHRiSlVNWGh2Z3BMaUhDSmxIYk13QnFzOE5EU1V0NFlNZHAyLVpJaDN6eUJycXlTTnJyQ0ozR0lyM2RsVlQ1NkxNS1V1dTUxM0F2N25ITkR6OFJrWGlrZm5xWkNMQUI3a0c4ZXFjSjdONmJ6MlUyMHdMSEVXMV9peTNmWXZZNy1zQV9iVE5uUnJOZ3pZeng5RXJnXy1LaHRLMWo3Y2lGN0VlVUtYZjFB?oc=5",
-   "published": "2026-09-14T15:04:08+00:00"
-  },
-  {
-   "title": "Amazon, Netflix, YouTube Form Coalition to Advocate for Consumer Choice in Online Content",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNd1hZbkZ2WWowNUJRRVQ1MmNRWk9pUUNHeWY5VFltSnRROFVNc25pemZ2b0xVT3podXBjSm9IbDZBaHI5VlZReWhmTmNaeElxREtZX0ZOSC02M0hlSEZKb2tUM0JsajR2VVl1YW0yWlJGd0djeUNBWkdYSnNkZjlqSTNtaHJYcmNqSlpfUTRtMHZwTmNiaW5rd2dhOFNOOFVreTlNN29MYURoUW1TOEtOT0NaMVM2ZXhGbllaOTRERExQWW9VaVNMZWl4SQ?oc=5",
-   "published": "2026-09-14T16:41:00+00:00"
   }
  ]
 }
