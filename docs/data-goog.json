@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-14T14:30:17+00:00",
+ "generated_at": "2026-09-14T18:50:37+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "19% ann. (p5)",
+   "value": "20% ann. (p10)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 5.2,
+    "pos": 10.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "14.6%",
+   "value": "13.7%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 14.6% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 13.7% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 29.2,
+    "pos": 27.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.2 (p51), F&G 32",
+   "value": "VIX 16.7 (p42), F&G 31",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 340.525,
-  "day_change_pct": 1.51,
-  "sma50": 344.87,
-  "sma200": 335.7,
+  "price": 344.135,
+  "day_change_pct": 2.59,
+  "sma50": 344.94,
+  "sma200": 335.72,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 14.7,
+  "drawdown_pct": 13.8,
   "series": [
    {
     "d": "2025-12-24",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-14",
-    "c": 340.525,
+    "c": 344.135,
     "t": "caution",
     "s": 41
    }
@@ -1222,12 +1222,12 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+5.3% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+4.2% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 19%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 20%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1261,7 +1261,7 @@
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
     "n": 334,
-    "avg_pct": 4.15,
+    "avg_pct": 4.16,
     "median_pct": 4.36
    },
    {
@@ -1279,13 +1279,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 340.525,
-  "sma200": 335.7,
+  "price": 344.135,
+  "sma200": 335.72,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 18.7
+  "level": 20.2
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1307,15 +1307,21 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 44689.36,
-  "dca_return_pct": 112.81,
-  "dip_value": 44783.97,
-  "dip_return_pct": 113.26,
+  "dca_value": 45162.07,
+  "dca_return_pct": 115.06,
+  "dip_value": 45257.67,
+  "dip_return_pct": 115.51,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Why Google and Meta Stocks Are the Big Winners From the Latest AI Concerns",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5RR3JsN0djU2JiMVZvbVduTm1wTk1KVGlUZHFvTVU5aEd3c1FqclFQUTI2eXloa1F1VVFJU3R6Q3R6NmFtQzhFMVBROFJ5TERITUFzeU1LV3Z1aGpWV1R0dUktd0EwSUV2WS1nZmRPTXFMUFZ4aE13bEtWUQ?oc=5",
+   "published": "2026-09-14T13:37:00+00:00"
+  },
   {
    "title": "Exclusive: Netflix, Amazon, YouTube launch new streaming coalition",
    "source": "Axios",
@@ -1323,34 +1329,28 @@
    "published": "2026-09-14T13:26:45+00:00"
   },
   {
-   "title": "Why Google and Meta Stocks Are the Big Winners From the Latest AI Concerns",
-   "source": "barrons.com",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5RR3JsN0djU2JiMVZvbVduTm1wTk1KVGlUZHFvTVU5aEd3c1FqclFQUTI2eXloa1F1VVFJU3R6Q3R6NmFtQzhFMVBROFJ5TERITUFzeU1LV3Z1aGpWV1R0dUktd0EwSUV2WS1nZmRPTXFMUFZ4aE13bEtWUQ?oc=5",
-   "published": "2026-09-14T13:37:00+00:00"
-  },
-  {
-   "title": "I worked at Google DeepMind. You should listen to the warnings about AI | Alex Turner",
-   "source": "The Guardian",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPQ293cEVsbzZabVBzajMtUW1fdmxKNzk3d05fNlUtTzJ3M2pZNi04STBQWlZwMkRxU0ZVVEpCRmpjRTVmcHh2OHhFQ1FEejZLVEhSSElLaXZZeWNtVDlteVhZMUJnYW85NUVOc3NmazhTeURSUjZoZlpfalVBU0IydlEwZ3I?oc=5",
-   "published": "2026-09-14T12:00:00+00:00"
-  },
-  {
-   "title": "Alphabet's Rapidly Growing $50 Billion Business Is a Huge Advantage in the AI Arms Race",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQcC11OGRPRzNZUlY2OVYtVUEwNTQ1Nm45MHRIYktQcXlzTGp0VElteUJ4Nk5SQm5FendjbVA4Q0lkY3NCU0VETno0cUMyY2s3MDF1TzNRMzZsd2Q2allPWEdCRTY3VUlXT19lNkx6VUlwb1ZtRmpOdF8yQjNJV2x1ZjBPMGllelJIZ29oWUJqelVoeE9PWENJTg?oc=5",
-   "published": "2026-09-14T10:42:00+00:00"
-  },
-  {
-   "title": "2 Numbers Matter More to Alphabet Stock's Performance Than Anything Else Right Now",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQRk1zUkRfZ2ZDczBlM01lOGRfS1UzYkpYWUwyWDduajYxX2JHaXBuVjFUbTExZkpmcHVOTERrdi1Icy1LeE4yR2xDNXpiTmotZ2pRUVZwRTdfMnpINGM3X3lkTl9xUkk0VTVrXzdEeGpmOEczdXBmaFhsN0pmOGVBdHpqWlNMY0prUUtrZU4wdzk3bnBBd3diTmhSYw?oc=5",
-   "published": "2026-09-14T12:19:00+00:00"
-  },
-  {
-   "title": "The Gemini app is now available for Windows",
+   "title": "DevFest is back",
    "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOVDIzNzRDTUpFM3hvblJLcHFBX3B6YUV4OVR1Qmc5TnMwd1dfU1RleU9tdlNpb1R6NDBkRVdNX2lzX0lZd0ZER2l6UENTQkw1NEQ3N2xOOFBuLW5SWTFWMmFKdlJnc1RWdWhoaVpNWUFBU1l3Z3JQMjlYYUNOZXRHNFhOckYwR1ZUbXRpWA?oc=5",
-   "published": "2026-09-10T16:07:26+00:00"
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPb19FSjhrdXpheGlaRHJLLVZ2MllzUzBHWXRBSk05bmhyLV8wbWNmd1NZYkkwcFRZc1VGdDJPZTZQVkFESjVDUjBUREpiVlNiWThEeU5xbHhyaGdMTHJJYjAzN0tkbDlENzB6Y0VGZHpSSlV0NlN6M1ozdlAwU2ZPT0NWVEw?oc=5",
+   "published": "2026-09-14T16:15:25+00:00"
+  },
+  {
+   "title": "I spent weeks putting up with Google TV Streamer lag before discovering this quick settings fix",
+   "source": "Android Police",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNMU5Nc2ZsQjgwZFdtc2hSNXZUZ3BrNERfeno0NEhpOXV2ZWxJVUZxZ3I3QW9NQ1lVdWRsUnFCcTVDYUx5cGU0YUJnTDhxSl83bjdLNm5xN2V5UHZ2OWgwUmFfV0E2ZGdvU2JuQ216aVlONl9HQV9seXNNSjZaTlR3akk1WkRDejNoYm5SdWxVeThGQTVMS1J1ZFFLcXhlNGRvcWNBNUZCRzJrLWdBQzk4?oc=5",
+   "published": "2026-09-14T15:15:10+00:00"
+  },
+  {
+   "title": "Netflix, YouTube and Amazon Launch a Streaming Public Policy Group",
+   "source": "The Hollywood Reporter",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQSGVwYnpaNHAtcE11WlVqVHRiSlVNWGh2Z3BMaUhDSmxIYk13QnFzOE5EU1V0NFlNZHAyLVpJaDN6eUJycXlTTnJyQ0ozR0lyM2RsVlQ1NkxNS1V1dTUxM0F2N25ITkR6OFJrWGlrZm5xWkNMQUI3a0c4ZXFjSjdONmJ6MlUyMHdMSEVXMV9peTNmWXZZNy1zQV9iVE5uUnJOZ3pZeng5RXJnXy1LaHRLMWo3Y2lGN0VlVUtYZjFB?oc=5",
+   "published": "2026-09-14T15:04:08+00:00"
+  },
+  {
+   "title": "Amazon, Netflix, YouTube Form Coalition to Advocate for Consumer Choice in Online Content",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNd1hZbkZ2WWowNUJRRVQ1MmNRWk9pUUNHeWY5VFltSnRROFVNc25pemZ2b0xVT3podXBjSm9IbDZBaHI5VlZReWhmTmNaeElxREtZX0ZOSC02M0hlSEZKb2tUM0JsajR2VVl1YW0yWlJGd0djeUNBWkdYSnNkZjlqSTNtaHJYcmNqSlpfUTRtMHZwTmNiaW5rd2dhOFNOOFVreTlNN29MYURoUW1TOEtOT0NaMVM2ZXhGbllaOTRERExQWW9VaVNMZWl4SQ?oc=5",
+   "published": "2026-09-14T16:41:00+00:00"
   }
  ]
 }
