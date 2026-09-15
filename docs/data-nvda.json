@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-09-15T17:44:59+00:00",
+ "generated_at": "2026-09-15T22:11:44+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "No edge either way",
-  "summary": "None of the scored NVDA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
-  "tone": "neutral",
-  "score": 0.0,
-  "score100": 50,
+  "label": "Mild tailwind - fine day to buy",
+  "summary": "A validated single-stock condition is in your favor on NVDA today. Nothing dramatic - and single-stock risk still dwarfs entry timing. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
+  "tone": "ok",
+  "score": 1.5,
+  "score100": 59,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-6.2% in 5 sessions",
+   "value": "-5.9% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 58.8,
+    "pos": 60.7,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "10.1%",
-   "score": -1.5,
-   "weight": -1.5,
-   "lean": "bad",
-   "note": "NVDA sits 10.1% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "value": "9.8%",
+   "score": 0.0,
+   "weight": 1.0,
+   "lean": "neutral",
+   "note": "A modest 9.8% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 20.2,
+    "pos": 19.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.7 (p58), F&G 29",
+   "value": "VIX 17.2 (p51), F&G 29",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 211.56,
-  "day_change_pct": 0.28,
-  "sma50": 213.23,
-  "sma200": 197.78,
+  "price": 212.17,
+  "day_change_pct": 0.57,
+  "sma50": 213.24,
+  "sma200": 197.79,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 10.3,
+  "drawdown_pct": 10.0,
   "series": [
    {
     "d": "2025-12-26",
@@ -1212,22 +1212,17 @@
    },
    {
     "d": "2026-09-15",
-    "c": 211.56,
-    "t": "neutral",
-    "s": 50
+    "c": 212.17,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
  "flips": [
   {
-   "label": "Exiting the knife zone",
-   "direction": 1,
-   "text": "NVDA at $211.68 (+0.1% from here) climbs out of the falling-knife band (+9 pts)"
-  },
-  {
-   "label": "Crash band",
-   "direction": 1,
-   "text": "NVDA 5-session return -6.2% - another -5.8% reaches the validated crash band (+12 pts)"
+   "label": "Falling-knife zone",
+   "direction": -1,
+   "text": "NVDA at $211.68 (-0.2% from here) enters the 10-20% falling-knife band (\u22129 pts)"
   }
  ],
  "report_card": {
@@ -1275,17 +1270,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.07
+  "tbill_3mo": 4.11
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 211.56,
-  "sma200": 197.78,
+  "price": 212.17,
+  "sma200": 197.79,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 45.2
+  "level": 45.3
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1302,20 +1297,32 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-15",
+  "start": "2022-09-16",
   "end": "2026-09-15",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 81472.48,
-  "dca_return_pct": 287.96,
-  "dip_value": 81656.03,
-  "dip_return_pct": 288.84,
+  "dca_value": 81673.82,
+  "dca_return_pct": 288.92,
+  "dip_value": 81891.48,
+  "dip_return_pct": 289.96,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Nvidia and Anthropic CEOs diverge on AI safety at Dreamforce: Huang says fast vs. pacing is 'false choice'",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNamhBSWgtcmZwTVRVOXlnbGZMN2R1bDFlMWEtV21wUXFmUGVoWW5vQWNVbU55OEE0T0lWMUFlMXFZVGdvNmN0TElFUGNkQUlwQ01hU09aUEZIZlBjd0lMbGJMOVJHbmhOSTNRaHU0cXBnNmRVQ2lTb21odDUzOGlRQ1phSTRDUDVucThHQjNncjI1Q1pMOVV0WlotdDVpUdIBowFBVV95cUxNQW5ST21vbGJyUWYzcHVFZFJOZUgzTEJ3TWFkS3Y4Nm9fQ2w3c3puMnJqaFBpbl9CVG5Gd1RSZUVGQmJqLVZaN0dBZ0dOWEZNb3IxMDBtaGhWNGllb29aZERqeGxibHhnakZJRDgxeF9oa1NDSGV2YzYwa3plQ0dhZU43aHJNb1MyUlZRRm1hb1BZRVpZRVF4LUd1OWNQXzJpZFpr?oc=5",
+   "published": "2026-09-15T20:00:16+00:00"
+  },
+  {
+   "title": "Announcing Koa: Salesforce\u2019s First CRM Reasoning Model, Built on NVIDIA Nemotron",
+   "source": "Salesforce",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPWEZFRTRaU3FBVEVKVi1vYTdhLWJrNlVOaXZINDQ5aWo5dXB2Z3p6UmRiZTlWdWRXSTlEVU52XzJhZXpaaXQ1LUk3NmdMR0hlOTNmS2tROVE5MnVZUjRHWXk2WEJLcERYZVN1NUxqSnVWa2xsVldZMW14Ynk0dzhJaGlLajQ?oc=5",
+   "published": "2026-09-15T13:48:35+00:00"
+  },
   {
    "title": "NVIDIA Expands Open Source CUDA-Q Platform for Fault-Tolerant Quantum Computing",
    "source": "NVIDIA Newsroom",
@@ -1329,28 +1336,16 @@
    "published": "2026-09-15T15:51:06+00:00"
   },
   {
-   "title": "Trump and Huang unite against AI doomers in surprise on-stage call",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRHY2dEtJQWxpM3RnUURFbmV6WW9EdS1Qekc1UzVZblNHUTJ0Rm94eWRsdW1RcjBsaWxSZ1hqMXRHbU5iYk0zLUZleXB5dHVCN2FGSkNUUnpFZXJXSHh0ekJwX0hrUnhRUVctdUlQQ2RETWtNdHZsZkhZZS1mOEJjRQ?oc=5",
-   "published": "2026-09-15T12:14:38+00:00"
-  },
-  {
    "title": "Salesforce and Nvidia\u2019s new reasoning model is everything the AI labs should fear",
-   "source": "TechCrunch",
+   "source": "techcrunch.com",
    "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNX3pZRml4TGIxQ2pRYVM1WTV3SUFNSTlBTlY4bkNtS3l0cW5abWwtQkxSV2szVEdmTVRrWmk0NDlVOW9NNW5rd2tEaUtGRGdQdkNId3RrME1udWV0V0FvMi1GcUJpeFhWVEcwQ3hMc3BFQWJLcV90dUl1Z2tJa2xwcm5TcjZCMWZxRTRpN0pqb2NueE9tb19EOEFONnV0QXpjSDc4RDVRYU5nQWY3WXFLRjZWRHk0Zw?oc=5",
    "published": "2026-09-15T12:00:00+00:00"
   },
   {
-   "title": "Trump calls Nvidia CEO to talk AI \u2014 and gets put on speakerphone during industry summit",
-   "source": "NBC News",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPQkF6Q0JLVjMyRkRmX2YxS3J3MlRGX2xGdzhDWTF2alBnQ19vSmhxNGJpTTZrcDZlOTV3VTJnN3BCOXkzYzduOGo0bmpIc09CZ1lGbzdmdkc1eVlrYUEwN1RDV1NWUGdqYzBTWlZqYUVHWjFMSEpoMnplbDhkYTkyeHhRb0tFU3V2MXVkLXc2alVVUGlXRnctRFpkTzNDLXhOWWJOYXpVM09vNF94UEFFbVBxeFE?oc=5",
-   "published": "2026-09-14T23:06:00+00:00"
-  },
-  {
-   "title": "Trump says AI fears a \u2018hoax\u2019 on call with Nvidia CEO",
-   "source": "CNN",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQSmhFcVhDVVJSTlN1SG5zUzRTNXB6MllSb0xpVTZYYzhHUE9rN21wM0Z2OHNpSzJMNUVFeGxad0ZGQV9LZGFpbUZxaUtudXJQM1FZMk1IdnlRVmRBbkpwcGhmOHJIVXhwMXY0eDNpWGJGU3ZOV3BoVTkxMkpueVY1OGJINkdVaG5kaVEzN01mRXQ5YURvUWdtX3NrenliS3lOZjVaU2psUnhGdw?oc=5",
-   "published": "2026-09-15T06:20:00+00:00"
+   "title": "Nvidia\u2019s Huang Says AI Industry Doesn\u2019t Need Any New Laws",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOSy1EZDJFX3BiWVdvWkZkOWVhcUl0TTduVWJoR3BveE9yUlZyeXhsU2lzdXk5bDFYT2NpYWpGZnVKUEZmSklraXRzY0l1UnJEN1l1ZDdjeDNZaG11WDFfaW1ldjBLSEhMLWhaX2JtZEUwclRPTzJFbDM4ckJ6RFdtNS1QUUZqa183ZGZzMzNldlpMWXB4bWdOa1lxX0thUDhBdWZGSHdNSllZcnNV?oc=5",
+   "published": "2026-09-15T19:20:14+00:00"
   }
  ]
 }
