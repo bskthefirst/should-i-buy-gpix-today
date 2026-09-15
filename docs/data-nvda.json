@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-15T14:30:16+00:00",
+ "generated_at": "2026-09-15T17:44:59+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
@@ -12,11 +12,11 @@
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated single-stock condition is in your favor on NVDA today. Nothing dramatic - and single-stock risk still dwarfs entry timing. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
-  "tone": "ok",
-  "score": 1.5,
-  "score100": 59,
+  "label": "No edge either way",
+  "summary": "None of the scored NVDA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-5.6% in 5 sessions",
+   "value": "-6.2% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 62.5,
+    "pos": 58.8,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "45% ann. (p91)",
+   "value": "45% ann. (p90)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "NVDA's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on NVDA): elevated single-name chaos tended to mark better entries on the calibrated name.",
    "viz": {
-    "pos": 91.3,
+    "pos": 90.5,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "9.5%",
-   "score": 0.0,
-   "weight": 1.0,
-   "lean": "neutral",
-   "note": "A modest 9.5% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "value": "10.1%",
+   "score": -1.5,
+   "weight": -1.5,
+   "lean": "bad",
+   "note": "NVDA sits 10.1% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 19.0,
+    "pos": 20.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.4 (p54), F&G 30",
+   "value": "VIX 17.7 (p58), F&G 29",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 212.81,
-  "day_change_pct": 0.88,
-  "sma50": 213.25,
-  "sma200": 197.79,
+  "price": 211.56,
+  "day_change_pct": 0.28,
+  "sma50": 213.23,
+  "sma200": 197.78,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 9.7,
+  "drawdown_pct": 10.3,
   "series": [
    {
     "d": "2025-12-26",
@@ -1212,17 +1212,22 @@
    },
    {
     "d": "2026-09-15",
-    "c": 212.81,
-    "t": "ok",
-    "s": 59
+    "c": 211.56,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
-   "label": "Falling-knife zone",
-   "direction": -1,
-   "text": "NVDA at $211.68 (-0.5% from here) enters the 10-20% falling-knife band (\u22129 pts)"
+   "label": "Exiting the knife zone",
+   "direction": 1,
+   "text": "NVDA at $211.68 (+0.1% from here) climbs out of the falling-knife band (+9 pts)"
+  },
+  {
+   "label": "Crash band",
+   "direction": 1,
+   "text": "NVDA 5-session return -6.2% - another -5.8% reaches the validated crash band (+12 pts)"
   }
  ],
  "report_card": {
@@ -1274,13 +1279,13 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 212.81,
-  "sma200": 197.79,
+  "price": 211.56,
+  "sma200": 197.78,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 45.4
+  "level": 45.2
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1302,10 +1307,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 81953.86,
-  "dca_return_pct": 290.26,
-  "dip_value": 82138.5,
-  "dip_return_pct": 291.14,
+  "dca_value": 81472.48,
+  "dca_return_pct": 287.96,
+  "dip_value": 81656.03,
+  "dip_return_pct": 288.84,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dip"
@@ -1318,22 +1323,22 @@
    "published": "2026-09-14T13:06:29+00:00"
   },
   {
-   "title": "Salesforce and Nvidia\u2019s new reasoning model is everything the AI labs should fear",
-   "source": "TechCrunch",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNX3pZRml4TGIxQ2pRYVM1WTV3SUFNSTlBTlY4bkNtS3l0cW5abWwtQkxSV2szVEdmTVRrWmk0NDlVOW9NNW5rd2tEaUtGRGdQdkNId3RrME1udWV0V0FvMi1GcUJpeFhWVEcwQ3hMc3BFQWJLcV90dUl1Z2tJa2xwcm5TcjZCMWZxRTRpN0pqb2NueE9tb19EOEFONnV0QXpjSDc4RDVRYU5nQWY3WXFLRjZWRHk0Zw?oc=5",
-   "published": "2026-09-15T12:00:00+00:00"
+   "title": "Artificial Intelligence",
+   "source": "Congresswoman Veronica Escobar (.gov)",
+   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE0zdmNuTnE1MUVGMnhqTlQxSXE4aUhFdi13cDBGeUdSV0NNZU9TQ3RuY0ducElIcDB6OV9pTXhNQlhwWldWM1hzX05iOXQ3YnM3UGc4S2s0amlfOTJyU0c4LVhSNA?oc=5",
+   "published": "2026-09-15T15:51:06+00:00"
   },
   {
    "title": "Trump and Huang unite against AI doomers in surprise on-stage call",
    "source": "Axios",
    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRHY2dEtJQWxpM3RnUURFbmV6WW9EdS1Qekc1UzVZblNHUTJ0Rm94eWRsdW1RcjBsaWxSZ1hqMXRHbU5iYk0zLUZleXB5dHVCN2FGSkNUUnpFZXJXSHh0ekJwX0hrUnhRUVctdUlQQ2RETWtNdHZsZkhZZS1mOEJjRQ?oc=5",
-   "published": "2026-09-15T09:32:27+00:00"
+   "published": "2026-09-15T12:14:38+00:00"
   },
   {
-   "title": "Nvidia Stock Drops. It\u2019s Still the Best Chip Bet in an AI Slowdown.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNd28zaEgxYzJOZi1kWWhWa0Y5RG5za0VEUDN5dEVXTjVPdzhnTlhLX3BIaUdTNUEtN20zRWhkandEbDlZaTNiX0VrUkQ2aFQ3Z3BvbmlDeTI5enc2RUJqaTkzV3FZZWxZUmxqMXBNZ25MNnRLMDhPYmV1aTd0WWc3MERLWQ?oc=5",
-   "published": "2026-09-14T18:26:00+00:00"
+   "title": "Salesforce and Nvidia\u2019s new reasoning model is everything the AI labs should fear",
+   "source": "TechCrunch",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNX3pZRml4TGIxQ2pRYVM1WTV3SUFNSTlBTlY4bkNtS3l0cW5abWwtQkxSV2szVEdmTVRrWmk0NDlVOW9NNW5rd2tEaUtGRGdQdkNId3RrME1udWV0V0FvMi1GcUJpeFhWVEcwQ3hMc3BFQWJLcV90dUl1Z2tJa2xwcm5TcjZCMWZxRTRpN0pqb2NueE9tb19EOEFONnV0QXpjSDc4RDVRYU5nQWY3WXFLRjZWRHk0Zw?oc=5",
+   "published": "2026-09-15T12:00:00+00:00"
   },
   {
    "title": "Trump calls Nvidia CEO to talk AI \u2014 and gets put on speakerphone during industry summit",
@@ -1342,10 +1347,10 @@
    "published": "2026-09-14T23:06:00+00:00"
   },
   {
-   "title": "Trump phones Nvidia\u2019s Huang at All-In Summit, calls data center opposition a \u2018hoax\u2019",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQRW4yR0xHdW04SS1fQzA2WG14dkRkQ1VMRmJORW02WHZHeFlxLXRBUzVCbW1mV2RpcHdhd3Npa1ZJeGJveUptZXMyRGpfQV9peUk4WklnQTBZaHdwcnpzMjRJLVNvaDlpRzV0TkZQU1k4cFdiNFJYVndlRkk0T2V0WXFRVE1CTTlabmJNRDQwU2hlc1RlY290V3dSeDNNQ2hrU2pBU2p30gGrAUFVX3lxTFBwZHdyMWRHcDFvZnQ1ZDlPbklQYjFxNzljSC1JQUpOdFd2RG9zQXdSaTNuMXlvUWhlb3duUEU2dEZXTmgyUFd6LXZsbTQ2N3Z1bEJnRlo4QUFJWlktWEdwY2Z2djdHT3JVV1hhYmc0Nk5RMFcxMC01eldLMFhJZC1DVWNTaUVtb2taYmdmdE5wX1JaTEJlb1dlWWM5ZjJTVUY0SFdibkhKdUlkTQ?oc=5",
-   "published": "2026-09-14T21:26:21+00:00"
+   "title": "Trump says AI fears a \u2018hoax\u2019 on call with Nvidia CEO",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQSmhFcVhDVVJSTlN1SG5zUzRTNXB6MllSb0xpVTZYYzhHUE9rN21wM0Z2OHNpSzJMNUVFeGxad0ZGQV9LZGFpbUZxaUtudXJQM1FZMk1IdnlRVmRBbkpwcGhmOHJIVXhwMXY0eDNpWGJGU3ZOV3BoVTkxMkpueVY1OGJINkdVaG5kaVEzN01mRXQ5YURvUWdtX3NrenliS3lOZjVaU2psUnhGdw?oc=5",
+   "published": "2026-09-15T06:20:00+00:00"
   }
  ]
 }
