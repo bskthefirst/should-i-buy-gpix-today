@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-14T22:27:43+00:00",
+ "generated_at": "2026-09-15T14:30:14+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 100.0,
+    "pos": 83.9,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "51% ann. (p73)",
+   "value": "51% ann. (p71)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "good",
    "note": "Realized volatility elevated vs TSLA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
    "viz": {
-    "pos": 72.6,
+    "pos": 71.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.1 (p49), F&G 31",
+   "value": "VIX 17.4 (p54), F&G 30",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 2d",
+   "value": "FOMC in 1d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 358.97,
-  "day_change_pct": -1.77,
-  "sma50": 353.81,
-  "sma200": 398.63,
+  "price": 359.2799,
+  "day_change_pct": 0.09,
+  "sma50": 352.6,
+  "sma200": 398.33,
   "high52w": 489.88,
   "high_label": "52-week high",
   "drawdown_pct": 26.7,
   "series": [
-   {
-    "d": "2025-12-24",
-    "c": 485.4,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-26",
     "c": 475.19,
@@ -1215,6 +1209,12 @@
     "c": 358.97,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-15",
+    "c": 359.2799,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1228,12 +1228,12 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-14",
-  "days_total": 721,
+  "end": "2026-09-15",
+  "days_total": 722,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-09-15",
   "baseline": {
-   "n": 700,
+   "n": 701,
    "avg_pct": 2.73,
    "median_pct": 0.43
   },
@@ -1248,9 +1248,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 171,
-    "avg_pct": 9.06,
-    "median_pct": 5.03
+    "n": 172,
+    "avg_pct": 9.04,
+    "median_pct": 5.04
    },
    {
     "tone": "neutral",
@@ -1274,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 358.97,
-  "sma200": 398.63,
+  "price": 359.2799,
+  "sma200": 398.33,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 51.1
+  "level": 50.9
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 2,
+  "days_until": 1,
   "imminent": true
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 30
+  "days_until": 29
  },
  "earnings": {
   "next": null,
@@ -1298,19 +1298,31 @@
  },
  "backtest": {
   "start": "2022-09-15",
-  "end": "2026-09-14",
+  "end": "2026-09-15",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 29624.52,
-  "dca_return_pct": 41.07,
-  "dip_value": 29630.33,
-  "dip_return_pct": 41.1,
+  "dca_value": 29650.09,
+  "dca_return_pct": 41.19,
+  "dip_value": 29655.91,
+  "dip_return_pct": 41.22,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 206,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Elon Musk's Latest Updates On Tesla-SpaceX Merger, Terafab Factory",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTXhmZUthdG9HbWxra3JXNy1henAwdXJPZTNjaEpkTjYycVctM1A5WlRBR1lXRUdlRkVYWDNkbDNzOHRURmhIQkN0VnJWU3dnZkwxaGp6ZUQzeXZsU2FVeVpoUGhwTnhzZXJzdUdQTHBfNzdLT1pmN0RLR3pIOVVlbTRZOWRva1hmT0JZRWNseHJPWUU5dURXTA?oc=5",
+   "published": "2026-09-15T12:34:00+00:00"
+  },
+  {
+   "title": "The Tesla Roadster Will \u2018Blow People\u2019s Minds\u2019",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1PWUJDdGFoSDFhTjdWNzBuUmVBMmxWWnprMWY1Q2RPOE82bmItdzU4SzhLRWg0cWJqTTRiTlFWWnAtNFk3Nk5tbmhMcXE3RUIyNldmM1NtTWRWRENyVXFzMTBpcURtSTJLcWpvYUcwQkQybDVGUXhv?oc=5",
+   "published": "2026-09-15T13:46:00+00:00"
+  },
   {
    "title": "Tesla: Luxury Sports Car Launch Provides New Halo Vehicle; Maintaining Valuation",
    "source": "Morningstar",
@@ -1318,34 +1330,22 @@
    "published": "2026-09-14T20:12:33+00:00"
   },
   {
-   "title": "Tesla Stock Drops as Musk Adds to the Chorus of AI Concern",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1Xanh5YmpPYm5GQVJHNDY1ZjFxWkE4b2NmUkw3WlVFNklrWHJHZk5UY0k5M1dBV2YwVGpRbldHZ1NaS0d5d1pBcHhHWDRiTkRRRzUwZGlPMXJWNGp2WE8yRmY4TnFpNjMySEZuTGhtcEs3cDg0OW85b1hkckE?oc=5",
-   "published": "2026-09-14T11:31:00+00:00"
+   "title": "I took Elon Musk's 'golden robot' for a test drive \u2014 and saw the Cybercab's strengths and weaknesses first-hand",
+   "source": "Business Insider",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5vMTBTSmxHSUhEVEZFTlh5ZTNMYXZOUUtfVE1nN3hZOUUzRXZZQWlBSGcteFdtVjhrWkxtTUtZX2l2UHprRnRMYnNOY2hWbU14MlZ6YVY0SnNLUXh4LVhIRmJtdWxwV09hRkRrdnpwVHdGQQ?oc=5",
+   "published": "2026-09-15T08:55:27+00:00"
   },
   {
-   "title": "Could Tesla stock really hit $400 again this year?",
-   "source": "Yahoo Finance UK",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOc2YwaWNhbEZzWmZHVEVxdnhVWlpNSDdiaVBIRVozUlFlVjB0c1dJY3ZETXktM1BwMEd1UXhnNk1oTHNxb3hqZjlUbnQ0Q2hBcTVUWWlRYUxqRXBTcDZGUDVSemhkUW1mNG9tSTV1b3R4Wi1sUmRGUFpIQlUwRjQ0WnctZw?oc=5",
-   "published": "2026-09-14T14:33:25+00:00"
+   "title": "Elon Musk's $1 Trillion Pay Package Needs Tesla to Hit an $8.5 Trillion Market Cap. Here's What That Means for Shareholders.",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNNUNGQ1ZPakhLVGk3aEp0TmQtQzU0RU5pRVJiOEFWdHBnZFFXcUxYTUhfMC00M2F2M1VxR0ItUk5rQjJWYk4wOC1zRFNpOEZ4UkdCSzRXZHNqXzNJUUp0TjZTYTlodkc1MlY2Rmh4cWY1VUgxcW55blQ2TFp2YlVVdVVoSDZ0MGxFYnJuLTlIcGpTZDVL?oc=5",
+   "published": "2026-09-15T13:50:00+00:00"
   },
   {
-   "title": "If You'd Invested $1,000 in Tesla Stock 1 Year Ago, Here's How Much You'd Have Today",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxObWFpenpvWTBYMmhkdGVUM0tfaXJ4bEtNWF9aTWdfdTZZUTZibWl6QjYxUVRGZFRwMkhZVmNQWkFkZ3N1YnpfSE5mOENtcVpJOVhuTnB5RWtzVjNlNUUtSWdRamRzeWZ4T0RsTkx1QW5SQUZ4ZEpSSHdTcl8zcGtuYW1YbkhUUG5fbjRmdEltMGkxX3JRWU9Tdw?oc=5",
-   "published": "2026-09-14T22:13:19+00:00"
-  },
-  {
-   "title": "The New Tesla Roadster Is Finally Actually Probably Maybe Coming on October 1, Elon Musk Says",
-   "source": "Edmunds",
-   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE4zZkU1RGVabXUyc05ibExwWThsQ0xJQk9kd25JMHpsYjZPWVlFMW52eE9nZktGR1dJQlBmUzhZZUd5TVloOHFzLTBmMnhUZER0NXNDdE94eXdHek1OUVd0RURDeC1wdUZiMWxTYV9IUkltUQ?oc=5",
-   "published": "2026-09-14T18:13:54+00:00"
-  },
-  {
-   "title": "Elon Musk Plans New Tesla Roadster Unveiling In October; The Stock Slips",
-   "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1yUU1peWVXdlFieFFBTFRzUnBwcnZYU18xd3cwTTdha25kUlhrVlR3QmxiRGJFTzBOdjZiX0JFZWhXWDI0cXpxZU1hTDREUk5ZTzQ3Sk5oMUU3RkRmdFZyOWpJUjJLZGhjaUdMMHYyMGkyWTVMOW9vM0RXblVLUE0?oc=5",
-   "published": "2026-09-14T13:36:00+00:00"
+   "title": "Tesla Takes Back America",
+   "source": "24/7 Wall St.",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1UUXk2UWR2eGQzSmNBWWhUdGZqRkg2TjdDdzBMSURCMlo5UXg0QXJmRTR2eWk5Vzd6eHVHSjZNNzRKVzkwc3JnSkpxUkxrc29SM0tRX1NfS2RXMFV6ZlF0R1BlcWxSQ3lLNHBYVjdncU9XNmF3dHg0?oc=5",
+   "published": "2026-09-15T13:39:00+00:00"
   }
  ]
 }

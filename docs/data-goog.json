@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-14T22:27:46+00:00",
+ "generated_at": "2026-09-15T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "21% ann. (p13)",
+   "value": "22% ann. (p16)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 12.7,
+    "pos": 15.9,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "13.3%",
+   "value": "14.4%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 13.3% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 14.4% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 26.6,
+    "pos": 28.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.1 (p49), F&G 31",
+   "value": "VIX 17.4 (p54), F&G 30",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 2d",
+   "value": "FOMC in 1d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 345.71,
-  "day_change_pct": 3.06,
-  "sma50": 344.97,
-  "sma200": 335.73,
+  "price": 340.9801,
+  "day_change_pct": -1.37,
+  "sma50": 344.49,
+  "sma200": 335.82,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 13.4,
+  "drawdown_pct": 14.5,
   "series": [
-   {
-    "d": "2025-12-24",
-    "c": 315.67,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-26",
     "c": 314.96,
@@ -1215,6 +1209,12 @@
     "c": 345.71,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-15",
+    "c": 340.9801,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,23 +1222,23 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+3.8% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+5.2% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 21%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 22%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-14",
-  "days_total": 721,
+  "end": "2026-09-15",
+  "days_total": 722,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-09-15",
   "baseline": {
-   "n": 700,
+   "n": 701,
    "avg_pct": 3.23,
    "median_pct": 3.17
   },
@@ -1260,9 +1260,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 334,
-    "avg_pct": 4.16,
-    "median_pct": 4.36
+    "n": 335,
+    "avg_pct": 4.14,
+    "median_pct": 4.35
    },
    {
     "tone": "caution",
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 345.71,
-  "sma200": 335.73,
+  "price": 340.9801,
+  "sma200": 335.82,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 21.0
+  "level": 21.5
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 2,
+  "days_until": 1,
   "imminent": true
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 30
+  "days_until": 29
  },
  "earnings": {
   "next": null,
@@ -1303,19 +1303,37 @@
  },
  "backtest": {
   "start": "2022-09-15",
-  "end": "2026-09-14",
+  "end": "2026-09-15",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 45374.55,
-  "dca_return_pct": 116.07,
-  "dip_value": 45476.82,
-  "dip_return_pct": 116.56,
+  "dca_value": 44753.75,
+  "dca_return_pct": 113.11,
+  "dip_value": 44854.62,
+  "dip_return_pct": 113.59,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "New insights from Google\u2019s AI & Economy ATLAS",
+   "source": "blog.google",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQci1iaU9DaGZFOUNHZWNQSm9SNnNVVHExa3YxSHpZY2pUWVo2b1V0R3RqTVBxNFBmeDJ0YzRCSWFBRTc5SkJEZzhqQ3lfSkp6RXZjQ3NYSDB4bTlPY2xNbE5WaVJUeGczUHB4d1hmeHIwT0FEV1lxRk5lNmRyZmo1QXhBdHc2RUtGU0I1aQ?oc=5",
+   "published": "2026-09-15T13:05:27+00:00"
+  },
+  {
+   "title": "Google DeepMind Staffer Says AI May \u2018Kill Us All\u2019 in Exit Post",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOWlE2MjY2eV9RNmNZNjU5RkEyTTN0aTRtYmI5RHJfQVRHTzBNdEJsbndEc0taM29oU1JTZmV5dnVOX0NiX0UxZEY3SlRiY094NEJ1MUN4UWpnMjcxa3g2R2h5d2pDUXhNS0dUTWhTaWdEcTllbU82b2o5R3BMU3A1aXhKZzN4cFdQNEJCeHdXT0hoN1MyQlVtN2tVQQ?oc=5",
+   "published": "2026-09-15T02:39:00+00:00"
+  },
+  {
+   "title": "Google Opens Singapore Engineering Center to Build and Export Enterprise Cloud and AI to the World",
+   "source": "Google Cloud Press Corner",
+   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQLTl0M3Rpdlh6TDNaVWpCTGtCelJqY0Q3ZHoyV2ozV1RvdFAzbHFGMmd3eWpFUkhDVnN2WUJRLXlMdWpTMk0zbHlVWEJyUVYzOVpZWUFTVUpaNUpIbWM5XzgzNWhNdTRJZk1JN2lfU1phLTFLdTJrODFxQ050UDVteHF5RnhTN2Y2Q2FEeXpkV2JtNXEwOE9JM3FFam04ODhpQkRHXy1sNkRzWDVTaVplSDU5R21Wand5c1VEYUZQeHBlNW9naXRUZ2laXzh1aG5Ga3c5MHBkUGlYeFFmYl9BUnhn?oc=5",
+   "published": "2026-09-15T11:19:46+00:00"
+  },
   {
    "title": "Alphabet has been in a correction since May. Katie Stockton sees the Google parent breaking out",
    "source": "CNBC",
@@ -1323,34 +1341,16 @@
    "published": "2026-09-14T18:00:01+00:00"
   },
   {
-   "title": "Why Google and Meta Stocks Are the Big Winners From the Latest AI Concerns",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5RR3JsN0djU2JiMVZvbVduTm1wTk1KVGlUZHFvTVU5aEd3c1FqclFQUTI2eXloa1F1VVFJU3R6Q3R6NmFtQzhFMVBROFJ5TERITUFzeU1LV3Z1aGpWV1R0dUktd0EwSUV2WS1nZmRPTXFMUFZ4aE13bEtWUQ?oc=5",
-   "published": "2026-09-14T19:51:00+00:00"
+   "title": "Google Finally Lets All Engineers Use Anthropic's Claude",
+   "source": "Business Insider",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObHU4alVHZ2FzblRRM2QyNVdONXh0OEtnb050LW9ySGFZNkl6NGQ1N1dZUUZ4TGI4cUsydEtxVUh4MEpBYThCZnI0UjJfVHlOUll3algza2w5RzhfM0JyanFxMjhkeVlOb2FXNXh4RHMyc0NVbGhhYnZmQUtKd0x1UGtlNi1kN2pBeWd2eUtucjYxT1lyVndUbW13?oc=5",
+   "published": "2026-09-14T22:35:00+00:00"
   },
   {
-   "title": "Google rolls out pay-per-value AI licensing program to publishers",
-   "source": "Digiday",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQU3d4S0tWd3c4bEtDZnRrQllJLWtFT19jZXdaanhJbUVXbXhhVGxvWGxHM1I3aExNcS0taWlibFd2T1g1M1FYVWNUZG5aR0JiTG9OMEd1ekFHZHpHb2FrQ05kQy05OXRObDZ5RWM2U1ZWdkE5all6aTk0ZXJGOXY4SnVEM3VoT0ZfeVNxSXFieXY1UQ?oc=5",
-   "published": "2026-09-14T09:22:03+00:00"
-  },
-  {
-   "title": "Exclusive: Netflix, Amazon, YouTube launch new streaming coalition",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNeE54cHhFM1hhU3ZQTHd1Qko3Z0tmYjZ4LTlmM2JsazZEbm9NSUJGZDZQeEE2dkRlTnR4VExwUmc5VlJRWlN1YXBINWdmR25RNU9maDhfU1FEbEk1bURmdjVWcVVmWG9XSHFwRUxER05RLWZzNUFHQWpfbW42eWZlNg?oc=5",
-   "published": "2026-09-14T13:26:45+00:00"
-  },
-  {
-   "title": "DevFest is back",
-   "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPb19FSjhrdXpheGlaRHJLLVZ2MllzUzBHWXRBSk05bmhyLV8wbWNmd1NZYkkwcFRZc1VGdDJPZTZQVkFESjVDUjBUREpiVlNiWThEeU5xbHhyaGdMTHJJYjAzN0tkbDlENzB6Y0VGZHpSSlV0NlN6M1ozdlAwU2ZPT0NWVEw?oc=5",
-   "published": "2026-09-14T16:15:25+00:00"
-  },
-  {
-   "title": "I spent weeks putting up with Google TV Streamer lag before discovering this quick settings fix",
-   "source": "Android Police",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNMU5Nc2ZsQjgwZFdtc2hSNXZUZ3BrNERfeno0NEhpOXV2ZWxJVUZxZ3I3QW9NQ1lVdWRsUnFCcTVDYUx5cGU0YUJnTDhxSl83bjdLNm5xN2V5UHZ2OWgwUmFfV0E2ZGdvU2JuQ216aVlONl9HQV9seXNNSjZaTlR3akk1WkRDejNoYm5SdWxVeThGQTVMS1J1ZFFLcXhlNGRvcWNBNUZCRzJrLWdBQzk4?oc=5",
-   "published": "2026-09-14T15:15:10+00:00"
+   "title": "Indian police to query Google over 500,000 fake Gmail IDs linked to bomb hoax",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPOGJCa18yR0ZJdFUxdEhiWTNYQXo3cjA2WW5hSDNfc3V0V2NpOHdkUVdvbVpqN2JOdU83QzczemNJSjJSdk8zcXZTVEJfY0Zzbm41c3BSVEp6d19kTHF6MDBUajRhaE9VTnFwbXhDNjRpVHVyWGRYNUEyMnVGd2ExSFRjVjQyOG40NkZMVVdqbWhtNGlKX1dhZ2FqNGxBS01YVFV1cU02NFVmUmVVTU5JVUdB?oc=5",
+   "published": "2026-09-15T12:49:39+00:00"
   }
  ]
 }
