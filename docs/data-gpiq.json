@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-15T22:11:42+00:00",
+ "generated_at": "2026-09-16T14:30:14+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.3 (p37)",
+   "value": "21.8 (p31)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 37.1,
+    "pos": 31.3,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.89",
+   "value": "0.88",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 47.1,
+    "pos": 44.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -69,7 +69,7 @@
    "lean": "neutral",
    "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 54.2,
+    "pos": 53.6,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+9.2 pts",
+   "value": "+9.7 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.9%",
+   "value": "3.3%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 39.0,
+    "pos": 33.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-0.5%",
+   "value": "+0.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
+   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 45.8,
+    "pos": 51.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.71% (+0.04 1mo)",
+   "value": "2.76% (+0.06 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 17.8,
+    "pos": 19.0,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.3% vs 4.1% cash",
+   "value": "10.2% vs 4.1% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 61.5,
+    "pos": 60.8,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -227,7 +227,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 28.7,
+    "pos": 29.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 1d",
+   "value": "FOMC in 0d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 55.7,
-  "day_change_pct": -0.5,
-  "sma50": 56.54,
-  "sma200": 54.59,
+  "price": 56.06,
+  "day_change_pct": 0.65,
+  "sma50": 56.52,
+  "sma200": 54.6,
   "high52w": 59.52,
-  "drawdown_pct": 6.4,
+  "drawdown_pct": 5.8,
   "series": [
-   {
-    "d": "2025-12-26",
-    "c": 53.51,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-29",
     "c": 53.32,
@@ -1343,15 +1337,16 @@
     "c": 55.7,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-09-16",
+    "c": 56.06,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
  "flips": [
-  {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "QQQ has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
-  },
   {
    "label": "Extreme fear",
    "direction": 1,
@@ -1360,29 +1355,29 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.3) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.71%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.76%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-15",
-  "days_total": 722,
+  "end": "2026-09-16",
+  "days_total": 723,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-15",
+  "fg_coverage_start": "2025-09-16",
   "baseline": {
-   "n": 701,
-   "avg_pct": 1.9,
+   "n": 702,
+   "avg_pct": 1.89,
    "median_pct": 2.1
   },
   "bands": [
@@ -1403,14 +1398,14 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 456,
-    "avg_pct": 1.26,
-    "median_pct": 1.66
+    "n": 457,
+    "avg_pct": 1.25,
+    "median_pct": 1.65
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.26,
+  "ttm_yield_pct": 10.19,
   "tbill_3mo": 4.11
  },
  "distributions": {
@@ -1520,33 +1515,33 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 704.54,
-  "sma200": 661.14,
+  "price": 709.56,
+  "sma200": 661.61,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 22.26
+  "level": 21.78
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 1,
+  "days_until": 0,
   "imminent": true
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 29
+  "days_until": 28
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-15",
+  "end": "2026-09-16",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15200.0,
-  "dca_value": 20378.29,
-  "dca_return_pct": 34.07,
-  "dip_value": 20150.18,
-  "dip_return_pct": 32.57,
+  "dca_value": 20510.0,
+  "dca_return_pct": 34.93,
+  "dip_value": 20280.42,
+  "dip_return_pct": 33.42,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 61,
   "winner": "dca"
@@ -1556,19 +1551,7 @@
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-15T19:30:28+00:00"
-  },
-  {
-   "title": "Making sovereign, open-weight AI the technology frontier",
-   "source": "mistral.ai",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRzU0cTlwNHctb0FiY092UVlJZFh4UmxsQ2lPLTdkVEU2SlRzVU12VzI2RGRYWEFqS2NMcVlXdXNTUGczTjFTbjZGMXY4bHhZYXN6bVpGQ0M0cndmMmthYjhUcGhPWlZsb1ZWeHhHOUdZWE93bTdUMjBNMzZQNTR6Mw?oc=5",
-   "published": "2026-09-15T13:57:31+00:00"
-  },
-  {
-   "title": "Musk urges top AI labs, Chinese companies to test each other's models amid calls for slowdown",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9keDdSVmlFNGR6UkprRmZ3U2tLQk5zWXJBcnY1aGVVY0xPdmRxX2lLREtoSy1DU1JUOFlTcG5McldLUGt6RGZIckNRaU94Q1NVVGdUZ19NOVdfNjZqSldyV19CZml0SFA4OGZqNkQwTllPUdIBd0FVX3lxTE9lOFBWNUxHYU8yNlRQcHAxalc0Z3lMSDdxb00zOE04ZkNOWFYwaW1nVE9STmNUU0d6ZHFxME1HTUJ5WG56OVdpMG53T1ZCYnJYS0ZqSEU2SFBfZXpJZTZ4anJvNHpYSEVqLVlPaEtnV28xWHQ5ZEtV?oc=5",
-   "published": "2026-09-15T15:02:58+00:00"
+   "published": "2026-09-16T10:36:50+00:00"
   },
   {
    "title": "We Must Pace the Frontier",
@@ -1577,16 +1560,28 @@
    "published": "2026-09-12T14:15:02+00:00"
   },
   {
-   "title": "Congress Has Plenty of Ideas to Regulate A.I. Nearly All Are Stalled.",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQMFZfY0lzMjNZc05fRGhjcXQ1bXZPRFhGa0JXbWRYaGJ3SnN2Q1VxLXJuT25IeWRIX3lVX1hRcVBsdHBzWFE5OXBDbFFKWWpOZXozbzhqekhiSnE1TmtxWHhBUEV0QTRQSk50Z1dZeTlkcmlFb0UyOFdlODVlN2VjN1B5aW5zTlU?oc=5",
-   "published": "2026-09-15T14:49:33+00:00"
+   "title": "Poll: Americans say there\u2019s a serious risk of AI destroying humanity",
+   "source": "Politico",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNNUc0MTYzZ2FSRUQ0c0doT3lBUl9yV3FzVG5VVFhFSFNLaFdOMjdsdmM5d1hYWEVkWkE1MU1ZRFpWSEU0Q2VkZmR5NnZwVVBCMFQwd1k2dGhXT1V0R1Z2NmxLRm5pRHcwdEpPdk1yUW5ObTZNcnJYNzZ4aGJFWGJkTktBSUticDhpemtnUjR4cGhjemtmN0J4ajZnclU?oc=5",
+   "published": "2026-09-16T09:45:00+00:00"
   },
   {
-   "title": "New insights from Google\u2019s AI & Economy ATLAS",
-   "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQci1iaU9DaGZFOUNHZWNQSm9SNnNVVHExa3YxSHpZY2pUWVo2b1V0R3RqTVBxNFBmeDJ0YzRCSWFBRTc5SkJEZzhqQ3lfSkp6RXZjQ3NYSDB4bTlPY2xNbE5WaVJUeGczUHB4d1hmeHIwT0FEV1lxRk5lNmRyZmo1QXhBdHc2RUtGU0I1aQ?oc=5",
-   "published": "2026-09-15T13:05:27+00:00"
+   "title": "As campaign season gears up, AI-generated ads are everywhere",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPa2Q0X3JGcEZ5S2JsTk5nRGhNSjdmTjlrTTJyX2ZKNmdLeG9aeTVCTlF1eG9TaUwwTmJSUzVicS1LT29YVzNuMjZpYVl1NEh5N1REaVhMcVF2Z29JamFkRVFzQnE4SmZEdzMwV3NuZ0poYks5RW0taWl3OThKdmgzeA?oc=5",
+   "published": "2026-09-16T09:00:00+00:00"
+  },
+  {
+   "title": "An aging Congress attempts to regulate AI without using it",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBhdEQxVkVJbzhEVDNLdHh1Qlk1TzVfc0h5VjYySERScGpuZVdLbDJZRXlrX0htYzdnZUJ2Z1U1c0xSTGxLV2E4WWJySEM5NWh4c3dyVmZocUhzb0J5Zm9XRkFNcEdTbHNMc1FTWlVURUVjMGY2U3lvWnV2dw?oc=5",
+   "published": "2026-09-16T09:34:34+00:00"
+  },
+  {
+   "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+   "source": "blogs.nvidia.com",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE15OTJ6NjdTOEl1aTB3N08yYkU1Z3JiZjBDNnJjeXBzNHlJeFJ6aWh6ZVBiUGxhWmRPSk1iVXNLWXBFbWNhWDdGX3JuN2txV0RDYnk4NTJ6WHI2MG4wNzF3d1RsN0hnU0k5UVRsWA?oc=5",
+   "published": "2026-09-16T13:07:24+00:00"
   }
  ]
 }

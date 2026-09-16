@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-09-15T22:11:43+00:00",
+ "generated_at": "2026-09-16T14:30:15+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 65,
+  "sessions": 66,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~65 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~66 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-6.5% in 5 sessions",
+   "value": "no pullback",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 65 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 66 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 56.6,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -41,7 +41,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "42% ann.",
+   "value": "46% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "32.1%",
+   "value": "28.4%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 32.1% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 28.4% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 64.2,
+    "pos": 56.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "65 sessions",
+   "value": "66 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 65 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 66 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.2 (p51), F&G 29",
+   "value": "VIX 16.9 (p43), F&G 29",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -80,7 +80,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 1d",
+   "value": "FOMC in 0d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -88,13 +88,13 @@
   }
  ],
  "fund": {
-  "price": 143.49,
-  "day_change_pct": -3.15,
-  "sma50": 134.46,
+  "price": 151.31,
+  "day_change_pct": 5.45,
+  "sma50": 134.5,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 32.1,
+  "drawdown_pct": 28.4,
   "series": [
    {
     "d": "2026-06-12",
@@ -485,6 +485,12 @@
     "c": 143.49,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-16",
+    "c": 151.31,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -492,14 +498,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-09-15",
-  "days_total": 65,
+  "end": "2026-09-16",
+  "days_total": 66,
   "backfilled_days": 40,
-  "fg_coverage_start": "2025-09-15",
+  "fg_coverage_start": "2025-09-16",
   "baseline": {
-   "n": 44,
-   "avg_pct": -2.62,
-   "median_pct": 4.0
+   "n": 45,
+   "avg_pct": -2.48,
+   "median_pct": 3.59
   },
   "bands": [
    {
@@ -519,9 +525,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 44,
-    "avg_pct": -2.62,
-    "median_pct": 4.0
+    "n": 45,
+    "avg_pct": -2.48,
+    "median_pct": 3.59
    }
   ]
  },
@@ -531,22 +537,22 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 143.49,
+  "price": 151.31,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 42.1
+  "level": 45.6
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 1,
+  "days_until": 0,
   "imminent": true
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 29
+  "days_until": 28
  },
  "earnings": {
   "next": null,
@@ -555,14 +561,14 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-09-15",
+  "end": "2026-09-16",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1500.0,
-  "dca_value": 1505.96,
-  "dca_return_pct": 0.4,
-  "dip_value": 1491.87,
-  "dip_return_pct": -0.54,
+  "dca_value": 1588.03,
+  "dca_return_pct": 5.87,
+  "dip_value": 1573.18,
+  "dip_return_pct": 4.88,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 14,
   "winner": "dca"
@@ -575,34 +581,34 @@
    "published": "2026-09-15T13:54:03+00:00"
   },
   {
+   "title": "SpaceX scrubs Vandenberg launch of national security payload, targets backup window on Wednesday",
+   "source": "Spaceflight Now",
+   "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNc2FQMWhncGJYdUlqcENJaEMyOG1jdWxZODU5OEFTOGFvNl9qTTR1NC1TZlcxYmp4MEJ6SkFYUHMwN0hja3NKVWdWeHM3WC1uOGtBcHVqSTFZOXJQdS0wTFRGOUlvSVlndV9zdDBqTWNNMkRBeE8xOTl2NXdIWTRuMGtvOHRjLWx5SU1SNktmVVJQWmU3bFN3T2ZiSElwV2NqcXhQLXJEM1NCOEZtc1I1S3Q4SVNnRnVCTmttRE1MRXBxOXh3VmI5V25SSUYwMjBXSWtpbVNCZFV3S1ZrM2pBMjRrMEJfaUh0M1E?oc=5",
+   "published": "2026-09-16T01:29:22+00:00"
+  },
+  {
+   "title": "SpaceX Stock Rises Ahead of a Key Test Flight for Starship",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQeWlDdWdtN1Awd2hxRWRSdnNJZy1IRFhqandPVkhKZUZ3YlNrMEVHWFlqV2JYVkkzZjFfNm0wMVBLbnN2c2ZTc3piREN3THlXcnZHaDVYUk9LNkhobzZFMEtPdjhjc1h4ZkZ6elBsYTdoUU13UU1sTTdyeWFwbW5meQ?oc=5",
+   "published": "2026-09-16T12:01:00+00:00"
+  },
+  {
+   "title": "SpaceX declares Starship ready for orbit, sets launch date next week",
+   "source": "arstechnica.com",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNQXdMbFpqcVFoanVfd2xaU3ZQOWlfdVZRbGYwZ3k0aGd6VnUwNHlveUZyRHQzX2ZzWkNlQzFqVUpxWTZ5OUdSS0ttSTRzRFp1TE8yTk92Tk1JbU5QSHE4c0l0R3RpOVRiZ3E5RXZ4SXR5NWthM0ZlanNIM01xR1FiSE9jVzl0Q25XeVpJQzBsa0NQdXV3dnJWbWtwZkk?oc=5",
+   "published": "2026-09-15T18:48:08+00:00"
+  },
+  {
+   "title": "Space Force gives SpaceX latitude on design of $2.3 billion satellite network",
+   "source": "SpaceNews",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQQ1BPcERJc1BNQTlEdGRVT0tYaVVrV01iQTVmRDNnYVhKNEZQbnZ2UWFRYmozMnN0MHJkdVhhelRqS0NxMlNheW9vMnVFQUpSd25EWUtySGNDN2JFWjgyMmxrbGVHSUttbFQ3WEJNR0JJVDhNWVlkbkhseDV2X2FRTFVGNXpKZE1XanF3cE8wbjhLNmc2QnhKWEpKSHFmVDV3?oc=5",
+   "published": "2026-09-16T13:32:49+00:00"
+  },
+  {
    "title": "SpaceX's next Starship launch will lift off on Sept. 22 and aim to reach orbit for 1st time",
    "source": "Space",
    "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOSWZjNDV3RzBrMnJyMUpaSlNKVi1vQlA3TTBNUVBBT0RVZzA0dGN6b3UwS1M0Wmg2ZllMSzVTVW5DY2RvWTFMcHQ4RjF0Y2d0dGZPT2xnVlQ3LXlpMU1SekxCYTV0ZTdhbVJnVE16bXM2VjJ4clVUY1piWU1uQnhZQ2lDdFlNSC1DeHdzb1ZjSDNuek9RcGE4V0VrN3NvR0VOQjZqNHhEMUhvM0ZZX2EzM1JBcVhuaDYtVUNPclNGdUdaVzlzQ2dDTi1sRTVCbnlQcWxsV3BWZzhVc2R0Y0t3QlBoNA?oc=5",
    "published": "2026-09-15T18:33:25+00:00"
-  },
-  {
-   "title": "SpaceX Readies For Starship Flight 14 Next Week, Musk Plans Ship Catch",
-   "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONjQ0aEg5TnVBU0dVaVo1OXNUZFV1T0VKVE0zUEo2YzF4YTlkeV9ZTlVfb1NOTmNJWnFrRE40cTdwbWFsU1ZBWGROcEFfLTRTMXdiZFF2QUJLRTRSUU5fdGIxUHN5ZVlNbTFDOVVEY1I0RTVUZjg3Mld3X1NXNlYyREozdGNrTm1BWExLS1ZicW4?oc=5",
-   "published": "2026-09-15T20:30:00+00:00"
-  },
-  {
-   "title": "Musk hints (again) at possible SpaceX, Tesla merger",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPUkNXbXBxQU9BdU43UTRHNVF0WjJUVTBrUGFIeURUbTU1VVVqQ3U2YkRQQ1VyWHdUdlRvTmU2NkhsbGUtZDZWeER6bWgyYkpIY2hmVVhUVE13ZmQ0bWxsaC03M0VHOVR5alBwb043SWl4dkFkMmhjV1JKcUlaWTlzSV9NcXcyRjdKWmRVbzF5dGV2eklMNk1kc0ZRZDlHTlpDWW5CLW9hQzkzT25KVWJXNGhB?oc=5",
-   "published": "2026-09-15T13:50:29+00:00"
-  },
-  {
-   "title": "Live coverage: SpaceX to launch national security payload for the U.S. Space Force on Falcon 9 rocket from Vandenberg",
-   "source": "Spaceflight Now",
-   "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNc2FQMWhncGJYdUlqcENJaEMyOG1jdWxZODU5OEFTOGFvNl9qTTR1NC1TZlcxYmp4MEJ6SkFYUHMwN0hja3NKVWdWeHM3WC1uOGtBcHVqSTFZOXJQdS0wTFRGOUlvSVlndV9zdDBqTWNNMkRBeE8xOTl2NXdIWTRuMGtvOHRjLWx5SU1SNktmVVJQWmU3bFN3T2ZiSElwV2NqcXhQLXJEM1NCOEZtc1I1S3Q4SVNnRnVCTmttRE1MRXBxOXh3VmI5V25SSUYwMjBXSWtpbVNCZFV3S1ZrM2pBMjRrMEJfaUh0M1E?oc=5",
-   "published": "2026-09-15T21:34:20+00:00"
-  },
-  {
-   "title": "SpaceX will try to put Starship in orbit for the first time on September 22",
-   "source": "techcrunch.com",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQVHZYTlJjZThxNVpBVG1ta0J3TG16VXMtZzZ2T2VJdk9Za1Q1VV85M2s4WkpBRFNzc1E0UWRoVnA1Q1N6alV0ZENnMktFMHpZNWxHUHNvQTY0QU95VGlxSWpYUzdjeWNlM0ppRm1zNTRqc2dPWEI3WDJYdi1TUkQtLUVJSXNYNk1WTjNtajQxWEFGV2w3ZVVoeW5Vd3VrOFdDUW9UcjRFbHhCR1dPMERN?oc=5",
-   "published": "2026-09-15T18:16:07+00:00"
   }
  ]
 }

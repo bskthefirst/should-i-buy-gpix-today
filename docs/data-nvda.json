@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-09-15T22:11:44+00:00",
+ "generated_at": "2026-09-16T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated single-stock condition is in your favor on NVDA today. Nothing dramatic - and single-stock risk still dwarfs entry timing. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
-  "tone": "ok",
-  "score": 1.5,
-  "score100": 59,
+  "label": "No edge either way",
+  "summary": "None of the scored NVDA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-5.9% in 5 sessions",
+   "value": "-3.8% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 60.7,
+    "pos": 74.9,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "45% ann. (p90)",
-   "score": 1.5,
+   "value": "45% ann. (p88)",
+   "score": 0.0,
    "weight": 1.5,
    "lean": "good",
-   "note": "NVDA's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on NVDA): elevated single-name chaos tended to mark better entries on the calibrated name.",
+   "note": "Realized volatility elevated vs NVDA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
    "viz": {
-    "pos": 90.5,
+    "pos": 88.1,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "9.8%",
+   "value": "8.6%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 9.8% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 8.6% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 19.6,
+    "pos": 17.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.2 (p51), F&G 29",
+   "value": "VIX 16.9 (p43), F&G 29",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 1d",
+   "value": "FOMC in 0d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 212.17,
-  "day_change_pct": 0.57,
-  "sma50": 213.24,
-  "sma200": 197.79,
+  "price": 214.996,
+  "day_change_pct": 1.33,
+  "sma50": 213.6,
+  "sma200": 197.96,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 10.0,
+  "drawdown_pct": 8.8,
   "series": [
-   {
-    "d": "2025-12-26",
-    "c": 190.53,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-29",
     "c": 188.22,
@@ -1215,27 +1209,38 @@
     "c": 212.17,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-09-16",
+    "c": 214.996,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
+   "label": "Top-decile volatility",
+   "direction": 1,
+   "text": "20-day realized vol above 45% annualized (now 45%) = top decile of its year (+9 pts)"
+  },
+  {
    "label": "Falling-knife zone",
    "direction": -1,
-   "text": "NVDA at $211.68 (-0.2% from here) enters the 10-20% falling-knife band (\u22129 pts)"
+   "text": "NVDA at $211.68 (-1.5% from here) enters the 10-20% falling-knife band (\u22129 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-15",
-  "days_total": 722,
+  "end": "2026-09-16",
+  "days_total": 723,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-15",
+  "fg_coverage_start": "2025-09-16",
   "baseline": {
-   "n": 701,
-   "avg_pct": 5.49,
-   "median_pct": 3.37
+   "n": 702,
+   "avg_pct": 5.47,
+   "median_pct": 3.36
   },
   "bands": [
    {
@@ -1255,8 +1260,8 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 375,
-    "avg_pct": 3.94,
+    "n": 376,
+    "avg_pct": 3.91,
     "median_pct": 1.92
    },
    {
@@ -1274,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 212.17,
-  "sma200": 197.79,
+  "price": 214.996,
+  "sma200": 197.96,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 45.3
+  "level": 44.9
  },
  "fomc": {
   "next": "2026-09-16",
-  "days_until": 1,
+  "days_until": 0,
   "imminent": true
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 29
+  "days_until": 28
  },
  "earnings": {
   "next": null,
@@ -1298,54 +1303,54 @@
  },
  "backtest": {
   "start": "2022-09-16",
-  "end": "2026-09-15",
+  "end": "2026-09-16",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 81673.82,
-  "dca_return_pct": 288.92,
-  "dip_value": 81891.48,
-  "dip_return_pct": 289.96,
+  "dca_value": 82761.67,
+  "dca_return_pct": 294.1,
+  "dip_value": 82982.22,
+  "dip_return_pct": 295.15,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Nvidia and Anthropic CEOs diverge on AI safety at Dreamforce: Huang says fast vs. pacing is 'false choice'",
+   "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+   "source": "blogs.nvidia.com",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE15OTJ6NjdTOEl1aTB3N08yYkU1Z3JiZjBDNnJjeXBzNHlJeFJ6aWh6ZVBiUGxhWmRPSk1iVXNLWXBFbWNhWDdGX3JuN2txV0RDYnk4NTJ6WHI2MG4wNzF3d1RsN0hnU0k5UVRsWA?oc=5",
+   "published": "2026-09-16T13:07:24+00:00"
+  },
+  {
+   "title": "Apple Considers Return to Server Market, Has Talked With Nvidia to Use Network Tech",
+   "source": "The Information",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNMHdQT2Zxd0JVbjFqZzExRndyakw5Q0loY1cwYTR1dk9xNDRXMmdyWlh4bWNkQmFDTU5wUFhvZ3NmVlV2b285TXoyN1RMbGt4RXpwMllPSDFyWThld2RMWEdyTWpzN01ManE1UFpYTDZmeGhod3c0QXJTcE1KZ2VuNkZfTVlQYzlyUTdicFhVcHh0RnU2X0QtWUhDX1p1a1dSNnNKN0ZxOGdoa2s?oc=5",
+   "published": "2026-09-16T13:00:00+00:00"
+  },
+  {
+   "title": "Apple considers Nvidia tech for return to server market, The Information reports",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPZUItV2dPTnNzdl9Fd0RxZlFSWm5fTGwwMmpYc3hBYThTellLMWhESUprY3UyME5SdWtVNVBmWmpJbllMRkYyOGc4d3liVlYxdlgyX2JWYnRRWUluUWd0Tm1fY2ptd2w0MHNYNkZKS2FOR3ktSkxuc0FBUnYxc01sdGVXN1RfRVZ2Z1h1bzBPa0htT2tsYVRfVzV0a0F1Vnpua3RRT2FadUwwdnotaG5RcHItNlZadw?oc=5",
+   "published": "2026-09-16T13:25:29+00:00"
+  },
+  {
+   "title": "Meta CEO Mark Zuckerberg sides with Nvidia's Huang on AI safety and slowdown debate",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNamhBSWgtcmZwTVRVOXlnbGZMN2R1bDFlMWEtV21wUXFmUGVoWW5vQWNVbU55OEE0T0lWMUFlMXFZVGdvNmN0TElFUGNkQUlwQ01hU09aUEZIZlBjd0lMbGJMOVJHbmhOSTNRaHU0cXBnNmRVQ2lTb21odDUzOGlRQ1phSTRDUDVucThHQjNncjI1Q1pMOVV0WlotdDVpUdIBowFBVV95cUxNQW5ST21vbGJyUWYzcHVFZFJOZUgzTEJ3TWFkS3Y4Nm9fQ2w3c3puMnJqaFBpbl9CVG5Gd1RSZUVGQmJqLVZaN0dBZ0dOWEZNb3IxMDBtaGhWNGllb29aZERqeGxibHhnakZJRDgxeF9oa1NDSGV2YzYwa3plQ0dhZU43aHJNb1MyUlZRRm1hb1BZRVpZRVF4LUd1OWNQXzJpZFpr?oc=5",
-   "published": "2026-09-15T20:00:16+00:00"
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQamJwVnJmQjRaczZCX3ZrNkktNHJ2cWtsZk13cGZsZWwwaVJPMHRhVmtiZjY1OXNkclU4RmN1OElzRFdRSm9DeWF3dHFtSjE3Q3BIMG8yX25vdkhJdXJJQUI5OTRma2pFRjViVnlfekZMMXl5X2RnRVd5VmxEY2FNbWdUaHJJMTRwTk5pSTFMOF80SjRQVVp2SG5n0gGfAUFVX3lxTE9BaENab2dUdmlkWGJ2TzJVT0V2eDRLakRpdFh0c05zb1lkQ29hMW5XcWw1VU1vdmJMSmtVcFp1Y1JjSXh6SWZkOEF4YXpZMWlCR3c4b0VnbW9aX1c4NG9OWjYwVkE4NHh1UENkVVdRdlBIbGVJYl96TEFNdC1zS05Lbkw3NGIxTnF3QmZhWlVhenU4am9zak16QUM3bDJMNA?oc=5",
+   "published": "2026-09-16T01:56:00+00:00"
   },
   {
-   "title": "Announcing Koa: Salesforce\u2019s First CRM Reasoning Model, Built on NVIDIA Nemotron",
-   "source": "Salesforce",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPWEZFRTRaU3FBVEVKVi1vYTdhLWJrNlVOaXZINDQ5aWo5dXB2Z3p6UmRiZTlWdWRXSTlEVU52XzJhZXpaaXQ1LUk3NmdMR0hlOTNmS2tROVE5MnVZUjRHWXk2WEJLcERYZVN1NUxqSnVWa2xsVldZMW14Ynk0dzhJaGlLajQ?oc=5",
-   "published": "2026-09-15T13:48:35+00:00"
+   "title": "Nvidia Stock Rises as Meta\u2019s Zuckerberg Weighs In on AI Safety After Trump",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1FbHAwcnlPcmtPbVZMLTVLTWZXaFk0bnlUcG4zR1Y4U0Y1QUdnV3BtcUJCWVdPekdYZ2dFV2xvTEdwc3RCUzZPMGRRdDJmci16ZUJzQjlsN1QweDBlLXQ3OHRsVGlFRjFWNWV1RWtmYWpjeTZKU2gxaEFadUk0c28?oc=5",
+   "published": "2026-09-16T13:57:00+00:00"
   },
   {
-   "title": "NVIDIA Expands Open Source CUDA-Q Platform for Fault-Tolerant Quantum Computing",
-   "source": "NVIDIA Newsroom",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPMjBPVXRfZFRUYmRtTUVFSXVfaUdHNTBFNjFONTkxWDhMMmUzRjBPcjdvRmNKbVNTLUxodExCS2RDZ1p2ZzhaaVM2ZTlFbUxmSnVfaWlaaTFnTzJHT09iMlZXTVRoTGxHNl9mS1NoZWJ1bDBPeXQyaFRUUEJyZGJJM3ZKOTZ1Nk03d3dnYk5YN3VFYm9RRnpYc0VabmUzb2lLZENBcUU2Z3B3ekd0YWtzcEtxRUg?oc=5",
-   "published": "2026-09-14T13:06:29+00:00"
-  },
-  {
-   "title": "Artificial Intelligence",
-   "source": "Congresswoman Veronica Escobar (.gov)",
-   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE0zdmNuTnE1MUVGMnhqTlQxSXE4aUhFdi13cDBGeUdSV0NNZU9TQ3RuY0ducElIcDB6OV9pTXhNQlhwWldWM1hzX05iOXQ3YnM3UGc4S2s0amlfOTJyU0c4LVhSNA?oc=5",
-   "published": "2026-09-15T15:51:06+00:00"
-  },
-  {
-   "title": "Salesforce and Nvidia\u2019s new reasoning model is everything the AI labs should fear",
-   "source": "techcrunch.com",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNX3pZRml4TGIxQ2pRYVM1WTV3SUFNSTlBTlY4bkNtS3l0cW5abWwtQkxSV2szVEdmTVRrWmk0NDlVOW9NNW5rd2tEaUtGRGdQdkNId3RrME1udWV0V0FvMi1GcUJpeFhWVEcwQ3hMc3BFQWJLcV90dUl1Z2tJa2xwcm5TcjZCMWZxRTRpN0pqb2NueE9tb19EOEFONnV0QXpjSDc4RDVRYU5nQWY3WXFLRjZWRHk0Zw?oc=5",
-   "published": "2026-09-15T12:00:00+00:00"
-  },
-  {
-   "title": "Nvidia\u2019s Huang Says AI Industry Doesn\u2019t Need Any New Laws",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOSy1EZDJFX3BiWVdvWkZkOWVhcUl0TTduVWJoR3BveE9yUlZyeXhsU2lzdXk5bDFYT2NpYWpGZnVKUEZmSklraXRzY0l1UnJEN1l1ZDdjeDNZaG11WDFfaW1ldjBLSEhMLWhaX2JtZEUwclRPTzJFbDM4ckJ6RFdtNS1QUUZqa183ZGZzMzNldlpMWXB4bWdOa1lxX0thUDhBdWZGSHdNSllZcnNV?oc=5",
-   "published": "2026-09-15T19:20:14+00:00"
+   "title": "Generative AI Accelerates Quantum Optimization | IonQ & NVIDIA",
+   "source": "IonQ",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPSGl5bXNIU3FULU4ySU1Na3dsSlZIeWxrRVhIUGxDNGJJSWs1NzZLU2hKcHF6RC1EelRkUlFrSmxXQjcwd3RrVktpT2pjb3U3Q2pOUWw3VnMxR081UlZyRVVNb2wxWTFBVDhhWV9rUFE1OWR5TlpXLWRhMzVJS2t6RTZhc0NCUFJ5Z2NqZUFDX05iMFJNemxWeHpOTFJQMWhSN2F6Y0l6REpHZi1qbkF0UTJQNmdfVmc3SHBIWUUwcEtjYzdXRXk0c0tYVlQ5cjFvd0FwQg?oc=5",
+   "published": "2026-09-16T13:56:26+00:00"
   }
  ]
 }
