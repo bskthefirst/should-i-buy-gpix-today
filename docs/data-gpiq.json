@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16T14:30:14+00:00",
+ "generated_at": "2026-09-16T17:43:04+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.8 (p31)",
+   "value": "21.4 (p28)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 31.3,
+    "pos": 27.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.88",
+   "value": "0.87",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 44.1,
+    "pos": 43.7,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.29x (p54)",
+   "value": "1.27x (p44)",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 53.6,
+    "pos": 43.7,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+9.7 pts",
+   "value": "+9.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.3%",
+   "value": "3.4%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 33.0,
+    "pos": 34.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.2%",
+   "value": "+0.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 51.7,
+    "pos": 50.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 60.8,
+    "pos": 60.9,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "29 (fear)",
+   "value": "28 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 29.0,
+    "pos": 28.5,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 56.06,
-  "day_change_pct": 0.65,
+  "price": 56.02,
+  "day_change_pct": 0.57,
   "sma50": 56.52,
   "sma200": 54.6,
   "high52w": 59.52,
-  "drawdown_pct": 5.8,
+  "drawdown_pct": 5.9,
   "series": [
    {
     "d": "2025-12-29",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-16",
-    "c": 56.06,
+    "c": 56.02,
     "t": "ok",
     "s": 59
    }
@@ -1350,17 +1350,17 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 29) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 28) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.87) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.8) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1405,7 +1405,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.19,
+  "ttm_yield_pct": 10.2,
   "tbill_3mo": 4.11
  },
  "distributions": {
@@ -1515,13 +1515,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 709.56,
+  "price": 708.98,
   "sma200": 661.61,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.78
+  "level": 21.42
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1538,10 +1538,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15200.0,
-  "dca_value": 20510.0,
-  "dca_return_pct": 34.93,
-  "dip_value": 20280.42,
-  "dip_return_pct": 33.42,
+  "dca_value": 20495.37,
+  "dca_return_pct": 34.84,
+  "dip_value": 20265.95,
+  "dip_return_pct": 33.33,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 61,
   "winner": "dca"
@@ -1551,7 +1551,7 @@
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-16T10:36:50+00:00"
+   "published": "2026-09-16T13:37:18+00:00"
   },
   {
    "title": "We Must Pace the Frontier",
@@ -1560,28 +1560,28 @@
    "published": "2026-09-12T14:15:02+00:00"
   },
   {
+   "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+   "source": "NVIDIA Blog",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE15OTJ6NjdTOEl1aTB3N08yYkU1Z3JiZjBDNnJjeXBzNHlJeFJ6aWh6ZVBiUGxhWmRPSk1iVXNLWXBFbWNhWDdGX3JuN2txV0RDYnk4NTJ6WHI2MG4wNzF3d1RsN0hnU0k5UVRsWA?oc=5",
+   "published": "2026-09-16T13:07:24+00:00"
+  },
+  {
+   "title": "Opinion: Arch Manning's AI video comments are unacceptable",
+   "source": "wbaltv.com",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQVUt2MFdURlZjVDZYZHFIcElEeVdMYlFTMUx5MGphNnI4ckJlNUsxS0hqOUN2elpQV2l3UUlsZzRJTTJXVDdNaE10SG1TQlNqOXk5QW9lZ0JCM3JncVJqUS1tRHJnYlFpR211dEVtQ3BJUFc3ZTZEQ2ZkbU41RGJnNHdBbTJGaGZWZ2RrMXBmcXM1OUpCWXc?oc=5",
+   "published": "2026-09-16T14:51:50+00:00"
+  },
+  {
+   "title": "Mistral x Mozilla: Private, Multilingual AI Browsing",
+   "source": "mistral.ai",
+   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1qUXZCU1U0dnN2R2h5TjJuejZqY1prMTdHaFJXM0xSbmp5VXk5MmhBanlmRG9NTEhKdEtjNUJfMnhTcC1ub2t4Sm04S3o3SjB2YlI2VA?oc=5",
+   "published": "2026-09-16T08:00:12+00:00"
+  },
+  {
    "title": "Poll: Americans say there\u2019s a serious risk of AI destroying humanity",
    "source": "Politico",
    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNNUc0MTYzZ2FSRUQ0c0doT3lBUl9yV3FzVG5VVFhFSFNLaFdOMjdsdmM5d1hYWEVkWkE1MU1ZRFpWSEU0Q2VkZmR5NnZwVVBCMFQwd1k2dGhXT1V0R1Z2NmxLRm5pRHcwdEpPdk1yUW5ObTZNcnJYNzZ4aGJFWGJkTktBSUticDhpemtnUjR4cGhjemtmN0J4ajZnclU?oc=5",
    "published": "2026-09-16T09:45:00+00:00"
-  },
-  {
-   "title": "As campaign season gears up, AI-generated ads are everywhere",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPa2Q0X3JGcEZ5S2JsTk5nRGhNSjdmTjlrTTJyX2ZKNmdLeG9aeTVCTlF1eG9TaUwwTmJSUzVicS1LT29YVzNuMjZpYVl1NEh5N1REaVhMcVF2Z29JamFkRVFzQnE4SmZEdzMwV3NuZ0poYks5RW0taWl3OThKdmgzeA?oc=5",
-   "published": "2026-09-16T09:00:00+00:00"
-  },
-  {
-   "title": "An aging Congress attempts to regulate AI without using it",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBhdEQxVkVJbzhEVDNLdHh1Qlk1TzVfc0h5VjYySERScGpuZVdLbDJZRXlrX0htYzdnZUJ2Z1U1c0xSTGxLV2E4WWJySEM5NWh4c3dyVmZocUhzb0J5Zm9XRkFNcEdTbHNMc1FTWlVURUVjMGY2U3lvWnV2dw?oc=5",
-   "published": "2026-09-16T09:34:34+00:00"
-  },
-  {
-   "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-   "source": "blogs.nvidia.com",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE15OTJ6NjdTOEl1aTB3N08yYkU1Z3JiZjBDNnJjeXBzNHlJeFJ6aWh6ZVBiUGxhWmRPSk1iVXNLWXBFbWNhWDdGX3JuN2txV0RDYnk4NTJ6WHI2MG4wNzF3d1RsN0hnU0k5UVRsWA?oc=5",
-   "published": "2026-09-16T13:07:24+00:00"
   }
  ]
 }
