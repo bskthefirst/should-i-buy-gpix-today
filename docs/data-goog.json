@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-16T17:43:08+00:00",
+ "generated_at": "2026-09-16T22:07:47+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "21% ann. (p14)",
+   "value": "22% ann. (p16)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 14.3,
+    "pos": 16.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "14.3%",
+   "value": "14.8%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 14.3% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 14.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 28.6,
+    "pos": 29.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.8 (p43), F&G 28",
+   "value": "VIX 17.7 (p58), F&G 26",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 341.7399,
-  "day_change_pct": 0.09,
-  "sma50": 344.06,
-  "sma200": 335.93,
+  "price": 339.36,
+  "day_change_pct": -0.61,
+  "sma50": 344.01,
+  "sma200": 335.91,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 14.4,
+  "drawdown_pct": 15.0,
   "series": [
    {
     "d": "2025-12-29",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-16",
-    "c": 341.7399,
+    "c": 339.36,
     "t": "caution",
     "s": 41
    }
@@ -1220,14 +1220,19 @@
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "GOOG has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
+  },
+  {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+5.0% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+5.7% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 21%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 22%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1279,13 +1284,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 341.7399,
-  "sma200": 335.93,
+  "price": 339.36,
+  "sma200": 335.91,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 21.4
+  "level": 21.5
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1302,31 +1307,37 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-16",
+  "start": "2022-09-19",
   "end": "2026-09-16",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 21000.0,
-  "dca_value": 44854.34,
-  "dca_return_pct": 113.59,
-  "dip_value": 44956.24,
-  "dip_return_pct": 114.08,
+  "invested": 20900.0,
+  "dca_value": 44211.4,
+  "dca_return_pct": 111.54,
+  "dip_value": 44300.62,
+  "dip_return_pct": 111.96,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-   "source": "NVIDIA Blog",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE15OTJ6NjdTOEl1aTB3N08yYkU1Z3JiZjBDNnJjeXBzNHlJeFJ6aWh6ZVBiUGxhWmRPSk1iVXNLWXBFbWNhWDdGX3JuN2txV0RDYnk4NTJ6WHI2MG4wNzF3d1RsN0hnU0k5UVRsWA?oc=5",
-   "published": "2026-09-16T13:07:24+00:00"
+   "title": "Alphabet (GOOG) Surges 24% as Revenue Growth Soars \u2014 But Is $190 Billion in Capex Too Much?",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPb1JpSXVSTnlST1F6UmlZbENuSjktbXRwWS1ZVzBIdWQ3aE1jaW1FSThCTVpYYTFOYVo3MmloVTl5RlRjeTJiZGVaNTFja3l4Q0xhQVdXTjVyWnBVWVFWbS1fWXhyMldjamdXZ2k3TnpqS0p1eHpjN2hMbzU3M05XeFJQLUFjaXQxMW15U05LUXctVWdTb2g4djV4dVo?oc=5",
+   "published": "2026-09-16T12:30:12+00:00"
   },
   {
-   "title": "Google shares update on Chicago Thompson Center renovation plans, shares renderings",
-   "source": "ABC7 Chicago",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOTno0b0tDQUZUdGc1dWd5UkFIb01zbi00eENaMmtpYW8tZXhaRkgzLW80RlA2cG4zX3ZnOGo3cm5VZ1dPQUR1cFdaUlBpdGJfN0RiU0JYTHlGaTlKMnVrS2VoX0RtZWZ0cXE2MkpHb1paaVBqeHg2bVBYcUE4Q1JQUXZZOTdkd2ZVVWdYX2VUYUFRZFhFbUkxcWFEcjNWbVhhb2NIdEpqczNTSVI5dDFUY2pQN24tVUMyYWV5Y9IBwgFBVV95cUxNZWtGYjRsY012N0k5S0hpV0d4MWFaaFVLMk9aTDlibE5HeUswdmIzcFdvcmhXM3FaR0JuV25kTlRVdEwyY3gtblNvZUZCRFNuZ0hhQTZZUWlYVHRKYmRBOWgzcENmUnM0MXUyLXlSZDAtZEFSX3ZVVmVmSDYzdzJJTjYweF9RaUpNSDFESUxuMVFpR2tLUEFCdnZDcS1kUVlEeFZaeER3OUdsd3A4SXdJdzBCaFprTmhoSFY3ZEpscEp3Zw?oc=5",
-   "published": "2026-09-16T13:06:57+00:00"
+   "title": "Google agrees biggest carbon-removal deal yet, aims to scale new model",
+   "source": "reuters.com",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQeF81T2ZrdkRFdzRqQmRfWEs2YlhIellqQ0VPMDAxT0NBSWppb0VyNDJBRkYzNFQ5bDVycFJJQU1EYkh0c29IalRVTmtYTE5ncUp6N1lLSWYwNHFzdmhVZ3ZSS09CUVRna1BPRW40R2dadHZkWVh4TG5GU21zdlI3U3kzeWtOWVk2UXc5anF2S3dibXFYWVIxX3BTWW5zMUNaVmt2NVhpaDVOWTdHbFlOUHljTjU5c0lDNnc?oc=5",
+   "published": "2026-09-16T16:20:49+00:00"
+  },
+  {
+   "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+   "source": "blogs.nvidia.com",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE15OTJ6NjdTOEl1aTB3N08yYkU1Z3JiZjBDNnJjeXBzNHlJeFJ6aWh6ZVBiUGxhWmRPSk1iVXNLWXBFbWNhWDdGX3JuN2txV0RDYnk4NTJ6WHI2MG4wNzF3d1RsN0hnU0k5UVRsWA?oc=5",
+   "published": "2026-09-16T13:07:24+00:00"
   },
   {
    "title": "Reimagining Chicago\u2019s Thompson Center for the next generation",
@@ -1335,22 +1346,16 @@
    "published": "2026-09-16T05:24:04+00:00"
   },
   {
-   "title": "Google says some Pixel phone owners were hacked in zero-day attacks",
-   "source": "TechCrunch",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOVk4yQVI0WmY4TjQ5RG1VaU1ZMzdRellZQkNEVHRONVVPczdYT21HT0hDSHZNRnpGUGdpZlhpdDlSU0JfbmVDYUw0T2RjSlFteHhsbEpSNzZhMDZMSURCYUdMM01ncU1tczQ1Vnhsb0wyNW9HU1JkQkxFRFQ2LWIzYWkyaWh3NThtQV93WVJiQ3FUY1ZNcjFfZ2p6WmdUdURwaVpBVg?oc=5",
-   "published": "2026-09-16T14:47:07+00:00"
+   "title": "YouTube Down for Thousands of Users Wednesday, Downdetector Shows",
+   "source": "GV Wire",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQQ2tHZ04tdXd4NERMTWxxd1phUGt5VnJPN1RfSnRKREFxRElHa1N0Z0pHb2J3cHdnNU9xX3NBQ05lbGFPSmdNME4tVUlISzdEZFdYS0x3MFRtRjQwTjhCLWNKdTdHQlhfdEp0Q21LTWN0WWtfVTF5Nk1BMGFOVnN5X1FNSzlJZE1hRDZ6bUpLOWl0X0pJRHlvenN2Yw?oc=5",
+   "published": "2026-09-16T18:37:53+00:00"
   },
   {
-   "title": "Google Patches Pixel Modem Flaw Amid Signs of Limited Targeted Exploitation",
-   "source": "The Hacker News",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxONUVvWVpNTjBXSUxEM2lsRWR5TWExQWd1ajVYaDVmM0pvN2xMRzgtS3BqUWtIbEtBVUVtUjJVRUpXX3IzVEo4WWhaVFFfTUFfM2NKNGFDTUhGemNOREdLbjR0ZlVsb2tBM0dtcmZ5X0VhbWpuQm1lM2t4Zl9od0NfMQ?oc=5",
-   "published": "2026-09-16T14:41:41+00:00"
-  },
-  {
-   "title": "Is There Anything Google\u2019s Fruit Fly Brain Can\u2019t Do?",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPZW5SQUlmUy1jX01YYUNLbm1nSmVDNUFGVU1tR09FZ3hBQkNqdUZuWmxVb2c4U0laSG5LdUZpbFJwaHdEOHBJcVNLLWpqd29RcGpxZ1JBanJfb2M1WjA3dExYeXdrclFlM0hHcUJHYWFmZzVLdUl5TnZZem5sbmtKa05GRQ?oc=5",
-   "published": "2026-09-16T13:37:00+00:00"
+   "title": "Salesforce and Google Service Outages Strike on Day 2 of Dreamforce Conference",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPLUttOG1nNmFJY1lWUFp2MmJseGxUYzZCWVEtUm8wZnZlb05LYmRpaUlJcmJLems1cnl5a1pHd21kcDl2d245ei1YbnJxVWphcVdLekJ3S3NhalhsR1pLNmhnZkl0ZDFqdjZDNll3S2UycGxnVmNnR05RYnVoMjR6aG45OWdWbEZOQi03YjhHWHpfNzBkQmc?oc=5",
+   "published": "2026-09-16T18:26:00+00:00"
   }
  ]
 }

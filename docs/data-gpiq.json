@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16T17:43:04+00:00",
+ "generated_at": "2026-09-16T22:07:43+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.4 (p28)",
+   "value": "22.4 (p38)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 27.8,
+    "pos": 38.2,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.87",
+   "value": "0.90",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 43.7,
+    "pos": 49.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.27x (p44)",
+   "value": "1.27x (p40)",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 43.7,
+    "pos": 40.2,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+9.4 pts",
+   "value": "+10.7 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.4%",
+   "value": "3.9%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 34.0,
+    "pos": 39.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.1%",
+   "value": "-0.4%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
+   "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 50.8,
+    "pos": 46.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.2% vs 4.1% cash",
+   "value": "10.3% vs 4.1% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 60.9,
+    "pos": 61.5,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "28 (fear)",
+   "value": "26 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 28.5,
+    "pos": 26.5,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 56.02,
-  "day_change_pct": 0.57,
-  "sma50": 56.52,
+  "price": 55.72,
+  "day_change_pct": 0.04,
+  "sma50": 56.51,
   "sma200": 54.6,
   "high52w": 59.52,
-  "drawdown_pct": 5.9,
+  "drawdown_pct": 6.4,
   "series": [
    {
     "d": "2025-12-29",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-16",
-    "c": 56.02,
+    "c": 55.72,
     "t": "ok",
     "s": 59
    }
@@ -1348,19 +1348,24 @@
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "QQQ 5-session return -1.6% - another -1.4% = short-term reversal (+12 pts)"
+  },
+  {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 28) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 26) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.87) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.90) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.4) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 22.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1405,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.2,
+  "ttm_yield_pct": 10.26,
   "tbill_3mo": 4.11
  },
  "distributions": {
@@ -1515,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 708.98,
-  "sma200": 661.61,
+  "price": 704.72,
+  "sma200": 661.59,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.42
+  "level": 22.44
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1538,20 +1543,38 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15200.0,
-  "dca_value": 20495.37,
-  "dca_return_pct": 34.84,
-  "dip_value": 20265.95,
-  "dip_return_pct": 33.33,
+  "dca_value": 20385.61,
+  "dca_return_pct": 34.12,
+  "dip_value": 20157.42,
+  "dip_return_pct": 32.61,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "Congress is under pressure to act on AI \u2014 here's what that could look like",
+   "source": "npr.org",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1YZG5lTDY5Q0dSVFJRbXFPQXBMOWtDTzJHQmFnXzlObXlSNU8yU0dQWWRRdFZFUVFWREo5VzI4VnlaZmZqcGhNMlZiRDF0REJFY2hGNy1WX1oydkNGQzVMUVdDNXJQYWFaeDRPTE1xLW9oUDJuU1E?oc=5",
+   "published": "2026-09-16T17:32:44+00:00"
+  },
+  {
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-16T13:37:18+00:00"
+   "published": "2026-09-16T16:42:59+00:00"
+  },
+  {
+   "title": "The Quiet Way A.I. Is Hitting the Work Force",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9fN1J4VEllRVd5dTBaMlpDazlYUUxodnA1d2dYbnF1ZHl4UlJKVUpsY0pkYU91bXJuM09VM1RaT3Q0YW1makJRVWpXVnZYMWFxMTJkM0cxUjF5bWhGQlQ2UFFvMFI0cjJyalNFN29pWGdNeVk?oc=5",
+   "published": "2026-09-16T14:34:35+00:00"
+  },
+  {
+   "title": "There's one issue where Republicans and Democrats are unified before the midterms, a new poll finds",
+   "source": "AP News",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOTXRuY2Jucy1oTW9YNF9ZaXEybXMtMENxZGQ3Y3ItU2JSTW5DNlJ5VzV4S0Fua2EzZ1dKLWtTS3JTQjdUaEozNGQ1U2E3cnpzSzllaE1oaVlIZW9rT1dMM1AtR2RyWFBqdjdWTk8tcmw4VVk1TmM3TUxYelV3bURteGwzX2tRSDFodC1kYURZeFVJaEFPbUV0QktQdUxDR2wteXo1NQ?oc=5",
+   "published": "2026-09-16T20:42:00+00:00"
   },
   {
    "title": "We Must Pace the Frontier",
@@ -1560,28 +1583,10 @@
    "published": "2026-09-12T14:15:02+00:00"
   },
   {
-   "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-   "source": "NVIDIA Blog",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE15OTJ6NjdTOEl1aTB3N08yYkU1Z3JiZjBDNnJjeXBzNHlJeFJ6aWh6ZVBiUGxhWmRPSk1iVXNLWXBFbWNhWDdGX3JuN2txV0RDYnk4NTJ6WHI2MG4wNzF3d1RsN0hnU0k5UVRsWA?oc=5",
-   "published": "2026-09-16T13:07:24+00:00"
-  },
-  {
-   "title": "Opinion: Arch Manning's AI video comments are unacceptable",
-   "source": "wbaltv.com",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQVUt2MFdURlZjVDZYZHFIcElEeVdMYlFTMUx5MGphNnI4ckJlNUsxS0hqOUN2elpQV2l3UUlsZzRJTTJXVDdNaE10SG1TQlNqOXk5QW9lZ0JCM3JncVJqUS1tRHJnYlFpR211dEVtQ3BJUFc3ZTZEQ2ZkbU41RGJnNHdBbTJGaGZWZ2RrMXBmcXM1OUpCWXc?oc=5",
-   "published": "2026-09-16T14:51:50+00:00"
-  },
-  {
-   "title": "Mistral x Mozilla: Private, Multilingual AI Browsing",
-   "source": "mistral.ai",
-   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1qUXZCU1U0dnN2R2h5TjJuejZqY1prMTdHaFJXM0xSbmp5VXk5MmhBanlmRG9NTEhKdEtjNUJfMnhTcC1ub2t4Sm04S3o3SjB2YlI2VA?oc=5",
-   "published": "2026-09-16T08:00:12+00:00"
-  },
-  {
-   "title": "Poll: Americans say there\u2019s a serious risk of AI destroying humanity",
-   "source": "Politico",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNNUc0MTYzZ2FSRUQ0c0doT3lBUl9yV3FzVG5VVFhFSFNLaFdOMjdsdmM5d1hYWEVkWkE1MU1ZRFpWSEU0Q2VkZmR5NnZwVVBCMFQwd1k2dGhXT1V0R1Z2NmxLRm5pRHcwdEpPdk1yUW5ObTZNcnJYNzZ4aGJFWGJkTktBSUticDhpemtnUjR4cGhjemtmN0J4ajZnclU?oc=5",
-   "published": "2026-09-16T09:45:00+00:00"
+   "title": "Reimagining research papers as interactive and reliable AI agents",
+   "source": "Nature",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE14OXhicHZBTDBkdVFiUDJ4OU1KMC1zWF9EMzRjTlZsRVp6NVVaR3cxdVhoY1AtRkJyZHpKOThZNUtXcDBjclY3enU0a1ludWtONzRUb2poNlZYeDlMNVFn?oc=5",
+   "published": "2026-09-16T15:51:35+00:00"
   }
  ]
 }

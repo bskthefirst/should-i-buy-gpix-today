@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-16T17:43:07+00:00",
+ "generated_at": "2026-09-16T22:07:46+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-3.8% in 5 sessions",
+   "value": "-4.3% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 74.7,
+    "pos": 71.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "45% ann. (p88)",
+   "value": "45% ann. (p87)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "good",
    "note": "Realized volatility elevated vs NVDA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
    "viz": {
-    "pos": 88.1,
+    "pos": 87.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "8.6%",
+   "value": "9.1%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 8.6% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 9.1% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 17.2,
+    "pos": 18.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.8 (p43), F&G 28",
+   "value": "VIX 17.7 (p58), F&G 26",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 214.925,
-  "day_change_pct": 1.3,
-  "sma50": 213.6,
-  "sma200": 197.96,
+  "price": 213.9,
+  "day_change_pct": 0.82,
+  "sma50": 213.58,
+  "sma200": 197.95,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 8.8,
+  "drawdown_pct": 9.3,
   "series": [
    {
     "d": "2025-12-29",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-16",
-    "c": 214.925,
+    "c": 213.9,
     "t": "neutral",
     "s": 50
    }
@@ -1227,7 +1227,7 @@
   {
    "label": "Falling-knife zone",
    "direction": -1,
-   "text": "NVDA at $211.68 (-1.5% from here) enters the 10-20% falling-knife band (\u22129 pts)"
+   "text": "NVDA at $211.68 (-1.0% from here) enters the 10-20% falling-knife band (\u22129 pts)"
   }
  ],
  "report_card": {
@@ -1279,13 +1279,13 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 214.925,
-  "sma200": 197.96,
+  "price": 213.9,
+  "sma200": 197.95,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 44.9
+  "level": 44.8
  },
  "fomc": {
   "next": "2026-09-16",
@@ -1302,15 +1302,15 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-16",
+  "start": "2022-09-19",
   "end": "2026-09-16",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 21000.0,
-  "dca_value": 82734.33,
-  "dca_return_pct": 293.97,
-  "dip_value": 82954.81,
-  "dip_return_pct": 295.02,
+  "invested": 20900.0,
+  "dca_value": 80713.24,
+  "dca_return_pct": 286.19,
+  "dip_value": 80850.18,
+  "dip_return_pct": 286.84,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dip"
@@ -1318,15 +1318,21 @@
  "headlines": [
   {
    "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-   "source": "NVIDIA Blog",
+   "source": "blogs.nvidia.com",
    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE15OTJ6NjdTOEl1aTB3N08yYkU1Z3JiZjBDNnJjeXBzNHlJeFJ6aWh6ZVBiUGxhWmRPSk1iVXNLWXBFbWNhWDdGX3JuN2txV0RDYnk4NTJ6WHI2MG4wNzF3d1RsN0hnU0k5UVRsWA?oc=5",
    "published": "2026-09-16T13:07:24+00:00"
   },
   {
-   "title": "Apple weighs Nvidia technology for potential server market return, The Information reports",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPZUItV2dPTnNzdl9Fd0RxZlFSWm5fTGwwMmpYc3hBYThTellLMWhESUprY3UyME5SdWtVNVBmWmpJbllMRkYyOGc4d3liVlYxdlgyX2JWYnRRWUluUWd0Tm1fY2ptd2w0MHNYNkZKS2FOR3ktSkxuc0FBUnYxc01sdGVXN1RfRVZ2Z1h1bzBPa0htT2tsYVRfVzV0a0F1Vnpua3RRT2FadUwwdnotaG5RcHItNlZadw?oc=5",
-   "published": "2026-09-16T14:36:24+00:00"
+   "title": "Coast Guard debuts new collaboration and research hub on artificial intelligence",
+   "source": "United States Coast Guard (.mil)",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPVWk0bGVJdm9YYWxjbzlnV3dqQjdTSlc4VUFlVldob20zSzMyVi1MUUNzUll6Q2t6MjN2M2Z4Wk9nVkpvUkVaYzlkaUFqdkxyRjA0WEtydzk3ckF2aTFOLXZEekJtVFlLS3BWcnpFZDF0amowajNFNXA5THhnczZqN3hVVzdITG95cXZBVFJZVGJMcUN2Vk1zbV9PNEV6djhLWlpGeUZHY1ZjdjZIYVN2WEZZWGV5N211ZDZMZzdtN1QxUFBSdWtj?oc=5",
+   "published": "2026-09-16T15:14:38+00:00"
+  },
+  {
+   "title": "Why It\u2019s Time to Load Up on Nvidia Stock",
+   "source": "barchart.com",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWkU1ejdycWlFSHlVYUlZSXZjWFVYanNxVGV2eW9rbkhmME5iSGVCblpPWkFKRjhtSWFFalNGdFFhQkJDMUgwd28yOW44X1ctQ2h6ZFJUZDNzTjlZeE4ydFpRZHF0MDdPdFBrVWY5MEw5SDd2QldVVnNQcUpuM0xtMWUtbjFiUmJjcC1Z?oc=5",
+   "published": "2026-09-16T18:30:25+00:00"
   },
   {
    "title": "Apple Considers Return to Server Market, Has Talked With Nvidia to Use Network Tech",
@@ -1335,22 +1341,16 @@
    "published": "2026-09-16T13:00:00+00:00"
   },
   {
-   "title": "Coast Guard debuts new collaboration and research hub on artificial intelligence",
-   "source": "United States Coast Guard (.mil)",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPVWk0bGVJdm9YYWxjbzlnV3dqQjdTSlc4VUFlVldob20zSzMyVi1MUUNzUll6Q2t6MjN2M2Z4Wk9nVkpvUkVaYzlkaUFqdkxyRjA0WEtydzk3ckF2aTFOLXZEekJtVFlLS3BWcnpFZDF0amowajNFNXA5THhnczZqN3hVVzdITG95cXZBVFJZVGJMcUN2Vk1zbV9PNEV6djhLWlpGeUZHY1ZjdjZIYVN2WEZZWGV5N211ZDZMZzdtN1QxUFBSdWtj?oc=5",
-   "published": "2026-09-16T14:10:17+00:00"
+   "title": "Apple weighs Nvidia technology for potential server market return, The Information reports",
+   "source": "reuters.com",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPZUItV2dPTnNzdl9Fd0RxZlFSWm5fTGwwMmpYc3hBYThTellLMWhESUprY3UyME5SdWtVNVBmWmpJbllMRkYyOGc4d3liVlYxdlgyX2JWYnRRWUluUWd0Tm1fY2ptd2w0MHNYNkZKS2FOR3ktSkxuc0FBUnYxc01sdGVXN1RfRVZ2Z1h1bzBPa0htT2tsYVRfVzV0a0F1Vnpua3RRT2FadUwwdnotaG5RcHItNlZadw?oc=5",
+   "published": "2026-09-16T14:36:24+00:00"
   },
   {
-   "title": "Meta CEO Mark Zuckerberg sides with Nvidia's Huang on AI safety and slowdown debate",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQamJwVnJmQjRaczZCX3ZrNkktNHJ2cWtsZk13cGZsZWwwaVJPMHRhVmtiZjY1OXNkclU4RmN1OElzRFdRSm9DeWF3dHFtSjE3Q3BIMG8yX25vdkhJdXJJQUI5OTRma2pFRjViVnlfekZMMXl5X2RnRVd5VmxEY2FNbWdUaHJJMTRwTk5pSTFMOF80SjRQVVp2SG5n0gGfAUFVX3lxTE9BaENab2dUdmlkWGJ2TzJVT0V2eDRLakRpdFh0c05zb1lkQ29hMW5XcWw1VU1vdmJMSmtVcFp1Y1JjSXh6SWZkOEF4YXpZMWlCR3c4b0VnbW9aX1c4NG9OWjYwVkE4NHh1UENkVVdRdlBIbGVJYl96TEFNdC1zS05Lbkw3NGIxTnF3QmZhWlVhenU4am9zak16QUM3bDJMNA?oc=5",
-   "published": "2026-09-16T01:56:00+00:00"
-  },
-  {
-   "title": "Tech giants launch flexible-power coalition for data centers",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQZ2RTdjdSZzdPNG9PZEo3cjBkdGxSN0NTcGJDblltNzlSTy1PR1hwOTVBbFZ2Yk5vTXQyZmlabjRtWWU0RlhZeGFIVmJENzUtZzlBRTF6RV9KdmJGSzdRMTVKeXk4ZW5wVHBZM1VxbERkLUxINVZRdGZkOERyNHBWdlFBOEFzOXN6WGViVGZyM01obXM?oc=5",
-   "published": "2026-09-16T14:12:56+00:00"
+   "title": "Nvidia Stock Rises as Meta\u2019s Zuckerberg Weighs In on AI Safety After Trump",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1FbHAwcnlPcmtPbVZMLTVLTWZXaFk0bnlUcG4zR1Y4U0Y1QUdnV3BtcUJCWVdPekdYZ2dFV2xvTEdwc3RCUzZPMGRRdDJmci16ZUJzQjlsN1QweDBlLXQ3OHRsVGlFRjFWNWV1RWtmYWpjeTZKU2gxaEFadUk0c28?oc=5",
+   "published": "2026-09-16T18:33:00+00:00"
   }
  ]
 }
