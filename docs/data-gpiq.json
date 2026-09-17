@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T14:30:13+00:00",
+ "generated_at": "2026-09-17T17:43:35+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "20.4 (p18)",
+   "value": "20.0 (p11)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 17.9,
+    "pos": 10.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.85",
+   "value": "0.84",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 36.8,
+    "pos": 35.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.29x (p51)",
+   "value": "1.28x (p45)",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 50.8,
+    "pos": 45.2,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+7.2 pts",
+   "value": "+6.8 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 93.7,
+    "pos": 89.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "2.5%",
+   "value": "2.4%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 25.0,
+    "pos": 24.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+1.0%",
+   "value": "+1.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 58.3,
+    "pos": 59.2,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 60.0,
+    "pos": 59.9,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "29 (fear)",
+   "value": "30 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 29.2,
+    "pos": 29.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 56.505,
-  "day_change_pct": 1.41,
+  "price": 56.56,
+  "day_change_pct": 1.51,
   "sma50": 56.5,
   "sma200": 54.62,
   "high52w": 59.52,
-  "drawdown_pct": 5.1,
+  "drawdown_pct": 5.0,
   "series": [
    {
     "d": "2025-12-30",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-17",
-    "c": 56.505,
+    "c": 56.56,
     "t": "neutral",
     "s": 50
    }
@@ -1350,22 +1350,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.23 (-0.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.23 (-0.6% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 29) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 30) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 20.4) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 20.0) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.11,
+  "ttm_yield_pct": 10.1,
   "tbill_3mo": 4.11
  },
  "distributions": {
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 715.99,
-  "sma200": 662.07,
+  "price": 716.54,
+  "sma200": 662.08,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 20.38
+  "level": 20.02
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1543,10 +1543,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15200.0,
-  "dca_value": 20672.8,
-  "dca_return_pct": 36.01,
-  "dip_value": 20441.4,
-  "dip_return_pct": 34.48,
+  "dca_value": 20692.93,
+  "dca_return_pct": 36.14,
+  "dip_value": 20461.3,
+  "dip_return_pct": 34.61,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 61,
   "winner": "dca"
@@ -1554,39 +1554,39 @@
  "headlines": [
   {
    "title": "Our framework for reporting model misalignment",
-   "source": "OpenAI",
+   "source": "openai.com",
    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5YcmZMVzhRdVd1WUM1QUhIZXZYSUxYZGh6WHptVzhyX1BOOWNIUlYtcW5XVV9Ec2VoNTVIU2JPUjRaX25VOWoyaVNBTVUwLUgyb1FBUEc3a0RyUS1SRjd3WG1fWlVZZkpJQUM1b0pydncwdw?oc=5",
    "published": "2026-09-16T22:03:21+00:00"
   },
   {
    "title": "OpenAI flags new concerning AI behavior, to track model misalignment regularly",
-   "source": "NPR",
+   "source": "npr.org",
    "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5wenVuMHkxd2dIMl9kOUdPblJhbUFSeWgxUWoxS21fOUdHNHZHbGVhMEVvUnJVMC1Wa1hFd0x5RlRSUFhpSXYtSzFCUE96bUNFUW9EMTN3OVQ3ZkRKX0gwSW8zOFBNR0FIMVFVT09ndktOWE8zTi1EcDdOOUM?oc=5",
    "published": "2026-09-17T06:44:49+00:00"
   },
   {
    "title": "King Charles Meets With A.I. Executives About Safety Risks",
-   "source": "The New York Times",
+   "source": "nytimes.com",
    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1pcWFqcU9MSHRRMW5NeG5SY3RhNjN4V3lxUkdSTEw5azZiaWp4Q08zbV9aVTM0WEN4S19BcUh6S01udko5OGtYbGRyY3VQWE52aGhGNnFjVHZFR2VOSWJMWjhfSjdKQnNMWGRabFdXQlRJZw?oc=5",
-   "published": "2026-09-17T13:03:15+00:00"
+   "published": "2026-09-17T16:00:43+00:00"
   },
   {
-   "title": "The turbulent AI era is here. The choices we make now are critical.",
-   "source": "gatesnotes.com",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-17T04:47:28+00:00"
+   "title": "Will AI really kill everyone? How, exactly?",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBaMGFOYXpEU2g2ZUE1dVdEQmQ2Ym1CMUhBa25Lb01EZ0ROY1RLVEx4NWhWc3QtbGpCQUsxaW9xVVVMOHNkSk9jdVczY3NuUi1WTjNDb0xEUGRyX19hSklrWTlzT2NROGpEdkE0Qk9kOXp0VkFkSGVfb0ZtME4?oc=5",
+   "published": "2026-09-17T13:00:30+00:00"
   },
   {
-   "title": "We Must Pace the Frontier",
-   "source": "darioamodei.com",
-   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFByRm5SZWdmLXZJN2RBM2hteVFFT0F2Qk5GVFozVEFmZHlaRVhYRmJNZ1pOS1I3MGstU1JvQldUeklNYjBUcDRGLTdDMGpnMzk5VTlxS0k4anFpRzFpMWhGeTBMYVY?oc=5",
-   "published": "2026-09-12T14:15:02+00:00"
+   "title": "Parolin \u2018concerned\u2019 over states \u2018going it alone\u2019 on AI",
+   "source": "Vatican News",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQS2UwWGYwMmF3aDdINWgza29WLW1UREw5bW9tQjVqMzVncjFmdjJXcnphYUpsR3BSTkd5d0UxNVVqTW5WenVfRC1FQnlKeEx0d0F3QnpTTGNWZ0EySVVwWUFQQ0R0TVUySDh6dDZxeGtCU0hrSjJsTTlEN01sQzBLUGVINmhrbG96Nm9CUk1HQ0w1Yk5KSzZaNndFLWh5VmJ6dzVwbVNkMWxTRnFsM0E?oc=5",
+   "published": "2026-09-17T15:04:53+00:00"
   },
   {
-   "title": "What are the world\u2019s biggest AI companies and how much are they worth?",
-   "source": "Al Jazeera",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZzlaalc4M1lYMERJcTFfSkt3SVJlVm1tQ3AyNzZ4VkY1TjUwQmZFb3c0LWVpNzhLMVFZSWw2Q01LUmNST1h0NFRZMzRDRXhWNk8zZktNa3VycUtNbVR0YjJsdnR3b2dGNlNXRExqRGdIS3FmRjFjX2FrRDVBVUVGWTRxa3VUOHNhVWp3dHNYWmlYZE1lRkdjYUJjSGNmSXdTMkJvbdIBqgFBVV95cUxNRFczRTQ3OFQ0Z3hpWHJDYTl0LU9Nc2FRNFhjeDdGOUxLRU9UMzNRREhZUDhLemIxdGUtS0E0bmcxNlZ6b0tYYVVTTi1ScTA2V2ViLVZ6NEY1SWh0NjdIQ0RkMU9BamF4MnBYM05oS1RVd3RfOFRDbzFZNkRoN21jeDlzQ1Z6aDduV0RjdVl4d2ZsUzJBOGZPYVQ3QlJsYmNnbi1IbnJUNnJJdw?oc=5",
-   "published": "2026-09-17T06:39:28+00:00"
+   "title": "AI has transformed the Pentagon\u2019s aging networks into a national security risk",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYWlZeXBDaEdjX3BLOGJ2WGJlbGtLMXVTMXNnNTZzNHRnLWNWaGtyUmplc3hEdVdpYnFnejVuRmV5REpNMHotWlFvTmpISXd1MENQb2xlWXYxTXA5cnVmYkNQMmtiSDFPSU5QQzdMbElOblpsWGlPSk9ES1ZEOEE1UXJvRVhPSms1LVBqZEdCdlNwMjR3YmRMWHVXd0ZTQ3FDNHo3Y0lhTEdoaE1ER21rUkl2WGkyMkNGMVN0SzJYWnFINXM?oc=5",
+   "published": "2026-09-17T16:00:00+00:00"
   }
  ]
 }

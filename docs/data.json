@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T14:30:12+00:00",
+ "generated_at": "2026-09-17T17:43:35+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.8 (p21)",
+   "value": "15.7 (p17)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 20.9,
+    "pos": 16.9,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.85",
+   "value": "0.84",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 36.8,
+    "pos": 35.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.4 pts",
+   "value": "+6.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 86.5,
+    "pos": 84.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.3%",
+   "value": "1.2%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 13.0,
+    "pos": 12.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+0.5%",
+   "value": "+0.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 54.2,
+    "pos": 55.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 41.0,
+    "pos": 40.9,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "29 (fear)",
+   "value": "30 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 29.2,
+    "pos": 29.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 55.55,
-  "day_change_pct": 0.89,
+  "price": 55.605,
+  "day_change_pct": 0.99,
   "sma50": 55.71,
   "sma200": 53.81,
   "high52w": 56.67,
-  "drawdown_pct": 2.0,
+  "drawdown_pct": 1.9,
   "series": [
    {
     "d": "2025-12-30",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-17",
-    "c": 55.55,
+    "c": 55.605,
     "t": "neutral",
     "s": 50
    }
@@ -1323,22 +1323,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.58 (-1.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.58 (-1.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 29) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 30) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.8) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.7) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1383,7 +1383,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.21,
+  "ttm_yield_pct": 8.2,
   "tbill_3mo": 4.11
  },
  "distributions": {
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 761.6297,
+  "price": 762.37,
   "sma200": 715.87,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.81
+  "level": 15.66
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1516,10 +1516,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15200.0,
-  "dca_value": 19612.09,
-  "dca_return_pct": 29.03,
-  "dip_value": 19391.76,
-  "dip_return_pct": 27.58,
+  "dca_value": 19631.51,
+  "dca_return_pct": 29.15,
+  "dip_value": 19409.57,
+  "dip_return_pct": 27.69,
   "dip_cash_uninvested": 1400.0,
   "dip_buy_days": 31,
   "winner": "dca"
@@ -1538,28 +1538,28 @@
    "published": "2026-09-16T23:42:00+00:00"
   },
   {
+   "title": "Fed Raises Rates in First Major Step by Warsh to Contain Inflation",
+   "source": "nytimes.com",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRXNJaUw1MEZvcHA2N19Dd0hBbjlCYkFqOFNjclNYRTl4WkxkRENSbnZ2b1djdnZEN2FXZjJWVktja1BINHUxNkp6dFNPTHdkYy1nWXNVSUV4U1RzazVUajhndFlwUU5NVU10WkJ6MmU0YUhsa2tMTUVoVmV0c1BidFU1OHFiOXZ0bkpoaHdjWjh1a2piWWVqSw?oc=5",
+   "published": "2026-09-17T13:31:00+00:00"
+  },
+  {
    "title": "Federal Reserve raises interest rates for the 1st time since 2023 - ABC News",
    "source": "Breaking News, Latest News and Videos",
    "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOYktxZlJxRVNrdUZFRWViQjVMLUh3OGJwNGhrVFpJY2E5QTAyajNfcnFSb09rZUVkSnVMUHd4WkpsYktvZGczX05nRzVhSTdKNWtfU2hWb09IYnNQQ01tTlMwMV95YzJkbWVDMklwZ19XMC1RNmVsckpGS3FpNUpiRlUxZkVtNXk5NE5YRnpBSTI4eEhVOWxaUlBzZDlxb3p1ZVBFeHFR0gGrAUFVX3lxTFBrZzU3UXhjRlBBblFYNzJZZ3dINVFwMnpIOFQwRlJ1NmRTa3JNUGlkamJyS08wRjM5UlFuMkRJcHAtUEQxYjF3b2Yyc2E2V1hOOEhQRHRPckpidllEOHpLRG9VUTFxSUwyaE95SzNNZ0pkemQwQkNBYkZPbTBpN0ZMYTBWU25nT3FrUVNNal9Eb0lCNnJwZTVFUVVhM0dDRlMzQ1pQTF8xRTV6bw?oc=5",
    "published": "2026-09-17T08:10:54+00:00"
   },
   {
-   "title": "Fed Raises Rates in First Major Step by Warsh to Contain Inflation",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRXNJaUw1MEZvcHA2N19Dd0hBbjlCYkFqOFNjclNYRTl4WkxkRENSbnZ2b1djdnZEN2FXZjJWVktja1BINHUxNkp6dFNPTHdkYy1nWXNVSUV4U1RzazVUajhndFlwUU5NVU10WkJ6MmU0YUhsa2tMTUVoVmV0c1BidFU1OHFiOXZ0bkpoaHdjWjh1a2piWWVqSw?oc=5",
-   "published": "2026-09-17T13:31:00+00:00"
+   "title": "Federal Reserve hikes interest rates for first time since 2023 amid stubborn inflation",
+   "source": "Fox Business",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNTkNGQWZwRUllRWhwM29vZGhCd0Z1TjVzSGtnUXZibzlBNnNNX0hobXRaempWb1k1bndFR0xaTk5yTllrRWFWQk00b3NDYVhQTDI2bUZWQW0xV3lCeUNuOFhEaVVQdnJGc3ZCQUY3MzN3ZWpqb3A1ZG1HT2dMNGdieEw0R0ZsZ2pYTlJMOVdMeVhkVFFWQ2o40gGcAUFVX3lxTE5zT2pObGszWGx6dXo3VjdyQnlDN0U2N1ROcFp1NW81amlLVGJ2b3Nmb19Ca2RxcVpISHdhdTdfdXppX1JJV2RUTEwyYm9MdDRucDdMNEY5Y1M5d1IweWZSbUVseGYydldTNm91OWVVdDFvT1BJQUVXa0lpLTY4OUwtVTUwUHZBWlNQaDN2VW9kSzFmSGQ1bWtzT001bA?oc=5",
+   "published": "2026-09-16T20:01:00+00:00"
   },
   {
-   "title": "What the Fed Rate Hike Means for Borrowers and Investors",
-   "source": "Darden Report Online",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNbUUxcGtmMVNwRlBwamZkOXBKTUQ1MDVxeC1rY1I5REFMeFVQN1hQMFo1Q0lfajhqcGMtWkFKS1ZzdkdwVGp5R19pa3Q2bmpFUldhWGJMdV9UWmpadGtOSUFqOTMtRng2U0p2U3NHQm1TU0lkeUhXa3llUlBnY3lkTG9VMFpBNk11Y19EUldEOTc3Qms?oc=5",
-   "published": "2026-09-17T13:43:28+00:00"
-  },
-  {
-   "title": "The Fed raises interest rates. And, EU proposes Canada become an 'associate member'",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOd19NTHRCcDhsUVEzSWxfZXZTUFVQMVppQnNybjA4OGhxMTduN21mZkRHdkc5TFZtUUMwRzVBNk5IYUh1U3hqc2hzX2hpZ1ZJUU1sdFZOcFFsUTN1YUYxNzRGc3d0SEdWY1dHSkdFRTJOU0ZwLThvVVFIV0NiRGh3cm9tcFJhdUdEVXhKQnpnVlpFc1V4WTZQaHJ0ZXhTNDEzWE1ZcUhCY2xXU0JXd3VrOVY5OXNvRGkyMzgybUxJS3E5blM3TzhnM3dB?oc=5",
-   "published": "2026-09-17T10:54:18+00:00"
+   "title": "Fed raises interest rates for first time since 2023, defying Trump as inflation mounts",
+   "source": "NBC News",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQaHFvTUxpaHU4XzFTTkx6bkQxb19mNkF3WjVwQ1FMZjVkaXRPMzZmdDFCZVNKU0RJSDNpUWR1TmxFWWkyUWxfUnl1aUs5SGRKYzU1eDgtUzR5cUZsX044M0E0T2VBenRKZUJOTk5Dc2FDbFhtRlpyenBmRk8wVjRERUFCbGpoM214OUE?oc=5",
+   "published": "2026-09-16T21:03:41+00:00"
   }
  ]
 }
