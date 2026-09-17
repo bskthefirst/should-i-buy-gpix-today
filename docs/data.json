@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T17:43:35+00:00",
+ "generated_at": "2026-09-17T22:07:08+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.7 (p17)",
+   "value": "15.4 (p15)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 16.9,
+    "pos": 14.6,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.84",
+   "value": "0.83",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 35.4,
+    "pos": 33.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.1 pts",
+   "value": "+5.8 pts",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
+   "lean": "neutral",
+   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 84.0,
+    "pos": 81.8,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.2%",
+   "value": "1.1%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 12.0,
+    "pos": 11.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+0.6%",
+   "value": "+0.7%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 55.0,
+    "pos": 55.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 40.9,
+    "pos": 40.5,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "30 (fear)",
+   "value": "29 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 29.6,
+    "pos": 28.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 55.605,
-  "day_change_pct": 0.99,
+  "price": 55.65,
+  "day_change_pct": 1.07,
   "sma50": 55.71,
   "sma200": 53.81,
   "high52w": 56.67,
-  "drawdown_pct": 1.9,
+  "drawdown_pct": 1.8,
   "series": [
    {
     "d": "2025-12-30",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-17",
-    "c": 55.605,
+    "c": 55.65,
     "t": "neutral",
     "s": 50
    }
@@ -1323,22 +1323,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.58 (-1.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.58 (-1.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 30) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 29) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.7) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1383,8 +1383,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.2,
-  "tbill_3mo": 4.11
+  "ttm_yield_pct": 8.19,
+  "tbill_3mo": 4.14
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 762.37,
+  "price": 762.6,
   "sma200": 715.87,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.66
+  "level": 15.44
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1516,10 +1516,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15200.0,
-  "dca_value": 19631.51,
-  "dca_return_pct": 29.15,
-  "dip_value": 19409.57,
-  "dip_return_pct": 27.69,
+  "dca_value": 19647.39,
+  "dca_return_pct": 29.26,
+  "dip_value": 19424.15,
+  "dip_return_pct": 27.79,
   "dip_cash_uninvested": 1400.0,
   "dip_buy_days": 31,
   "winner": "dca"
@@ -1539,7 +1539,7 @@
   },
   {
    "title": "Fed Raises Rates in First Major Step by Warsh to Contain Inflation",
-   "source": "nytimes.com",
+   "source": "The New York Times",
    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRXNJaUw1MEZvcHA2N19Dd0hBbjlCYkFqOFNjclNYRTl4WkxkRENSbnZ2b1djdnZEN2FXZjJWVktja1BINHUxNkp6dFNPTHdkYy1nWXNVSUV4U1RzazVUajhndFlwUU5NVU10WkJ6MmU0YUhsa2tMTUVoVmV0c1BidFU1OHFiOXZ0bkpoaHdjWjh1a2piWWVqSw?oc=5",
    "published": "2026-09-17T13:31:00+00:00"
   },
@@ -1550,16 +1550,16 @@
    "published": "2026-09-17T08:10:54+00:00"
   },
   {
-   "title": "Federal Reserve hikes interest rates for first time since 2023 amid stubborn inflation",
-   "source": "Fox Business",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNTkNGQWZwRUllRWhwM29vZGhCd0Z1TjVzSGtnUXZibzlBNnNNX0hobXRaempWb1k1bndFR0xaTk5yTllrRWFWQk00b3NDYVhQTDI2bUZWQW0xV3lCeUNuOFhEaVVQdnJGc3ZCQUY3MzN3ZWpqb3A1ZG1HT2dMNGdieEw0R0ZsZ2pYTlJMOVdMeVhkVFFWQ2o40gGcAUFVX3lxTE5zT2pObGszWGx6dXo3VjdyQnlDN0U2N1ROcFp1NW81amlLVGJ2b3Nmb19Ca2RxcVpISHdhdTdfdXppX1JJV2RUTEwyYm9MdDRucDdMNEY5Y1M5d1IweWZSbUVseGYydldTNm91OWVVdDFvT1BJQUVXa0lpLTY4OUwtVTUwUHZBWlNQaDN2VW9kSzFmSGQ1bWtzT001bA?oc=5",
-   "published": "2026-09-16T20:01:00+00:00"
+   "title": "U.S. Treasury Yields Fall as Fed Regains Trust, BOE Leaves Rates Unchanged",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNVER1UFJ0ZVpGNjRWcnkxSU96Z01OUHY4MVVqQmcyZDYwZVhkNFdpMWlyU1NnNjhSQmZpSG5FODhMLXktd1laTjRESnhfc2pLenBvckhkWmRSNDFxMEw0Yi1DenJEc3l0bzExaGVZaDc3RDFUT3FkN2dmZGEzOVI4WkxadmZ4ZGtaaFVNUGFPeHhlNnQ5UkZXQkx0OVFPcWdVWWtVR0FISmRXb0s5dUI4aThxSmQ2dGktYTdySlJFcldQMEhOWkE?oc=5",
+   "published": "2026-09-17T14:49:00+00:00"
   },
   {
-   "title": "Fed raises interest rates for first time since 2023, defying Trump as inflation mounts",
-   "source": "NBC News",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQaHFvTUxpaHU4XzFTTkx6bkQxb19mNkF3WjVwQ1FMZjVkaXRPMzZmdDFCZVNKU0RJSDNpUWR1TmxFWWkyUWxfUnl1aUs5SGRKYzU1eDgtUzR5cUZsX044M0E0T2VBenRKZUJOTk5Dc2FDbFhtRlpyenBmRk8wVjRERUFCbGpoM214OUE?oc=5",
-   "published": "2026-09-16T21:03:41+00:00"
+   "title": "Fed's inflation fight shifts to how far rates will have to rise",
+   "source": "KATV",
+   "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNRkFHVnNmRVV2M01ScVlSVVljVzhBWHFGZXFWNGE5WUJHYjlpY25DLTFuRzh3YVoyc29TdDVxVTJWd3pZOWhTRXh4dFYwblhKUm9IcmYtNXFJclVCc3JBai1wQV9RNXdfNENpbFUwQlNnbldGNldUMEQ3X1dFTmN4MlVOb01oby12UGVSSGpyeDNIUl9TdVE2cXpwNU16T1ZWX2Uwc21xb1c3TnV2cVdBamRwZ3RicGtsUUhub3F3UVpXX0ZMTVM0UGFGc3FBbS1YU196aFZ4dlVuR3RDaUx5TGw3eHVRY0dBNlBsOXVRM2dYMFdxVjM3NURjR0tOekE?oc=5",
+   "published": "2026-09-17T18:32:53+00:00"
   }
  ]
 }

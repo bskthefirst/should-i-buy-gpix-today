@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T17:43:35+00:00",
+ "generated_at": "2026-09-17T22:07:11+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "20.0 (p11)",
+   "value": "20.0 (p9)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 10.7,
+    "pos": 9.2,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.84",
+   "value": "0.83",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 35.4,
+    "pos": 33.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.28x (p45)",
+   "value": "1.29x (p53)",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 45.2,
+    "pos": 53.4,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.8 pts",
+   "value": "+6.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 89.6,
+    "pos": 88.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 59.9,
+    "pos": 59.6,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "30 (fear)",
+   "value": "29 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 29.6,
+    "pos": 28.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,8 +257,8 @@
   }
  ],
  "fund": {
-  "price": 56.56,
-  "day_change_pct": 1.51,
+  "price": 56.57,
+  "day_change_pct": 1.53,
   "sma50": 56.5,
   "sma200": 54.62,
   "high52w": 59.52,
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-17",
-    "c": 56.56,
+    "c": 56.57,
     "t": "neutral",
     "s": 50
    }
@@ -1355,12 +1355,12 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 30) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 29) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
@@ -1411,7 +1411,7 @@
  },
  "income": {
   "ttm_yield_pct": 10.1,
-  "tbill_3mo": 4.11
+  "tbill_3mo": 4.14
  },
  "distributions": {
   "history": [
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 716.54,
+  "price": 716.92,
   "sma200": 662.08,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 20.02
+  "level": 19.96
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1543,10 +1543,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15200.0,
-  "dca_value": 20692.93,
-  "dca_return_pct": 36.14,
-  "dip_value": 20461.3,
-  "dip_return_pct": 34.61,
+  "dca_value": 20696.59,
+  "dca_return_pct": 36.16,
+  "dip_value": 20464.92,
+  "dip_return_pct": 34.64,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 61,
   "winner": "dca"
@@ -1554,39 +1554,39 @@
  "headlines": [
   {
    "title": "Our framework for reporting model misalignment",
-   "source": "openai.com",
+   "source": "OpenAI",
    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5YcmZMVzhRdVd1WUM1QUhIZXZYSUxYZGh6WHptVzhyX1BOOWNIUlYtcW5XVV9Ec2VoNTVIU2JPUjRaX25VOWoyaVNBTVUwLUgyb1FBUEc3a0RyUS1SRjd3WG1fWlVZZkpJQUM1b0pydncwdw?oc=5",
    "published": "2026-09-16T22:03:21+00:00"
   },
   {
-   "title": "OpenAI flags new concerning AI behavior, to track model misalignment regularly",
-   "source": "npr.org",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5wenVuMHkxd2dIMl9kOUdPblJhbUFSeWgxUWoxS21fOUdHNHZHbGVhMEVvUnJVMC1Wa1hFd0x5RlRSUFhpSXYtSzFCUE96bUNFUW9EMTN3OVQ3ZkRKX0gwSW8zOFBNR0FIMVFVT09ndktOWE8zTi1EcDdOOUM?oc=5",
-   "published": "2026-09-17T06:44:49+00:00"
-  },
-  {
-   "title": "King Charles Meets With A.I. Executives About Safety Risks",
-   "source": "nytimes.com",
-   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1pcWFqcU9MSHRRMW5NeG5SY3RhNjN4V3lxUkdSTEw5azZiaWp4Q08zbV9aVTM0WEN4S19BcUh6S01udko5OGtYbGRyY3VQWE52aGhGNnFjVHZFR2VOSWJMWjhfSjdKQnNMWGRabFdXQlRJZw?oc=5",
-   "published": "2026-09-17T16:00:43+00:00"
-  },
-  {
-   "title": "Will AI really kill everyone? How, exactly?",
-   "source": "CNN",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBaMGFOYXpEU2g2ZUE1dVdEQmQ2Ym1CMUhBa25Lb01EZ0ROY1RLVEx4NWhWc3QtbGpCQUsxaW9xVVVMOHNkSk9jdVczY3NuUi1WTjNDb0xEUGRyX19hSklrWTlzT2NROGpEdkE0Qk9kOXp0VkFkSGVfb0ZtME4?oc=5",
-   "published": "2026-09-17T13:00:30+00:00"
-  },
-  {
-   "title": "Parolin \u2018concerned\u2019 over states \u2018going it alone\u2019 on AI",
-   "source": "Vatican News",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQS2UwWGYwMmF3aDdINWgza29WLW1UREw5bW9tQjVqMzVncjFmdjJXcnphYUpsR3BSTkd5d0UxNVVqTW5WenVfRC1FQnlKeEx0d0F3QnpTTGNWZ0EySVVwWUFQQ0R0TVUySDh6dDZxeGtCU0hrSjJsTTlEN01sQzBLUGVINmhrbG96Nm9CUk1HQ0w1Yk5KSzZaNndFLWh5VmJ6dzVwbVNkMWxTRnFsM0E?oc=5",
-   "published": "2026-09-17T15:04:53+00:00"
+   "title": "\u2018Godfather of AI\u2019 warns Congress has \u2018maybe a year\u2019 left to regulate AI",
+   "source": "NBC News",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTGhqbWpUNXgwTDNFQjBVNmkzc0Roa1A0akhTVjUzS3puS21YZnVuOXB4a2pmWVVUdnFsazRFZ01HbzZlZHRuZF8xejhPNnJYYXQtOW4zdVY0SmhxRWZLeS0xeEdDN2F4dTBCNm5FQ0NEdm1fSXlYWXRRSnN0a3FGYi1yX2FUWXBvbWk2dlNlcnplbFpncGs1eGRSLVMxUzNUdFlWd3hzVlFhM3Nv?oc=5",
+   "published": "2026-09-17T19:45:09+00:00"
   },
   {
    "title": "AI has transformed the Pentagon\u2019s aging networks into a national security risk",
-   "source": "The Washington Post",
+   "source": "washingtonpost.com",
    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYWlZeXBDaEdjX3BLOGJ2WGJlbGtLMXVTMXNnNTZzNHRnLWNWaGtyUmplc3hEdVdpYnFnejVuRmV5REpNMHotWlFvTmpISXd1MENQb2xlWXYxTXA5cnVmYkNQMmtiSDFPSU5QQzdMbElOblpsWGlPSk9ES1ZEOEE1UXJvRVhPSms1LVBqZEdCdlNwMjR3YmRMWHVXd0ZTQ3FDNHo3Y0lhTEdoaE1ER21rUkl2WGkyMkNGMVN0SzJYWnFINXM?oc=5",
    "published": "2026-09-17T16:00:00+00:00"
+  },
+  {
+   "title": "King Charles Meets With A.I. Executives About Safety Risks",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1pcWFqcU9MSHRRMW5NeG5SY3RhNjN4V3lxUkdSTEw5azZiaWp4Q08zbV9aVTM0WEN4S19BcUh6S01udko5OGtYbGRyY3VQWE52aGhGNnFjVHZFR2VOSWJMWjhfSjdKQnNMWGRabFdXQlRJZw?oc=5",
+   "published": "2026-09-17T17:47:19+00:00"
+  },
+  {
+   "title": "AI needs to have 'reasonable guidelines,' Palantir's Karp tells CNBC",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5UbEplOGYxLVE1bnQ5ZER0bzdhanpNQ3dDLVREaUIzUXJTWEo1VmhINzY1Z25ZVl9BNU9MV2NHdW9lY0xtUmZna0VMT0p1Wm5Qd0pKMDZTd3IyM2hpZnczczM4dTJ3UjF2RmIzONIBckFVX3lxTE9WWHJQNk5Ua2FHSzZGcUV1M2l0amdoQWNCQl8xcElqRkhYTUhJUU9keU05dVlpblVqV1ZLMG1tVk5xUXUtZ3AyRWlRQWgtUkE4OC1PX2xMZlRKVDZlOVVTOXlfZzRzM3BmX2NOMGtvNzZzUQ?oc=5",
+   "published": "2026-09-17T15:29:12+00:00"
+  },
+  {
+   "title": "Can an AI chatbot save lives by answering texts about pregnancy?",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOa2VWMUhfNVV2QXNFWDExVW8yR05uZlhGYWFJc1JXZnJjMWVkMlhZdVMwWEI4aXdvWF8tT0Znei05RlFReFZCb2hvQTExcXdpb3U5N3JOajF1Ym02VnhDVnU2clV2cWEwZDVGMnBkdzFBQ2lxMk9JOVZqQjBTZjRZd3ExdWJCejIxOVdGbHI5a3NtcnBXTXRFUXhObllnWl9ockhtZTIxTGE?oc=5",
+   "published": "2026-09-17T19:33:30+00:00"
   }
  ]
 }
