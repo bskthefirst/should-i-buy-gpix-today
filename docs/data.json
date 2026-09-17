@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-09-16T22:07:41+00:00",
+ "generated_at": "2026-09-17T14:30:12+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
-  "tone": "ok",
-  "score": 2.0,
-  "score100": 62,
+  "label": "No edge either way - buy on schedule",
+  "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "17.7 (p58)",
+   "value": "15.8 (p21)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
+   "lean": "bad",
+   "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 58.3,
+    "pos": 20.9,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.90",
+   "value": "0.85",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 49.4,
+    "pos": 36.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+9.1 pts",
+   "value": "+6.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 100.0,
+    "pos": 86.5,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "2.1%",
+   "value": "1.3%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 21.0,
+    "pos": 13.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -113,21 +113,21 @@
   },
   {
    "name": "Short-term pullback (reversal)",
-   "value": "3 down days",
-   "score": 2.0,
+   "value": "no pullback",
+   "score": 0.0,
    "weight": 2.0,
-   "lean": "good",
-   "note": "SPY has closed down 3 straight sessions. Short selling streaks like this have reliably bounced the next day - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.21% next-day excess (t=3.6) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
+   "lean": "neutral",
+   "note": "No short-term pullback in SPY - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.21% next-day excess (t=3.6) in our validation, positive in every era - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "-0.4%",
+   "value": "+0.5%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
+   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 46.7,
+    "pos": 54.2,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.76% (+0.06 1mo)",
+   "value": "2.70% (-0.05 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 19.0,
+    "pos": 17.5,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -167,13 +167,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "8.3% vs 4.1% cash",
+   "value": "8.2% vs 4.1% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 41.7,
+    "pos": 41.0,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "26 (fear)",
+   "value": "29 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 26.5,
+    "pos": 29.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,27 +222,21 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 0d",
+   "value": "CPI in 27d",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "Rate decision within 2 days - a volatility event ahead. Not a reason to skip a scheduled buy, but expect a swing either way."
+   "lean": "neutral",
+   "note": "No event risk in the next few days (next CPI 2026-10-14, next FOMC 2026-10-28)."
   }
  ],
  "fund": {
-  "price": 55.06,
-  "day_change_pct": -0.36,
-  "sma50": 55.7,
-  "sma200": 53.79,
+  "price": 55.55,
+  "day_change_pct": 0.89,
+  "sma50": 55.71,
+  "sma200": 53.81,
   "high52w": 56.67,
-  "drawdown_pct": 2.8,
+  "drawdown_pct": 2.0,
   "series": [
-   {
-    "d": "2025-12-29",
-    "c": 53.15,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-30",
     "c": 53.11,
@@ -1316,6 +1310,12 @@
     "c": 55.06,
     "t": "ok",
     "s": 62
+   },
+   {
+    "d": "2026-09-17",
+    "c": 55.55,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1323,39 +1323,39 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.58 (-0.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.58 (-1.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 26) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 29) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.90) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 17.7) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.76%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-16",
-  "days_total": 723,
+  "end": "2026-09-17",
+  "days_total": 724,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-16",
+  "fg_coverage_start": "2025-09-17",
   "baseline": {
-   "n": 702,
-   "avg_pct": 1.66,
+   "n": 703,
+   "avg_pct": 1.65,
    "median_pct": 2.02
   },
   "bands": [
@@ -1369,9 +1369,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 120,
-    "avg_pct": 2.19,
-    "median_pct": 2.79
+    "n": 121,
+    "avg_pct": 2.16,
+    "median_pct": 2.74
    },
    {
     "tone": "neutral",
@@ -1383,7 +1383,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.28,
+  "ttm_yield_pct": 8.21,
   "tbill_3mo": 4.11
  },
  "distributions": {
@@ -1493,44 +1493,38 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 754.05,
-  "sma200": 715.48,
+  "price": 761.6297,
+  "sma200": 715.87,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 17.71
+  "level": 15.81
  },
  "fomc": {
-  "next": "2026-09-16",
-  "days_until": 0,
-  "imminent": true
+  "next": "2026-10-28",
+  "days_until": 41,
+  "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 28
+  "days_until": 27
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-16",
+  "end": "2026-09-17",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15200.0,
-  "dca_value": 19439.09,
-  "dca_return_pct": 27.89,
-  "dip_value": 19233.06,
-  "dip_return_pct": 26.53,
+  "dca_value": 19612.09,
+  "dca_return_pct": 29.03,
+  "dip_value": 19391.76,
+  "dip_return_pct": 27.58,
   "dip_cash_uninvested": 1400.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
-  {
-   "title": "Federal Reserve hikes key rate for 1st time in 3 years, defying Trump demands for a cut",
-   "source": "AP News",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVlB2TmNqY1dILUtfRTFBQ0JPSk53elRnU1QzdmhIQ3VvTWlkelRTd3haWHJ4bmxiY2ZOcGhvd09wMTllVkVLQzk5NkdKZzNPeHpaZTRHQ242Ynd2Q1ZIUU50cUp1N2JYd1lCQndZQlhMUTZFekFZWWNueUxNbmRiUHdBZ2dWbDgzNlhmejZneHptaFhGbDI1M0JPbk8zZw?oc=5",
-   "published": "2026-09-16T21:29:00+00:00"
-  },
   {
    "title": "The Fed - September 15-16, 2026 FOMC Meeting",
    "source": "Federal Reserve (.gov)",
@@ -1538,28 +1532,34 @@
    "published": "2026-09-16T19:23:03+00:00"
   },
   {
-   "title": "Federal Reserve raises interest rates for the first time since 2023",
-   "source": "cbsnews.com",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9aQTI5TnA0bk5pNlk0b0E3NkpjR1Jfd1BFa1FwZ1ZhY01FS1NfMFBHVnBySWdFY1FBN1RibF9hZk1tU180bU1EdTFQS3JuNHotRE5TNjk1REFsdG5iY2hqeXpmeEJNMVNFWnQ5aF9fSQ?oc=5",
-   "published": "2026-09-16T20:54:56+00:00"
+   "title": "Federal Reserve hikes key rate for 1st time in 3 years, defying Trump demands for a cut",
+   "source": "AP News",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVlB2TmNqY1dILUtfRTFBQ0JPSk53elRnU1QzdmhIQ3VvTWlkelRTd3haWHJ4bmxiY2ZOcGhvd09wMTllVkVLQzk5NkdKZzNPeHpaZTRHQ242Ynd2Q1ZIUU50cUp1N2JYd1lCQndZQlhMUTZFekFZWWNueUxNbmRiUHdBZ2dWbDgzNlhmejZneHptaFhGbDI1M0JPbk8zZw?oc=5",
+   "published": "2026-09-16T23:42:00+00:00"
   },
   {
    "title": "Federal Reserve raises interest rates for the 1st time since 2023 - ABC News",
    "source": "Breaking News, Latest News and Videos",
    "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOYktxZlJxRVNrdUZFRWViQjVMLUh3OGJwNGhrVFpJY2E5QTAyajNfcnFSb09rZUVkSnVMUHd4WkpsYktvZGczX05nRzVhSTdKNWtfU2hWb09IYnNQQ01tTlMwMV95YzJkbWVDMklwZ19XMC1RNmVsckpGS3FpNUpiRlUxZkVtNXk5NE5YRnpBSTI4eEhVOWxaUlBzZDlxb3p1ZVBFeHFR0gGrAUFVX3lxTFBrZzU3UXhjRlBBblFYNzJZZ3dINVFwMnpIOFQwRlJ1NmRTa3JNUGlkamJyS08wRjM5UlFuMkRJcHAtUEQxYjF3b2Yyc2E2V1hOOEhQRHRPckpidllEOHpLRG9VUTFxSUwyaE95SzNNZ0pkemQwQkNBYkZPbTBpN0ZMYTBWU25nT3FrUVNNal9Eb0lCNnJwZTVFUVVhM0dDRlMzQ1pQTF8xRTV6bw?oc=5",
-   "published": "2026-09-16T19:27:43+00:00"
+   "published": "2026-09-17T08:10:54+00:00"
   },
   {
-   "title": "Fed raises interest rates for first time since 2023, defying Trump as inflation mounts",
-   "source": "NBC News",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQaHFvTUxpaHU4XzFTTkx6bkQxb19mNkF3WjVwQ1FMZjVkaXRPMzZmdDFCZVNKU0RJSDNpUWR1TmxFWWkyUWxfUnl1aUs5SGRKYzU1eDgtUzR5cUZsX044M0E0T2VBenRKZUJOTk5Dc2FDbFhtRlpyenBmRk8wVjRERUFCbGpoM214OUE?oc=5",
-   "published": "2026-09-16T21:03:41+00:00"
+   "title": "Fed Raises Rates in First Major Step by Warsh to Contain Inflation",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRXNJaUw1MEZvcHA2N19Dd0hBbjlCYkFqOFNjclNYRTl4WkxkRENSbnZ2b1djdnZEN2FXZjJWVktja1BINHUxNkp6dFNPTHdkYy1nWXNVSUV4U1RzazVUajhndFlwUU5NVU10WkJ6MmU0YUhsa2tMTUVoVmV0c1BidFU1OHFiOXZ0bkpoaHdjWjh1a2piWWVqSw?oc=5",
+   "published": "2026-09-17T13:31:00+00:00"
   },
   {
-   "title": "Federal Reserve hikes interest rates for first time since 2023 amid stubborn inflation",
-   "source": "Fox Business",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNTkNGQWZwRUllRWhwM29vZGhCd0Z1TjVzSGtnUXZibzlBNnNNX0hobXRaempWb1k1bndFR0xaTk5yTllrRWFWQk00b3NDYVhQTDI2bUZWQW0xV3lCeUNuOFhEaVVQdnJGc3ZCQUY3MzN3ZWpqb3A1ZG1HT2dMNGdieEw0R0ZsZ2pYTlJMOVdMeVhkVFFWQ2o40gGcAUFVX3lxTE5zT2pObGszWGx6dXo3VjdyQnlDN0U2N1ROcFp1NW81amlLVGJ2b3Nmb19Ca2RxcVpISHdhdTdfdXppX1JJV2RUTEwyYm9MdDRucDdMNEY5Y1M5d1IweWZSbUVseGYydldTNm91OWVVdDFvT1BJQUVXa0lpLTY4OUwtVTUwUHZBWlNQaDN2VW9kSzFmSGQ1bWtzT001bA?oc=5",
-   "published": "2026-09-16T18:00:52+00:00"
+   "title": "What the Fed Rate Hike Means for Borrowers and Investors",
+   "source": "Darden Report Online",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNbUUxcGtmMVNwRlBwamZkOXBKTUQ1MDVxeC1rY1I5REFMeFVQN1hQMFo1Q0lfajhqcGMtWkFKS1ZzdkdwVGp5R19pa3Q2bmpFUldhWGJMdV9UWmpadGtOSUFqOTMtRng2U0p2U3NHQm1TU0lkeUhXa3llUlBnY3lkTG9VMFpBNk11Y19EUldEOTc3Qms?oc=5",
+   "published": "2026-09-17T13:43:28+00:00"
+  },
+  {
+   "title": "The Fed raises interest rates. And, EU proposes Canada become an 'associate member'",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOd19NTHRCcDhsUVEzSWxfZXZTUFVQMVppQnNybjA4OGhxMTduN21mZkRHdkc5TFZtUUMwRzVBNk5IYUh1U3hqc2hzX2hpZ1ZJUU1sdFZOcFFsUTN1YUYxNzRGc3d0SEdWY1dHSkdFRTJOU0ZwLThvVVFIV0NiRGh3cm9tcFJhdUdEVXhKQnpnVlpFc1V4WTZQaHJ0ZXhTNDEzWE1ZcUhCY2xXU0JXd3VrOVY5OXNvRGkyMzgybUxJS3E5blM3TzhnM3dB?oc=5",
+   "published": "2026-09-17T10:54:18+00:00"
   }
  ]
 }

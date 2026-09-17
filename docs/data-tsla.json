@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-16T22:07:44+00:00",
+ "generated_at": "2026-09-17T14:30:14+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 82.4,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "51% ann. (p71)",
+   "value": "50% ann. (p67)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "good",
-   "note": "Realized volatility elevated vs TSLA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
+   "lean": "neutral",
+   "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 70.6,
+    "pos": 66.7,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "26.9%",
+   "value": "24.3%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 53.8,
+    "pos": 48.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.7 (p58), F&G 26",
+   "value": "VIX 15.8 (p21), F&G 29",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,28 +120,22 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 0d",
+   "value": "CPI in 27d",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "Rate decision within 2 days - a market-wide volatility event. Expect a swing either way."
+   "lean": "neutral",
+   "note": "No event risk in the next few days (CPI 2026-10-14, FOMC 2026-10-28). (Earnings date unavailable today - Yahoo's calendar endpoint didn't answer.)"
   }
  ],
  "fund": {
-  "price": 358.08,
-  "day_change_pct": 0.42,
-  "sma50": 351.65,
-  "sma200": 397.97,
+  "price": 370.7999,
+  "day_change_pct": 3.55,
+  "sma50": 351.18,
+  "sma200": 397.68,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 26.9,
+  "drawdown_pct": 24.3,
   "series": [
-   {
-    "d": "2025-12-29",
-    "c": 459.64,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2025-12-30",
     "c": 454.43,
@@ -1215,6 +1209,12 @@
     "c": 358.08,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-17",
+    "c": 370.7999,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1222,20 +1222,20 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 51%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 50%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-16",
-  "days_total": 723,
+  "end": "2026-09-17",
+  "days_total": 724,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-16",
+  "fg_coverage_start": "2025-09-17",
   "baseline": {
-   "n": 702,
-   "avg_pct": 2.73,
-   "median_pct": 0.44
+   "n": 703,
+   "avg_pct": 2.74,
+   "median_pct": 0.45
   },
   "bands": [
    {
@@ -1248,9 +1248,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 173,
-    "avg_pct": 9.01,
-    "median_pct": 5.03
+    "n": 174,
+    "avg_pct": 9.02,
+    "median_pct": 5.18
    },
    {
     "tone": "neutral",
@@ -1274,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 358.08,
-  "sma200": 397.97,
+  "price": 370.7999,
+  "sma200": 397.68,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 50.9
+  "level": 50.3
  },
  "fomc": {
-  "next": "2026-09-16",
-  "days_until": 0,
-  "imminent": true
+  "next": "2026-10-28",
+  "days_until": 41,
+  "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 28
+  "days_until": 27
  },
  "earnings": {
   "next": null,
@@ -1298,54 +1298,54 @@
  },
  "backtest": {
   "start": "2022-09-19",
-  "end": "2026-09-16",
+  "end": "2026-09-17",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 29433.18,
-  "dca_return_pct": 40.83,
-  "dip_value": 29432.79,
-  "dip_return_pct": 40.83,
+  "dca_value": 30478.73,
+  "dca_return_pct": 45.83,
+  "dip_value": 30478.31,
+  "dip_return_pct": 45.83,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 206,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "What Will $5,000 Invested in Tesla Stock Be Worth in 5 Years?",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNSHlucTRKeU4tbkxSZVFpeklHZU13V3otb3RtN2czVkxOelRpTFR5aEM3UGJGSW5kLXFpbG1nVkxKRFRqUXFJaHIwa3NKMkRQNUkxdW1JOFJzTU9JdTV5SzlRM3REaWt3elZpQ2pYcHYxLUNHbmJtaXE4MHZWd2FYZ1hYTnctVFh0NUt3bVVvSUpNcFZhSUE?oc=5",
-   "published": "2026-09-16T12:30:00+00:00"
-  },
-  {
-   "title": "Tesla\u2019s Cybercab Faces Safety Inquiry. What That Means for the Stock.",
+   "title": "Why Falling EV Deliveries Aren\u2019t a Problem for Tesla Stock",
    "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNTVprVXJSem9PMDB4cVdLQ1RzeExXNE1xcFVORUlEcFVWdy13TUFYLWRpQ0Z5a0x0aWo4UGZlRGsxS040cFM2enNTZUJ6ZG5oajFsbmtuVU9VM21QTDBzYnp1akJkMGZkMlFyOGJUa2NhS1Y4QVNBUXRicXVJT2ctZWpCZnJicDJXVnJZ?oc=5",
-   "published": "2026-09-16T11:23:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFB0NU85TzBPS2N2R3JnUFA2UnRnbWh3WVAyQjlybGhiN1AtN1RjdWZQejBfdTh4bW1Gak0xamJrMk9leVN0QUNsdkJRLUVueVJsTlVEWHF2UXZqTkp4MzdkWkd4Sm1HZXI0cG1vTGJvdzM3dFN6U0RWY1dNbUQ0QQ?oc=5",
+   "published": "2026-09-17T12:12:00+00:00"
   },
   {
-   "title": "Billionaire Investor Ron Baron Says, \"The Time To Buy Tesla Stock Is Now,\" On Predicted Rapid FSD Growth",
+   "title": "Tesla Stock Has a Potential Catalyst Wall Street Can\u2019t Ignore",
    "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNclZWRU1nR2xYS2x4cTllVW9SZnh1NDlnTmNuZXJHSTcwQU9FQVBjYXNlYVNpV0tMUUJWQzVoM3lIU2p0Yk9IY2k3NzY5WXEtdlByX3A5SUl0R0RCVHRMX2oxNFNDMW03VmRmMWI1U3VPNVJtUnR1V1hYTmYtb3NIQjNkTmZkZXVoM20xY1VwbXZuWkwwRWFzQ3N4MjM4MExKUGNXbFhzeDRtanVXVi1xSHZwTEFtNUhjMV9Wd2ZBUTJVRFpDMFZIY3RpV194eW5QZlE0QjgwaTZybi1R?oc=5",
-   "published": "2026-09-16T13:55:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOeVMybHM0Y2JMdkZ2YUlCQW1jTkUzajNxSElPNFFrRC13TndaeHgzTmk5aWt5WnUxUjdjZk9samY0SFRja0YzTlY0aGE2aDJ2MlBHTmVEdDdsT3VQWHRSU2g1ck9SMzlIVUZXOXYyN3lENVIzVFoyUUpGWTFOTXJkOVNMbkFCU3R0WFVOWUlmMFp1bjZ5RW5VR0Nsa1pOMXhWbmljV2dlaw?oc=5",
+   "published": "2026-09-17T13:30:00+00:00"
   },
   {
-   "title": "One Wall Street Analyst Just Said Tesla Stock Could Be Worth $840: Time to Buy?",
+   "title": "Prediction: Tesla Stock Will Be Worth This Much in 2031",
    "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxObnRmVy1HdEVpbUxhOWRTc2Q0bzhTWk9LalcwZWdDVXNSRy1FV0NsaTA3SHZHUEsyZTE5UmwzMVAteXNHdVZqbmxwN3NwTFVNWVU3ZGhQSE9QWFRMd25tcGtWNWprTTFqMDg0MWZidkJXbEJlTEY3TDVEd0FmNms3d2RwTTFFcGxmUGpiZjlOWEMwdHVzeUU2Tw?oc=5",
-   "published": "2026-09-16T10:50:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPM0pWb1M3d2FNSWJBX3RxYVF4QlJkN1VaZk5veFExTks1Tkc1V3hraG9TYzNvMnRjSDJEckJmcjVuYlg4MTVUVndJbEVNaWVzUllIblVMYTVrekRuQV9qN1NZOThBeDFoMWRDWmVuRGhpUEIxRGxneThITXdud3JwOUlSVE83YnZXY1VyTm93VVdET1JsLUxUaW9rbzRKZw?oc=5",
+   "published": "2026-09-17T12:10:05+00:00"
   },
   {
-   "title": "Tesla: Luxury Sports Car Launch Provides New Halo Vehicle; Maintaining Valuation",
-   "source": "Morningstar",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPWEg5cTBDVFZwakk2R3VFTnpzSndVQXkyblE5VVZhLVpfVTFQaFExQ0hxYXo4TzYyVzNxT2xMZFA0RjZXMkpoQTlSb1pGdmZ3X2E3UjlMb2RDVEhLWWdRYmVtV3ptN054RE02UVlQdXpYNEloVHFpaENmWE5pSHJxMDdxQmlkVng3anJIMjNHYnVGMlUxWWxnUlV3c0xzMjBEdFJ5blNXNUJkQmg0ZlRfZTZ2QlkzaWVlZkQwSXU3WQ?oc=5",
-   "published": "2026-09-14T20:12:33+00:00"
+   "title": "With a Strong Product Pipeline, Tesla Stock Is Positioned for Growth Acceleration",
+   "source": "Barchart.com",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdHE0NEozS2pDWkV6Y1U4d0R3V2NsRDN6ZHE2TW02N1d4Rjl5RDVZeUMxVEQ4cWp3QW51NTNUUl9ZQ2Q0aFhpdEx5WGU1LTJnQmxDaGFTX29icGF3TVNma1FaRVZUZUY3OFJXa1YteGNJMzk4WjI0ZU5PUXM1LUctcG1Xek5EV1JHSHN4VG1CbXppWDJXbzBkM0VPYS1zZWI1dVdMVDFDQXhYaUhidVlQbERHRG40SnpmWmk2bXFYcHZXZw?oc=5",
+   "published": "2026-09-17T12:25:26+00:00"
   },
   {
-   "title": "Tesla Is Expanding Into Vietnam to Capture Growing EV Demand. What This Actually Means for TSLA Stock.",
-   "source": "barchart.com",
-   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOT09zaF94YVR1bHNqMVRWX0dlOWIydGp4dWFCRnE2ajFVVVhtY1FiWUVBZm9acGNtMzB6QVpkZ0g0QldEeGJORXlLdmNzd1FhRkJNa25TNjFCS1ZSbmVURUg3RkZjRFJ2TlBHSm9qZkJjRzg1bVpHX0MzbkJZVnVHVmdXQnFxel9YMTdtTTBmeWVWZkNPcEJoZEJrU0dyZTRGZVA1QUd3eTBVOTBTUWlvWEFDWjlpS0dYSzZPQ0ZtZzlSOC1PNXozS1BvSTcwV1p2V3dHejlLcmlrdGZC?oc=5",
-   "published": "2026-09-16T17:35:29+00:00"
+   "title": "Could SpaceX Buy Tesla? Ron Baron Says He Gave Elon Musk Reasons For And Against A Blockbuster Deal",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNUGQ4c2ZvSGY0Mk1nS25tMy1jWWwwZmRhQ0FyUDQ0bF90dU42a0JDdFJvbHlCMmNhLTFrLVp1S0dLczVnWC1aSVZ0M19sQ1o0Yk9ZRkM0dk9FanAtdGZsNExjNkg1Rmd2ck15bC1TN3lxRkZaR256Y1B0Qm5SOFVPdWtyZFc0UC1VZjdOZ0xhb3paYkl4M1E?oc=5",
+   "published": "2026-09-17T05:18:22+00:00"
+  },
+  {
+   "title": "U.S. Stock Market Movement | Tesla (TSLA.US) Rises Over 4% as Optimus Robot Secures 5,000-Unit Order",
+   "source": "Moomoo",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbC1fWHItVElDUnFLR3psdUR1cmxDRFFqMlBOSDFtWEp6UkU4ZkQ0S3JfN1JtdWlmSTF3Rll5eWh6elZHU3BwOFZ6MWNjWVhTYmY2Rm5PY2lBb25kSGJxbE5JSGhtd0NqVEpOQzUyVUlhQzZleVNoVEJxYVhwYmUxYk1lQ2lOVE9tbDRxQlNLbUVfWnhibVdpbFhXcw?oc=5",
+   "published": "2026-09-17T14:20:29+00:00"
   }
  ]
 }
