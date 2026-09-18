@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-17T22:07:12+00:00",
+ "generated_at": "2026-09-18T14:30:12+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 100.0,
+    "pos": 99.8,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "49% ann. (p65)",
+   "value": "49% ann. (p61)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 64.7,
+    "pos": 60.7,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "25.2%",
+   "value": "25.4%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 50.4,
+    "pos": 50.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.4 (p15), F&G 29",
+   "value": "VIX 15.5 (p17), F&G 29",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 27d",
+   "value": "CPI in 26d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 366.2,
-  "day_change_pct": 2.27,
-  "sma50": 351.09,
-  "sma200": 397.65,
+  "price": 365.32,
+  "day_change_pct": -0.24,
+  "sma50": 350.27,
+  "sma200": 397.33,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 25.2,
+  "drawdown_pct": 25.4,
   "series": [
-   {
-    "d": "2025-12-30",
-    "c": 454.43,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2025-12-31",
     "c": 449.72,
@@ -1215,6 +1209,12 @@
     "c": 366.2,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-18",
+    "c": 365.32,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1228,14 +1228,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-17",
-  "days_total": 724,
+  "end": "2026-09-18",
+  "days_total": 725,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-17",
+  "fg_coverage_start": "2025-09-18",
   "baseline": {
-   "n": 703,
+   "n": 704,
    "avg_pct": 2.74,
-   "median_pct": 0.45
+   "median_pct": 0.47
   },
   "bands": [
    {
@@ -1248,9 +1248,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 174,
-    "avg_pct": 9.01,
-    "median_pct": 5.18
+    "n": 175,
+    "avg_pct": 8.98,
+    "median_pct": 5.03
    },
    {
     "tone": "neutral",
@@ -1274,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 366.2,
-  "sma200": 397.65,
+  "price": 365.32,
+  "sma200": 397.33,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 49.4
+  "level": 48.9
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 41,
+  "days_until": 40,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 27
+  "days_until": 26
  },
  "earnings": {
   "next": null,
@@ -1298,24 +1298,42 @@
  },
  "backtest": {
   "start": "2022-09-19",
-  "end": "2026-09-17",
+  "end": "2026-09-18",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 30100.63,
-  "dca_return_pct": 44.02,
-  "dip_value": 30100.22,
-  "dip_return_pct": 44.02,
+  "dca_value": 30028.29,
+  "dca_return_pct": 43.68,
+  "dip_value": 30027.89,
+  "dip_return_pct": 43.67,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 206,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Prediction: Tesla Stock Will Be Worth This Much in 2031",
+   "title": "Tesla Stock Rises. Inside the EV Maker's Shanghai Gigafactory.",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1yVkZGY0RRRnBKVm9GOUF0TGNESjlTbFBEbGotQmUwa1BybmY0c29LYnI1WXRHMzgzNllNbVdTWGV0UkI1REx6dWd3X3pNMVJUbERQN0Z3b3k1VVZ0OWRxRkdqQW5KRWJXMXJRY1kyajJJWEgzY2tLd3pxMFAtcm8?oc=5",
+   "published": "2026-09-18T11:33:00+00:00"
+  },
+  {
+   "title": "Tesla vs SpaceX: Which Is the Better Elon Musk-Backed Stock to Buy?",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQT1o2RUtQa2FhemxfNFN0andKS2RiOHZTVkVZQ1BvM182QjBNbkNmSTdtV1lxTU1fZUxtaHhVSDdydDAwQ2hnVThsRVJJWGNhZHgwVmNMQTA4ejN0QVViOVRtQ1RNYVVkRXVfWXZNR2xVc3lhYUhxQVZCYkU2M0x1RDRwWW9nYXE3MVp3Z0NCUEVqWGJtdFhtUlFBLWNmUmc?oc=5",
-   "published": "2026-09-17T12:05:01+00:00"
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdThhNEdoTmxKSGhhYnlVMjA2QlRwYVNXWHh4UTdOTU1jejNiNVFlNnJfNnJxa0lBLTF4WkRCWTkwaHh4NWd2ZzRMM0lNTWV5dUtjZ1NTZGtOenNyeXpvMzZxeVBhTnNmM3RCMERvZEtTMHIwSnpZdFZlaElEckFWdkNiUHJndFVkYnIyeXJmSkh1alBFdjln?oc=5",
+   "published": "2026-09-18T06:50:00+00:00"
+  },
+  {
+   "title": "Prediction: Tesla Stock Will Be Worth This Much in 2031",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPM0pWb1M3d2FNSWJBX3RxYVF4QlJkN1VaZk5veFExTks1Tkc1V3hraG9TYzNvMnRjSDJEckJmcjVuYlg4MTVUVndJbEVNaWVzUllIblVMYTVrekRuQV9qN1NZOThBeDFoMWRDWmVuRGhpUEIxRGxneThITXdud3JwOUlSVE83YnZXY1VyTm93VVdET1JsLUxUaW9rbzRKZw?oc=5",
+   "published": "2026-09-17T12:45:00+00:00"
+  },
+  {
+   "title": "Dear Tesla Stock Fans, Mark Your Calendars for October 1",
+   "source": "barchart.com",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTUxQS0dnem16RFlsOTJGQXpwWFJuejZCeEY2Y05wUjR1QjdPWmtlYS1OUkdvWk4tOXJ5bFFBT005cU1VR2NVTV81XzhFVDBTWHpheU5LNnZxcGNRSE9fOGRzaFBFUDJlbDJRUEhkUWhzb1JmSUdIa2dDbGxQOFdlV1c4c3Y2dU9QMFlrSi1GS2pNVGdhZldDSXJNSkJPS2hr?oc=5",
+   "published": "2026-09-16T14:58:57+00:00"
   },
   {
    "title": "U.S. Stock Market Movement | Tesla (TSLA.US) Rises Over 4% as Optimus Robot Secures 5,000-Unit Order",
@@ -1324,28 +1342,10 @@
    "published": "2026-09-17T14:20:29+00:00"
   },
   {
-   "title": "Why Falling EV Deliveries Aren\u2019t a Problem for Tesla Stock",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFB0NU85TzBPS2N2R3JnUFA2UnRnbWh3WVAyQjlybGhiN1AtN1RjdWZQejBfdTh4bW1Gak0xamJrMk9leVN0QUNsdkJRLUVueVJsTlVEWHF2UXZqTkp4MzdkWkd4Sm1HZXI0cG1vTGJvdzM3dFN6U0RWY1dNbUQ0QQ?oc=5",
-   "published": "2026-09-17T12:12:00+00:00"
-  },
-  {
-   "title": "Tesla and SpaceX are fighting an Illinois company over 'Terafab' - Austin American-Statesman",
-   "source": "",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZUNqNXpvXzN6YnJJWE10V1RaRm55ZGwwVHpwNy1jZ1pISkdkTGg3UjYzU2VTcktjM3EzbEpMTGZSRWxWdXJVcHZmSXdSQUltYjBuSEFpNDRLNnh4VWFMdTZ0TE5rZlNnMFN2d3V3SWpJN2xsNTJTWmRXX29uSy1SYTV5aW1HUEFhVUw1Sk9JelNBVERteFRGVVFIOVNPMzlIV0FF?oc=5",
-   "published": "2026-09-17T21:13:56+00:00"
-  },
-  {
-   "title": "Tesla Stock Has a Potential Catalyst Wall Street Can\u2019t Ignore",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOeVMybHM0Y2JMdkZ2YUlCQW1jTkUzajNxSElPNFFrRC13TndaeHgzTmk5aWt5WnUxUjdjZk9samY0SFRja0YzTlY0aGE2aDJ2MlBHTmVEdDdsT3VQWHRSU2g1ck9SMzlIVUZXOXYyN3lENVIzVFoyUUpGWTFOTXJkOVNMbkFCU3R0WFVOWUlmMFp1bjZ5RW5VR0Nsa1pOMXhWbmljV2dlaw?oc=5",
-   "published": "2026-09-17T13:30:00+00:00"
-  },
-  {
-   "title": "TSLA Stock Eyes Red Week: Ross Gerber Spots \u2018Secret\u2019 Waymo Army As Cybercab \u2018Wastes Time\u2019 Amid NHTSA Scrutiny",
-   "source": "Stocktwits",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPRXp2aEhVRWY1UGpma05scTRUdnJIOVNLOEdMR3A1WmpBQVNNd25KVnU3OXUtcmRmWnduaDdWOEtMWk1MVU45b2xnZTJUT3I2ZmRuZWc0RzJpRHljbThPd2Vrem1WMGw5aFFBcmJjek1aMTdvUVVFUUNfWDlLSWxTa1pBQkYzczZHUXVaekphMzBSNnMyblprT2xqd0hPSUZXSm9rRlc2ajJrZ1JKbWk0RU9IaGQ2WnA5VmRrUWc3SkFhcHhZMC1Z?oc=5",
-   "published": "2026-09-17T19:42:25+00:00"
+   "title": "Tesla Trades at 331 Times Trailing Earnings While Facing Growing Competition From China's BYD. Is Elon Musk's Premium Valuation Still Justified?",
+   "source": "The Globe and Mail",
+   "link": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxOcWN4VkdEY3dmNlpIMWU5WnVJbXNoYzhjMTloT2NyZE11TXEwTU03OVJYMjlCeVlCaUd0VzR6YXpDaDhMSEMzZmttaGNHY2d5Tll4MXluMmxaMUE0Wk9valVVT01GSmVvNEdXT01lREtJcWJvMURKUk4wUW1XLWltQmNCVkdZektDR25UQVA5WjduVjRDemNLVWp4OWpRMVIyeWRGdDdoRkpDdnFpYlhCZ0tPZE9VSmk5Tm12X1psVGJUV2FyUGJUcnE2c1hkTkh3cXBGampYTFZORktFS1FkZVNQaXVZMzVOTXI5S1pxcDZiRXd5TDhuYjRGYUh2bmFENHFtZkVtV2ozbGlUazFwYVpaMzdGc0NWQXpmUUo3WU45TXUteVJMSlRPUHptejFMOFYwUFFkMkRJUjljd2lseHgyaw?oc=5",
+   "published": "2026-09-18T11:23:05+00:00"
   }
  ]
 }

@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-17T22:07:14+00:00",
+ "generated_at": "2026-09-18T14:30:14+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "22% ann. (p21)",
+   "value": "22% ann. (p20)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 21.0,
+    "pos": 20.2,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "13.8%",
+   "value": "13.0%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 13.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 13.0% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 27.6,
+    "pos": 26.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.4 (p15), F&G 29",
+   "value": "VIX 15.5 (p17), F&G 29",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 27d",
+   "value": "CPI in 26d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 343.68,
-  "day_change_pct": 1.27,
-  "sma50": 343.71,
-  "sma200": 336.03,
+  "price": 346.6,
+  "day_change_pct": 0.85,
+  "sma50": 343.52,
+  "sma200": 336.19,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 13.9,
+  "drawdown_pct": 13.1,
   "series": [
-   {
-    "d": "2025-12-30",
-    "c": 314.55,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2025-12-31",
     "c": 313.8,
@@ -1215,6 +1209,12 @@
     "c": 343.68,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-18",
+    "c": 346.6,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,7 +1222,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+4.4% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+3.5% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1233,14 +1233,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-17",
-  "days_total": 724,
+  "end": "2026-09-18",
+  "days_total": 725,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-17",
+  "fg_coverage_start": "2025-09-18",
   "baseline": {
-   "n": 703,
+   "n": 704,
    "avg_pct": 3.22,
-   "median_pct": 3.15
+   "median_pct": 3.13
   },
   "bands": [
    {
@@ -1260,9 +1260,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 336,
-    "avg_pct": 4.13,
-    "median_pct": 4.3
+    "n": 337,
+    "avg_pct": 4.12,
+    "median_pct": 4.26
    },
    {
     "tone": "caution",
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 343.68,
-  "sma200": 336.03,
+  "price": 346.6,
+  "sma200": 336.19,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 22.0
+  "level": 21.8
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 41,
+  "days_until": 40,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 27
+  "days_until": 26
  },
  "earnings": {
   "next": null,
@@ -1303,14 +1303,14 @@
  },
  "backtest": {
   "start": "2022-09-19",
-  "end": "2026-09-17",
+  "end": "2026-09-18",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 44774.2,
-  "dca_return_pct": 114.23,
-  "dip_value": 44864.56,
-  "dip_return_pct": 114.66,
+  "dca_value": 45154.62,
+  "dca_return_pct": 116.05,
+  "dip_value": 45245.74,
+  "dip_return_pct": 116.49,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
@@ -1323,34 +1323,34 @@
    "published": "2026-09-17T18:26:50+00:00"
   },
   {
-   "title": "Is Thursday Night Football on YouTube TV, Hulu, Fubo or Sling?",
-   "source": "Democrat and Chronicle",
-   "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOaTZCVTl3MUZ0alJ5QVVLb25ObE1tdElYb2lHbFg0SmhIQW5RTUxJQnRCX2dHSjJ1ckdUNXR4NWtnRlhWdFpBQ1J6ZWJDT3lxWVVBeEFCeUpyZ1M5YzZLWm5qVFZMVEt5LUt3S3lwbnVJXzcwR3FibVhORl9PMVZSenVCZXNuNXZEYTVoRTFyS0FLaXJEcjFtVDU2WXpjYnBVS0QyUHlJUWo0YU9iNkpWOGhJWlRpUms3SnNqQ1gzU1NSQ2JSMGw2VkIyTDFZN09SS3VPbDh0d3F5Z09YUi11blBiRQ?oc=5",
-   "published": "2026-09-17T16:00:00+00:00"
+   "title": "Google is helping write AI chatbot safety laws \u2014 while pushing for loopholes",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQcnRCNjZod1BNNFhUVzU4WWJfWW90VnE3VDc5Q08wQjYzTkp6M3ZBa21XQWR3Zk9HN0NBazZvWEUxZ3U2Y0JDNHBveTBZc1FqUG4zWkNEU3diXzdWTTB5NVlOY01jd0twUlYxN0g4VjNrVmNKd0oyVW9oYzFsdlRwR203dWVELVBO?oc=5",
+   "published": "2026-09-18T09:00:00+00:00"
   },
   {
-   "title": "Google, DeepMind launch institute to explore AGI",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA4aU5EODcxNGZlb3Zta3RTbUVCUHhGcFliOENJREpTOTcwa0RjM3JvXzA1bzRVbnNnTDNWdDhGNzJ1MXRTaHJoVjZPWG5xcUpvWEhIcEJkSjd3XzN6ZGhITEtrdXJTWEpWNE1sMFlCbw?oc=5",
-   "published": "2026-09-16T23:38:57+00:00"
-  },
-  {
-   "title": "Judge Orders Data Sharing and Other Fixes to Solve Google\u2019s Ad Tech Monopoly",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1NaDYydzdnMTQtcjR0SGVGVV9RajdOYjhxQ2lTMnpnLTkyZTlmUkVDVGRfaGY4Yk05R09hdFVTZDVjVDhnSVNCZUZRRGNRYk56VW54eVQ2dTg2bjB6alNnMUFXU1FfNTN1UHdqazdOaWNJUUVEdHJiLXdZYm9mLTQ?oc=5",
-   "published": "2026-09-16T23:50:26+00:00"
-  },
-  {
-   "title": "Alphabet (GOOG) Surges 24% as Revenue Growth Soars \u2014 But Is $190 Billion in Capex Too Much?",
+   "title": "Prediction: Alphabet\u2019s Best Days May Still Be Ahead",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPb1JpSXVSTnlST1F6UmlZbENuSjktbXRwWS1ZVzBIdWQ3aE1jaW1FSThCTVpYYTFOYVo3MmloVTl5RlRjeTJiZGVaNTFja3l4Q0xhQVdXTjVyWnBVWVFWbS1fWXhyMldjamdXZ2k3TnpqS0p1eHpjN2hMbzU3M05XeFJQLUFjaXQxMW15U05LUXctVWdTb2g4djV4dVo?oc=5",
-   "published": "2026-09-16T12:30:12+00:00"
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNbFBQWlZZcUxYSEd1ZEg2eFp5WldMS2gwbHBNWmhUZHNuTzhxbnlBeHJyMUZnZEptMGIxWENCRDlwWXN3bHdkY180UEdaYVJBVE9kOEVwNWQwMFdoOXNCekY2V2JBUFl1RGwxam13cFk0VDUycGRYSnRLTXZBUnpodWFFeWxDLXNfbDk2WlJ5X29TMnEwZW5NaFpSTzNBc1U?oc=5",
+   "published": "2026-09-18T13:00:07+00:00"
   },
   {
-   "title": "UN turns to Google to make its global data ready for AI agents",
-   "source": "techcrunch.com",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOVS1RNUxKOXRsU09Nb2tCc2JiNG9rUHplWlYtcFdtNDlheldCMVdPYzBYcUlpN0NjdURKZmRhSlBGWW40X2NKaUh6R0stbWhXb2haR0Y5ajJuY2dyNTAzOWcxaXJmWHhJYUtuR01UN1BwTlc0VjRTOF8tNXVka0xKTTZzSnItU0lGSVhlNXBPSlJhR2lfYlAwekFYMEFYUQ?oc=5",
-   "published": "2026-09-17T20:00:00+00:00"
+   "title": "Prediction: Alphabet\u2019s Best Days May Still Be Ahead",
+   "source": "24/7 Wall St.",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOTFYtdzBFNTJSQy12UDJ0ZUVPeHpfWXlQWHRXTzl4c0hRa3BsZWVTeUpFUWNDcGpnemd5QmF0MktxX3ZOTTU3QW1UQWxzdWV6TU10TlRwMnlld29mODhsMDZVSUFHNjVuSTNOVGsyUEo1NnJXQUZSMFF6eVFvRTdVeDhjcVNRZzh5ZmZseF9FdDVhS2JlakloUw?oc=5",
+   "published": "2026-09-18T13:00:00+00:00"
+  },
+  {
+   "title": "Here's How Google Advertising Antitrust Ruling Could Play Out",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPeUp6YTh5NFlLR1BtOXJsdkFwaXlzX3V6S2xfeTN1U3RLYkI1ZHVlTjNsN2phTTBVblBaaUpSQzRyalFkdXhaeGtRQ1BQSEhta0JWUkhzSV9xWWpsa2lacDhvQWhHS1QtSG9rcC1KTUdaV09Oa2E5ekxidWszNDNkTGRoclA1RWVxUmxIMFYzLWEydzVpaXlIYndXVkdEMTJoVFRZ?oc=5",
+   "published": "2026-09-18T11:44:00+00:00"
+  },
+  {
+   "title": "Who wins and loses from the remedies to Google\u2019s ad tech monopoly",
+   "source": "Digiday",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxObGhCWjZnbnVoTFdpbkF3ajJvUWFRZUFSMm1ONkpwMkI0M2IzNzFqNGpON2JkTlVpVV9WNDBWT3JDMmpSSWU4djRtdzh2RVZmRWFqT2YyMlI0SDhRSWQzeEFDNFg1a1JzdFFNcFNSWEdya2pJQ0RvZEJtVHFzS0V5SzFmbHdacER5ekZZeWVjcE11RHFUNkZ6R2twRWFDRUE?oc=5",
+   "published": "2026-09-18T07:50:53+00:00"
   }
  ]
 }

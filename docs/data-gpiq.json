@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T22:07:11+00:00",
+ "generated_at": "2026-09-18T14:30:11+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "20.0 (p9)",
+   "value": "20.2 (p15)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 9.2,
+    "pos": 14.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 33.1,
+    "pos": 33.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.29x (p53)",
+   "value": "1.30x (p57)",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 53.4,
+    "pos": 56.7,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.6 pts",
+   "value": "+7.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 88.4,
+    "pos": 92.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -171,7 +171,7 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.70% (-0.05 1mo)",
+   "value": "2.70% (-0.03 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
@@ -227,7 +227,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 28.7,
+    "pos": 28.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 27d",
+   "value": "CPI in 26d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 56.57,
-  "day_change_pct": 1.53,
-  "sma50": 56.5,
-  "sma200": 54.62,
+  "price": 56.58,
+  "day_change_pct": 0.02,
+  "sma50": 56.48,
+  "sma200": 54.64,
   "high52w": 59.52,
-  "drawdown_pct": 5.0,
+  "drawdown_pct": 4.9,
   "series": [
-   {
-    "d": "2025-12-30",
-    "c": 53.22,
-    "t": "ok",
-    "s": 62
-   },
    {
     "d": "2025-12-31",
     "c": 52.87,
@@ -1343,6 +1337,12 @@
     "c": 56.57,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-18",
+    "c": 56.58,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1365,7 +1365,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 20.0) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 20.2) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1376,14 +1376,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-17",
-  "days_total": 724,
+  "end": "2026-09-18",
+  "days_total": 725,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-17",
+  "fg_coverage_start": "2025-09-18",
   "baseline": {
-   "n": 703,
+   "n": 704,
    "avg_pct": 1.88,
-   "median_pct": 2.09
+   "median_pct": 2.08
   },
   "bands": [
    {
@@ -1396,8 +1396,8 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 141,
-    "avg_pct": 2.57,
+    "n": 142,
+    "avg_pct": 2.55,
     "median_pct": 2.72
    },
    {
@@ -1520,73 +1520,73 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 716.92,
-  "sma200": 662.08,
+  "price": 716.8,
+  "sma200": 662.58,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 19.96
+  "level": 20.17
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 41,
+  "days_until": 40,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 27
+  "days_until": 26
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-17",
+  "end": "2026-09-18",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15200.0,
-  "dca_value": 20696.59,
-  "dca_return_pct": 36.16,
-  "dip_value": 20464.92,
-  "dip_return_pct": 34.64,
+  "dca_value": 20700.25,
+  "dca_return_pct": 36.19,
+  "dip_value": 20468.53,
+  "dip_return_pct": 34.66,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "Exclusive | Hackers Used Anthropic\u2019s Claude to Break Into OpenAI",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPQmNxc081M1NZa0l1MDZtRG16czdBY2M3X09PVUNCcFUzdS14ZEk1dEdDS0diT2toWlY4VmtMMkNaU1pVVDRaOEpDY0tMRi0zc3dweFpEMWZQOFpPQklqTUcwelZXelBDVXJQWE1GM25BYXgxbHc3ZHBBTk1xV3ViUzloX2s2d0tCd0RLS3lKZmFNdw?oc=5",
+   "published": "2026-09-18T01:00:00+00:00"
+  },
+  {
+   "title": "The turbulent AI era is here. The choices we make now are critical.",
+   "source": "Gates Notes",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
+   "published": "2026-09-18T11:02:55+00:00"
+  },
+  {
+   "title": "As AI behavior raises concerns, ex-researcher Jacob Coxon warns what may lie ahead",
+   "source": "PBS",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWlNWZUFoNXpBc3l6V29ETkVPeVJfWml6TWUya1YxQk1Wa3Q2a0hXaGFRTVJvbGZuOU5TOHdZVkVEQlhyTmJzcFdSeHowUktJTUtrNWlmSjVHVVFiZkVuZlNQdFdyeVVGVnY1MGIwS2I5WF85V2xVOVNULThJNGxaWnZPOFFTbjRpMG5iTmcxNlJZOVlWa0ZwM3hTQzBWcEphUlZ5cVZObWJnNFF6UTMtLVprRUNVdw?oc=5",
+   "published": "2026-09-17T22:55:25+00:00"
+  },
+  {
+   "title": "Anthropic and OpenAI hunt for smaller data center deals, sources tell CNBC, in race to deploy AI capacity",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQLWVDWHVZSXRaSnJENExMeU1PSjI3dXFEMUY3NWdsT1VOTU53NzJ6MXRZRl9Od3FQRFNpSllldGxYenM4RmdhVlp5MjJ1YmVvV01KTTI1Xy1BSTJrNmRuS24tME9DckN1ejRxQno5elpteEV6RlRGNFRaNkUzb1EtN0Q3SnExQlnSAYwBQVVfeXFMTlVtampvZjJYUEo4WERsUnYxd3AxdG9MWTdFY0pUcXNQYWp6Q2tsS1lfZTNESEdBaHV1T0VfcVpIVVNjSDRkV09wMDROWWZtaXlTQ1Jrd3NGVXBCdXMtWE1GWVlzSk9aekpRek00U3NwMXdWa2ttZFZlU3UtZmsxS2F6bHh6a25STXI0dHI?oc=5",
+   "published": "2026-09-18T09:38:17+00:00"
+  },
+  {
+   "title": "AI isn't coming to destroy humanity, but experts say the real threats are here",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQYjYyWEVUMUxKUUl4NWRSZTNybjluT0Z0aURaZ0JUVFUzVUlva3dLeW8xeUVaTzlFTlVPczBzZlpZbUF3RU5COHNCS1pDMVZ5OG9aVlY4VEtqbFhWeWJsWHdkTTdCVmtNYnFtVzZHVFAyT3l0RHd1UHV6czctcGliTm4zRTIzbkc1NE1PTEoyQW81dmdXeVNTQU16RTc1QWNiU1dqQ3kyc3VmT1lfSjNXbHYxeGZweF9oSFRJSmVyd2NqMDI0WUQ4emdmLTIwTG45cUE?oc=5",
+   "published": "2026-09-18T05:19:04+00:00"
+  },
+  {
    "title": "Our framework for reporting model misalignment",
    "source": "OpenAI",
    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5YcmZMVzhRdVd1WUM1QUhIZXZYSUxYZGh6WHptVzhyX1BOOWNIUlYtcW5XVV9Ec2VoNTVIU2JPUjRaX25VOWoyaVNBTVUwLUgyb1FBUEc3a0RyUS1SRjd3WG1fWlVZZkpJQUM1b0pydncwdw?oc=5",
    "published": "2026-09-16T22:03:21+00:00"
-  },
-  {
-   "title": "\u2018Godfather of AI\u2019 warns Congress has \u2018maybe a year\u2019 left to regulate AI",
-   "source": "NBC News",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTGhqbWpUNXgwTDNFQjBVNmkzc0Roa1A0akhTVjUzS3puS21YZnVuOXB4a2pmWVVUdnFsazRFZ01HbzZlZHRuZF8xejhPNnJYYXQtOW4zdVY0SmhxRWZLeS0xeEdDN2F4dTBCNm5FQ0NEdm1fSXlYWXRRSnN0a3FGYi1yX2FUWXBvbWk2dlNlcnplbFpncGs1eGRSLVMxUzNUdFlWd3hzVlFhM3Nv?oc=5",
-   "published": "2026-09-17T19:45:09+00:00"
-  },
-  {
-   "title": "AI has transformed the Pentagon\u2019s aging networks into a national security risk",
-   "source": "washingtonpost.com",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYWlZeXBDaEdjX3BLOGJ2WGJlbGtLMXVTMXNnNTZzNHRnLWNWaGtyUmplc3hEdVdpYnFnejVuRmV5REpNMHotWlFvTmpISXd1MENQb2xlWXYxTXA5cnVmYkNQMmtiSDFPSU5QQzdMbElOblpsWGlPSk9ES1ZEOEE1UXJvRVhPSms1LVBqZEdCdlNwMjR3YmRMWHVXd0ZTQ3FDNHo3Y0lhTEdoaE1ER21rUkl2WGkyMkNGMVN0SzJYWnFINXM?oc=5",
-   "published": "2026-09-17T16:00:00+00:00"
-  },
-  {
-   "title": "King Charles Meets With A.I. Executives About Safety Risks",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1pcWFqcU9MSHRRMW5NeG5SY3RhNjN4V3lxUkdSTEw5azZiaWp4Q08zbV9aVTM0WEN4S19BcUh6S01udko5OGtYbGRyY3VQWE52aGhGNnFjVHZFR2VOSWJMWjhfSjdKQnNMWGRabFdXQlRJZw?oc=5",
-   "published": "2026-09-17T17:47:19+00:00"
-  },
-  {
-   "title": "AI needs to have 'reasonable guidelines,' Palantir's Karp tells CNBC",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5UbEplOGYxLVE1bnQ5ZER0bzdhanpNQ3dDLVREaUIzUXJTWEo1VmhINzY1Z25ZVl9BNU9MV2NHdW9lY0xtUmZna0VMT0p1Wm5Qd0pKMDZTd3IyM2hpZnczczM4dTJ3UjF2RmIzONIBckFVX3lxTE9WWHJQNk5Ua2FHSzZGcUV1M2l0amdoQWNCQl8xcElqRkhYTUhJUU9keU05dVlpblVqV1ZLMG1tVk5xUXUtZ3AyRWlRQWgtUkE4OC1PX2xMZlRKVDZlOVVTOXlfZzRzM3BmX2NOMGtvNzZzUQ?oc=5",
-   "published": "2026-09-17T15:29:12+00:00"
-  },
-  {
-   "title": "Can an AI chatbot save lives by answering texts about pregnancy?",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOa2VWMUhfNVV2QXNFWDExVW8yR05uZlhGYWFJc1JXZnJjMWVkMlhZdVMwWEI4aXdvWF8tT0Znei05RlFReFZCb2hvQTExcXdpb3U5N3JOajF1Ym02VnhDVnU2clV2cWEwZDVGMnBkdzFBQ2lxMk9JOVZqQjBTZjRZd3ExdWJCejIxOVdGbHI5a3NtcnBXTXRFUXhObllnWl9ockhtZTIxTGE?oc=5",
-   "published": "2026-09-17T19:33:30+00:00"
   }
  ]
 }
