@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T17:10:30+00:00",
+ "generated_at": "2026-09-18T21:38:27+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.4 (p14)",
+   "value": "14.8 (p6)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 13.8,
+    "pos": 6.3,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.83",
+   "value": "0.81",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 32.1,
+    "pos": 28.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.1 pts",
+   "value": "+5.7 pts",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
+   "lean": "neutral",
+   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 84.3,
+    "pos": 80.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.3%",
+   "value": "1.0%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 13.0,
+    "pos": 10.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+0.4%",
+   "value": "+0.8%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 53.3,
+    "pos": 56.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 40.7,
+    "pos": 40.6,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "28 (fear)",
+   "value": "29 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 28.4,
+    "pos": 29.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 55.54,
-  "day_change_pct": -0.2,
-  "sma50": 55.71,
-  "sma200": 53.82,
+  "price": 55.72,
+  "day_change_pct": 0.13,
+  "sma50": 55.72,
+  "sma200": 53.83,
   "high52w": 56.67,
-  "drawdown_pct": 2.0,
+  "drawdown_pct": 1.7,
   "series": [
    {
     "d": "2025-12-31",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-18",
-    "c": 55.54,
+    "c": 55.72,
     "t": "neutral",
     "s": 50
    }
@@ -1323,22 +1323,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.58 (-1.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.58 (-2.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 28) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 29) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1383,8 +1383,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.21,
-  "tbill_3mo": 4.14
+  "ttm_yield_pct": 8.18,
+  "tbill_3mo": 4.12
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 759.25,
-  "sma200": 716.27,
+  "price": 761.69,
+  "sma200": 716.28,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.4
+  "level": 14.81
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1516,10 +1516,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15200.0,
-  "dca_value": 19608.56,
-  "dca_return_pct": 29.0,
-  "dip_value": 19388.53,
-  "dip_return_pct": 27.56,
+  "dca_value": 19672.11,
+  "dca_return_pct": 29.42,
+  "dip_value": 19446.83,
+  "dip_return_pct": 27.94,
   "dip_cash_uninvested": 1400.0,
   "dip_buy_days": 31,
   "winner": "dca"
@@ -1532,34 +1532,34 @@
    "published": "2026-09-16T19:23:03+00:00"
   },
   {
+   "title": "You Decide: Why Did the Fed Raise Its Interest Rate?",
+   "source": "NC State University",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNSU5RQ0FVa196SklqNmc1V3A2NFRjS0lSMmVPb1VMS0ZQWElIUDg2SjhjZ05sM0dQTTlBSXNsSXI1VkVrRi11TlBpVXloNEFrZU5pM1NfZnYyT0s1clkzblhHdV8tLU9VbzY3WkJZYUdEQTNIMnYwWFJrRTBuZFFMUTJKOTQ?oc=5",
+   "published": "2026-09-18T13:44:49+00:00"
+  },
+  {
    "title": "Federal Reserve hikes key rate for 1st time in 3 years, defying Trump demands for a cut",
    "source": "AP News",
    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVlB2TmNqY1dILUtfRTFBQ0JPSk53elRnU1QzdmhIQ3VvTWlkelRTd3haWHJ4bmxiY2ZOcGhvd09wMTllVkVLQzk5NkdKZzNPeHpaZTRHQ242Ynd2Q1ZIUU50cUp1N2JYd1lCQndZQlhMUTZFekFZWWNueUxNbmRiUHdBZ2dWbDgzNlhmejZneHptaFhGbDI1M0JPbk8zZw?oc=5",
    "published": "2026-09-16T23:42:00+00:00"
   },
   {
-   "title": "You Decide: Why Did the Fed Raise Its Interest Rate?",
-   "source": "cals.ncsu.edu",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNSU5RQ0FVa196SklqNmc1V3A2NFRjS0lSMmVPb1VMS0ZQWElIUDg2SjhjZ05sM0dQTTlBSXNsSXI1VkVrRi11TlBpVXloNEFrZU5pM1NfZnYyT0s1clkzblhHdV8tLU9VbzY3WkJZYUdEQTNIMnYwWFJrRTBuZFFMUTJKOTQ?oc=5",
-   "published": "2026-09-18T13:02:58+00:00"
+   "title": "GOP Senators defend Federal Reserve\u2019s decision",
+   "source": "The Hill",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNOHhjTk1HUzI4RjBGbzA5SjMyVWVkZ0pQZVJtVXZMSVpEanVXa3NSSDNIUTIyWW5yaThLRnJHVGJSQVU4LThQN3lFdHo2SGZyeWgwWkV1dGlIdFBES0ZqclVKTU9LTUVtR2R4MWdXRmQ4UDI2c1lGeW9acWhOSHpjNHhmOHBPeDltNTl5ZG5PVTB4Rk96OGVsN3pUV1BBM3FNek5xYzdn0gGrAUFVX3lxTE1tR3hRVURnSVJoQWNGcGVtZXl2QW1sOXF2dmUtTWNGV25wTmFwQWpFOVZrcUk0c0xNS1ZQeU02SkVNSzdURHlyN2J5QnBvajMxYzFERHl4cUFudFRaV2w3M25PODk5RmxLZXg2aDFDOERmUHNSOHFNZl9uLVR6Zy1RaWhjeGZhaTQtNDkwY0ZDSHhEeWNzXzFSa0w3cE9UVTl3TEY2ai03T0l0RQ?oc=5",
+   "published": "2026-09-18T20:30:00+00:00"
   },
   {
-   "title": "B2B Payments: A Gradual Shift from Checks to Electronic Payment Methods",
-   "source": "Kansas City Fed",
-   "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOQmx2eFNQYlJ0WS05M01FbjZUUW5XWGRKdFNmZUlZaHRYZHE1dDYyU0xKczJsZkNHWHRzQjhISXZKd0pmWjN6amptVGtERkhvUmpQXzBTNlViakJlRVdBcVB2T0k4NF9HcVZXTDgwc1JvdzFlSDMtY1lNdUtHM0w0cVlEbGVVbGRHZnB5WUNEWTVrd1JaaU5vZzU3U1BqN1ZGN1JJa0x5b3Q0ZFgwajM3dGJyX3ZZRFQzb0l4ZGpNSHZqUlZ6Z2Z1d3ZnNlpqVktKcENuaEhfcmR4MWU1Z1E?oc=5",
-   "published": "2026-09-18T17:04:02+00:00"
+   "title": "Three words from Kevin Warsh have Wall Street wondering how far the Fed will go with rate hikes",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNSXdfWXNIMEY2YkdDSGh2cWVONW03aXdjUFFuUGV5cmswQnNjQlgzNTJTWTBiM3ZnZmY4Wl95MmRYOGFyeDB6YjJwTTdDdk94QU1jendxcHZxemF2dExzdFh1WWwzeE0tMTdnWUFLWUhqeTdUMm9ORG53UGVoaU1zSVhVU3hkV1RNaDNqNmNjMVo2VUVteXR0NnE1dHZUZGo2WUZUMWNYdzlnR3FGcWNrRlhqU0hUX21VUUI4aE50bUFmb2tVdDZMMldYNG_SAdIBQVVfeXFMTy1qakhvTjZoRU1JZjNhZDFtUjN3cWg5N3JmQjQ4RnpsZGFUVW5pVWFOOXdlWDhnMjBMRzN2SnBObjF2OTBTTGZCWW5sX3NheHNjVHhEY2NVVkt5YXU2S1AyNFRRamM1UXhYN0NWTGUwOHRTc0hxVVdMT0xITXZXN05MZ01jOGdIU1pfVTkybXMyY081a1hIYUtqTWFKMzdFVXIwYVZmT19PbXlOTzNIenN1YXhKY1RvTkd2SkctZ01VOGVFN0p0bTR5X2RTQ1MyVlhn?oc=5",
+   "published": "2026-09-18T16:33:43+00:00"
   },
   {
-   "title": "What the Fed rate hike likely means for you",
-   "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPeGxPU095Y1JPU3hiRjc1UkN3OWtqazMyNVkySkliRHJtZEtubjRqaTZDa09US1VsaGpPVTJ6bGd5Um5la3AxT2luZXRGekMzQ2s1Z1VzcXdLUmQ4TGc5eUJDaUs5NW9PUTBJeHVLcy1jWUNGaXlJWGVlWVJUU0hRYktXWW5NckXSAYwBQVVfeXFMTm5vME9DbHJOTGVXdjh6blVJMEpLc1h3TzdDc0xRTzFVLTJ1cl9WcGw2cU91YlRnZEpRMUF6TE5mTWFuYnhuX2xLNDJpS19Ta1VGeklxMXk5MTE1bE9rR1NSN2JvbXVwRS1xbl9qbHg5TkJTb3hSLXA0UGFnZHZOakFfTUdkQXZ3c01fbTU?oc=5",
-   "published": "2026-09-16T19:08:08+00:00"
-  },
-  {
-   "title": "Federal Reserve hikes interest rates for first time since 2023 amid stubborn inflation",
-   "source": "Fox Business",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNTkNGQWZwRUllRWhwM29vZGhCd0Z1TjVzSGtnUXZibzlBNnNNX0hobXRaempWb1k1bndFR0xaTk5yTllrRWFWQk00b3NDYVhQTDI2bUZWQW0xV3lCeUNuOFhEaVVQdnJGc3ZCQUY3MzN3ZWpqb3A1ZG1HT2dMNGdieEw0R0ZsZ2pYTlJMOVdMeVhkVFFWQ2o40gGcAUFVX3lxTE5zT2pObGszWGx6dXo3VjdyQnlDN0U2N1ROcFp1NW81amlLVGJ2b3Nmb19Ca2RxcVpISHdhdTdfdXppX1JJV2RUTEwyYm9MdDRucDdMNEY5Y1M5d1IweWZSbUVseGYydldTNm91OWVVdDFvT1BJQUVXa0lpLTY4OUwtVTUwUHZBWlNQaDN2VW9kSzFmSGQ1bWtzT001bA?oc=5",
-   "published": "2026-09-16T20:01:00+00:00"
+   "title": "New Report on SVB Collapse Pins Blame on Fed\u2019s Own Regulators, Fed Official Says",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOeWFTVVo0WXlybUpxZXR0c2IxVGpQYy11OVplMlVTTnY3WUt4VXBoU0xxRkRSaGVFdVYzeVZxVFVLSjJJdW1rTjBfeXJaNU5ZaHBlZ3ZaT3FQbGtiMWt0UlVlSmZaa1Voc21JTVN3WkJjSGdES3lFSzZlM2g2Sm1RUlNWeFB4OEVad3hURHpMZkNjbUltamx2NjhuUV8zVWo3UHJEN1lGcXhqcjVOdmVTTmVBb1luSkh3?oc=5",
+   "published": "2026-09-18T17:51:00+00:00"
   }
  ]
 }
