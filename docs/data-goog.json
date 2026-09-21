@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-18T21:38:33+00:00",
+ "generated_at": "2026-09-21T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "22% ann. (p18)",
+   "value": "23% ann. (p27)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "bad",
-   "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
+   "lean": "neutral",
+   "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 17.9,
+    "pos": 27.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "13.6%",
+   "value": "11.8%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 13.6% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 11.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 27.2,
+    "pos": 23.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.8 (p6), F&G 29",
+   "value": "VIX 14.7 (p6), F&G 33",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 26d",
+   "value": "CPI in 23d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 344.41,
-  "day_change_pct": 0.21,
-  "sma50": 343.48,
-  "sma200": 336.18,
+  "price": 351.68,
+  "day_change_pct": 2.11,
+  "sma50": 343.41,
+  "sma200": 336.36,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 13.7,
+  "drawdown_pct": 11.9,
   "series": [
-   {
-    "d": "2025-12-31",
-    "c": 313.8,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-02",
     "c": 315.32,
@@ -1215,6 +1209,12 @@
     "c": 344.41,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-21",
+    "c": 351.68,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,25 +1222,25 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+4.1% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+2.0% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 22%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 23%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-18",
-  "days_total": 725,
+  "end": "2026-09-21",
+  "days_total": 726,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-18",
+  "fg_coverage_start": "2025-09-22",
   "baseline": {
-   "n": 704,
+   "n": 705,
    "avg_pct": 3.22,
-   "median_pct": 3.13
+   "median_pct": 3.15
   },
   "bands": [
    {
@@ -1267,9 +1267,9 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 168,
+    "n": 169,
     "avg_pct": 3.7,
-    "median_pct": 2.87
+    "median_pct": 2.89
    }
   ]
  },
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 344.41,
-  "sma200": 336.18,
+  "price": 351.68,
+  "sma200": 336.36,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 21.6
+  "level": 22.5
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 40,
+  "days_until": 37,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 26
+  "days_until": 23
  },
  "earnings": {
   "next": null,
@@ -1302,55 +1302,55 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-19",
-  "end": "2026-09-18",
+  "start": "2022-09-21",
+  "end": "2026-09-21",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 44869.31,
-  "dca_return_pct": 114.69,
-  "dip_value": 44959.86,
-  "dip_return_pct": 115.12,
+  "invested": 21000.0,
+  "dca_value": 45929.56,
+  "dca_return_pct": 118.71,
+  "dip_value": 46055.64,
+  "dip_return_pct": 119.31,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 164,
+  "dip_buy_days": 162,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "An Undercover Google Analyst Infiltrated a Notorious Supply-Chain Hacking Gang",
-   "source": "WIRED",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOYnZtZmk4cDZFRm4xS0E4cS1rVUVWX2ZBZUZ0WkYtcXVrYnd1NWtGaG1BLVdsZThaa3c2cEx6LWFvZ2g2WEFkdFRGVGVHbkc2MmtLMmNRcWxqRUs2aHB0dlU5SGpESmMzSDAwcGp2NDlGUG9iUDZhVThOOVpfb3FZR0J5aXRPcjRRQWVIYTRQUzhMeVl6OVY0U3BhRWlhd0xEYWtzRG52bnNqTzQ?oc=5",
-   "published": "2026-09-18T16:00:00+00:00"
-  },
-  {
-   "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
+   "title": "Googlebook: The laptop your Android phone has been waiting for",
    "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNZTNBTjVVXzE2ZXpJdkoxcHo2cTNVVG1pZEs0dXhMU0d4dnNzcU5iZWppYkJMeVpCeWZVQ3dKSzVzZXNoeTltY3RJaXJtckQ2LXZnWlpGQ1V4Yi1HZUdjdFdPMUFua18weUpTazgweFp5YnlVTjB2RVJiTnVFMllTUThtQVlrT3liYnd1dmhfUGxiRHZOb3pub1dGR3pXbk9UMnZzV1hZdF96UUVLcTdWanZVc2YtaGtkZXNzY1ZCQQ?oc=5",
-   "published": "2026-09-15T17:07:08+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOWFVXakRXTHBpbWJqM0lCdmRVYkJKeWUzYVN4WVF4blZIT1FCaUZWZ2xvYUVGVDZkdGVRbFl0b2l2Q0pnYjVLUDF2ZUJjbURuYkVJUGY3QVZYQkE2dGpKbmpvTWVQYWtDczB6ZGwtUXF4VGJxcjA2cmtwY0EzYzZEQ0FaS3J1dTRVVzQw?oc=5",
+   "published": "2026-09-21T13:08:13+00:00"
   },
   {
-   "title": "Why Alphabet Stock Popped This Morning",
+   "title": "Irish privacy regulator fines Google \u20ac403 million over location data processing",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxObTlBMUhCMU1lTUtmLWhWVUNOanZWNWc0bXkxNFVZYmUzb2RlWGFndlhPaDAwZjFoRi00R2lwSVZINExLZ2ROal85T2NIeWxaZFRWUnRLRmFWT2VmZTQtQjloR0o2Vlg3WGJWZ1h2V0d1RnpMQjZRNTRZQmtFamVoS2JSOVE1ZVVXSzg3NE9JcjFNb2ZwY2NXUUJYeGxGLXVxN1dDM3NiYWk3V3V0UDU2S1pTR09jdldEWUxFNURuMmVkS1hpTzdoRg?oc=5",
+   "published": "2026-09-21T10:45:33+00:00"
+  },
+  {
+   "title": "GOOG vs GOOGL - which Alphabet share class should you buy?",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNWtPRzVpa24tSzJ5dTl5RnFVTTNQcDl1MHpHbC1fSUppOUJudm9kWThBVndPLWpaWlhabnRxRzBkX1ZPWHljcDF5TE9xX2dVbXVQU1pYNGVxTXZtSHdZOWhBd2hhUTEzZE5UUmpkNEpFQXBQNlM1dkM4N0w1M2publV2YktBT0ZCUkxPUk9iaXA4SWh5UVhQR3FzZ1JGT2s?oc=5",
-   "published": "2026-09-18T15:36:53+00:00"
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRnIzXzJBQkk4T1oyNXV2N0tKWEFrMy1pUTZlc3N5VW1Yc1JQbDY4dzJUeFBSUVVTTXlfQk9BaUlTbnYwNFVUcWVlS2xiZGVPd0NxS0xQdnMwQm9YYW91WU9QcnNkMVRDRlBucjB6WHdUZTN4SUdtQXZFeVJiX0lXZXlnbTN5bEUxOEVGSVF5b0l4clA5YWxSVg?oc=5",
+   "published": "2026-09-21T10:29:34+00:00"
   },
   {
-   "title": "How Google is drafting AI chatbot laws around the country",
-   "source": "npr.org",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQcnRCNjZod1BNNFhUVzU4WWJfWW90VnE3VDc5Q08wQjYzTkp6M3ZBa21XQWR3Zk9HN0NBazZvWEUxZ3U2Y0JDNHBveTBZc1FqUG4zWkNEU3diXzdWTTB5NVlOY01jd0twUlYxN0g4VjNrVmNKd0oyVW9oYzFsdlRwR203dWVELVBO?oc=5",
-   "published": "2026-09-18T09:00:00+00:00"
+   "title": "Pixel 11 Pro XL: Google\u2019s big-screen superphone with top-class camera",
+   "source": "The Guardian",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQSXBvXzNCSHd0XzJlZzgxcDNxaWRjb01Gb09FaTdZLVJCQUNNRzdZQmRndVRUMXFwYXJaS1hWcUkxMTVUTU5oeC1nYUU5aE5LblBnUXVUcVh1TmNDaGdWWGItVlhzbVZyNjMwYzRTcDJFeV9MWW5zY2lKRjJRcFRfSzNJdmR4ZEZnNnVuS21UY09VUnZyVGJZZ1FoZ1VXcTgtQ0JCbkdxSVFfdnBWem03RWVaSXRldk11?oc=5",
+   "published": "2026-09-21T06:02:00+00:00"
   },
   {
-   "title": "Here's How Google Advertising Antitrust Ruling Could Play Out",
-   "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPeUp6YTh5NFlLR1BtOXJsdkFwaXlzX3V6S2xfeTN1U3RLYkI1ZHVlTjNsN2phTTBVblBaaUpSQzRyalFkdXhaeGtRQ1BQSEhta0JWUkhzSV9xWWpsa2lacDhvQWhHS1QtSG9rcC1KTUdaV09Oa2E5ekxidWszNDNkTGRoclA1RWVxUmxIMFYzLWEydzVpaXlIYndXVkdEMTJoVFRZ?oc=5",
-   "published": "2026-09-18T11:44:00+00:00"
+   "title": "Google takes aim at premium laptop market with $899 Googlebook",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE12bHRZZ05FcUo5UlByai0tNC1FanlCZ2haSWNaY284OU8xdGprWVZLU2ktTWRuaHAyME1yUWpIUVBxVmo0dkhPWV91T29USXFsLVdpR3JRV05ta2VFd1FjYWJpN2FnZzI4bmRRXy1B?oc=5",
+   "published": "2026-09-21T13:30:24+00:00"
   },
   {
-   "title": "Google\u2019s new \u2018CC\u2019 is an AI agent that helps families run their households",
-   "source": "techcrunch.com",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNd2ZzZVhmYzUzbWJSbkdnV1QtYnBxT2pwUy1xckI5NFVNRkRHMVUzU0FVcVNxbFEySjNnMlQ1LU9Kc2JLbXpLUmFHb0pqdWNRZVNuVng5Vk9uTmpXYW1NcUdkcXJjdjA1emw2Zk02d3lOdUFQNXo2OFlNZjBvUHl3XzJuNVRUZmJJMXlwbjdJVFhweG1VTUwxZ0dHREFUdGlMUTFuc2ZydGQ?oc=5",
-   "published": "2026-09-18T17:33:50+00:00"
+   "title": "Google Fined $463 Million By Irish Data Watchdog Over Location Data Handling",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQ2dZc0d3YkZpbk91bUREZnBscjJPcHFkN2lobUg2M0d6NlRPVVZEUkNacTFQSHBsZkoxbUxUckVrYTNCUzFqWU5aUC1XaUNEX2tKU0JWVDFocHQyT3dXbzhrU3FER1IwVzdJZkZNNVN4Ynk2Q0FNdE9XblZ1X21xeGF6ZmFXaEN5cGxGMVRWakdwN1pHY2xlbWFhb1MteUxmVWN3bW1RaEVLUQ?oc=5",
+   "published": "2026-09-21T10:22:00+00:00"
   }
  ]
 }

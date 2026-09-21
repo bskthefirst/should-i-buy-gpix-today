@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T21:38:29+00:00",
+ "generated_at": "2026-09-21T14:30:12+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "19.3 (p4)",
+   "value": "19.9 (p9)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 4.0,
+    "pos": 8.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.81",
+   "value": "0.82",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 28.0,
+    "pos": 29.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.30x (p57)",
+   "value": "1.35x (p66)",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
+   "lean": "bad",
+   "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 57.0,
+    "pos": 66.1,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.1 pts",
+   "value": "+5.3 pts",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
+   "lean": "neutral",
+   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 83.8,
+    "pos": 77.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.9%",
+   "value": "0.5%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
-   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
+   "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 19.0,
+    "pos": 5.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+1.6%",
+   "value": "+3.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
+   "note": "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 63.3,
+    "pos": 75.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.70% (-0.03 1mo)",
+   "value": "2.68% (-0.07 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 17.5,
+    "pos": 17.0,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.1% vs 4.1% cash",
+   "value": "9.9% vs 4.1% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 59.3,
+    "pos": 57.9,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "29 (fear)",
+   "value": "33 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 29.1,
+    "pos": 33.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 26d",
+   "value": "CPI in 23d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 56.88,
-  "day_change_pct": 0.55,
-  "sma50": 56.48,
-  "sma200": 54.64,
+  "price": 57.69,
+  "day_change_pct": 1.42,
+  "sma50": 56.47,
+  "sma200": 54.66,
   "high52w": 59.52,
-  "drawdown_pct": 4.4,
+  "drawdown_pct": 3.1,
   "series": [
-   {
-    "d": "2025-12-31",
-    "c": 52.87,
-    "t": "ok",
-    "s": 62
-   },
    {
     "d": "2026-01-02",
     "c": 52.31,
@@ -1343,6 +1337,12 @@
     "c": 56.88,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-21",
+    "c": 57.69,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1350,48 +1350,48 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.23 (-1.1% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.23 (-2.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 29) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 33) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.81) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.82) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 19.3) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 19.9) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.70%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.68%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-18",
-  "days_total": 725,
+  "end": "2026-09-21",
+  "days_total": 726,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-18",
+  "fg_coverage_start": "2025-09-22",
   "baseline": {
-   "n": 704,
+   "n": 705,
    "avg_pct": 1.88,
-   "median_pct": 2.08
+   "median_pct": 2.09
   },
   "bands": [
    {
     "tone": "good",
     "label": "Better-than-usual entry (score \u2265 69)",
-    "n": 105,
-    "avg_pct": 3.74,
-    "median_pct": 3.36
+    "n": 106,
+    "avg_pct": 3.73,
+    "median_pct": 3.31
    },
    {
     "tone": "ok",
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.05,
+  "ttm_yield_pct": 9.91,
   "tbill_3mo": 4.12
  },
  "distributions": {
@@ -1520,73 +1520,73 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 721.45,
-  "sma200": 662.6,
+  "price": 734.94,
+  "sma200": 663.16,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 19.29
+  "level": 19.94
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 40,
+  "days_until": 37,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 26
+  "days_until": 23
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-18",
+  "end": "2026-09-21",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 15200.0,
-  "dca_value": 20810.0,
-  "dca_return_pct": 36.91,
-  "dip_value": 20577.07,
-  "dip_return_pct": 35.38,
-  "dip_cash_uninvested": 0.0,
+  "invested": 15300.0,
+  "dca_value": 21206.35,
+  "dca_return_pct": 38.6,
+  "dip_value": 20970.09,
+  "dip_return_pct": 37.06,
+  "dip_cash_uninvested": 100.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Governor Newsom issues executive order to accelerate independent oversight and advance the creation of an AI kill switch",
-   "source": "California State Portal | CA.gov",
-   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNdWNuQ1N2RC1DOTdndklPb2NYbDAwWUx1azRBZjE1R1pCelpZUU9UdEVhNlJUUm9zeDkzcUdTX3laMVU1UkRHaUN5VEY0WWk4S0NuSXNnXzRFMUhVT3RNU3RFWU1PdlowcFFXalMwbHFIR1V6V254c0ZNQ1hkVGFHVnp0Z3BMUzlreFplYTJveHFJZk93Mk5UcUR3cllPT0tGUUdCbU5zbU9rZUp2aWxzTVh2dV9XbXcyWDQ3YUhPdmdJOFhycktnZ1Z3akFwQVhtSUpaRjVRaU9wdUREZm1pNlQ3UXhKa2Uwa2hN?oc=5",
-   "published": "2026-09-18T15:10:22+00:00"
-  },
-  {
-   "title": "When Trump and Xi meet they will discuss AI. \u2018Track Two\u2019 talks are already buzzing",
-   "source": "npr.org",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPc3g2bVNKWVNiOGNxemRhSW90a3FSWlA0VVg4ZUFBWFF6RURJbHppazlpV0VDcVUxT0FwT1hUVWk3djBkQm9NZFBtZXUxZ19uaWZGZW13ZGxKY2pfTDZPM1hqR0w2XzVNSEZ5VFNTNnVzMkI0V2NlRkFieU9sLUlNdU9Sa1FvazA?oc=5",
-   "published": "2026-09-18T19:14:15+00:00"
-  },
-  {
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-18T17:04:35+00:00"
+   "published": "2026-09-21T11:40:55+00:00"
   },
   {
-   "title": "OpenAI's latest AI revelation is a 'serious situation,' Microsoft's Suleyman tells CNBC",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxObnh4czlpREt3SjNqZkhVb01vQVVJVTBiYlRhVlJ0Z0xiRnF4YnoyOU5YWXdDa05NS051aFFOS2E3ZmlxWDNpTHVoRjN2Mm5IYmVtQVM0ekpDT0UxR0Vjb0dLNHVWMnRlU1RhWlRxeWx2ZTNRYTFCTTNtLWdFMzJTRnFMc2VsQTZwV29iSkctZ3R2Smx4bnFkWjVWeUVNOVFCbHFtQtIBqgFBVV95cUxQVjZvU293cGh2VURVdGV6eUUyTlEwbWI3QzFESFFwajZHSnpuQktpaTZWSHU3ZFhsMWxFUmdrYVJmN0lOWnd4d1A5Qjd3eFkxWnk4ZkZQRVVhaF9WN3BtVzlETE12a0VuM0dYU1lSSW00UW1JNlNFMVc0VURJd18yMjZueDlrM2xmWlk1Qk1aSHp6SXRmS3dmTXJreWJRUVlfcExPUmZzLVIzZw?oc=5",
-   "published": "2026-09-18T13:23:58+00:00"
+   "title": "Measurements for understanding the pace of AI development inside frontier labs",
+   "source": "Anthropic",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1hSlNaZU5CMXdjOERiMTltcEVxMXduUXVrT1UtSExlUGlUUHFCc2huOVM0NEY0cmhCMVF6X0o2QjMwUUZOQkhuSGlHVjFlaWdKelR3ZTEzUV9SRzRIdkxhV3RfQ0N2OUI5U214a0RqZjh3c2MxUktr?oc=5",
+   "published": "2026-09-21T13:40:05+00:00"
   },
   {
-   "title": "Trump Calls A.I. Fears a Hoax. Inside the White House, the Debate Is More Complex.",
+   "title": "U.S. and China Discuss System to Warn of A.I. National Security Issues",
    "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNak5GUzFuWWRqR1pyS1YtWkxtSXdRRXZQeTVOQzlEQmMtMVFteUxjYnRDRTdlRm91NFhacVJ4UkEwRVA1Slg3THlocElZRTZxdTh3TnNyZGlpRklMdFhyWndMaEVORS1JMUY0N3lLc0xQQkdTZHFhMzNtY0R1d01KeVhjRVI3SURHenRrVWVTME9TRDZl?oc=5",
-   "published": "2026-09-18T18:09:23+00:00"
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZzF1U1p0TVN5LWRKZlJGc29FSlJsNERlZWdtVmJLMUZsVktQc2I5TVRjdk14aTBJYzZRaUpGWlR1d0hBTlZIclhSSVJhRUNENERxRjFEQ3YwbjdXZFl4Y1Q0bkJpdVo2QUlQdHFmUHRNc0puWEVQQURTSUQ0SUVkUm9GdlplZmhPaFdaVHdXNVhhRTBXRGdoZA?oc=5",
+   "published": "2026-09-21T10:53:00+00:00"
   },
   {
-   "title": "The real reason for Trump\u2019s pedal-to-the-metal approach on AI",
-   "source": "CNN",
-   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1PemxCQl85dWNFR3hXZk5sZ1Nia3JlQ3JLMG5VMmVqbUNkYXZTLTV6NG1MdVVfRHl6TV93RWdFX1cybC1rZHQ0M1UtOWRjeG8tREVueFFuc0FDUDlGT1cxT1JxT0Q4dw?oc=5",
-   "published": "2026-09-18T11:30:29+00:00"
+   "title": "U.S. proposes exchanging AI safety alerts with China, Bessent says",
+   "source": "NBC News",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNbm1IaU52OC1wamEyV2ljZmdGM2plOEhmOUJmZ1gwMWNNREljcXdfMGxjRVM5RzZIZEN1eXZZc21kLTgya0Z3WEJCUEFDNm5wNXJReUc5QTRMY1h5bVNuSXFfQkV0VkFmblJpMzExTWhuNWJGWWg0THUxcm9MTWlyc3B4UEpXR0dSNTBLNWlaQzRLdHZLSHdiaUgwMXh5LUFuRzFrSkpEWQ?oc=5",
+   "published": "2026-09-21T06:20:30+00:00"
+  },
+  {
+   "title": "Is this how the world ends? Extinction scenarios are taking over the AI debate.",
+   "source": "washingtonpost.com",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNHdXRXJtS3NzRnEwd0liQXYzbnM2bUV0UUJ3MU4xMklyMVUzbl9vRGtlVTRUdm44YnFzOGNrSWktT0pCWVBTVnE2WEcwUWxLd18xS2VNWTM4bWROZ19oSUN5Q01NU0NwSHBPbzVTZEdQT25jMlA0MGZGTEZ3dHZJeGJNMDlrbS14Ukt4UEtybGF5aExPRUJORjlKTC1rYzVtZmVYWHpsQnBzbnZUdGRiNE5VU3pla1lzZmMxUGFoaTg?oc=5",
+   "published": "2026-09-21T13:32:45+00:00"
+  },
+  {
+   "title": "Thematic Brief on AI Agents, Misalignment and the Risk of Losing Human Control",
+   "source": "Welcome to the United Nations",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQelgycTJ1SVBXYnJRSWdrdnFaS1VzaTBBWkt3WG9WZnNkOVN6d25TenhLdU5jLTN4c1dZcjVIRDBTR25aVjZkZGJwQlhqdEZncFFodXpDdm1ORDNhN3JwV0Y4MWNPUkMwSjBMM2RkMVlOVTNObGtYTVlHdnh4U0pNbG5kRUlSYVNtOXpqRUNOOE93QnIwdGEtTXAzWkYtVWN1WVFDMkU4T3I1LTVNemxlWDFn?oc=5",
+   "published": "2026-09-21T10:20:02+00:00"
   }
  ]
 }

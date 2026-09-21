@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-18T21:38:30+00:00",
+ "generated_at": "2026-09-21T14:30:13+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 97.9,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "49% ann. (p61)",
+   "value": "47% ann. (p55)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 60.7,
+    "pos": 54.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "25.6%",
+   "value": "22.9%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 51.2,
+    "pos": 45.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.8 (p6), F&G 29",
+   "value": "VIX 14.7 (p6), F&G 33",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 26d",
+   "value": "CPI in 23d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 364.27,
-  "day_change_pct": -0.53,
-  "sma50": 350.25,
-  "sma200": 397.33,
+  "price": 377.49,
+  "day_change_pct": 3.63,
+  "sma50": 349.64,
+  "sma200": 397.07,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 25.6,
+  "drawdown_pct": 22.9,
   "series": [
-   {
-    "d": "2025-12-31",
-    "c": 449.72,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2026-01-02",
     "c": 438.07,
@@ -1215,6 +1209,12 @@
     "c": 364.27,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-21",
+    "c": 377.49,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1222,20 +1222,20 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 49%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 47%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-18",
-  "days_total": 725,
+  "end": "2026-09-21",
+  "days_total": 726,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-18",
+  "fg_coverage_start": "2025-09-22",
   "baseline": {
-   "n": 704,
-   "avg_pct": 2.74,
-   "median_pct": 0.47
+   "n": 705,
+   "avg_pct": 2.75,
+   "median_pct": 0.49
   },
   "bands": [
    {
@@ -1255,9 +1255,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 351,
-    "avg_pct": 2.62,
-    "median_pct": 0.33
+    "n": 352,
+    "avg_pct": 2.64,
+    "median_pct": 0.38
    },
    {
     "tone": "caution",
@@ -1274,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 364.27,
-  "sma200": 397.33,
+  "price": 377.49,
+  "sma200": 397.07,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 49.0
+  "level": 47.4
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 40,
+  "days_until": 37,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 26
+  "days_until": 23
  },
  "earnings": {
   "next": null,
@@ -1297,55 +1297,55 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-19",
-  "end": "2026-09-18",
+  "start": "2022-09-21",
+  "end": "2026-09-21",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 29941.99,
-  "dca_return_pct": 43.26,
-  "dip_value": 29941.58,
-  "dip_return_pct": 43.26,
+  "invested": 21000.0,
+  "dca_value": 31131.99,
+  "dca_return_pct": 48.25,
+  "dip_value": 31128.21,
+  "dip_return_pct": 48.23,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 206,
+  "dip_buy_days": 207,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "3 Reasons to Avoid TSLA and 1 Stock to Buy Instead",
+   "title": "Tesla\u2019s Roadster Is 1 Reason Why October Could Be a Different Story for the Stock",
+   "source": "barrons.com",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQREpfY2hJWHdKX1FXU2tJcHVHVExyNnI2b016TUJvSDg4LWVwTXBjVzZzdGtMYzBIc3FzT3NEQjlyaExFZERsdEQ4aFp3S2hyOFFidnV2RTFYWThwenJKNFJuQWducThWN2MzSWlfNE1RNDR0dWd4Y2hDaVpHSzdMcQ?oc=5",
+   "published": "2026-09-21T11:18:00+00:00"
+  },
+  {
+   "title": "Tesla Inc Stock (TSLA) Opened Up by 3.29% on Sep 21: Key Drivers Unveiled",
+   "source": "tradingkey.com",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQTlE1TTdXLWpITk5hbGp0aS1pcFZSRmgyT2pKV24tbzZYczVHelkzQzFQNlFvekx5MGR4RlJ2dmttQjFEVGgzMU4tRjFJMTBXRjhCbU9MOENpbEpZdXdUbDJyeHhxMTJCQlZuWE1pOENiY0oxY28wdXZGUGdrazI1bmkybEg1SXpIc2Zr?oc=5",
+   "published": "2026-09-21T13:47:20+00:00"
+  },
+  {
+   "title": "Elon Musk's mom, Maye, sleeps in garage near SpaceX HQ when visiting Tesla CEO",
+   "source": "Fortune",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPN0ZXRFpRVERJUjRmTGYza190NlRjRkwwNW42eUF5U1VYNUJCWWJyZXJIc3lsTjFYYVJOQWNZcFBiQ1hqcDhOM25BV1J6V1FfTHpPdmkyQ1IyQTVlWC1WbEpad21OdkdHSXJqTG5mSm1QNjNtTHp4ZmlGWW1naW9aWVp6dE0?oc=5",
+   "published": "2026-09-21T10:46:00+00:00"
+  },
+  {
+   "title": "Musk pitches hyperloop tunnel to cut Austin-San Antonio travel time - Austin American-Statesman",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOVDBIQjdJNmNVU21aU25iWnRQcDBtMWpxaVdvMzZwTXhlem43SWYtWVdIVTQ4d3gwZTRsQ0JvUHBQVkhqeTg5SWVpRU9fUnRRYkNpZ3lfMzNMdzdtWlp4S1lSWkdGN0tHZHFBeEVOcmxGWl9uT2xQYzJsWXNyMFh5SnZvejVhbU1GWU9GZWxIS2tEUjVockFBc0VxX19uSWVKWkdMUTNGSmNLZw?oc=5",
+   "published": "2026-09-21T13:29:16+00:00"
+  },
+  {
+   "title": "Oppenheimer maintains Tesla stock rating on AI platform shift",
+   "source": "Investing.com",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNTFNaalpqb042Yll3dUlNTmV3c3h6dlFzRVJUaVB0VGNsYmk1R2RLMHJiaHZyLWplY1hScWVmcTZTaDByU241aGhickQ1dUpQRE1KZ0pZcHUwUEd6eDFlT2tDMzdJMDFQUW5XMVNVSXlPbUNEd3RyS3pVenlBdV9SXy14STc1blEwTnVzcXN6ZXktcVlsRFdfMFBoRDBJelNKOGNFbmdqaTA5a3Uyak5tNjllcW1WRkFFN1FFX2l3?oc=5",
+   "published": "2026-09-21T12:56:22+00:00"
+  },
+  {
+   "title": "Tesla's Free Cash Flow Went Negative. It Still Has a $43.5 Billion Cash Cushion.",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQMG9lbjZnVk1odkJreDlrU2o1ZFdmRThpcnlaZWRCZjIydTJDcHRWV2E3U19FVUNYeUYxU1AyQjVDdFVrUXY4MDRTU1ZUblAtUmMtQlpiNW5nZ0FmOS1qYWU4RDR2cUtEdTJFV1dmMENIcVJwcWlzd00ySmpqQnhnRFhsMm1vOWxPRy10Wi1ZVWk?oc=5",
-   "published": "2026-09-18T18:16:40+00:00"
-  },
-  {
-   "title": "Inside Tesla\u2019s Shanghai Gigafactory and What It Means for the Stock.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1yVkZGY0RRRnBKVm9GOUF0TGNESjlTbFBEbGotQmUwa1BybmY0c29LYnI1WXRHMzgzNllNbVdTWGV0UkI1REx6dWd3X3pNMVJUbERQN0Z3b3k1VVZ0OWRxRkdqQW5KRWJXMXJRY1kyajJJWEgzY2tLd3pxMFAtcm8?oc=5",
-   "published": "2026-09-18T15:14:00+00:00"
-  },
-  {
-   "title": "Prediction: Tesla Stock Will Be Worth This Much in 2031",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPM0pWb1M3d2FNSWJBX3RxYVF4QlJkN1VaZk5veFExTks1Tkc1V3hraG9TYzNvMnRjSDJEckJmcjVuYlg4MTVUVndJbEVNaWVzUllIblVMYTVrekRuQV9qN1NZOThBeDFoMWRDWmVuRGhpUEIxRGxneThITXdud3JwOUlSVE83YnZXY1VyTm93VVdET1JsLUxUaW9rbzRKZw?oc=5",
-   "published": "2026-09-17T12:45:00+00:00"
-  },
-  {
-   "title": "Dear Tesla Stock Fans, Mark Your Calendars for October 1",
-   "source": "Barchart.com",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTUxQS0dnem16RFlsOTJGQXpwWFJuejZCeEY2Y05wUjR1QjdPWmtlYS1OUkdvWk4tOXJ5bFFBT005cU1VR2NVTV81XzhFVDBTWHpheU5LNnZxcGNRSE9fOGRzaFBFUDJlbDJRUEhkUWhzb1JmSUdIa2dDbGxQOFdlV1c4c3Y2dU9QMFlrSi1GS2pNVGdhZldDSXJNSkJPS2hr?oc=5",
-   "published": "2026-09-16T14:58:57+00:00"
-  },
-  {
-   "title": "U.S. Stock Market Movement | Tesla (TSLA.US) Rises Over 4% as Optimus Robot Secures 5,000-Unit Order",
-   "source": "Moomoo",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbC1fWHItVElDUnFLR3psdUR1cmxDRFFqMlBOSDFtWEp6UkU4ZkQ0S3JfN1JtdWlmSTF3Rll5eWh6elZHU3BwOFZ6MWNjWVhTYmY2Rm5PY2lBb25kSGJxbE5JSGhtd0NqVEpOQzUyVUlhQzZleVNoVEJxYVhwYmUxYk1lQ2lOVE9tbDRxQlNLbUVfWnhibVdpbFhXcw?oc=5",
-   "published": "2026-09-17T14:20:29+00:00"
-  },
-  {
-   "title": "Tesla Stock Fell After Its Last 4 Delivery Reports, Even a Big Beat. Here's What History Says to Expect in October.",
-   "source": "The Globe and Mail",
-   "link": "https://news.google.com/rss/articles/CBMiogJBVV95cUxNQ0hSbFNqdGVEa2FIcmRjQUprM3J2WUZ1enhubkd0RzRHZE5lWkd2QmhvM3FWVVJyVVY0WmNqRmRvSWZkMjJrazAzcDJpbG10bFc3cTNxbE9jTmltdWtpQm56bWZTZGZCY3JjRkNaSlJhWWZNd2VsaUJKLVhFSWZWQ25MRzdjenJIV3phRTZWRHFvY3ZsaUJRcGwxNmk4cnEyY3pNM0Yxd1ZIVUIxVkgyemM3Z2RKUk84WW1aNkpXWXBmeXN0WkNLemN5LXdUaWlta2VuM3d6NER2ZGF2by1iT3ZYSF8yaERQVDF4YWtUazlXcXV3YkJaSW9CY2pHYkhfbDdGeXVJV3hHUDJYd1NUN0dfQ2hucGdYODFBLWpFS3dvdw?oc=5",
-   "published": "2026-09-18T16:03:27+00:00"
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQN29CVGhWaTg4aVhlWVNHOVVPUi0xMFIyOEFiTEJMMTliSk1DQkdCOWhJNm04alEzc0dHV2pSbzlzbVprY3N2dG84MFlnVHlReWItWERONDdDcW9UMFM3RW44bXg2UWVOVF9FUnFfMEp6SkRzejhpZUd0Y05FZ2F1aFl1WV8tOEh2LVJNSDcwb3pqblBRQmc?oc=5",
+   "published": "2026-09-21T05:20:00+00:00"
   }
  ]
 }
