@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-21T14:30:12+00:00",
+ "generated_at": "2026-09-21T18:53:05+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "19.9 (p9)",
+   "value": "20.4 (p18)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 8.8,
+    "pos": 18.3,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.82",
+   "value": "0.83",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 29.1,
+    "pos": 31.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.35x (p66)",
+   "value": "1.36x (p69)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 66.1,
+    "pos": 68.9,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.3 pts",
+   "value": "+4.3 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 77.4,
+    "pos": 68.9,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.5%",
+   "value": "0.0%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 5.0,
+    "pos": 0.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+3.1%",
+   "value": "+3.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 75.8,
+    "pos": 80.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "9.9% vs 4.1% cash",
+   "value": "9.8% vs 4.1% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 57.9,
+    "pos": 57.3,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "33 (fear)",
+   "value": "35 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 33.2,
+    "pos": 34.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 57.69,
-  "day_change_pct": 1.42,
-  "sma50": 56.47,
+  "price": 58.019,
+  "day_change_pct": 2.0,
+  "sma50": 56.48,
   "sma200": 54.66,
   "high52w": 59.52,
-  "drawdown_pct": 3.1,
+  "drawdown_pct": 2.5,
   "series": [
    {
     "d": "2026-01-02",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-21",
-    "c": 57.69,
+    "c": 58.019,
     "t": "neutral",
     "s": 50
    }
@@ -1350,22 +1350,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.23 (-2.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.28 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 33) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.82) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 19.9) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 20.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.91,
+  "ttm_yield_pct": 9.85,
   "tbill_3mo": 4.12
  },
  "distributions": {
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 734.94,
-  "sma200": 663.16,
+  "price": 741.19,
+  "sma200": 663.2,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 19.94
+  "level": 20.45
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1543,26 +1543,38 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 21206.35,
-  "dca_return_pct": 38.6,
-  "dip_value": 20970.09,
-  "dip_return_pct": 37.06,
+  "dca_value": 21326.72,
+  "dca_return_pct": 39.39,
+  "dip_value": 21089.11,
+  "dip_return_pct": 37.84,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "The turbulent AI era is here. The choices we make now are critical.",
-   "source": "Gates Notes",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-21T11:40:55+00:00"
+   "title": "Aviation regulators turn to AI to help manage the nation's airspace",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBITGJpNTlMSmVxZ2drNkxhUkhDaTlrWUZOelBnS1JaWDliNVVYckRiTlVNTDVhWVlHa2prVlJZZEhFY191MEV3ZExISVBpcWxRZ3ZENG1ZSVpVNW9Wd1I3N251eVdMZy1nTzE4aElycmJuamJ2OGc?oc=5",
+   "published": "2026-09-21T17:37:56+00:00"
+  },
+  {
+   "title": "Building standards for the next phase of AI",
+   "source": "OpenAI",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9Hdk5PcXZDNWxPVm9UMkJ4aVdtblM3ZjU5eDFNc3lNdkNEMDVMSi1NNzBGcTRHSFU5NWlzLWpBZWU1M1NTUjF4NzA2ZTJYaU5kbk1kclVwcHFNNmp5QWVBWUhONEt2bVROeVE?oc=5",
+   "published": "2026-09-21T17:23:01+00:00"
   },
   {
    "title": "Measurements for understanding the pace of AI development inside frontier labs",
    "source": "Anthropic",
    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1hSlNaZU5CMXdjOERiMTltcEVxMXduUXVrT1UtSExlUGlUUHFCc2huOVM0NEY0cmhCMVF6X0o2QjMwUUZOQkhuSGlHVjFlaWdKelR3ZTEzUV9SRzRIdkxhV3RfQ0N2OUI5U214a0RqZjh3c2MxUktr?oc=5",
-   "published": "2026-09-21T13:40:05+00:00"
+   "published": "2026-09-21T18:21:01+00:00"
+  },
+  {
+   "title": "The turbulent AI era is here. The choices we make now are critical.",
+   "source": "Gates Notes",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
+   "published": "2026-09-21T14:43:20+00:00"
   },
   {
    "title": "U.S. and China Discuss System to Warn of A.I. National Security Issues",
@@ -1571,22 +1583,10 @@
    "published": "2026-09-21T10:53:00+00:00"
   },
   {
-   "title": "U.S. proposes exchanging AI safety alerts with China, Bessent says",
-   "source": "NBC News",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNbm1IaU52OC1wamEyV2ljZmdGM2plOEhmOUJmZ1gwMWNNREljcXdfMGxjRVM5RzZIZEN1eXZZc21kLTgya0Z3WEJCUEFDNm5wNXJReUc5QTRMY1h5bVNuSXFfQkV0VkFmblJpMzExTWhuNWJGWWg0THUxcm9MTWlyc3B4UEpXR0dSNTBLNWlaQzRLdHZLSHdiaUgwMXh5LUFuRzFrSkpEWQ?oc=5",
-   "published": "2026-09-21T06:20:30+00:00"
-  },
-  {
-   "title": "Is this how the world ends? Extinction scenarios are taking over the AI debate.",
-   "source": "washingtonpost.com",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNHdXRXJtS3NzRnEwd0liQXYzbnM2bUV0UUJ3MU4xMklyMVUzbl9vRGtlVTRUdm44YnFzOGNrSWktT0pCWVBTVnE2WEcwUWxLd18xS2VNWTM4bWROZ19oSUN5Q01NU0NwSHBPbzVTZEdQT25jMlA0MGZGTEZ3dHZJeGJNMDlrbS14Ukt4UEtybGF5aExPRUJORjlKTC1rYzVtZmVYWHpsQnBzbnZUdGRiNE5VU3pla1lzZmMxUGFoaTg?oc=5",
-   "published": "2026-09-21T13:32:45+00:00"
-  },
-  {
-   "title": "Thematic Brief on AI Agents, Misalignment and the Risk of Losing Human Control",
-   "source": "Welcome to the United Nations",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQelgycTJ1SVBXYnJRSWdrdnFaS1VzaTBBWkt3WG9WZnNkOVN6d25TenhLdU5jLTN4c1dZcjVIRDBTR25aVjZkZGJwQlhqdEZncFFodXpDdm1ORDNhN3JwV0Y4MWNPUkMwSjBMM2RkMVlOVTNObGtYTVlHdnh4U0pNbG5kRUlSYVNtOXpqRUNOOE93QnIwdGEtTXAzWkYtVWN1WVFDMkU4T3I1LTVNemxlWDFn?oc=5",
-   "published": "2026-09-21T10:20:02+00:00"
+   "title": "What\u2019s the US\u2013China AI \u2018hotline\u2019 that Trump plans to pitch to Xi Jinping?",
+   "source": "aljazeera.com",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNbzBQUzFtUGxPR2xVS1hNLXRpc2M5Z1lodjVfb1dTaUpqaUVteUtGNldrVW9PbUtaSFJnRlNWVndqVjg1Y3ViYW9NckNNMXBxNk15OWNMemJWSTloMWVNT0dubzkwcWR6SmZ4aXVFRVFWekV4RWsyMUtKeXZSNGhQaXFLdEpzTWNzN3JRRzRoVU84c1gzYUlpa0MxVGNPLTh0YTNIVdIBqgFBVV95cUxNSXAtWTRmX0l1eGxTNVJKbXkxc1g4V3JtRk9VQk9YS0hGUzRlNnBxb2daWWdfV2l6dXNvcDlweVNhSWNiT3o1QXNBWTlPd1IwdUs4TFBibmNNYmRHOVpfZGliTnpZWlBFYkpxN2NveUpvS2llNEZTZnZfNmZhcnlTdU0xZzRoQnNiNDlaN0V3SHRSSlMwVVVyVFJjbG5aNVBySVdTZnJ1amUwdw?oc=5",
+   "published": "2026-09-21T13:35:56+00:00"
   }
  ]
 }
