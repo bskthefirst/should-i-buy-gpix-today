@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-21T18:53:08+00:00",
+ "generated_at": "2026-09-21T22:34:05+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "22% ann. (p26)",
+   "value": "22% ann. (p24)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "Realized volatility mid-range for GOOG's own past year.",
+   "lean": "bad",
+   "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 25.8,
+    "pos": 23.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "11.8%",
+   "value": "12.0%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 11.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 12.0% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 23.6,
+    "pos": 24.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.0 (p9), F&G 35",
+   "value": "VIX 14.9 (p7), F&G 34",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 351.51,
-  "day_change_pct": 2.06,
-  "sma50": 343.41,
-  "sma200": 336.36,
+  "price": 350.87,
+  "day_change_pct": 1.88,
+  "sma50": 343.39,
+  "sma200": 336.35,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 11.9,
+  "drawdown_pct": 12.1,
   "series": [
    {
     "d": "2026-01-02",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-21",
-    "c": 351.51,
+    "c": 350.87,
     "t": "caution",
     "s": 41
    }
@@ -1222,7 +1222,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+2.0% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+2.2% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1275,17 +1275,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.12
+  "tbill_3mo": 4.14
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 351.51,
-  "sma200": 336.36,
+  "price": 350.87,
+  "sma200": 336.35,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 22.5
+  "level": 22.3
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1302,15 +1302,15 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-21",
+  "start": "2022-09-22",
   "end": "2026-09-21",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 45907.4,
-  "dca_return_pct": 118.61,
-  "dip_value": 46033.43,
-  "dip_return_pct": 119.21,
+  "dca_value": 45822.03,
+  "dca_return_pct": 118.2,
+  "dip_value": 45949.8,
+  "dip_return_pct": 118.81,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
@@ -1324,33 +1324,33 @@
   },
   {
    "title": "Alphabet Stock Surges as Google Search Makes a Major Comeback",
-   "source": "finance.yahoo.com",
+   "source": "Yahoo Finance",
    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOaDFydG15ZFFtSFFQWFAwMlVZeHYtOXpQcE5vclI1QURVcHFLVW5VdHBrNlFQZFBnMXdtaE5TWmMzaGRYQXRsUHVlMDdKakFMVUMyV2d4WVVFcG03X3lpX2w3WGx6bUpHYzhjTldhb3hwQmw3ZHZqclNzRGVMYWJYSGJybDlEYlJRam9ZODN1SGJkYnNjNHFEY0IwSmZHdHJPN2c?oc=5",
    "published": "2026-09-21T12:28:33+00:00"
   },
   {
    "title": "Irish privacy regulator fines Google \u20ac403 million over location data processing",
-   "source": "Reuters",
+   "source": "reuters.com",
    "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxObTlBMUhCMU1lTUtmLWhWVUNOanZWNWc0bXkxNFVZYmUzb2RlWGFndlhPaDAwZjFoRi00R2lwSVZINExLZ2ROal85T2NIeWxaZFRWUnRLRmFWT2VmZTQtQjloR0o2Vlg3WGJWZ1h2V0d1RnpMQjZRNTRZQmtFamVoS2JSOVE1ZVVXSzg3NE9JcjFNb2ZwY2NXUUJYeGxGLXVxN1dDM3NiYWk3V3V0UDU2S1pTR09jdldEWUxFNURuMmVkS1hpTzdoRg?oc=5",
    "published": "2026-09-21T13:55:06+00:00"
   },
   {
-   "title": "Google Gemini allegedly hacked three companies on its own",
-   "source": "Mashable",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBraTdwalczX3RYMEJHNVZwZ0RkcXpwUDJVT01nbUp1TGJVZHhsN3hDWV93NzQzN0NNRUtrQ3JUVHJrZEItd19IU01pZUItUkx5Rk5FeTg0allrRmVfazlRTC04LXYtNzZmZWtpSzZn?oc=5",
-   "published": "2026-09-21T16:06:24+00:00"
-  },
-  {
    "title": "Google fined more than \u20ac400m by Irish regulator over its use of location data",
-   "source": "The Guardian",
+   "source": "theguardian.com",
    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxONG1SbkJuUEpGVUg3YXV4MHRIang3NGNyblFDb3BqSzZXTFpuVzgzWUlHeDlJeG5oMFR4WVpHamFqT1VKQzJkSldCWnVxV25OdUJWV1pVWkVwalJzci1ibm4yZkJrSWJkd195aVI5emh6Ulh0dV9XVFZNY3RpY1QxLXl4S2lZblN3OTBkREVhNHhxbEhDM0dxSHdyVTdCNWZyTVAyeS00SkE3Z29iWTctQVNsV1RCTWtTLVdlSE1sakxJQUNUVG1hQXNn?oc=5",
-   "published": "2026-09-21T10:57:00+00:00"
+   "published": "2026-09-21T18:02:00+00:00"
   },
   {
    "title": "Google\u2019s $899 Googlebook is a bet that you\u2019ll buy a new laptop for Gemini",
-   "source": "TechCrunch",
+   "source": "techcrunch.com",
    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQQ1BKZklGZVU2R3dkM1N4dXRpakZiT2xVclc1SFFZeUdsajhnSkNGMm4zRTBWWlBVRmdDbUttbG5CektrY2gxMjVEQVktTGVrRFU3dzBWNmxvdUJBV09SUUxSSlI3Tk0ybC1MT2hJOTFPcDV4ekEtdlBvc01XV0dJVXRjZ2VaaThkWHZ0Rm0wYXhZRWRyQlhBREFVaml6M0FzTndRQmVoT0Q?oc=5",
    "published": "2026-09-21T14:39:22+00:00"
+  },
+  {
+   "title": "Google confirms Gemini models hacked three companies in May 2026",
+   "source": "Ars Technica",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUWU3SkI0alV3ZHFieV9OV2w3UzY5RHBUTmpqbko5anJnaHlKRHdJNGZ0T3BJeUNUemxiUDlweVpTQmZYUHN5TVMwWXpOcjlVeHpmc1didDRMQlZ1VGVObnQ4ZHRNZ0JEclhfV1p4ZjdPOFdzYmF3bjdUV1FONnpvNHpwWlJieFpvZHBMRHY0d1JhMFpBTzNKWFM3VmpRczJNRi1DRm9Maw?oc=5",
+   "published": "2026-09-21T16:57:26+00:00"
   }
  ]
 }

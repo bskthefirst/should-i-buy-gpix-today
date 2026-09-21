@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-21T18:53:03+00:00",
+ "generated_at": "2026-09-21T22:33:59+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.0 (p9)",
+   "value": "14.9 (p7)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 9.5,
+    "pos": 7.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.83",
+   "value": "0.82",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 31.5,
+    "pos": 30.6,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.2 pts",
+   "value": "+4.3 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 68.3,
+    "pos": 68.9,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 39.6,
+    "pos": 39.4,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "35 (fear)",
+   "value": "34 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 34.6,
+    "pos": 33.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 56.425,
-  "day_change_pct": 1.27,
+  "price": 56.41,
+  "day_change_pct": 1.24,
   "sma50": 55.73,
   "sma200": 53.84,
   "high52w": 56.67,
-  "drawdown_pct": 0.4,
+  "drawdown_pct": 0.5,
   "series": [
    {
     "d": "2026-01-02",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-21",
-    "c": 56.425,
+    "c": 56.41,
     "t": "neutral",
     "s": 50
    }
@@ -1323,22 +1323,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.73 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.72 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 34) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.82) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.0) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.9) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1384,7 +1384,7 @@
  },
  "income": {
   "ttm_yield_pct": 8.08,
-  "tbill_3mo": 4.12
+  "tbill_3mo": 4.14
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 774.33,
-  "sma200": 716.75,
+  "price": 773.5,
+  "sma200": 716.74,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.0
+  "level": 14.87
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1516,15 +1516,27 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 20021.01,
-  "dca_return_pct": 30.86,
-  "dip_value": 19775.16,
-  "dip_return_pct": 29.25,
+  "dca_value": 20015.71,
+  "dca_return_pct": 30.82,
+  "dip_value": 19770.3,
+  "dip_return_pct": 29.22,
   "dip_cash_uninvested": 1500.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "EXCLUSIVE: Fed's Musalem says more rate hikes likely needed to quell inflation",
+   "source": "reuters.com",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPVjJsZS0wTVZyNThsTkszYWk2c2xqN19RbzlWSnpqQ3cwZ0xCLWFTT0xaVkpkWkE5MmhDZFg1bHZzUW9EYlBuQVpUOVIydEJoVmR6OVl0ME5WNllZZTRVWXFMYy0yX19mNG9nYU5GbFpMdXdaeTA3ZDFiOXlTTlBGNDBmZ2VxR0I3UzE4M25hVGNZcDZXU0pXSFdXV1FIRVQ3dEh4XzRnLUZDN3do?oc=5",
+   "published": "2026-09-21T18:54:06+00:00"
+  },
+  {
+   "title": "Fighting inflation likely to be 'painful,' Chicago Fed president says",
+   "source": "PBS",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOQVR1azg4WmktY0lXSExsMzBsSVpRVzhqR2pFTUN2YkNRNVNDeFgxU0VfdzFzbHRJMHdHd1ZPWDdxdWl0eXdFRVoxdTNUQ0xISHI3Y1ZlTm8tQzZvLXZDR1EwOFVUNE9WdWhNYWFPMVB0cHFXU2szS2l0TzVPM08xNXRYMHdCN2lXdXBIdGNoTEhDWk1aYVZvaUJjcmxpRDlFUUllRGRR?oc=5",
+   "published": "2026-09-21T17:36:10+00:00"
+  },
   {
    "title": "The Fed - September 15-16, 2026 FOMC Meeting",
    "source": "Federal Reserve (.gov)",
@@ -1532,34 +1544,22 @@
    "published": "2026-09-16T19:23:03+00:00"
   },
   {
-   "title": "Fed's Goolsbee says strong demand may be adding to US inflation",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZ0hYN2ZsV3h2enhYZkdSaVlTUFRLQnFaNnRmYVJ6LTZxdGN1SGowVDdHUUNRR3pCdXExRG9MdGFRN0dlWEdnWTVfd0NaWnRDRFo5T0pZSnZmRnJWdWxqdEljUVV3LUItRjdjbF9uUzBucjNUeWNBdlZXMDdWbE42elpySFJ6eURzTm02S0xqQWQ3bVFrVU4xLUp4MlpicnN6c19Qc1JTQzVUc1ZBVkVYV2wwS3BwRHNyZXZsZw?oc=5",
-   "published": "2026-09-21T14:14:26+00:00"
+   "title": "2026 Agricultural Economic Summit",
+   "source": "Kansas City Fed",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPY3puVHk3SXhwcFE2dzE5c0x3SkhpLTZTdHpTUkczYUJHMTktVWZFaXR5LUVabFMzT2xHNDVLbHVuVzVhZWczSTUxVlcxRHR4OU1xeG9uOGtyU2Nrb0JCWFNTSU1teUZsbFNReW00SGVtWE42a1FJY3BvOHNwMS1Sb3RB?oc=5",
+   "published": "2026-09-21T20:37:30+00:00"
+  },
+  {
+   "title": "Federal Reserve will need to be \u2018aggressive\u2019 on inflation, says top official",
+   "source": "Financial Times",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQTmdmb192UXVHb3NNUmJxNDRyWHp0aVU0ZTc3R19vTGNhZFlSSm9ZVnhoSTBrbURqcnFOSERTdlVfbHlNWGZmbk1zSTc0WHRaY2pqUVlWZGlhUXNyVkpIWXRjOHpyTjh3SnhOM2M2TU1NR2Mzcm9WWnJXeloyME0wUDM0dmc?oc=5",
+   "published": "2026-09-21T15:10:13+00:00"
   },
   {
    "title": "How do changing interest rates affect the stock market in 2026",
    "source": "U.S. Bank",
    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQVVJpa2pCR3B0TmxRZGlpSmRZaFctZ21ybGtrVUVBMFozZ0xiSGFRY0ZZdGNWaV80dnhHUTR2TTVoSnZEU190aGtMamY2MDAxT0hYYzRXcUl5OUEyOGRGYWlBbm54T3ppaEZWRWtyV01EOEJGcVRaM2xROWlCX2FxSFYxX1NXeUQwZmJLS3pqcGhCWjR5RVJrNlhmbUtRcy1EUGJLaFI4UTNkUHg4emNPUE95cTc0bnlDcklaaG5EcWhBeVU?oc=5",
    "published": "2026-09-18T07:00:00+00:00"
-  },
-  {
-   "title": "Fed\u2019s Kashkari: Inflation still too high in \u2018all aspects\u2019 of economy",
-   "source": "The Hill",
-   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5zN25BZ3V2NjRBckJGZERYbEppUFZocHpXTmxCZk5iWDlycEJub2luVG9UOWtzTVlOS1dJbFJ6cjloWkhvdXg1cnR0aDJndUp5VFNmSENUbno5Unk2czQwYzAyYW0wTGVmSmpINjUzVXMyeDjSAXhBVV95cUxONThsUnVTRFBvaWdDTjdHYkR1Y2lJNE9DNDA0UGZTaFlURFpJdGNxc2Q4X2pzX1VsQUhYTDVieVhfaGt5S0ZfNjYzWjQ5SUdMaWZ6dm85QlhwSmZkV05vekgtbXd1b2dUSS1yMWIyM1Yzd0JvS0lUWmo?oc=5",
-   "published": "2026-09-21T15:00:00+00:00"
-  },
-  {
-   "title": "Federal Reserve hikes key rate for 1st time in 3 years, defying Trump demands for a cut",
-   "source": "AP News",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVlB2TmNqY1dILUtfRTFBQ0JPSk53elRnU1QzdmhIQ3VvTWlkelRTd3haWHJ4bmxiY2ZOcGhvd09wMTllVkVLQzk5NkdKZzNPeHpaZTRHQ242Ynd2Q1ZIUU50cUp1N2JYd1lCQndZQlhMUTZFekFZWWNueUxNbmRiUHdBZ2dWbDgzNlhmejZneHptaFhGbDI1M0JPbk8zZw?oc=5",
-   "published": "2026-09-16T23:42:00+00:00"
-  },
-  {
-   "title": "Fed\u2019s Goolsbee Says Road to 2% Inflation May Not Be Painless",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZm5vNzZIMWk4S0RWcDRGOFF5bWJjVmJobUZodXJMOFE1LXl4akRicHVQZUNjZDZJTklIU3BhTGlDNnRPeVR6M29jOHh3cGJYS0tTbXBSdTM4US02NjVEOHN3bE1VcHNxLVBhQjdGSDdJRGktUDV4U295V2tlMGd0NFpETzVxcHFneXZCWDFHeVhFWFZ2eGZHbHNHZHZpdEFTLURRbnNDYnd5SnZBc2M0?oc=5",
-   "published": "2026-09-21T10:30:00+00:00"
   }
  ]
 }
