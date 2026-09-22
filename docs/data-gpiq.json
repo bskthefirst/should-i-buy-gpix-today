@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22T14:30:17+00:00",
+ "generated_at": "2026-09-22T17:44:32+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "20.1 (p12)",
+   "value": "19.9 (p8)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 12.3,
+    "pos": 7.9,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.4 pts",
+   "value": "+4.2 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 69.8,
+    "pos": 68.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "37 (fear)",
+   "value": "36 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 37.5,
+    "pos": 36.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,8 +257,8 @@
   }
  ],
  "fund": {
-  "price": 58.265,
-  "day_change_pct": 0.4,
+  "price": 58.245,
+  "day_change_pct": 0.37,
   "sma50": 56.5,
   "sma200": 54.69,
   "high52w": 59.52,
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-22",
-    "c": 58.265,
+    "c": 58.245,
     "t": "neutral",
     "s": 50
    }
@@ -1350,12 +1350,12 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.52 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.50 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 37) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1365,7 +1365,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 20.1) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 19.9) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 745.7457,
+  "price": 745.3899,
   "sma200": 663.81,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 20.06
+  "level": 19.9
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1543,21 +1543,15 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 21417.12,
-  "dca_return_pct": 39.98,
-  "dip_value": 21178.11,
-  "dip_return_pct": 38.42,
+  "dca_value": 21409.77,
+  "dca_return_pct": 39.93,
+  "dip_value": 21170.87,
+  "dip_return_pct": 38.37,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
-  {
-   "title": "The turbulent AI era is here. The choices we make now are critical.",
-   "source": "Gates Notes",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-22T11:50:12+00:00"
-  },
   {
    "title": "Governor Moore Outlines AI Framework to Protect Marylanders",
    "source": "The Office of Governor Wes Moore (.gov)",
@@ -1565,28 +1559,34 @@
    "published": "2026-09-22T13:11:32+00:00"
   },
   {
-   "title": "UN leaders' meeting convenes with secretary-general calling for 'world built on interdependence'",
-   "source": "AP News",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQendGemFFSmthSDlNMXV6R2QwWENmRE5XSzY0YU1pQ1VwWWtvWDUzTk96U0MyVmFLbWtnV0pleVFWX05oTzMxWHloQlplN3E3SkFvcWpIa29FUjBmSzB5dU81dDk3RFZZV3JVdkVqcXBtU2JOYzZyUG5oU3dBRVNaQlRRTi1TZU5lbm1TWnNXMzd4S0xyU0k4V2V1YUVYMmdEc1NiZDI3QUF0Zw?oc=5",
-   "published": "2026-09-22T14:07:00+00:00"
+   "title": "Trump rejects global entity for AI oversight",
+   "source": "Politico",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWjFSMGM0WDEzdFVqc3RrczI5d0JkSTlzX0pUTVFpa1V6bGh1UUZxeHNsTDNmRkJOQ2tGUWh3NnJ1MzZBclF1QnpCeHg1ZjR6cVZ3cU9jbUp6SzVWMFY4WFZZUmVQOE1mczBPdGR1TTk5VVNMTFlWc2Y3cjBGWkJSVElfZXMtbTRaWExTTnZCY0tJQ01i?oc=5",
+   "published": "2026-09-22T15:58:00+00:00"
   },
   {
-   "title": "OpenAI proposes development of global AI standards to guide alignment, RSI",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9MaTRGOTJzeUlkUEZIcVdRUGgxS1JHMnBReFE1aWpiajIzQTNSRFJobGt5Z2pVckNKOENlRS1lWEM3V3J2WE5COTlOUnQ4Wlo3SXVTQmpXQklsUklVZmNETHlWeGpFU1dwLWfSAW9BVV95cUxNOWFKNlkxSnZDRVdiX2xHSFZjSUFGdnlISTVtX0dveWJKZUF4WGpDUkQtQ1FPMVB2SUtqMFNUd0x2ODNuOUFNeTBsQlBjRWxqLVVTMVdxTENrN1FFRml2SndWZkxReG5xUzBrdFBXMzg?oc=5",
-   "published": "2026-09-21T20:21:41+00:00"
+   "title": "The turbulent AI era is here. The choices we make now are critical.",
+   "source": "Gates Notes",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
+   "published": "2026-09-22T14:53:03+00:00"
   },
   {
-   "title": "Banks warn AI shopping bots raise scam, fraud and data-privacy risks",
+   "title": "Trump says US Justice Department could rein in AI companies if needed",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOUDlYaXB6UFVtWndZUGJsNy1FQzRrM203TUc1RDA0VTZ5Y0FaZ0JHVnV0dzVKMHJkSGowOUFYVUs5N1Y2QWJibzhJZEJpbk8xUmxja1o2ME9tY0hfZjRCOGFGWjVVcmVza2F2VGdvNzJjRnVlY2tzeTdIWWUxREVrNkJYRWRPazhzcG00b0NNYzJDRjlQRmhFV3JlQWNZS2lJWFZfeV9VMmdrdmJiZ0xWNlVkblM2Qk0?oc=5",
-   "published": "2026-09-22T10:28:54+00:00"
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOYkFwcnFpOFFycEx0SEwwNUxZazVuTTh6aUNKZ0pUUHlPU2toMkk2WXAyc3RkYTdKWlVsTEVoTmR5VGJaZlhaU21OdHp2aXRWZ0VGNGtJdERKVGUtWXBiMWdKRm9JY04zTnZ3YXp5akdBU2RsS0tHZG9ESTVmR0hOWUYyaWpjYVNCcFF3c3RBVk53NC1SanNTaXpxOHdMei1SNUJPWnhLLTkzU2VOaUE?oc=5",
+   "published": "2026-09-22T15:54:35+00:00"
   },
   {
-   "title": "Stocks Get a Lift as Oil Sinks Below $100",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOc3MyRDJabzN1SXp5Z3JMNHJUZHFoLWJQVHM2eUxodjlfRzFtVHJ0YlJyYWlNTjVpa1NzZ2djSWxVNk92MzdRSVBKclFZa1l3MVE0MjBMYng1b3dwMzdzWEp0MXhycDhnLS1TVS1WYTZOZlFzSFVOUTFIeXBRSlpDMGI1MElCdXJaa3dZMzBXWWc1US13Z0FIV3ZSNA?oc=5",
-   "published": "2026-09-22T14:08:00+00:00"
+   "title": "I Gave My Life Over to Meta\u2019s A.I. Agent and Was Blown Away",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE94MEh4Uk1LU3pMcTJtU2Jlc1hTMVVjd05Wcy1PdWxXNm5MWS1vS1hUeEM5bWd4V21ReXNqVHpXeVF0VjRjcDk4T3IyVkU1Uk5Mb1RSenlUZFdMSXMtNFQzNlpyc2doeHdwZzVQNDhoNGppYnJydVprZQ?oc=5",
+   "published": "2026-09-22T15:55:03+00:00"
+  },
+  {
+   "title": "Trump says he\u2019s renaming AI to \u2018super intelligence\u2019",
+   "source": "washingtonpost.com",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQckMxTlUwUEdVMk5jNEVzdGt3aS1FUHhwS2JwQThYLWNHaUpCbnI1T1dLcWxxVXkzTVlOVkwwbEE5S3UyYmhXbHBjYWkza0x2TTZ0ZEFoMWVNaHRuaWNwLWpmT2JzY09nY3pybDlzbGlNR3YtTGpaMC1LaDQxdWdZR2ZwQmxtaGUwSk5iRjYxRlBFTXNvUnVXWHgwY18xV3py?oc=5",
+   "published": "2026-09-22T17:05:22+00:00"
   }
  ]
 }

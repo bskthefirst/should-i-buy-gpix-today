@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22T14:30:16+00:00",
+ "generated_at": "2026-09-22T17:44:31+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "14.4 (p3)",
+   "value": "14.3 (p2)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 3.1,
+    "pos": 2.4,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+3.9 pts",
+   "value": "+3.8 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 65.7,
+    "pos": 64.7,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "37 (fear)",
+   "value": "36 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 37.5,
+    "pos": 36.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 56.4,
-  "day_change_pct": -0.02,
+  "price": 56.415,
+  "day_change_pct": 0.01,
   "sma50": 55.75,
   "sma200": 53.86,
   "high52w": 56.67,
-  "drawdown_pct": 0.5,
+  "drawdown_pct": 0.4,
   "series": [
    {
     "d": "2026-01-05",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-22",
-    "c": 56.4,
+    "c": 56.415,
     "t": "neutral",
     "s": 50
    }
@@ -1328,7 +1328,7 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 37) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1338,7 +1338,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 14.4) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.3) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 773.57,
+  "price": 773.459,
   "sma200": 717.19,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 14.41
+  "level": 14.29
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1516,10 +1516,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 20012.17,
-  "dca_return_pct": 30.8,
-  "dip_value": 19767.06,
-  "dip_return_pct": 29.2,
+  "dca_value": 20017.49,
+  "dca_return_pct": 30.83,
+  "dip_value": 19771.92,
+  "dip_return_pct": 29.23,
   "dip_cash_uninvested": 1500.0,
   "dip_buy_days": 31,
   "winner": "dca"
@@ -1532,28 +1532,28 @@
    "published": "2026-09-16T19:23:03+00:00"
   },
   {
-   "title": "EXCLUSIVE: Fed's Musalem says more rate hikes likely needed to quell inflation",
+   "title": "Fed's Williams says rate-control toolkit is working well",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPVjJsZS0wTVZyNThsTkszYWk2c2xqN19RbzlWSnpqQ3cwZ0xCLWFTT0xaVkpkWkE5MmhDZFg1bHZzUW9EYlBuQVpUOVIydEJoVmR6OVl0ME5WNllZZTRVWXFMYy0yX19mNG9nYU5GbFpMdXdaeTA3ZDFiOXlTTlBGNDBmZ2VxR0I3UzE4M25hVGNZcDZXU0pXSFdXV1FIRVQ3dEh4XzRnLUZDN3do?oc=5",
-   "published": "2026-09-21T18:23:00+00:00"
-  },
-  {
-   "title": "Fighting inflation likely to be 'painful,' Chicago Fed president says",
-   "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOQVR1azg4WmktY0lXSExsMzBsSVpRVzhqR2pFTUN2YkNRNVNDeFgxU0VfdzFzbHRJMHdHd1ZPWDdxdWl0eXdFRVoxdTNUQ0xISHI3Y1ZlTm8tQzZvLXZDR1EwOFVUNE9WdWhNYWFPMVB0cHFXU2szS2l0TzVPM08xNXRYMHdCN2lXdXBIdGNoTEhDWk1aYVZvaUJjcmxpRDlFUUllRGRR?oc=5",
-   "published": "2026-09-21T17:36:10+00:00"
-  },
-  {
-   "title": "4 Reasons to Think US Inflation Will Come Back Down",
-   "source": "global.morningstar.com",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOY1BfNWt5TXRQcnp5aF9yS1RRUmFmR3BOSmVjUEhJU05Ydk16ZU1wRnk0dHhUZWx2bXFvUjhLbUtqZ3hwbVRLczZDcmFveHlDU0l2T2VYcGMxdVJ6SU9WNVRZZzVTUEVBYVQ2c18yb0t0bGNsdEV0OUtrdVhjbXpSVVpRd1UtS3hfQU5vZXIzT2UtOVlEUS05TA?oc=5",
-   "published": "2026-09-22T06:10:23+00:00"
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQeW9XZUd5U3BmaXhkR2F4NEgwNk1FMWtuZEd0UVVFcWgxMUZkOXRDZHJqSzI5X1U2Y01BbXY0OG04c0hmOEpqMHpERWd1WUQyVElTeUdrTmJYNFBHYTFRek1XNkZRb3FEQWxJQUZpZFhkUms0MWl5LXByUDd1Y2tIbHRtVzRzUU1zbXdZQUVwMGRCR1BnZkpnMGFUc0RmNUtvcTl2bFZ1WmE1ejk1?oc=5",
+   "published": "2026-09-22T14:09:42+00:00"
   },
   {
    "title": "How do changing interest rates affect the stock market in 2026",
    "source": "U.S. Bank",
    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQVVJpa2pCR3B0TmxRZGlpSmRZaFctZ21ybGtrVUVBMFozZ0xiSGFRY0ZZdGNWaV80dnhHUTR2TTVoSnZEU190aGtMamY2MDAxT0hYYzRXcUl5OUEyOGRGYWlBbm54T3ppaEZWRWtyV01EOEJGcVRaM2xROWlCX2FxSFYxX1NXeUQwZmJLS3pqcGhCWjR5RVJrNlhmbUtRcy1EUGJLaFI4UTNkUHg4emNPUE95cTc0bnlDcklaaG5EcWhBeVU?oc=5",
    "published": "2026-09-18T07:00:00+00:00"
+  },
+  {
+   "title": "Fed\u2019s Collins Says Rate Hike Will Help Return Inflation to Goal",
+   "source": "bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOUUg0S2c2bFdubmFVS09hZE9vYXgzSXg5SVQzU0pCMThjSHVlR0pCRlUwS0VCS0I0RWctN1NLdzJDZ2M5OFMtX2dpbjQ3WlJfMnc0VmFJUlV3U2RrdmIzY3JpdjdETXc4d0t0QkhFTXp0NXdORE5mUXlBZU94eVFHTWIxTGlsZkVVNDZORW5EQ0JaVE1tUFJjS3l0NHNGZlNMRFNDcE9CYkFzRVA0eHVyd2hJcXg?oc=5",
+   "published": "2026-09-22T14:41:15+00:00"
+  },
+  {
+   "title": "4 Reasons to Think US Inflation Will Come Back Down",
+   "source": "Morningstar",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOY1BfNWt5TXRQcnp5aF9yS1RRUmFmR3BOSmVjUEhJU05Ydk16ZU1wRnk0dHhUZWx2bXFvUjhLbUtqZ3hwbVRLczZDcmFveHlDU0l2T2VYcGMxdVJ6SU9WNVRZZzVTUEVBYVQ2c18yb0t0bGNsdEV0OUtrdVhjbXpSVVpRd1UtS3hfQU5vZXIzT2UtOVlEUS05TA?oc=5",
+   "published": "2026-09-22T06:10:23+00:00"
   },
   {
    "title": "The dying days of the Federal Reserve\u2019s dot plot",
