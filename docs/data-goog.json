@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-21T22:34:05+00:00",
+ "generated_at": "2026-09-22T14:30:21+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "22% ann. (p24)",
+   "value": "23% ann. (p29)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "bad",
-   "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
+   "lean": "neutral",
+   "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 23.8,
+    "pos": 29.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "12.0%",
+   "value": "10.4%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 12.0% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 10.4% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 24.0,
+    "pos": 20.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.9 (p7), F&G 34",
+   "value": "VIX 14.4 (p3), F&G 37",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 23d",
+   "value": "CPI in 22d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 350.87,
-  "day_change_pct": 1.88,
-  "sma50": 343.39,
-  "sma200": 336.35,
+  "price": 357.135,
+  "day_change_pct": 1.79,
+  "sma50": 343.52,
+  "sma200": 336.54,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 12.1,
+  "drawdown_pct": 10.5,
   "series": [
-   {
-    "d": "2026-01-02",
-    "c": 315.32,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-05",
     "c": 317.32,
@@ -1215,6 +1209,12 @@
     "c": 350.87,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-22",
+    "c": 357.135,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,25 +1222,25 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+2.2% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+0.4% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 22%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 23%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-21",
-  "days_total": 726,
+  "end": "2026-09-22",
+  "days_total": 727,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-09-22",
   "baseline": {
-   "n": 705,
+   "n": 706,
    "avg_pct": 3.22,
-   "median_pct": 3.15
+   "median_pct": 3.16
   },
   "bands": [
    {
@@ -1267,9 +1267,9 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 169,
+    "n": 170,
     "avg_pct": 3.7,
-    "median_pct": 2.89
+    "median_pct": 2.92
    }
   ]
  },
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 350.87,
-  "sma200": 336.35,
+  "price": 357.135,
+  "sma200": 336.54,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 22.3
+  "level": 22.9
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 37,
+  "days_until": 36,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 23
+  "days_until": 22
  },
  "earnings": {
   "next": null,
@@ -1303,14 +1303,14 @@
  },
  "backtest": {
   "start": "2022-09-22",
-  "end": "2026-09-21",
+  "end": "2026-09-22",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 45822.03,
-  "dca_return_pct": 118.2,
-  "dip_value": 45949.8,
-  "dip_return_pct": 118.81,
+  "dca_value": 46640.21,
+  "dca_return_pct": 122.1,
+  "dip_value": 46770.26,
+  "dip_return_pct": 122.72,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
@@ -1323,34 +1323,34 @@
    "published": "2026-09-21T13:08:13+00:00"
   },
   {
-   "title": "Alphabet Stock Surges as Google Search Makes a Major Comeback",
+   "title": "Alphabet Inc. (GOOGL) is Attracting Investor Attention: Here is What You Should Know",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOaDFydG15ZFFtSFFQWFAwMlVZeHYtOXpQcE5vclI1QURVcHFLVW5VdHBrNlFQZFBnMXdtaE5TWmMzaGRYQXRsUHVlMDdKakFMVUMyV2d4WVVFcG03X3lpX2w3WGx6bUpHYzhjTldhb3hwQmw3ZHZqclNzRGVMYWJYSGJybDlEYlJRam9ZODN1SGJkYnNjNHFEY0IwSmZHdHJPN2c?oc=5",
-   "published": "2026-09-21T12:28:33+00:00"
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOWDhhMFIwMEpOaG5hZVFhdHNSS2Z2QWlLRnJMQWNLMU54RkhoZmNWdkQya0FuU0xKX1JmMlBCTzhqT1F3Sng5b3ZFU0tmUHkzcGtoaGhsTC1JNzY0OXlNZVJXRFlDZ1BxNGQxX2k4QlVmNk1kNTMwZGxldEs0eHh1eUxLNzYtN3hNTlNEMkREU0FOU3FHMUp4aHpCaW9ycmpqOE45d2RB?oc=5",
+   "published": "2026-09-22T13:00:05+00:00"
   },
   {
-   "title": "Irish privacy regulator fines Google \u20ac403 million over location data processing",
-   "source": "reuters.com",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxObTlBMUhCMU1lTUtmLWhWVUNOanZWNWc0bXkxNFVZYmUzb2RlWGFndlhPaDAwZjFoRi00R2lwSVZINExLZ2ROal85T2NIeWxaZFRWUnRLRmFWT2VmZTQtQjloR0o2Vlg3WGJWZ1h2V0d1RnpMQjZRNTRZQmtFamVoS2JSOVE1ZVVXSzg3NE9JcjFNb2ZwY2NXUUJYeGxGLXVxN1dDM3NiYWk3V3V0UDU2S1pTR09jdldEWUxFNURuMmVkS1hpTzdoRg?oc=5",
-   "published": "2026-09-21T13:55:06+00:00"
+   "title": "Alphabet: An Undervalued Stock to Buy That Even Warren Buffett Likes",
+   "source": "global.morningstar.com",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPaWhidUtXemZKbWZCT0IxbTV4aGpwRFdGcExzaG9FRHYyQmNUR3RJMlgxMUN5ZFo2UEt1VE16NnFTVXR5NGVjQ21CUDJKc2tfS29WNVpiSE9FZ1p3UmhkN3k1aF9nWDdiZzVEVlNqeldsclJlM0tadldHZVJsYkZ2QVNDbW1QVEdDTC16QkpyVWthbTA3QkRGRktRMXZZMzUwLURMcG1BQWs0LXpoZnJWWFdR?oc=5",
+   "published": "2026-09-22T06:08:28+00:00"
+  },
+  {
+   "title": "Official Google Pixel 11 Pixelsnap cases return to Amazon all-time lows at 20% off",
+   "source": "9to5Toys",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPTzN1UHExNDBQN2NudHM1bmo0MXE2TXNMM1FXMnNFSHFpTGhpU08tWHBuamx3OHh1eDdYcURhVWJWSnh0VUxBOEQxeWFDOEc2anUtWnJnM3RJTXRlMlF1bUpaal9qMV9iRnduWHd0NWs1amZsM3ZpQy13X1JEeGVBNTBZQ2NFdw?oc=5",
+   "published": "2026-09-22T11:56:00+00:00"
   },
   {
    "title": "Google fined more than \u20ac400m by Irish regulator over its use of location data",
-   "source": "theguardian.com",
+   "source": "The Guardian",
    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxONG1SbkJuUEpGVUg3YXV4MHRIang3NGNyblFDb3BqSzZXTFpuVzgzWUlHeDlJeG5oMFR4WVpHamFqT1VKQzJkSldCWnVxV25OdUJWV1pVWkVwalJzci1ibm4yZkJrSWJkd195aVI5emh6Ulh0dV9XVFZNY3RpY1QxLXl4S2lZblN3OTBkREVhNHhxbEhDM0dxSHdyVTdCNWZyTVAyeS00SkE3Z29iWTctQVNsV1RCTWtTLVdlSE1sakxJQUNUVG1hQXNn?oc=5",
-   "published": "2026-09-21T18:02:00+00:00"
+   "published": "2026-09-22T01:30:00+00:00"
   },
   {
-   "title": "Google\u2019s $899 Googlebook is a bet that you\u2019ll buy a new laptop for Gemini",
-   "source": "techcrunch.com",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQQ1BKZklGZVU2R3dkM1N4dXRpakZiT2xVclc1SFFZeUdsajhnSkNGMm4zRTBWWlBVRmdDbUttbG5CektrY2gxMjVEQVktTGVrRFU3dzBWNmxvdUJBV09SUUxSSlI3Tk0ybC1MT2hJOTFPcDV4ekEtdlBvc01XV0dJVXRjZ2VaaThkWHZ0Rm0wYXhZRWRyQlhBREFVaml6M0FzTndRQmVoT0Q?oc=5",
-   "published": "2026-09-21T14:39:22+00:00"
-  },
-  {
-   "title": "Google confirms Gemini models hacked three companies in May 2026",
-   "source": "Ars Technica",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUWU3SkI0alV3ZHFieV9OV2w3UzY5RHBUTmpqbko5anJnaHlKRHdJNGZ0T3BJeUNUemxiUDlweVpTQmZYUHN5TVMwWXpOcjlVeHpmc1didDRMQlZ1VGVObnQ4ZHRNZ0JEclhfV1p4ZjdPOFdzYmF3bjdUV1FONnpvNHpwWlJieFpvZHBMRHY0d1JhMFpBTzNKWFM3VmpRczJNRi1DRm9Maw?oc=5",
-   "published": "2026-09-21T16:57:26+00:00"
+   "title": "Google to Fund Power-Capacity Increases at Two Georgia Nuclear Plants",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOXzhDYmJrTHRmWGNFaG1VRVhtV0NBUEhRdlhia1ljcWxUdFhiWGZGQm9mYjI2Q0hwQUswcEFORnp6TVdoMlk4NlhkRmN2TlIweUZHUHBtWGpOZ192NHc0TjBQWlRnRUNMSzNuNXFiRGc1eGdjek1UbUJ1R3Z0VTAtN2YySmFLUkwxWnNnS0ZtV1BFbGx2b05UaG92R21oSThfQk5UdDF3ajdMX2JyWWc?oc=5",
+   "published": "2026-09-21T23:40:16+00:00"
   }
  ]
 }
