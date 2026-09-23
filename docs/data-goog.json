@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T14:30:15+00:00",
+ "generated_at": "2026-09-23T17:56:43+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 92.5,
+    "pos": 87.8,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "26% ann. (p42)",
+   "value": "28% ann. (p44)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 42.1,
+    "pos": 44.4,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "15.3%",
+   "value": "15.9%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 15.3% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.9% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 30.6,
+    "pos": 31.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "uptrend",
+   "value": "downtrend",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "bad",
+   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.7 (p6), F&G 36",
+   "value": "VIX 15.3 (p13), F&G 36",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 337.61,
-  "day_change_pct": -3.78,
-  "sma50": 343.13,
-  "sma200": 336.44,
+  "price": 335.19,
+  "day_change_pct": -4.47,
+  "sma50": 343.08,
+  "sma200": 336.43,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 15.4,
+  "drawdown_pct": 16.0,
   "series": [
    {
     "d": "2026-01-05",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-23",
-    "c": 337.61,
+    "c": 335.19,
     "t": "caution",
     "s": 41
    }
@@ -1222,12 +1222,12 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+6.2% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+7.0% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 26%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 28%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1279,13 +1279,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 337.61,
-  "sma200": 336.44,
-  "above_200d": true
+  "price": 335.19,
+  "sma200": 336.43,
+  "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 26.2
+  "level": 27.7
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1307,50 +1307,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 44095.12,
-  "dca_return_pct": 109.98,
-  "dip_value": 44213.27,
-  "dip_return_pct": 110.54,
+  "dca_value": 43779.04,
+  "dca_return_pct": 108.47,
+  "dip_value": 43896.35,
+  "dip_return_pct": 109.03,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "We\u2019re bringing AI Brief to more languages and adding a new AI Max reporting feature.",
+   "title": "Gemini 3.8 text-to-speech says hello",
    "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPODJ4Nmdvd3RRQUVsMENmZVN6cWVZeHgzLVJsU1QxUHV0M0praHhXOWJ1bk55NFo4dTZQNnk5eVRKVk5SRTdmS1FreldTRFBTQS1oMTJ5SU93SE80eEhTRFZMRzUwNno3d2NRLWZiVENmWGJSV09wMVJqcWhuN0NjeVR1SQ?oc=5",
-   "published": "2026-09-23T08:49:19+00:00"
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPSWpTWDNZcWVYandkVlNIa1E5TWFsSG81NU5ST3Q1cGt1Z2xmUXdWRnEzb19zMjVfakoxdDNEVTlzdEJhUzFLanV2dlFaVTZ4a2RjRFMxTXlqUVpNaFFONVZzeGlHcnBwRTlWNlpMektVMlZ4RlJhVlN3X0k1NG0xSklibWpqLUVBUEJjSFVWOTZMWE1ZYllGMUVxbWlSV3c?oc=5",
+   "published": "2026-09-23T15:27:40+00:00"
   },
   {
-   "title": "Netflix stock is getting shredded \u2014 and Google's YouTube may be the reason",
+   "title": "Alphabet Stock Dips: Here's What You Need To Know",
+   "source": "Benzinga",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQUmR2NGxyek5WMWxrb0hKenVvTkVERmhMWTlaR1N0VmZMa3AzNVZORnFNMXFibm9JZW9WY2ROUWJjaHp5YlVCVTZGbG56czIzMHlsTTdpazJTZHptb2dTdGZCR25qS0NrRzZvbXYwR1JybjRvb2pYYVBzU0FFQ1hJeW5FdmhKR1g4OWY0V1RMTTlKLWVjZDFmQ1dtTHBoM2lLd1o5aHo3bkh5Qkgt?oc=5",
+   "published": "2026-09-23T16:52:48+00:00"
+  },
+  {
+   "title": "Dive in and discover what\u2019s next on YouTube with our latest viewer features",
+   "source": "blog.youtube",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNZ1o2OGJ4cVJkUkZxME5YaEF0dWktWExaMXRsZWhBOU4xcGdxZ0JyZXpuV3VZVnhZUl9FdEVEYURxaGxPbzdfZFBRcVpMNEt0LWRCQU9ZbzN2YmRWMVZ1WDhwRXdiOEQyUEtwcWpxbEZ3bHQtVnczcXA5dE1DNl8wWGYxMjRIVUprS3U1VW1UWmJWUQ?oc=5",
+   "published": "2026-09-23T14:45:49+00:00"
+  },
+  {
+   "title": "Meta\u2019s Muse Hit No. 1. Google Suddenly Has an AI-Agent Distribution Problem",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOMEZGWjdqaTlEUV9iSE16UUdOT3BDa1ZOc1hvUU1fazdUbXUweXJkemRTSkRlUGk4MkZuVnRtOHhjbm01Y00xS1pMSndtQjFoNUM5ck5qcnI4OU9xSVpiU09xWVV3dWhhU2pYRjZPVDFRMlhIdVNaT1pFaW9RMkpGejljblphTTBzRU1EMEJ2c015YkpTWVF6QW56WUhBT2pEb3JXVGw4WDRGR3Zubm56TlBtMWVPN2FFd1ZMQ2pVYlhfVHFxeHBvZHBhcDhTT1BZOFE?oc=5",
-   "published": "2026-09-23T12:30:41+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPS3pxbXEwYm5KVFpWX1pQdklMRUF3cDRhTUdhRjhvSHB0Y1FUeHZCbkVackhVYklqcUIzTHl2T3FlcjAyMjJzcVNrS1F6ek11N2htbDl1eE94SXVmU2x0eFhUWWNZVFBXM3NBVW5IYlNrUERaX2w5Z0VobFBObFdRYzZXVHV0c0k5Vnc?oc=5",
+   "published": "2026-09-23T11:13:46+00:00"
   },
   {
-   "title": "Ex-Google safety chief warns AI could harm children more than social media did",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOS3M3dS1XSU9ra3NOc2lNdURNcl9ReGRaRWJXMy01NnJzWHNJNWdYU2FYd2psVjhUSEV2dTNOTjlJZlFJUllzMThDM3RUR1M2VGVBYWw5dVNoaE92SzE3WC12RC1JcWNWNjFkWVJQdGltd01tRl9yb1Z4dzRoMk1zWlRUUUJnczdBQWp0YVBCNThKejZOYUpDUS1YR1gwZlZsZXN5VEhNdFB2Y0JmVjE5RTg4Y1VYSE83RERoM3VxbzI0RE5ZYmtuMndURQ?oc=5",
-   "published": "2026-09-22T22:45:59+00:00"
+   "title": "YouTube Music adding corner access to \u2018Ask Music\u2019 with Gemini",
+   "source": "9to5Google",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1wQW1SZmpzUE92SzUxUGRJbWtXamlaY05KTkFZTUN1QlRjY2tKT0tjeFd0Q2NhRG05NXpMcFJKSHQ5TmtfU1Eycnp3VDlVRUxlMmpuWnlHdU9pRlRVeG1Wa0lHODBQN3I4U3JF?oc=5",
+   "published": "2026-09-23T14:30:00+00:00"
   },
   {
-   "title": "Colab is now part of your Google AI plan",
-   "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOYUtPNFJ1eVc0RjJHQ0F5TkJ1ZW1DTEdRcEpkd2Y0Wk91UmtuUEFEQmh4MTFObDlfWUhyZXVxbFlsRGtTQ2dsT2Zyb3BFc3lCcUtPUi1veGNqc3hSNTNIWndtOW1zSUpYR2FHNFBqdkVDSS1Tb2tYODZPbGs0TngzVg?oc=5",
-   "published": "2026-09-22T18:22:46+00:00"
-  },
-  {
-   "title": "Nvidia Stock: AI Chip Competition From Google Is a Problem",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxONFNKSXh1cWdKdlk1LVQ2WjZ5UUZrN0Npak92YkZRd2xfTlhZdTc3UkFNTXM1S05SMVJzdDBidmlqLTlCXy10TDZ3OUg2ckE4ZHhDT1BlVXYtWXBkaFlmNndrY2FRaWNlX0VKLWwxZE5Za0VEN19vQkROUVV5eGxzX3pB?oc=5",
-   "published": "2026-09-23T13:13:00+00:00"
-  },
-  {
-   "title": "\u2018Literally state-run TV\u2019: Trump launches YouTube channel amid boycott by US networks",
-   "source": "theguardian.com",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQ0xEUFBha1JsMnZzVk4wQ3dGeFhDU0tQeHJybEFYbXpHY1Q3V240VEZxSXdHSTZMWG95ZWxZMGwwb2x5UE92YXZEZTV4dy14Ny1CcDNfMFR2R050Xy0zWm9zZE5rUkNNVV9fOW5vQTVScThlSmRNaU5saEVSMHoyM2t4WC1QenNsa2ZjTllFNko2QkplQ3ZxRnBKN2JNc2Z0bG5RdHFobDdfZw?oc=5",
-   "published": "2026-09-22T21:02:00+00:00"
+   "title": "YouTube Is Battling Netflix Over Top Talent",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOMkZQNk1YTzZYUldXRk1NcHMtbERUZUd3ZFQ0dF9zRVBkNURfQ0RBYS00RnloVEFncXJlNUxkZmVQZkF6d0pDWmdyNjhsWWVMQVdvWEViaGEtNkkyenc3VFBPek5jM2oxNmdaTUhwQV9jQlNaY1BtRkg4MHZQa1dwR1ZZbmphMVRvWW82amhwc3I?oc=5",
+   "published": "2026-09-23T15:44:37+00:00"
   }
  ]
 }
