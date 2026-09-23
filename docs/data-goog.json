@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22T22:04:56+00:00",
+ "generated_at": "2026-09-23T14:30:15+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 100.0,
+    "pos": 92.5,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "22% ann. (p25)",
+   "value": "26% ann. (p42)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 25.4,
+    "pos": 42.1,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "12.8%",
+   "value": "15.3%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 12.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.3% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 25.6,
+    "pos": 30.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.2 (p2), F&G 35",
+   "value": "VIX 14.7 (p6), F&G 36",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 22d",
+   "value": "CPI in 21d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 347.41,
-  "day_change_pct": -0.99,
-  "sma50": 343.33,
-  "sma200": 336.49,
+  "price": 337.61,
+  "day_change_pct": -3.78,
+  "sma50": 343.13,
+  "sma200": 336.44,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 12.9,
+  "drawdown_pct": 15.4,
   "series": [
    {
     "d": "2026-01-05",
@@ -1211,8 +1211,8 @@
     "s": 41
    },
    {
-    "d": "2026-09-22",
-    "c": 347.41,
+    "d": "2026-09-23",
+    "c": 337.61,
     "t": "caution",
     "s": 41
    }
@@ -1222,25 +1222,25 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+3.2% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+6.2% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 22%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 26%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-22",
-  "days_total": 727,
+  "end": "2026-09-23",
+  "days_total": 728,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-22",
+  "fg_coverage_start": "2025-09-23",
   "baseline": {
-   "n": 706,
+   "n": 707,
    "avg_pct": 3.21,
-   "median_pct": 3.13
+   "median_pct": 3.1
   },
   "bands": [
    {
@@ -1267,9 +1267,9 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 170,
-    "avg_pct": 3.69,
-    "median_pct": 2.87
+    "n": 171,
+    "avg_pct": 3.65,
+    "median_pct": 2.85
    }
   ]
  },
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 347.41,
-  "sma200": 336.49,
+  "price": 337.61,
+  "sma200": 336.44,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 22.5
+  "level": 26.2
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 36,
+  "days_until": 35,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 22
+  "days_until": 21
  },
  "earnings": {
   "next": null,
@@ -1303,54 +1303,54 @@
  },
  "backtest": {
   "start": "2022-09-23",
-  "end": "2026-09-22",
+  "end": "2026-09-23",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 45375.09,
-  "dca_return_pct": 116.07,
-  "dip_value": 45496.68,
-  "dip_return_pct": 116.65,
+  "dca_value": 44095.12,
+  "dca_return_pct": 109.98,
+  "dip_value": 44213.27,
+  "dip_return_pct": 110.54,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Googlebook: The laptop your Android phone has been waiting for",
+   "title": "We\u2019re bringing AI Brief to more languages and adding a new AI Max reporting feature.",
    "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOWFVXakRXTHBpbWJqM0lCdmRVYkJKeWUzYVN4WVF4blZIT1FCaUZWZ2xvYUVGVDZkdGVRbFl0b2l2Q0pnYjVLUDF2ZUJjbURuYkVJUGY3QVZYQkE2dGpKbmpvTWVQYWtDczB6ZGwtUXF4VGJxcjA2cmtwY0EzYzZEQ0FaS3J1dTRVVzQw?oc=5",
-   "published": "2026-09-21T13:08:13+00:00"
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPODJ4Nmdvd3RRQUVsMENmZVN6cWVZeHgzLVJsU1QxUHV0M0praHhXOWJ1bk55NFo4dTZQNnk5eVRKVk5SRTdmS1FreldTRFBTQS1oMTJ5SU93SE80eEhTRFZMRzUwNno3d2NRLWZiVENmWGJSV09wMVJqcWhuN0NjeVR1SQ?oc=5",
+   "published": "2026-09-23T08:49:19+00:00"
+  },
+  {
+   "title": "Netflix stock is getting shredded \u2014 and Google's YouTube may be the reason",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOMEZGWjdqaTlEUV9iSE16UUdOT3BDa1ZOc1hvUU1fazdUbXUweXJkemRTSkRlUGk4MkZuVnRtOHhjbm01Y00xS1pMSndtQjFoNUM5ck5qcnI4OU9xSVpiU09xWVV3dWhhU2pYRjZPVDFRMlhIdVNaT1pFaW9RMkpGejljblphTTBzRU1EMEJ2c015YkpTWVF6QW56WUhBT2pEb3JXVGw4WDRGR3Zubm56TlBtMWVPN2FFd1ZMQ2pVYlhfVHFxeHBvZHBhcDhTT1BZOFE?oc=5",
+   "published": "2026-09-23T12:30:41+00:00"
   },
   {
    "title": "Ex-Google safety chief warns AI could harm children more than social media did",
    "source": "Reuters",
    "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOS3M3dS1XSU9ra3NOc2lNdURNcl9ReGRaRWJXMy01NnJzWHNJNWdYU2FYd2psVjhUSEV2dTNOTjlJZlFJUllzMThDM3RUR1M2VGVBYWw5dVNoaE92SzE3WC12RC1JcWNWNjFkWVJQdGltd01tRl9yb1Z4dzRoMk1zWlRUUUJnczdBQWp0YVBCNThKejZOYUpDUS1YR1gwZlZsZXN5VEhNdFB2Y0JmVjE5RTg4Y1VYSE83RERoM3VxbzI0RE5ZYmtuMndURQ?oc=5",
-   "published": "2026-09-22T19:28:03+00:00"
-  },
-  {
-   "title": "\u2018Literally state-run TV\u2019: Trump launches YouTube channel amid boycott by US networks",
-   "source": "The Guardian",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQ0xEUFBha1JsMnZzVk4wQ3dGeFhDU0tQeHJybEFYbXpHY1Q3V240VEZxSXdHSTZMWG95ZWxZMGwwb2x5UE92YXZEZTV4dy14Ny1CcDNfMFR2R050Xy0zWm9zZE5rUkNNVV9fOW5vQTVScThlSmRNaU5saEVSMHoyM2t4WC1QenNsa2ZjTllFNko2QkplQ3ZxRnBKN2JNc2Z0bG5RdHFobDdfZw?oc=5",
-   "published": "2026-09-22T21:02:00+00:00"
-  },
-  {
-   "title": "Alphabet Stock Surges as Google Search Makes a Major Comeback",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOaDFydG15ZFFtSFFQWFAwMlVZeHYtOXpQcE5vclI1QURVcHFLVW5VdHBrNlFQZFBnMXdtaE5TWmMzaGRYQXRsUHVlMDdKakFMVUMyV2d4WVVFcG03X3lpX2w3WGx6bUpHYzhjTldhb3hwQmw3ZHZqclNzRGVMYWJYSGJybDlEYlJRam9ZODN1SGJkYnNjNHFEY0IwSmZHdHJPN2c?oc=5",
-   "published": "2026-09-21T12:28:33+00:00"
-  },
-  {
-   "title": "Bill Ackman ditches a major AI stock after just one quarter",
-   "source": "thestreet.com",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxObjI1ak50UUhBc1g3WUJzb0VPekMtQUx2NkhFWjlVeHBJOWJxYVl3bDB1Z1FySE9YYTNxRlZlNmQ2c3RXc1FPWVQ1QTVVSFBPOTM2amJuMXhsb0dVOXRLYTJmcnFaWTRXRkxmQ2ZiUlh3dktncGloUmwyRExyM0h2Y0ZXYVpFNjF3WUZVeEVHVzI1ZEY1?oc=5",
-   "published": "2026-09-22T16:13:00+00:00"
+   "published": "2026-09-22T22:45:59+00:00"
   },
   {
    "title": "Colab is now part of your Google AI plan",
    "source": "blog.google",
    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOYUtPNFJ1eVc0RjJHQ0F5TkJ1ZW1DTEdRcEpkd2Y0Wk91UmtuUEFEQmh4MTFObDlfWUhyZXVxbFlsRGtTQ2dsT2Zyb3BFc3lCcUtPUi1veGNqc3hSNTNIWndtOW1zSUpYR2FHNFBqdkVDSS1Tb2tYODZPbGs0TngzVg?oc=5",
    "published": "2026-09-22T18:22:46+00:00"
+  },
+  {
+   "title": "Nvidia Stock: AI Chip Competition From Google Is a Problem",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxONFNKSXh1cWdKdlk1LVQ2WjZ5UUZrN0Npak92YkZRd2xfTlhZdTc3UkFNTXM1S05SMVJzdDBidmlqLTlCXy10TDZ3OUg2ckE4ZHhDT1BlVXYtWXBkaFlmNndrY2FRaWNlX0VKLWwxZE5Za0VEN19vQkROUVV5eGxzX3pB?oc=5",
+   "published": "2026-09-23T13:13:00+00:00"
+  },
+  {
+   "title": "\u2018Literally state-run TV\u2019: Trump launches YouTube channel amid boycott by US networks",
+   "source": "theguardian.com",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQ0xEUFBha1JsMnZzVk4wQ3dGeFhDU0tQeHJybEFYbXpHY1Q3V240VEZxSXdHSTZMWG95ZWxZMGwwb2x5UE92YXZEZTV4dy14Ny1CcDNfMFR2R050Xy0zWm9zZE5rUkNNVV9fOW5vQTVScThlSmRNaU5saEVSMHoyM2t4WC1QenNsa2ZjTllFNko2QkplQ3ZxRnBKN2JNc2Z0bG5RdHFobDdfZw?oc=5",
+   "published": "2026-09-22T21:02:00+00:00"
   }
  ]
 }
