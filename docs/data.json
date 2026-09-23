@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T17:56:39+00:00",
+ "generated_at": "2026-09-23T22:15:23+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.3 (p13)",
+   "value": "15.2 (p11)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 12.6,
+    "pos": 11.5,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 35.2,
+    "pos": 34.6,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.4 pts",
+   "value": "+4.3 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 70.3,
+    "pos": 69.5,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.5%",
+   "value": "0.6%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
-   "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
+   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 5.0,
+    "pos": 6.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.4%",
+   "value": "+1.3%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 61.7,
+    "pos": 60.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 39.5,
+    "pos": 39.7,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "36 (fear)",
+   "value": "35 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 35.6,
+    "pos": 34.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 56.135,
-  "day_change_pct": -0.49,
-  "sma50": 55.75,
+  "price": 56.08,
+  "day_change_pct": -0.59,
+  "sma50": 55.74,
   "sma200": 53.86,
   "high52w": 56.67,
-  "drawdown_pct": 0.9,
+  "drawdown_pct": 1.0,
   "series": [
    {
     "d": "2026-01-05",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-23",
-    "c": 56.135,
+    "c": 56.08,
     "t": "neutral",
     "s": 50
    }
@@ -1321,14 +1321,19 @@
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "SPY has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
+  },
+  {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-2.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.72 (-2.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1338,12 +1343,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.3) = top decile of its past year (+9 pts)"
-  },
-  {
-   "label": "Extreme credit stress",
-   "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.68%) = extreme credit stress (+6 pts)"
+   "text": "VIX above 23.6 (now 15.2) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1383,8 +1383,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.12,
-  "tbill_3mo": 4.17
+  "ttm_yield_pct": 8.13,
+  "tbill_3mo": 4.16
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 768.49,
-  "sma200": 717.16,
+  "price": 767.81,
+  "sma200": 717.61,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.26
+  "level": 15.18
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1516,10 +1516,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 19918.14,
-  "dca_return_pct": 30.18,
-  "dip_value": 19681.24,
-  "dip_return_pct": 28.64,
+  "dca_value": 19898.62,
+  "dca_return_pct": 30.06,
+  "dip_value": 19663.42,
+  "dip_return_pct": 28.52,
   "dip_cash_uninvested": 1500.0,
   "dip_buy_days": 31,
   "winner": "dca"
@@ -1529,25 +1529,25 @@
    "title": "Dollar Jumps to 8-Week High on Fed Rate-Hike Bets",
    "source": "WSJ",
    "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxONWd1TXlQMWFteE5laG9vTTFUNkFieFpXVlo2SG5TWS1mNUxZbW5kUkhGUkpBa0tkNW1hc1Q2ZEhXMVQ4TW84Q2ZYdld5OHZzV3dXbi1FYTc4WjZpVko1QVo4NU4zdEdJakpOM1UyeFI2RktZeDA3UklxSUhNaFQyVUs2UjhsSDRuMVNxaExiSmptWDdJcmdfb01MdFowS2tSM2RCWDZJcGszQzR1anJYcDB0MlVrY0tleEFsSnMyTmJaUTktSmJr?oc=5",
-   "published": "2026-09-23T14:48:17+00:00"
+   "published": "2026-09-23T14:11:00+00:00"
   },
   {
-   "title": "Federal Reserve delivers warning to all Americans with a savings account: \u2018There will be a reckoning.\u2019 Are you ready?",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNSzlCZVFEeVdoN25oSkh1OVZiZ3QyLUQ0NXBPZm1ZOWY3MFRGc0hqQ3lyRFdPLXpTN0VMWXpoVHpBVVhOY2NKUjBHb2luT0xWam9PTWhDLXpNQjhlTEZTUTJSVmtRLVFwMm5HRDdpZ1dUQlM2alBxbU93cjI5NTFYZEx5b0htblJxa2NMNHNiZjNjNUZycjc5SWtlLXVIR2VXSlhfVHF6TjFXeFU?oc=5",
-   "published": "2026-09-23T10:35:00+00:00"
+   "title": "Inflation pressures raise prospect of Fed rate hike on eve of elections",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNU0ZXSlEta0N4WGxzcHJBNUM1cUI0d0U4TGFwa2NMbDM4U0Q3MWt0YXY5TGpQQ2xxdmJWNm0yeGl0ckJNanVPOU5HOUd5R0hNc19pZXcyd3FwWkFkY1hyUEpOdTZyMVZoN3R0eHZLdkxUYzRXV1hoRDctTXhUa3pvckNvLUktNDBmWm1OV3lhOTluQVRDQzUyQTN3Q0V0YmN2Q1E?oc=5",
+   "published": "2026-09-23T20:24:49+00:00"
+  },
+  {
+   "title": "Fed's Barr says more rate hikes are needed to bring down inflation",
+   "source": "finance.yahoo.com",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQeEtlSDQtX2FyZnh0ekp6ZXc5ek5mdnhDTmJXdUcyRWZLalpFMGNXbnpWSm5oNVZSZkRQSmVPMWZLYVB4ZnE3R2xIXzNScDN1c1NwOGtpZldVbVQ4dGZRaEROZGRQNmthTEhCNm04MDZ1TDdqSW8ycEhEXzBwS29OcU5RbDZ5SmFiNWxRT05aUjdPSmRKcXRpejEwMG01clJWOXJKRmI0RjIybmRVSTkzSy03UzZuSFVMZC1CdGFkTWM2Rks1RTNTTg?oc=5",
+   "published": "2026-09-23T14:07:16+00:00"
   },
   {
    "title": "Market sees next Fed hike in October, following Barr comments and hot inflation reading",
    "source": "CNBC",
    "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPaGhuemZBdUZiMlNRVVhMRG5uam9La1lFdmthTXQwX005MkdYWVNfTXN4cHBUUkFHXzJ0clNDZU9CQmdBNy00WGtsbVFCWWdYU3lrNkxwUXd0YnlGdS1wLUplb25xSWdLVTBRV1YzbEw5amZncm1CVE83N1lxaVdvYVNjMS13WFRfZzlUU2czRHJwTkhEMjRZdnhiVjN6OUZhdWZrSUZxOGozWWlyQ1g2LQ?oc=5",
    "published": "2026-09-23T16:56:22+00:00"
-  },
-  {
-   "title": "The Fed - September 15-16, 2026 FOMC Meeting",
-   "source": "Federal Reserve (.gov)",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1zc2VEc0hGLWRPRGpPSnpPYnQ5b1ozeDNlbkZiQU95NExnMTRESlkxUDJmaEg5QVNuWDZ4MnhkRzJUT1RLVENMcU9XaUp5VEtWaFpHLXNQSTNzbElmYUlHWjM5Q2dsSU9lMENHaUlhaGwxNGdoRUdsWmlB?oc=5",
-   "published": "2026-09-16T19:23:03+00:00"
   },
   {
    "title": "Letters to the Editor: History shows us that the Federal Reserve can\u2019t stop inflation",

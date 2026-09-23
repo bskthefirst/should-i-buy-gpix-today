@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T17:56:40+00:00",
+ "generated_at": "2026-09-23T22:15:24+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "20.6 (p20)",
+   "value": "20.8 (p22)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 19.5,
+    "pos": 22.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 35.2,
+    "pos": 34.6,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.35x (p65)",
+   "value": "1.37x (p69)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 65.3,
+    "pos": 68.8,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.9 pts",
+   "value": "+4.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 74.2,
+    "pos": 71.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+3.5%",
+   "value": "+3.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 79.2,
+    "pos": 80.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 56.8,
+    "pos": 56.9,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "36 (fear)",
+   "value": "35 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 35.6,
+    "pos": 34.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,8 +257,8 @@
   }
  ],
  "fund": {
-  "price": 58.005,
-  "day_change_pct": -0.04,
+  "price": 58.01,
+  "day_change_pct": -0.03,
   "sma50": 56.5,
   "sma200": 54.69,
   "high52w": 59.52,
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-23",
-    "c": 58.005,
+    "c": 58.01,
     "t": "neutral",
     "s": 50
    }
@@ -1355,7 +1355,7 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1365,7 +1365,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 20.6) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 20.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1411,7 +1411,7 @@
  },
  "income": {
   "ttm_yield_pct": 9.85,
-  "tbill_3mo": 4.17
+  "tbill_3mo": 4.16
  },
  "distributions": {
   "history": [
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 740.78,
-  "sma200": 663.78,
+  "price": 741.21,
+  "sma200": 664.41,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 20.59
+  "level": 20.76
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1543,50 +1543,50 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 21321.55,
-  "dca_return_pct": 39.36,
-  "dip_value": 21084.05,
-  "dip_return_pct": 37.8,
+  "dca_value": 21323.39,
+  "dca_return_pct": 39.37,
+  "dip_value": 21085.85,
+  "dip_return_pct": 37.82,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Stanford R&DE Uses AI to Race Swap Students for Advertising",
-   "source": "The Stanford Review",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPTF8zZTVjUmJ2Q1R6SDdnQmRFQlZjdnBKZlZxRWNBM0FpdDFQa2pZckZtY0xkSkVyZkQzY0ZFUzJrVnJkdkdIYzY3Y3ZhZ2IxTjkxT0tNVlZxaGZsS1RJaWI4ZUdwbWJrTE5VcW5Pa0tnOHUzbkx3eHBxSEVUaUxsVmRqNVRFcWlCMjdaX2ZXNzY?oc=5",
-   "published": "2026-09-21T15:37:30+00:00"
+   "title": "Governor Newsom announces world-leading experts to deliver on his AI executive order, including advancing creation of a \u201ckill switch\u201d",
+   "source": "California State Portal | CA.gov",
+   "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOOU1CZVdfZlFKYmhQdGF1MTlaUl9SMGNxY19WSWZhWmdxRVZTb20yY29yc1JoSXB6R2tYVnRad1BhWWZaZ1NoNnZYZjhPTndnM3Y2aWlEV0JnbDZGUGVrTUV5TnNlN0tOWkF3X2EtanVwZ24yeW5odHhxQ0puY2s0UllVbE5jMTRXcUFWbVdSaFU2U2hhZTVQem1MOWdfb3R1TWZ5dGo5S0d5ZWxXMm9FbzN4RUlNSTEtNEg2a0F1c2hlbnNkdjZtNU5yYXN3OGktY0FBVWpxcl9XSmFVM0RvSHlRQWpVYWM5WUNMUmVpLUFENTBrWFplag?oc=5",
+   "published": "2026-09-23T15:02:11+00:00"
   },
   {
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-23T15:09:00+00:00"
+   "published": "2026-09-23T18:50:23+00:00"
+  },
+  {
+   "title": "LIVE: OpenAI and Anthropic to brief Security Council as AI guardrails debate intensifies",
+   "source": "UN News",
+   "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBqVGZCZ3prNmhaQXp3bkxTeWlRWlpjYUkxV2V0UWJGTy01dTFZQ2NoLXlXQWtVQ3lySFJsZmNuMDRWMWZQbmhfUGpqN3VsbFlPZ1ltNl9HQQ?oc=5",
+   "published": "2026-09-23T18:34:18+00:00"
+  },
+  {
+   "title": "OpenAI and Anthropic CEOs push for AI cooperation at UN after Trump rebuffs 'globalist scheme' to control it",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBnYmxuWFJ2T3UxeFlEbFlOY3VvVjFzaHQ2U2Z2MHlPZ0Q5c01zQ19aQmlGNE1hcnBUQWk3WTlXSmk4cUI0ZFp3TTVndkNDa3Q1RFFWdjdjV1lZWDJVZkpmaldLdEowRXpkSEZid2piVUXSAXZBVV95cUxNMHZEbDdqaUUwYy1xbTYxQ1dSWTJBZGhRRS1BOThUWTVKQnpBSnl3aTktbkN3Vmx2WGR1clRVZExIdDF0TU5meWo2T0wzek1HZTNQZnQ1SjNhTm9PZTJOTkMxUkxiWVdjRnZ5R21ZR3dLTmZyeGRR?oc=5",
+   "published": "2026-09-23T19:53:12+00:00"
   },
   {
    "title": "How an 'AI freeze' could make big AI companies bigger and hurt smaller firms",
-   "source": "NPR",
+   "source": "npr.org",
    "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQdTBpWk5jcXBuUFItMkdtMzFEMEZLaE1nVGlWMUp5dHZtNUxSMFl0WW9Zb09haU5YdjBrTHFweFBYZHI0S1luVXZmeUVBTU5NbnI3Mk5jcU9FeWlTeXBHWTg1THZjVUV3NDl0R3VBcXB1R3RUV01PdHlOYm9TX2JhQUo4V0NWaHM?oc=5",
    "published": "2026-09-23T09:00:00+00:00"
   },
   {
-   "title": "Meta's Muse reignites AI disruption fears. Traders are targeting this brokerage stock as next casualty",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBtRTVFTXJpb0lqMXZCM2ZJc08tVUFWQjd1dTdKOUhhVjFFV1REOXQ3SjlrNURZWnJfeVRRQTZ4S0d5anRKSk9QYWU2NjN6bzhfRHlrRTR4eEpiQnVuOHdudkdCMndLNkJhR3dna2tIQTdkVlpKYUNaMm42a3fSAYIBQVVfeXFMT0x1cHFQZ01KbDdkY1ozMTduSVk1TGhtRVZPS3RXMHR1YXMyNTNFbld1elJrVy1WdjlhMlZTamZKbzM2UXpFWVN4a2JMbEpjc01HNGR2aW9jZUc4RHo5ZjJZQ2V6clp3QTRyNnhLa0NxSEVUS0ZTTzZqQXU5U0xhOG45Zw?oc=5",
-   "published": "2026-09-23T11:51:23+00:00"
-  },
-  {
-   "title": "Dems urge Trump to seek AI deal with China",
-   "source": "Politico",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNUUs4N3U4eGdDRHNTM1IzRlJodngzSE9aTk5jS0FuUHpOeFIzdzYyVXVsLTVyY2hFeHFnZm95LUdGenBZNzJUWlpYXzAtTXJsZnQ0X1dLMkFxcE4xTUV2R2czX0JQVG82Qkl2eVEyYTNKUzdSbWZXbG1lWE9LVWFSaExXNjRTNVNfWHg2R3BfVjJwOGVrV1Qw?oc=5",
-   "published": "2026-09-23T14:03:00+00:00"
-  },
-  {
-   "title": "AI looms large over Trump-Xi meeting amid deep distrust between US and China | US foreign policy",
-   "source": "The Guardian",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNRER5Q0NmbkNwZWRBdlRBUkpobm1MZUdaNHJMSWNuNzZtMGNxTldqc3MtY0hDS25xZG04YkxLVkE1a2tmdkhmX1lIaEtvV1Z3VkxFSTVWOU5ySk9jOE9fc0E2NS0yZFNvSVdVb2ZyYmRXYkVZZGRTdzJ3dFlLZlUxOUtYUQ?oc=5",
-   "published": "2026-09-23T16:27:00+00:00"
+   "title": "Amazon rolls out new agentic AI for third-party sellers",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQNno1MXBaZ3JtY05ZWHpfU2RsV0JuU3Zlb3hlN2RiaExrSHdEbE5wNGZjZUhINUNJQkdBR0pTM0xQUFhHZjdMdmEwSGtOcDRVcjJ1dFJNU1ZqMWlzbFpDZFhUVTlGaDFpTENaRjhKSDk0YWFiX05VOUZNbVVqRGhSemt6MHpabV8xbHNHSkZwbGRWVy1XdFdGZlVUVS1iMEJCNUNkd2stYUU2TnZ6Ny1LSXZB?oc=5",
+   "published": "2026-09-23T13:03:43+00:00"
   }
  ]
 }
