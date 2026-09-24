@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-24T17:56:07+00:00",
+ "generated_at": "2026-09-24T22:20:56+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.7 (p19)",
+   "value": "15.7 (p18)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 18.6,
+    "pos": 18.2,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 38.1,
+    "pos": 37.6,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.9 pts",
+   "value": "+4.8 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 73.8,
+    "pos": 73.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.7%",
+   "value": "0.6%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 7.0,
+    "pos": 6.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.1%",
+   "value": "+1.3%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 59.2,
+    "pos": 60.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 39.8,
+    "pos": 39.4,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "35 (fear)",
+   "value": "36 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 34.7,
+    "pos": 36.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 56.02,
-  "day_change_pct": -0.11,
-  "sma50": 55.75,
+  "price": 56.08,
+  "day_change_pct": 0.0,
+  "sma50": 55.76,
   "sma200": 53.88,
   "high52w": 56.67,
-  "drawdown_pct": 1.1,
+  "drawdown_pct": 1.0,
   "series": [
    {
     "d": "2026-01-06",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-24",
-    "c": 56.02,
+    "c": 56.08,
     "t": "ok",
     "s": 62
    }
@@ -1323,12 +1323,12 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-2.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.72 (-2.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1377,14 +1377,14 @@
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
     "n": 516,
-    "avg_pct": 1.22,
+    "avg_pct": 1.23,
     "median_pct": 1.69
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.14,
-  "tbill_3mo": 4.16
+  "ttm_yield_pct": 8.13,
+  "tbill_3mo": 4.19
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 766.51,
+  "price": 767.18,
   "sma200": 718.01,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.71
+  "level": 15.67
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1516,10 +1516,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 19877.33,
-  "dca_return_pct": 29.92,
-  "dip_value": 19643.99,
-  "dip_return_pct": 28.39,
+  "dca_value": 19898.62,
+  "dca_return_pct": 30.06,
+  "dip_value": 19663.42,
+  "dip_return_pct": 28.52,
   "dip_cash_uninvested": 1500.0,
   "dip_buy_days": 31,
   "winner": "dca"
@@ -1532,10 +1532,10 @@
    "published": "2026-09-24T14:17:57+00:00"
   },
   {
-   "title": "How Median Net Worth for Americans Ages 55-64 Stacks Up, According to Federal Reserve Data",
-   "source": "Investopedia",
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPaFM4TFkteDdlaEp2RXlTdHk1Z1VCNEJTR2NodS1CQ3A2dENVWnN0aGpoRDNmT3Z6aHlEWW5TdkF6R3FDemRrLThIQ1BHVnpHbTdfdmVmeFFQVHc2SnRCWkJDUmlHS0tFQVAxbkc3cHJUbC01aDNpVHVQZjZGb09oREFoSkZZUUZhV3N6ZlYxSnd2cEZnRWxGU1BaMzh1SFBMUjRJX2d2T2VJT1JydXpyRmpzeGtQOGxfTkpzWmVpeENFVnVQQ2c?oc=5",
-   "published": "2026-09-24T16:44:21+00:00"
+   "title": "Surging Treasury yields pose a brand new problem for Kevin Warsh and the Fed",
+   "source": "cnbc.com",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPR21RNks3NUh3SlB3bUU2VEs1ZHlfSUJLcGI2ZlE2MVB3ZjF3ci1vMEhuRWE4NDlmcnF2QmNsUGx1SEV0UWNERnBza05EMVEwYzBnQzd4Y3FkRGhLYmRERmVZRy13UE9ONmU1b2s1UmV5azQyRHpCSERKZzNpR1dRc0pSbWpFa0x0SkJqdHFkNy1TaXg0M3NvaVZWdDZ0bFhpTnM1OGdEdTZPU3RWTy1VVl85NmtrNVNwbHl30gHAAUFVX3lxTFBoeDluN1VzWVExYWFOTXVRcWxOV3M2ZzV6TmpseEo4bnRIUjlVN3ZhN09wbWpfM2EwOGxRWFBwUlN4WnB4WDFTNmpFdHQ3ajRfWDVwR1YyRDNYejF5aXVFXzY1eFJnYXE1eGViOFdjUUdhaVdSdWtRblVSLU1nX1lZNTlLT2RQRXNNWjhHVURlSGZzTGFPVHZjM1JhZW9QNi1QVjYzdjFzM0tUNHlPb0g1LUdMNzdUYnFwREJYWElzTw?oc=5",
+   "published": "2026-09-24T18:30:35+00:00"
   },
   {
    "title": "Inflation: Drivers and Dynamics 2026 Conference",
@@ -1544,22 +1544,22 @@
    "published": "2026-09-24T12:07:42+00:00"
   },
   {
-   "title": "New York Fed\u2019s Williams says it's 'reasonable' to expect another rate hike by year-end",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPYmxaX3dTMVR5S2VYVnlWTC1MOVdISU9wRGg2b3FuZ0JnQVdXUUJEYVdDbVVZa1hjaEx6QW9vZ28yRnVwMnMxTE9OT0VCVUJ5Vll1aDNXQUZ2R3NnSUxyU2tOQk1WQ1NhMGk5VWVMVlBwRlBDZV9kbmpZTWg5TjJXOXA0UnphZ0XSAYwBQVVfeXFMUGIxR1RPSHZGUTJBR1Nycno2QlRfZzVpQkIzWG9Dd0lrdzJpMGMzOU8yUTFQWDFabFdYU1ZaVElkZ09BYUNTa0dMVFI5dnZJSEE4QkZ5T0VxSmd6aXVkXzVIREVkUmRfcWppX3RfZGFiMi1ETUtnWkJ6c0tCV1N2NnFpYTlOMjVvVjdmYUc?oc=5",
-   "published": "2026-09-24T08:29:26+00:00"
-  },
-  {
-   "title": "Federal Reserve rate hike reflects new world of sticky inflation and faster growth",
+   "title": "Fighting inflation likely to be 'painful,' Chicago Fed president says",
    "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxON3hFUzkwR1E4VklXWkZzb3FWeG5Nb0c2QnM5QVg4MC1UV1ZTbGpWOVpxOGFDaThlTmw3MlV6RFRfRFlLYTY4YnJrVE5ldHJ1eFN5NW5WM0V2RHFoMDJVUTBjeDB2Ym1kdzVaa0tCaDFrVkdqVnE3WVl2cWRydm5QVkwyNjh2eUNpVjhaNEkwUGFHSDFIRzZrQjZKcnVQa0lEYmJVNWNPcWpRbTJzZEkwWUYyTTYzemxQZUlz0gHAAUFVX3lxTE9IR0xCTjVudjlGY2xSU1JHbVJ2MGU1VG1TYUVBTm1XLVdVMHYycm1veTBkX2pLMWU0OVByci1ETlgzTUN6dWVtT2hFeDZmMkJ5X3FaUlJ5cEJmczVIWXhYTGZPa1k0ak45OUNfcU9sbTY1ZFFNR0N3LWRrSXJEYnRKT3d4UVlNWTM5cHRqS3Y3SXV0R3pZcEhodkFNNmZaV2oyX3ozbDN4WUtUbldqMXJrT0JsY0otTkRfWTVMV25mYQ?oc=5",
-   "published": "2026-09-20T16:28:25+00:00"
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOQVR1azg4WmktY0lXSExsMzBsSVpRVzhqR2pFTUN2YkNRNVNDeFgxU0VfdzFzbHRJMHdHd1ZPWDdxdWl0eXdFRVoxdTNUQ0xISHI3Y1ZlTm8tQzZvLXZDR1EwOFVUNE9WdWhNYWFPMVB0cHFXU2szS2l0TzVPM08xNXRYMHdCN2lXdXBIdGNoTEhDWk1aYVZvaUJjcmxpRDlFUUllRGRR?oc=5",
+   "published": "2026-09-21T17:36:10+00:00"
   },
   {
    "title": "Opening Remarks",
    "source": "Philadelphia Federal Reserve Bank",
    "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPc3hrRmZFYUY0akJkcE1hWHh2cUVxX19RVmRKVXd1ZHhMOTZnSENrTUQ5bUhndUtuYmZtNVNacEMtTGlLR1lqX3hnZHpLZzlfalFxUTl0QVhJSkhEVWtYMGg4WnpnQWIxMUlGZVZkWG9LX3JRWDNXT2xFLXprbnVXY1JUX2JoYmpVbmZkenJueTBqdXZjd2x4cmp5cXJ5dHo0ZTVjWV9DOA?oc=5",
    "published": "2026-09-24T14:28:01+00:00"
+  },
+  {
+   "title": "Kevin Warsh is against forward guidance. But that hasn't stopped other Fed officials.",
+   "source": "marketplace.org",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOVTFDczJZc25TN2lfV05CSFBvZEVralVHNmxKVS1oN0RhY1l3b3dfckpkRlQ3WDU5V2Q1WDBLdldYRE9BeGt0TnNSQWZCMzJKU0tzXzN6MVFHT2RfNG84dDBLUmZGZzFGQVhqeG9KOEJDTkhmQTdMbGdXeEx3aXNFRVBpc2RCVzk5cnFsQWNheEhRRzZtQm51Y1R1VUoydjlONzBzVFdaRFlTZw?oc=5",
+   "published": "2026-09-24T20:15:00+00:00"
   }
  ]
 }

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-24T17:56:08+00:00",
+ "generated_at": "2026-09-24T22:20:57+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.3 (p26)",
+   "value": "21.2 (p26)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 26.3,
+    "pos": 26.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 38.1,
+    "pos": 37.6,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.35x (p65)",
+   "value": "1.36x (p66)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 65.3,
+    "pos": 65.6,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -96,7 +96,7 @@
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 74.7,
+    "pos": 75.3,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.2%",
+   "value": "0.0%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 2.0,
+    "pos": 0.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+3.4%",
+   "value": "+3.5%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 78.3,
+    "pos": 79.2,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "9.9% vs 4.2% cash",
+   "value": "9.8% vs 4.2% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 57.1,
+    "pos": 56.6,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "35 (fear)",
+   "value": "36 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 34.7,
+    "pos": 36.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 57.92,
-  "day_change_pct": -0.16,
+  "price": 58.03,
+  "day_change_pct": 0.03,
   "sma50": 56.5,
   "sma200": 54.71,
   "high52w": 59.52,
-  "drawdown_pct": 2.7,
+  "drawdown_pct": 2.5,
   "series": [
    {
     "d": "2026-01-06",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-24",
-    "c": 57.92,
+    "c": 58.03,
     "t": "neutral",
     "s": 50
    }
@@ -1355,12 +1355,12 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.29 (-2.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.29 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1370,7 +1370,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.3) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.2) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1398,7 +1398,7 @@
     "label": "Mild tailwind (score 56\u201368)",
     "n": 144,
     "avg_pct": 2.56,
-    "median_pct": 2.72
+    "median_pct": 2.76
    },
    {
     "tone": "neutral",
@@ -1410,8 +1410,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.87,
-  "tbill_3mo": 4.16
+  "ttm_yield_pct": 9.85,
+  "tbill_3mo": 4.19
  },
  "distributions": {
   "history": [
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 738.98,
-  "sma200": 664.98,
+  "price": 741.1,
+  "sma200": 664.99,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.26
+  "level": 21.24
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1543,10 +1543,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 21290.31,
-  "dca_return_pct": 39.15,
-  "dip_value": 21053.3,
-  "dip_return_pct": 37.6,
+  "dca_value": 21330.74,
+  "dca_return_pct": 39.42,
+  "dip_value": 21093.09,
+  "dip_return_pct": 37.86,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 61,
   "winner": "dca"
@@ -1556,13 +1556,13 @@
    "title": "The turbulent AI era is here. The choices we make now are critical.",
    "source": "Gates Notes",
    "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vNHRZblJwZHNZZEZfZ285LUdncWl0YUk0UHVfTDM1b05YSU9rVHRhYUpkQ1VwV1RJaXZ4SzZwV2dBd2ZYeEZtbUpGNkpDdng5WjRTa28yOVdIM3drTERSVVVoeWI0WnpWT3dQbGVQcVhvdEZIZE1oaTB4cHdRb0E?oc=5",
-   "published": "2026-09-24T15:16:11+00:00"
+   "published": "2026-09-24T18:59:19+00:00"
   },
   {
-   "title": "Behind Project Suncatcher, our moonshot to put AI in space",
-   "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNM1BYaU0yYTZra0M4eWktSXVydEJjbTVtM0JLZUtpTlZUNWZPb2RqUHR0V1hEdlczMkZyOU90MW83eDhCWVJMSnhXLWxvcWhJMDdiNkUtZEJLR0ExN0xnMS1YdGJOaWJyRXZmZlJGQnJNVWJKbDl5dG1uMGtsRk9VbVRCcWpKVjlnUnVfMXU2VjNJOGdhOGt4UEZpeGpyNndSTUpodXphZV9jUQ?oc=5",
-   "published": "2026-09-24T13:16:40+00:00"
+   "title": "Trump and Xi Jinping will hold talks in Washington on trade, AI and more",
+   "source": "PBS",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNYXI3S3d6NHNCc1NIczdaempEMVBxOWJsUmNzSjBBNWQ1TGUwZGNPbnJ6dHpLeDhQdVJYaG11UnlVdlF3a0J3eXVHMEpLVkVTaHNnX1k2ZERlMWZtZmlLY1dkWlZtTWRoQ19xamw2QlJmdnBLMGU3NHBUYmFrdWhSaXRiUWRPVllCZThEUnFXbXY5Mm9NVko3cHlRUTFHODAzeHJyeGRHM2szVUlER0HSAbMBQVVfeXFMTmpSRkU4cHhjaTg0WmlzUFcxeHZsWVp3UE1NLS14aFExV2RzMG5ocTZRaUU3a0E3MFJ2bkRuQmxsaEd1bnFKNHhYMWhtNVV5ay1MUGJ4NmJVMUEwVHhyYlduYUdVRmZxV0pRbkc1TW9ITUFxZTh4cUtOTVhlVl9QbDh0cWEzZEIyZ0ZjVU44bmgzdkt1azdSNUp2ZU1JczVrTmtoNFpYZFAyZm5iUmtGWUpzQjQ?oc=5",
+   "published": "2026-09-24T14:29:46+00:00"
   },
   {
    "title": "OpenAI\u2019s A.I. Tried Breaching Four Other Targets, With No Prompting",
@@ -1571,22 +1571,22 @@
    "published": "2026-09-24T16:49:00+00:00"
   },
   {
-   "title": "Trump says he'll discuss AI with Xi but wants to 'leave it exactly where it is'",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQOWFPSF81d196aENvbnN5UkVvamNMbVhiUlBLLS1mcDBSYnJDV0poQkluYjhCTjhxODBtUFlJTnZLSjdCeHlQbEN5cFlzVWtzLW1QN2tKODR1MGdnalFiTFhoMFhkSFR5TGlFMDJVZ09oT01QZUc2azJYMG9GbTE1RE9IZDhXWTJyUmNjMmVQTTZlRjItWUJMOWViaGxEaVJCRGU1ODE4R0o3bFZNMllnbHc2THFlOXJoYXJDdHhuMlc3aHJHc0c0?oc=5",
-   "published": "2026-09-24T12:51:33+00:00"
+   "title": "Stanford apologizes saying AI-altered photo that changed student\u2019s gender and race violated policy",
+   "source": "NBC News",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNQ19tZUNaLWZ4d3lnWGlvNDF3N244YjMzQ2l1ck1WUmhUVHVqZWhtcDRCMTFDTG1LV2pHQjduU1dRS1JIVkRRN2ZORFdtZGhYNHBJMC1vbzJYSzNxazdVcFpfeGpWWU01RDNxYU05Uk12amNubXR6eGNTcktkRkZBQUE1U0haOFVNWE9RdEpIZklTUzdnNVV3NnJpY3lwc1J6S21RMjU3OEoybjAxclh2czEyM3hsTmFMU1E?oc=5",
+   "published": "2026-09-24T20:26:42+00:00"
+  },
+  {
+   "title": "Behind Project Suncatcher, our moonshot to put AI in space",
+   "source": "blog.google",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNM1BYaU0yYTZra0M4eWktSXVydEJjbTVtM0JLZUtpTlZUNWZPb2RqUHR0V1hEdlczMkZyOU90MW83eDhCWVJMSnhXLWxvcWhJMDdiNkUtZEJLR0ExN0xnMS1YdGJOaWJyRXZmZlJGQnJNVWJKbDl5dG1uMGtsRk9VbVRCcWpKVjlnUnVfMXU2VjNJOGdhOGt4UEZpeGpyNndSTUpodXphZV9jUQ?oc=5",
+   "published": "2026-09-24T13:16:40+00:00"
   },
   {
    "title": "In the Age of AI, Cash Is Still King",
    "source": "WSJ",
    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQSFpodVhaVkR2bUJoQUc1THJhcHVXSWcyZGZNX2M1REpWZHFkeVBJNkJsVEJXTXFBeGM1d01GMnZFak0tT3pNaHE5YmtYdGxzaXpOelF4Vng1SGJwdGlxa2tnV3FVVEU2WE9ZY2dJLUdFWVdyQmtFWGFPWGVqaE1kMTVxNXNwZGwzbUE?oc=5",
    "published": "2026-09-24T09:30:00+00:00"
-  },
-  {
-   "title": "Scoop: Trump allies open new front on Anthropic CEO as face of AI \"doomerism\"",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBCWU40OGxGYUZKQTZvcFNhWTVyemFmMmpnMzNHU2tEWkppTTFFSEpVVXQ5VEg5NTFGTFRjQXYyTzE3SllFMGxlMDc1LU1XUlRyN3BGZG5YRTJPNXNhYThINEhpZ282ZVJDUjR1cnNCVlpWT0FKZXlmUWlQSDhRTlE?oc=5",
-   "published": "2026-09-24T14:54:08+00:00"
   }
  ]
 }
