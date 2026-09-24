@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-23T22:15:25+00:00",
+ "generated_at": "2026-09-24T14:30:21+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "44% ann. (p50)",
+   "value": "44% ann. (p49)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 50.0,
+    "pos": 48.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "22.4%",
+   "value": "22.8%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 44.8,
+    "pos": 45.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.2 (p11), F&G 35",
+   "value": "VIX 15.6 (p18), F&G 36",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 21d",
+   "value": "CPI in 20d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 380.12,
-  "day_change_pct": 0.32,
-  "sma50": 348.96,
-  "sma200": 396.34,
+  "price": 378.13,
+  "day_change_pct": -0.52,
+  "sma50": 348.63,
+  "sma200": 395.96,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 22.4,
+  "drawdown_pct": 22.8,
   "series": [
-   {
-    "d": "2026-01-06",
-    "c": 432.96,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-01-07",
     "c": 431.41,
@@ -1215,6 +1209,12 @@
     "c": 380.12,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-24",
+    "c": 378.13,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1228,14 +1228,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-23",
-  "days_total": 728,
+  "end": "2026-09-24",
+  "days_total": 729,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-23",
+  "fg_coverage_start": "2025-09-24",
   "baseline": {
-   "n": 707,
-   "avg_pct": 2.76,
-   "median_pct": 0.58
+   "n": 708,
+   "avg_pct": 2.77,
+   "median_pct": 0.63
   },
   "bands": [
    {
@@ -1255,9 +1255,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 354,
-    "avg_pct": 2.66,
-    "median_pct": 0.45
+    "n": 355,
+    "avg_pct": 2.67,
+    "median_pct": 0.49
    },
    {
     "tone": "caution",
@@ -1274,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 380.12,
-  "sma200": 396.34,
+  "price": 378.13,
+  "sma200": 395.96,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 44.4
+  "level": 44.1
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 35,
+  "days_until": 34,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 21
+  "days_until": 20
  },
  "earnings": {
   "next": null,
@@ -1298,54 +1298,54 @@
  },
  "backtest": {
   "start": "2022-09-26",
-  "end": "2026-09-23",
+  "end": "2026-09-24",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 31223.11,
-  "dca_return_pct": 49.39,
-  "dip_value": 31233.26,
-  "dip_return_pct": 49.44,
+  "dca_value": 31059.65,
+  "dca_return_pct": 48.61,
+  "dip_value": 31069.74,
+  "dip_return_pct": 48.66,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 206,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Tesla CEO Elon Musk Confronts China Tariffs at Xi-Trump Dinner",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBVN3ZBU1ZBZlF6clRpM1hxLVQyTzFhN2UxWV9tUjZQZTBfa00tLWZNM3NLMDFJd3JVWVF3eEdHVWk2UEdSUVRTdkZPTE94QUxCZl9yX280OUc3S0NiOW9CclA3WHNBN3VNMjdPRUgxTDRyTmRjU244STllM3g?oc=5",
-   "published": "2026-09-23T14:11:00+00:00"
-  },
-  {
    "title": "Tesla stock jumps ahead of highly anticipated Roadster event",
-   "source": "finance.yahoo.com",
+   "source": "Yahoo Finance",
    "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNVjgtVzVBc2Ewa2k3aDVHdm5kU1VCLV9NdkphTEpGeWZMM2JnR0RPZGxCU2ZsR1ZwLW9SSVNIUjFKTVY3UWVHSG5DVE9GWDlNc2dhdGlwZGR1eTFLUWZJVUdibmZTYktZdE1mVjREbElLN3V4WnhRdUIzeHJXYU1fZlRwX3Q0bUNPc3RSVWI4aEliRWh5dG41dkp5d0R3cW1tVF9yOE92WEpnMDBoOFp5UEtpTTJDSkZPLUdlVzVSRHNhdw?oc=5",
    "published": "2026-09-21T16:26:05+00:00"
   },
   {
+   "title": "Tesla\u2019s In-House Battery Plant Could Give Cybercab a Major Edge",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPY0FId1BkRjRkeUJqaGxSQ1JQbjRWYVlnQzRTeFU1d0haejhNc0EzYnlnX2dMbkpyQ3k5WElHcVNsSGpyeWtjX2dRYURpY3pmaW9YMjBweldnWGRLT3I4MUpJY2pGajgyb3BWWEQ4eFNYME5OZnZnQ2M2MGc2WHF2d253?oc=5",
+   "published": "2026-09-24T12:09:00+00:00"
+  },
+  {
+   "title": "Tesla Semi Joins Parade Of New Model Showcases; Stock Falls",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOR0xlOFlwdXk3Zld0NUhtNnI4ekJadFRDSjZOSV9CcUw3bUlxbkt6UzdIdXlXUDgzLTIyWFJYRnBhbHpRc2tzejdrcnlWNjNZajdiZ0o2aFgtWHBlZnJZUWNnLVpnbVpDY3h4MGtHdmZPR1J0SjF2RUVZQVdQaVNaWUxCbG9jVVZ2XzJqUlVlMUhVNVE4azdlSURYSVVvd3NBWjlmUGFHYy1ibDQ?oc=5",
+   "published": "2026-09-24T12:13:00+00:00"
+  },
+  {
    "title": "Tesla\u2019s Elon Musk hails Xi Jinping\u2019s leadership, Chinese AI strength",
-   "source": "South China Morning Post",
+   "source": "SCMP",
    "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNNjlwLThUNExCeEZ0aExPSFJGc1ZTS3Q4NEs2djZET2ZwMS1hUEd1alhaRldGTEEwZ3hwOFA2b056VFJJcXNGQ19VRG9XSlhHekNyV0xpN05vVGsycUl5akNvOV9TcW1ySGRrd1E4c0VtV2MzNlFGdVFWekdqMktzcGVpODVxNWFvdWhmTTlxMC1rZVM1N2lzNFZJNzRpQ2VId0o2X3Fzbkl0d3hMV1lwZ3FQZmU2WlNrUUZMTzNUVWdCZDhJYk9MZnFyb1VlUzBl0gHQAUFVX3lxTFBCWGtwX3JBT1laMU04WFluOWdCbGlHZ2Y5a3ZrUVpPQ3VvdWg4Q0RzYzVBOGY3U3lsYTlveGxtZHFJcjBTbThaUWh5d21xU2JQZUVDUGpoSXV1c0NOOUZDTUVtcEFBNHhyNk5EUDIycnJDOEF0MHNTNzhrbU9mWDlhOEFnZUt4dnBHbk9vTzlFSDVBR2pJTkI1SGstUTZJMF9TampEZmJvY1J6NTBkWlNmekdPZWRHbzhpZGh6bGhLWDBVVFZXMTR6eWZhQTBTV0c?oc=5",
    "published": "2026-09-23T10:04:41+00:00"
   },
   {
-   "title": "3 Things You Need to Know Before Buying Tesla",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNc3dpVmZiUEJhX3JxZDhBRzVab19DbmZsZXFsQ0VhREZ3Uk01LXhUQ1JIbGdoeGRGaXFwQXNjRkc2d2RwTWItcHZuVkxHYnBPTng1Z0JPXzY0TGRaSTdMRkNKdS1wczhESGRfdkZ5dFkzWi04WFpnRnA3dDk0NGFzcHZMZjhvMWo4c1pfcUtJOW5BZw?oc=5",
-   "published": "2026-09-23T19:24:37+00:00"
+   "title": "Tesla\u2019s EU Registrations Jump Nearly 53% In August \u2013 But Chinese EV Rivals Grow Much Faster",
+   "source": "TradingView",
+   "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNRTRYZnJjSWxQSmJxdDBsa204WlJrLS1YaDNpWnJOYjRjMlhVRFVKcF9lQzdILVlzQm0wTnNUQ2U4WXZidXdtZHg5aE0tZHZ1aGZHMms2VUtSaGRWUlBFRUhtb056TUU1dVQ4TVhjMFhSYXFOZ3BGZTBIY0hBcW1Mek5yTFpLdXY1TnFNNjdHYVgzYkxFcndQN3Jwc1ZEcmhldm0yZVM2RnNZdDQzdVhWMWhoVmRzc3lJS1NKZ1hid21ZWGtjSkdmQ3JUbDNhQXo3SmdxRlRKcVNIemU2bWxNaFdXRQ?oc=5",
+   "published": "2026-09-24T11:55:59+00:00"
   },
   {
-   "title": "Tesla Opens Roadster Preorders; More SpaceX Merger Talks Surface",
-   "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNVnlLV2xBV0dwaXhWU21zaERnbTJodU00dzR1aWZGTnhlMjlaNUFkeno3a1V0LUpOSVBtR2FkdEoyNGY5dU9vckxJZVhXV0pjQmhtWWZzTjkxWHh3bFcweXIzZGZLTlN3QmNKWkpnYWg5YzJBYmlaNFJ6WkhaS1d5ekV6dnJHSktQdzQzcXJxZkFiVXRLcVlRSElhQnpLZFB2MmI3WA?oc=5",
-   "published": "2026-09-21T16:53:00+00:00"
-  },
-  {
-   "title": "Elon Musk hails China\u2019s manufacturing strength, calls Shanghai Tesla plant \u2018a gem\u2019",
-   "source": "Anadolu Ajans\u0131",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQNmtDcTBaWFBpNFk4U0ZQc3NGRzNJOFpCMl92d1RIbXRCUzRnSUZFb25pc0FnMnlva0wwV1dIbWFvaWZhOG8tRDBBR3ptOXMwUHZUTnlCYkx4SExKWTRPczBGVjl3UmNrVm9fTG9DSXppeGVqdkhZS2xadjQ4RnhKcDduT3k4dzcwR29XUElDWnczenB5MTduek1WeUljN0ZQNmxQODRVWHZlMEJ6RHlWTktpR0lfTnhzSmFWdF9MOA?oc=5",
-   "published": "2026-09-23T10:14:56+00:00"
+   "title": "Tesla's stock drops 6% as Cybercab update 'underwhelms' Wall Street",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOR0t5RzhPYWdIZ3hPSzBuN2dVTGdnRFhrUzRBd2RLM1NHUXNvUFlTWjYzdXE2UzlGc3lETkM5Tm9FMDFhOGJNSnVudnZqYXNmdG9NaWl3T1NwcjhkVWcxZ3pROGxmbXZSMFBGODVURzJNV0h6Nm1hRFdhNENmUTlZelFQZnRSTm9iZDhGc190WlBYdmRvTTVVUGNKOEhLVVXSAaQBQVVfeXFMT1FHblZwckdBTVFmY1BSSklTdW9ZdGw4RmNheHRRTFphZkVZZWRjdGd2LVpXU1NzZ0N6Yi1HVFdYWW1rWk11Z0htRDBIcGdqbk5fVXVncC0wTGZqcXdsUW04cVNvUnBwRmhhODFTTEtkUjlScW5Vc0p3SmpHNnBZQ2RuUVBNek1hc3lKVVFTMFkyOUdEdHZBOWJrVVFTS0JETlR5Ni0?oc=5",
+   "published": "2026-09-04T07:00:00+00:00"
   }
  ]
 }

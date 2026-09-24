@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-23T22:15:28+00:00",
+ "generated_at": "2026-09-24T14:30:24+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 91.4,
+    "pos": 84.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "26% ann. (p42)",
+   "value": "26% ann. (p41)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 42.1,
+    "pos": 41.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "15.9%",
+   "value": "15.8%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 15.9% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 31.8,
+    "pos": 31.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.2 (p11), F&G 35",
+   "value": "VIX 15.6 (p18), F&G 36",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 21d",
+   "value": "CPI in 20d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 334.98,
-  "day_change_pct": -3.58,
-  "sma50": 342.88,
-  "sma200": 336.57,
+  "price": 335.76,
+  "day_change_pct": 0.23,
+  "sma50": 342.19,
+  "sma200": 336.64,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 16.1,
+  "drawdown_pct": 15.9,
   "series": [
-   {
-    "d": "2026-01-06",
-    "c": 314.55,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-07",
     "c": 322.43,
@@ -1215,19 +1209,20 @@
     "c": 334.98,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-24",
+    "c": 335.76,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
  "flips": [
   {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "GOOG has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
-  },
-  {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+7.1% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+6.8% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1238,13 +1233,13 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-23",
-  "days_total": 728,
+  "end": "2026-09-24",
+  "days_total": 729,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-23",
+  "fg_coverage_start": "2025-09-24",
   "baseline": {
-   "n": 707,
-   "avg_pct": 3.21,
+   "n": 708,
+   "avg_pct": 3.2,
    "median_pct": 3.1
   },
   "bands": [
@@ -1272,9 +1267,9 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 171,
-    "avg_pct": 3.65,
-    "median_pct": 2.85
+    "n": 172,
+    "avg_pct": 3.61,
+    "median_pct": 2.77
    }
   ]
  },
@@ -1284,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 334.98,
-  "sma200": 336.57,
+  "price": 335.76,
+  "sma200": 336.64,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 26.0
+  "level": 25.7
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 35,
+  "days_until": 34,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 21
+  "days_until": 20
  },
  "earnings": {
   "next": null,
@@ -1308,54 +1303,54 @@
  },
  "backtest": {
   "start": "2022-09-26",
-  "end": "2026-09-23",
+  "end": "2026-09-24",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 43410.63,
-  "dca_return_pct": 107.71,
-  "dip_value": 43517.16,
-  "dip_return_pct": 108.22,
+  "dca_value": 43511.71,
+  "dca_return_pct": 108.19,
+  "dip_value": 43618.49,
+  "dip_return_pct": 108.7,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Here\u2019s what was announced at Made On YouTube 2026.",
+   "title": "Google Takes the A.I. Data Center Race to Outer Space",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQUEx1YzkwWVhOQ25ocmRXYkJ6SWh1Q01wRG1QY096aW9UZkVDbTdNWnoyRWJtcEIwZVVoVEJJUmNpWlhnQVRXTkpzYTg3QzR5OThOS1JXMVc0bnF2dDNXVFU1QnE5bjVpZ2pCUVZwYnZ2bjhUckwwNG02S01MbmY3ckdaRzM5c2Q1c2xmZ05LenBpVEk?oc=5",
+   "published": "2026-09-24T13:00:18+00:00"
+  },
+  {
+   "title": "Anyone can make stunning HD videos with Gemini Omni in Google Vids",
    "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPSENCN1UzR2psVmFFd01kNzNRc0lxZ0lteEtkM3NWM1A0MU5ERmlSWGZxelQ4eVU4MEZvanoydnlqUTc4OXd5dENOZ2E2V1pZdEFlNEN6V29EODlHck1WWTRJOFZhb05qYzhkMHJMSnlDb0VNbDJ5SGlTUUZfUHA4dUVUN0dhSTl3cVE1Q3hVNDR5aHM?oc=5",
-   "published": "2026-09-23T14:41:22+00:00"
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMnNJNVpNRmFXYi01NzlvMFZBSDUxSXZuLTNDTm4zNGpCcjd1aUlNUkktc19sdndCYnMzS0tOVFRYZnp0TS1uLU1qRVRGeTRDenpYYlRUal9vYXFLY1VDMFBQeTE5U3VOZGFpUkN1WWVOQzhVSGhUYkxxd2N4MFRFN2RMclZ2eTFGWUZXWkFucU5DZ1U?oc=5",
+   "published": "2026-09-23T19:10:21+00:00"
   },
   {
-   "title": "Alphabet Stock Dips: Here's What You Need To Know",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQUmR2NGxyek5WMWxrb0hKenVvTkVERmhMWTlaR1N0VmZMa3AzNVZORnFNMXFibm9JZW9WY2ROUWJjaHp5YlVCVTZGbG56czIzMHlsTTdpazJTZHptb2dTdGZCR25qS0NrRzZvbXYwR1JybjRvb2pYYVBzU0FFQ1hJeW5FdmhKR1g4OWY0V1RMTTlKLWVjZDFmQ1dtTHBoM2lLd1o5aHo3bkh5Qkgt?oc=5",
-   "published": "2026-09-23T16:52:48+00:00"
+   "title": "Google Nears Release of Flagship Gemini 4 AI Model",
+   "source": "The Information",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPNXh3OWdvQ3NBQ240aUxVR2NOd0hsMTZITHFpQjFuZlhQMU5ZeWpfaHdNd21lZVlyRzZzcUo5OUhJVEcwVnlFWjkwSENSdkdqb1NMMUFMaWE0a2lwbkw2Z25rMFBUYXZWOTk4VEU0dnRhTWk5YkQ5bkx3VmROWV9pYm5FRVZ0MnlKV0Rqell0LWU?oc=5",
+   "published": "2026-09-24T02:15:00+00:00"
   },
   {
-   "title": "Prediction: This Magnificent Seven Stock Could Soar 50% by 2027",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPN0ZWZFlpNmZKRldZdWY5T3QxRE51VzN6Nm9sbGRrUGZrdnVSWkVyVlBrT1BKTFZHQzhBZ0dyRUtuOEFBc21LU2U2bnF4NWJNLUNJSWRMWXFjemlVbFpYNUlUOTI1cG5OcTlSLWtQMFpEeEhSSF9WdjVMREtOUUdfSzVUNWZFRWdaU0ZXc09Cck9MQmVWRF9TUVZtRjBweTlzbDlTTDFRVHo?oc=5",
-   "published": "2026-09-23T16:00:00+00:00"
+   "title": "Why Alphabet (GOOGL) Stock Is Down Today",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQUmZwQU5hR1ZWbzV1Y2ZHRS1iTVJoQmNXdmFtc1R0eGcwdjB1a1hhMXBKT1l6MUtSNFhGeGkwM0ZGQkJSdmQ3aGVEa2xNNE9EZFBTZktNVFNsOGJDZmlkUlhkaF9FWC1vdkFuQkx6UHNaNzE3X1h3em5OYU1KS0tMU0huUFhhZmdsZXJmaEhNd1RrTU56Z0tscllB?oc=5",
+   "published": "2026-09-23T21:22:05+00:00"
+  },
+  {
+   "title": "Gemini 4 is almost ready, says new Google DeepMind chief",
+   "source": "The Verge",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNWjBvcU5MVHoyMUJ4OUYyWkpUdFJMNm1nV0JvbjBQNTJMbFQyUk1QWTdGSVNob1VJdk4tbUNzdmhHVDduQXNubkFYYnBDaFBSanAzN2RzaFdVMmNRUU5aQzdHLU9Ub3JvREFjaXhMcFZPUy1XYVpELXgyVlQyek5nNjhEUEotNVR6ai1DcXZhdy0yZw?oc=5",
+   "published": "2026-09-24T09:04:18+00:00"
   },
   {
    "title": "Innovation for the YouTube Era: What\u2019s new for viewers and creators",
    "source": "blog.youtube",
    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOMW5kTjJkTWVtQWlzcDZCZWZQTTlRZEhBa21ONnRPaE5pQi16MHItVVBadXQ1VDZWRXRncUZVS2ZPUUVYVExSNUdIbkw2R2lkQWIxSDFaamZIeFdTM0pkNHJBejhzbFN5Z3IyV0xKMmRRRzIxakY3WEpkTXRjckZsMEktT0RqM2kxRnpLZGJ3?oc=5",
    "published": "2026-09-23T14:35:49+00:00"
-  },
-  {
-   "title": "YouTube adds new creator tools like video A/B testing, dynamic thumbnails, and live dubbing",
-   "source": "TechCrunch",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQb1Z5aHJ4TFd4a3lvYUZQQTY5a0FPUFdGUmNyNFg3YS1WR0dGWkJqTjhBV3ljclRMQU9reWJUUVEtOHlLeGtqaUZDa1pCUEwzRG1mOER1aGljVk1qYkVVOWcwTUItdUw2ckI5WmNsdEJPR2lqYkVPYlZ1UF9CWVlTVVJaTEtVTmJkNmN1NWN2a3l3Z3gzWDJ4bHRMdW1hSmc1cXQ3THRoNWg3SmRSUWlZSEpJRFhBNjZ5bTVXaW1CWF9RQQ?oc=5",
-   "published": "2026-09-23T14:30:00+00:00"
-  },
-  {
-   "title": "Meta\u2019s Muse Hit No. 1. Google Suddenly Has an AI-Agent Distribution Problem",
-   "source": "finance.yahoo.com",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPS3pxbXEwYm5KVFpWX1pQdklMRUF3cDRhTUdhRjhvSHB0Y1FUeHZCbkVackhVYklqcUIzTHl2T3FlcjAyMjJzcVNrS1F6ek11N2htbDl1eE94SXVmU2x0eFhUWWNZVFBXM3NBVW5IYlNrUERaX2w5Z0VobFBObFdRYzZXVHV0c0k5Vnc?oc=5",
-   "published": "2026-09-23T11:13:46+00:00"
   }
  ]
 }
