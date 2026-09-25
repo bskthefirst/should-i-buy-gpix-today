@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T18:02:53+00:00",
+ "generated_at": "2026-09-25T22:16:23+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.0 (p10)",
+   "value": "14.9 (p7)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 10.2,
+    "pos": 7.5,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.84",
+   "value": "0.83",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 33.9,
+    "pos": 32.3,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.3 pts",
+   "value": "+4.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 68.9,
+    "pos": 67.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.2%",
+   "value": "0.1%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 2.0,
+    "pos": 1.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 39.0,
+    "pos": 38.5,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "38 (fear)",
+   "value": "37 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 37.6,
+    "pos": 37.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,8 +230,8 @@
   }
  ],
  "fund": {
-  "price": 56.3099,
-  "day_change_pct": 0.41,
+  "price": 56.33,
+  "day_change_pct": 0.45,
   "sma50": 55.79,
   "sma200": 53.92,
   "high52w": 56.67,
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-25",
-    "c": 56.3099,
+    "c": 56.33,
     "t": "neutral",
     "s": 50
    }
@@ -1323,22 +1323,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-2.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.72 (-2.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 38) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 37) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.0) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 14.9) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1384,7 +1384,7 @@
  },
  "income": {
   "ttm_yield_pct": 8.09,
-  "tbill_3mo": 4.19
+  "tbill_3mo": 4.24
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 771.12,
+  "price": 771.35,
   "sma200": 718.45,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.01
+  "level": 14.87
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1516,26 +1516,38 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 19980.2,
-  "dca_return_pct": 30.59,
-  "dip_value": 19737.88,
-  "dip_return_pct": 29.01,
+  "dca_value": 19987.33,
+  "dca_return_pct": 30.64,
+  "dip_value": 19744.39,
+  "dip_return_pct": 29.05,
   "dip_cash_uninvested": 1500.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "US Fed plans to raise bank oversight thresholds, sources say",
+   "title": "Wall St Week Ahead: Jobs report, inflation data to test US rate path, economic strength",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPUWp2cWtUeTRqUnMtdGU0NElzbE9lV2N5QllabnBYYlhyRVk5TnU4ckJhSUc3aVZmRmxadmVoRTBsM2xfSWdpR19JMlVLMlg4eG1SdDdaSXRvT1RKNE5kS3d6NjgwS2l3ZGxqSW5Tc2x3RFJQYm1nV3RTN3NpZVBPbzhjekxzdlp0djdiNHVFckt5UDFCY2Ixajc0bVhaSkNDUEJvYm9iUWprUkFINVpGWGdR?oc=5",
-   "published": "2026-09-25T17:19:23+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOMVdISllUQW1vOGc5UzVfeWVGbVloWmh0U3A3X0N2LU9TQnBfQ0RhU0JfbEZVQlA3MUJhOVBacWg4QkJrdTVQaE50RkpsaGJqOEhWZDU5WDNQTVp0dWtzc3J6ZVlFR3VnZmNnLTlwbEpWZW9yMXh2NThFQnpyd3lNX3JZUUZfQ05vTndubkpBaVgzY2d4b05DOEJUSGZ6RGNuWVlDcU4ybm9IVUQwbWtMUU5Ic2pEdDQ3?oc=5",
+   "published": "2026-09-25T21:35:32+00:00"
   },
   {
-   "title": "Fed Faces Prospect of Another Interest Rate Increase Just Before Midterm Elections",
+   "title": "Fed Confronts the Prospect of Another Rate Increase Ahead of Midterms",
    "source": "The New York Times",
    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOMGdRWGMwS19RQ1QwQVhydF9udFh2SkVwN2RYaXZMZGd6UzdGdXJOQ1JUMlFuLUw3VExKTm5XbldCLVBWVHpWSmNSWlQyN0tYUzVtRTg5Rlk3SnMxRklVWHVzbWJ4RFgtajBvVGM1cEhJcVZnTkhVNXNmWFVvZXZiRmt3?oc=5",
-   "published": "2026-09-25T15:38:16+00:00"
+   "published": "2026-09-25T13:37:14+00:00"
+  },
+  {
+   "title": "Growth in Tenth District Services Activity Was Flat in September - Kansas City",
+   "source": "Federal Reserve",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVjZMVDVlSmhOalZIRldPNExEY2xJOHB5eEstS3dGV3VKc1lXaDhsVjlzT3MtWjV0TlZwWXlWMENuUS05dExmV1hJTldtbkNqeDE4SDIwaEgzMW8wZHVFcmVyM0lFaFVvOE81ZkpJRm9fTnFTTDQ3enBiNlBGc21uV2pRcHZhc0hNcHZ6V3VVdVQ4TEhxWEJjSklYbkloeHA2bnZ6dFlTV1c1dEQzM3k3MGxYaTI2M1pId3d3?oc=5",
+   "published": "2026-09-25T19:39:49+00:00"
+  },
+  {
+   "title": "US Inflation Is Peaking and Will Fall, BlackRock\u2019s Rieder Says. Here\u2019s Why",
+   "source": "Morningstar",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOT0t0NkkwQk5xTHpPWWNBUWNFcUxTNk1uV2o2eFJKa3FaeTRqVmtEa0xEZmFsU3BQSU9nWDNKTlJ0R21xVkFuYTNMbUhnd3IydnZfemZkM3hWcEl5VWJaSnp6S292Y0VrWEM5X3RFQVgzRzBzUGU1aGRfMEpJSU1UZW5ydjM3M3UxYzhlYzRmSl94TFhNbnBEcVBsNFpJOGZYUm14bFdKenBHVnI2MHc?oc=5",
+   "published": "2026-09-25T20:14:27+00:00"
   },
   {
    "title": "Warsh's regime change at the Fed pushes ahead \u2013 and meets resistance",
@@ -1548,18 +1560,6 @@
    "source": "Federal Reserve Board (.gov)",
    "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1zc2VEc0hGLWRPRGpPSnpPYnQ5b1ozeDNlbkZiQU95NExnMTRESlkxUDJmaEg5QVNuWDZ4MnhkRzJUT1RLVENMcU9XaUp5VEtWaFpHLXNQSTNzbElmYUlHWjM5Q2dsSU9lMENHaUlhaGwxNGdoRUdsWmlB?oc=5",
    "published": "2026-09-16T19:23:03+00:00"
-  },
-  {
-   "title": "Fighting inflation likely to be 'painful,' Chicago Fed president says",
-   "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOQVR1azg4WmktY0lXSExsMzBsSVpRVzhqR2pFTUN2YkNRNVNDeFgxU0VfdzFzbHRJMHdHd1ZPWDdxdWl0eXdFRVoxdTNUQ0xISHI3Y1ZlTm8tQzZvLXZDR1EwOFVUNE9WdWhNYWFPMVB0cHFXU2szS2l0TzVPM08xNXRYMHdCN2lXdXBIdGNoTEhDWk1aYVZvaUJjcmxpRDlFUUllRGRR?oc=5",
-   "published": "2026-09-21T17:36:10+00:00"
-  },
-  {
-   "title": "Fed proposes stablecoin rules",
-   "source": "bankingdive.com",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5jdkxtalNSMUYtazJ0RVJNLTRoMDc5R2lCMUlkUkhJX0w3OTg0OW10ZnhhV1FQNi1uVnJZdmx1RVBaUUZ4a25iajNvY3V2TVZjdUx2MnFZbG1pS1JiS2pYUmdQMHlXbU53NHdLWGRfMkRVeXg1Y25JVWNn?oc=5",
-   "published": "2026-09-25T16:29:35+00:00"
   }
  ]
 }

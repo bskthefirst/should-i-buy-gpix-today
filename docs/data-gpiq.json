@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T18:02:54+00:00",
+ "generated_at": "2026-09-25T22:16:23+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -23,7 +23,7 @@
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 23.0,
+    "pos": 22.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.84",
+   "value": "0.83",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 33.9,
+    "pos": 32.3,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.39x (p72)",
+   "value": "1.40x (p73)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 71.8,
+    "pos": 72.9,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.3 pts",
+   "value": "+5.2 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 77.1,
+    "pos": 76.7,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 56.2,
+    "pos": 55.8,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "38 (fear)",
+   "value": "37 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 37.6,
+    "pos": 37.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,8 +257,8 @@
   }
  ],
  "fund": {
-  "price": 58.23,
-  "day_change_pct": 0.34,
+  "price": 58.22,
+  "day_change_pct": 0.33,
   "sma50": 56.55,
   "sma200": 54.76,
   "high52w": 59.52,
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-09-25",
-    "c": 58.23,
+    "c": 58.22,
     "t": "neutral",
     "s": 50
    }
@@ -1355,12 +1355,12 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 38) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 37) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
@@ -1410,8 +1410,8 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.81,
-  "tbill_3mo": 4.19
+  "ttm_yield_pct": 9.82,
+  "tbill_3mo": 4.24
  },
  "distributions": {
   "history": [
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 744.9325,
+  "price": 744.5,
   "sma200": 665.59,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 20.93
+  "level": 20.87
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1543,15 +1543,27 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 21404.26,
-  "dca_return_pct": 39.9,
-  "dip_value": 21165.44,
-  "dip_return_pct": 38.34,
+  "dca_value": 21400.58,
+  "dca_return_pct": 39.87,
+  "dip_value": 21161.83,
+  "dip_return_pct": 38.31,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "In a New Anthropic Lab, A.I. Turns to Biology",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNFZzajNZQW1MeHplVTRLYWd5NUlpUjhTSVU1YU9sODRIQTRvZU5TXzBvR2xETVVPYmEzRVJNNVJkRk83Y2pPZlVFbnB5RHZULU85MEdTa09wZUVBM3ZiLUJIdWs3U2NieXZVNTJUNER0WG1qSGF1TkdEZGs4TjNLdVFB?oc=5",
+   "published": "2026-09-25T18:42:00+00:00"
+  },
+  {
+   "title": "Fed's Schmid: Need to understand if AI \"ecosystem\" getting too big to fail",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNMHpWaDBIbTVNdXdEbkZOanBGSHNtdXM5WmdtcjNiNVNLVnFlM1VHWlJSM0duSmJhbVVldGZZWlB3RUhYUS1iOFliNWxwU0t5Vkt3T2tnVjJjUlZscWdtZkhWVGE0bkhYcEprMmhlYmxNLVl6RUc4eHlDT2FDX1lyakE0TXZDMEhFUElUSFA1ODhCYjBfYXdQTWdVVG1ITFpkS0ZWT1ZwaXNQUE1DSHAyRUZ4NEJLQzlM?oc=5",
+   "published": "2026-09-25T20:54:35+00:00"
+  },
   {
    "title": "Xi acknowledges risks of AI even as Trump dismisses them",
    "source": "The Washington Post",
@@ -1559,34 +1571,22 @@
    "published": "2026-09-25T16:00:00+00:00"
   },
   {
-   "title": "Bill Gates Issues Warning About AI: \u2018Never Been A Weapon As Powerful\u2019",
-   "source": "Forbes",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxON29lV1ZwcE5IVlN4bTdVc1EyT3FsX1pWYXhMVDFqclBOaHNaLUFXMjdYZ29mTEdqX3FBU0VxTnozdDhNalpvWUV4WWpzcHUwRUJ0MWlDOW5weS1STm1tNmplcmpkX1cwUkVQU1V0a1pZRUJucUxDbkl1aTVWeUJGM2tMT2Y2NXRpeUFVaVhTbDFXSWJQZENCRzUxVFlGTmdHWDhUakljTlJyamtqWmg5R3VLNWpsNmd0NlE?oc=5",
-   "published": "2026-09-25T15:44:19+00:00"
+   "title": "Bill Gates warns AI is powerful enough to cause \"a billion deaths\"",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1tQUNEWW9VV3NaZHpkRGZXWFFxUEZWOTNiMzlNMEcxNWhrOFF3eE1aR0pmTzhXNDZuN2ZJTnNEU19nZEoycWFobDJQZ1hEblJ0TkQySGNINFRZVm5pSWpTYmpyck9BQVpQUmc?oc=5",
+   "published": "2026-09-25T12:54:32+00:00"
   },
   {
-   "title": "Opinion | Being a Doctor Will Never Be the Same After A.I.",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBwTEZHSHRjWnhmdkFURmZUbjJEUE1CVFA1bFlUYWJhNHFRQ0NrRlMyU19tLUtSbXpDbElyWC02X3k4MnVHc2dpcFk2VlVnVUp5bFBXNmM2bXJ6a1FxelN2NkMzX2ZCcldmQ25oZ0RZSDhNVEdyUmhEMl9ULUVIRm8?oc=5",
-   "published": "2026-09-25T09:00:29+00:00"
+   "title": "Bill Gates Issues Warning About AI: \u2018Never Been A Weapon As Powerful\u2019",
+   "source": "forbes.com",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxON29lV1ZwcE5IVlN4bTdVc1EyT3FsX1pWYXhMVDFqclBOaHNaLUFXMjdYZ29mTEdqX3FBU0VxTnozdDhNalpvWUV4WWpzcHUwRUJ0MWlDOW5weS1STm1tNmplcmpkX1cwUkVQU1V0a1pZRUJucUxDbkl1aTVWeUJGM2tMT2Y2NXRpeUFVaVhTbDFXSWJQZENCRzUxVFlGTmdHWDhUakljTlJyamtqWmg5R3VLNWpsNmd0NlE?oc=5",
+   "published": "2026-09-25T15:44:19+00:00"
   },
   {
    "title": "His Debut Novel Was a Literary Sensation. Was It Actually Written by AI?",
    "source": "WSJ",
    "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPWHZlb3JNVmhTaUZTNmxUY2U5Q1BYOEZWZGoyQ1RhdTkwZk0wRGkwWVA5cUlTQU1iTXNxMHpvOWh1NTR4U1ZpUmpkN2JHaFRGWHdpaGp4T1o2SXFWTHdiOTM4U2tNZW0wRElaUV9yTzJKQUFDOHBlbjU4TDEzUDR6WlA5ZWswVGpp?oc=5",
    "published": "2026-09-25T14:48:00+00:00"
-  },
-  {
-   "title": "Trump and Xi dined with AI's biggest names. Here's what we know about tech talks so far",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5Yd283Mk9naHJ4alN4aGt2a1MtNFZ3d0Q4bDdfYjNIWTlJY0VrNnNad0pPYWJ0ZktaM1h0Z0hCV3BHejhCR0xwdDFTWGZLamItUkhYTXV1NnI5ZG5NRDhMY08tQjZpWkhZZjdLOHlybk9QVi1LVjd0aE9oeFrSAYIBQVVfeXFMTTZNcmU2QTlLdE0tZHI0eXB0OTVwT2xnOTEwN0tZVWxxRENFb2xPUm5IU3dMUlJSMy12NE1BV21yY2ZzbUhFejVJMGpoZmFabWtOdmt5LTMxaDFOQzZEQldXekcxS0NFSXcyLVNEQ0VCMUh5enpacVhDUUp4VG9ZUU9UZw?oc=5",
-   "published": "2026-09-25T11:06:48+00:00"
-  },
-  {
-   "title": "Bill Gates warns AI is powerful enough to cause \"a billion deaths\"",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1tQUNEWW9VV3NaZHpkRGZXWFFxUEZWOTNiMzlNMEcxNWhrOFF3eE1aR0pmTzhXNDZuN2ZJTnNEU19nZEoycWFobDJQZ1hEblJ0TkQySGNINFRZVm5pSWpTYmpyck9BQVpQUmc?oc=5",
-   "published": "2026-09-25T13:14:07+00:00"
   }
  ]
 }
