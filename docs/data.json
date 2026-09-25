@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-09-24T22:20:56+00:00",
+ "generated_at": "2026-09-25T14:30:13+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
-  "tone": "ok",
-  "score": 2.0,
-  "score100": 62,
+  "label": "No edge either way - buy on schedule",
+  "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.7 (p18)",
+   "value": "15.8 (p22)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 18.2,
+    "pos": 22.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.85",
+   "value": "0.86",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 37.6,
+    "pos": 39.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.8 pts",
+   "value": "+5.2 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 73.6,
+    "pos": 76.9,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -113,21 +113,21 @@
   },
   {
    "name": "Short-term pullback (reversal)",
-   "value": "3 down days",
-   "score": 2.0,
+   "value": "no pullback",
+   "score": 0.0,
    "weight": 2.0,
-   "lean": "good",
-   "note": "SPY has closed down 3 straight sessions. Short selling streaks like this have reliably bounced the next day - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.21% next-day excess (t=3.6) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
+   "lean": "neutral",
+   "note": "No short-term pullback in SPY - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.21% next-day excess (t=3.6) in our validation, positive in every era - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.3%",
+   "value": "+1.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 60.8,
+    "pos": 60.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.73% (+0.03 1mo)",
+   "value": "2.80% (+0.13 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 18.2,
+    "pos": 20.0,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 39.4,
+    "pos": 39.3,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "36 (fear)",
+   "value": "37 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 36.1,
+    "pos": 37.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 20d",
+   "value": "CPI in 19d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -230,25 +230,13 @@
   }
  ],
  "fund": {
-  "price": 56.08,
-  "day_change_pct": 0.0,
-  "sma50": 55.76,
-  "sma200": 53.88,
+  "price": 56.099,
+  "day_change_pct": 0.03,
+  "sma50": 55.78,
+  "sma200": 53.92,
   "high52w": 56.67,
   "drawdown_pct": 1.0,
   "series": [
-   {
-    "d": "2026-01-06",
-    "c": 53.06,
-    "t": "neutral",
-    "s": 50
-   },
-   {
-    "d": "2026-01-07",
-    "c": 52.93,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-08",
     "c": 52.95,
@@ -1306,6 +1294,12 @@
     "s": 50
    },
    {
+    "d": "2026-09-22",
+    "c": 56.41,
+    "t": "neutral",
+    "s": 50
+   },
+   {
     "d": "2026-09-23",
     "c": 56.08,
     "t": "neutral",
@@ -1316,6 +1310,12 @@
     "c": 56.08,
     "t": "ok",
     "s": 62
+   },
+   {
+    "d": "2026-09-25",
+    "c": 56.099,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1323,38 +1323,38 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-2.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.72 (-2.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 37) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.86) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.7) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.73%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 2.80%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-24",
-  "days_total": 729,
+  "end": "2026-09-25",
+  "days_total": 730,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-24",
+  "fg_coverage_start": "2025-09-25",
   "baseline": {
-   "n": 708,
+   "n": 709,
    "avg_pct": 1.64,
    "median_pct": 1.99
   },
@@ -1376,14 +1376,14 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 516,
-    "avg_pct": 1.23,
-    "median_pct": 1.69
+    "n": 517,
+    "avg_pct": 1.22,
+    "median_pct": 1.68
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.13,
+  "ttm_yield_pct": 8.12,
   "tbill_3mo": 4.19
  },
  "distributions": {
@@ -1493,55 +1493,55 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 767.18,
-  "sma200": 718.01,
+  "price": 767.35,
+  "sma200": 718.43,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.67
+  "level": 15.8
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 34,
+  "days_until": 33,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 20
+  "days_until": 19
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-24",
+  "end": "2026-09-25",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15300.0,
-  "dca_value": 19898.62,
-  "dca_return_pct": 30.06,
-  "dip_value": 19663.42,
-  "dip_return_pct": 28.52,
+  "dca_value": 19905.36,
+  "dca_return_pct": 30.1,
+  "dip_value": 19669.57,
+  "dip_return_pct": 28.56,
   "dip_cash_uninvested": 1500.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Fed's Williams says it is reasonable to see another US rate hike this year",
+   "title": "Wall St Week Ahead Jobs report, inflation data to test US rate path, economic strength",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNYkdqZ3lLWVItQUduVDZkZW45dEhCcmIwUEM4QlZFSVoxN0QxVEl0NTk4MmtqYVktY3JjNGFGOGZSaVRNMDJFX1QzTXRjYnVkWm0yQUFlU1hWRTNsbXRlY0pIa3RGWEtkamtjdUhERE1qLVlsQTgyNjBGSzA0ZXFLS29pQXM3QTBOTHZuYXRZT2paWlBPWk90eFM3NzFBRnBTZFZaVGF3cFA0V3lCY1I5T09FQWVhdw?oc=5",
-   "published": "2026-09-24T14:17:57+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOMVdISllUQW1vOGc5UzVfeWVGbVloWmh0U3A3X0N2LU9TQnBfQ0RhU0JfbEZVQlA3MUJhOVBacWg4QkJrdTVQaE50RkpsaGJqOEhWZDU5WDNQTVp0dWtzc3J6ZVlFR3VnZmNnLTlwbEpWZW9yMXh2NThFQnpyd3lNX3JZUUZfQ05vTndubkpBaVgzY2d4b05DOEJUSGZ6RGNuWVlDcU4ybm9IVUQwbWtMUU5Ic2pEdDQ3?oc=5",
+   "published": "2026-09-25T13:05:44+00:00"
   },
   {
    "title": "Surging Treasury yields pose a brand new problem for Kevin Warsh and the Fed",
-   "source": "cnbc.com",
+   "source": "CNBC",
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPR21RNks3NUh3SlB3bUU2VEs1ZHlfSUJLcGI2ZlE2MVB3ZjF3ci1vMEhuRWE4NDlmcnF2QmNsUGx1SEV0UWNERnBza05EMVEwYzBnQzd4Y3FkRGhLYmRERmVZRy13UE9ONmU1b2s1UmV5azQyRHpCSERKZzNpR1dRc0pSbWpFa0x0SkJqdHFkNy1TaXg0M3NvaVZWdDZ0bFhpTnM1OGdEdTZPU3RWTy1VVl85NmtrNVNwbHl30gHAAUFVX3lxTFBoeDluN1VzWVExYWFOTXVRcWxOV3M2ZzV6TmpseEo4bnRIUjlVN3ZhN09wbWpfM2EwOGxRWFBwUlN4WnB4WDFTNmpFdHQ3ajRfWDVwR1YyRDNYejF5aXVFXzY1eFJnYXE1eGViOFdjUUdhaVdSdWtRblVSLU1nX1lZNTlLT2RQRXNNWjhHVURlSGZzTGFPVHZjM1JhZW9QNi1QVjYzdjFzM0tUNHlPb0g1LUdMNzdUYnFwREJYWElzTw?oc=5",
    "published": "2026-09-24T18:30:35+00:00"
   },
   {
-   "title": "Inflation: Drivers and Dynamics 2026 Conference",
-   "source": "European Central Bank",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPRFBLQnB2RGRqOHdfaGdOY1ZURGdlaWhDVXUtYUtvcEZnX1pEOTV0R0hic3NBOXFEdUpoTi1HQTV6b042ckN4dXJfa3VncnYzSC05TTAtN085Rm9fYWx3bW5MRmJpSHcwN2dMVnFpUXJtczIxdVZZSE1MZTA1YkxfOG5xNXBQODh2S0JJNlJUMA?oc=5",
-   "published": "2026-09-24T12:07:42+00:00"
+   "title": "Fed Faces Prospect of Another Interest Rate Increase Just Before Midterm Elections",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOMGdRWGMwS19RQ1QwQVhydF9udFh2SkVwN2RYaXZMZGd6UzdGdXJOQ1JUMlFuLUw3VExKTm5XbldCLVBWVHpWSmNSWlQyN0tYUzVtRTg5Rlk3SnMxRklVWHVzbWJ4RFgtajBvVGM1cEhJcVZnTkhVNXNmWFVvZXZiRmt3?oc=5",
+   "published": "2026-09-25T13:37:13+00:00"
   },
   {
    "title": "Fighting inflation likely to be 'painful,' Chicago Fed president says",
@@ -1550,16 +1550,16 @@
    "published": "2026-09-21T17:36:10+00:00"
   },
   {
-   "title": "Opening Remarks",
-   "source": "Philadelphia Federal Reserve Bank",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPc3hrRmZFYUY0akJkcE1hWHh2cUVxX19RVmRKVXd1ZHhMOTZnSENrTUQ5bUhndUtuYmZtNVNacEMtTGlLR1lqX3hnZHpLZzlfalFxUTl0QVhJSkhEVWtYMGg4WnpnQWIxMUlGZVZkWG9LX3JRWDNXT2xFLXprbnVXY1JUX2JoYmpVbmZkenJueTBqdXZjd2x4cmp5cXJ5dHo0ZTVjWV9DOA?oc=5",
-   "published": "2026-09-24T14:28:01+00:00"
+   "title": "Foreign investors are loving the U.S. stock market",
+   "source": "axios.com",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1ZbXZRZVN0bDNXRVkzRlNQa21IMXFWUGJ4dUxPYnJHaTNlNm12LVVnY2YyWU9JSzRxUGszS2FZTmd4UzNVX3JMcWppWmpjSDluR0pOcFlFLWxoa0FTV2Y2QXFTNUt2Z0JRWWg1bUx3Z1lURHM?oc=5",
+   "published": "2026-09-25T11:03:45+00:00"
   },
   {
-   "title": "Kevin Warsh is against forward guidance. But that hasn't stopped other Fed officials.",
-   "source": "marketplace.org",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOVTFDczJZc25TN2lfV05CSFBvZEVralVHNmxKVS1oN0RhY1l3b3dfckpkRlQ3WDU5V2Q1WDBLdldYRE9BeGt0TnNSQWZCMzJKU0tzXzN6MVFHT2RfNG84dDBLUmZGZzFGQVhqeG9KOEJDTkhmQTdMbGdXeEx3aXNFRVBpc2RCVzk5cnFsQWNheEhRRzZtQm51Y1R1VUoydjlONzBzVFdaRFlTZw?oc=5",
-   "published": "2026-09-24T20:15:00+00:00"
+   "title": "Why Hike | Tom Barkin | Inflation | Employment",
+   "source": "Federal Reserve Bank of Richmond",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZnZGSGVWbGYzNTgyMmVxd1RMUDVPZlNtLS16VU1CcW1teUxobVRpYUJNSk44OS1HWXFSTjU3MURtNXl5RTdTclY3RmtFZjBHTU11VkIxYVlCSWVsZy1SSkRMR3NwVFRocFp2YXFGeDlzNWhhb0E1eWx5TVBoOGpnQ0FNZzJScVcxQ1Q3NjN2SlFFUFg2OXc?oc=5",
+   "published": "2026-09-22T17:02:55+00:00"
   }
  ]
 }

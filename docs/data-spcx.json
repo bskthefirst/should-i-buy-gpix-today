@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-09-24T22:20:59+00:00",
+ "generated_at": "2026-09-25T14:30:15+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 72,
+  "sessions": 73,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~72 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~73 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-4.4% in 5 sessions",
+   "value": "3 down days",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 72 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 73 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 70.8,
+    "pos": 72.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "30.0%",
+   "value": "30.8%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 30.0% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 30.8% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 60.0,
+    "pos": 61.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "72 sessions",
+   "value": "73 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 72 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 73 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.7 (p18), F&G 36",
+   "value": "VIX 15.8 (p22), F&G 37",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -80,7 +80,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 20d",
+   "value": "CPI in 19d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -88,13 +88,13 @@
   }
  ],
  "fund": {
-  "price": 148.03,
-  "day_change_pct": -0.22,
-  "sma50": 135.57,
+  "price": 146.3,
+  "day_change_pct": -1.17,
+  "sma50": 135.88,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 30.0,
+  "drawdown_pct": 30.8,
   "series": [
    {
     "d": "2026-06-12",
@@ -527,6 +527,12 @@
     "c": 148.03,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-25",
+    "c": 146.3,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -534,14 +540,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-09-24",
-  "days_total": 72,
+  "end": "2026-09-25",
+  "days_total": 73,
   "backfilled_days": 40,
-  "fg_coverage_start": "2025-09-24",
+  "fg_coverage_start": "2025-09-25",
   "baseline": {
-   "n": 51,
-   "avg_pct": -0.97,
-   "median_pct": 6.35
+   "n": 52,
+   "avg_pct": -0.86,
+   "median_pct": 5.56
   },
   "bands": [
    {
@@ -561,9 +567,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 51,
-    "avg_pct": -0.97,
-    "median_pct": 6.35
+    "n": 52,
+    "avg_pct": -0.86,
+    "median_pct": 5.56
    }
   ]
  },
@@ -573,22 +579,22 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 148.03,
+  "price": 146.3,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 44.1
+  "level": 44.4
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 34,
+  "days_until": 33,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 20
+  "days_until": 19
  },
  "earnings": {
   "next": null,
@@ -597,54 +603,54 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-09-24",
+  "end": "2026-09-25",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1600.0,
-  "dca_value": 1651.09,
-  "dca_return_pct": 3.19,
-  "dip_value": 1636.56,
-  "dip_return_pct": 2.28,
+  "dca_value": 1631.79,
+  "dca_return_pct": 1.99,
+  "dip_value": 1617.43,
+  "dip_return_pct": 1.09,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 15,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "Transporter-18 Mission",
+   "source": "SpaceX",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1UYVlhMzVMakRkVVVCdmlYLTRJT1BmVkwtNTRPTGtFTkY2b1V1a1o4bXJsM0V5U25rc1BVeENrUFVDUVVFUjhDY3BWeXJVQmdydGdXZW1lOTM?oc=5",
+   "published": "2026-09-25T01:06:15+00:00"
+  },
+  {
+   "title": "Elon Musk Makes Massive Nvidia Move at SpaceX",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNbTBvRTQxdFdpaHJYNUVFWmV0RjJWUEJ4a2JDRmJXenpoZ19QUDdFcUFVMDNhN3J6c3RJX194ZlVfOHZfaWhORHE4ZE5rTXhuOFBqYmt3ZU5fUFFBQ0cxeUg0emZobktNUmp6UmRwdGpBTG9VLWhUQTRnN1BxSnlsa2xCSVh0QjlnbzgtbnFoa0o3VTFCdU5IME9B?oc=5",
+   "published": "2026-09-25T13:01:12+00:00"
+  },
+  {
    "title": "NASA Shares SpaceX Crew-14 Assignments for Space Station Mission",
    "source": "NASA (.gov)",
    "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUnIyXzM4SDhEZmo5RG4tTUo2dVRKRGN6VjNwbk9JcjBuRGhGMk10LVFvUGx6R0xkRnNObWpYaloxRjdmN1V3QjV1NkN6SmxUTFM0aXo2em5XNGZYRS10R2R4NzUxQjFmYjNfUWdZVnFCQTlHMjlGb0FHRnpyNmNyNkNoQXhiZEUyUkNtbXpaUUY4T3BjSDZGZDU0TUJ2R0pY?oc=5",
-   "published": "2026-09-24T21:22:30+00:00"
+   "published": "2026-09-24T21:24:32+00:00"
   },
   {
-   "title": "Why Did SpaceX Stock Fall 4% Days Before Starship's Biggest Flight?",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxObWRqM0YzWGtVQ25kNk9FU1VwaUJzdGpnNHk4Q2FzMUo4alFPanY1eW1wN0pOeHNEcmthWl9OWFBUQUN1RTQtUU1WZGdnSmJ2a2x3Z002d3EzTG9salV2QlZOY1NndUNOYi02bkNZU0xSVTlvVlhpM2N4blEtamtuRjRkWW4tSFJKLWFrcC0xTVJCVTUz?oc=5",
-   "published": "2026-09-24T12:06:14+00:00"
+   "title": "Danny Danon offers Starlink device shown in Netanyahu's speech to Iranian UN delegation",
+   "source": "The Jerusalem Post",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBoVkxwSGE0b3JzemhIcEYwYmJPYmd2ZnJtclpnMHZHQ0RPZDdnamJ6cWVndnVseUhmNmQ3TGxPUUZGQk9oYXVGNnZoLUp4S0dDdTkzZ0ItLVhDQXJf?oc=5",
+   "published": "2026-09-25T11:58:56+00:00"
   },
   {
-   "title": "Poland says fire at Starlink station is sabotage as Denmark warns of rising Russian threat",
-   "source": "BBC",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE42UjNScGNqREZYUWRZTWhXZTFhWGVtai05bWlfbHh4R3A1bzBCb3VWMDBZVkQydEN1OG9EeHQtMUNnX1kxLTJJcjgwRGI5eks4cmVRZk1tWEdfMDQ?oc=5",
-   "published": "2026-09-24T16:00:29+00:00"
+   "title": "SpaceX pivots away from space",
+   "source": "Financial Times",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBMQUZTeDVmNjRtWTBGSVpMWjZFNHpxQ3FxXzQxclg5eHU5eFBmRWNGOUZoeVNELVBBU09Fd2ZxWkV0MnIxUENvdVRvSmJsU3MtWWlPUlpMVVJ0Y256NzdnS2lRMFpYZEhRbFlKZnUtTm8?oc=5",
+   "published": "2026-09-25T05:00:08+00:00"
   },
   {
-   "title": "Starlink ground station in Poland hit by fire in suspected arson attack",
-   "source": "Notes From Poland",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNTXM0NjdRT3NaUjBNdHlfQkdZMEdBaXVDbGxJZ0h5UzEzTk9rd0VYYVJJZ2dlaUhqYUFRT2M2dlZKd2JPcmJEa3c4d3M0a2ZKWDdUVHlybV9LT1RFTlI3STNxLS1uSjB6ekx2N3lKWjRJSWtGU2Uxa2FkUl8tOEVVSFQ4ZWdyUG9vZEtoWmUtNFY4YUNUalZPMU1YMDZhTGRzQVA4ZkZjam1hYWhKZm16bA?oc=5",
-   "published": "2026-09-24T09:21:37+00:00"
-  },
-  {
-   "title": "NROL-97 Mission",
-   "source": "SpaceX",
-   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE45cVZ0dUtaRXdnOUlmenRkSEpzUVE1TmNwYUtnOFNCU0F0b3hNREM5YmhMVElRRTNvcVo3YWU2a1cyTFdZWnozRW1Cd21XZ0U?oc=5",
-   "published": "2026-09-24T15:24:06+00:00"
-  },
-  {
-   "title": "Here's What a $1,000 Investment in SpaceX Stock Could Be Worth in 5 Years",
+   "title": "SpaceX Stock-Split Watch: Here's When It Should Happen",
    "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOeVdhaDZ1ZHFoZFVOU2FUajQ0QkJWRDh2TjR5VEhsa3Zycy1McEVnMnRua2s0NVkwUndsbHVHc0VQczRpMDZXaTlXREVNdUFjYVNpbDl5clBNX0tWNHl6dm4tdG93VDJPY3RhbFpfNUY0QlpfVUZmclRrYVFFZk9DMWdoaFdMZEZZamFpM3MteUdMY2R6a1VfLQ?oc=5",
-   "published": "2026-09-24T07:05:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNeUxqdWRQc2VSTVBDUlhBR1hQSnFJTktVOThWbDR0Si15LXlQNmEwMWxNdm5vS00xbjMzLTY5RVZ5MzVVa0w1Zl84QmUwblF5Q2xTbUZHSlp3N3JjZDFrN2kxLTVid0tEX2N6NFJMMnk3N3R4bHZTSkFRb2gxamxXZHY1LU8?oc=5",
+   "published": "2026-09-25T00:05:00+00:00"
   }
  ]
 }

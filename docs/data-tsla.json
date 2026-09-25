@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-24T22:20:58+00:00",
+ "generated_at": "2026-09-25T14:30:15+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -55,7 +55,7 @@
    "lean": "neutral",
    "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 48.8,
+    "pos": 49.2,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "22.9%",
+   "value": "24.4%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 45.8,
+    "pos": 48.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.7 (p18), F&G 36",
+   "value": "VIX 15.8 (p22), F&G 37",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 20d",
+   "value": "CPI in 19d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 377.94,
-  "day_change_pct": -0.57,
-  "sma50": 348.63,
-  "sma200": 395.96,
+  "price": 370.13,
+  "day_change_pct": -2.07,
+  "sma50": 348.21,
+  "sma200": 395.61,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 22.9,
+  "drawdown_pct": 24.4,
   "series": [
-   {
-    "d": "2026-01-07",
-    "c": 431.41,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-01-08",
     "c": 435.8,
@@ -1215,10 +1209,21 @@
     "c": 377.94,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-25",
+    "c": 370.13,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
+  {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "TSLA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
+  },
   {
    "label": "Top-decile volatility",
    "direction": 1,
@@ -1228,14 +1233,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-24",
-  "days_total": 729,
+  "end": "2026-09-25",
+  "days_total": 730,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-24",
+  "fg_coverage_start": "2025-09-25",
   "baseline": {
-   "n": 708,
+   "n": 709,
    "avg_pct": 2.77,
-   "median_pct": 0.63
+   "median_pct": 0.68
   },
   "bands": [
    {
@@ -1255,9 +1260,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 355,
-    "avg_pct": 2.67,
-    "median_pct": 0.49
+    "n": 356,
+    "avg_pct": 2.69,
+    "median_pct": 0.64
    },
    {
     "tone": "caution",
@@ -1274,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 377.94,
-  "sma200": 395.96,
+  "price": 370.13,
+  "sma200": 395.61,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 44.1
+  "level": 44.2
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 34,
+  "days_until": 33,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 20
+  "days_until": 19
  },
  "earnings": {
   "next": null,
@@ -1298,24 +1303,42 @@
  },
  "backtest": {
   "start": "2022-09-26",
-  "end": "2026-09-24",
+  "end": "2026-09-25",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 31044.04,
-  "dca_return_pct": 48.54,
-  "dip_value": 31054.13,
-  "dip_return_pct": 48.58,
+  "dca_value": 30402.53,
+  "dca_return_pct": 45.47,
+  "dip_value": 30412.41,
+  "dip_return_pct": 45.51,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 206,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Tesla's Biggest Semi Deal Yet: Is TSLA Stock a Buy Now?",
+   "title": "Tesla is beginning Semi electric truck deliveries",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNX0ZFLVRhWm80M1ZOV2VHUUNXQXJPVVRXVEVRSkExYjRqRERCZ09WeVVUZzJuMUZYaUNObjVCY3BKWHVEb1FGMlRFN0o5ZEJ3NEJkWU52akcwODE0V0lFLXdEZVFVZGp2VHNYOUJodEQ1QVBQZmhpd2YwSDZ5U1hoOTlqMzlEMjg1NnlIbVRlQlRhSzZ4VzlsYUhDR1lNemd5SU9aVGpKRFNnWVF2Ukl2TDRhc1VtMk5SMHZGbHdVY0pUdm54OGc?oc=5",
+   "published": "2026-09-24T23:09:00+00:00"
+  },
+  {
+   "title": "Tesla Stock Rises With Semi Truck Launch. The New Roadster Is Up Next.",
+   "source": "barrons.com",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNTkFtcTE0YXFZY3dYYTlhV29sX0g5aUx5LUMzcHAwZi1vWXZNbHREeVhmNzNvSFJ4ZXFGZWtuaUdHWVhrM2p1S3Y5Q2JhcTFYU3ZLQWc5V21vLWVFVzBfXzZJWGZpaHdVWjQtdjREdDdPbEFQdDBja0dKZnBTbFdGS0ZtQnFucUlnQkJXZXZQYw?oc=5",
+   "published": "2026-09-25T11:39:48+00:00"
+  },
+  {
+   "title": "Prediction: The Biggest Opportunity for Tesla Stock May Be Just Ahead",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNTEF5OXlYLVNueXZpeGlHOU1yWl9yUWlJLUZRVjhBeUFtcTc4d3lQa0pHVEo4aS1kVHo0R2prRUtrM2lvTnFzUmtHcGtYRmlfN3VKNVVhc2xZVlBpUF9ZX01NTkpUMzVQN1RXbTItRy1fT3p4eVRTSmpuZUJqOEdMVkhIRVllNjdNVWFlOWhmNTg3c3RRT1NaZA?oc=5",
-   "published": "2026-09-24T14:39:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQY2c0b2h5WXlsQndCRm4zangzclRmTmJlSm9WRXFYNDhHZy1aTnQwRk8wOXIwUzJ2RTBBZmNGMGJIenYtT1pQOE5lNGdiVVBvV1U4MWdra3BLNVgxT2pZNWc0aDVWUU01TWlDbmpBdkthajliWWtNdVVWTzMyZHR2Y25TNkUzX083bnp4VTVPWndZSGQ0bFZVTmxEcElISVNjejdkOEdNUDdBNjQ?oc=5",
+   "published": "2026-09-24T16:30:45+00:00"
+  },
+  {
+   "title": "What Would It Take For Tesla Stock To Move Higher?",
+   "source": "Trefis",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQd0ZZWkJZR2JQMGFvb0tkSWtCbTZkNUxwX3NtMElIQVozZzN2ZUUxYUZKVHJPNHhfNmZodnVXWTRRcEg2WFlXNk93dzJxWEJwaHhxS1MxLXNkS3RLN0g0OExLRktHd3M4MFZyNWV2d2N0Q1ZYOFlIUGxaSUg0MktFX3Byb0N0ZklGXzNLWUVGelFqcW5vcHZEM0FuamVoSE80NWE0VjE4ZzdlTWtPYnFV?oc=5",
+   "published": "2026-09-25T13:36:21+00:00"
   },
   {
    "title": "Prediction: The Biggest Opportunity for Tesla Stock May Be Just Ahead",
@@ -1324,28 +1347,10 @@
    "published": "2026-09-24T16:30:00+00:00"
   },
   {
-   "title": "Elon Musk Has Left the Door Open to a Tesla-SpaceX Merger. Here's What Shareholders of Both Stocks Should Do.",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxON3pJYlpMZXZTOGFSYXZMSWFoUjdGQml2LWNySUF1RWNHYkpuOGd6WkdwQUZCSHpINFJCM2tQTzdvRTI4TEhhM09hUGNMNTliLXdwSkVGcUlpRFhJaEVJdkF4M1dyc3ZtYXZXbFczTjRIZkN4R3lsYlNZZGdxWVdqTDRpTTYwUQ?oc=5",
-   "published": "2026-09-24T19:45:00+00:00"
-  },
-  {
-   "title": "Tesla Semi Joins Parade Of New Model Showcases; Stock Falls",
-   "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOR0xlOFlwdXk3Zld0NUhtNnI4ekJadFRDSjZOSV9CcUw3bUlxbkt6UzdIdXlXUDgzLTIyWFJYRnBhbHpRc2tzejdrcnlWNjNZajdiZ0o2aFgtWHBlZnJZUWNnLVpnbVpDY3h4MGtHdmZPR1J0SjF2RUVZQVdQaVNaWUxCbG9jVVZ2XzJqUlVlMUhVNVE4azdlSURYSVVvd3NBWjlmUGFHYy1ibDQ?oc=5",
-   "published": "2026-09-24T15:12:00+00:00"
-  },
-  {
-   "title": "Tesla CEO Elon Musk Confronts China Tariffs at Xi-Trump Dinner",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBVN3ZBU1ZBZlF6clRpM1hxLVQyTzFhN2UxWV9tUjZQZTBfa00tLWZNM3NLMDFJd3JVWVF3eEdHVWk2UEdSUVRTdkZPTE94QUxCZl9yX280OUc3S0NiOW9CclA3WHNBN3VNMjdPRUgxTDRyTmRjU244STllM3g?oc=5",
-   "published": "2026-09-23T14:11:00+00:00"
-  },
-  {
-   "title": "UBS maintains Tesla stock neutral rating ahead of Q3 deliveries",
-   "source": "Investing.com",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOZzB1a0tibFZUZGtvWTNjSlc5T0MxRVdNVXlIVk1sTnhjeVgwbTVaV2ZoOXJ0em1PeVBnY1JRc28wcVY3Ykx0bVdyRl9adWhVV2lKZzVVRTkyOTNfWmhLTzEteFd6bjlSRDU5WkFaU1pYb3E5TEF6NkJxOWVRWFZsYU1la3NXUmx4aFk4d2RDZkNXeWNvNS1SeDhxSndrVmpxTUVzUWVCSlZuNmJRelNQY3RwT1pKMVNvd1I2UGFJZlU?oc=5",
-   "published": "2026-09-24T14:41:32+00:00"
+   "title": "Tesla Stock Falls as Optimus Hand Snags Overshadow Semi Launch - eletric-vehicles.com",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNZmJncTduWE1Oa0dGUGZfbGhhRmhNcVIta0UzU1lIVHc2ZHQxZEF0aHBGSlFKN0k3R0dtNU1Pc21jS21vaTRMa0VtcGJGSEpNT0stci1uWTNuOGdQQThQbm9RV2loMFZKVnFxaDRJbUhvUndlNnQ2YVpDUFA0Zy1lNHROcm1nbjZVTlF1eWkzYndYeW1fYUZTalk4bkVQNDA?oc=5",
+   "published": "2026-09-25T13:54:00+00:00"
   }
  ]
 }
