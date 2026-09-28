@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-09-25T22:16:24+00:00",
+ "generated_at": "2026-09-28T14:30:53+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
  },
  "verdict": {
-  "label": "No edge either way",
-  "summary": "None of the scored TSLA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
-  "tone": "neutral",
-  "score": 0.0,
-  "score100": 50,
+  "label": "Mild tailwind - fine day to buy",
+  "summary": "A validated single-stock condition is in your favor on TSLA today. Nothing dramatic - and single-stock risk still dwarfs entry timing.",
+  "tone": "ok",
+  "score": 1.0,
+  "score100": 56,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "no pullback",
-   "score": 0.0,
+   "value": "3 down days",
+   "score": 1.0,
    "weight": 2.0,
-   "lean": "neutral",
-   "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
+   "lean": "good",
+   "note": "TSLA has closed down 3 straight sessions. Historically bounced the next day (+0.35pt excess, t=1.7, positive in every era at the 1-day horizon). Longer horizons were mixed, so it earns 1.0 - half the crash band's weight.",
    "viz": {
-    "pos": 100.0,
+    "pos": 74.8,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "44% ann. (p48)",
+   "value": "45% ann. (p51)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 48.4,
+    "pos": 50.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "24.0%",
+   "value": "26.3%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 48.0,
+    "pos": 52.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.9 (p7), F&G 37",
+   "value": "VIX 15.9 (p25), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 19d",
+   "value": "CPI in 16d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 372.11,
-  "day_change_pct": -1.54,
-  "sma50": 348.25,
-  "sma200": 395.62,
+  "price": 361.115,
+  "day_change_pct": -2.95,
+  "sma50": 347.85,
+  "sma200": 395.2,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 24.0,
+  "drawdown_pct": 26.3,
   "series": [
-   {
-    "d": "2026-01-08",
-    "c": 435.8,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-01-09",
     "c": 445.01,
@@ -1215,32 +1209,33 @@
     "c": 372.11,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-28",
+    "c": 361.115,
+    "t": "ok",
+    "s": 56
    }
   ]
  },
  "flips": [
   {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "TSLA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
-  },
-  {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 44%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 45%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-25",
-  "days_total": 730,
+  "end": "2026-09-28",
+  "days_total": 731,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-25",
+  "fg_coverage_start": "2025-09-29",
   "baseline": {
-   "n": 709,
+   "n": 710,
    "avg_pct": 2.77,
-   "median_pct": 0.68
+   "median_pct": 0.73
   },
   "bands": [
    {
@@ -1260,9 +1255,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 356,
+    "n": 357,
     "avg_pct": 2.69,
-    "median_pct": 0.64
+    "median_pct": 0.79
    },
    {
     "tone": "caution",
@@ -1279,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 372.11,
-  "sma200": 395.62,
+  "price": 361.115,
+  "sma200": 395.2,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 43.9
+  "level": 44.9
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 33,
+  "days_until": 30,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 19
+  "days_until": 16
  },
  "earnings": {
   "next": null,
@@ -1302,55 +1297,55 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-26",
-  "end": "2026-09-25",
+  "start": "2022-09-28",
+  "end": "2026-09-28",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 30565.17,
-  "dca_return_pct": 46.24,
-  "dip_value": 30575.1,
-  "dip_return_pct": 46.29,
+  "invested": 21000.0,
+  "dca_value": 29756.67,
+  "dca_return_pct": 41.7,
+  "dip_value": 29771.67,
+  "dip_return_pct": 41.77,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 206,
+  "dip_buy_days": 207,
   "winner": "dip"
  },
  "headlines": [
   {
+   "title": "Prediction: Tesla Stock Will Plunge to $100 if the S&P 500 Enters a Bear Market",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOYWh5eFFTb2JoeEpWN2FQZV81Wk5HMFotU0hzUV8tZE9jdU80Z3ZBYWhqSWJLNnRTWEFTN2Jva01DdXhubF8yRVVWYjNpUE8wUWxzelRiUVl3NzU4QnpkcE9OUzU5bmJlVk81RHBoQVRDQTBDamlCMzhmNHY5Q09vVFEyMG9tNmR5aVpsN0pLTWlfREtVYnBQMTVQWFVudjQ?oc=5",
+   "published": "2026-09-28T11:23:00+00:00"
+  },
+  {
+   "title": "Prediction: Tesla Stock Will Plunge to $100 if the S&P 500 Enters a Bear Market",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNVk5GLTFYUTYtZFU3RzVYa0lSMmhBYXl1QnA3OHV1MzNCZUY5R2ctZS1HTC13WUY3b2pBN21ULW05ZXdaR2plZmxlRlBBNFVna3hUR3h6R2YyTVNYeFI2Tk5ZVmo5cWtWeGVwSGJRMnFTSjlmUV85bGtDdkpLbXpBV2JMU2pWT0FxNUMtVGNiWncwdkM5b3c?oc=5",
+   "published": "2026-09-28T11:09:53+00:00"
+  },
+  {
+   "title": "My Tesla Stock Price Prediction Hinges on One Massive Opportunity",
+   "source": "24/7 Wall St.",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNZjJzQTYxU3ZvS2l5alpYc0xmZi1PWWFhMnhUNDZTMENjbzNrN1hoSFFwRGlSZmJha3BmenQwQll2M1hTS0hsOThJbUhHa3pqX3Y4dTVwbDd6aDM1ZGlPZ29zSlRNM1lrM1k2eFBKUThzUUFDWTVkN2xLQnBMUW5JVWtIbUdHRmlzR3FLb0xqWEpScmJ5RG9EUXRjUlJQRVZQenBudzE1MGhpOFBqYWc?oc=5",
+   "published": "2026-09-28T13:00:00+00:00"
+  },
+  {
+   "title": "Tesla Stock: Why Deliveries May Not Matter as Much as the Roadster This Week",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5rdFBpV2FnV3haMXpqVnRuSlhFSVFyOVNqczRudi1UZVZZNk92UUNjcEUzWTZ6b1Z5Zy1EcVNfVWxVWHFnZUh5M0NiS01TUlJYaFNjWDRic0ZWVFpRQzViNXUzWURyenZvdEhkelNNYzQxdVl6aFE?oc=5",
+   "published": "2026-09-28T13:50:00+00:00"
+  },
+  {
    "title": "Tesla\u2019s stock falls as launch of Semi truck fails to excite investors",
-   "source": "marketwatch.com",
+   "source": "MarketWatch",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQRFR3VGlTaWt1dVBiNXh2TkZpM3RhTFBkdzNIVHFsNlJIOFJIbklublQ0ZHMwSFd5dTF5V01NenNOUGZLVDNwYU8zeWNPZEJCb2ZqYVV4TjlwQnkxb3U3ejJUUmJwUXdaZnBzd3VucjN2Q2pKS0dZb29lSWJnSjM5aWNfeUFvU2pzRFpSRlkwOEJsQzVUQno3WGxjRWpMeU82bmJnbA?oc=5",
    "published": "2026-09-25T20:34:00+00:00"
   },
   {
-   "title": "Tesla (TSLA) Stock Falls Amid Market Uptick: What Investors Need to Know",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNYWNLWkZTbUZYbHRZNWlpWDg2LTJCTXh4UnBZN21uNHo2OVhDdE9qNDJfMDRINU4xZGxaUW01UXk3bXRlSmdZdG02dTk2ZzVUTjBSUURrblUwT01Ha05RVWpaVXRyNjR2amNoYTB1V0pZNDVFdGJUekFxdTVnSjhBSldzUWlwMWE1Szd3ZHdJQUVkbE90ek8w?oc=5",
-   "published": "2026-09-25T20:45:04+00:00"
-  },
-  {
-   "title": "Stock Market Today, Sept. 25: Tesla Stock Under Pressure Despite Plans to Ramp Semi Truck Production",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPMkw0RzkxcGJ1MnV6M1pfQ05hV19QYUZPYVVyYkVWaGxLLWZfOHNKWWdKNjBHZ04wVmk0cGUyOFlvWVpvSU9YZjhfbHcxakV3Q1pPRV9zQ0c0Q3pvUFB0SkFWaGlwNlAtOVY0WVAtT3V1SHBidnVzclJvY3BXRlJ1V3NTaC1fNWNlSjVneHlFZHhkTEh1TnNCOFo1eGZGcmpaYU5mVUVYUmVwaUZlQWxqX2h1enVnSEZyLW1xa2loMWFVZTFrdlNOeDEzQnlRMzVsbTVDQlNiR1kxbGp5OTd2MmJ1TzBmeXJ0M1g4Rm1CVQ?oc=5",
-   "published": "2026-09-25T21:00:35+00:00"
-  },
-  {
-   "title": "What Would It Take For Tesla Stock To Move Higher?",
-   "source": "Trefis",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQd0ZZWkJZR2JQMGFvb0tkSWtCbTZkNUxwX3NtMElIQVozZzN2ZUUxYUZKVHJPNHhfNmZodnVXWTRRcEg2WFlXNk93dzJxWEJwaHhxS1MxLXNkS3RLN0g0OExLRktHd3M4MFZyNWV2d2N0Q1ZYOFlIUGxaSUg0MktFX3Byb0N0ZklGXzNLWUVGelFqcW5vcHZEM0FuamVoSE80NWE0VjE4ZzdlTWtPYnFV?oc=5",
-   "published": "2026-09-25T13:36:21+00:00"
-  },
-  {
-   "title": "Prediction: The Biggest Opportunity for Tesla Stock May Be Just Ahead",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQTHZGVVE4dll2RGlRVnotanlEYVdsWDlmRV9GV1dNaWhLY3Q2cEpVc2hROGhFX1NyaXQ4TUhuV2xBUWY2d2JrWWlPZXc4RjZwR0VaemxScWZmMEpFUjQ1alFrVHF6U2k3b05seHAzQTJ1czJ0emdXOFZjWHVuWlpnN3NWNmxvX0ZfSjEzUGx2S1gzb3BzcWFBQThWc0hBX0RoUXVFVjViZ0R2T3I2SVBNOGRR?oc=5",
-   "published": "2026-09-24T16:30:00+00:00"
-  },
-  {
-   "title": "Tesla Launches the Semi Truck. The New Roadster Is Up Next.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNTkFtcTE0YXFZY3dYYTlhV29sX0g5aUx5LUMzcHAwZi1vWXZNbHREeVhmNzNvSFJ4ZXFGZWtuaUdHWVhrM2p1S3Y5Q2JhcTFYU3ZLQWc5V21vLWVFVzBfXzZJWGZpaHdVWjQtdjREdDdPbEFQdDBja0dKZnBTbFdGS0ZtQnFucUlnQkJXZXZQYw?oc=5",
-   "published": "2026-09-25T18:13:00+00:00"
+   "title": "Cantor Fitzgerald reiterates Tesla stock rating on trucking outlook",
+   "source": "Investing.com",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQdF9Bc0JoamhHOTNta3BHQjc2ZTJmQUxEN1l6YmFGWDRBOTZ1N0EzQnR2ZGQ4cnczc3pSaHhCZGNzWkd3SlNDNUlLZnNpOFZwcTJSMTNLenVrbF9BVGE0Q0lRaWQ3RlFDS3o0elRuZVBnN0QtSnlJWXNXbklrWUc3Wl9aQlF4Vkx2M0dvWVJFaTFqdDNhSUIyRENvSGZrZHN4aXl4ZE1QYXczdVpDUDQ0XzJ3b1BYRC1EYU5MRjZCVUFTeG1WSXc?oc=5",
+   "published": "2026-09-28T12:15:28+00:00"
   }
  ]
 }

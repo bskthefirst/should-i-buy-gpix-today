@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-25T22:16:26+00:00",
+ "generated_at": "2026-09-28T14:30:55+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "no pullback",
+   "value": "-3.6% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 93.6,
+    "pos": 76.1,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "26% ann. (p43)",
+   "value": "26% ann. (p41)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 43.3,
+    "pos": 41.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "14.4%",
+   "value": "15.1%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 14.4% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.1% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 28.8,
+    "pos": 30.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.9 (p7), F&G 37",
+   "value": "VIX 15.9 (p25), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 19d",
+   "value": "CPI in 16d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 341.08,
-  "day_change_pct": 0.61,
-  "sma50": 342.0,
-  "sma200": 336.79,
+  "price": 338.27,
+  "day_change_pct": -0.82,
+  "sma50": 341.85,
+  "sma200": 336.89,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 14.5,
+  "drawdown_pct": 15.2,
   "series": [
-   {
-    "d": "2026-01-08",
-    "c": 326.01,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2026-01-09",
     "c": 329.14,
@@ -1215,6 +1209,12 @@
     "c": 341.08,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-28",
+    "c": 338.27,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,7 +1222,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+5.2% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+6.0% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1233,14 +1233,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-25",
-  "days_total": 730,
+  "end": "2026-09-28",
+  "days_total": 731,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-25",
+  "fg_coverage_start": "2025-09-29",
   "baseline": {
-   "n": 709,
-   "avg_pct": 3.2,
-   "median_pct": 3.09
+   "n": 710,
+   "avg_pct": 3.19,
+   "median_pct": 3.08
   },
   "bands": [
    {
@@ -1260,9 +1260,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 337,
-    "avg_pct": 4.12,
-    "median_pct": 4.26
+    "n": 338,
+    "avg_pct": 4.11,
+    "median_pct": 4.24
    },
    {
     "tone": "caution",
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 341.08,
-  "sma200": 336.79,
+  "price": 338.27,
+  "sma200": 336.89,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 26.1
+  "level": 25.7
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 33,
+  "days_until": 30,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 19
+  "days_until": 16
  },
  "earnings": {
   "next": null,
@@ -1302,17 +1302,17 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-26",
-  "end": "2026-09-25",
+  "start": "2022-09-28",
+  "end": "2026-09-28",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 44201.14,
-  "dca_return_pct": 111.49,
-  "dip_value": 44309.61,
-  "dip_return_pct": 112.01,
+  "invested": 21000.0,
+  "dca_value": 43930.37,
+  "dca_return_pct": 109.19,
+  "dip_value": 44044.56,
+  "dip_return_pct": 109.74,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 162,
+  "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
@@ -1323,34 +1323,34 @@
    "published": "2026-09-24T13:16:40+00:00"
   },
   {
+   "title": "Meta, Google, Amazon, Microsoft draw Sen. Warren questions about AI tax subsidies",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQbXpsNWh1cDF0aEVHajNxNTBUU1V5TWp1cFFCZmJYVGQ5bEJxT241cXd5Tmk4SGFYckpMdTU3cFZ3U1A4REtYcWtWc0M1RTlFeGc0d0VpR0dtOEVWd1c4QlZNdC1SbE0yV1RRUUlYWGNjbnhJalE0cEFlb25wa21EeXdFU3JYMk5PRW5adXBMLXg3TlRSUS1v0gGcAUFVX3lxTFBaTndFYldrdnVTaTU0dEFiZERuVEhBc3ZrOE5faHBDV0Q0WFZQdU56TlpOdlVyYzkwWEZUaTZBMzN0UVRlN3JGMnRFa2RiNE42MEEtVHR2VTkxWnJNdEYtQjFRczFBSExaSWtMMmZQMWplRnk1TEhzel80NXdxS0ZJODQyTG13QjdFWFpQbW1KejJ2bG1uM2VLVER4Xw?oc=5",
+   "published": "2026-09-28T12:00:01+00:00"
+  },
+  {
    "title": "Dive in and discover what\u2019s next on YouTube with our latest viewer features",
-   "source": "blog.youtube",
+   "source": "YouTube Official Blog",
    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNZ1o2OGJ4cVJkUkZxME5YaEF0dWktWExaMXRsZWhBOU4xcGdxZ0JyZXpuV3VZVnhZUl9FdEVEYURxaGxPbzdfZFBRcVpMNEt0LWRCQU9ZbzN2YmRWMVZ1WDhwRXdiOEQyUEtwcWpxbEZ3bHQtVnczcXA5dE1DNl8wWGYxMjRIVUprS3U1VW1UWmJWUQ?oc=5",
    "published": "2026-09-23T14:45:49+00:00"
   },
   {
-   "title": "Google Is Sending an A.I. Data Center to Outer Space",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQUEx1YzkwWVhOQ25ocmRXYkJ6SWh1Q01wRG1QY096aW9UZkVDbTdNWnoyRWJtcEIwZVVoVEJJUmNpWlhnQVRXTkpzYTg3QzR5OThOS1JXMVc0bnF2dDNXVFU1QnE5bjVpZ2pCUVZwYnZ2bjhUckwwNG02S01MbmY3ckdaRzM5c2Q1c2xmZ05LenBpVEk?oc=5",
-   "published": "2026-09-24T13:00:18+00:00"
+   "title": "Why Isn\u2019t \u201cPatient Zero\u201d on YouTube? Here\u2019s When It\u2019s Dropping",
+   "source": "Cosmopolitan",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPTHpaOEJBSUlXeTN0bFlOdTdwYmJyc1g2U0NhV0hpLU9MdGl5T1h2S2FPWHZYR3VxVWhtODVKTXZUZmNKcWg1a2tqQ2tKU3Z4RjRTQVBpc2tzcFlDUHhockhZYjRabmJCWmcxazlqaEUyMHNiZ1UxZklmbU1ReFBmc1JsRjcxa0NfOEM3WXlBRXBUMXpmejlXaU9B?oc=5",
+   "published": "2026-09-28T11:25:00+00:00"
   },
   {
-   "title": "Google throws a satellite into the ring as the AI space race heats up",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOMFJlaXp2Mm16V2x5OTdNLWt5M3NicTVJRUh1RlcxeXQ2T2tIUk5EUGw2Wm9vaE81ZXhVSmlSckZ4Q1JRMzRnSURZbzZ1MnU2MzhZU0NlOEQxWVE1VmxGckx6YnRpSXQ2TlMzQVVuMzN1Vl93VGRoWER5N1FsN2hIalZxanA1cERXVnQ2bEtuZ3R1RkQwVldfcmRJaUZ1eTZoYUc4WTJTSmtFRjJzM3JxMEQta2lOcjB5Mi1UblpHaHlQcEw5NVIzYQ?oc=5",
-   "published": "2026-09-25T10:00:00+00:00"
+   "title": "EXCLUSIVE: Google bets $15B on Finland as nation's president explains why",
+   "source": "foxbusiness.com",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPMjJVdkstYkpWbXNSTzd6SFdVSEJCYUZrWGhiVFNlM3lsWnIzMlF2VnNBZ2N3RmN4VE92V3lNTlFGSmlrUm4yUlhGd1NmRFhha0EwZmItaW1kX2FaM1VLNFp4OXZuOVpTbE5lRUpUb2Z2YnVtSlRJNUpyWl9SRnhSaC1Dandsb1ZBTXllMHpJZGN2R0w0WlNXVFZnLUNZY3ZWVVFmRUZJdnN6czjSAbABQVVfeXFMTWotclFXTWFFMzRFV2dMOExLU2pNTUVBQjZ5a0F1bG00T25vWDlhRXRzRzhZREgtY0hZVVNzR1dOWVZKSmY1YXkwRU9BQ2JSN3RHVDVIMkk1NmpiakdWWGpGdURPOHdkcDNqZDU4aVVhejZPNFU2aERHSzdyZTNhLVVqQVhOa2w5ZVJTdHVLcHlGS2VaT1V2YXVvQUFGc2p1Sy10eVlfbDRFX1ZkV0tyd0I?oc=5",
+   "published": "2026-09-28T11:00:18+00:00"
   },
   {
-   "title": "Google Messages rolls out new swipe for timestamps & reply gesture",
-   "source": "9to5Google",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5ZM3ZIU2FramkwaFRqNU9DZml5dHFNWGdsTF9PLWt5TVdIRUQ4cmR6aHhORUt0VC1Cc1U1TnB3NmwzUUtscHdDUzROVkZRNHlwUkZxZHh6ZU92YjUyNEczY2pzQzdUcXE2WTQ5Ukl5TDZvZ2ZQWEE?oc=5",
-   "published": "2026-09-25T16:09:00+00:00"
-  },
-  {
-   "title": "Google ads caught delivering convincing scareware ads to unsuspecting users",
-   "source": "Ars Technica",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNVElSbXE1endZMTNPY2ZhYVhwU3FiZHBvdHlWbzFPODJKTEJEYVIwek9kalF3V1BiWXNIMGdZcmFTRFFVYmV0YnBKYllYcEttejZJLUtJenhkVkRoUWV3UDJxcTZsU0tpWVNWUC1RM0swU0pyMGMxUjlUZ0d3VEVfRUkxLUhHS28xRjU3bVFYRUdYdDRVQ1pKV2N6ODFXTm1Pa1l1VWpnMlI5OGlDZ252aVRhMlRpdFh5?oc=5",
-   "published": "2026-09-25T19:38:59+00:00"
+   "title": "Misleading Google AI instructions cause Kodiak woman to be cited for illegal snipe hunt",
+   "source": "Alaska Beacon",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxORkl1UVI1WFkyWmtPSU1qVWF5X21ueWJpbVBPNWxuVjBfR01VMDA3TUFZRzBkQVg0RXFMQ0pBS2VWdzQ1MkxhaDlVS0ZyLXJtYXNMMTJ2RVo4MXF6SEV0R0pyeEctRGVpM0ktVjgtQld2d2NlU0dSaWp3UnlwZ0ZzRjh0SmN0RldfWDNpVGhqVDBYUFlaTldwS29iSWJmVnJzZ3pjZjdXSmdRdHVKdVlkWjJFUnhiN2VMNE03NExqS194Zw?oc=5",
+   "published": "2026-09-28T14:15:57+00:00"
   }
  ]
 }
