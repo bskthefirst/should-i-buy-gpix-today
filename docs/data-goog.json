@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-28T23:48:52+00:00",
+ "generated_at": "2026-09-29T14:30:17+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "26% ann. (p41)",
+   "value": "25% ann. (p40)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 40.9,
+    "pos": 39.7,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "14.9%",
+   "value": "15.7%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 14.9% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.7% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 29.8,
+    "pos": 31.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "uptrend",
+   "value": "downtrend",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "bad",
+   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.1 (p27), F&G 34",
+   "value": "VIX 15.9 (p24), F&G 33",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 16d",
+   "value": "CPI in 15d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 339.16,
-  "day_change_pct": -0.56,
-  "sma50": 341.86,
-  "sma200": 336.89,
+  "price": 335.84,
+  "day_change_pct": -0.98,
+  "sma50": 341.55,
+  "sma200": 336.97,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 15.0,
+  "drawdown_pct": 15.8,
   "series": [
-   {
-    "d": "2026-01-09",
-    "c": 329.14,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2026-01-12",
     "c": 332.73,
@@ -1215,31 +1209,42 @@
     "c": 339.16,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-29",
+    "c": 335.84,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "GOOG has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
+  },
+  {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+5.8% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+6.8% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 26%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 25%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-28",
-  "days_total": 731,
+  "end": "2026-09-29",
+  "days_total": 732,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-09-29",
   "baseline": {
-   "n": 710,
-   "avg_pct": 3.19,
+   "n": 711,
+   "avg_pct": 3.18,
    "median_pct": 3.08
   },
   "bands": [
@@ -1267,9 +1272,9 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 173,
-    "avg_pct": 3.6,
-    "median_pct": 2.68
+    "n": 174,
+    "avg_pct": 3.57,
+    "median_pct": 2.53
    }
   ]
  },
@@ -1279,22 +1284,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 339.16,
-  "sma200": 336.89,
-  "above_200d": true
+  "price": 335.84,
+  "sma200": 336.97,
+  "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 25.6
+  "level": 24.6
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 30,
+  "days_until": 29,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 16
+  "days_until": 15
  },
  "earnings": {
   "next": null,
@@ -1303,54 +1308,54 @@
  },
  "backtest": {
   "start": "2022-09-29",
-  "end": "2026-09-28",
+  "end": "2026-09-29",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 44054.87,
-  "dca_return_pct": 109.79,
-  "dip_value": 44150.94,
-  "dip_return_pct": 110.24,
+  "dca_value": 43623.62,
+  "dca_return_pct": 107.73,
+  "dip_value": 43718.75,
+  "dip_return_pct": 108.18,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Behind Project Suncatcher, our moonshot to put AI in space",
+   "title": "Google challenges EU orders to open up to AI, search-engine rivals",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNNWtfaTdEQks3cVluODNBeTVxRVQwOVNSSjdjMUZZV1I3eG1vSERQcjlLdGdNZ04wX0NaQTVxWTFfUUdQSG9pR0JJa2lGMW0yS3YybnBzVW0xQk9Zdm9XNTM1OWNNMjItbUhEUXc1NnhCVmY1Z0ZVRUx5SklwUlhsWDhndFM2N2VjNXBDQmdEbTNrXzhuaWdFbFp6Wkk2azF6Y3BOVXAyUQ?oc=5",
+   "published": "2026-09-29T05:06:00+00:00"
+  },
+  {
+   "title": "See what 4 builders are making with Gemini 3.8 Flash",
    "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNM1BYaU0yYTZra0M4eWktSXVydEJjbTVtM0JLZUtpTlZUNWZPb2RqUHR0V1hEdlczMkZyOU90MW83eDhCWVJMSnhXLWxvcWhJMDdiNkUtZEJLR0ExN0xnMS1YdGJOaWJyRXZmZlJGQnJNVWJKbDl5dG1uMGtsRk9VbVRCcWpKVjlnUnVfMXU2VjNJOGdhOGt4UEZpeGpyNndSTUpodXphZV9jUQ?oc=5",
-   "published": "2026-09-24T13:16:40+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQcE43ODZ4dV80TkdQZ3dFTWdQWm5lQzNpS2lOWFl4TEJDeFAwNDRwcjFFakNna1RkTXZEZ3lLNmxtRWZzei1ab20wZFBHQTJSX0w1M2ZPWkNvQ3hsZXZwdmNlRzY5Q04xSDE5ajRVTkNYVnF4QkF2aUdJSlFqNXlJeXpqcXN4UkRRR3FaSVVJSHBtWnRfc2xTc0gtSWxxbk1KUkE?oc=5",
+   "published": "2026-09-28T20:02:50+00:00"
   },
   {
-   "title": "Google is killing off Gemini\u2019s Gems in favor of \u2018skills\u2019",
-   "source": "TechCrunch",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOLXBWbzJIY2ZWejIzajdwcVF2QTItQjZGMWxNZkdIU05GZ2RDaWVRTWJybWpNaVdONDNQZGpLVVJXWW0yR3dNX1RpNXhtbXZZWnZ1VHc2d2NjbzU0QVgxb3FZZWNKWkVBQjVxOTUwaWg5bVNaMWttN2ZoN0d3bXhWM25JaENPUjRxQVVRajZ6dXJ6Zw?oc=5",
-   "published": "2026-09-28T17:29:50+00:00"
+   "title": "Gaza before and after: New Google Maps imagery shows destruction of the Strip",
+   "source": "EL PA\u00cdS English",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNOFRqdld3Zk9EVU1xRm53bG01SW44Q0hIQnU2aFpRVUEyX2hMZzdYTHVyNlFDTXBXS2JvdE1zbmpYazg2a013ay1MRjRXd3cyMGFLX3NQNEZsU2NMbmR6MXZ2SVhBRHUwdDFUR2M1Q281U2ZqVllhdDAtRElLN2ROd0wtdXU0cEFMdWF3SzhWMzNnS2l4anV2WFVLRFJhSGFPVmgwZHAxdXM1V1gxVWtxaGJPOV8xa2syYWhtdWszZ09Uc09Eemx6LTRIdWktQQ?oc=5",
+   "published": "2026-09-29T12:39:13+00:00"
   },
   {
-   "title": "How Has Alphabet Stock\u2019s Story Changed?",
-   "source": "Trefis",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPa3A2V29lUFREeTYzOWhtUVhCWnpHRFE2dGtmaVhfVzhZbFNJLW9qZlplamxsdEstTi1QSUlQWmw0N3hfT2lGNTFIMWNYTUtrbEM3Um1hSVdRdkRLbVNwOGQxM3FOc2owaWpnMll0ODEwenVVb1hWUDhZYUVyRmtnLXZNMXd3NUNzeWxvWHFHTFEtRm5JWU1aYkJ0UWlQQnV0?oc=5",
-   "published": "2026-09-28T19:30:03+00:00"
+   "title": "Google Appeals EU Requests on Android AI Access, Search Data Sharing",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQR3ZPSTdhZk5rSFhhZGFWbzhLc21LRGNTNnBUa2xhdXkzV3hPYlFzQTN6dzJXLW03dVhkNWVUU21IOXhvakFHSDEydUJ5MUZzVldMSnZzS2Vjc0gyQmE5ZmN4X296NkR3N25OZ0V6OEdzaHIwenJBakxkS2o2UWhPS3p6YXFUZ2Zrd21IZTJROVQ2R3RRQi1UQjBOdkdFVnJ6TTlz?oc=5",
+   "published": "2026-09-29T11:05:00+00:00"
   },
   {
-   "title": "Google seemingly confirms plans to kill ChromeOS in 2034",
-   "source": "Ars Technica",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNT0R6M2QxaklWREppbFMyT3NKcjVleHEyMHpKUnYzS05tLU10WEc3STlPZlhSRm9zelozNFJfb0l2YWs4OWx0bHhueGJiY2VaNnYxaGNONjc4MGQ0SWtZeFJUTm5YSGE5UFZYbm1PZ0M2VUsxelJRNVpfN0I3Zk1kSDRfX0pTekVPbDZLQW5uWmJWUnpMamF0SlpldG1wZw?oc=5",
-   "published": "2026-09-28T18:04:59+00:00"
+   "title": "Berkshire\u2019s Heavy Bet on Alphabet Has an Investment Logic Different From Apple",
+   "source": "NAI500",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNcldxMEtPZHZPMW41Zi1KektiakZjaENPSDFjd3lSV1pMWV9HcGlPNFJ6TW1vT3cxaEt0SkpYcnhNT1pNMmJPTC1UWkZleXZnMzZtdVBHU0NURWFnbWthVkQ3amFhcWRDeGIwS09aVVpwdTJrQW9WVEZvbW1FZUdUdUtvVmRkSlo0dFFWVUpzZzNBMmtKMFkyS1UxSk42Nm1jZlBGdHhGVGMtM2w1Nk0w?oc=5",
+   "published": "2026-09-29T07:34:40+00:00"
   },
   {
-   "title": "Pixel Watch update adds Google\u2019s new 3D emoji",
-   "source": "9to5Google",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxObENJenYzTEFnZ3VoOVNrMnJ2cmRuYzQzbUZUeXFyMGNONFZVMTBnLWtKS2FFbXdaZEMta3MzTUlkMFBvNUg1VXVuMjRtWHV4eEFwQUl0TUI5ZUlQN3Rmd3JsV1I5VzRPWXdxVWZMckJUNXFuWTVzcnNNa3FyMFlSaVdmQXZydw?oc=5",
-   "published": "2026-09-28T15:55:00+00:00"
-  },
-  {
-   "title": "Meta, Google, Amazon, Microsoft draw Sen. Warren questions about AI tax subsidies",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQbXpsNWh1cDF0aEVHajNxNTBUU1V5TWp1cFFCZmJYVGQ5bEJxT241cXd5Tmk4SGFYckpMdTU3cFZ3U1A4REtYcWtWc0M1RTlFeGc0d0VpR0dtOEVWd1c4QlZNdC1SbE0yV1RRUUlYWGNjbnhJalE0cEFlb25wa21EeXdFU3JYMk5PRW5adXBMLXg3TlRSUS1v0gGcAUFVX3lxTFBaTndFYldrdnVTaTU0dEFiZERuVEhBc3ZrOE5faHBDV0Q0WFZQdU56TlpOdlVyYzkwWEZUaTZBMzN0UVRlN3JGMnRFa2RiNE42MEEtVHR2VTkxWnJNdEYtQjFRczFBSExaSWtMMmZQMWplRnk1TEhzel80NXdxS0ZJODQyTG13QjdFWFpQbW1KejJ2bG1uM2VLVER4Xw?oc=5",
-   "published": "2026-09-28T12:00:01+00:00"
+   "title": "Satellite images show Gaza in ruins three years into Israel\u2019s genocidal war",
+   "source": "Al Jazeera",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxORHdiQlpYZ241MDN4ZEJVdDhrNUJ5Zl8wZ1pHQTg1b3ZwNHJaYjZWNEhkMGUzS0I5eS15WFQyN1FZdFNrbmNQSzl2anJwdE1rbFY1UTctTXNvMU9TRjIyZUpaNUxVSnpKdkRjSEZaY3p2TTVid0VvM3liQ2JHZngtOV9tdlhCRmxTVm9qVEpvU0J2WDNrZW9PMnZBZ3d1ek5zZlp5NUMwU3BFN01qT09JNjNyYlJ5QdIBuwFBVV95cUxQVWl4Qk5nWURmaEVPQktXR2dBbUNTSnFtSnhEXzBwRFpKd3dNY0Eyb21LMGlOckQ5ZDhybXc4R2NnOWRrQW5Xa2YyelV0ZV9sRHJOXzZXWHRyNUstRzI1bks1VjdwczgtdUF4SU9nMHRtSFQtc0pYZm1ENDRlQVBBZVpjVnhmT2kzYjh3N3Z3MU5SSGpHT04zdHBfUHlHUmt1TGpRNlhBbTNUVWRwVUQ5TUw3VVFKRzRUUGhz?oc=5",
+   "published": "2026-09-29T07:48:27+00:00"
   }
  ]
 }

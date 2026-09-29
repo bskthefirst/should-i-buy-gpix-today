@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-28T23:48:51+00:00",
+ "generated_at": "2026-09-29T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "28% ann. (p5)",
+   "value": "28% ann. (p4)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for NVDA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 4.8,
+    "pos": 4.4,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "2.7%",
+   "value": "2.0%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 2.7% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 2.0% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 5.4,
+    "pos": 4.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.1 (p27), F&G 34",
+   "value": "VIX 15.9 (p24), F&G 33",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 16d",
+   "value": "CPI in 15d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 228.86,
-  "day_change_pct": 1.68,
-  "sma50": 216.5,
-  "sma200": 199.69,
+  "price": 230.5,
+  "day_change_pct": 0.72,
+  "sma50": 217.04,
+  "sma200": 199.93,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 2.9,
+  "drawdown_pct": 2.2,
   "series": [
-   {
-    "d": "2026-01-09",
-    "c": 184.86,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-01-12",
     "c": 184.94,
@@ -1215,6 +1209,12 @@
     "c": 228.86,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-29",
+    "c": 230.5,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1222,7 +1222,7 @@
   {
    "label": "Momentum: new high",
    "direction": 1,
-   "text": "NVDA at $234.03 (+2.3% from here) = back within 0.5% of the 52-week high (+6 pts)"
+   "text": "NVDA at $234.03 (+1.5% from here) = back within 0.5% of the 52-week high (+6 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1233,14 +1233,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-28",
-  "days_total": 731,
+  "end": "2026-09-29",
+  "days_total": 732,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-09-29",
   "baseline": {
-   "n": 710,
+   "n": 711,
    "avg_pct": 5.46,
-   "median_pct": 3.37
+   "median_pct": 3.38
   },
   "bands": [
    {
@@ -1253,9 +1253,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 198,
-    "avg_pct": 7.03,
-    "median_pct": 4.12
+    "n": 199,
+    "avg_pct": 7.02,
+    "median_pct": 4.31
    },
    {
     "tone": "neutral",
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 228.86,
-  "sma200": 199.69,
+  "price": 230.5,
+  "sma200": 199.93,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 27.9
+  "level": 27.6
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 30,
+  "days_until": 29,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 16
+  "days_until": 15
  },
  "earnings": {
   "next": null,
@@ -1303,14 +1303,14 @@
  },
  "backtest": {
   "start": "2022-09-29",
-  "end": "2026-09-28",
+  "end": "2026-09-29",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 84843.77,
-  "dca_return_pct": 304.02,
-  "dip_value": 84966.78,
-  "dip_return_pct": 304.6,
+  "dca_value": 85451.75,
+  "dca_return_pct": 306.91,
+  "dip_value": 85574.93,
+  "dip_return_pct": 307.5,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 181,
   "winner": "dip"
@@ -1320,7 +1320,19 @@
    "title": "NVIDIA Launches Open Agent Safety Platform to Secure Agents From Testing to Deployment",
    "source": "NVIDIA Newsroom",
    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFAxdzBTN1hGTnNfZXZNWUU1MjhzQnpHUndjNkNYMGZiRGc1TDR5NExfTmtrbkFvZU5Fakp1eG1CVVFOZ0tpYzJ2aFVVY1pCSFY4Vl80Tkhqbkp3blMyejJkUXdpTVlBZWdzd2VKdVdR?oc=5",
-   "published": "2026-09-28T09:07:51+00:00"
+   "published": "2026-09-28T22:54:06+00:00"
+  },
+  {
+   "title": "Nvidia's record buyback shows chipmaker's stock is too cheap for CEO Huang to resist",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbm8waVZKNWVxY3ZfVUVnWS1BczZsV0R0azZEVnBfb3JfWVJ4dDlQSlBJaFp5RVhRdjZsUWJGUDllUzFtaWRvVUw1dHVUaGdXbHdnN2I2Z3JNNFpuMWIycGRiSmxGdkxsTEZkWnVMQUZVTnZEd2tVaHo0SUFxWGIwRkoyd3hzUHNZODVRRkhJZnU2eXhjWHFxRzZBLTZpbnhlYVZKZHBfcUdZZ9IBrwFBVV95cUxOTXVYSzZ4LVpyb3FtaGc4UTFXOG9GTXViRjFuWnc1eVJ6SlZ5VXFtVDZGVVhCU2lJb3Q0bXVreURvb2kwbDk4UUg3LS0zMG9RZ2NyWDdOa0RyLUE3bmswV0pjVzJhVWJXazhvcDZZZ2dVa3dlLTFaU1VDblhWbzYxQVBXcnoxWHFucktja0JyX0hKdGhQUWdXdW9naXFSZk90RlRWa0JTRE5BR2VnYWNr?oc=5",
+   "published": "2026-09-29T11:00:01+00:00"
+  },
+  {
+   "title": "Nvidia releases software to prevent AI security incidents - ABC News",
+   "source": "Breaking News, Latest News and Videos",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQWWNrT0d5d2ZiWlh4QWU3cHFSVjJjY1VzbEM1U0gzN0ZyRmE4S1MzMHZlb3BGLUQ2OEgzbVFuRWRrMEk3SndNVWU0bHRqTElMaGp1RVhObzNZVXdNTUFKOFNvWHBsN3gwN3ZrQXpUcTZDbXNvMEVlOUJwTjZ2TWJjZjExN20taWNYYUgxZDBTTXduQmpTZXdqYUhlWGdMaC15TzRjZdIBqgFBVV95cUxNX3RSQkE4M21ac3luMlFQakotdGhRWnFTT2N3b3NqMFM2ZzU5UVRaTjJBUzhYY2FzanRzUUR3NnZyY1ZLNGM3aTZaVlQ5TUJlMUtaVmNwYzloMk9UNzBIMzU1cjZ3OFRUZFdxakV2RUd3amVncjR0bUdMSTAyX1BCZmh6WmtjOUhkLV85YlM2eUotVG9XaW00M2paSVhJVlA3aE04Z0daWGZSZw?oc=5",
+   "published": "2026-09-29T06:06:37+00:00"
   },
   {
    "title": "Nvidia unveils security platform to stop AI agents from going rogue",
@@ -1329,28 +1341,16 @@
    "published": "2026-09-28T22:14:00+00:00"
   },
   {
-   "title": "Nvidia sets biggest-ever buyback plan as AI chip competition weighs on stock performance",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTzg4UzFUbWw0cThEbUEwYVdsdF9WVVpuSDZ0RkJjLWd1UE5XdVJFWjRKazNRU2lyVkxiX2xIZFplVnkxTTl4QUhnV1NaM21SdFNxTFBMYXVJMlJVU2lobmtWYkpqa2wyWlRPLWxuZTMtTzhRUVpHZ1V6VkRLS0psbzlQTWQwcGNpVXNuSGRYSjlCQU9sU3lXcXVteXk2ZmZf?oc=5",
-   "published": "2026-09-28T19:53:54+00:00"
+   "title": "Nvidia turns to insurers to spread the risk of AI build-out",
+   "source": "ft.com",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNOE9rNFhZUjQwSFZpNkhrb3IyR2lMdGpUUTVWVGppaXBfUk1RNkdzYUlNT0dxOXBjSEJSamVHTlFiUlp2QjRmQmNNX1pWWHJidUhreWlNWmlXdVZVWUp4VTZUWU82WlNWUWFObUo3aEo5T3IwRWtOQzItanZaMXVMZXh2MzU?oc=5",
+   "published": "2026-09-29T10:01:44+00:00"
   },
   {
-   "title": "Nvidia Adds $150 Billion to Massive Stock Buyback, the Largest Ever",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9iclhOaUhUeDFGRDNBZWJzNWFOWUVtaVBwck91TFE4Um5rUDJ5Z1RsRXJSN2VWTUR3X2lmV0x5cDRqZEM5aDRwLVp5OWpzOHNtV2phY2hVNTF5NWo5M0JpYW1rcEhqTHFSTmZqZl9KSTdNZkt0QWhrZQ?oc=5",
-   "published": "2026-09-28T20:11:51+00:00"
-  },
-  {
-   "title": "Nvidia Adds Record $150 Billion to Stock Buyback",
+   "title": "How Nvidia\u2019s Buyback Created Phantom Value",
    "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQc0FYLWRBSUpvTnE1UVdUekNzQTdsck9qYmhILVI2WGpxaGJaQl9iQjRYZzViSFc5c1FNXzJJaFgxTm9FTXZ2S2kxeEFQcGFqeFY4WkhuVXNoZW0tbUUzMG5KTkc5SWtPVGlHYmgxMHB3d1BGX1RpVFh4QUcyaFhxX1ZJN1hPZ2ktQ0NTVA?oc=5",
-   "published": "2026-09-28T15:02:06+00:00"
-  },
-  {
-   "title": "What Nvidia's $150 billion stock buyback means for shareholders and potential investors",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPWUtDZnNFWERqRnhwYi1DOTdWRXhPdEhwRjgxRXdDa3paclByUmVWb3ZuaXVpTHdKc3J3QjVzYnpjRVMxXzBmSWdwUEJuV3ZEdmVBVHRBeG9IVDVKbzR3czN5UTdSQjR3U2J0T1NIWGVrQ2U5SGdmMnNscXF6ZVdSSW1JaE1EakpLMEJteVVkMWNOQi1BQmdKYzRvUmJBVUNzWXJvOXpSVW1PdGtGSTk1bkNZak1yZkh2eVFyWE01dTF6X0YwbGJmTGtURnZ3bmxMQUlyTDZHR1ZkRXVXVlZVQVdwYi10eUhzdG5zMkNxWkxUUnM?oc=5",
-   "published": "2026-09-28T21:18:28+00:00"
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNeVcxYVNvUVcwdXVxYVR2QU1laFl5bW5raXBrY0d2ODZWM0RMMk5mdGJCSktKd0hFekhub3NNb25HaHZYV3FoUGk0ZVdFWWIwVno3dmxnckJCVFVvZHcxT3hVaXVTb0pRRzZ4VVBiU0U5ZjJiQkQ0cVFBWURxazIzQmlxRVNhN0NyRjR4WTVR?oc=5",
+   "published": "2026-09-29T10:36:00+00:00"
   }
  ]
 }

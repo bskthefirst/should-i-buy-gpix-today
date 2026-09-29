@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28T23:48:48+00:00",
+ "generated_at": "2026-09-29T14:30:13+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.1 (p35)",
+   "value": "21.8 (p32)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 35.1,
+    "pos": 32.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 45.4,
+    "pos": 45.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -69,7 +69,7 @@
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 69.3,
+    "pos": 69.0,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.1 pts",
+   "value": "+5.8 pts",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
+   "lean": "neutral",
+   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 84.2,
+    "pos": 81.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.0%",
+   "value": "0.7%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 10.0,
+    "pos": 7.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+2.8%",
+   "value": "+3.0%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 73.3,
+    "pos": 75.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.93% (+0.30 1mo)",
+   "value": "3.02% (+0.42 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 23.3,
+    "pos": 25.5,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 56.5,
+    "pos": 56.2,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "34 (fear)",
+   "value": "33 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 33.9,
+    "pos": 32.9,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 16d",
+   "value": "CPI in 15d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 57.76,
-  "day_change_pct": -0.79,
-  "sma50": 56.58,
-  "sma200": 54.78,
+  "price": 57.935,
+  "day_change_pct": 0.3,
+  "sma50": 56.62,
+  "sma200": 54.8,
   "high52w": 59.52,
-  "drawdown_pct": 3.0,
+  "drawdown_pct": 2.7,
   "series": [
-   {
-    "d": "2026-01-09",
-    "c": 53.33,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-12",
     "c": 53.38,
@@ -1343,6 +1337,12 @@
     "c": 57.76,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-29",
+    "c": 57.935,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1350,12 +1350,12 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.59 (-2.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.59 (-2.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 34) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 33) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1365,25 +1365,25 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.1) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.93%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.02%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-28",
-  "days_total": 731,
+  "end": "2026-09-29",
+  "days_total": 732,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-09-29",
   "baseline": {
-   "n": 710,
+   "n": 711,
    "avg_pct": 1.89,
-   "median_pct": 2.11
+   "median_pct": 2.1
   },
   "bands": [
    {
@@ -1403,14 +1403,14 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 458,
-    "avg_pct": 1.24,
+    "n": 459,
+    "avg_pct": 1.25,
     "median_pct": 1.65
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.89,
+  "ttm_yield_pct": 9.86,
   "tbill_3mo": 4.24
  },
  "distributions": {
@@ -1520,73 +1520,73 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 736.53,
-  "sma200": 666.14,
+  "price": 739.4101,
+  "sma200": 666.7,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 22.13
+  "level": 21.83
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 30,
+  "days_until": 29,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 16
+  "days_until": 15
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-28",
+  "end": "2026-09-29",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15400.0,
-  "dca_value": 21331.49,
-  "dca_return_pct": 38.52,
-  "dip_value": 21095.41,
-  "dip_return_pct": 36.98,
+  "dca_value": 21396.12,
+  "dca_return_pct": 38.94,
+  "dip_value": 21158.72,
+  "dip_return_pct": 37.39,
   "dip_cash_uninvested": 200.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "NVIDIA Launches Open Agent Safety Platform to Secure Agents From Testing to Deployment",
-   "source": "NVIDIA Newsroom",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFAxdzBTN1hGTnNfZXZNWUU1MjhzQnpHUndjNkNYMGZiRGc1TDR5NExfTmtrbkFvZU5Fakp1eG1CVVFOZ0tpYzJ2aFVVY1pCSFY4Vl80Tkhqbkp3blMyejJkUXdpTVlBZWdzd2VKdVdR?oc=5",
-   "published": "2026-09-28T09:07:51+00:00"
+   "title": "Exclusive | OpenAI Scraps Release of New AI Model Over Safety Concerns",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNcC0xNDExdTJodUowZi1yeWdFN3M5RlpvY3FvZ1lQeHltWGVkeG01ZTVlaHJ0TldqVVRhekJhWl9ZRTRLNHRqX1NQQVFKMW5NRnhBTmlUNWNpX1FBX3Myc3VlaGIxbFZTZDZYRlYwTGNVLTUtNnJScGJWcm5rX0hMMmNadFFmZw?oc=5",
+   "published": "2026-09-28T23:29:36+00:00"
   },
   {
-   "title": "Michael Burry believes the AI bubble 'may burst' sooner than he first believed",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNOUVVY1JFeTZYS3JGNGFCNlItUlYxMlByQ2tGOVduVzFLNDdpQzk4bXl6dklUWlRrUkRhRzI5VGt1R0V4Y0h6T0ZXa0kzVWZnUkdBbzFSWFFZc2FWdHFoYUQ5bzZQYVNCV2RLNGxiMzc4VWt4Tnh2QzdkeTFJMzVkWTVLM0RfSWdUVkRkaXRvalZ5OGQ3ZXpyMHF1ejRUejQ2UmNyYVFBWmZHSkJmU0hKRHVvTdIBuAFBVV95cUxOTXJSdXlIZWJGcjdGWjk0Zy1UbkdmYXhZYzI3M2tHY05NYnBpa0MwcHNMX2MydDJtakxUSC1ySEtHVk5IZzJ3WGxiME5DcEhGNll1bkJOOTRBcmd4MHJRdmVjYno3TXhBSkVoeFdQSmlxVU1Ddm80Qk4xWmRfTGxqZFB6NS1kVDlHYS1YWmZIRm1tVmdUdEh0bUhidGt5SEluVkVReDFlZUJDU1JOTmlfcnMwWWRQNmlm?oc=5",
-   "published": "2026-09-28T20:43:14+00:00"
-  },
-  {
-   "title": "Nvidia unveils security platform to stop AI agents from going rogue",
-   "source": "AP News",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNLUs1WDRHbkRJcDEzM0tsZ1BWNlZzS2pMVm94RkllS3hiR0Q2UUlPTnc0SVZUcGRCMUVoNDhvTjVKdkhuajJ3RXR2WnJRS2xoRTFwNUREV09yc0dFMjc2YVpCY0RTMW1JbXdDOGpXY283UFVBcG1YRlh6UzBaS0lPOEYwck9UanNBM1dDdXRvVjhQNWtNR1NJWENoemNqNmtHMi1zZWt5UFZwdw?oc=5",
-   "published": "2026-09-28T22:14:00+00:00"
-  },
-  {
-   "title": "and is not \u2013 using AI in our work",
-   "source": "Pew Research Center",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOM0t1U0o4NWl3YUJQVkpqNnlBcF9RRldQbU1JRURFRG50NTNfTkFxT2otU2N3eWJCLWR1UUZLa2tlRXRVMXNKanlIdTJPZkgzSndHYk00S1VacC1nRlJmWXhmV3prZU5td2Vhck9pcEpVVllNOHllelJBaktmdVh5QmtaY0xpeVozX1VpM0tId1hRb3FTSElqd21QVHhWWmE1MF9VeDlEaG5vN2lf?oc=5",
-   "published": "2026-09-28T15:34:06+00:00"
-  },
-  {
-   "title": "Trump's AI meeting with tech CEOs to focus on finding balance, US House speaker says",
+   "title": "Trump to host Zuckerberg, Anthropic's Amodei, and other AI titans Tuesday",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPcHJGOXJ5VG45UUJaOEZ4MWNFZDQwd3BpUEtsWkFCeFhPbVd5UmFDaDFCelYwaTduR3h2TEsyUTlCeFFReHNtc3h2Y0p4Zi1BVUs2Qnk4ZjZPV2hnSUZEMlVrVWRxbThlT25RdUNVbHEyVHJ6R1dwVlZ5VzlORVZzRGNVbnpxZWZxWXpVMEhEeFpaUGxCRW8zVDRDaHp1R19HbUE5M3dWaERBU2N2aGtsRldiT3RPbDBheUI1VFBjU2FiV2sxOUNvUw?oc=5",
-   "published": "2026-09-28T19:48:02+00:00"
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNbnRqUzdYZGRGeF82aU9Kc3BzNk9rLWZwTjJBNWhVNTRfcXU1UEtWWC1XNndCWGNHZDZhekREX2k4bUg1VjNNLUpMSV82U281RTJqMUZjMjFVRzhXaGZ1Q1B0TG9XWG9OVFBHSGZlZnZmX3lBcHp0a2Nrb3daZGliamtZY2kwNUEtRm9Mb092bDVxemtaVGlRME5WM2xXRHZOX25IQWk2cURXc09paHJVNEdmT1Q4UTg?oc=5",
+   "published": "2026-09-29T11:59:02+00:00"
   },
   {
-   "title": "Schools are experimenting with AI with little evidence or policy to guide them",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOOWNZbE4tY1FmOHFscFk2Yy1aU3JORnJrbDZRckc2amkzajd6UTF5eFJ6ZWs5UmtTMDVvdTVzWTFPZ2k4UDZVdmlLenNxMUpUZlBQV3RnSU5aQkFpaUFPa0Vual85aHJ1bk9YOWl2XzVFQVN6RWdqamx4MXJiLWhHRw?oc=5",
-   "published": "2026-09-28T09:00:00+00:00"
+   "title": "Trump to host summit with top AI leaders in Washington",
+   "source": "NBC News",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNTjV0bUtBZ25mSXdRaS1vSkdYdnptUk9kdEpaLTg5dlhMZWVUMExuM01LYTU3cWxRT01yLWFnMmlQT0lfakgwdGpRUGZKX3haZF9NbXA1Zk01U2t0ME1QaVhxQV9EYVBZY05Pd0hOS2ZBUDJlY2NFdmVyOUppZzNzUVpiN1lsc3E3WV8tWml4TTU4aS1Sb1p3MkxaVTFZMi1udUE?oc=5",
+   "published": "2026-09-29T10:00:42+00:00"
+  },
+  {
+   "title": "Top AI leaders to meet with Trump at White House amid dire warnings about technology - ABC News",
+   "source": "Breaking News, Latest News and Videos",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOanlhb3luTWNPUUpYbzhHV2tQdUF1dEVhN3d5VDJZdGwzRU1fT1Nsb2ZrNjRNeHNiem1HNTZaSzdQcU80MTVwSE44a0pvR1J3eTZIRG0yRjhnSWdVVjJuek1qTDVIOVAwTDZRRXlPR25xUU83NWkyd2swVWFsbE5ELVYyNzFCU1RETWY2S21pVlNBYVEw0gGaAUFVX3lxTE5qYlFleHFIUHFxbnkxTDVvZmx5RmI5SHRCY1Bnc0wxejY5emRkd2RsWDA4WUNndklFbG1qVzBBRkdreUtGZ0VLc3hlNWVHc3d1NHdiUzRKZkhNczhTZTBBSXdzZlZGM2ZTbndUaFlob0R4Q2pQT0t0aXlUTnhfYnJPQkRNWlVGOG80U240NHR1U3hnSVpCN0Y4QVE?oc=5",
+   "published": "2026-09-29T09:04:55+00:00"
+  },
+  {
+   "title": "Opinion | Bill Gates\u2019s Blunt Warning on A.I.",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOZURab3ZhYlZUSWFiZHNmSGZjbkhLSnBuWThVOEVPakYySVhES056VGhsekFuNDJmRnFVMENRcS01R1UwdEdjRzNEWUY0OXJLYm9tcWc2Z3A4Y1hYVjBrTUF4WlpVclR6VE84aE5GbEVibVJjYWYwRjdfdDJZOUZwRmFvYw?oc=5",
+   "published": "2026-09-29T09:03:39+00:00"
+  },
+  {
+   "title": "At the White House, Trump will pitch an AI \u2018golden age\u2019 to a wary nation",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNY3RubTFVMl8zTXl3UHFxNnoxOU5BSTVCSHFxSkZINzNJNExKbmo1RmVoSS1yeVBqeXk5ODQtc1EzOFo1S042NzZGX2hocDcxUlcyRl95b1dnWUNtTWU4eF90cXdNeUJEdGVfbmxzWjkwd0NtNl9SREJRSlpGWWsxQWdtNENRcmNURFBCRWl4RGxLcVJPM0lydWxiajl0bk9KT0YwMEs0TU1iMVpkcUxJLXVibw?oc=5",
+   "published": "2026-09-29T13:34:25+00:00"
   }
  ]
 }

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28T23:48:47+00:00",
+ "generated_at": "2026-09-29T14:30:12+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "16.1 (p27)",
+   "value": "15.9 (p24)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
+   "lean": "bad",
+   "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 27.3,
+    "pos": 24.4,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 45.4,
+    "pos": 45.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.0 pts",
+   "value": "+4.8 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 75.1,
+    "pos": 73.7,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.7%",
+   "value": "0.8%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 7.0,
+    "pos": 8.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+0.9%",
+   "value": "+0.8%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 57.5,
+    "pos": 56.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "2.93% (+0.30 1mo)",
+   "value": "3.02% (+0.42 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 23.3,
+    "pos": 25.5,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "34 (fear)",
+   "value": "33 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 33.9,
+    "pos": 32.9,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 16d",
+   "value": "CPI in 15d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 56.01,
-  "day_change_pct": -0.57,
-  "sma50": 55.81,
-  "sma200": 53.93,
+  "price": 55.975,
+  "day_change_pct": -0.06,
+  "sma50": 55.83,
+  "sma200": 53.95,
   "high52w": 56.67,
   "drawdown_pct": 1.2,
   "series": [
-   {
-    "d": "2026-01-09",
-    "c": 53.22,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-12",
     "c": 53.28,
@@ -1316,19 +1310,30 @@
     "c": 56.01,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-29",
+    "c": 55.975,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "SPY has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
+  },
+  {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-2.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.72 (-2.2% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 34) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 33) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1338,25 +1343,20 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 16.1) = top decile of its past year (+9 pts)"
-  },
-  {
-   "label": "Extreme credit stress",
-   "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 2.93%) = extreme credit stress (+6 pts)"
+   "text": "VIX above 23.6 (now 15.9) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-28",
-  "days_total": 731,
+  "end": "2026-09-29",
+  "days_total": 732,
   "backfilled_days": 697,
   "fg_coverage_start": "2025-09-29",
   "baseline": {
-   "n": 710,
+   "n": 711,
    "avg_pct": 1.64,
-   "median_pct": 1.99
+   "median_pct": 1.98
   },
   "bands": [
    {
@@ -1376,9 +1376,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 518,
+    "n": 519,
     "avg_pct": 1.22,
-    "median_pct": 1.68
+    "median_pct": 1.67
    }
   ]
  },
@@ -1493,44 +1493,38 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 765.61,
-  "sma200": 718.86,
+  "price": 765.4599,
+  "sma200": 719.25,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 16.07
+  "level": 15.86
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 30,
+  "days_until": 29,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 16
+  "days_until": 15
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-28",
+  "end": "2026-09-29",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15400.0,
-  "dca_value": 19973.78,
-  "dca_return_pct": 29.7,
-  "dip_value": 19740.75,
-  "dip_return_pct": 28.19,
+  "dca_value": 19961.3,
+  "dca_return_pct": 29.62,
+  "dip_value": 19729.42,
+  "dip_return_pct": 28.11,
   "dip_cash_uninvested": 1600.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
-  {
-   "title": "What makes the Federal Reserve decide to raise or lower interest rates?",
-   "source": "Chase Bank",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNYmNGVDdWOHB0Y2E3TVNGSVdZbHBqdllnVE9XMXRKRmE5V0l0b3NvZkh0MTR3a0JtdnZMazVKN2FfR1NIdlB5LXZvRkxTaF9jV1ZQVnU5dERKNGNlM2lXdGU4NDluVE5CZmlTLVZENlJBZ1ZXV2NiYXNPWDNTTEhSMlZROVQ3aVhkTzVxNFlLaHF3cUh0dGxwTnFVa0FBY1BNczg1bnpSZVA1eURnbXZ2ag?oc=5",
-   "published": "2026-09-28T18:50:46+00:00"
-  },
   {
    "title": "Federal Reserve Staffer Removed Sensitive Files Before Retiring, Report Finds",
    "source": "WSJ",
@@ -1538,28 +1532,34 @@
    "published": "2026-09-28T16:54:00+00:00"
   },
   {
-   "title": "Fed\u2019s Cook says AI demand \u2018broadening\u2019 to increase inflation",
-   "source": "The Hill",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5sXzVJWWxiWkJXX0Ffb0lKYlV0RDZQdmNDNHlZaHpEeDViRjhUZkV5bUVtTi05VWxZaUJVVVR2R2NTRGhnUTNweURWdENWeWVyR1Bjbk5iVG81WDdPRVdPMVhMSDFtUWZHcW00NUFuNFM1ZEpkTlHSAXtBVV95cUxQUXFxcWwzZVo4STdfdTFuaFFjQkpudkhYOVN5QzFmYmRlbkdsOTFyS01xTWNJQVM4MEtpSmNlT2NYRWJLa2g0VUxTZE11S2NnMFBPeVA2MVFsNjNYQjJSTk5MZnh6bVV0NldyZ0s0RTFpNi0tSS1mY0VHNlU?oc=5",
-   "published": "2026-09-28T20:17:00+00:00"
-  },
-  {
-   "title": "Fed's Cook sees further inflationary pressures ahead",
+   "title": "Fed watchdog flags apparent data breaches by retiring staff member",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQY1hBTjdyQzBjNTJoTkhvQV9YVk9rWnRMWjhhR0Jkd2ZQcDBoRU5UQUZZTElmX1pYZzFhUXdsSF9Cc1otTVZGR1BOQmtBcXU2eS1hNC1EWE45V2lWWmdFSU8xS0RPSDdfR3k2NjRwSjdwYzhMelNsOU5CSzhzZ1Y4U0t2ZDlDZGo3OVBuSW9lcWxjU1lNWUkwSS1QV0I?oc=5",
-   "published": "2026-09-28T17:27:48+00:00"
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQQ2ZwVHE1NFdjY0xLQmFReFNEY080ZGhOS0UyQmNBTXZQbTBTWWN4T040OHgwUFZIRVRrenlVZmhxRzZxNmJuSHh0ZTU1dDZWSzNsdmNGRDRvbThHVDBTNC0xX1FkMzZnTHFBZzU5UmYxWnlCZGNaTUxhdlJoZm5NNU1kR1VheU5rcC1iVWctS25BcGtYbFRjLXJlOVBYSGhqTW9Wci1zdUpaOGVrY2ktSVU0cVJ1dw?oc=5",
+   "published": "2026-09-28T20:49:43+00:00"
   },
   {
-   "title": "Federal Reserve exposed to security \u2018deficiencies\u2019, watchdog warns",
-   "source": "Financial Times",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQRzh6dVk3eFMxWHl5VVJsSXVid1kyTTNReFJNOVo0c200VUdSU2RVR2M3elBjaVFhNTRyUDFfamFfYm9iRndST3ZEWi0wenNFSlZOX2F6Z21uVzJBTGp5WHl4LTRKSnpENEhzZG40Z2NVZS1GUFBBSU9KdGN4dlczeWk4c3A?oc=5",
-   "published": "2026-09-28T17:31:45+00:00"
+   "title": "What makes the Federal Reserve decide to raise or lower interest rates?",
+   "source": "Chase Bank",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNYmNGVDdWOHB0Y2E3TVNGSVdZbHBqdllnVE9XMXRKRmE5V0l0b3NvZkh0MTR3a0JtdnZMazVKN2FfR1NIdlB5LXZvRkxTaF9jV1ZQVnU5dERKNGNlM2lXdGU4NDluVE5CZmlTLVZENlJBZ1ZXV2NiYXNPWDNTTEhSMlZROVQ3aVhkTzVxNFlLaHF3cUh0dGxwTnFVa0FBY1BNczg1bnpSZVA1eURnbXZ2ag?oc=5",
+   "published": "2026-09-28T18:50:46+00:00"
   },
   {
-   "title": "Fintech\u2019s Next Chapter: Five Insights from the Fed\u2019s Payments Chief",
-   "source": "Philadelphia Federal Reserve Bank",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQblVBd25rbzNYN3h4RHhEQkhIOURwZElDN2lXSDZJVFdIYjkxb0NGbTlJSFVMc2lGdmtXUWtyRjN4c3Jtd3NWeHZfWGNaM3hxX2R6aEJEam5SX1ZhdHI1SHhqaVdPYTdzNnRRMDBuWUZ4Q0dMWFh4Vi02cG04TDl1TWF4U2hLczJBa3ppYzRteFBzSVNvOHp1QUQ4SVZjTDRCdFZRYURpM1V3OVJiS250RkZLNGk2OERrdWw2aWtjdnIxNjRxenVwMw?oc=5",
-   "published": "2026-09-28T20:26:15+00:00"
+   "title": "Treasury yields waver near multiyear highs",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE93aHlqa1RYRElONmxCNDg5QVhVd0RpVE9MVVNKRnVpSEhYT1lPaFdmQWFSVXYxTmVmaklMRUY5QW1HanBIUHBOblJFamp0Z3VuU3FzNmgxUEc5VnVnbXZwNWFEaGlDV21iSlHSAW9BVV95cUxOU0tCbW1leGVnckp5VV9HeG5YczdXTmR4bHNSa040TWhzYzVpbTd2dlhiT2s0aTIyb0FQWjAzdzhaTW5oOGZhUkNvbDNZRGdlNEVOb3l5N013dlpCT0RGdlA0TC1Sb3NvczhHYzZQcXc?oc=5",
+   "published": "2026-09-29T07:52:47+00:00"
+  },
+  {
+   "title": "Retiring Federal Reserve staffer removed sensitive files: OIG report",
+   "source": "scotsmanguide.com",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOSEljWmcyeFNsSkZoVkRBbG1zeUpLLWdhR0R2cC1NZDZtRzdpTnVzMkZrdFNDU2NFc0NVcG1CZFdrZ0J2aWdGemFWMlduZFZsRjJDNmpjREcwVTJIVXlobkdhOWhLdWh1akcyMXhPTmJBMFFfMVdvM1IyWW56VVdaRWV0dEVucDlpTkx4UlRDMGpRNWZyemcxWnF2VXhjTlZJbm1wajN3?oc=5",
+   "published": "2026-09-28T23:28:28+00:00"
+  },
+  {
+   "title": "INFLATION REDUCTION ACT OF 2022",
+   "source": "Department of Energy (.gov)",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1WZ1JFc24yV0d0Z09fdUF1ZTluaWJVVmZwY3I3SnFjb01GT3dUbk5zemY1OFAzeUU5aFVNNHQ3MlZ0MVlPS0hSVGV5eFZJWGRTdmFpNS1ueUVsbjQzUVoxWjRycmo0UQ?oc=5",
+   "published": "2026-09-24T14:21:45+00:00"
   }
  ]
 }
