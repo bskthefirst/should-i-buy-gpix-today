@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-29T18:50:25+00:00",
+ "generated_at": "2026-09-29T22:56:28+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "good",
    "note": "TSLA has closed down 4 straight sessions. Historically bounced the next day (+0.35pt excess, t=1.7, positive in every era at the 1-day horizon). Longer horizons were mixed, so it earns 1.0 - half the crash band's weight.",
    "viz": {
-    "pos": 56.7,
+    "pos": 54.1,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "27.7%",
+   "value": "28.0%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 55.4,
+    "pos": 56.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.2 (p30), F&G 32",
+   "value": "VIX 16.0 (p26), F&G 32",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 354.27,
-  "day_change_pct": -0.89,
-  "sma50": 347.47,
-  "sma200": 394.7,
+  "price": 352.84,
+  "day_change_pct": -1.29,
+  "sma50": 347.45,
+  "sma200": 394.69,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 27.7,
+  "drawdown_pct": 28.0,
   "series": [
    {
     "d": "2026-01-12",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-29",
-    "c": 354.27,
+    "c": 352.84,
     "t": "ok",
     "s": 56
    }
@@ -1222,7 +1222,7 @@
   {
    "label": "Crash band",
    "direction": 1,
-   "text": "TSLA 5-session return -6.5% - another -5.5% reaches the validated crash band (+6 pts)"
+   "text": "TSLA 5-session return -6.9% - another -5.1% reaches the validated crash band (+6 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1275,17 +1275,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.24
+  "tbill_3mo": 4.28
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 354.27,
-  "sma200": 394.7,
+  "price": 352.84,
+  "sma200": 394.69,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 41.7
+  "level": 41.8
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1302,20 +1302,26 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-29",
+  "start": "2022-09-30",
   "end": "2026-09-29",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 29202.63,
-  "dca_return_pct": 39.06,
-  "dip_value": 29233.17,
-  "dip_return_pct": 39.21,
+  "dca_value": 29086.22,
+  "dca_return_pct": 38.51,
+  "dip_value": 29115.17,
+  "dip_return_pct": 38.64,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 205,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Tesla's Q3 deliveries loom large as the Roadster slips again",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOLXBDTEplVDNLdl9EdXRyUnItWmJJMmZaRzhxbExwQXZ3b2VBT0RGRThOWU9iTEtxX01NSm5WYXYwYjdJSHNEYVY1TXpySGtGUkFwa3ppdURNbEZoWDh2elZ6bVlfVlhmSVI3aVdwbzFnNGpmYzlrbjc0UnRxcHhfZnpfOERWVXhOZmIwMGczeVVvREhVOWRFMGJzRWxnS0V1VF9nM3p3NExQQzRTWGtHSi0xRTc2RVZMNktldGJacFE?oc=5",
+   "published": "2026-09-29T15:00:07+00:00"
+  },
   {
    "title": "Tesla (TSLA) wins SEC OK to auto-vote retail shares with board ahead of SpaceX merger",
    "source": "Electrek",
@@ -1323,22 +1329,10 @@
    "published": "2026-09-29T16:57:00+00:00"
   },
   {
-   "title": "Tesla Stock Moves Lower as Delivery Week Tightens the Volume Test",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPZWtCang5RUpaUXJtZmZGTUxzN0NZeDUtb25HZzRyQ0JlOS1YUC1UM0R3NzBPVFc5MWZFU3dDNkRoeEVWdnpUeV82NTRWMGJVX2VXZ01VWHBKRmV2VFVpczdQXzF5REhDNUtWZnRfR3EyQjQwNnM2eHhCdGkxMkZCTUJUMU5Hb2lnckxIQXgzcEJ3eXZ4WHQxVjl6dlBDUQ?oc=5",
-   "published": "2026-09-29T17:18:30+00:00"
-  },
-  {
-   "title": "Elon Musk Wants To Build 20,000 Optimus Robots A Week. There's Just One Problem, Tesla Still Can't Get The Hands To Work",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOSXBNV2NQdDczVGk1R29xN2ZyQ2k5WTRTWHlFc2lEWHYwUWJWLTJ4RkhrX24wbVRCQi1UcEM5ZklyZVhTMl80U2d3Nk16WXpUVGFVXzdyU3c1RkV5SlRiWTVTZkxwaUtaYkd6YWFtM2psMWdZR3R4a0dWZzE0STdHMU1UR0pVaXQ5Y0V0WWhJSzNKNHZFYnZONzNNRng4NW5nR1p5Zm5OemhkZmNkMjRFNkhxYmxvcm8xa214a3Q3SUV1bkZ5WVRFUV9xVk9lM1hhQ2RId0xVOXNya0QtSjdGT2VhVWhvaW1XWDlmTkU2VWg?oc=5",
-   "published": "2026-09-29T15:20:00+00:00"
-  },
-  {
-   "title": "Tesla Stock Drops: What's Going On Today?",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNM2VHVWFOeTF4a2ZIcldZTHRZNFRSQkRiMklnVkVCRFhGTy01Z3lOcGdnaFhQNkxKRThZVURqV0FsWEpROWtnQk5lU3lUOWdzRHBXU3o5MTJUZ3N0cDR2WHBIVGlhRVhQSENVWjB1RjVBbm9Gb0c5dG1QZmZfVjVjVElNSElWaFE0VWUwRF9CQUVFVTJ0Qy03aV9tcTkxQ3Fk?oc=5",
-   "published": "2026-09-28T15:46:14+00:00"
+   "title": "3 Numbers That Could Push Tesla's Stock Higher This Week",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPTmlubXhhN2N1TGR4R251Wm1aTkVKTXhkazBoTC02Nk5PYlV5RlBZQU5URFZOd25KbElfT3FORGlqSnRvZnQ1aVFBaGcxal8xOUl3ejJOaHRfTzhvS0dHalB2Um02b0hBcU1YRFRrbWRReUJmQWpPQ2tDS0tZRmo3bUJmT1ZvclRvVk9LOVlXaw?oc=5",
+   "published": "2026-09-29T21:00:15+00:00"
   },
   {
    "title": "Tesla Wins FSD Approval in Croatia. Is the Rest of Europe Next?",
@@ -1347,10 +1341,16 @@
    "published": "2026-09-29T14:02:00+00:00"
   },
   {
-   "title": "Tesla\u2019s Semi Is Finally Here\u2014But Will It Move the Stock?",
-   "source": "MarketBeat",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPczV5NXlYQ3hTNDRXQmU5REtrb2I1Y2JnMm8tLVpfYUdKc2FhMjUxc3FqWXhwSXFkbEwwanNobUV4aEp4dlUwRC1YczJwY1RkdVluXzMxT1RiaElMWkJlTUVxaUV6dTJoV0FoVDJKamdqUWRORUhqUEZLcjFicVRDcUEzVG1Kd283aEZ3MWYwUFVSemJN?oc=5",
-   "published": "2026-09-29T16:42:05+00:00"
+   "title": "Tesla Delays Roadster Reveal Over Severe Weather in Texas",
+   "source": "Investopedia",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQOS1RVjRmLUFHMXQtc092LU1aOThEaTNoaS11cWx5MXhweVVSa1NOaFFiRGNmcWJLLXpxREJIZGF5Y284NmZ2clZoUnoySWdiNjY1ZlFpWWsyeFpVOFVFYWg5Y1pBSmIwQkkwTEt4aVNtOW93MEF2dHl2OC02YlpJci12czZ5bTlYTHUwX0dpdVItenFNVUxCNWJDSDhSMkNUQTZuN1N0QzF1bU5JQ3dmTzF5UGE?oc=5",
+   "published": "2026-09-29T19:31:57+00:00"
+  },
+  {
+   "title": "Tesla Stock Drops: What's Going On Today?",
+   "source": "Benzinga",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNM2VHVWFOeTF4a2ZIcldZTHRZNFRSQkRiMklnVkVCRFhGTy01Z3lOcGdnaFhQNkxKRThZVURqV0FsWEpROWtnQk5lU3lUOWdzRHBXU3o5MTJUZ3N0cDR2WHBIVGlhRVhQSENVWjB1RjVBbm9Gb0c5dG1QZmZfVjVjVElNSElWaFE0VWUwRF9CQUVFVTJ0Qy03aV9tcTkxQ3Fk?oc=5",
+   "published": "2026-09-28T15:46:14+00:00"
   }
  ]
 }

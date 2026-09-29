@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-29T18:50:27+00:00",
+ "generated_at": "2026-09-29T22:56:29+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 97.8,
+    "pos": 95.2,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "28% ann. (p4)",
+   "value": "28% ann. (p5)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for NVDA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 4.4,
+    "pos": 4.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "3.0%",
+   "value": "3.4%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 3.0% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 3.4% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 6.0,
+    "pos": 6.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.2 (p30), F&G 32",
+   "value": "VIX 16.0 (p26), F&G 32",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 228.13,
-  "day_change_pct": -0.32,
-  "sma50": 217.0,
+  "price": 227.21,
+  "day_change_pct": -0.72,
+  "sma50": 216.98,
   "sma200": 199.91,
   "high52w": 235.74,
   "high_label": "52-week high",
-  "drawdown_pct": 3.2,
+  "drawdown_pct": 3.6,
   "series": [
    {
     "d": "2026-01-12",
@@ -1212,7 +1212,7 @@
    },
    {
     "d": "2026-09-29",
-    "c": 228.13,
+    "c": 227.21,
     "t": "neutral",
     "s": 50
    }
@@ -1222,7 +1222,7 @@
   {
    "label": "Momentum: new high",
    "direction": 1,
-   "text": "NVDA at $234.03 (+2.6% from here) = back within 0.5% of the 52-week high (+6 pts)"
+   "text": "NVDA at $234.03 (+3.0% from here) = back within 0.5% of the 52-week high (+6 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1254,7 +1254,7 @@
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
     "n": 199,
-    "avg_pct": 7.02,
+    "avg_pct": 7.01,
     "median_pct": 4.31
    },
    {
@@ -1275,17 +1275,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.24
+  "tbill_3mo": 4.28
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 228.13,
+  "price": 227.21,
   "sma200": 199.91,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 27.6
+  "level": 27.7
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1302,23 +1302,29 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-29",
+  "start": "2022-09-30",
   "end": "2026-09-29",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 84573.14,
-  "dca_return_pct": 302.73,
-  "dip_value": 84696.07,
-  "dip_return_pct": 303.31,
+  "dca_value": 84244.52,
+  "dca_return_pct": 301.16,
+  "dip_value": 84354.9,
+  "dip_return_pct": 301.69,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dip"
  },
  "headlines": [
   {
+   "title": "Nvidia's next 'holy grail' is physical AI: Dan Ives",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNNnVYc3BCaHpHOEZZNWFSOEpMTDQ2LUZ0ZFM4Uk9iTV9KNEk2WGhtTW80dm9NM3F0bFNndUpmOGtXVXgyTUZsVG1hRjNTMFJqV2pKdWRVQVBSRWJ2OXVqNFFiUkhLQXdUNFl1VG96Qjh6S1hzRmNyWHlXaDREY0twRlJ3WDl0RDB2elpOLTYwbDNISkR0bjEyN0lNWmo1RDZzRWZ4aVZfTDNrb0E?oc=5",
+   "published": "2026-09-29T16:50:38+00:00"
+  },
+  {
    "title": "NVIDIA Launches Open Agent Safety Platform to Secure Agents From Testing to Deployment",
-   "source": "nvidianews.nvidia.com",
+   "source": "NVIDIA Newsroom",
    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFAxdzBTN1hGTnNfZXZNWUU1MjhzQnpHUndjNkNYMGZiRGc1TDR5NExfTmtrbkFvZU5Fakp1eG1CVVFOZ0tpYzJ2aFVVY1pCSFY4Vl80Tkhqbkp3blMyejJkUXdpTVlBZWdzd2VKdVdR?oc=5",
    "published": "2026-09-28T22:54:06+00:00"
   },
@@ -1345,12 +1351,6 @@
    "source": "Reuters",
    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQSmxnMEM4VmZvZUtSUTFlQWI0bWIyRFJmMEh4RTh5ck5obV85T2RMeTJoU1VLN3BwRkE4d3F4ZjNiaDN1RzNtVDczTGNPQnF0ZzIyUnNzSk40TnhaZXZNRmVyUUZ5cjZXUGtWR0puZHZSejFnQkthMHJfQkhxMEZVTWgxVTBQeUJxM3RlaXBKcXB4RDZIOFU3SExnR3lHcUN3dUdlUHhPZ25SN0xPMEJGcnc4d0d5VkwwUmxaMlQ0blZqcU0?oc=5",
    "published": "2026-09-29T15:50:51+00:00"
-  },
-  {
-   "title": "Nvidia unveils security platform to stop AI agents from going rogue",
-   "source": "AP News",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNLUs1WDRHbkRJcDEzM0tsZ1BWNlZzS2pMVm94RkllS3hiR0Q2UUlPTnc0SVZUcGRCMUVoNDhvTjVKdkhuajJ3RXR2WnJRS2xoRTFwNUREV09yc0dFMjc2YVpCY0RTMW1JbXdDOGpXY283UFVBcG1YRlh6UzBaS0lPOEYwck9UanNBM1dDdXRvVjhQNWtNR1NJWENoemNqNmtHMi1zZWt5UFZwdw?oc=5",
-   "published": "2026-09-28T22:14:00+00:00"
   }
  ]
 }
