@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-09-30T18:32:30+00:00",
+ "generated_at": "2026-09-30T22:59:07+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "own"
  },
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated single-stock condition is in your favor on TSLA today. Nothing dramatic - and single-stock risk still dwarfs entry timing.",
-  "tone": "ok",
-  "score": 1.0,
-  "score100": 56,
+  "label": "No edge either way",
+  "summary": "None of the scored TSLA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "5 down days",
-   "score": 1.0,
+   "value": "-6.7% in 5 sessions",
+   "score": 0.0,
    "weight": 2.0,
-   "lean": "good",
-   "note": "TSLA has closed down 5 straight sessions. Historically bounced the next day (+0.35pt excess, t=1.7, positive in every era at the 1-day horizon). Longer horizons were mixed, so it earns 1.0 - half the crash band's weight.",
+   "lean": "neutral",
+   "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 51.0,
+    "pos": 55.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "28.1%",
+   "value": "27.6%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 56.2,
+    "pos": 55.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.8 (p22), F&G 34",
+   "value": "VIX 16.3 (p32), F&G 31",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,13 +128,13 @@
   }
  ],
  "fund": {
-  "price": 352.16,
-  "day_change_pct": -0.19,
-  "sma50": 346.91,
-  "sma200": 394.22,
+  "price": 354.81,
+  "day_change_pct": 0.56,
+  "sma50": 346.96,
+  "sma200": 394.23,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 28.1,
+  "drawdown_pct": 27.6,
   "series": [
    {
     "d": "2026-01-13",
@@ -1212,9 +1212,9 @@
    },
    {
     "d": "2026-09-30",
-    "c": 352.16,
-    "t": "ok",
-    "s": 56
+    "c": 354.81,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1222,7 +1222,7 @@
   {
    "label": "Crash band",
    "direction": 1,
-   "text": "TSLA 5-session return -7.4% - another -4.6% reaches the validated crash band (+6 pts)"
+   "text": "TSLA 5-session return -6.7% - another -5.3% reaches the validated crash band (+12 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1275,12 +1275,12 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.28
+  "tbill_3mo": 4.25
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 352.16,
-  "sma200": 394.22,
+  "price": 354.81,
+  "sma200": 394.23,
   "above_200d": false
  },
  "vol": {
@@ -1302,20 +1302,26 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-09-30",
+  "start": "2022-10-03",
   "end": "2026-09-30",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 21000.0,
-  "dca_value": 29030.17,
-  "dca_return_pct": 38.24,
-  "dip_value": 29059.06,
-  "dip_return_pct": 38.38,
+  "invested": 20900.0,
+  "dca_value": 29114.85,
+  "dca_return_pct": 39.31,
+  "dip_value": 29127.05,
+  "dip_return_pct": 39.36,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 205,
+  "dip_buy_days": 204,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "SpaceX Just Got a Little Closer to a Tesla Merger",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5iYktrbGdEMDJvcFVhcFdZcVloZjJGc1RQd2xoSWRFOUdRNU5sZDNDN1RLTVZYdHNvSDBGZkhHM0ttMlpIMUpFT0RPMnlUX2s3VlpNZF95cmZ0elNTSFh6R2cxSlRnc1Ixa1pnYUptSU9wMXlaWFE?oc=5",
+   "published": "2026-09-30T20:25:00+00:00"
+  },
   {
    "title": "Should You Buy Tesla Stock Before Oct. 2?",
    "source": "Yahoo Finance",
@@ -1323,34 +1329,28 @@
    "published": "2026-09-30T13:20:00+00:00"
   },
   {
-   "title": "SpaceX Just Got a Little Closer to a Tesla Merger",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5iYktrbGdEMDJvcFVhcFdZcVloZjJGc1RQd2xoSWRFOUdRNU5sZDNDN1RLTVZYdHNvSDBGZkhHM0ttMlpIMUpFT0RPMnlUX2s3VlpNZF95cmZ0elNTSFh6R2cxSlRnc1Ixa1pnYUptSU9wMXlaWFE?oc=5",
-   "published": "2026-09-30T14:07:00+00:00"
-  },
-  {
    "title": "Should You Buy Tesla Stock Before Oct. 2?",
-   "source": "The Motley Fool",
+   "source": "fool.com",
    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNcmQwbTRQS2NoUUdYZzBncGRQcXZ1anZxdjR6VjZ6MHVwLXpTc0NVLWhnVHVfcGlWaS1RTXdXSTItb0hsX1U5dlJxQ0MyQ3N3blFXS09VQm9iZFhxejlobEZFVVA5Z2tlMjBnYTlabC1NS2xLcnU5ZFBERmdwOV91QkhxaHZwbGFCeUE?oc=5",
    "published": "2026-09-30T14:00:00+00:00"
   },
   {
    "title": "How to Play Tesla Stock Ahead of Its Hotly Anticipated Roadster Reveal",
-   "source": "Barchart.com",
+   "source": "barchart.com",
    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQWFl2WnJQTUwtbE50SGE5QVgzSlZXdzlIZ3ZJSVQ2c0tWYWhWSW5YVjlZbHpxYjI3OU9ueDlxTFpDX0FibXVzLTgzQXdzSzljdk40M0hvMHVmcDlYR1ZPLVFFSmgzRnB0cnoyZ3pVYTNrU2JSZXZqaDc0RDk1UEtmeFRSVVk4MzBSVVR0RzZsMnJLOWNsQ2VVeDZ0NllYUmhFd1ltTDU1R25VcHZUNDU4SlFSbTg?oc=5",
    "published": "2026-09-30T17:16:42+00:00"
+  },
+  {
+   "title": "Which Automaker Stock Dominated in September: Tesla, Ford, or General Motors?",
+   "source": "24/7 Wall St.",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQcFFjU0d2UVAwSGlCZ1U3aWszdERmeFpzMlNienZ5UDJHZHNPblM5Q2VJQ1ExOV9UMnhLTEZvcDlpVkw2VGs3UmhMMml0TXFsUkpQNFBBdFdkRm80d2ZyUThveFU2NTlFNVZnNEVMSDhDenFBWGpRWWJpX1dTU3NtX0FiZ0hlWVY2NXlud0FOZml3YW1lS0o3TWU3MllQdlU0d25PdndLNWlzQ3Ixb2F4U0tEOERsZndu?oc=5",
+   "published": "2026-09-30T18:53:00+00:00"
   },
   {
    "title": "Tesla Secures $30 Billion Credit Facility to Fund AI Infrastructure Expansion",
    "source": "TIKR.com",
    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVTYwaS1yeVBkQW9rUWpGamVWOElEdHh2U3o3ZTVMaTB4a1hPQ1N4NkRRMmJoa3doaDN5SjhsdnM0Qzd3dDNxWGJ2TFBwTVJrMmxrc1pHNWJUcEROckoxbUp1UndQYnc5WnhOblY4Vk9fUU5SeWFWX3liVC1PYXRFTGxQOXNvSFp1UEE?oc=5",
    "published": "2026-09-30T12:52:18+00:00"
-  },
-  {
-   "title": "A $30 Billion Reason Why Tesla Stock Could Be in the Spotlight",
-   "source": "TradingView",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQZnQ0RW1KM21JV0JxU1VFemFXaVpJMEpROWoxWjVWZE1YUEdTbWJGXzBIOFU5QlFGZHAwbGR2OUZPcUF2S1lDYkNHcGJ5SHp5ZjdlQzQ5VmRmZmU5VFp3ZzJZZHNuT3lvQnF6NDROQy1ScDdoOGZraDU5Nk9jVkswdEtjdmNtX0JtX0p4TWlfTkZRSFpBR01CajJkX0JHejZqRkRQS2IzSzhHR3ZzdW1uUVIwZE5ZUFl3OWVnOHNR?oc=5",
-   "published": "2026-09-30T12:10:45+00:00"
   }
  ]
 }
