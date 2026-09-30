@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29T22:56:27+00:00",
+ "generated_at": "2026-09-30T14:30:14+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.1 (p35)",
+   "value": "22.2 (p36)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 34.7,
+    "pos": 36.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.89",
+   "value": "0.88",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 46.7,
+    "pos": 44.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.38x (p69)",
+   "value": "1.41x (p75)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 68.5,
+    "pos": 74.6,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.1 pts",
+   "value": "+7.0 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 83.8,
+    "pos": 92.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.8%",
+   "value": "0.3%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
-   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
+   "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 8.0,
+    "pos": 3.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+2.9%",
+   "value": "+3.4%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
+   "note": "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 74.2,
+    "pos": 78.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.02% (+0.42 1mo)",
+   "value": "3.08% (+0.45 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 25.5,
+    "pos": 27.0,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "9.9% vs 4.3% cash",
+   "value": "9.8% vs 4.3% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 56.0,
+    "pos": 55.4,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "32 (fear)",
+   "value": "36 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 31.6,
+    "pos": 35.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 15d",
+   "value": "CPI in 14d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 57.86,
-  "day_change_pct": 0.17,
-  "sma50": 56.62,
-  "sma200": 54.8,
+  "price": 58.17,
+  "day_change_pct": 0.54,
+  "sma50": 56.64,
+  "sma200": 54.83,
   "high52w": 59.52,
-  "drawdown_pct": 2.8,
+  "drawdown_pct": 2.3,
   "series": [
-   {
-    "d": "2026-01-12",
-    "c": 53.38,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-13",
     "c": 53.32,
@@ -1343,6 +1337,12 @@
     "c": 57.86,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-30",
+    "c": 58.17,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1350,38 +1350,38 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.59 (-2.2% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.59 (-2.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 32) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.1) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 22.2) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.02%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.08%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-29",
-  "days_total": 732,
+  "end": "2026-09-30",
+  "days_total": 733,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-29",
+  "fg_coverage_start": "2025-09-30",
   "baseline": {
-   "n": 711,
+   "n": 712,
    "avg_pct": 1.89,
    "median_pct": 2.1
   },
@@ -1403,14 +1403,14 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 459,
+    "n": 460,
     "avg_pct": 1.25,
     "median_pct": 1.65
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.88,
+  "ttm_yield_pct": 9.82,
   "tbill_3mo": 4.28
  },
  "distributions": {
@@ -1520,73 +1520,73 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 737.93,
-  "sma200": 666.7,
+  "price": 743.17,
+  "sma200": 667.28,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 22.07
+  "level": 22.25
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 29,
+  "days_until": 28,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 15
+  "days_until": 14
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-29",
+  "end": "2026-09-30",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15400.0,
-  "dca_value": 21368.42,
-  "dca_return_pct": 38.76,
-  "dip_value": 21131.6,
-  "dip_return_pct": 37.22,
+  "dca_value": 21482.91,
+  "dca_return_pct": 39.5,
+  "dip_value": 21243.74,
+  "dip_return_pct": 37.95,
   "dip_cash_uninvested": 200.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "New AI-powered government website uses Gemini, Grok, Trump official Gebbia says",
+   "title": "Trump's meeting with tech leaders leaves AI safety more unsettled than ever",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFA1VzZnbmkyUHFTZF9EeWxBd1hzZUFraE9SeUFZdjRZYTdyOWdvci1UVVJZR1FLNnNBUElEV0JSRFBrQ3JvNDBvX2phOE5FSExMMDZsM2F0SWphVnBQOVh2NElvR3Bjb0pY0gFuQVVfeXFMTmVzN05pTlBKRzdmcVlBQ2JwT0JIcGVIOV9OaWZrMDlva2xFcFk4SzhoTDhCOElXVnNSZzkyNTl0VzFJVUNRYk84clFiNEVDT0ZUTGY0OGxVcUxta24zNFRFRVZOdG1HMUk5WXFmZlE?oc=5",
-   "published": "2026-09-29T14:32:15+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNeUxQWkx1V3pJdHhvWk45RUpwUjdrWFJGd3Z6ZURqUHA2SmZNVzZTMVN2OTY3ZTBqVVNCWC10YTBuYzZIRFB1cHk5WU11NzVnLUlTdEwyOTFtRTVucUphWkQ2eHFJcG9xX0Q4aUJoVWp0U1gzQlo5YWQ5WHNwdUNGOGNrb2UtX1R5TmRteG1TTnYxX1lYcWxtM1Ric054NjRqeEJSRml5TjBJQdIBrwFBVV95cUxPUlQ5Y3M4dmJFUS1FdWttbTlvcVNfNURNY3ZBNEZreVZCbEtldlVzNXdPbEt3R0VyZy1uTFR3TjBnZzBlaGxuTGszWHdQd1hvRjFtMjMwdFFiNFJnOGxvOWpYYkNaaUx4ZTE1bEVGWWUteExyQWpIajBySHVzYVc5Z2c4WUpPU196cTNRWTRZZTNwQTFVYTBHOEZHekkzd3JQLXpFZ1U2MzB2eUsyR3dz?oc=5",
+   "published": "2026-09-30T11:00:01+00:00"
   },
   {
-   "title": "WATCH: Trump announces accord signed by top AI companies to 'self-police' development",
-   "source": "PBS",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNT2FiTFl5M2Z2WUZrckd2QmlfSEI3TVY5b183TjhQLVV1aG5fUnJyNXctLXJVNEtldGtiYlpfeURrLVc0cHN1UVREMzEzcFA1M2I1WkVGQ3Q1VUQ3eVhTWFd2Z09sOV9BQ2pFelM3MlNrNURFZXl2ZF9taTNwQlBhN1hRQlZLNlMteF9oTjhfVXlCdnVfUnRzR2JNTGF3X3ZBLThhbTZmWi1hRVRDWU9YRFdRb3hJNm0yb0p0aA?oc=5",
-   "published": "2026-09-29T20:55:48+00:00"
+   "title": "Trump says top tech firms have signed accord to 'self-police' AI development",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNM3VtMGRJZnVDLWpGRXNpemMydzVIa3hEOU83Z0RqbERHSW9BVTk1eUc0RjRVNWh5VTVFazFzT2V3T2VhcldOclVZbU1nSElIY1piZnkwMGxYY1BER09jaHlaY192cEs0amFELTliLUo0ZmxkUmhSTVprajB0Z2RGTk1ZNA?oc=5",
+   "published": "2026-09-30T06:54:43+00:00"
   },
   {
-   "title": "Trump, AI CEOs sign voluntary safety pact, back data center expansion",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNbnRqUzdYZGRGeF82aU9Kc3BzNk9rLWZwTjJBNWhVNTRfcXU1UEtWWC1XNndCWGNHZDZhekREX2k4bUg1VjNNLUpMSV82U281RTJqMUZjMjFVRzhXaGZ1Q1B0TG9XWG9OVFBHSGZlZnZmX3lBcHp0a2Nrb3daZGliamtZY2kwNUEtRm9Mb092bDVxemtaVGlRME5WM2xXRHZOX25IQWk2cURXc09paHJVNEdmT1Q4UTg?oc=5",
-   "published": "2026-09-29T22:45:58+00:00"
+   "title": "Trump, tech bosses sign voluntary pact pledging \u2018robust\u2019 AI safeguards",
+   "source": "Al Jazeera",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNbmkxaXdpblpjU0EzRG9nUUJTWGt2VE9EYzlWd2Nlak5SQ0xfMmRfVnBQTG8zTy1oRTByUHZxSXFSNzFVMFF6b3BtU3BGUy04bkxDcVh6YUQtNTdINk1rRnk0QzZMWlpvVFpLbGs5dEdpNk91YnpqTFphQkRTV0NwZlMwUnVjT2JlZUJYUVBsazM0bHBWY19Cd1FkVlVuQ2RFdGhqdG9B0gGrAUFVX3lxTE11LV9UV3QxeF9VMU9YZS1JUmotR24zNGc2UVVHUWxRMU53NnQ0eVl1clpaOWdSWlRuaVBhS1RPQVM0Wlk4ZU1xQkxvTjBGWFIweEd1Uzl4bEk0Q2ozVG95bXhOUWtzUFBVTHFpNzRUYmFZVE1kYl9iRDQ4bENCUm9sUkttcm5rR1BmT2I4aHZqZVBPYmpGOFYtZnZ2SXo4bnFPYU53X1J1WWpmRQ?oc=5",
+   "published": "2026-09-30T06:01:42+00:00"
   },
   {
-   "title": "Trump says top tech firms have signed accord to \u2018self-police\u2019 AI development",
-   "source": "AP News",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxORUtqYURpWThrQ2d5ZC02TTJXX2dLajBXTjdhTGJaSEJ6VlRVNkVUYWl5MzNNdmppZGtqQ3FLOEIyalhQeDFHTDNKMElZaTBRckh1aS1idWo4bnhramhObnVqQkhiUFBoLUhqeXZOeHBueUpVYWJPbjN3dmExVW1oYTh1TTgtSGR5QTBB?oc=5",
-   "published": "2026-09-29T21:55:00+00:00"
+   "title": "Trump, top AI leaders agree to voluntary \u200bAI \u200bstandards",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQMWk2eWxNTHpibjlzT0VJQktLZy03VDdvV25kQWliMHEtdm1zYjhrbkRHb2ZmRnhJcWZ2TExUS3hUZTc5OGFzTUVNWjJhSkdHT2d6Mzh4WWs4a1M1YWhiNmdqajFObnFxM0V2bTdxX0JDeHNHY0U2WEdDc0NQSWJaNEo2LV9uR2Q0?oc=5",
+   "published": "2026-09-30T09:19:23+00:00"
+  },
+  {
+   "title": "How Meta Uses A.I. Data Centers to Avoid Billions in Federal Taxes",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQaldseExIVE9TcngwcklZeGpVckV4XzhfSzhNRE9FVlFnQWt0dVp6b3pLRXVqQmE4T21KbW5sTVdoejVyRlF6bXlzbTZveUhGejlLZ3g2VzNGd3hwaGQzU2pfc3p6ZFEtUWl0Y2hnS19raVkyNzhrQlEzd1RwS0haQUI1QQ?oc=5",
+   "published": "2026-09-30T09:00:48+00:00"
   },
   {
    "title": "Trump says AI leaders signed a 'constitution' to police themselves - ABC News",
    "source": "Breaking News, Latest News and Videos",
    "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOanlhb3luTWNPUUpYbzhHV2tQdUF1dEVhN3d5VDJZdGwzRU1fT1Nsb2ZrNjRNeHNiem1HNTZaSzdQcU80MTVwSE44a0pvR1J3eTZIRG0yRjhnSWdVVjJuek1qTDVIOVAwTDZRRXlPR25xUU83NWkyd2swVWFsbE5ELVYyNzFCU1RETWY2S21pVlNBYVEw0gGaAUFVX3lxTE5qYlFleHFIUHFxbnkxTDVvZmx5RmI5SHRCY1Bnc0wxejY5emRkd2RsWDA4WUNndklFbG1qVzBBRkdreUtGZ0VLc3hlNWVHc3d1NHdiUzRKZkhNczhTZTBBSXdzZlZGM2ZTbndUaFlob0R4Q2pQT0t0aXlUTnhfYnJPQkRNWlVGOG80U240NHR1U3hnSVpCN0Y4QVE?oc=5",
-   "published": "2026-09-29T21:33:45+00:00"
-  },
-  {
-   "title": "After summit with tech titans, Trump calls for \u2018tremendous self-regulation\u2019 by AI companies",
-   "source": "NBC News",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNTjV0bUtBZ25mSXdRaS1vSkdYdnptUk9kdEpaLTg5dlhMZWVUMExuM01LYTU3cWxRT01yLWFnMmlQT0lfakgwdGpRUGZKX3haZF9NbXA1Zk01U2t0ME1QaVhxQV9EYVBZY05Pd0hOS2ZBUDJlY2NFdmVyOUppZzNzUVpiN1lsc3E3WV8tWml4TTU4aS1Sb1p3MkxaVTFZMi1udUE?oc=5",
-   "published": "2026-09-29T21:33:14+00:00"
+   "published": "2026-09-30T00:04:49+00:00"
   }
  ]
 }

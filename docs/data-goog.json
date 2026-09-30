@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-29T22:56:30+00:00",
+ "generated_at": "2026-09-30T14:30:18+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 80.6,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "24% ann. (p39)",
+   "value": "25% ann. (p41)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 39.3,
+    "pos": 40.9,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "15.4%",
+   "value": "13.3%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 15.4% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 13.3% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 30.8,
+    "pos": 26.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.0 (p26), F&G 32",
+   "value": "VIX 15.8 (p20), F&G 36",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 15d",
+   "value": "CPI in 14d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 337.32,
-  "day_change_pct": -0.54,
-  "sma50": 341.58,
-  "sma200": 336.98,
+  "price": 345.565,
+  "day_change_pct": 2.44,
+  "sma50": 341.57,
+  "sma200": 337.14,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 15.5,
+  "drawdown_pct": 13.4,
   "series": [
-   {
-    "d": "2026-01-12",
-    "c": 332.73,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2026-01-13",
     "c": 336.43,
@@ -1215,37 +1209,38 @@
     "c": 337.32,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-09-30",
+    "c": 345.565,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
  "flips": [
   {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "GOOG has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
-  },
-  {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+6.3% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+3.8% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 24%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 25%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-29",
-  "days_total": 732,
+  "end": "2026-09-30",
+  "days_total": 733,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-29",
+  "fg_coverage_start": "2025-09-30",
   "baseline": {
-   "n": 711,
+   "n": 712,
    "avg_pct": 3.19,
-   "median_pct": 3.08
+   "median_pct": 3.07
   },
   "bands": [
    {
@@ -1272,9 +1267,9 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 174,
+    "n": 175,
     "avg_pct": 3.57,
-    "median_pct": 2.53
+    "median_pct": 2.68
    }
   ]
  },
@@ -1284,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 337.32,
-  "sma200": 336.98,
+  "price": 345.565,
+  "sma200": 337.14,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 24.4
+  "level": 25.4
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 29,
+  "days_until": 28,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 15
+  "days_until": 14
  },
  "earnings": {
   "next": null,
@@ -1308,24 +1303,36 @@
  },
  "backtest": {
   "start": "2022-09-30",
-  "end": "2026-09-29",
+  "end": "2026-09-30",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 43822.87,
-  "dca_return_pct": 108.68,
-  "dip_value": 43911.42,
-  "dip_return_pct": 109.1,
+  "dca_value": 44894.02,
+  "dca_return_pct": 113.78,
+  "dip_value": 44984.73,
+  "dip_return_pct": 114.21,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Google is a technology partner for the launch of America.gov.",
+   "title": "What Is Going On With Alphabet Stock?",
+   "source": "Trefis",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQQ2xIVHlRd2t1SzFEWVBabzFJYzZOUjdhU2NUUVlQbHpjeTBFRzB3dFlTZklXWGFqeXMyWU9HT0lXbk1sSndxRkE1ek1UTzlJb3EtQkpsSXNBZzFEWjVpSWRHM1V2MDZjaktYOHI2bjBQQUtkYlFCNFFoSkhnVDVCNTd6TFg1TGFYYjZXNk5vS2FGOVRQRlVHN1Bib0pXTkE?oc=5",
+   "published": "2026-09-30T13:34:56+00:00"
+  },
+  {
+   "title": "Game on: Henry Cavill is putting Googlebook to the test",
    "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOS3dobGN6aGpsejJMdHlieHVQSlVNTTNQTEFjaTkxQzIwVjVndUtRcUpCd2hrNWh1alBZbTctTEUtWDI0SFloSzRHYTVESE5kbXdDT3JVdzZxdVZUWG9jaFZKcEJUYVZEVC1PNGVmV3E3NGdQUUJ6YkhZTm1HVzAyZGhtd05TWURmWjhheTNwS0F5MXVzUDFMUEhxVDB2T1JPUWktRUpGeG8?oc=5",
-   "published": "2026-09-29T14:25:41+00:00"
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxON0NNLVBCMVp5ZnlkbkI0NFJqWWJLU1RUUnJQcU5rU0lTVXJPTE9lOGYwT1laU2o5bmc3c2RzR1FPMHNZSVBFYTVPWHpOQm5kc1dsSmNIaVU3RzlBbzRHWXB5aDR3aGZ2VVd0TnpQdUh0M0ktSkl0MFdaSm9QLXNxWDgxRzF0Z0Jqc0xacGpIejByWU4wMU9GMlVhc2dpdw?oc=5",
+   "published": "2026-09-29T18:10:04+00:00"
+  },
+  {
+   "title": "Anthropic IPO Filing Reveals a Major Vulnerability: Nearly 50% of Sales Flow Through Amazon and Google as",
+   "source": "Benzinga",
+   "link": "https://news.google.com/rss/articles/CBMiswJBVV95cUxOVFRiMVYwR3RjTVgwbXM3RmhVYmk1b2NlamJRTDF5OGFGMjh1bXVVTFNRMHhhSXBNbjdyMmdnUlhkMFBrSDl2THpVeXVFWEZZNWg3dVBCTEV6MC1fWUxlTkdkOUNRbHZ1WkYweEwzUk1XZ2RxVEpTeGpEZzYzVFoteHNYaTBZU2d3andTRGVocGEwM0ZQTGo5d2dKTm1qdWZkbE0wWWpQVkdqVkx5VFh1VEJfMVpWUVZ5QUFsSS1rWHhwdXY1bGRLZkZBbGVHZHNfeFZZRkVQaGJXU0s2VWRNMXp6UEJUcmRDR2x3Z0xBbDYtd0xNdEoyMDdfX2RWNXdxRTJYTVJwZGVYM1RRU0Z5ZV85SGJEanZuUGJGTW5FVU1WNW54RGNSQld1NTVPa0hqMXBJ?oc=5",
+   "published": "2026-09-30T12:18:17+00:00"
   },
   {
    "title": "Google challenges EU orders to open up to AI, search-engine rivals",
@@ -1334,28 +1341,16 @@
    "published": "2026-09-29T05:06:00+00:00"
   },
   {
-   "title": "What Is The One Risk Every Google Stock Investor Should Know?",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQMGtuOVY3bDlKeEpscWhIWHFlbUxZcUpYbzFBTEx2LXNyTnNtWnVEWEUtS2w1NGJaN1dPelZWd3BaQ24zN0R2OGpaR3hCRVdtcHdoT1ZXaW1JMVlMWHdWNmlwZTg1OHNUSUYzQkFGNUE0dC1kR1RNb0lqQUpMWk1oZkJqZVZpVk4yak9zTEFRNHlOWGNIU3dJ?oc=5",
-   "published": "2026-09-29T19:20:20+00:00"
+   "title": "Two Google alumni raise $11.3M to back AI startups that enterprises will actually pay for",
+   "source": "TechCrunch",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOa3hxTXVrdWFmSmV0LXM5a0JMNXZlbzJnMnIwbHJTOGVaV0JDYVcxX2lwaFNSa2hZQUVsN3NuYkstQllIOXhZTmVMbFNxMlVMakU1b0dOTUlBZkVZSVJOQmdqUUVSRDVSdkh1NHNLU0hqYTJCLTNNMl82QmMwMFg1UUcwS2VfSUV3bmxoV3pUUQ?oc=5",
+   "published": "2026-09-30T12:00:00+00:00"
   },
   {
-   "title": "Gaza before and after: New Google Maps imagery shows destruction of the Strip",
-   "source": "EL PA\u00cdS English",
-   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNOFRqdld3Zk9EVU1xRm53bG01SW44Q0hIQnU2aFpRVUEyX2hMZzdYTHVyNlFDTXBXS2JvdE1zbmpYazg2a013ay1MRjRXd3cyMGFLX3NQNEZsU2NMbmR6MXZ2SVhBRHUwdDFUR2M1Q281U2ZqVllhdDAtRElLN2ROd0wtdXU0cEFMdWF3SzhWMzNnS2l4anV2WFVLRFJhSGFPVmgwZHAxdXM1V1gxVWtxaGJPOV8xa2syYWhtdWszZ09Uc09Eemx6LTRIdWktQQ?oc=5",
-   "published": "2026-09-29T12:39:13+00:00"
-  },
-  {
-   "title": "Ohio State, Google partner to accelerate research and AI Fluency",
-   "source": "news.osu.edu",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNcTMwTzlKTmZMRENPd2hUT1NrdUE0N3VidmQxUHI1RkNCQWZUbmJ5UGZfT0JRazktUk8yWDZsVUg1amU3amFzcUdRMmlaVWVUZi10Uy1hcFhua3A5b2sxemFWRVBWMy15aVN0bGMwYUFIbjlNRTYyNnlDREFPU3BWYjFYbDcyUmY2T3JsQzFn?oc=5",
-   "published": "2026-09-29T19:02:27+00:00"
-  },
-  {
-   "title": "Exclusive: Google Pixel 11a Official CAD Renders Leak",
-   "source": "Android Headlines",
-   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1wM2JyN2hQb3UtV08xVkR1ZFk1c3hvR3ZSb252UmlDeHNQUG1FWTFyVTBHWFJOTWtMUjcwT2xmX3NSU0JSRnNfcDdHb3ZiLTBfbHZKNHQyNDJDa0FSTGc?oc=5",
-   "published": "2026-09-29T14:04:50+00:00"
+   "title": "Google Begins Paying Publishers for AI Overview Answers",
+   "source": "PYMNTS.com",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxORFVmSzNTNm1iWm1sMHdXSFdYeTNtYXNZYlljNUtlME9JSkMwN1R2SS1ackxsR05lSkZNQ2Z3VEh5S0tPMjJwYmo1N3VkNjFqVk5LVENtNzdFblNEbTBOTm9tck82b2NHWHZrajlsS0psdk9EWlNhSk5JdzZ6bG1SRlh0SFoyVnNOVTZ4R3ZVOWExa2dDeVE?oc=5",
+   "published": "2026-09-30T12:30:11+00:00"
   }
  ]
 }

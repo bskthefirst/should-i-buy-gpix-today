@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-09-29T22:56:29+00:00",
+ "generated_at": "2026-09-30T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 75,
+  "sessions": 76,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~75 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~76 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-3.5% in 5 sessions",
+   "value": "no pullback",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 75 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 76 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 76.4,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -41,7 +41,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "45% ann.",
+   "value": "46% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "29.4%",
+   "value": "28.1%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 29.4% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 28.1% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 58.8,
+    "pos": 56.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "75 sessions",
+   "value": "76 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 75 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 76 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.0 (p26), F&G 32",
+   "value": "VIX 15.8 (p20), F&G 36",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -80,7 +80,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 15d",
+   "value": "CPI in 14d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -88,13 +88,13 @@
   }
  ],
  "fund": {
-  "price": 149.24,
-  "day_change_pct": 2.59,
-  "sma50": 136.94,
+  "price": 152.09,
+  "day_change_pct": 1.91,
+  "sma50": 137.51,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 29.4,
+  "drawdown_pct": 28.1,
   "series": [
    {
     "d": "2026-06-12",
@@ -545,6 +545,12 @@
     "c": 149.24,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-09-30",
+    "c": 152.09,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -552,14 +558,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-09-29",
-  "days_total": 75,
+  "end": "2026-09-30",
+  "days_total": 76,
   "backfilled_days": 40,
-  "fg_coverage_start": "2025-09-29",
+  "fg_coverage_start": "2025-09-30",
   "baseline": {
-   "n": 54,
-   "avg_pct": -0.63,
-   "median_pct": 5.91
+   "n": 55,
+   "avg_pct": -0.51,
+   "median_pct": 5.85
   },
   "bands": [
    {
@@ -579,9 +585,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 54,
-    "avg_pct": -0.63,
-    "median_pct": 5.91
+    "n": 55,
+    "avg_pct": -0.51,
+    "median_pct": 5.85
    }
   ]
  },
@@ -591,22 +597,22 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 149.24,
+  "price": 152.09,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 45.5
+  "level": 45.6
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 29,
+  "days_until": 28,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 15
+  "days_until": 14
  },
  "earnings": {
   "next": null,
@@ -615,14 +621,14 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-09-29",
+  "end": "2026-09-30",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1700.0,
-  "dca_value": 1767.18,
-  "dca_return_pct": 3.95,
-  "dip_value": 1752.53,
-  "dip_return_pct": 3.09,
+  "dca_value": 1800.92,
+  "dca_return_pct": 5.94,
+  "dip_value": 1786.0,
+  "dip_return_pct": 5.06,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 16,
   "winner": "dca"
@@ -632,7 +638,19 @@
    "title": "Transporter-18 Mission",
    "source": "SpaceX",
    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1UYVlhMzVMakRkVVVCdmlYLTRJT1BmVkwtNTRPTGtFTkY2b1V1a1o4bXJsM0V5U25rc1BVeENrUFVDUVVFUjhDY3BWeXJVQmdydGdXZW1lOTM?oc=5",
-   "published": "2026-09-29T18:09:51+00:00"
+   "published": "2026-09-30T12:15:46+00:00"
+  },
+  {
+   "title": "Musk Mocks Delta\u2019s Wi-Fi, Says CEO Will \u2018Lose His Job\u2019 Amid Feud Over Starlink",
+   "source": "Forbes",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOVjFHTTgzdEswNXJ3eko0Xzc2ZVZVT3cwNmVsakxwcFdsdUpPb2Via1dvN0JtOXBxVkNGSHY2VEE5emtXVkphSzJNZ1hONjdvcEJhUU80MTRERFlmU0pxeE1seEdJX3VVZW5TUEtQR3VDOGdpREVHUUVqVmVlS3d0dG1FZm5SMmtiMkFaOXIxLS1LSE1NN3RUN2NIXzZocFRLeEp5M3pPNXM1TzlyeFJWSGhrMDJoUHNON0x5ZzJyY0JoQVFaTlEw?oc=5",
+   "published": "2026-09-30T12:44:47+00:00"
+  },
+  {
+   "title": "AT&T CEO says Elon Musk's SpaceX phone strategy not \"viable\"",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE14OS1Sb3hKZmxsajZ3SGpOWnlTMmo4ZW9fQVQ5b2dRWlBQVmtneEZSemdHNUtYcktRMS1NMFVNbHg1Skk5TU9naTZqUzcxVUMzTlZNaGlfSFlZTWtFRkpIeTdtOHNWVXRsZ3JXYUp2OUxKYUhyOEE0N3ZR?oc=5",
+   "published": "2026-09-29T19:59:01+00:00"
   },
   {
    "title": "SpaceX's Starship engine failure could impact NASA's moon mission objectives",
@@ -641,28 +659,16 @@
    "published": "2026-09-29T18:31:07+00:00"
   },
   {
+   "title": "SpaceX Just Got a Little Closer to a Tesla Merger",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5iYktrbGdEMDJvcFVhcFdZcVloZjJGc1RQd2xoSWRFOUdRNU5sZDNDN1RLTVZYdHNvSDBGZkhHM0ttMlpIMUpFT0RPMnlUX2s3VlpNZF95cmZ0elNTSFh6R2cxSlRnc1Ixa1pnYUptSU9wMXlaWFE?oc=5",
+   "published": "2026-09-30T12:16:00+00:00"
+  },
+  {
    "title": "SpaceX Wins Analysts Praise, Buy Ratings After Starship Flight 14",
    "source": "Investor's Business Daily",
    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPR3VQMm1QdFNxTEprM3AteW9KRkE5RXZLQndzX0NvQUpWcG0yaUhUX2N3YmlMQzdHNkVjOUdicWFJYnpnc0lOOFJpUGFxTnJUaW03X2czemNwMGp1TFdzaTZHZWM5OW5YZUNiUnEzb0hnalRaSXBpT2t2SkZVNC1rbXBENnF3NVpBVVozdEhwTTI0Mjhwb0JRVzBiN3U?oc=5",
    "published": "2026-09-29T20:12:00+00:00"
-  },
-  {
-   "title": "Musk: Starship Targets Weekly Launch Cadence in 2027 After V3 Starlink Deployment",
-   "source": "BASENOR",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNS0dSNVZyell1YmlWRklaSXdFNUlOR3k3YXgzV2dKeFhnZVBQbTI1TW8yZ3haRVg5N2Q2cmw1NWUzNmJJbE5EWncwQW1pQ2dQaDJpZm51dkdaMEF4bU5IT3NOd0JRTmt2Y2VvZEVhV3JzUUYyRmVQMzlGVVY1bk12ZU1MNTV5VmdjZHhnMDlVbWl6Z3EzRjlnXzFRRFg4OEpGaW9FajZNcThBVHVrU0FVZnIxSnZrQQ?oc=5",
-   "published": "2026-09-29T22:05:03+00:00"
-  },
-  {
-   "title": "Prediction: SpaceX Stock Will be Worth This Much in 1 Year",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNM2dKOUJtWU9SVDMzSWNDTVJZbUcyRzEzam16TF9qSk5kTTh2bXFJSTNMLVBCTUlCNkkxcTNBQUN5REMtQUVjU2JrbHd4X0hITmNJblhmeU95M2pKcVJNS1JrNXhLVnVDQi1Jb2tGdDhBbWNkQmxiSXdqTFV2QlBLYlhJRGdTSmRiSmFkM2JPS3pCY01RWWw4?oc=5",
-   "published": "2026-09-29T13:48:00+00:00"
-  },
-  {
-   "title": "Tesla (TSLA) wins SEC OK to auto-vote retail shares with board ahead of SpaceX merger",
-   "source": "Electrek",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNMFQ4dnJkck8wTXgxeGRxUElxRENfTl9aQUFSUEpwYzhqNmxVS0JHN1QxUFFibXZmMEYwUFNXSkkxZjJpbDZoY1FFczBYZi16bVlkcGZXNTNtTWlYenh2cXg1S0lOOC1wVzBGYjVOZ0h1TXo2azBaTm95SHZsd25rNHpxSUI?oc=5",
-   "published": "2026-09-29T16:57:00+00:00"
   }
  ]
 }
