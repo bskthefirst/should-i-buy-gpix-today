@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-30T14:30:13+00:00",
+ "generated_at": "2026-09-30T18:32:28+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.8 (p20)",
+   "value": "15.8 (p22)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 20.5,
+    "pos": 22.4,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 44.8,
+    "pos": 44.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.9 pts",
+   "value": "+5.0 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 74.3,
+    "pos": 75.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.5%",
+   "value": "0.6%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
-   "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
+   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 5.0,
+    "pos": 6.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.0%",
+   "value": "+0.9%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 58.3,
+    "pos": 57.5,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 38.4,
+    "pos": 38.5,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "36 (fear)",
+   "value": "34 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 35.6,
+    "pos": 33.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,12 +230,12 @@
   }
  ],
  "fund": {
-  "price": 56.13,
-  "day_change_pct": 0.38,
+  "price": 56.045,
+  "day_change_pct": 0.22,
   "sma50": 55.84,
-  "sma200": 53.97,
+  "sma200": 53.96,
   "high52w": 56.67,
-  "drawdown_pct": 1.0,
+  "drawdown_pct": 1.1,
   "series": [
    {
     "d": "2026-01-13",
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-09-30",
-    "c": 56.13,
+    "c": 56.045,
     "t": "neutral",
     "s": 50
    }
@@ -1323,12 +1323,12 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-2.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.72 (-2.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 34) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1383,7 +1383,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.12,
+  "ttm_yield_pct": 8.13,
   "tbill_3mo": 4.28
  },
  "distributions": {
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 767.74,
-  "sma200": 719.64,
+  "price": 766.36,
+  "sma200": 719.63,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.77
+  "level": 15.83
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1516,20 +1516,20 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15400.0,
-  "dca_value": 20016.58,
-  "dca_return_pct": 29.98,
-  "dip_value": 19779.61,
-  "dip_return_pct": 28.44,
+  "dca_value": 19986.27,
+  "dca_return_pct": 29.78,
+  "dip_value": 19752.09,
+  "dip_return_pct": 28.26,
   "dip_cash_uninvested": 1600.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "US inflation rises less than expected in August; consumer spending surges",
+   "title": "US inflation rises below expectations in August; consumer spending robust",
    "source": "Reuters",
    "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNSktrS2JqeGdwTmowTVBNV2lPbnZwcVdwSzJPVi1aRzZuVDVQU3RtRGZ1UExTOVJnWm9CcTNYbnFneF9wOWlCMU5MNXEwMDN4UmhVVkx2MFVWOC1EYVdyb3Y3WXNYYXhNUzZSUExKQzNZOWk4U1dRaVBMMUZBeklyT0VqNFVhbUV3RjJmbThsM3FOejFUV2lBV0ZtZjNTZjVqRFYwcGZqZWdKdjBRa3FvcmdKRTRWak0?oc=5",
-   "published": "2026-09-30T13:47:04+00:00"
+   "published": "2026-09-30T15:18:52+00:00"
   },
   {
    "title": "Inside Man: How Chinese spies used lies, love and betrayal to target the Federal Reserve",
@@ -1538,28 +1538,28 @@
    "published": "2026-09-30T10:00:01+00:00"
   },
   {
+   "title": "Watchdog finds no criminality in Fed renovation that drew Trump\u2019s scrutiny",
+   "source": "NBC News",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWjZPdzBKbzhWOXVZeWNweTJQa2VuOC1vLXZqVjcwUjNfU3o0czNVbGtEQ1FOeklfanpCcDNpT1lIZnhXc1F4THlfdkJiRHVEMDA0a3pUcGQ4VHZhS2Flc21fQkJNQm5Tb1J4YXNqRWcyUy1lOVgtSllrS3c0RV9xcF9Bb2Y4cHREREhOeF80NTdOZXFy?oc=5",
+   "published": "2026-09-30T17:00:07+00:00"
+  },
+  {
    "title": "Opening remarks by Vice Chair for Supervision Bowman at the Community Bank Cyber Workshop",
    "source": "Federal Reserve (.gov)",
    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9VU2ZOYS15UHZjZC1vLVRJd1h1NzRCNkpTakxBbTgyamtwMHdidXJqcEZBckFLVDJkaGc1VkJ2dFc2SWFveXpELTNnRzJ1eF9oNVJUMTZ1UE5uaXl4VFNsT1pZS0FfUmtqcWlrazFCMkdBcmZWOE1j?oc=5",
    "published": "2026-09-29T15:04:28+00:00"
   },
   {
-   "title": "Fed\u2019s preferred measure of inflation dips to 3.4 percent in August",
-   "source": "The Hill",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5kY2NFM3J0MFBvRjNNMHFiVVhGTWtBVXBCcEQ0Nk5tREQyY2pkbG1OOV96bVZkY005LTdFX3FLNmdwbEdLNXhXWjltNEZRTm9NMjlWdnJ6WFZIZ0hQZDdoQVhHUmVMa3F1SzVicEhGZnAxRFdzWlHSAXtBVV95cUxONUpYNDYwU0h3UWJNLWRRM0FRQXNwZzZ2SEJpMDhMa0ZCY21IRVV2ZWdGdzBSSzM0b0VqN0JfNGlkUmxhUWotVWV0Sy1WSDZjRHo1QTJTTXBMa0JBWklNbEpiLWtYRG1XWHdoRkpoaDNKRmxPS3ZkVFlQT28?oc=5",
-   "published": "2026-09-30T12:42:00+00:00"
+   "title": "No criminal wrongdoing in Federal Reserve building renovation, watchdog says, but it was mismanaged",
+   "source": "pbs.org",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNZXB3YWY5MFhtZkhIYng3V0k5VWF5blVPTzdBdmNoX3EwaUxQT2RXdWhySHliOUpyXzZIVnh2c05DN09WRVBwZXVTTXgyVGxNcHh6NmFqNl9QN21hM2txbzFnM1NacWhyR2lNRGkwbm4wQWZzUk1IN1VyWm5RVTBDNHJFZkY4THl5LUFVc1BMVFdURzYxXzVpVkpnQXlsdmFGLXVQYWg3R19CY3IzWC1ab0xrUGJieUlDMm1VRWN0c0VXNUloTWRycXFEbFAyR0ZB0gHWAUFVX3lxTFA4MjRZM05sZjkxZE1zOW9YMFpHLS1mV1l1WG0yaFBWcm8yQUhSSTEtUVlaU3JKT0Y0aFRLQ3otRXZZOWxBaEViSGd1X2Nub3JwVnliSThvclZJYkpQVTdKaG5mTHVMUURMd2xuWTN4WldRYlM0ZWV5R0tVamhQOHJjTFl1cXo3OXQtcXl4dllGc295R29DalM0UGFZQzMxemhHWXY2X0FXajZQVDRTSEt4dWVCdVdXaXhDLXdkQl8xbnl6SWJPRE90Y2ZKTHlvUVoxSmlTbGc?oc=5",
+   "published": "2026-09-30T18:25:56+00:00"
   },
   {
-   "title": "Fed\u2019s Preferred Inflation Gauge Points to Continued Price Pressures",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQYlhkRWRnNTd1WFFKa3k0RF8yNmVNSG5MNHdRZk1PVi1na01fMHB4bldhb2JZeTdWc0gwZmhWbE5wWkVzWHF6eHBHUThHc1hnNWN3ZEJQN0FYVGFlRW1RQl9MMEZfaFhIeGY1OUl6Nk9aM3VURmFlVFZQNEJhU2hGU01VZ2ZOdWlX?oc=5",
-   "published": "2026-09-30T13:32:23+00:00"
-  },
-  {
-   "title": "Expansion accelerates as inflation remains elevated",
-   "source": "The Real Economy Blog",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNbjB6ZlZuTnJqY2UtN2tjT2drS3FYYm15XzJWTzNoa2M3OVQxUXRhQnY5dF91aWFOdFlDQ0V2N2NYQmJrSEJGQ1JVWVM3aXNqUVFjZjZwMTlnckdiV2dQNjRRc3Vhc0tFTlBrS2ZSdWladXo1NFJsS1ZPdjMtdkxyMzEtSUJKd0RZc1E?oc=5",
-   "published": "2026-09-30T13:44:03+00:00"
+   "title": "Chairman Scott Statement on Federal Reserve Inspector General Report",
+   "source": "Senate Committee on Banking, Housing, and Urban Affairs (.gov)",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNMWVzNzJkUkMwc0xHMkdRdWFUeXlsNjdubDYxejRtSkZFcE1JNHk2clJiLWdCMXdKZW1oSzJ6d1I0RC1tSGJmc252QW1GdWk2VERSY01BWVJjc01Eb0tJT01WV0EteFlJMjd2R0psS1liakRIZDd2aFcwbU9mOVQyV01jVk1waF82c2tDLUd2dlNaZ0JETnpNOFRpRTFReVRHVHhONWdPQ05UajhaQjVFcjh2YVZmV19w?oc=5",
+   "published": "2026-09-30T17:08:04+00:00"
   }
  ]
 }
