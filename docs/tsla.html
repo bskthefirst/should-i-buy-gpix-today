@@ -468,7 +468,7 @@ fetch("data-tsla.json").then(r => r.json()).then(d => {
   const dcaWins = bt.winner === "dca";
 
   document.getElementById("app").innerHTML = `
-    <div class="verdict ${v.tone}" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 4.5}">
+    <div class="verdict ${v.tone}" title="Buy score ${s100}/100 — weighted signals ${v.score} of ${v.weights_max ?? 3.5}">
       <div class="vgrid">
         <div class="vtext">
           <div class="label">${v.label}</div>
