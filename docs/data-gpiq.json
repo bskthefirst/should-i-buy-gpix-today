@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-01T14:30:24+00:00",
+ "generated_at": "2026-10-01T19:00:13+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "23.4 (p53)",
+   "value": "22.6 (p40)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 52.8,
+    "pos": 39.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.91",
+   "value": "0.88",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 53.0,
+    "pos": 45.9,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.35x (p63)",
+   "value": "1.37x (p67)",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
+   "lean": "bad",
+   "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 63.1,
+    "pos": 67.1,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.3 pts",
+   "value": "+7.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 100.0,
+    "pos": 95.2,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.7%",
+   "value": "1.2%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 17.0,
+    "pos": 12.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+1.8%",
+   "value": "+2.4%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 65.0,
+    "pos": 70.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.0% vs 4.2% cash",
+   "value": "9.9% vs 4.2% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 57.2,
+    "pos": 56.6,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -227,7 +227,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 27.9,
+    "pos": 28.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 57.35,
-  "day_change_pct": -1.09,
-  "sma50": 56.65,
+  "price": 57.665,
+  "day_change_pct": -0.54,
+  "sma50": 56.66,
   "sma200": 54.85,
   "high52w": 59.52,
-  "drawdown_pct": 3.6,
+  "drawdown_pct": 3.1,
   "series": [
    {
     "d": "2026-01-14",
@@ -1340,7 +1340,7 @@
    },
    {
     "d": "2026-10-01",
-    "c": 57.35,
+    "c": 57.665,
     "t": "neutral",
     "s": 50
    }
@@ -1350,7 +1350,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.59 (-1.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.59 (-1.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1360,12 +1360,12 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.91) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 23.4) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 22.6) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1397,8 +1397,8 @@
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
     "n": 146,
-    "avg_pct": 2.56,
-    "median_pct": 2.76
+    "avg_pct": 2.57,
+    "median_pct": 2.8
    },
    {
     "tone": "neutral",
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.97,
+  "ttm_yield_pct": 9.91,
   "tbill_3mo": 4.25
  },
  "distributions": {
@@ -1520,13 +1520,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 738.51,
-  "sma200": 667.89,
+  "price": 743.68,
+  "sma200": 667.92,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 23.44
+  "level": 22.57
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1543,26 +1543,38 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15400.0,
-  "dca_value": 21180.07,
-  "dca_return_pct": 37.53,
-  "dip_value": 20947.09,
-  "dip_return_pct": 36.02,
+  "dca_value": 21296.41,
+  "dca_return_pct": 38.29,
+  "dip_value": 21061.05,
+  "dip_return_pct": 36.76,
   "dip_cash_uninvested": 200.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "Chinese hackers impersonated ex-US official to steal emails from AI experts",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPVHRqRS1jN2w4cEJmeUFHYkZ1N2RFVTJiRUtJYnZWSTRvMWVHNWVNU2IyYUh4Qjd1aG1pT21SSVRPbEpYVlBRUXRtZTFjS3dzMlF5SThULW1NaXRZTXlHNXdodTNfdGE1QmpMTHdGS1NSbmUxdkh2RXFubWs2eFRPSFF3MkMxVGx3cmd6U0xsSWthamd3YVdFaE8wU183SktHU3ZhNE5NVDNURFpHMU81N25YMG5jbDhQTXZjSg?oc=5",
+   "published": "2026-10-01T13:09:30+00:00"
+  },
+  {
+   "title": "Do AI and air traffic control mix? CEO addresses anxiety about new FAA tool",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOY3FiV1BrVzlJdWV3MzRteXVxRzZvaXJBOUczcExoVGFNMzlFX3A0V3dsX2RxUkt3TXotY3lvazBwNnVCTXZLTHF5UUdiQXN2TnE2WEpMbXlDUUlpMV9jSEh3WjNsVDFUNzRCMURIRi1TM3ZteTZxclk0T1pieno1MVQ2SUprbWM?oc=5",
+   "published": "2026-10-01T09:00:00+00:00"
+  },
+  {
+   "title": "A Hacking Competition Shows the Power of China\u2019s Approach to A.I.",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOMDRiay1mS2VPaElGTE93M29nWndFc3RLb1ZYTk9BdnhHYzE0eXNDZEhrVC1lcDhwOTZjTUFMeUpGQ2xQSzVIbTd6LUh6c0FoQ2hCNlluZVBoRHJVa0c4RHJhblNYc1FPaVdQZEM4eWhRMWhkMnZGRFpnLTlUQ0tEQU5ZRG5Oc0l5ci1v?oc=5",
+   "published": "2026-10-01T13:43:22+00:00"
+  },
+  {
    "title": "Gemini 4 Argon: our next era of frontier intelligence",
    "source": "blog.google",
    "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNRjB3amppaF9yb1FhSmxoUW5GUEtCREcxbW1ScXJRRWN5ZGtIM0N0d21wVEI3ZTd5ZHY4N09KRWNwX3U2Z3JBeDNWakYxYXlBVE95NEpKWW5vcWFKZlA5Qkdka3hGZG9INUZtMVN2VTJhWG1TTldVSE1JVm5VaVlvcnpWRlhzX0V1NGJXZGhfMEY?oc=5",
    "published": "2026-09-30T20:06:23+00:00"
-  },
-  {
-   "title": "Chinese hackers impersonated ex-US official to steal emails from AI experts",
-   "source": "reuters.com",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPVHRqRS1jN2w4cEJmeUFHYkZ1N2RFVTJiRUtJYnZWSTRvMWVHNWVNU2IyYUh4Qjd1aG1pT21SSVRPbEpYVlBRUXRtZTFjS3dzMlF5SThULW1NaXRZTXlHNXdodTNfdGE1QmpMTHdGS1NSbmUxdkh2RXFubWs2eFRPSFF3MkMxVGx3cmd6U0xsSWthamd3YVdFaE8wU183SktHU3ZhNE5NVDNURFpHMU81N25YMG5jbDhQTXZjSg?oc=5",
-   "published": "2026-10-01T13:09:30+00:00"
   },
   {
    "title": "Trump\u2019s AI lunch included every major tech company. Except Apple",
@@ -1575,18 +1587,6 @@
    "source": "Vatican News",
    "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNb19EbFJjTkVHYVpieEh5WFlmeVFHdnBIN0s0TmZFSV9WZkRfU0pnem1HbzFzSFZZSmFQMGNuVW14VWE5bXRWNURjQmxYMy1WM1pVblg4Mjc5blBNVFR1czk2aFc2MlFCWXQxY2RsN2puZ3JobUhIMHhHOWowOS1vV3NkVjVJZWpNTTZET0MyM0gzOGl3ZG1HNl9MYV9OblVsNFNFTEw2aUZtUF9wTEZnWlNLZGVtMzRma1E?oc=5",
    "published": "2026-10-01T12:53:07+00:00"
-  },
-  {
-   "title": "'Things may get ugly': Meta's new AI Muse is about to make the internet more annoying",
-   "source": "BBC",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNOVdTQVNoVkxHUnJwXzdIeXEyRVA4aU45TDhiOExPUVVpdS1KTzNEVTEzdjRkZ1lpUFNuS3hIZ1lrY2llRnM1WTlPZGlxQUswMGoyTmFfUXlncmNDUVlPZjdWWmhMVmFPME9PQUhybHNBdEY4eEJBOV9HMnAyS0h3b1ZnUUtOVHlsSWRKZXdHdlI?oc=5",
-   "published": "2026-10-01T09:08:46+00:00"
-  },
-  {
-   "title": "Trump\u2019s AI chatbot turns on its master",
-   "source": "The Guardian",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQa1VfVUFmc3JMal8wLWRlUW9meUhnR0RkTUVjbFZnMFdRTzl1ck1LZWRlWG9XQUVGTWRYRy1VbExCV081X0xDQ21KYzFEdnh1NnNWUGlRcVFpdGZ3eWlUWnVDVnBlRXRCSk5kOUpkLTJNbEktaVZDVUgwZEN5Zl8xNjNB?oc=5",
-   "published": "2026-10-01T03:19:00+00:00"
   }
  ]
 }
