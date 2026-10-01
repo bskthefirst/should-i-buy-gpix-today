@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-30T22:59:09+00:00",
+ "generated_at": "2026-10-01T14:30:27+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 100.0,
+    "pos": 98.9,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "24% ann. (p39)",
+   "value": "24% ann. (p40)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 39.3,
+    "pos": 40.1,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "14.5%",
+   "value": "15.1%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 14.5% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.1% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 29.0,
+    "pos": 30.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.3 (p32), F&G 31",
+   "value": "VIX 17.3 (p53), F&G 28",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 14d",
+   "value": "CPI in 13d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 340.74,
-  "day_change_pct": 1.01,
-  "sma50": 341.47,
-  "sma200": 337.11,
+  "price": 338.455,
+  "day_change_pct": -0.67,
+  "sma50": 341.4,
+  "sma200": 337.25,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 14.6,
+  "drawdown_pct": 15.2,
   "series": [
-   {
-    "d": "2026-01-13",
-    "c": 336.43,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2026-01-14",
     "c": 336.31,
@@ -1215,6 +1209,12 @@
     "c": 340.74,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-10-01",
+    "c": 338.455,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,7 +1222,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+5.3% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+6.0% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1233,14 +1233,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-30",
-  "days_total": 733,
+  "end": "2026-10-01",
+  "days_total": 734,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-09-30",
+  "fg_coverage_start": "2025-10-01",
   "baseline": {
-   "n": 712,
+   "n": 713,
    "avg_pct": 3.18,
-   "median_pct": 3.07
+   "median_pct": 3.06
   },
   "bands": [
    {
@@ -1267,9 +1267,9 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 175,
-    "avg_pct": 3.56,
-    "median_pct": 2.37
+    "n": 176,
+    "avg_pct": 3.55,
+    "median_pct": 2.36
    }
   ]
  },
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 340.74,
-  "sma200": 337.11,
+  "price": 338.455,
+  "sma200": 337.25,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 24.3
+  "level": 24.4
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 28,
+  "days_until": 27,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 14
+  "days_until": 13
  },
  "earnings": {
   "next": null,
@@ -1303,14 +1303,14 @@
  },
  "backtest": {
   "start": "2022-10-03",
-  "end": "2026-09-30",
+  "end": "2026-10-01",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 43909.43,
-  "dca_return_pct": 110.09,
-  "dip_value": 44008.16,
-  "dip_return_pct": 110.57,
+  "dca_value": 43614.98,
+  "dca_return_pct": 108.68,
+  "dip_value": 43713.04,
+  "dip_return_pct": 109.15,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
@@ -1326,31 +1326,31 @@
    "title": "Google Unveils New AI Model Gemini 4 Argon, Sending Alphabet Stock Higher",
    "source": "Barron's",
    "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQRTVoX2xTZ0c1Mkl5YjNaN2lUaThaMTJFSHQ4RXZsdUtiX2EzT0NCbFM5cFFpMlNBT0F1WTNiQUV2T2VtRDdSYnJ5MlRLTUc3UVVTd2FOYjl5SWNZMUk5ZWFhR21KSmlNdDNKZXNpa0ZyVFVYU0tidWppbUdPMmp1Vkd5UEZMaVVG?oc=5",
-   "published": "2026-09-30T21:35:00+00:00"
+   "published": "2026-10-01T12:01:00+00:00"
+  },
+  {
+   "title": "SpaceX set to launch Google AI chips into orbit in push toward space-based data centers",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUkdhZGNReVpJcWxxUzVmZjljcURHdm5oc3ZjMzFWZ3lTd08zUUVISno0QU5LUklld1JSVGc2LVprclc2REVPZW1LN1hveWNpNXhncTlJZjgwMUtvRlJCWHBRUXFLWGVjcXNnNl9mQ0k3VTh0SnBiTmowOFVVZEhseVZLbzM3dkdjaWJNaTZ2aFY2ZmlrTHhscEN6WEpZUlUyVVctWXh5d3hQd9IBrwFBVV95cUxQYVJadHZIVjJjd1dIQUR3cHZiWTZUNzhSMkxVdzV4czFEWDVCajdVNEFPR1ExaERiZE5UbERZNFlwOEoxQkRnMVpfOU1TbTFHcUpGQjNyZHljdWd4aTJTX0lMelRZdUJFSkhYLWlYdk9BdjVfZ21WYzlGN1lYNWJ5Wk1Ud3dFYVRsZ0dGWlVlcW9fckhVcG5teG5JU0RHYzVGNE5NSEkxOHFCT2NlNmFj?oc=5",
+   "published": "2026-10-01T11:20:15+00:00"
+  },
+  {
+   "title": "Alphabet stock slips on report of internal doubts over Gemini 4",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNZ2R6Nm1uN2FsMFpFRW9vQzVaMTJKNVNabVFteFpRak9nOHFRQUpURHVJZUNSaXFrWWxjLWxjUXRGb3NWUDEtbDRXNjBDbTdqajhnZ0pxUDZsWklIMW9McU5qWGlNSXRuVHlsU25ZUzVXcnlyanR5WFVDY0xHbklQS0ZIZUdzcElIWkMta0xJZlg5dC1WVl9PMDhtczB6Y3RSVFE?oc=5",
+   "published": "2026-09-30T20:30:29+00:00"
   },
   {
    "title": "Google announces Gemini 4 flagship AI model after months of delays",
-   "source": "Reuters",
+   "source": "reuters.com",
    "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPa0kxM3JDazhISnQtVGJ1Q2phRmxPR2Mtb2R4X1dQX0U3TkVZLWV0YUZNSnRfQ25OQnRuWHpNczNHSzhCZFFkdHFCWEVXYUhuazBDLWJ0eV92WU9nMDR6Nnl5ZDRCOG5UdWtwNnpTNkVtS2NLejVrX1Y3eXFvbDRMc0Y2Q2hvN0Q5YTEzTVA3NDFLaHprbnpuNWVBejNPVUlKemJCSHZUcHZSVE9iNmt3TWxXMXFBWkU?oc=5",
-   "published": "2026-09-30T20:05:43+00:00"
+   "published": "2026-09-30T22:16:26+00:00"
   },
   {
-   "title": "Google rolls out Gemini 4 Argon, its most advanced AI model",
-   "source": "cnbc.com",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFA3RWVHRldQeDcwbUo2d1FlaUEza2FnMFJZX0xuRGtGZWFyamU4TTJfM09MWHhVeDB1X0o1Y2d2VzJzeFZiQi0zOThLZkdDX1VvWnNTUkxmLXFWa1U5bHotNEliUm83M1htWWNGcWR30gFzQVVfeXFMUDZ2SVZ0VVhMa01TVnJ4UXN2Yk9VQXBadXlobU5wY0hyUndwNzFBT19kNnVzTzZ6Z3JIa253TmdubVdSYXBoNU9hNHYwNDE4TzRkZXlOdzJ2OXRxc2hNSDB5TzFfRmNIR2tpbXBwb3psTHZ6RQ?oc=5",
-   "published": "2026-09-30T20:00:08+00:00"
-  },
-  {
-   "title": "Google Wants Hollywood to Stop Being So Afraid of Technology",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPbVc1bUlKVjlmY0NvTWMzX2cxbHRUdGR2RFBYUHhaR0NPeTJrdDVNTXBvTV9FUHdyMnJnUEhZXy01eUVldEl2V2hPS25mcGswQ29ReWlpRC1uS1VpTkxYMjVvMkhvcE9nTHpUWk5pQURxRm9CRW1yempGVlNUd0dRdDhQUzYyOW9NZTZFZWl3?oc=5",
-   "published": "2026-09-30T21:18:56+00:00"
-  },
-  {
-   "title": "Google Grapples With Employee Skepticism About New Gemini Model",
-   "source": "Bloomberg.com",
+   "title": "Google Grapples With Employee Skepticism About New Gemini 4",
+   "source": "bloomberg.com",
    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPMUo1VEZLVjIyY1ZXMXVfUzB5ZVpjSzlZQjFGLWVCSWdWMzYxbDJabnNMU3BuTDliOTdSb1hjcGFTNmdVWnJjcU9PVlpKeHlULUtsNjQ4X0hGaTJmVXp6eTVCVW1UODJFX2xsTGhybE95VzNWZVpnUTlDSHdrYk5rUmtZYzVzaEJ0T1o1X1psU1Y4OHVVdWMwUlBHMjhDXzNjQ21ZOUYteXYtWVZtaXVvUHFBM1M?oc=5",
-   "published": "2026-09-30T19:52:42+00:00"
+   "published": "2026-09-30T21:05:57+00:00"
   }
  ]
 }

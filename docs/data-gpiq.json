@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-30T22:59:06+00:00",
+ "generated_at": "2026-10-01T14:30:24+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.5 (p38)",
+   "value": "23.4 (p53)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 38.2,
+    "pos": 52.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.89",
+   "value": "0.91",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 47.4,
+    "pos": 53.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.37x (p68)",
+   "value": "1.35x (p63)",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
+   "lean": "neutral",
+   "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 68.1,
+    "pos": 63.1,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+7.4 pts",
+   "value": "+8.3 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 94.6,
+    "pos": 100.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.6%",
+   "value": "1.7%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 6.0,
+    "pos": 17.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+3.0%",
+   "value": "+1.8%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 75.0,
+    "pos": 65.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.08% (+0.45 1mo)",
+   "value": "3.12% (+0.47 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 27.0,
+    "pos": 28.0,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "9.9% vs 4.2% cash",
+   "value": "10.0% vs 4.2% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 56.1,
+    "pos": 57.2,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "31 (fear)",
+   "value": "28 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 30.8,
+    "pos": 27.9,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 14d",
+   "value": "CPI in 13d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 57.98,
-  "day_change_pct": 0.21,
-  "sma50": 56.64,
-  "sma200": 54.83,
+  "price": 57.35,
+  "day_change_pct": -1.09,
+  "sma50": 56.65,
+  "sma200": 54.85,
   "high52w": 59.52,
-  "drawdown_pct": 2.6,
+  "drawdown_pct": 3.6,
   "series": [
-   {
-    "d": "2026-01-13",
-    "c": 53.32,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-14",
     "c": 52.89,
@@ -1343,6 +1337,12 @@
     "c": 57.98,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-01",
+    "c": 57.35,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1350,38 +1350,38 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.59 (-2.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.59 (-1.3% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 31) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 28) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.91) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.5) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 23.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.08%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.12%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-09-30",
-  "days_total": 733,
+  "end": "2026-10-01",
+  "days_total": 734,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-09-30",
+  "fg_coverage_start": "2025-10-01",
   "baseline": {
-   "n": 712,
+   "n": 713,
    "avg_pct": 1.89,
    "median_pct": 2.1
   },
@@ -1396,9 +1396,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 145,
+    "n": 146,
     "avg_pct": 2.56,
-    "median_pct": 2.79
+    "median_pct": 2.76
    },
    {
     "tone": "neutral",
@@ -1410,7 +1410,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.86,
+  "ttm_yield_pct": 9.97,
   "tbill_3mo": 4.25
  },
  "distributions": {
@@ -1520,73 +1520,73 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 739.77,
-  "sma200": 667.27,
+  "price": 738.51,
+  "sma200": 667.89,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 22.46
+  "level": 23.44
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 28,
+  "days_until": 27,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 14
+  "days_until": 13
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-09-30",
+  "end": "2026-10-01",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15400.0,
-  "dca_value": 21412.74,
-  "dca_return_pct": 39.04,
-  "dip_value": 21175.0,
-  "dip_return_pct": 37.5,
+  "dca_value": 21180.07,
+  "dca_return_pct": 37.53,
+  "dip_value": 20947.09,
+  "dip_return_pct": 36.02,
   "dip_cash_uninvested": 200.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "FTC opens probe into AI giants including Anthropic and OpenAI",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdzYzcTVSY1JmRld3cFRBRlRaX0w0YVZHTjU3NWVvVG5BcXFIZGFwdXViLXBLNnhJQ3d0RS13T2VURWdNQ19ySkJuVXNlV2NWX0E3LUExYUZQaFBsTTVEaC1NMXJtR0RGYlllQVotQmM3VlRaVmd2em04YWdzTXFkMjhsUlQ0b1JlcVJBRENNRFFBT1NLcU00YUtqU0N5LUlJa0YxaEhzdU1mR1lkUTJ0MFhLMjA3a1FJVlQ5RXpMOEIxdw?oc=5",
-   "published": "2026-09-30T18:17:19+00:00"
+   "title": "Gemini 4 Argon: our next era of frontier intelligence",
+   "source": "blog.google",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNRjB3amppaF9yb1FhSmxoUW5GUEtCREcxbW1ScXJRRWN5ZGtIM0N0d21wVEI3ZTd5ZHY4N09KRWNwX3U2Z3JBeDNWakYxYXlBVE95NEpKWW5vcWFKZlA5Qkdka3hGZG9INUZtMVN2VTJhWG1TTldVSE1JVm5VaVlvcnpWRlhzX0V1NGJXZGhfMEY?oc=5",
+   "published": "2026-09-30T20:06:23+00:00"
   },
   {
-   "title": "OpenAI CEO Sam Altman to skip congressional hearing on rogue AI agents",
-   "source": "NBC News",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQdElNcC1QUEs5Rm5DM0VhN2ZlREJrRF9jNW5NazlKUjhlUUVmZjhlS0tFNUhkSHpYbkNCRUhtWVNNREhvMGtzRmZRQVRrSVgwTFRLRHNBXzNnR0dISjd1aURVMXpvRUlNcjZka1lRZG44ZWFPdGRWb2ZZV3hpamtfdHl3OVRMckVibnRDN1VPZ19NQk5qWGhQZUVZZlJ5aWVCZUY2cG0zUkx3amFMQ0ZabnZuTkpGVG5a?oc=5",
-   "published": "2026-09-30T20:24:05+00:00"
+   "title": "Chinese hackers impersonated ex-US official to steal emails from AI experts",
+   "source": "reuters.com",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPVHRqRS1jN2w4cEJmeUFHYkZ1N2RFVTJiRUtJYnZWSTRvMWVHNWVNU2IyYUh4Qjd1aG1pT21SSVRPbEpYVlBRUXRtZTFjS3dzMlF5SThULW1NaXRZTXlHNXdodTNfdGE1QmpMTHdGS1NSbmUxdkh2RXFubWs2eFRPSFF3MkMxVGx3cmd6U0xsSWthamd3YVdFaE8wU183SktHU3ZhNE5NVDNURFpHMU81N25YMG5jbDhQTXZjSg?oc=5",
+   "published": "2026-10-01T13:09:30+00:00"
   },
   {
-   "title": "Medical Records Firm Uses AI Tool to Expose Flaws that Threaten Patient Privacy",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNSXV3OVlGcnRrS1h2cVJoTXJ2NWtFbTNNajBKemhTUFcyOU9sMEJrSFhtejlIZExZY2gxZ0VuTE14c1lTQzVlbURuTXI3UmpnSHZfSjdZdFhwdUR5QVhvcVR1X2FaVWFYbk0tNTJ5LXdUT1FZRnJYMTBtdktsNEgxbm1QbG5kUQ?oc=5",
-   "published": "2026-09-30T19:25:06+00:00"
+   "title": "Trump\u2019s AI lunch included every major tech company. Except Apple",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPbWhaVGlFMFhRaGhGX1prSlFKVGNQY0hHTjhYa25PcERoaE5zU3FNOHh6MUN0S1ZXdDJlakozMnFfcnZvbW9YdTR0NmhZNGVTRDZTalNwSmFOaVF1VWppRlJ1Wlh1SWRIbU9jSk1GN3VheS0zUnZOeEw4MDg2ZG5nT3JoWkRkZEXSAYwBQVVfeXFMT1B5NV9RSGxQdGlKYXdDNUVDdlFMODVUMjRHazlVRTRpQ21EQWVJLUVzTUUyOTBINHRKVzVuYnZlYzhPUUI4Y1RDOHQxZkJLbUFEUnBNeTBwSU1Tb0trODRfVnJmZ0ExQ2o0SDRiV0FPWmJzc2htTW84RDBLR0lJZjlmeEJwakpJYlQxRGw?oc=5",
+   "published": "2026-10-01T02:07:00+00:00"
   },
   {
-   "title": "FTC is investigating OpenAI, Anthropic and other AI companies over product risks",
-   "source": "cnbc.com",
-   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBaX3E1SXJOeEJHVWxxNEpSUDZxRmRJZFBTQ3hDU1R2Z3FLT0hOREVTZEQ4eXNQdmRKNkQwMExCXzA0blJRRE5kb3oxb2haU1h0eGFyQ3NrOGxJSjFNYzBIVU1DU1Z1SEhkWExyelZIeHh5amE40gF6QVVfeXFMUEI1a0NEa0xqMTNScWtrWXZjS3ppbE5xVHQyWXJjVWJMQUZDby1HNlE2bG1DNUtFOFgzdDlDXy00QW1VSHJ1RDFaZ1lnUE50b2VSdjI1YlJ6LTdMUktDaWtTdm9JUG5PbDF1dFVXOUNQSFhndHpmWjlMLVE?oc=5",
-   "published": "2026-09-30T15:27:47+00:00"
+   "title": "Cardinal Fern\u00e1ndez on the complementarity of humanity and AI",
+   "source": "Vatican News",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNb19EbFJjTkVHYVpieEh5WFlmeVFHdnBIN0s0TmZFSV9WZkRfU0pnem1HbzFzSFZZSmFQMGNuVW14VWE5bXRWNURjQmxYMy1WM1pVblg4Mjc5blBNVFR1czk2aFc2MlFCWXQxY2RsN2puZ3JobUhIMHhHOWowOS1vV3NkVjVJZWpNTTZET0MyM0gzOGl3ZG1HNl9MYV9OblVsNFNFTEw2aUZtUF9wTEZnWlNLZGVtMzRma1E?oc=5",
+   "published": "2026-10-01T12:53:07+00:00"
+  },
+  {
+   "title": "'Things may get ugly': Meta's new AI Muse is about to make the internet more annoying",
+   "source": "BBC",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNOVdTQVNoVkxHUnJwXzdIeXEyRVA4aU45TDhiOExPUVVpdS1KTzNEVTEzdjRkZ1lpUFNuS3hIZ1lrY2llRnM1WTlPZGlxQUswMGoyTmFfUXlncmNDUVlPZjdWWmhMVmFPME9PQUhybHNBdEY4eEJBOV9HMnAyS0h3b1ZnUUtOVHlsSWRKZXdHdlI?oc=5",
+   "published": "2026-10-01T09:08:46+00:00"
   },
   {
    "title": "Trump\u2019s AI chatbot turns on its master",
    "source": "The Guardian",
    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQa1VfVUFmc3JMal8wLWRlUW9meUhnR0RkTUVjbFZnMFdRTzl1ck1LZWRlWG9XQUVGTWRYRy1VbExCV081X0xDQ21KYzFEdnh1NnNWUGlRcVFpdGZ3eWlUWnVDVnBlRXRCSk5kOUpkLTJNbEktaVZDVUgwZEN5Zl8xNjNB?oc=5",
-   "published": "2026-09-30T20:40:00+00:00"
-  },
-  {
-   "title": "Ask Trump's AI chatbot who won in 2020. You might not get an answer.",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQUUFKZ2RNZWdNNHRZNDgyVjNIdzcwRzJjNlpYRHRWLXpGTXlrN2Y3emRLSzVtRTMzWWVDSW9vajhLdUl6MkxsOWxJSE9jcUZqcE1iRVdWZEh1ZjBUek9TY21yYk5NTlBYaHBSQUI0cXd3R2ZlUEVrcTZRdDduZjhIQ0ZuTGoybjBz?oc=5",
-   "published": "2026-09-30T20:49:55+00:00"
+   "published": "2026-10-01T03:19:00+00:00"
   }
  ]
 }
