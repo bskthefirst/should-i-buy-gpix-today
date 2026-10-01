@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-01T19:00:12+00:00",
+ "generated_at": "2026-10-01T23:09:18+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "16.5 (p37)",
+   "value": "16.4 (p35)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 36.6,
+    "pos": 34.6,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 45.9,
+    "pos": 45.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.8 pts",
+   "value": "+5.7 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 81.3,
+    "pos": 81.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.5%",
+   "value": "1.6%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 15.0,
+    "pos": 16.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "-0.0%",
+   "value": "-0.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
+   "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 50.0,
+    "pos": 49.2,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 39.6,
+    "pos": 40.1,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -200,7 +200,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 28.2,
+    "pos": 28.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,8 +230,8 @@
   }
  ],
  "fund": {
-  "price": 55.545,
-  "day_change_pct": -0.51,
+  "price": 55.52,
+  "day_change_pct": -0.56,
   "sma50": 55.84,
   "sma200": 53.98,
   "high52w": 56.67,
@@ -1313,7 +1313,7 @@
    },
    {
     "d": "2026-10-01",
-    "c": 55.545,
+    "c": 55.52,
     "t": "neutral",
     "s": 50
    }
@@ -1323,7 +1323,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-1.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.72 (-1.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1338,7 +1338,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 16.5) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 16.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1370,7 +1370,7 @@
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
     "n": 122,
-    "avg_pct": 2.15,
+    "avg_pct": 2.14,
     "median_pct": 2.71
    },
    {
@@ -1384,7 +1384,7 @@
  },
  "income": {
   "ttm_yield_pct": 8.21,
-  "tbill_3mo": 4.25
+  "tbill_3mo": 4.2
  },
  "distributions": {
   "history": [
@@ -1493,13 +1493,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 764.82,
+  "price": 763.99,
   "sma200": 720.03,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 16.46
+  "level": 16.39
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1516,10 +1516,10 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15400.0,
-  "dca_value": 19807.96,
-  "dca_return_pct": 28.62,
-  "dip_value": 19590.14,
-  "dip_return_pct": 27.21,
+  "dca_value": 19799.05,
+  "dca_return_pct": 28.57,
+  "dip_value": 19582.05,
+  "dip_return_pct": 27.16,
   "dip_cash_uninvested": 1600.0,
   "dip_buy_days": 31,
   "winner": "dca"
@@ -1532,22 +1532,16 @@
    "published": "2026-09-29T15:04:28+00:00"
   },
   {
+   "title": "Fed officials wash away market bets on October rate increase",
+   "source": "reuters.com",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQcEdmemN4NUZ5RjRobklFbGFkcWZ0NENTRmZfU2hmNnFuZ1ZkRzJKY09hV3VLcjllT2V3VEVHdGg1NTFBbU1BVUJycDV1ODc5cTRxM1hCWlk5aW1RY3c0RzQ2bTNMcmsybi1VdDdoMG9RdUFrakRXSnFfb2trYmpOQzU5RmNmMXpqZlpJNUY1OEtEOGxnNXhlUjkzdmpnaWZVSVcwX1MyTHl1UQ?oc=5",
+   "published": "2026-10-01T20:38:38+00:00"
+  },
+  {
    "title": "The Federal Reserve Taps GSA to Lead HQ Renovations as Chairman Warsh Moves to Rein in Costs",
    "source": "GSA (.gov)",
    "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOWk9jVXRONi1uT3JsX3NFa2RRdHg2TUpZZFBUVUE1cm1HWkszeTU3Q1NlbEtQM2xESGZ6aWp3YTRYZGVuNTRaRUJFNGZSakY5dG5QcUpaWkpJQ19rSV90eXIwTkFuWTJCYVNPXzAyWXZwaUg4aUE2X1c4Yk8tV2pDV2MtTmlFZ05GWjhSamVoaHZUbTVQS3h5OEFxMFBaLUJzU2ViRUtKYkFJc1hKU1hKekVNSFRJMGVZN3FmYy1UcXFLMmhhdzFkWXVlN1VTcnZoQlNQYUNpejlHUQ?oc=5",
    "published": "2026-10-01T12:00:00+00:00"
-  },
-  {
-   "title": "Goldman Sachs pushes Fed rate hike forecast to December",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPOXRTWE8yWkFyM2l6XzdNT3kzUTVZeFd3SEhmSjBYelk4WS1tU0Q1YnRVVUZOSklUcURKMU1XQzVfSUVRRGYxejlncXpwQ3ZWelVrTW9WNVZldHZ2bUxFUlozcmVObFQ1RzlKbEhsZFhFbzUzYjBqaWltQmRWSDRLUERCejNfczlyRTIwTkxPODB2XzdyX0FvM0JpWWpIUQ?oc=5",
-   "published": "2026-10-01T03:51:00+00:00"
-  },
-  {
-   "title": "Navigating Geoeconomic Risk in the U.S. Stock Market",
-   "source": "Liberty Street Economics",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVEwbEZyLWJuQXQ2OVdxaEdXb19HNVdYbUFybFNDeC1OSFVTUUhWaU1iUUFYSWlBSG1hYzloRHBIVTJKNkdTWGNUWmx5ejhIWF90Q0gzOG1LV1E2VEUtR2c0R0JYbzhpSzVweGVjUVN1YzllOU1kWGtIcmU5aFNsc2Jubm5jSi12X2ItVG9rU0V1YWpIRzVidkRValA2WHpDdHNWWlRlU2Ezdw?oc=5",
-   "published": "2026-10-01T11:00:58+00:00"
   },
   {
    "title": "Oil and gas activity increases despite cost pressures, longer supplier delivery times",
@@ -1556,10 +1550,16 @@
    "published": "2026-09-30T19:36:37+00:00"
   },
   {
-   "title": "Persistently Higher Treasury Yields Could Add Trillions to the Debt Over 10 Years",
-   "source": "Cato Institute",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxObTdWXzNZSnFZckxLYy10cUx4NWxRTFZ2MUIzMW92SkI3dGxDXzJ1QmlnUnRPNnpPRVdkNzRwNkZHZW4yOFF3MkVBOV9aczdzdU9kenVrUFREZ3BCUVRmWWlWMU0tSHVRcVNmd21yNXlQeHJmMzI0RlVHdWUwQnRJSDVjM0ViMTlrZU45N0JjcFYwTEdBeERXeVhGR1Y3aHVaVkE?oc=5",
-   "published": "2026-10-01T16:42:36+00:00"
+   "title": "Navigating Geoeconomic Risk in the U.S. Stock Market",
+   "source": "Liberty Street Economics",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVEwbEZyLWJuQXQ2OVdxaEdXb19HNVdYbUFybFNDeC1OSFVTUUhWaU1iUUFYSWlBSG1hYzloRHBIVTJKNkdTWGNUWmx5ejhIWF90Q0gzOG1LV1E2VEUtR2c0R0JYbzhpSzVweGVjUVN1YzllOU1kWGtIcmU5aFNsc2Jubm5jSi12X2ItVG9rU0V1YWpIRzVidkRValA2WHpDdHNWWlRlU2Ezdw?oc=5",
+   "published": "2026-10-01T11:00:58+00:00"
+  },
+  {
+   "title": "Federal Court Issues Ruling in CFPB Federal Reserve Funding Case",
+   "source": "ACA International",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPM2JBdDdUaVNic3FVWU1sUUFxQjV4SlpxdXJGODVpcDF6bGlRZWRRcmtLN0xqQWU0MmxJVE1iYzN0dkNEcU9heWRLcUNTelN3dVpDeG45STlTVEtMdVloM0FYSDhOZzgxOVRuLWs2UUtwZUE2Ni12UXJxZFk4LWhxSjlnZ2dEWGQzOHFuRlJCM3daSUpKTHVaVlA3UmxxejZqa1NPLVpR?oc=5",
+   "published": "2026-10-01T15:43:30+00:00"
   }
  ]
 }
