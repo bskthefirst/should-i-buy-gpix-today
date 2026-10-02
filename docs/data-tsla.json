@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-01T23:09:20+00:00",
+ "generated_at": "2026-10-02T14:30:18+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-6.3% in 5 sessions",
+   "value": "no pullback",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 58.0,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "40% ann. (p35)",
+   "value": "40% ann. (p37)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 34.9,
+    "pos": 36.5,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "27.7%",
+   "value": "23.7%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 55.4,
+    "pos": 47.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.4 (p35), F&G 28",
+   "value": "VIX 15.5 (p18), F&G 33",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 13d",
+   "value": "CPI in 12d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 354.11,
-  "day_change_pct": -0.2,
-  "sma50": 346.57,
-  "sma200": 393.71,
+  "price": 373.88,
+  "day_change_pct": 5.58,
+  "sma50": 347.65,
+  "sma200": 393.2,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 27.7,
+  "drawdown_pct": 23.7,
   "series": [
-   {
-    "d": "2026-01-14",
-    "c": 439.2,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-01-15",
     "c": 438.57,
@@ -1215,15 +1209,16 @@
     "c": 354.11,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-02",
+    "c": 373.88,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
-  {
-   "label": "Crash band",
-   "direction": 1,
-   "text": "TSLA 5-session return -6.3% - another -5.7% reaches the validated crash band (+12 pts)"
-  },
   {
    "label": "Top-decile volatility",
    "direction": 1,
@@ -1233,14 +1228,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-01",
-  "days_total": 734,
+  "end": "2026-10-02",
+  "days_total": 735,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-10-01",
+  "fg_coverage_start": "2025-10-02",
   "baseline": {
-   "n": 713,
+   "n": 714,
    "avg_pct": 2.76,
-   "median_pct": 0.68
+   "median_pct": 0.71
   },
   "bands": [
    {
@@ -1260,9 +1255,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 360,
-    "avg_pct": 2.65,
-    "median_pct": 0.62
+    "n": 361,
+    "avg_pct": 2.66,
+    "median_pct": 0.74
    },
    {
     "tone": "caution",
@@ -1279,22 +1274,22 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 354.11,
-  "sma200": 393.71,
+  "price": 373.88,
+  "sma200": 393.2,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 40.2
+  "level": 40.5
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 27,
+  "days_until": 26,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 13
+  "days_until": 12
  },
  "earnings": {
   "next": null,
@@ -1303,54 +1298,54 @@
  },
  "backtest": {
   "start": "2022-10-03",
-  "end": "2026-10-01",
+  "end": "2026-10-02",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 29057.41,
-  "dca_return_pct": 39.03,
-  "dip_value": 29069.58,
-  "dip_return_pct": 39.09,
+  "dca_value": 30679.69,
+  "dca_return_pct": 46.79,
+  "dip_value": 30692.54,
+  "dip_return_pct": 46.85,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 204,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Why the Tesla Roadster Event Was Delayed\u2014and What It Means for the Stock",
-   "source": "barrons.com",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQY0ZWeGhBbzhwRlpEWUd3QlNvVzJyUkFkckVQTFp1eE9tZ2xtbXVWT2VsaGZaTzdQM1RQa3M1eGlPYzRXY0pXRVUyYXdRZW9GY1JUWk5EMlM3YlM5NHJORHVqbHJaZHhnMjhGeWZaMXk1WU1hMjNFSDFJWmdGSF9keVprTktqdjR6Y2JVblQ4eGxGaHlzY3c?oc=5",
-   "published": "2026-10-01T20:18:00+00:00"
-  },
-  {
-   "title": "Should You Buy Tesla Stock Before Oct. 2?",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOOUpLUWdIREpiaTdoYlpEa1A5dVV2am5sdWp5d2RtV2x0cTg5dHc3Y3dmQjlOTVhKc1dGNmVBMmJBWlc0ckpSTkREQ3ZNOEFodGc0WHZITy1ZRkJDQjVaSFpEQ0ROejZUQ1hHdmlyVUJPMThUNFlYNk9WQkhRYjlJMjFSRnBaUkYtaUpmTXNocw?oc=5",
-   "published": "2026-09-30T13:20:00+00:00"
-  },
-  {
-   "title": "Dow Jones Futures: Stocks Rise Off Support As Yields Tumble, Micron, Meta In Focus; Tesla, Jobs Report Due",
+   "title": "Tesla Q3 Deliveries Top Expectations; The Stock Is Rising",
    "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQTTd2a2FIVjFmYS1OOW1wTmRyRE9fVDRZQ3oybTdtWWlYUUhCTDUyU3Q5RUQtOXNTRGF5NVVYQXR5aXluWms2ZkV2c2pyeHlDaTV5MUlCY2xIS1haQzZ6RnlmWjFTaFprSkliY1lqUHllSzR3UzhQSzZFTVluQmhpOGVtZXNiUzJJbV9ZVE9SUGQtQXZFcFJBQ1Zrd0JjdmxUQUltU2lSaFpDR0NzamhhQVJaa1RxQ3JTRVRIUm52bXNMLXRBbGRxYTdnY2hraXFC?oc=5",
-   "published": "2026-10-01T20:50:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUzdHU2lQU2hYbmhzN0ZRRVdwTHltRGIzUHl3dVVLLTU5dGczbFE1Rmt0bWpNZzg2NXVmZ0p2MFMzVjlFRkI5a3F1clRRNW1haEF1cHl2MnRlbmVWbzJzZWN3QzVya1dDWUF0Wk5hd2JhbVI0N2xHOXZpdW84enRvNTgzU2thSmR2SmhpVnk0bw?oc=5",
+   "published": "2026-10-02T14:06:00+00:00"
   },
   {
-   "title": "Tesla Is Down 20% in 2026. These Two Other EV Makers Are Doing Even Worse.",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPdU5QZ054UnRqV3F5bmdUazJXVlM1eG5WdnQ3U1VuODFlVlRmY0pXcXNuYkVRZy1YRFFIclhPdTcya3RYc1Q2MlB0NTdWQnpMbDhXVzc5OVBEelYwTzl1LUllRHppLVpsSVUydkRIWDMwaF9CcGlJRmZCeC10ekJKcE9PbUZsNHpKT0pDazZkSkFfQ1U0ZDVOWjdfakI2Q25BX24zT2RScXVlWkxNUExtdnBJeXVlQQ?oc=5",
-   "published": "2026-10-01T19:13:00+00:00"
+   "title": "Tesla Is Winning the New EV Race. Here\u2019s How.",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1lVzlVU1B4QXV6ZW95YXhwSjFxMWljUXlLaDZTYjdHUXdMbC1YcVFqbnFUcWtKM0FhMnVkM2lmRUxibFJJTkNkX2M0Z1BVQTU5QS1yQVViLWgxdk1rVncyYkwzaTZzZzItRkExWHFmam5HUQ?oc=5",
+   "published": "2026-10-02T13:13:00+00:00"
   },
   {
-   "title": "Not Cars. Not Energy Storage. Tesla's Robotics and Robotaxi Ambitions Are the Real Reason the Stock Is Priced Like a Tech Company.",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdVBtWnVfb25LNm5kd21MUUxLR2JOblV6Y2lVUjBZUm14eG5Xb20wTzA5VDByZGdiVXNnaVlzaS05bk1zQWhNUURkVDZ4TjhEX1hyb25acUNRTFd1WHJxTzZJWHNVdUFjMi1iTHV3ZWtJVU5XXzBmbmRjYkdLQVVZVlY0b0VPLXFGSElmZGlTcXY1TUFXTDh0RA?oc=5",
-   "published": "2026-10-01T18:22:00+00:00"
+   "title": "Tesla stock rises as company reports Q3 deliveries that top analyst estimates",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNaFYteC1YV2FWTDNpU1g1cDZxR1RtNkZPNFY5Vi1oMUFrZWZnZ0wxZ0k2alRJbEV6bVI2amZqcmlnc2VUVDktdXBqYTJjV2JfWEJXSVlGT3NzWmpfd3JrdTA1X3RWbXNoRDFuc2stanZsdC0tQVprSnA2dVVsLTdFc1Q3c2RnWUdQZXNmQmk2eEJYVDcwQVpIcWZzVl9zVGIzX1Q4SWd3elpCbTBKc0FxZGo5Y3I4ZDFyb25XdDEzcjRVSHlrclRKNnBWRE52UDJTNjJSbmQ1QXQ?oc=5",
+   "published": "2026-10-02T13:39:42+00:00"
   },
   {
-   "title": "Musk\u2019s AI ambitions are changing how investors see Tesla",
-   "source": "Los Angeles Times",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNTzlYdTVBWnVpVHJyOWlOcVZDdW5oVENzcGtheEhBYWVxRVlMbXZpNllhWGpHcGZPSWMtR0RLclk2M1hzaHhGRGNaaTlMeVVaYlJ1NzZ4a0pwMGIzaXdSVDVyRjVqeVdjTXE5U1JmamxkbHVfUHVKRjNnYm1lNUxrbU50RXpzSE1nYTZjR1MzMnZTMHpFak9Ubm5sWXEtdEt6NUxTNHlnZEo?oc=5",
-   "published": "2026-10-01T14:21:29+00:00"
+   "title": "Tesla reports 486,532 vehicle deliveries for third quarter, topping expectation",
+   "source": "cnbc.com",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPLTV2TThXeklJVmVnSl9pMDYzQnNoaWVielg0ekwyYTJVemhmRDdKdlpaekRVYXdTcndZNGRyelluczN1MUIxQ3J6M2FDWTQ4dnQwd3c1OEVURkdBUGdQLTBXaE1iUWxXOGFUVlZOLWdscVp0UkFTSEpsWkM3QTRDT3pMdkFlME41OHRn0gGQAUFVX3lxTFBoR1hCMDN2NU1mQ1ZJdFg3XzBQYWJSMzZmQk5aVnlBTTg5YnBfUi1KMm9seGMydVVOU2p1WnloTVVUV25QRXdYT1hwQ1Y4ODlvc0RBcUhwOG9VWUh3OG9CSnJ6N2ZuQUlBUjdWT0xPTnFaN3JHOTdjMk8tZnpWamkwOF9FaHNSUnZHQ1ZpQWkwZQ?oc=5",
+   "published": "2026-10-02T13:03:51+00:00"
+  },
+  {
+   "title": "Tesla Sell Ratings Slide as Street Says \u2018Don\u2019t Bet Against Musk\u2019",
+   "source": "Advisor Perspectives",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPZjlYeWo5SHFVLUhlS2FaYmZpT0s1Ry1VNF9CWTdjRjJERk90dUVKVGpUN01wZGJwZzFVQXdPV2tqajVLUGZXNDktbkVTLUxjcC1Ja3JqOHVlcmQtbGNYWUoxVlJaODU1V1Rtdk1HM05FbmNYWUNma09XTGJuQjFBSkxzNUw5R2VCbmVQUjB1WWZpdDRwRUFBNF9zLTlPZzdpaElQZDdDMUpJeFNwVUE?oc=5",
+   "published": "2026-10-02T13:38:27+00:00"
+  },
+  {
+   "title": "Why is Tesla stock surging today?",
+   "source": "Investing.com",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQVnROcUdCR3paQk5Wd3A2bHlHNk8tWGVKNTFSODlVTC0yOVVPSmJtdTRreG5ldDJJN3V6OUlHOUNUNHV0MjYyZ0ZnODdZMjhybDJ2blhtOTRKVk1Yc1B1QjZ6Ykx4V2dNY2hTOEFRWlhOVHM4YXlXaVMweTN2OVo3MHRYQjBuQlR0N2I2SGlUYlBhSzJReHBvNFR3?oc=5",
+   "published": "2026-10-02T14:16:18+00:00"
   }
  ]
 }

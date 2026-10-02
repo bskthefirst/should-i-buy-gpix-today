@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-01T23:09:18+00:00",
+ "generated_at": "2026-10-02T14:30:16+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "16.4 (p35)",
+   "value": "15.5 (p18)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
+   "lean": "bad",
+   "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 34.6,
+    "pos": 17.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.88",
+   "value": "0.85",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 45.5,
+    "pos": 38.3,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.7 pts",
+   "value": "+4.9 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 81.0,
+    "pos": 73.9,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.6%",
+   "value": "0.1%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
-   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
+   "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 16.0,
+    "pos": 1.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "-0.1%",
+   "value": "+1.4%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
+   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 49.2,
+    "pos": 61.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.12% (+0.47 1mo)",
+   "value": "3.24% (+0.58 1mo)",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "Credit markets calm - no stress.",
+   "lean": "bad",
+   "note": "Credit spreads widening fast - stress building under the surface. The audit couldn't validate a score on this (those days actually rebounded), but as a plain read of conditions it leans bad.",
    "viz": {
-    "pos": 28.0,
+    "pos": 31.0,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 40.1,
+    "pos": 39.9,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "28 (fear)",
+   "value": "33 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 28.1,
+    "pos": 32.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 13d",
+   "value": "CPI in 12d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -230,19 +230,13 @@
   }
  ],
  "fund": {
-  "price": 55.52,
-  "day_change_pct": -0.56,
-  "sma50": 55.84,
-  "sma200": 53.98,
+  "price": 55.98,
+  "day_change_pct": 0.83,
+  "sma50": 55.86,
+  "sma200": 54.0,
   "high52w": 56.67,
-  "drawdown_pct": 2.0,
+  "drawdown_pct": 1.2,
   "series": [
-   {
-    "d": "2026-01-14",
-    "c": 53.02,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-15",
     "c": 53.11,
@@ -1316,6 +1310,12 @@
     "c": 55.52,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-02",
+    "c": 55.98,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1323,38 +1323,38 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.72 (-1.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.33 (-2.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 28) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 33) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 16.4) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.5) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.12%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.24%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-01",
-  "days_total": 734,
+  "end": "2026-10-02",
+  "days_total": 735,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-10-01",
+  "fg_coverage_start": "2025-10-02",
   "baseline": {
-   "n": 713,
+   "n": 714,
    "avg_pct": 1.63,
    "median_pct": 1.98
   },
@@ -1376,22 +1376,18 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 520,
+    "n": 521,
     "avg_pct": 1.21,
-    "median_pct": 1.67
+    "median_pct": 1.66
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.21,
+  "ttm_yield_pct": 8.19,
   "tbill_3mo": 4.2
  },
  "distributions": {
   "history": [
-   {
-    "date": "2024-10-02",
-    "amount": 0.347
-   },
    {
     "date": "2024-11-04",
     "amount": 0.343
@@ -1483,59 +1479,63 @@
    {
     "date": "2026-09-01",
     "amount": 0.397
+   },
+   {
+    "date": "2026-10-01",
+    "amount": 0.397
    }
   ],
-  "ttm_sum": 4.558,
-  "last_ex": "2026-09-01",
+  "ttm_sum": 4.586,
+  "last_ex": "2026-10-01",
   "last_amount": 0.397,
-  "next_ex_estimate": "2026-10-01",
+  "next_ex_estimate": "2026-10-31",
   "is_estimate": true
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 763.99,
-  "sma200": 720.03,
+  "price": 771.96,
+  "sma200": 720.48,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 16.39
+  "level": 15.53
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 27,
+  "days_until": 26,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 13
+  "days_until": 12
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-10-01",
+  "end": "2026-10-02",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15400.0,
-  "dca_value": 19799.05,
-  "dca_return_pct": 28.57,
-  "dip_value": 19582.05,
-  "dip_return_pct": 27.16,
+  "dca_value": 20106.06,
+  "dca_return_pct": 30.56,
+  "dip_value": 19860.88,
+  "dip_return_pct": 28.97,
   "dip_cash_uninvested": 1600.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "Fed's Logan calls for '50 bps or more' in rate hikes",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPY25fbkF3U3FzTGZISkVoSW1IeGNCbXhTYUZIVWRzRkpIZGpWZ3FxWjNkS3c3d19fS2cyLTZHcnpVTUt3elpTQTdhMkxVd2VRM0JQaHRVOGVkV2FFS1RDc0FPbFZfcHpwNXNRUHEtcUx3VENpeWxiOWI2Q1lOb19kVFliWFptNXM1Y21rcw?oc=5",
+   "published": "2026-10-01T23:33:06+00:00"
+  },
+  {
    "title": "Opening remarks by Vice Chair for Supervision Bowman at the Community Bank Cyber Workshop",
    "source": "Federal Reserve (.gov)",
    "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9VU2ZOYS15UHZjZC1vLVRJd1h1NzRCNkpTakxBbTgyamtwMHdidXJqcEZBckFLVDJkaGc1VkJ2dFc2SWFveXpELTNnRzJ1eF9oNVJUMTZ1UE5uaXl4VFNsT1pZS0FfUmtqcWlrazFCMkdBcmZWOE1j?oc=5",
    "published": "2026-09-29T15:04:28+00:00"
-  },
-  {
-   "title": "Fed officials wash away market bets on October rate increase",
-   "source": "reuters.com",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQcEdmemN4NUZ5RjRobklFbGFkcWZ0NENTRmZfU2hmNnFuZ1ZkRzJKY09hV3VLcjllT2V3VEVHdGg1NTFBbU1BVUJycDV1ODc5cTRxM1hCWlk5aW1RY3c0RzQ2bTNMcmsybi1VdDdoMG9RdUFrakRXSnFfb2trYmpOQzU5RmNmMXpqZlpJNUY1OEtEOGxnNXhlUjkzdmpnaWZVSVcwX1MyTHl1UQ?oc=5",
-   "published": "2026-10-01T20:38:38+00:00"
   },
   {
    "title": "The Federal Reserve Taps GSA to Lead HQ Renovations as Chairman Warsh Moves to Rein in Costs",
@@ -1545,21 +1545,21 @@
   },
   {
    "title": "Oil and gas activity increases despite cost pressures, longer supplier delivery times",
-   "source": "Federal Reserve Bank of Dallas",
+   "source": "dallasfed.org",
    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA3bEViaWRKem5STThFZ1J2NlhvMlE0TUZmUzY3NmhvejZJZE9WQXM3MV9PdTUycVRTeWpLX1oxTE9DM25CdnBaek81QmM5VGN1TnF4S3pvb1NiY1dzTWZYMW5NTHBSMnc?oc=5",
    "published": "2026-09-30T19:36:37+00:00"
   },
   {
-   "title": "Navigating Geoeconomic Risk in the U.S. Stock Market",
-   "source": "Liberty Street Economics",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaVEwbEZyLWJuQXQ2OVdxaEdXb19HNVdYbUFybFNDeC1OSFVTUUhWaU1iUUFYSWlBSG1hYzloRHBIVTJKNkdTWGNUWmx5ejhIWF90Q0gzOG1LV1E2VEUtR2c0R0JYbzhpSzVweGVjUVN1YzllOU1kWGtIcmU5aFNsc2Jubm5jSi12X2ItVG9rU0V1YWpIRzVidkRValA2WHpDdHNWWlRlU2Ezdw?oc=5",
-   "published": "2026-10-01T11:00:58+00:00"
+   "title": "Navigating geoeconomic risk in the US stock market",
+   "source": "CEPR",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE04bU9GQXdYY0t3Y2cwSV8yTVlDODBncFB3QllVTTljLWowaUQ0THc3bFM0eTJHako3aW5BRnFqOWx0aHdFLWdCSXlXbDRERGhrdjVvZXV4dEoxQlo1QXZMM3p6VG1DQ3FFTXpUTmk2RG1SV2pkaGJOdHRYMm5QdjQ?oc=5",
+   "published": "2026-10-01T23:58:21+00:00"
   },
   {
-   "title": "Federal Court Issues Ruling in CFPB Federal Reserve Funding Case",
-   "source": "ACA International",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPM2JBdDdUaVNic3FVWU1sUUFxQjV4SlpxdXJGODVpcDF6bGlRZWRRcmtLN0xqQWU0MmxJVE1iYzN0dkNEcU9heWRLcUNTelN3dVpDeG45STlTVEtMdVloM0FYSDhOZzgxOVRuLWs2UUtwZUE2Ni12UXJxZFk4LWhxSjlnZ2dEWGQzOHFuRlJCM3daSUpKTHVaVlA3UmxxejZqa1NPLVpR?oc=5",
-   "published": "2026-10-01T15:43:30+00:00"
+   "title": "Another Fed Official Suggests Next Rate Increase Can Wait",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxORTZnd1ZqTlhvYkRrdnA5dGxLSkU0LWozZzBWSFZFOVlMeU8tZ1FkdkdDYWY4Zk9UaGNaY3FERkNJQlhtZUlibnRNcHB6MXpGSHplSXBCLVRhOTBxdnY4MWVnaDkyY1ItZFJfcDVfZXpaZTJENGJmeW91d1B4WTF2RzBGN1NXVFVPWWFHNHE4MmxMRk1FNXBHbFpSU084TTZBZ2VSTmRLaDBXSTNu?oc=5",
+   "published": "2026-10-01T23:42:00+00:00"
   }
  ]
 }

@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-01T23:09:22+00:00",
+ "generated_at": "2026-10-02T14:30:22+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 92.0,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -55,7 +55,7 @@
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 40.9,
+    "pos": 41.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "16.0%",
+   "value": "14.3%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 16.0% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 14.3% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 32.0,
+    "pos": 28.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "downtrend",
+   "value": "uptrend",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "good",
+   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.4 (p35), F&G 28",
+   "value": "VIX 15.5 (p18), F&G 33",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,7 +120,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 13d",
+   "value": "CPI in 12d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,20 +128,14 @@
   }
  ],
  "fund": {
-  "price": 334.93,
-  "day_change_pct": -1.71,
-  "sma50": 341.33,
-  "sma200": 337.23,
+  "price": 341.595,
+  "day_change_pct": 1.99,
+  "sma50": 341.8,
+  "sma200": 337.39,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 16.1,
+  "drawdown_pct": 14.4,
   "series": [
-   {
-    "d": "2026-01-14",
-    "c": 336.31,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2026-01-15",
     "c": 333.16,
@@ -1215,6 +1209,12 @@
     "c": 334.93,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-10-02",
+    "c": 341.595,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1222,7 +1222,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+7.1% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+5.0% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1233,14 +1233,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-01",
-  "days_total": 734,
+  "end": "2026-10-02",
+  "days_total": 735,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-10-01",
+  "fg_coverage_start": "2025-10-02",
   "baseline": {
-   "n": 713,
+   "n": 714,
    "avg_pct": 3.18,
-   "median_pct": 3.06
+   "median_pct": 3.02
   },
   "bands": [
    {
@@ -1267,8 +1267,8 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 176,
-    "avg_pct": 3.55,
+    "n": 177,
+    "avg_pct": 3.54,
     "median_pct": 2.36
    }
   ]
@@ -1279,22 +1279,22 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 334.93,
-  "sma200": 337.23,
-  "above_200d": false
+  "price": 341.595,
+  "sma200": 337.39,
+  "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 25.1
+  "level": 25.5
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 27,
+  "days_until": 26,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 13
+  "days_until": 12
  },
  "earnings": {
   "next": null,
@@ -1303,19 +1303,25 @@
  },
  "backtest": {
   "start": "2022-10-03",
-  "end": "2026-10-01",
+  "end": "2026-10-02",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 43160.73,
-  "dca_return_pct": 106.51,
-  "dip_value": 43257.77,
-  "dip_return_pct": 106.97,
+  "dca_value": 44019.61,
+  "dca_return_pct": 110.62,
+  "dip_value": 44118.59,
+  "dip_return_pct": 111.09,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Our Project Suncatcher prototype satellite is in orbit.",
+   "source": "blog.google",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOeENaV1RqR0xCQ2d5NklWcXZYX1RZVVZGbkFKUHR5aThYRndNNUhvajFYc2xPX1R6cTNDWVZYdXF3RGNDY1J4d2lmdktqNHVSWXB6ZFQ5V3FiQWxlc2J0VThGNUEwRTFIUHJENEFaX1VEdkgwUTYyeVpBRVJUN2dkY293SjBGVnkwUUpIRjk2Y2FuWWExYm10OTJWY240dGdhNkIwTDJn?oc=5",
+   "published": "2026-10-01T23:37:20+00:00"
+  },
   {
    "title": "Google launches Project Suncatcher, a step towards AI data centers in space",
    "source": "NPR",
@@ -1323,34 +1329,28 @@
    "published": "2026-10-01T18:41:07+00:00"
   },
   {
-   "title": "Gemini 4 Argon: our next era of frontier intelligence",
-   "source": "blog.google",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNRjB3amppaF9yb1FhSmxoUW5GUEtCREcxbW1ScXJRRWN5ZGtIM0N0d21wVEI3ZTd5ZHY4N09KRWNwX3U2Z3JBeDNWakYxYXlBVE95NEpKWW5vcWFKZlA5Qkdka3hGZG9INUZtMVN2VTJhWG1TTldVSE1JVm5VaVlvcnpWRlhzX0V1NGJXZGhfMEY?oc=5",
-   "published": "2026-09-30T20:06:23+00:00"
+   "title": "YouTube sports strategy targets more live rights -- but not necessarily events",
+   "source": "cnbc.com",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOczBzVlZhMkNGMElScm0wUnFDYXU2WG9KSkY4MDdvSEdCQ0lFbHg0a3ZSZjRDYkdpME1FX1k3QWlOZ2JfYXpoTWMzWDdsZmVRSkhULTc3R3RrOXB0VDVOQWpTUG5IY2xGRk5rTWVwODBfZEpQMDN1QzZwbGwzSjdFelY3bXFmb1Z6aFl6dzdJZ21zUl9nZG1MMWZNSHlJcDg5MFdIcUczVXp1RHdscG9NMGl30gG3AUFVX3lxTE9fUllKOUNNajN3U3oyZkJPSFM4RFRadUxjSmo1Zld5OUYxcVk0RUFjaV9qcGV2WVhENHN0eFJIOHhZNDBzbHZRemQ2cm5LbllpVDdtblBrMFBreFR6aTl4aGUyUFczUEJDdmVuTmR4em5fSHdySnlnYTBIV2hNSUtlWmdnamx2Z0FCQkpzM0tVREpaVFhVRldDb0lnNHFHSWFxbjhZZE1Na2dKaXdnOTgzLWJleFJjSQ?oc=5",
+   "published": "2026-10-02T10:00:01+00:00"
   },
   {
-   "title": "Will Google Turn The Tables In AI Race? Wall Street Reacts To Gemini 4.",
-   "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNU1EwOTNINTF0ZG02WmFKZlJPN2J6N3RucjFiMFJkc0Z5V0wwMzVTaHFYek1WYU9nRWFqUG9YQjZBRV9jVzB4WXRMTFZwRmJjc01UZmw1MEhFelFQLS1YNzA0WHBXME8tYnBZQTNGZ1VsYkxxaDdJMWlVcmpBTjlYMmU3cGE5LWFPeDlFRjY1TWNkUlBZdFE0dlkxR2M3ZUxNcHg2dkxmNi1sVGtkbHVaMF9kNA?oc=5",
-   "published": "2026-10-01T18:50:00+00:00"
+   "title": "How Serious Is Alphabet\u2019s Threat to Nvidia?",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQVGk3T0hfU3ltYzlQWk9LMGxiUVM1NWZEVDlnWUp0V1VVbkNXWUFyby1BeEZjREpieTdVTGVmbHpIQUdUYnZ5aGppbVFrbmV2VWxyRUFaV25MdWRTa3l5ZGpJNzFGNUhvNE9uY1V1SkZRZVVyaTBacndpYzFBcjBFbHQxY1NKeFZ6RXpaMjF0LUt3dVRDbzNjcmFR?oc=5",
+   "published": "2026-10-02T12:45:06+00:00"
   },
   {
-   "title": "SpaceX launches Google AI chips into orbit in push toward space-based data centers",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUkdhZGNReVpJcWxxUzVmZjljcURHdm5oc3ZjMzFWZ3lTd08zUUVISno0QU5LUklld1JSVGc2LVprclc2REVPZW1LN1hveWNpNXhncTlJZjgwMUtvRlJCWHBRUXFLWGVjcXNnNl9mQ0k3VTh0SnBiTmowOFVVZEhseVZLbzM3dkdjaWJNaTZ2aFY2ZmlrTHhscEN6WEpZUlUyVVctWXh5d3hQd9IBrwFBVV95cUxQYVJadHZIVjJjd1dIQUR3cHZiWTZUNzhSMkxVdzV4czFEWDVCajdVNEFPR1ExaERiZE5UbERZNFlwOEoxQkRnMVpfOU1TbTFHcUpGQjNyZHljdWd4aTJTX0lMelRZdUJFSkhYLWlYdk9BdjVfZ21WYzlGN1lYNWJ5Wk1Ud3dFYVRsZ0dGWlVlcW9fckhVcG5teG5JU0RHYzVGNE5NSEkxOHFCT2NlNmFj?oc=5",
-   "published": "2026-10-01T11:20:15+00:00"
+   "title": "Google wins dismissal of Chegg, Penske Media lawsuits over AI overviews",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOOVVNYnJ5VzhLWjQ5dFIxNmkwbUYtWWRCSUtGcDB1bDhVbS1lTkRrUklSWkRDcEd5dVZLT0dGb3hxRC01ZjAtMDI5NElKMzdaQWhsdmJQaEFrdVAtSXhkcUNraUhPTTZnandua2FNVWhkZE1GX1htWFpHOXBBel9aNklJelhLbDFtZ2dGX3J4WVdZN1lTX3hNcVUzYzFPaWVoSzBubVQ2SDhTZ3hOVnBMNkE3NEZZanBoMF9KUQ?oc=5",
+   "published": "2026-10-01T15:34:26+00:00"
   },
   {
-   "title": "Google Unveils New AI Model Gemini 4 Argon, Sending Alphabet Stock Higher",
-   "source": "barrons.com",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQRTVoX2xTZ0c1Mkl5YjNaN2lUaThaMTJFSHQ4RXZsdUtiX2EzT0NCbFM5cFFpMlNBT0F1WTNiQUV2T2VtRDdSYnJ5MlRLTUc3UVVTd2FOYjl5SWNZMUk5ZWFhR21KSmlNdDNKZXNpa0ZyVFVYU0tidWppbUdPMmp1Vkd5UEZMaVVG?oc=5",
-   "published": "2026-10-01T12:01:00+00:00"
-  },
-  {
-   "title": "Google unveils long-awaited Gemini 4",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE8zMTN2Y3VVU1JKSnZTcnV1VExtekpnTS1hRy1uSUxhLWxIU2F4bnZkNWJQOEkxaWprb3l6anY5V294RG5KSk5sMUp2a3JQamtiVWhUZDN1YkNlZDli?oc=5",
-   "published": "2026-10-01T16:28:55+00:00"
+   "title": "Google Faces $3.2 Billion Damage Claims on Ad-Tech Monopoly",
+   "source": "Claims Journal",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBfZmNndTRiNmd0UzZ4UW5DWWJWSFNiLWhJbGZuMng2SWtUUmlGamlMRzRIN1IzUDFrYTZ1ZWlCQVd0UWJtVTVsemlOOWM5MzZVUV9vU2dXNGkwaGIzS3F0aXVKTTJock84Rk96YVh1NUpUMDA?oc=5",
+   "published": "2026-10-02T13:05:06+00:00"
   }
  ]
 }

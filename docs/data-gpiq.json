@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-01T23:09:19+00:00",
+ "generated_at": "2026-10-02T14:30:17+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.5 (p39)",
+   "value": "22.1 (p34)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 38.6,
+    "pos": 34.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.88",
+   "value": "0.85",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 45.5,
+    "pos": 38.3,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.37x (p67)",
+   "value": "1.42x (p76)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 67.3,
+    "pos": 75.8,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+7.4 pts",
+   "value": "+6.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 95.0,
+    "pos": 88.2,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.3%",
+   "value": "0.0%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
-   "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
+   "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 13.0,
+    "pos": 0.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+2.3%",
+   "value": "+4.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
+   "note": "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 69.2,
+    "pos": 85.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.12% (+0.47 1mo)",
+   "value": "3.24% (+0.58 1mo)",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "Credit markets calm - no stress.",
+   "lean": "bad",
+   "note": "Credit spreads widening fast - stress building under the surface. The audit couldn't validate a score on this (those days actually rebounded), but as a plain read of conditions it leans bad.",
    "viz": {
-    "pos": 28.0,
+    "pos": 31.0,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 57.2,
+    "pos": 57.0,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "28 (fear)",
+   "value": "33 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 28.1,
+    "pos": 32.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 13d",
+   "value": "CPI in 12d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -257,19 +257,13 @@
   }
  ],
  "fund": {
-  "price": 57.61,
-  "day_change_pct": -0.64,
-  "sma50": 56.66,
-  "sma200": 54.85,
+  "price": 58.27,
+  "day_change_pct": 1.15,
+  "sma50": 56.71,
+  "sma200": 54.88,
   "high52w": 59.52,
-  "drawdown_pct": 3.2,
+  "drawdown_pct": 2.1,
   "series": [
-   {
-    "d": "2026-01-14",
-    "c": 52.89,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-15",
     "c": 53.07,
@@ -1343,6 +1337,12 @@
     "c": 57.61,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-02",
+    "c": 58.27,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1350,40 +1350,40 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.59 (-1.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.52 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 28) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 33) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.5) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 22.1) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.12%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.24%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-01",
-  "days_total": 734,
+  "end": "2026-10-02",
+  "days_total": 735,
   "backfilled_days": 697,
-  "fg_coverage_start": "2025-10-01",
+  "fg_coverage_start": "2025-10-02",
   "baseline": {
-   "n": 713,
+   "n": 714,
    "avg_pct": 1.89,
-   "median_pct": 2.1
+   "median_pct": 2.11
   },
   "bands": [
    {
@@ -1396,9 +1396,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 146,
-    "avg_pct": 2.57,
-    "median_pct": 2.8
+    "n": 147,
+    "avg_pct": 2.58,
+    "median_pct": 2.81
    },
    {
     "tone": "neutral",
@@ -1410,15 +1410,11 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.92,
+  "ttm_yield_pct": 9.9,
   "tbill_3mo": 4.2
  },
  "distributions": {
   "history": [
-   {
-    "date": "2024-10-02",
-    "amount": 0.418
-   },
    {
     "date": "2024-11-04",
     "amount": 0.414
@@ -1510,83 +1506,87 @@
    {
     "date": "2026-09-01",
     "amount": 0.497
+   },
+   {
+    "date": "2026-10-01",
+    "amount": 0.509
    }
   ],
-  "ttm_sum": 5.715,
-  "last_ex": "2026-09-01",
-  "last_amount": 0.497,
-  "next_ex_estimate": "2026-10-01",
+  "ttm_sum": 5.766,
+  "last_ex": "2026-10-01",
+  "last_amount": 0.509,
+  "next_ex_estimate": "2026-10-31",
   "is_estimate": true
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 742.03,
-  "sma200": 667.91,
+  "price": 753.95,
+  "sma200": 668.63,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 22.51
+  "level": 22.1
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 27,
+  "days_until": 26,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 13
+  "days_until": 12
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-10-01",
+  "end": "2026-10-02",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15400.0,
-  "dca_value": 21276.1,
-  "dca_return_pct": 38.16,
-  "dip_value": 21041.15,
-  "dip_return_pct": 36.63,
+  "dca_value": 21710.44,
+  "dca_return_pct": 40.98,
+  "dip_value": 21466.61,
+  "dip_return_pct": 39.39,
   "dip_cash_uninvested": 200.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Google launches Project Suncatcher, a step towards AI data centers in space",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPcHpoSkZMSUJMOGtZbVVtY3RWVmdBVExLSkNSSjlqRmdvRnByRHhuSVhYbVhPS3RYcF9oUTY2aHVZY3FUb1o5YnVScFlmX3Z1a3ZuZHk2NmZJcmNNWmlxS09JZjh6RE0wVGI4YWFpeTZuVjM5QVdmZmpXeWl4VElrWkJxbjFBcVNSa0lXdUJ2cmpvdm8tdlE?oc=5",
-   "published": "2026-10-01T18:41:07+00:00"
-  },
-  {
-   "title": "Who\u2019s to Blame When A.I. Goes Rogue?",
+   "title": "Swedish Company Uses A.I. Likeness of Greta Garbo in Ad",
    "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQTUhrakN2TGFTTmdhM0VtY2s5UjBjOVB5cnRRM1NHOWxPV1FGYTdfYjRrQkNZeFFBeHVkSXI1Q29DOE96WmNnSndCb1hwU1c4UGpxanNmMlJsNkJkYVRZNEpBSzdLdG55cXN5Z3hBYWVZSVVkQ1B2OV81Q1hEbExJUUJR?oc=5",
-   "published": "2026-10-01T19:50:56+00:00"
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOaV9kbTZQYlFweDY0QWV2aFloV1JCUlA2WGtRR0E5OW9OaXJvbDdYSE1tVjR6ejU0WkJTbk9pNlFDUERLNUVBZ0J6Q2xyN2x6YjhUSmJ2RlJreXhmejJTdHl2ekNXNHM1T1h3Q0lCQWFXN0xmRzQxTExNbWlVYzFYRA?oc=5",
+   "published": "2026-10-02T09:35:00+00:00"
   },
   {
-   "title": "California sets guardrails on lawyers' AI use",
-   "source": "reuters.com",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNZWxTZHFNbXo5YUdtRW5lYnM5VUVXclFXXzJRcGxjcHVISE5SRTFZeWNiYmUwWEF3dmlUMVU3NWQzdnVVdDhHX0FzSHM0QWQyWGJheGgtRHgzdkFMcUNhOXBRcEgtTFo2cnFmdjl3bkJZa1ZXU2gteThTWG9tRlkteXp4SDRKWFdkSURnR1Jza3N2UXRfQWtDZG9B?oc=5",
-   "published": "2026-10-01T18:37:44+00:00"
+   "title": "OpenAI alerts more than 100 groups about rogue AI agent activity",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQby1YSlo5dUJYU0ExbVRnbnR6U0JJaHc5MXdacGFBTUtSVFZUMFFrLWZYNmc3SENiYmdKY0I1bEM1azNwUWJ0RDY2YVUyNzF4a0ZFNENEMF9yaXFLTHVxeUxOMWVyTE1ubWFVTVFEYUZic3NvVkVEa3JjS3llaHpxNHoxMmZiNXZfX192cUhlM2hoYUxiTy1MTFRiMGJSRkt4SlhxZy1UYXpwLXYtdEh0N1c5UXBfMC1j?oc=5",
+   "published": "2026-10-01T22:26:30+00:00"
   },
   {
-   "title": "Trump\u2019s AI rebrand may stop at the White House",
+   "title": "Trump\u2019s AI Safety Pact Is Toothless. But There Is a Path Forward.",
+   "source": "Council on Foreign Relations (CFR)",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOTjRobHZ6NHNidnhXRU13SXpEX01tZnNEZUVpeFdnWlUtNGFsbFVPeUxSSldOaU5wT25FVGQ2czh5ZW1vbFVWMTVaQUhfMDUyc0pMYUR1MnR1RkprYXJGbHpKbm5yeXIxU1ZtRU41MzJ6RXJydkI1VDEzS0pvemdmSXlfOGp6QTZoQTh0V1laTDV5TjFSZmc?oc=5",
+   "published": "2026-10-01T21:05:54+00:00"
+  },
+  {
+   "title": "AI Agents Got Cash to Trade Stocks. Here\u2019s What They Bought and Sold\u2014Repeatedly.",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQRENKMEhaeHRrd0RNVXdCT3d6Qlhwb3RqTmdwbndjaVdBU1NNWVl4RWFmY05BNUVEWUhTMHA1SzBCOXJUMTF1NFR1U2RzVVhVai15eDI0eEVaSWZkaHBtT1ItZElHQU96b3Y2Q1J6RGw4dlRuNUZHOVFLNkJja1NfeFZEc21pUQ?oc=5",
+   "published": "2026-10-02T06:30:00+00:00"
+  },
+  {
+   "title": "Trump is expected to name Jay Clayton as AI czar",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBqOURyempOZDNNNkFNWlVESFZBOWxNTHpqV3dzVURhaTFCbHlyMmZuQWVTaDVXZ3J6VEFmYUM1dzU3VXBfb25HanZpYmxEcmhDNjJtbEg1bWQzZ3p3NlBiWWZNaTAyanVnZVRTc0xZdkxybHJZbExHOE5qVQ?oc=5",
+   "published": "2026-10-02T13:40:41+00:00"
+  },
+  {
+   "title": "Hawley tests Trump\u2019s hands-off approach to AI",
    "source": "Politico",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNYndZZG5Fd0dmLXI2UVA5YkNnZ2NlTC1vcm4xM0Q1OTl3ajgxQ1o2Y3lBRkx3Yk0xVWVPWlVMTFZpbHh2ZFJSaF9aS3JMMldSUFNnWDN0bm9EYzluX0pYWG96a1g4OFRad2ItZWExazFEZnBUMHFLZ01OYi1rMWtPUXNRTnh4MkNhMlpwWlNTd2FWTGt0ZWViZlZ0UQ?oc=5",
-   "published": "2026-10-01T15:31:00+00:00"
-  },
-  {
-   "title": "Wes Moore calls for AI regulation at Baltimore summit - WBAL-TV",
-   "source": "",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQWHRNR2NYSXlxY1BNMEJEM0RvcVluQWQ1b0p1bG5vZXVGaXJ5al85RnlES1U1WVdBWjY2a1plMjd4UHdzcUN0bklDZno2SlRGdEVVbkxCeGFUWGNkYjFrc2RzUm5mY3NlV01KdHItajZseW1qNk9SanFYZW9lVVZwS1VETFN2cEU?oc=5",
-   "published": "2026-10-01T21:20:00+00:00"
-  },
-  {
-   "title": "Health insurer points finger at AI as nearly $1 billion in questionable hospital charges appear",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdEZUNWFhTFBITTB6RGx0UlpDUXFvdS11VndWM0dmbmp0MWIwdVZEdjVfZWlGVXRrc0VGSURXQUVheG85cURJUlM0ZFpZNlNaS0EyLV9jZTZ1YUJvWFVvd1c5Sm8zdDltRlB0Z21FTFZUcE1Vamt0TS1XaGMzVWpHcHplMjlPa2p6SHfSAY8BQVVfeXFMT0dGTVJkNXlUczlXZU4xUy1McWJyOGwwWjhsQ2hWN05BOE5feHRmYjlEZnIwS0haQ2huVTdlbW1LRnp2WS1OOEpodVpnNUZNRkUtc3N6a1BCNzZJRlpjZGtOYmh3OG43RU14eFZNNlFUclhFcGxMenNlTF9tcDlLUUctaHVsU0hnSWN2UlRHWVk?oc=5",
-   "published": "2026-10-01T11:30:01+00:00"
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPdjdweVRuYWpGTEVLOVI0S2NjRTVhTi1TYW1fNVFKVEoxZ0hIcmVhY01UdlY0MG9qOGViN1FhLWo1dnB2ZThsMVRkVVI4ZGxLRkpaWnBSUGNCWFpLR2RVV0U2RE05Z1lCdEM2R0V3MFpZeUJrT2x4dlRWdzJYRUNxOGEza3lKSzFwVUNMQW8zZlpNY1daSFFka093?oc=5",
+   "published": "2026-10-02T09:00:00+00:00"
   }
  ]
 }
