@@ -2,45 +2,88 @@ name: Update GPIX/GPIQ/TSLA/SPCX/NVDA/GOOG data
 
 on:
   schedule:
-    # 13:35 UTC = 9:35am ET (EDT) / 8:35am ET (EST), weekdays.
-    # Uses the prior close either way; runs before the user checks it in the morning.
-    - cron: "35 13 * * 1-5"
-    # 19:15 UTC = 3:15pm ET (EDT) / 2:15pm ET (EST), weekdays: a fresh buy
-    # score right before the buy-at-close window. The engine updates today's
-    # history row in place, so the two runs never duplicate a date.
-    - cron: "15 19 * * 1-5"
-  workflow_dispatch:
+    # GitHub starts scheduled runs HOURS late (2 to 9.5 hours since 2026-08-26;
+    # before that, under an hour) and promises no upper limit. So these entries
+    # fire early on purpose. scripts/gate.py then waits for a New York window:
+    #   pre-open 07:00-09:15, pre-close 15:10-15:45, post-close 16:25-19:00
+    # (New York time, so it is right in both EDT and EST). Each entry has a primary
+    # window in scripts/gate.py; a late run falls forward to the next window.
+    # A window that already has a refresh is skipped. Minutes avoid the busy
+    # :00/:15/:30/:45 marks. UTC times, EDT / EST:
+    - cron: "7 1 * * 1-5"     # 21:07 / 20:07 (evening before) -> pre-open, only if GitHub is 4-12 h late
+    - cron: "37 6 * * 1-5"    # 02:37 / 01:37  -> pre-open
+    - cron: "7 9 * * 1-5"     # 05:07 / 04:07  -> pre-open (backup)
+    - cron: "7 12 * * 1-5"    # 08:07 / 07:07  -> pre-open (backup)
+    - cron: "52 14 * * 1-5"   # 10:52 / 09:52  -> pre-close
+    - cron: "52 17 * * 1-5"   # 13:52 / 12:52  -> post-close
+  workflow_dispatch:          # a manual or external call skips the gate and builds at once
 
 permissions:
   contents: write
 
 jobs:
-  update:
+  gate:
     runs-on: ubuntu-latest
+    timeout-minutes: 345       # the gate may wait up to 5.5 hours
+    outputs:
+      run: ${{ steps.gate.outputs.run }}
+      window: ${{ steps.gate.outputs.window }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+      - id: gate
+        name: Wait for the intended New York window
+        env:
+          CRON: ${{ github.event.schedule }}
+        run: python3 scripts/gate.py
 
-      - name: Build data, history and feed files
-        run: python3 scripts/build_data.py
-
-      - name: Commit if changed
+  update:
+    needs: gate
+    if: needs.gate.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:               # one build at a time; a queued duplicate is replaced
+      group: update-data
+      cancel-in-progress: false
+    env:
+      WINDOW: ${{ needs.gate.outputs.window }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main            # the tip of main now, not the commit from when the run was queued
+          fetch-depth: 40
+      - name: Build, commit and push
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/data.json docs/data-gpiq.json docs/data-tsla.json docs/data-spcx.json \
-                  docs/data-nvda.json docs/data-goog.json \
-                  docs/history.json docs/history-gpiq.json docs/history-tsla.json docs/history-spcx.json \
-                  docs/history-nvda.json docs/history-goog.json \
-                  docs/feed.xml
-          git diff --cached --quiet && echo "no changes" || git commit -m "data: daily refresh $(date -u +%F)"
-          # Retry push: GitHub occasionally returns 500 Internal Server Error.
-          for attempt in 1 2 3 4 5; do
-            if git push; then
+
+          # Skip a scheduled run when its window already has a refresh.
+          if [ "$GITHUB_EVENT_NAME" = schedule ] && git log --since="14 hours ago" --grep="\[$WINDOW\]" --format=%h | grep -q .; then
+            echo "The $WINDOW window already has a refresh; skipping this duplicate run."
+            exit 0
+          fi
+
+          # If main moved while we were building (the owner pushed, or another run
+          # finished), do not retry the same push: rebuild on the latest main.
+          for attempt in 1 2 3; do
+            python3 scripts/build_data.py
+            git add docs/data*.json docs/history*.json docs/feed.xml
+            if git diff --cached --quiet; then
+              echo "no changes"
               break
             fi
-            if [ "$attempt" -eq 5 ]; then
-              echo "git push failed after ${attempt} attempts" >&2
+            git commit -q -m "data: daily refresh $(TZ=America/New_York date +%F) [$WINDOW]"
+            if git push -q origin HEAD:main; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then
+              echo "::error::push was rejected 3 times"
               exit 1
             fi
-            sleep $((attempt * 5))
+            echo "::warning::push rejected (attempt $attempt); rebuilding on the latest main"
+            sleep $((attempt * 10))
+            git fetch -q origin main
+            git reset -q --hard FETCH_HEAD
           done
+      - name: Check data health
+        run: python3 scripts/check_health.py

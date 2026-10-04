@@ -18,7 +18,7 @@
     --border: #dfe3d8;
     --text: #1c2a22;
     --muted: #54645b;
-    --faint: #7d8a81;
+    --faint: #5f6b63;
     --good: #004225;
     --ok: #4d7c0f;
     --neutral: #44695b;
@@ -73,6 +73,10 @@
   .pricebox .chg { font-size: 13px; font-variant-numeric: tabular-nums; }
   .chg.up { color: var(--good); } .chg.dn { color: var(--bad); }
   .pricebox .stamp { color: var(--faint); font-size: 12px; margin-top: 2px; }
+  .stamp .prov { color: var(--rich); font-weight: 600; }
+  .stale, .info { margin-top: 14px; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; line-height: 1.45; }
+  .stale { color: var(--bad); background: rgba(185,28,28,.07); border: 1px solid rgba(185,28,28,.25); }
+  .info { color: var(--rich); background: rgba(180,83,9,.08); border: 1px solid rgba(180,83,9,.25); }
 
   .verdict {
     margin-top: 24px; padding: 24px 26px;
@@ -253,7 +257,7 @@
   .fh .live i { display: inline-block; width: 6px; height: 6px; margin-right: 5px; border-radius: 50%; background: var(--brg); vertical-align: 1px; }
   .fh button {
     border: 0; background: rgba(0,66,37,.08); color: var(--brg); font: inherit; font-size: 11px; font-weight: 600;
-    padding: 1px 8px; border-radius: 99px; cursor: pointer; transition: background .2s ease, transform .2s var(--ease);
+    padding: 4px 9px; border-radius: 99px; cursor: pointer; transition: background .2s ease, transform .2s var(--ease);
   }
   .fh button:hover { background: rgba(0,66,37,.16); }
   .fh button:active { transform: scale(.94); }
@@ -413,7 +417,7 @@
     <div>
       <div class="kicker">Daily timing signal · S&amp;P 500 premium income</div>
       <h1>Should I buy GPIX today?</h1>
-      <div class="sub">Eleven market checks every weekday morning - six rare conditions scored and weighted by evidence, the rest shown as context - turned into one honest 0-100 buy score.</div>
+      <div class="sub">Eleven market checks, refreshed each weekday - six rare conditions scored and weighted by evidence, the rest shown as context - turned into one honest 0-100 buy score.</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -443,6 +447,51 @@ const ago = iso => {
   return Math.round(h / 24) + "d ago";
 };
 const fmtPct = v => (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+
+// ---- shared by every asset page: escaping, data age, session label ----
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
+const safeUrl = u => /^https:\/\//i.test(u || "") ? esc(u) : "#";
+// Hours since `iso`, not counting Saturday and Sunday (UTC): the data job runs on weekdays only.
+const weekdayHoursSince = iso => {
+  const now = Date.now();
+  let ms = 0;
+  for (let t = new Date(iso).getTime(); t < now; ) {
+    const day = new Date(t), next = Math.min(now, Date.UTC(day.getUTCFullYear(), day.getUTCMonth(), day.getUTCDate() + 1));
+    if (day.getUTCDay() !== 0 && day.getUTCDay() !== 6) ms += next - t;
+    t = next;
+  }
+  return ms / 36e5;
+};
+const dayLabel = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", {weekday: "short", month: "short", day: "numeric", timeZone: "UTC"});
+// Which price bar the numbers are based on, and when the data job last ran.
+function stampHTML(d) {
+  const when = new Date(d.generated_at).toLocaleString([], {month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short"});
+  const bar = d.health && d.health.session && d.health.session.bar, day = d.fund && d.fund.as_of;
+  const what = !bar || !day ? "" : bar === "provisional"
+    ? `<span class="prov">Live reading, not a close yet</span> · `
+    : bar === "prior_close" ? `Based on the ${dayLabel(day)} close · ` : `${dayLabel(day)} close · `;
+  return `<div class="stamp">${what}updated ${when}</div>`;
+}
+// Warnings that must not pass silently: old data, failed inputs, a live (not final) reading.
+function bannerHTML(d) {
+  const out = [];
+  const age = weekdayHoursSince(d.generated_at);
+  if (age > 30) out.push(`<div class="stale" role="alert">The data are ${Math.round(age)} hours old (weekends not counted). The daily update may have failed.</div>`);
+  const bad = (d.health && d.health.degraded_core) || [];
+  if (bad.length) out.push(`<div class="stale" role="alert">Some inputs failed to load in the last update (${bad.map(esc).join(", ")}), so the score may be missing a signal.</div>`);
+  if (d.health && d.health.session && d.health.session.bar === "provisional") {
+    out.push(`<div class="info">This is a live reading from before the close. The verdict becomes final after the 4:00 PM ET close, and the alerts feed announces final verdicts only.</div>`);
+  }
+  return out.join("");
+}
+// One sentence about the caution band, computed from this page's own report card.
+const cautionNote = rc => {
+  const c = rc && rc.bands && rc.bands.find(b => b.tone === "caution");
+  if (!c || !c.n) return "";
+  return c.avg_pct < rc.baseline.avg_pct
+    ? " The caution band has trailed the baseline in this window."
+    : ` In this window the caution band returned ${fmtPct(c.avg_pct)} against ${fmtPct(rc.baseline.avg_pct)} for any day, so its warning has NOT held up here.`;
+};
 
 // Per-signal bullet bar: today's position on the signal's scale, scored
 // band(s) tinted, threshold ticked. Pure presentation from data.json's viz.
@@ -560,7 +609,7 @@ function renderChart(series, sma50, sma200) {
   }).join("")
     + `<line x1="${L}" x2="${W - R}" y1="${mid}" y2="${mid}" stroke="#d5dacc" stroke-width="1"/>`
     + `<text x="${L - 4}" y="${mid + 3.5}" text-anchor="end">50</text>`
-    + `<text x="${L}" y="${H + EXT - 6}">daily buy score vs the 50 baseline — what this page would have said each day</text>` : "";
+    + `<text x="${L}" y="${H + EXT - 6}">${narrow ? "daily buy score vs 50" : "daily buy score vs the 50 baseline — what this page would have said each day"}</text>` : "";
 
   // Dashed average lines. The 50-day label sits above its line and the
   // 200-day label below its own; if the two labels would still land within
@@ -667,8 +716,10 @@ function initCalculator(root, live) {
   const hist = (live.history || []).slice(-12).map(h => h.amount);
   const range = hist.length ? `최근 ${hist.length}회 $${Math.min(...hist).toFixed(2)}~$${Math.max(...hist).toFixed(2)} 범위` : "최근 1년 $0.32~$0.40 범위";
   const fxDay = live.fxDate ? `${+live.fxDate.slice(5, 7)}/${+live.fxDate.slice(8, 10)} ` : "";
-  const autoNote = (LIVE.price || LIVE.dist ? "주가와 분배금은 이 페이지의 최신 데이터로 자동 입력됩니다. " : "주가와 분배금은 직접 갱신해서 쓰세요. ")
-    + (LIVE.fx ? `환율은 ${fxDay}종가 기준 시장 환율이며 증권사 적용 환율과 조금 다를 수 있으니 필요하면 직접 고치세요.` : "환율은 직접 입력하세요.");
+  const parts = [[LIVE.price, "주가"], [LIVE.dist, "분배금"], [LIVE.fx, "환율"]];
+  const auto = parts.filter(x => x[0]).map(x => x[1]), manual = parts.filter(x => !x[0]).map(x => x[1]);
+  const autoNote = (auto.length ? `자동 입력된 값: ${auto.join(", ")} (이 페이지의 최신 데이터${LIVE.fx ? `, 환율은 ${fxDay}기준 시장 환율이며 증권사 적용 환율과 조금 다를 수 있음` : ""}). ` : "")
+    + (manual.length ? `직접 입력할 값: ${manual.join(", ")}. ` : "");
 
   root.innerHTML = `
     <div class="calc">
@@ -676,6 +727,7 @@ function initCalculator(root, live) {
         <label class="flabel" for="c-invest">투자 금액<span class="cur">USD</span></label>
         <div class="amtbox"><span class="sym">$</span><input id="c-invest" type="text" inputmode="decimal" autocomplete="off" spellcheck="false"></div>
         <div class="amtsub">≈ <span data-t="krwIn"></span></div>
+        <div class="amtsub amthint" id="c-hint" role="status"></div>
         <div class="flabel presetlabel" id="c-presetlabel">빠른 선택</div>
         <div class="chips" role="group" aria-labelledby="c-presetlabel">
           <span class="pill" aria-hidden="true"></span>
@@ -728,7 +780,7 @@ function initCalculator(root, live) {
         <li><b>매매차익은 별도.</b> 해외주식 양도소득세 22%, 연 250만 원 기본공제 후 다음 해 5월 신고.</li>
       </ul></div></div>
     </section>
-    <p class="calcfoot">분배금은 매월 변동합니다 (${range}). ${autoNote} 세무 자문이 아닙니다.</p>`;
+    <p class="calcfoot">분배금은 매월 변동합니다 (${range}). ${autoNote}세무 자문이 아닙니다.</p>`;
 
   const $ = sel => root.querySelector(sel);
   const el = {invest: $("#c-invest"), price: $("#c-price"), dist: $("#c-dist"), fx: $("#c-fx"), rate: $("#c-rate"), whole: $("#c-whole")};
@@ -780,7 +832,7 @@ function initCalculator(root, live) {
 
   // Same math as the original calculator, with the amount entered in USD.
   const calc = () => {
-    const usdIn = st.invest, price = num(st.price), dist = num(st.dist), fx = num(st.fx) || 1, rate = num(st.rate);
+    const usdIn = st.invest, price = num(st.price), dist = num(st.dist), fx = num(st.fx) || 1, rate = Math.min(100, Math.max(0, num(st.rate)));
     const raw = price > 0 ? usdIn / price : 0;
     const shares = st.whole ? Math.floor(raw + 1e-9) : raw;
     const mGross = shares * dist, mTax = mGross * (rate / 100), mNet = mGross - mTax;
@@ -822,7 +874,7 @@ function initCalculator(root, live) {
 
   let started = false, srTimer = 0;
   const update = flash => {
-    const r = calc(), rate = num(st.rate);
+    const r = calc(), rate = Math.min(100, Math.max(0, num(st.rate)));
     $("#c-taxlabel").textContent = `원천징수 ${st.rate === "" ? "0" : st.rate}%`;
     chips.forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.amt === st.invest)));
     placePill();
@@ -850,6 +902,7 @@ function initCalculator(root, live) {
   el.whole.checked = st.whole;
   el.invest.addEventListener("input", () => {
     const raw = el.invest.value;
+    $("#c-hint").textContent = /[^\d.,\s$₩]/.test(raw) ? "숫자와 소수점만 입력할 수 있습니다." : "";
     const caret = el.invest.selectionStart ?? raw.length;
     const before = raw.slice(0, caret).replace(/[^\d.]/g, "").length;
     const clean = raw.replace(/[^\d.]/g, "");
@@ -868,7 +921,8 @@ function initCalculator(root, live) {
   for (const k of ["price", "dist", "fx", "rate"]) {
     el[k].value = st[k];
     el[k].addEventListener("input", () => {
-      const c = cleanDec(el[k].value);
+      let c = cleanDec(el[k].value);
+      if (k === "rate" && num(c) > 100) c = "100";   // a withholding rate above 100% is meaningless
       if (c !== el[k].value) el[k].value = c;
       st[k] = c; update();
     });
@@ -901,7 +955,9 @@ function initCalculator(root, live) {
   } else start();
 }
 
-fetch("data.json").then(r => r.json()).then(d => {
+fetch("data.json").then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(d => {
+  d.headlines ||= []; d.signals ||= []; d.flips ||= [];
+  if (d.fund) { d.fund.drawdown_pct ??= 0; d.fund.high52w ??= d.fund.price; }
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
   // Meter axis is the 0-100 buy score, floored at 50 (rules v4).
   const METER_MIN = d.meter ? d.meter.min : 50;
@@ -912,7 +968,7 @@ fetch("data.json").then(r => r.json()).then(d => {
   document.getElementById("pricebox").innerHTML = `
     <div class="px">$${fmt2(g.price)}</div>
     <div class="chg ${chg >= 0 ? "up" : "dn"}">${chg >= 0 ? "▲" : "▼"} ${Math.abs(chg).toFixed(2)}% vs prior close</div>
-    <div class="stamp">updated ${new Date(d.generated_at).toLocaleString([], {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"})}</div>`;
+    ${stampHTML(d)}`;
 
   const GAUGE_ZONES = [
     [METER_MIN, 56.25, "rgba(125,138,129,.30)"],
@@ -938,12 +994,12 @@ fetch("data.json").then(r => r.json()).then(d => {
     validation: SPY ≈ +3.3bp per night, t=4.6, positive in every era). Buying near today's close
     instead of tomorrow's open captures it — a small free edge, worth basis points, not fortunes.</div>
 
-    <h2>GPIX 배당 세후 계산기</h2>
-    <div class="h2sub">토스증권 등 국내 증권사를 통한 미국 상장 ETF 직접 매수 기준. 미국 원천징수 15% 적용, 국내 추가 원천징수 없음.</div>
-    <div id="calc"></div>
+    <h2 lang="ko">GPIX 배당 세후 계산기</h2>
+    <div class="h2sub" lang="ko">토스증권 등 국내 증권사를 통한 미국 상장 ETF 직접 매수 기준. 미국 원천징수 15% 적용, 국내 추가 원천징수 없음.</div>
+    <div id="calc" lang="ko"></div>
 
     <h2>Why</h2>
-    <div class="h2sub">Eleven checks each morning, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score, each weighted by the effect size our validation work measured (short-term reversal 2.0, discount and top-decile vol 1.5, the rest 1.0); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
+    <div class="h2sub">Eleven checks at every update, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score, each weighted by the effect size our validation work measured (short-term reversal 2.0, discount and top-decile vol 1.5, the rest 1.0); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
     <div class="signals">
       ${d.signals.map(s => {
         const lean = s.lean || "neutral";
@@ -971,7 +1027,7 @@ fetch("data.json").then(r => r.json()).then(d => {
     <h2>What the market is chewing on</h2>
     <div class="h2sub">Context for today's mood — not inputs to the score.</div>
     <div class="card"><ul class="news">
-      ${d.headlines.map(h => `<li><a href="${h.link}" target="_blank" rel="noopener">${h.title}</a><span class="meta">${h.source}${h.published ? " · " + ago(h.published) : ""}</span></li>`).join("") || "<li>No headlines fetched.</li>"}
+      ${d.headlines.map(h => `<li><a href="${safeUrl(h.link)}" target="_blank" rel="noopener noreferrer">${esc(h.title)}</a><span class="meta">${esc(h.source)}${h.published ? " · " + ago(h.published) : ""}</span></li>`).join("") || "<li>No headlines fetched.</li>"}
     </ul></div>
 
     <h2>Price context</h2>
@@ -1032,6 +1088,7 @@ fetch("data.json").then(r => r.json()).then(d => {
       fxDate: d.fx ? d.fx.as_of : null,
     });
   } catch (e) { console.error("calculator failed to start", e); }
+  document.getElementById("app").insertAdjacentHTML("afterbegin", bannerHTML(d));
   renderChart(g.series, g.sma50, g.sma200);
   renderDistChart(d.distributions);
   let rT;
@@ -1043,7 +1100,8 @@ fetch("data.json").then(r => r.json()).then(d => {
     }, 150);
   });
 }).catch(e => {
-  document.getElementById("app").innerHTML = `<div class="err">Could not load data.json — ${e}</div>`;
+  console.error(e);
+  document.getElementById("app").insertAdjacentHTML("afterbegin", `<div class="err" role="alert">Could not show this page completely (data.json: ${esc(e.message || e)}).</div>`);
 });
 </script>
 </body>

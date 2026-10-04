@@ -63,12 +63,16 @@ import math
 import re
 import statistics
 import subprocess
+import time
+import urllib.error
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import date, datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from functools import lru_cache
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 DOCS = Path(__file__).resolve().parent.parent / "docs"
 SITE = "https://bskthefirst.github.io/should-i-buy-gpix-today/"
@@ -81,6 +85,56 @@ CNN_HEADERS = {
     ),
     "Referer": "https://www.cnn.com/",
 }
+
+NY = ZoneInfo("America/New_York")
+
+# Run-time awareness. GitHub starts scheduled runs hours late and the owner also
+# dispatches runs by hand, so this script can run at any time of day and must
+# decide for itself which price bars are finished. While the US session is open,
+# Yahoo's daily series ends with TODAY's bar and its "close" is only the latest
+# trade. The validated signals are close-to-close effects, so a bar that is
+# still forming is dropped (the rows then end at the last completed session) -
+# except in the last hour before the close, when the live bar is kept and every
+# output built from it is flagged provisional: that is the "buy at the close"
+# reading. The first run after the close replaces it with the final value.
+PRE_CLOSE_START = (15, 0)  # New York time
+PRE_CLOSE_END = (16, 20)   # ^VIX trades until 16:15
+RESCORE_DAYS = 5           # newest completed sessions that are re-scored on every run
+
+# What worked this run. Written into every output file as `health`, and printed
+# as GitHub Actions warnings, so a degraded run is never silent.
+HEALTH: dict[str, dict] = {}
+
+
+def err_text(exc: BaseException) -> str:
+    if isinstance(exc, subprocess.CalledProcessError):
+        detail = (exc.stderr or b"").decode(errors="replace").strip()
+        return (detail or f"exit status {exc.returncode}")[:160]
+    return f"{type(exc).__name__}: {exc}"[:160]
+
+
+def mark(src: str, ok: bool, as_of: str | None = None, core: bool = False, **extra) -> None:
+    """Record whether one data source worked. `core` sources feed the score:
+    if one fails the verdict is missing a signal and the workflow turns red."""
+    entry = {"ok": ok, "core": core, **extra}
+    if as_of:
+        entry["as_of"] = as_of
+    HEALTH[src] = entry
+    if not ok:
+        print(f"::warning::{src} failed: {extra.get('error', 'unknown error')}", flush=True)
+
+
+def health_block(bar: str, bar_date: date) -> dict:
+    failed = sorted(k for k, v in HEALTH.items() if not v["ok"])
+    return {
+        "run_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        # bar: "final" (finished session), "provisional" (live bar kept in the
+        # last hour before the close) or "prior_close" (live bar dropped)
+        "session": {"date": bar_date.isoformat(), "bar": bar},
+        "sources": {k: HEALTH[k] for k in sorted(HEALTH)},
+        "degraded": failed,
+        "degraded_core": [k for k in failed if HEALTH[k].get("core")],
+    }
 
 FUNDS = [
     {
@@ -467,43 +521,57 @@ def verdict_tone(score: float) -> str:
     return "neutral"
 
 
-def fetch_json(url: str, headers: dict | None = None) -> dict:
-    req = urllib.request.Request(url, headers=headers or UA)
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.load(resp)
+RETRY_HTTP = {429, 500, 502, 503, 504}
 
 
-def curl_fetch(url: str, headers: dict | None = None) -> bytes:
+def fetch_json(url: str, headers: dict | None = None, tries: int = 3) -> dict:
+    """GET + parse JSON. Transient failures (HTTP 429/5xx, timeouts, resets)
+    are retried after a 2 s, then 4 s pause; anything else raises at once."""
+    for attempt in range(tries):
+        try:
+            req = urllib.request.Request(url, headers=headers or UA)
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return json.load(resp)
+        except urllib.error.HTTPError as exc:
+            if exc.code not in RETRY_HTTP or attempt == tries - 1:
+                raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            if attempt == tries - 1:
+                raise
+        time.sleep(2 * (attempt + 1))
+    raise RuntimeError("unreachable")
+
+
+def curl_fetch(url: str, headers: dict | None = None, tries: int = 3) -> bytes:
     """FRED and CNN stall or reject Python's urllib (TLS/header
-    fingerprinting) but serve curl instantly - so use curl for them."""
+    fingerprinting) but serve curl instantly - so use curl for them.
+    Retried like fetch_json."""
     cmd = ["curl", "-sS", "--fail", "-m", "30", url]
     for k, v in (headers or {}).items():
         cmd += ["-H", f"{k}: {v}"]
-    return subprocess.run(cmd, capture_output=True, check=True).stdout
+    for attempt in range(tries):
+        try:
+            return subprocess.run(cmd, capture_output=True, check=True).stdout
+        except subprocess.CalledProcessError:
+            if attempt == tries - 1:
+                raise
+            time.sleep(2 * (attempt + 1))
+    raise RuntimeError("unreachable")
 
 
-@lru_cache(maxsize=None)
-def fetch_earnings(ticker: str) -> tuple[str, bool] | None:
-    """Next earnings date via Yahoo quoteSummary calendarEvents.
-
-    The endpoint has required a cookie+crumb handshake since 2023, but both
-    steps are keyless and serve curl fine (verified from this environment
-    and GitHub Actions uses the same plain egress). Returns
-    (iso_date, is_estimate) or None; callers treat None as "omit with a
-    note" - earnings display is a nice-to-have, never build-critical.
-    """
+def _earnings_yahoo(ticker: str, today: date) -> tuple[str, bool] | None:
     import tempfile
-    import urllib.parse
 
     moz = CNN_HEADERS["User-Agent"]
     with tempfile.NamedTemporaryFile() as jar:
-        def crl(args):
-            return subprocess.run(
-                ["curl", "-sS", "--fail", "-m", "20", "-A", moz] + args,
-                capture_output=True, check=True,
-            ).stdout
+        def crl(args, fail=True):
+            cmd = ["curl", "-sS", "-m", "20", "-A", moz] + (["--fail"] if fail else []) + args
+            return subprocess.run(cmd, capture_output=True, check=True).stdout
 
-        crl(["-c", jar.name, "-o", "/dev/null", "https://fc.yahoo.com"])
+        # fc.yahoo.com answers HTTP 404 but still sets the session cookie, so
+        # only a network-level failure counts for this one request. (With
+        # --fail the 404 raised, and the earnings date never loaded.)
+        crl(["-c", jar.name, "-o", "/dev/null", "https://fc.yahoo.com"], fail=False)
         crumb = crl(["-b", jar.name, "https://query1.finance.yahoo.com/v1/test/getcrumb"]).decode().strip()
         if not crumb or "<" in crumb:
             return None
@@ -514,11 +582,47 @@ def fetch_earnings(ticker: str) -> tuple[str, bool] | None:
         ]))
     earnings = data["quoteSummary"]["result"][0]["calendarEvents"]["earnings"]
     dates = earnings.get("earningsDate") or []
-    today = date.today()
     upcoming = sorted(d["fmt"] for d in dates if "fmt" in d and d["fmt"] >= today.isoformat())
     if not upcoming:
         return None
     return upcoming[0], bool(earnings.get("isEarningsDateEstimate"))
+
+
+def _earnings_nasdaq(ticker: str, today: date) -> tuple[str, bool] | None:
+    """Fallback: Nasdaq's public earnings-date text (a Zacks estimate), e.g.
+    '... is estimated to report earnings on 10/28/2026.'"""
+    raw = curl_fetch(
+        f"https://api.nasdaq.com/api/analyst/{ticker}/earnings-date",
+        headers={"User-Agent": CNN_HEADERS["User-Agent"], "Accept": "application/json"},
+    )
+    text = ((json.loads(raw).get("data") or {}).get("reportText")) or ""
+    m = re.search(r"report earnings on\s+(\d{2})/(\d{2})/(\d{4})", text)
+    if not m:
+        return None
+    iso = f"{m.group(3)}-{m.group(1)}-{m.group(2)}"
+    if iso < today.isoformat():
+        return None
+    return iso, "estimated" in text.lower()
+
+
+@lru_cache(maxsize=None)
+def fetch_earnings(ticker: str) -> tuple[str, bool] | None:
+    """Next earnings date: Yahoo's calendar first, Nasdaq's text as a fallback.
+    Returns (iso_date, is_estimate), or None when neither source knows. Display
+    only - never build-critical - but the outcome is recorded in `health`."""
+    today = datetime.now(NY).date()
+    errors = []
+    for name, getter in (("yahoo", _earnings_yahoo), ("nasdaq", _earnings_nasdaq)):
+        try:
+            got = getter(ticker, today)
+        except Exception as exc:
+            errors.append(f"{name}: {err_text(exc)}")
+            continue
+        if got:
+            mark(f"earnings:{ticker}", True, as_of=got[0], source=name)
+            return got
+    mark(f"earnings:{ticker}", False, error="; ".join(errors) or "no upcoming date found")
+    return None
 
 
 def yahoo_chart(symbol: str, range_: str, events: bool = False) -> dict:
@@ -531,13 +635,33 @@ def yahoo_chart(symbol: str, range_: str, events: bool = False) -> dict:
     return fetch_json(url)["chart"]["result"][0]
 
 
-def chart_rows(result: dict) -> list[tuple[date, float, float]]:
-    """(date, close, adjusted_close) rows. Adjusted close folds
-    distributions back in, which is what total-return math needs."""
+def session_open(result: dict) -> bool:
+    """True while the exchange's regular session is open, i.e. the newest daily
+    bar is still forming. Yahoo's last trade time lies inside the current
+    regular trading period only during the session."""
+    meta = result.get("meta") or {}
+    reg = (meta.get("currentTradingPeriod") or {}).get("regular") or {}
+    start, end, last = reg.get("start"), reg.get("end"), meta.get("regularMarketTime")
+    return bool(start and end and last and start <= last < end)
+
+
+def in_pre_close_window(now: datetime | None = None) -> bool:
+    now = (now or datetime.now(NY)).astimezone(NY)
+    return now.weekday() < 5 and PRE_CLOSE_START <= (now.hour, now.minute) < PRE_CLOSE_END
+
+
+def rows_and_state(result: dict) -> tuple[list[tuple[date, float, float]], str]:
+    """(rows, state) for one Yahoo daily series. Rows are (date, close,
+    adjusted_close); adjusted close folds distributions back in, which is what
+    total-return math needs. State:
+      "final"        the newest bar is a finished session (or markets are shut)
+      "provisional"  the newest bar is still forming and was kept (pre-close hour)
+      "prior_close"  the newest bar was still forming and was dropped, so the
+                     rows end at the last completed session"""
     stamps = result["timestamp"]
     closes = result["indicators"]["quote"][0]["close"]
     adj = result["indicators"].get("adjclose", [{}])[0].get("adjclose", closes)
-    out = []
+    out, last_ts = [], None
     for ts, close, aclose in zip(stamps, closes, adj):
         if close is None:
             continue
@@ -548,24 +672,54 @@ def chart_rows(result: dict) -> list[tuple[date, float, float]]:
                 round(aclose if aclose is not None else close, 4),
             )
         )
-    return out
+        last_ts = ts
+    state = "final"
+    if out and session_open(result):
+        reg = result["meta"]["currentTradingPeriod"]["regular"]
+        if reg["start"] <= last_ts < reg["end"]:  # the newest bar is today's, still forming
+            if in_pre_close_window():
+                state = "provisional"
+            else:
+                out.pop()
+                state = "prior_close"
+    return out, state
+
+
+def chart_rows(result: dict) -> list[tuple[date, float, float]]:
+    return rows_and_state(result)[0]
 
 
 @lru_cache(maxsize=None)
 def cached_rows(symbol: str, range_: str) -> tuple:
     """Shared series (VIX, VIX3M, SPY, ...) are used by both fund builds;
     fetch each once per run."""
-    return tuple(chart_rows(yahoo_chart(symbol, range_)))
-
-
-def usd_krw() -> dict | None:
-    """Latest USD/KRW close (Yahoo KRW=X) for the page's dividend calculator.
-    Display-only and guarded: on any failure the field is null and the page
-    falls back to a typed-in rate instead of breaking the daily build."""
+    name = urllib.parse.unquote(symbol)
     try:
-        d, close, _ = cached_rows("KRW=X", "5d")[-1]
-        return {"usd_krw": round(close, 2), "as_of": d.isoformat()}
-    except Exception:
+        rows, state = rows_and_state(yahoo_chart(symbol, range_))
+    except Exception as exc:
+        mark(f"yahoo:{name}", False, core=True, error=err_text(exc))
+        raise
+    mark(f"yahoo:{name}", True, as_of=rows[-1][0].isoformat() if rows else None, core=True, bar=state)
+    return tuple(rows)
+
+
+@lru_cache(maxsize=None)
+def usd_krw() -> dict | None:
+    """Latest USD/KRW quote (Yahoo KRW=X) for the page's dividend calculator.
+    Display-only and guarded: on any failure the field is null and the page falls
+    back to a typed-in rate. It reads Yahoo's quote (meta), not the last daily
+    bar: FX bars are stamped 23:00Z on the previous day, so their dates are a
+    day early, and an FX bar is never "final" (the market trades all week)."""
+    try:
+        meta = yahoo_chart("KRW=X", "5d")["meta"]
+        px = float(meta["regularMarketPrice"])
+        if not 500 < px < 5000:
+            raise ValueError(f"implausible USD/KRW {px}")
+        as_of = datetime.fromtimestamp(meta["regularMarketTime"], tz=timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
+        mark("yahoo:KRW=X", True, as_of=as_of)
+        return {"usd_krw": round(px, 2), "as_of": as_of}
+    except Exception as exc:
+        mark("yahoo:KRW=X", False, error=err_text(exc))
         return None
 
 
@@ -596,17 +750,30 @@ def fetch_fred(series_id: str) -> list[tuple[date, float]]:
 
 @lru_cache(maxsize=None)
 def cached_fred(series_id: str) -> tuple:
-    return tuple(fetch_fred(series_id))
+    try:
+        rows = tuple(fetch_fred(series_id))
+    except Exception as exc:
+        mark(f"fred:{series_id}", False, core=True, error=err_text(exc))
+        raise
+    mark(f"fred:{series_id}", True, as_of=rows[-1][0].isoformat(), core=True)
+    return rows
 
 
 @lru_cache(maxsize=None)
 def cached_fg_json() -> dict:
-    return json.loads(
-        curl_fetch(
-            "https://production.dataviz.cnn.io/index/fearandgreed/graphdata",
-            headers=CNN_HEADERS,
+    try:
+        data = json.loads(
+            curl_fetch(
+                "https://production.dataviz.cnn.io/index/fearandgreed/graphdata",
+                headers=CNN_HEADERS,
+            )
         )
-    )
+        stamp = (data.get("fear_and_greed") or {}).get("timestamp")
+    except Exception as exc:
+        mark("cnn:fear_greed", False, core=True, error=err_text(exc))
+        raise
+    mark("cnn:fear_greed", True, as_of=stamp, core=True)
+    return data
 
 
 def cached_fear_greed() -> tuple[float, str]:
@@ -655,15 +822,19 @@ def trailing_pct(series: list, i: int, min_obs: int = 252) -> float | None:
     return sum(1 for x in window if x < series[i]) / len(window) * 100
 
 
-def fetch_headlines(query: str, limit: int = 6) -> list[dict]:
-    url = f"https://news.google.com/rss/search?q={query}&hl=en-US&gl=US&ceid=US:en"
+def fetch_headlines(query: str, limit: int = 6, key: str = "news") -> list[dict]:
+    """Newest headlines from Google News RSS. The query asks for the last two
+    days (`when:2d`); the feed itself is ranked by relevance, so the items are
+    sorted newest first here and exact duplicate titles are dropped."""
+    url = f"https://news.google.com/rss/search?q={query}+when:2d&hl=en-US&gl=US&ceid=US:en"
     req = urllib.request.Request(url, headers=UA)
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
             root = ET.fromstring(resp.read())
-    except Exception:
+    except Exception as exc:
+        mark(f"news:{key}", False, error=err_text(exc))
         return []
-    items = []
+    items, seen = [], set()
     for item in root.iter("item"):
         title = item.findtext("title") or ""
         link = item.findtext("link") or ""
@@ -678,9 +849,16 @@ def fetch_headlines(query: str, limit: int = 6) -> list[dict]:
         if m:
             source = m.group(1).strip()
             title = title[: m.start()].strip()
+        if title.lower() in seen:
+            continue
+        seen.add(title.lower())
         items.append({"title": title, "source": source, "link": link, "published": pub_iso})
-        if len(items) >= limit:
-            break
+    items.sort(key=lambda x: x["published"] or "", reverse=True)
+    items = items[:limit]
+    if items:
+        mark(f"news:{key}", True, as_of=items[0]["published"], items=len(items))
+    else:
+        mark(f"news:{key}", False, error="no headlines returned")
     return items
 
 
@@ -747,6 +925,15 @@ def load_history(path: Path) -> list[dict]:
     return []
 
 
+def ttm_of(div_events: list, today: date) -> float:
+    """Trailing-12-month payout per share: the last 12 payouts on or before
+    today, if they fall inside ~13 months. (A plain 365-day window counts 13
+    monthly payouts whenever this year's ex-date is on or before last year's
+    calendar date, which overstated the yield.)"""
+    past = [(d, a) for d, a in div_events if d <= today]
+    return sum(a for d, a in past[-12:] if d > today - timedelta(days=380))
+
+
 def distributions_block(div_events: list, today: date) -> dict | None:
     """Payout history + estimated next ex-date for the fund pages.
 
@@ -766,10 +953,12 @@ def distributions_block(div_events: list, today: date) -> dict | None:
         nxt = recent[-1][0] + timedelta(days=med)
         while nxt < today:
             nxt += timedelta(days=med)
+        while nxt.weekday() >= 5:  # ex-dates fall on trading days
+            nxt += timedelta(days=1)
         est = nxt.isoformat()
     return {
         "history": [{"date": d.isoformat(), "amount": round(a, 4)} for d, a in recent],
-        "ttm_sum": round(sum(a for d, a in div_events if d >= today - timedelta(days=365)), 4),
+        "ttm_sum": round(ttm_of(div_events, today), 4),
         "last_ex": recent[-1][0].isoformat(),
         "last_amount": round(recent[-1][1], 4),
         "next_ex_estimate": est,
@@ -807,6 +996,32 @@ def _series_or_empty(fn) -> list:
         return []
 
 
+def heal_history(hist: list[dict], rows: list) -> tuple[list[dict], dict]:
+    """Drop stored rows that must be re-scored from final data; the backfill
+    loop then re-creates them. Dropped:
+      * live rows whose stored price differs from the final close (a run that
+        started before the close saved an intraday price, and nothing ever
+        corrected it - 37 such rows had piled up), and
+      * the newest RESCORE_DAYS completed sessions on every run: Yahoo posts an
+        ex-dividend payout late and re-bases every adjusted close, so the
+        discount signal of those days must be computed again.
+    Returns (kept_rows, {date: was_backfilled}) for the dropped recent rows, so
+    a re-scored row keeps its live/backfilled label."""
+    completed = rows[:-1]
+    final_close = {d.isoformat(): c for d, c, _ in completed}
+    recent = {d.isoformat() for d, _, _ in completed[-RESCORE_DAYS:]}
+    keep, was = [], {}
+    for r in hist:
+        d = r["date"]
+        if d in recent:
+            was[d] = r.get("backfilled", False)
+            continue
+        if not r.get("backfilled") and d in final_close and abs(r["price"] - final_close[d]) > 1e-6:
+            continue
+        keep.append(r)
+    return keep, was
+
+
 def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
     """Append today's live row and backfill any missing historical dates.
 
@@ -818,7 +1033,7 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
     """
     path = DOCS / fund["history_out"]
     hist = load_history(path)
-    have = {r["date"] for r in hist}
+    n_stored = len(hist)
 
     # 4y ranges give daily bars with a full 1-year lead-in before the funds'
     # Oct 2023 inception (range=max would degrade to weekly bars). Only the
@@ -873,7 +1088,17 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
             sc.append(("Fear & Greed index", score_fear_greed(fg_v[fj])))
         return sc
 
-    changed = False
+    # Self-healing (see heal_history) - only when every context series loaded:
+    # re-scoring with one missing would silently lower old verdicts.
+    was_live: dict = {}
+    if all((vol4, vix4, vix3m4, und4, hy, fg)):
+        hist, was_live = heal_history(hist, fund_rows)
+    else:
+        mark(f"history:{fund['ticker']}", False, core=True,
+             error="a context series was empty, so stored rows were not re-scored")
+    have = {r["date"] for r in hist}
+
+    changed = len(hist) != n_stored
     # Everything except the last row (today) is reconstructed; today comes
     # from the live build so the recorded verdict matches the page exactly.
     for i in range(len(fund_rows) - 1):
@@ -893,7 +1118,7 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
             "tone": verdict_tone(total),
             "price": fund_rows[i][1],
             "adj": fund_rows[i][2],
-            "backfilled": True,
+            "backfilled": was_live.get(iso, True),
             "drivers": drivers,
         })
         have.add(iso)
@@ -906,14 +1131,26 @@ def build_history(fund: dict, fund_rows: list, live_row: dict) -> list[dict]:
     return hist
 
 
-def report_card(hist: list[dict], tones: tuple = ("good", "ok", "neutral")) -> dict:
+def report_card(hist: list[dict], tones: tuple = ("good", "ok", "neutral"),
+                adj_now: dict | None = None) -> dict:
     """Forward FWD_DAYS-trading-day total return (adjusted closes) of buys
-    made under each verdict band, vs the all-days baseline."""
+    made under each verdict band, vs the all-days baseline.
+
+    Yahoo re-bases every past adjusted close at each ex-dividend date, so the
+    `adj` stored in old rows comes from different bases and a window that
+    crosses an ex-date would read as a price return. `adj_now` (date -> adjusted
+    close from the current series) puts both ends of a window on one basis.
+    A provisional (pre-close) row is not graded."""
+    hist = [r for r in hist if r.get("final") is not False]
     fwd = []
     for i in range(len(hist) - FWD_DAYS):
         a, b = hist[i], hist[i + FWD_DAYS]
-        if a.get("adj") and b.get("adj"):
-            fwd.append((a["tone"], (b["adj"] / a["adj"] - 1) * 100))
+        if adj_now and a["date"] in adj_now and b["date"] in adj_now:
+            pa, pb = adj_now[a["date"]], adj_now[b["date"]]
+        else:
+            pa, pb = a.get("adj"), b.get("adj")
+        if pa and pb:
+            fwd.append((a["tone"], (pb / pa - 1) * 100))
 
     def agg(vals: list[float]) -> dict:
         if not vals:
@@ -951,6 +1188,8 @@ def write_feed(hist_by_key: dict[str, list[dict]]) -> int:
     for fund in FUNDS:
         prev = None
         for r in hist_by_key.get(fund["key"]) or []:
+            if r.get("final") is False:
+                continue  # a provisional (pre-close) verdict is never announced
             if prev is not None and r["tone"] != prev["tone"]:
                 events.append({
                     "fund": fund,
@@ -990,7 +1229,9 @@ def write_feed(hist_by_key: dict[str, list[dict]]) -> int:
         sub(entry, "title", f"{t}: {TONE_SHORT[e['frm']]} → {TONE_SHORT[e['to']]} (buy score {e['score100']}/100)")
         sub(entry, "link", rel="alternate", href=SITE + e["fund"]["page"])
         sub(entry, "id", f"tag:bskthefirst.github.io,2026:{e['fund']['key']}:{e['date']}")
-        sub(entry, "updated", f"{e['date']}T13:35:00Z")
+        # The verdict of a date is final after that day's close (22:00Z is
+        # after the close in both EDT and EST).
+        sub(entry, "updated", f"{e['date']}T22:00:00Z")
         body = (
             f"{t} verdict moved from \"{TONE_SHORT[e['frm']]}\" to "
             f"\"{TONE_SHORT[e['to']]}\" (buy score {e['score100']}/100, "
@@ -1006,12 +1247,24 @@ def write_feed(hist_by_key: dict[str, list[dict]]) -> int:
     return len(events)
 
 
+def calendar_check(today: date) -> None:
+    """The FOMC and CPI lists are typed in by hand. Warn 30 days before one
+    runs out, so the event card does not quietly go blank."""
+    for name, dates in (("FOMC", FOMC_DATES), ("CPI", CPI_DATES)):
+        left = [d for d in dates if d >= today.isoformat()]
+        if not left or (date.fromisoformat(left[-1]) - today).days < 30:
+            mark(f"calendar:{name}", False, error=f"the typed-in {name} list ends {dates[-1]} - add the next schedule")
+        else:
+            mark(f"calendar:{name}", True, as_of=left[0])
+
+
 def guarded(name: str, builder):
     """Run a signal builder; on any failure emit a neutral placeholder so
     one flaky endpoint never breaks the daily build."""
     try:
         return builder()
-    except Exception:
+    except Exception as exc:
+        mark(f"signal:{name}", False, core=True, error=err_text(exc))
         return {"name": name, "value": "n/a", "score": 0, "weight": 0, "lean": "neutral", "note": SKIPPED_NOTE}
 
 
@@ -1021,11 +1274,13 @@ def build(fund: dict) -> dict:
     vol_name = fund["vol_name"]
 
     # ---- core fetches (build fails loudly if these break) ----
-    # Note: range=max silently degrades to weekly bars on Yahoo's API;
-    # 3y keeps daily granularity and covers both funds' full life
-    # (GPIX and GPIQ both launched Oct 2023).
-    fund_result = yahoo_chart(ticker, "3y", events=True)
-    fund_rows = chart_rows(fund_result)
+    # Note: range=max silently degrades to weekly bars on Yahoo's API; 5y
+    # keeps daily granularity and covers both funds' full life (GPIX and GPIQ
+    # both launched Oct 2023). A 3y window starts exactly at the launch, so it
+    # would begin to lose the first rows from Oct 2026.
+    fund_result = yahoo_chart(ticker, "5y", events=True)
+    fund_rows, bar_state = rows_and_state(fund_result)
+    mark(f"yahoo:{ticker}", True, as_of=fund_rows[-1][0].isoformat(), core=True, bar=bar_state)
     # 4y underlying: the same cached series serves the live signals (which
     # only use the tail) and the backfill, where the reversal signal needs
     # adjusted closes from before the funds' Oct 2023 inception.
@@ -1037,6 +1292,7 @@ def build(fund: dict) -> dict:
     vol_closes = [c for _, c, _ in vol]
 
     price = fund_closes[-1]
+    bar_date = fund_rows[-1][0]
     day_change = (price / fund_closes[-2] - 1) * 100 if len(fund_closes) > 1 else 0.0
     sma50 = sma(fund_closes, 50)  # raw: overlaid on the raw price chart
     sma200 = sma(fund_closes, 200)  # raw, for the chart's second dashed line
@@ -1067,7 +1323,7 @@ def build(fund: dict) -> dict:
 
     vol_level = vol_closes[-1]
 
-    today = date.today()
+    today = datetime.now(NY).date()
 
     # ---- income data (used by a signal, the backfill, and the page) ----
     ttm_yield = None
@@ -1079,7 +1335,7 @@ def build(fund: dict) -> dict:
             (datetime.fromtimestamp(d["date"], tz=timezone.utc).date(), d["amount"])
             for d in divs.values()
         )
-        ttm_sum = sum(a for dd, a in div_events if dd >= today - timedelta(days=365))
+        ttm_sum = ttm_of(div_events, today)
         if ttm_sum > 0:
             ttm_yield = round(ttm_sum / price * 100, 2)
     except Exception:
@@ -1555,6 +1811,9 @@ def build(fund: dict) -> dict:
         "backfilled": False,
         "drivers": live_drivers,
     }
+    if bar_state == "provisional":
+        live_row["final"] = False  # replaced by the first run after the close
+    adj_now = {d.isoformat(): a for d, _, a in fund_rows}
     hist_path = DOCS / fund["history_out"]
     try:
         history = build_history(fund, fund_rows, live_row)
@@ -1577,6 +1836,8 @@ def build(fund: dict) -> dict:
         "signals": signals,
         "fund": {
             "price": price,
+            "as_of": bar_date.isoformat(),
+            "bar": bar_state,
             "day_change_pct": round(day_change, 2),
             "sma50": round(sma50, 2) if sma50 else None,
             "sma200": round(sma200, 2) if sma200 else None,
@@ -1589,7 +1850,7 @@ def build(fund: dict) -> dict:
             ],
         },
         "flips": flips,
-        "report_card": report_card(history) if history else None,
+        "report_card": report_card(history, adj_now=adj_now) if history else None,
         "income": {"ttm_yield_pct": ttm_yield, "tbill_3mo": tbill},
         "fx": usd_krw(),
         "distributions": distributions_block(div_events, today),
@@ -1603,7 +1864,8 @@ def build(fund: dict) -> dict:
         "fomc": {"next": next_fomc, "days_until": days_to_fomc, "imminent": imminent},
         "cpi": {"next": next_cpi, "days_until": days_to_cpi},
         "backtest": backtest([(d, a) for d, _, a in fund_rows]),
-        "headlines": fetch_headlines(fund["news_query"]),
+        "headlines": fetch_headlines(fund["news_query"], key=ticker),
+        "health": health_block(bar_state, bar_date),
     }
 
 
@@ -1613,12 +1875,14 @@ def build_stock_history(fund: dict, rows: list, rv: list, live_row: dict) -> lis
     the stock's own series - no external fetches to guard)."""
     path = DOCS / fund["history_out"]
     hist = load_history(path)
+    n_stored = len(hist)
+    hist, was_live = heal_history(hist, rows)  # see heal_history
     have = {r["date"] for r in hist}
     start = date.fromisoformat(fund["history_start"]) if fund["history_start"] else None
     adj = [a for _, _, a in rows]
     validated = fund["validated"]
 
-    changed = False
+    changed = len(hist) != n_stored
     for i in range(len(rows) - 1):
         d = rows[i][0]
         if start and d < start:
@@ -1648,7 +1912,7 @@ def build_stock_history(fund: dict, rows: list, rv: list, live_row: dict) -> lis
             "tone": verdict_tone_stock(total) if validated else "neutral",
             "price": rows[i][1],
             "adj": rows[i][2],
-            "backfilled": True,
+            "backfilled": was_live.get(iso, True),
             "drivers": drivers,
         })
         have.add(iso)
@@ -1678,13 +1942,15 @@ def build_stock(fund: dict) -> dict:
     own_evidence = fund.get("evidence") == "own"
 
     result = yahoo_chart(ticker, fund["range"], events=True)
-    rows = chart_rows(result)
+    rows, bar_state = rows_and_state(result)
+    mark(f"yahoo:{ticker}", True, as_of=rows[-1][0].isoformat(), core=True, bar=bar_state)
     closes = [c for _, c, _ in rows]
     adj = [a for _, _, a in rows]
     n = len(rows)
     too_young = n < 252
 
     price = closes[-1]
+    bar_date = rows[-1][0]
     day_change = (price / closes[-2] - 1) * 100 if n > 1 else 0.0
     sma50 = sma(closes, 50)
     sma200 = sma(closes, 200)
@@ -1700,7 +1966,7 @@ def build_stock(fund: dict) -> dict:
     rv_now = rv[-1]
     rv_pct = trailing_pct(rv, n - 1)
 
-    today = date.today()
+    today = datetime.now(NY).date()
     high_label = "52-week high" if not too_young else "high since IPO"
 
     signals = []
@@ -1986,12 +2252,11 @@ def build_stock(fund: dict) -> dict:
     earnings_iso = None
     earnings_est = False
     earnings_note = ""
-    try:
-        got = fetch_earnings(ticker)
-        if got:
-            earnings_iso, earnings_est = got
-    except Exception:
-        earnings_note = " (Earnings date unavailable today - Yahoo's calendar endpoint didn't answer.)"
+    got = fetch_earnings(ticker)  # never raises; the outcome is recorded in `health`
+    if got:
+        earnings_iso, earnings_est = got
+    else:
+        earnings_note = " (Earnings date unavailable today - neither Yahoo nor Nasdaq answered.)"
     days_to_earnings = (date.fromisoformat(earnings_iso) - today).days if earnings_iso else None
 
     events = [(d, "earnings", earnings_iso) for d in [days_to_earnings] if d is not None]
@@ -2158,6 +2423,9 @@ def build_stock(fund: dict) -> dict:
         "backfilled": False,
         "drivers": live_drivers,
     }
+    if bar_state == "provisional":
+        live_row["final"] = False  # replaced by the first run after the close
+    adj_now = {d.isoformat(): a for d, _, a in rows}
     hist_path = DOCS / fund["history_out"]
     try:
         history = build_stock_history(fund, rows, rv, live_row)
@@ -2194,6 +2462,8 @@ def build_stock(fund: dict) -> dict:
         "signals": signals,
         "fund": {
             "price": price,
+            "as_of": bar_date.isoformat(),
+            "bar": bar_state,
             "day_change_pct": round(day_change, 2),
             "sma50": round(sma50, 2) if sma50 else None,
             "sma200": round(sma200, 2) if sma200 else None,
@@ -2207,7 +2477,7 @@ def build_stock(fund: dict) -> dict:
             ],
         },
         "flips": flips,
-        "report_card": report_card(history, rc_tones) if history else None,
+        "report_card": report_card(history, rc_tones, adj_now=adj_now) if history else None,
         "income": {"ttm_yield_pct": None, "tbill_3mo": tbill},
         "underlying": {
             "symbol": ticker,
@@ -2220,17 +2490,20 @@ def build_stock(fund: dict) -> dict:
         "cpi": {"next": next_cpi, "days_until": days_to_cpi},
         "earnings": {"next": earnings_iso, "days_until": days_to_earnings, "estimate": earnings_est},
         "backtest": backtest([(d, a) for d, _, a in rows]),
-        "headlines": fetch_headlines(fund["news_query"]),
+        "headlines": fetch_headlines(fund["news_query"], key=ticker),
+        "health": health_block(bar_state, bar_date),
     }
 
 
 if __name__ == "__main__":
     DOCS.mkdir(parents=True, exist_ok=True)
+    calendar_check(datetime.now(NY).date())
     for fund in FUNDS:
         data = build_stock(fund) if fund.get("kind") == "stock" else build(fund)
         out = DOCS / fund["out"]
         out.write_text(json.dumps(data, indent=1))
         print(f"wrote {out}")
+        print(f"{fund['ticker']} data: {data['health']['session']['bar']} bar of {data['health']['session']['date']}")
         print(
             f"{fund['ticker']} verdict: {data['verdict']['label']} "
             f"(buy score {data['verdict']['score100']}/100, W={data['verdict']['score']:g}/{data['verdict']['weights_max']:g})"
@@ -2256,4 +2529,8 @@ if __name__ == "__main__":
         n = write_feed({f["key"]: load_history(DOCS / f["history_out"]) for f in FUNDS})
         print(f"wrote {DOCS / 'feed.xml'} ({n} verdict-change entries)")
     except Exception as exc:
+        mark("feed", False, error=err_text(exc))
         print(f"feed generation failed (non-fatal): {exc}")
+
+    failed = sorted(k for k, v in HEALTH.items() if not v["ok"])
+    print(f"health: {len(HEALTH) - len(failed)} sources ok, {len(failed)} failed" + (f": {', '.join(failed)}" if failed else ""))

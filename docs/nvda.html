@@ -18,7 +18,7 @@
     --border: #dfe3d8;
     --text: #1c2a22;
     --muted: #54645b;
-    --faint: #7d8a81;
+    --faint: #5f6b63;
     --good: #004225;
     --ok: #4d7c0f;
     --neutral: #44695b;
@@ -73,6 +73,10 @@
   .pricebox .chg { font-size: 13px; font-variant-numeric: tabular-nums; }
   .chg.up { color: var(--good); } .chg.dn { color: var(--bad); }
   .pricebox .stamp { color: var(--faint); font-size: 12px; margin-top: 2px; }
+  .stamp .prov { color: var(--rich); font-weight: 600; }
+  .stale, .info { margin-top: 14px; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; line-height: 1.45; }
+  .stale { color: var(--bad); background: rgba(185,28,28,.07); border: 1px solid rgba(185,28,28,.25); }
+  .info { color: var(--rich); background: rgba(180,83,9,.08); border: 1px solid rgba(180,83,9,.25); }
 
   .verdict {
     margin-top: 24px; padding: 24px 26px;
@@ -277,6 +281,51 @@ const ago = iso => {
 };
 const fmtPct = v => (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
 
+// ---- shared by every asset page: escaping, data age, session label ----
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
+const safeUrl = u => /^https:\/\//i.test(u || "") ? esc(u) : "#";
+// Hours since `iso`, not counting Saturday and Sunday (UTC): the data job runs on weekdays only.
+const weekdayHoursSince = iso => {
+  const now = Date.now();
+  let ms = 0;
+  for (let t = new Date(iso).getTime(); t < now; ) {
+    const day = new Date(t), next = Math.min(now, Date.UTC(day.getUTCFullYear(), day.getUTCMonth(), day.getUTCDate() + 1));
+    if (day.getUTCDay() !== 0 && day.getUTCDay() !== 6) ms += next - t;
+    t = next;
+  }
+  return ms / 36e5;
+};
+const dayLabel = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", {weekday: "short", month: "short", day: "numeric", timeZone: "UTC"});
+// Which price bar the numbers are based on, and when the data job last ran.
+function stampHTML(d) {
+  const when = new Date(d.generated_at).toLocaleString([], {month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short"});
+  const bar = d.health && d.health.session && d.health.session.bar, day = d.fund && d.fund.as_of;
+  const what = !bar || !day ? "" : bar === "provisional"
+    ? `<span class="prov">Live reading, not a close yet</span> · `
+    : bar === "prior_close" ? `Based on the ${dayLabel(day)} close · ` : `${dayLabel(day)} close · `;
+  return `<div class="stamp">${what}updated ${when}</div>`;
+}
+// Warnings that must not pass silently: old data, failed inputs, a live (not final) reading.
+function bannerHTML(d) {
+  const out = [];
+  const age = weekdayHoursSince(d.generated_at);
+  if (age > 30) out.push(`<div class="stale" role="alert">The data are ${Math.round(age)} hours old (weekends not counted). The daily update may have failed.</div>`);
+  const bad = (d.health && d.health.degraded_core) || [];
+  if (bad.length) out.push(`<div class="stale" role="alert">Some inputs failed to load in the last update (${bad.map(esc).join(", ")}), so the score may be missing a signal.</div>`);
+  if (d.health && d.health.session && d.health.session.bar === "provisional") {
+    out.push(`<div class="info">This is a live reading from before the close. The verdict becomes final after the 4:00 PM ET close, and the alerts feed announces final verdicts only.</div>`);
+  }
+  return out.join("");
+}
+// One sentence about the caution band, computed from this page's own report card.
+const cautionNote = rc => {
+  const c = rc && rc.bands && rc.bands.find(b => b.tone === "caution");
+  if (!c || !c.n) return "";
+  return c.avg_pct < rc.baseline.avg_pct
+    ? " The caution band has trailed the baseline in this window."
+    : ` In this window the caution band returned ${fmtPct(c.avg_pct)} against ${fmtPct(rc.baseline.avg_pct)} for any day, so its warning has NOT held up here.`;
+};
+
 // Per-signal bullet bar: today's position on the signal's scale, scored
 // band(s) tinted, threshold ticked. Pure presentation from the data JSON's viz.
 const bullet = v => {
@@ -363,7 +412,7 @@ function renderChart(series, sma50, sma200) {
   }).join("")
     + `<line x1="${L}" x2="${W - R}" y1="${mid}" y2="${mid}" stroke="#d5dacc" stroke-width="1"/>`
     + `<text x="${L - 4}" y="${mid + 3.5}" text-anchor="end">50</text>`
-    + `<text x="${L}" y="${H + EXT - 6}">daily buy score vs the 50 baseline — what this page would have said each day</text>` : "";
+    + `<text x="${L}" y="${H + EXT - 6}">${narrow ? "daily buy score vs 50" : "daily buy score vs the 50 baseline — what this page would have said each day"}</text>` : "";
 
   // Dashed average lines. The 50-day label sits above its line and the
   // 200-day label below its own; if the two labels would still land within
@@ -436,7 +485,9 @@ function renderChart(series, sma50, sma200) {
   svg.addEventListener("pointercancel", hide);
 }
 
-fetch("data-nvda.json").then(r => r.json()).then(d => {
+fetch("data-nvda.json").then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(d => {
+  d.headlines ||= []; d.signals ||= []; d.flips ||= [];
+  if (d.fund) { d.fund.drawdown_pct ??= 0; d.fund.high52w ??= d.fund.price; }
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
   // Meter axis: 40-73. NVDA's score CAN fall below 50 (the falling-knife
   // band scores -1.5), unlike the index-fund pages.
@@ -456,7 +507,7 @@ fetch("data-nvda.json").then(r => r.json()).then(d => {
   document.getElementById("pricebox").innerHTML = `
     <div class="px">$${fmt2(g.price)}</div>
     <div class="chg ${chg >= 0 ? "up" : "dn"}">${chg >= 0 ? "▲" : "▼"} ${Math.abs(chg).toFixed(2)}% vs prior close</div>
-    <div class="stamp">updated ${new Date(d.generated_at).toLocaleString([], {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"})}</div>`;
+    ${stampHTML(d)}`;
 
   const dcaWins = bt.winner === "dca";
 
@@ -466,7 +517,7 @@ fetch("data-nvda.json").then(r => r.json()).then(d => {
         <div class="vtext">
           <div class="label">${v.label}</div>
           <div class="summary">${v.summary}</div>
-          <div class="scorenote">50 = typical day. Unlike the index-fund pages, NVDA's score CAN fall below 50 — the red arc: its 10–20% drawdown band preceded below-average returns in every era tested, the one evidence-backed bad zone this project has found. Mild tailwind at 56+, strong case at 69+.</div>
+          <div class="scorenote">50 = typical day. Unlike the index-fund pages, NVDA's score CAN fall below 50 — the red arc: its 10–20% drawdown band preceded below-average returns on TSLA in every era tested - the one evidence-backed bad zone this project has found, applied here provisionally. Mild tailwind at 56+, strong case at 69+.</div>
         </div>
         <div class="vgauge">${gauge(s100, METER_MIN, METER_MAX, GAUGE_ZONES)}</div>
       </div>
@@ -484,7 +535,7 @@ fetch("data-nvda.json").then(r => r.json()).then(d => {
     default habit here, not a proven edge.</div>
 
     <h2>Why</h2>
-    <div class="h2sub">Six checks each morning. Scoring uses the TSLA-validated single-stock framework (2010–2026), applied provisionally to NVDA: crash pullback 2.0, top-decile realized vol 1.5, 3 straight down closes 1.0, at-the-high momentum 1.0 — and the 10–20% falling-knife band <b>subtracts</b> 1.5, the one signal in this project allowed to score negative, because the evidence is unambiguous. Index-validated bands that failed on TSLA (the 3% discount, market-wide VIX panic) render as context only.</div>
+    <div class="h2sub">Six checks at every update. Scoring uses the TSLA-validated single-stock framework (2010–2026), applied provisionally to NVDA: crash pullback 2.0, top-decile realized vol 1.5, 3 straight down closes 1.0, at-the-high momentum 1.0 — and the 10–20% falling-knife band <b>subtracts</b> 1.5, the one signal in this project allowed to score negative, because the evidence is unambiguous. Index-validated bands that failed on TSLA (the 3% discount, market-wide VIX panic) render as context only.</div>
     <div class="signals">
       ${d.signals.map(s => {
         const lean = s.lean || "neutral";
@@ -512,7 +563,7 @@ fetch("data-nvda.json").then(r => r.json()).then(d => {
     <h2>What the market is chewing on</h2>
     <div class="h2sub">Context for today's mood — not inputs to the score.</div>
     <div class="card"><ul class="news">
-      ${d.headlines.map(h => `<li><a href="${h.link}" target="_blank" rel="noopener">${h.title}</a><span class="meta">${h.source}${h.published ? " · " + ago(h.published) : ""}</span></li>`).join("") || "<li>No headlines fetched.</li>"}
+      ${d.headlines.map(h => `<li><a href="${safeUrl(h.link)}" target="_blank" rel="noopener noreferrer">${esc(h.title)}</a><span class="meta">${esc(h.source)}${h.published ? " · " + ago(h.published) : ""}</span></li>`).join("") || "<li>No headlines fetched.</li>"}
     </ul></div>
 
     <h2>Price context</h2>
@@ -545,7 +596,7 @@ fetch("data-nvda.json").then(r => r.json()).then(d => {
 
     ${rc && rc.baseline && rc.baseline.n ? `
     <h2>Report card: has the verdict meant anything?</h2>
-    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what NVDA actually returned over the following ${rc.horizon_days} trading days. Note the caution band: the falling-knife zone's negative read has held up in this recent window too.</div>
+    <div class="h2sub">Every trading day since ${rc.start} scored with today's rules, then graded on what NVDA actually returned over the following ${rc.horizon_days} trading days.${cautionNote(rc)}</div>
     <div class="card">
       <table class="rc-table">
         <tr><th>Verdict that day</th><th>Days</th><th>Avg next ${rc.horizon_days}d</th><th>Median</th><th></th></tr>
@@ -559,6 +610,7 @@ fetch("data-nvda.json").then(r => r.json()).then(d => {
       <div class="caveat">Read honestly: nearby days share most of the same forward month, so these are overlapping windows — not ${rc.baseline.n} independent samples. And ${rc.backfilled_days} of ${rc.days_total} days are backfilled: today's rules replayed on historical data. The inputs contain no lookahead, but the rules themselves were designed recently, with the benefit of hindsight.${rc.fg_coverage_start ? " Fear & Greed history only reaches back to " + rc.fg_coverage_start + "; earlier days score that signal neutral." : ""}</div>
     </div>` : ""}
   `;
+  document.getElementById("app").insertAdjacentHTML("afterbegin", bannerHTML(d));
   renderChart(g.series, g.sma50, g.sma200);
   let rT;
   window.addEventListener("resize", () => {
@@ -566,7 +618,8 @@ fetch("data-nvda.json").then(r => r.json()).then(d => {
     rT = setTimeout(() => renderChart(g.series, g.sma50, g.sma200), 150);
   });
 }).catch(e => {
-  document.getElementById("app").innerHTML = `<div class="err">Could not load data-nvda.json — ${e}</div>`;
+  console.error(e);
+  document.getElementById("app").insertAdjacentHTML("afterbegin", `<div class="err" role="alert">Could not show this page completely (data-nvda.json: ${esc(e.message || e)}).</div>`);
 });
 </script>
 </body>

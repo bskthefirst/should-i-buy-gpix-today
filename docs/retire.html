@@ -14,7 +14,7 @@
     --border: #dde1d3;
     --text: #1c2a22;
     --muted: #54645b;
-    --faint: #7d8a81;
+    --faint: #5f6b63;
     --brg: #004225;
     --brg-soft: #0a5c37;
     --good: #0a5c37;
@@ -232,6 +232,7 @@ const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov
 
 function monthLabel(m) {  // m months from now -> "Mar 2029"
   const d = new Date();
+  d.setDate(1);  // on the 29th-31st, setMonth would skip a short month
   d.setMonth(d.getMonth() + m);
   return MONTHS[d.getMonth()] + " " + d.getFullYear();
 }
@@ -362,33 +363,33 @@ function renderSkeleton(yields, meta) {
     <div class="card">
       <div class="controls">
         <div class="ctl">
-          <label>Target net income <b id="v-target"></b></label>
+          <label for="in-target">Target net income <b id="v-target"></b></label>
           <input type="range" id="in-target" min="250" max="5000" step="250" value="${S.target}">
           <div class="hint">after the ${S.taxPct}% withholding — what actually lands in your account</div>
         </div>
         <div class="ctl">
-          <label>Savings per paycheck <b id="v-biweekly"></b></label>
+          <label for="in-biweekly">Savings per paycheck <b id="v-biweekly"></b></label>
           <input type="range" id="in-biweekly" min="0" max="5000" step="100" value="${S.biweekly}">
           <div class="hint" id="v-monthly"></div>
         </div>
         <div class="ctl">
-          <label>Mix <b id="v-mix"></b></label>
+          <label for="in-mix">Mix <b id="v-mix"></b></label>
           <input type="range" id="in-mix" min="0" max="100" step="5" value="${S.gpixPct}">
           <div class="hint">GPIQ yields more (${yields.gpiq.toFixed(1)}% vs ${yields.gpix.toFixed(1)}%) but rides the more volatile Nasdaq-100</div>
         </div>
         <div class="ctl">
-          <label>Already invested <b id="v-start"></b></label>
+          <label for="in-start">Already invested <b id="v-start"></b></label>
           <input type="range" id="in-start" min="0" max="200000" step="100" value="${S.start}">
           <div class="hint">head start — anything you have in the funds today (your $3,100 GPIX is the default)</div>
         </div>
         <div class="ctl">
-          <label>Dividend tax <b id="v-tax"></b></label>
+          <label for="in-tax">Dividend tax <b id="v-tax"></b></label>
           <input type="range" id="in-tax" min="0" max="30" step="1" value="${S.taxPct}">
           <div class="hint">15% = US–Korea treaty withholding on fund distributions</div>
         </div>
         <div class="ctl">
-          <label>Fund price drift <b id="v-scen"></b></label>
-          <div class="scenarios">
+          <label id="l-scen">Fund price drift <b id="v-scen"></b></label>
+          <div class="scenarios" role="group" aria-labelledby="l-scen">
             ${Object.keys(SCENARIOS).map(k => `<button data-scen="${k}">${SCENARIO_LABEL[k]}</button>`).join("")}
           </div>
           <div class="hint">covered-call funds keep only part of a rally — +2.5%/yr is a sober base case</div>
@@ -397,7 +398,7 @@ function renderSkeleton(yields, meta) {
     </div>
 
     <h2>The moving parts</h2>
-    <div class="h2sub">Live yields from today's pipeline run${meta.asof ? " · " + meta.asof : ""} — these float month to month, which is exactly why the date is an estimate.</div>
+    <div class="h2sub">Yields from the latest pipeline run${meta.asof ? " · " + meta.asof : ""}${meta.fallback && meta.fallback.length ? " (" + meta.fallback.join(" and ") + ": fallback estimate, no live yield)" : ""} — these float month to month, which is exactly why the date is an estimate.</div>
     <div class="stats" id="stats"></div>
 
     <h2>Your income curve</h2>
@@ -485,7 +486,7 @@ function update(yields) {
   document.getElementById("v-tax").textContent = S.taxPct + "%";
   document.getElementById("v-scen").textContent = SCENARIO_LABEL[S.scenario];
   document.querySelectorAll("[data-scen]").forEach(b =>
-    b.classList.toggle("active", b.dataset.scen === S.scenario));
+    { b.classList.toggle("active", b.dataset.scen === S.scenario); b.setAttribute("aria-pressed", String(b.dataset.scen === S.scenario)); });
 
   document.getElementById("stats").innerHTML = `
     <div class="stat"><div class="name">Blended gross yield</div><div class="val">${(sim.grossY * 100).toFixed(2)}%</div>
@@ -539,14 +540,16 @@ Promise.all([
   fetch("data.json").then(r => r.json()).catch(() => null),
   fetch("data-gpiq.json").then(r => r.json()).catch(() => null),
 ]).then(([gpix, gpiq]) => {
-  const yields = {
-    gpix: gpix && gpix.income && gpix.income.ttm_yield_pct || FALLBACK.gpix,
-    gpiq: gpiq && gpiq.income && gpiq.income.ttm_yield_pct || FALLBACK.gpiq,
+  const live = {
+    gpix: gpix && gpix.income && gpix.income.ttm_yield_pct,
+    gpiq: gpiq && gpiq.income && gpiq.income.ttm_yield_pct,
   };
+  const yields = { gpix: live.gpix || FALLBACK.gpix, gpiq: live.gpiq || FALLBACK.gpiq };
+  const fallback = Object.keys(live).filter(k => !live[k]).map(k => k.toUpperCase());
   const asof = gpix && gpix.generated_at
     ? "as of " + new Date(gpix.generated_at).toLocaleDateString([], { month: "short", day: "numeric" })
     : "using fallback yields";
-  render(yields, { asof });
+  render(yields, { asof, fallback });
 }).catch(() => {
   render({ gpix: FALLBACK.gpix, gpiq: FALLBACK.gpiq }, { asof: "using fallback yields" });
 });

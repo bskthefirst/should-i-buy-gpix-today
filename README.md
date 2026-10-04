@@ -1,6 +1,6 @@
 # Should I buy GPIX today?
 
-A tiny GitHub Pages tool that answers one question every weekday morning: is today a
+A tiny GitHub Pages tool that answers one question every weekday: is today a
 better-or-worse-than-average day to buy [GPIX](https://am.gs.com/en-us/advisors/funds/detail/PV109746/38151J286/goldman-sachs-s-p-500-core-premium-income-etf)
 (Goldman Sachs S&P 500 Premium Income ETF)?
 
@@ -18,10 +18,10 @@ that pins at 50 until enough history accumulates to test anything. Two more stoc
 (`nvda.html`, `goog.html`) sit adjacent to SPCX and reuse the TSLA-validated single-stock
 framework provisionally for Nvidia and Alphabet (Class C), with on-page copy that says so.
 
-The pipeline runs **twice per weekday** (13:35 and 19:15 UTC): a morning refresh and
-an early-afternoon one so the buy score is fresh for the buy-at-close window. The
-engine updates today's history row in place on the second run, so histories keep one
-row per day. Fund JSONs also carry a `distributions` block (last 24 payouts, TTM sum,
+The pipeline refreshes the data **three times each weekday**, in New York time: before
+the open (07:00-09:15), in the last hour before the close (15:10-15:45) and after the
+close (16:25-19:00). See "How the daily refresh works" below. Each run decides for
+itself which price bars are finished, so the numbers are right whenever it runs. Fund JSONs also carry a `distributions` block (last 24 payouts, TTM sum,
 and an estimated next ex-date projected from the payout cadence) which feeds the
 "What it actually pays" bar chart on the GPIX/GPIQ pages.
 
@@ -38,14 +38,14 @@ $1,000 buttons, to see shares held (whole shares by default; the switch turns on
 buying), monthly and yearly dividends after 15% US withholding, and the pre- and after-tax
 yield. Dollars are shown large and won small. The share price and last payout fill in from
 `data.json` (each can be reset after editing). The USD/KRW rate comes from the `fx` block in
-`data.json` (Yahoo `KRW=X`, fetched by `scripts/build_data.py` with the rest of the daily data;
+`data.json` (Yahoo's `KRW=X` quote, fetched by `scripts/build_data.py` with the rest of the daily data;
 if that fetch fails the field is null and the page falls back to a typed-in rate). Pure
 client-side vanilla JS with no libraries; figures count up with `requestAnimationFrame`, and all
 motion is switched off under `prefers-reduced-motion`.
 
 ## How it decides
 
-A GitHub Action runs every weekday morning, pulls data from Yahoo Finance, FRED, CNN's
+A GitHub Action runs on weekdays, pulls data from Yahoo Finance, FRED, CNN's
 Fear & Greed feed, and Google News, and evaluates eleven transparent checks (twelve for
 GPIQ). Under rules v4 only six rare conditions score, each weighted by the effect size
 the validation work measured (see "Rules v4" below); everything else is displayed as
@@ -222,7 +222,53 @@ python3 -m http.server -d docs  # view locally at http://localhost:8000
 ```
 
 Pages serves from the `docs/` folder on `main`. The workflow in
-`.github/workflows/update-data.yml` refreshes all six data files each weekday at 13:35
-and 19:15 UTC.
+`.github/workflows/update-data.yml` refreshes all six data files on weekdays.
+
+## How the daily refresh works
+
+**Why the schedule looks odd.** GitHub starts scheduled runs late. Until 2026-08-25 the delay
+was under an hour. Since then it has been 2 to 9.5 hours, and GitHub gives no upper limit.
+A plain cron at 15:15 New York time therefore produced a run after the close. So the
+`schedule:` entries in the workflow fire *early on purpose*, and `scripts/gate.py` then waits
+(at most 5.5 hours) for one of three New York windows. It works in both EDT and EST:
+
+| Window | New York time | What it is for |
+| --- | --- | --- |
+| `pre-open` | 07:00-09:15 | Fresh page before the market opens (uses the last close). |
+| `pre-close` | 15:10-15:45 | Provisional "buy at the close" reading from the live price. |
+| `post-close` | 16:25-19:00 | Final numbers for the day. |
+
+Each cron entry has a primary window (`PRIMARY` in `gate.py`). A run that starts after its
+window falls forward to the next one. A window that already has a refresh (a commit tagged
+`[pre-open]`, `[pre-close]` or `[post-close]` in the last 14 hours) is skipped. A run started by hand
+(`workflow_dispatch`, also from outside GitHub) skips the gate and builds at once.
+The build job runs one at a time (`concurrency:`), checks out the tip of `main`, and if a
+push is rejected it rebuilds on the latest `main` instead of repeating the same push.
+
+**Unfinished price bars.** While the US session is open, Yahoo's daily series ends with
+today's bar, and its "close" is only the latest trade. The validated signals are
+close-to-close effects, so `build_data.py` drops a bar that is still forming. The data then
+describe the last completed session (`health.session.bar = "prior_close"`). In the last hour
+before the close the live bar is kept instead and every output built from it is provisional
+(`"provisional"`): the history row carries `"final": false`, the pages say "Live reading, not a
+close yet", the report card ignores the row, and the alerts feed never announces it. The first run
+after the close replaces it with the final value (`"final"`).
+
+**Self-healing history.** On every run the newest 5 completed sessions are scored again (Yahoo
+posts an ex-dividend payout late and re-bases all adjusted closes), and any stored live row whose
+price differs from the final close is rebuilt from final data. The report card measures every
+window on one adjusted-close basis.
+
+**Nothing fails silently.** Every source records an outcome in the `health` block of each
+`data*.json` (per-source `ok`, `as_of`, and whether the source is `core`, meaning it feeds the
+score). Failures print `::warning::` lines in the run log. After the data are committed,
+`scripts/check_health.py` turns the run red when a core source failed or the newest price bar is
+more than 4 days old, so GitHub emails the owner. The pages show a red banner when the data are
+more than 30 weekday hours old or a core input failed. The hand-typed FOMC and CPI date lists warn
+30 days before they run out (the CPI list ends 2026-12-10).
+
+Local checks: `python3 scripts/build_data.py` (needs network; on macOS Python you may have to set
+`SSL_CERT_FILE=/etc/ssl/cert.pem`), `python3 scripts/check_health.py`, and
+`GATE_NOW=2026-10-05T15:20:00-04:00 GITHUB_EVENT_NAME=schedule CRON="52 14 * * 1-5" GATE_NO_SLEEP=1 python3 scripts/gate.py`.
 
 Not financial advice. Built as a personal decision aid.

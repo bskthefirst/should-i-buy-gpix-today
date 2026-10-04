@@ -18,7 +18,7 @@
     --border: #dfe3d8;
     --text: #1c2a22;
     --muted: #54645b;
-    --faint: #7d8a81;
+    --faint: #5f6b63;
     --good: #004225;
     --ok: #4d7c0f;
     --neutral: #44695b;
@@ -73,6 +73,10 @@
   .pricebox .chg { font-size: 13px; font-variant-numeric: tabular-nums; }
   .chg.up { color: var(--good); } .chg.dn { color: var(--bad); }
   .pricebox .stamp { color: var(--faint); font-size: 12px; margin-top: 2px; }
+  .stamp .prov { color: var(--rich); font-weight: 600; }
+  .stale, .info { margin-top: 14px; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; line-height: 1.45; }
+  .stale { color: var(--bad); background: rgba(185,28,28,.07); border: 1px solid rgba(185,28,28,.25); }
+  .info { color: var(--rich); background: rgba(180,83,9,.08); border: 1px solid rgba(180,83,9,.25); }
 
   .verdict {
     margin-top: 24px; padding: 24px 26px;
@@ -251,7 +255,7 @@
     <div>
       <div class="kicker">Daily timing signal · Nasdaq-100 premium income</div>
       <h1>Should I buy GPIQ today?</h1>
-      <div class="sub">Twelve market checks every weekday morning - six rare conditions scored and weighted by evidence, the rest (including the tech fear premium) shown as context - turned into one honest 0-100 buy score.</div>
+      <div class="sub">Twelve market checks, refreshed each weekday - six rare conditions scored and weighted by evidence, the rest (including the tech fear premium) shown as context - turned into one honest 0-100 buy score.</div>
     </div>
     <div class="pricebox" id="pricebox"></div>
   </header>
@@ -281,6 +285,51 @@ const ago = iso => {
   return Math.round(h / 24) + "d ago";
 };
 const fmtPct = v => (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+
+// ---- shared by every asset page: escaping, data age, session label ----
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
+const safeUrl = u => /^https:\/\//i.test(u || "") ? esc(u) : "#";
+// Hours since `iso`, not counting Saturday and Sunday (UTC): the data job runs on weekdays only.
+const weekdayHoursSince = iso => {
+  const now = Date.now();
+  let ms = 0;
+  for (let t = new Date(iso).getTime(); t < now; ) {
+    const day = new Date(t), next = Math.min(now, Date.UTC(day.getUTCFullYear(), day.getUTCMonth(), day.getUTCDate() + 1));
+    if (day.getUTCDay() !== 0 && day.getUTCDay() !== 6) ms += next - t;
+    t = next;
+  }
+  return ms / 36e5;
+};
+const dayLabel = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", {weekday: "short", month: "short", day: "numeric", timeZone: "UTC"});
+// Which price bar the numbers are based on, and when the data job last ran.
+function stampHTML(d) {
+  const when = new Date(d.generated_at).toLocaleString([], {month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short"});
+  const bar = d.health && d.health.session && d.health.session.bar, day = d.fund && d.fund.as_of;
+  const what = !bar || !day ? "" : bar === "provisional"
+    ? `<span class="prov">Live reading, not a close yet</span> · `
+    : bar === "prior_close" ? `Based on the ${dayLabel(day)} close · ` : `${dayLabel(day)} close · `;
+  return `<div class="stamp">${what}updated ${when}</div>`;
+}
+// Warnings that must not pass silently: old data, failed inputs, a live (not final) reading.
+function bannerHTML(d) {
+  const out = [];
+  const age = weekdayHoursSince(d.generated_at);
+  if (age > 30) out.push(`<div class="stale" role="alert">The data are ${Math.round(age)} hours old (weekends not counted). The daily update may have failed.</div>`);
+  const bad = (d.health && d.health.degraded_core) || [];
+  if (bad.length) out.push(`<div class="stale" role="alert">Some inputs failed to load in the last update (${bad.map(esc).join(", ")}), so the score may be missing a signal.</div>`);
+  if (d.health && d.health.session && d.health.session.bar === "provisional") {
+    out.push(`<div class="info">This is a live reading from before the close. The verdict becomes final after the 4:00 PM ET close, and the alerts feed announces final verdicts only.</div>`);
+  }
+  return out.join("");
+}
+// One sentence about the caution band, computed from this page's own report card.
+const cautionNote = rc => {
+  const c = rc && rc.bands && rc.bands.find(b => b.tone === "caution");
+  if (!c || !c.n) return "";
+  return c.avg_pct < rc.baseline.avg_pct
+    ? " The caution band has trailed the baseline in this window."
+    : ` In this window the caution band returned ${fmtPct(c.avg_pct)} against ${fmtPct(rc.baseline.avg_pct)} for any day, so its warning has NOT held up here.`;
+};
 
 // Per-signal bullet bar: today's position on the signal's scale, scored
 // band(s) tinted, threshold ticked. Pure presentation from the data JSON's viz.
@@ -398,7 +447,7 @@ function renderChart(series, sma50, sma200) {
   }).join("")
     + `<line x1="${L}" x2="${W - R}" y1="${mid}" y2="${mid}" stroke="#d5dacc" stroke-width="1"/>`
     + `<text x="${L - 4}" y="${mid + 3.5}" text-anchor="end">50</text>`
-    + `<text x="${L}" y="${H + EXT - 6}">daily buy score vs the 50 baseline — what this page would have said each day</text>` : "";
+    + `<text x="${L}" y="${H + EXT - 6}">${narrow ? "daily buy score vs 50" : "daily buy score vs the 50 baseline — what this page would have said each day"}</text>` : "";
 
   // Dashed average lines. The 50-day label sits above its line and the
   // 200-day label below its own; if the two labels would still land within
@@ -471,7 +520,9 @@ function renderChart(series, sma50, sma200) {
   svg.addEventListener("pointercancel", hide);
 }
 
-fetch("data-gpiq.json").then(r => r.json()).then(d => {
+fetch("data-gpiq.json").then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(d => {
+  d.headlines ||= []; d.signals ||= []; d.flips ||= [];
+  if (d.fund) { d.fund.drawdown_pct ??= 0; d.fund.high52w ??= d.fund.price; }
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
   // Meter axis is the 0-100 buy score, floored at 50 (rules v4).
   const METER_MIN = d.meter ? d.meter.min : 50;
@@ -487,7 +538,7 @@ fetch("data-gpiq.json").then(r => r.json()).then(d => {
   document.getElementById("pricebox").innerHTML = `
     <div class="px">$${fmt2(g.price)}</div>
     <div class="chg ${chg >= 0 ? "up" : "dn"}">${chg >= 0 ? "▲" : "▼"} ${Math.abs(chg).toFixed(2)}% vs prior close</div>
-    <div class="stamp">updated ${new Date(d.generated_at).toLocaleString([], {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"})}</div>`;
+    ${stampHTML(d)}`;
 
   const dcaWins = bt.winner === "dca";
 
@@ -516,7 +567,7 @@ fetch("data-gpiq.json").then(r => r.json()).then(d => {
     weaker returns, so it gets a directional read below but never moves the score.</div>
 
     <h2>Why</h2>
-    <div class="h2sub">Twelve checks each morning, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score, each weighted by the effect size our validation work measured (short-term reversal 2.0, discount and top-decile vol 1.5, the rest 1.0); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
+    <div class="h2sub">Twelve checks at every update, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score, each weighted by the effect size our validation work measured (short-term reversal 2.0, discount and top-decile vol 1.5, the rest 1.0); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
     <div class="signals">
       ${d.signals.map(s => {
         const lean = s.lean || "neutral";
@@ -544,7 +595,7 @@ fetch("data-gpiq.json").then(r => r.json()).then(d => {
     <h2>What the market is chewing on</h2>
     <div class="h2sub">Context for today's mood — not inputs to the score.</div>
     <div class="card"><ul class="news">
-      ${d.headlines.map(h => `<li><a href="${h.link}" target="_blank" rel="noopener">${h.title}</a><span class="meta">${h.source}${h.published ? " · " + ago(h.published) : ""}</span></li>`).join("") || "<li>No headlines fetched.</li>"}
+      ${d.headlines.map(h => `<li><a href="${safeUrl(h.link)}" target="_blank" rel="noopener noreferrer">${esc(h.title)}</a><span class="meta">${esc(h.source)}${h.published ? " · " + ago(h.published) : ""}</span></li>`).join("") || "<li>No headlines fetched.</li>"}
     </ul></div>
 
     <h2>Price context</h2>
@@ -596,6 +647,7 @@ fetch("data-gpiq.json").then(r => r.json()).then(d => {
       <div class="caveat">Read honestly: nearby days share most of the same forward month, so these are overlapping windows — not ${rc.baseline.n} independent samples. And ${rc.backfilled_days} of ${rc.days_total} days are backfilled: today's rules replayed on historical data. The inputs contain no lookahead, but the rules themselves were designed recently, with the benefit of hindsight.${rc.fg_coverage_start ? " Fear & Greed history only reaches back to " + rc.fg_coverage_start + "; earlier days score that signal neutral." : ""}</div>
     </div>` : ""}
   `;
+  document.getElementById("app").insertAdjacentHTML("afterbegin", bannerHTML(d));
   renderChart(g.series, g.sma50, g.sma200);
   renderDistChart(d.distributions);
   let rT;
@@ -607,7 +659,8 @@ fetch("data-gpiq.json").then(r => r.json()).then(d => {
     }, 150);
   });
 }).catch(e => {
-  document.getElementById("app").innerHTML = `<div class="err">Could not load data.json — ${e}</div>`;
+  console.error(e);
+  document.getElementById("app").insertAdjacentHTML("afterbegin", `<div class="err" role="alert">Could not show this page completely (data.json: ${esc(e.message || e)}).</div>`);
 });
 </script>
 </body>
