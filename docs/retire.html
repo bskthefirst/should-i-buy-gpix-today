@@ -188,6 +188,9 @@
   .stat.wide .note { font-size: 13px; color: var(--muted); line-height: 1.55; }
   .stat.wide .note b { color: var(--text); }
   .stat .val.warn { color: var(--bad); }
+  .ctl label.switchrow { justify-content: flex-start; align-items: center; flex-wrap: nowrap; gap: 10px; font-size: 14px; color: var(--text); cursor: pointer; }
+  .switchrow input { width: 18px; height: 18px; flex: none; accent-color: var(--brg); }
+  .resetcell #reset { margin-top: 10px; }
   .ctl input[type=range]:focus-visible, #reset:focus-visible, .scenarios button:focus-visible { outline: 2px solid var(--brg); outline-offset: 2px; }
 </style>
 </head>
@@ -211,7 +214,7 @@
       <div class="kicker">Retirement math · GPIX + GPIQ</div>
       <h1>When can I retire?</h1>
       <div class="sub">This page answers one question: <b>when do the dividends alone pay the monthly income you want?</b>
-      Each paycheck you add money to two income funds, GPIX and GPIQ. They are covered-call funds: they sell options to earn extra income, and they give up part of a rise in the share price.
+      Each month you add money to two income funds, GPIX and GPIQ. They are covered-call funds: they sell options to earn extra income, and they give up part of a rise in the share price.
       You reinvest every dividend after 15% US tax. The page uses the funds' real 12-month dividend rates, updated with the other pages. Your job pay is not part of the math.</div>
     </div>
   </header>
@@ -219,7 +222,7 @@
   <div id="app"><div style="padding:60px 0;color:var(--faint)">Crunching the numbers…</div></div>
 
   <footer>
-    <p><b>Method.</b> The page runs a month-by-month simulation in your browser. Each month the funds pay dividends at their 12-month dividend rates, on what you hold at the start of the month. The tax comes off, and the rest is reinvested together with that month's savings. New money is split by your Mix. Share prices change by the path you choose. Your goal is reached in the first month when the dividends after tax are at least your goal. The money you already hold stays in its own fund. Dividend rates come from <a href="data.json">data.json</a> and <a href="data-gpiq.json">data-gpiq.json</a>.</p>
+    <p><b>Method.</b> The page runs a month-by-month simulation in your browser. Each month the funds pay dividends at their 12-month dividend rates, on what you hold at the start of the month. The tax comes off, and the rest is reinvested together with that month's savings. New money is split by your Mix. With the whole-share switch on, it buys whole shares, and money that cannot buy a whole share waits as cash. Share prices change by the path you choose. Your savings stay the same every month, and your goal grows with inflation. Your goal is reached in the first month when the dividends after tax are at least your goal. The money you already hold stays in its own fund, and the share prices come from the latest data run. Dividend rates come from <a href="data.json">data.json</a> and <a href="data-gpiq.json">data-gpiq.json</a>.</p>
     <p><b>Your numbers.</b> The page saves your numbers only in your browser. Nothing is sent anywhere. Another device or browser keeps its own numbers.</p>
     <p><b>What this is not.</b> This page is not advice and not a promise. Dividend rates move with the option market, and covered-call funds give up part of a market rise to pay income. Read the tax box before you plan a big change in your life.</p>
   </footer>
@@ -229,8 +232,9 @@
 <script>
 "use strict";
 
-// Backup dividend rates (%/yr) if the live data cannot load.
-const FALLBACK_YIELD = { gpix: 8.0, gpiq: 9.9 };
+// Backup numbers if the live data cannot load.
+const FALLBACK_YIELD = { gpix: 8.0, gpiq: 9.9 };      // dividend rate, % per year
+const FALLBACK_PRICE = { gpix: 56, gpiq: 58 };         // share price, $
 
 // ==== model:start (pure functions, no page code; the tests run this block in Node) ====
 const SCENARIOS = { flat: 0, base: 2.5, strong: 5.0 };
@@ -238,58 +242,72 @@ const SCENARIO_LABEL = { flat: "Flat (0%/yr)", base: "Base (+2.5%/yr)", strong: 
 const MAX_MONTHS = 40 * 12;
 const KRW_TAX_LINE = 20000000;  // yearly interest + dividends above this get higher Korean tax rates
 
-// One month at a time. y: dividend rates in % per year {gpix, gpiq}. p: the plan
-// {biweekly, gpixPct, taxPct, startGpix, startGpiq}. o: {target, drift, inflation} where
-// target is the goal in $ per month after tax, drift is the share price change in %
-// per year and inflation is in % per year (0 = the goal stays the same).
-// Each month: the funds pay dividends on the portfolio you hold at the start of the month,
-// tax comes off, and the rest is reinvested together with that month's savings. New money
-// is split by the Mix. The goal is reached in the first month when the dividends after
-// tax are at least the goal.
+// What you hold on day one. With whole shares, the dollars you type buy whole shares and
+// the rest stays as cash. y: market numbers {gpix, gpiq (dividend rates in % per year),
+// pxGpix, pxGpiq (share prices)}.
+function initialHoldings(y, p) {
+  if (!p.whole) return { sg: p.startGpix / y.pxGpix, sq: p.startGpiq / y.pxGpiq, cg: 0, cq: 0 };
+  const sg = Math.floor(p.startGpix / y.pxGpix + 1e-9), sq = Math.floor(p.startGpiq / y.pxGpiq + 1e-9);
+  return { sg, sq, cg: p.startGpix - sg * y.pxGpix, cq: p.startGpiq - sq * y.pxGpiq };
+}
+
+// One month at a time. p: your plan {monthly, gpixPct, taxPct, startGpix, startGpiq, whole}.
+// o: {target, drift, inflation}: the goal in $ a month after tax in today's prices, the share
+// price change in % a year, and inflation in % a year (the goal grows with it; 0 = fixed).
+// Each month: the funds pay dividends on the shares you hold, tax comes off, share prices move,
+// and then the month's savings plus the after-tax dividends buy shares. New money is split by
+// the Mix. With whole shares, money that cannot buy a whole share waits as cash. The goal is
+// reached in the first month when the dividends after tax are at least the goal.
 function simulate(y, p, o) {
   const w = p.gpixPct / 100;
   const yg = y.gpix / 100, yq = y.gpiq / 100;
   const netF = 1 - p.taxPct / 100;
   const g = o.drift / 100, infl = (o.inflation || 0) / 100;
-  const contrib = p.biweekly * 26 / 12;
-  let Pg = p.startGpix, Pq = p.startGpiq;
+  let { sg, sq, cg, cq } = initialHoldings(y, p);
+  let pg = y.pxGpix, pq = y.pxGpiq;
   let cumContrib = 0, cumReinv = 0, cumGrowth = 0, cumTax = 0;
   const months = [];
   let crossAt = null;
   for (let m = 0; m <= MAX_MONTHS; m++) {
-    const gross = (Pg * yg + Pq * yq) / 12;
+    const gross = (sg * pg * yg + sq * pq * yq) / 12;
     const net = gross * netF;
     const target = o.target * Math.pow(1 + infl, m / 12);
-    months.push({ m, portfolio: Pg + Pq, net, gross, target, cumContrib, cumReinv, cumGrowth, cumTax });
+    months.push({ m, portfolio: sg * pg + sq * pq + cg + cq, cash: cg + cq, net, gross, target, cumContrib, cumReinv, cumGrowth, cumTax });
     if (crossAt === null && net >= target) crossAt = m;
     if (crossAt !== null && m > crossAt + 24) break;  // simulate a little past the goal
-    const growth = (Pg + Pq) * g / 12;
-    const newMoney = contrib + net;
-    Pg = Pg * (1 + g / 12) + w * newMoney;
-    Pq = Pq * (1 + g / 12) + (1 - w) * newMoney;
-    cumContrib += contrib; cumReinv += net; cumGrowth += growth; cumTax += gross - net;
+    const npg = pg * (1 + g / 12), npq = pq * (1 + g / 12);
+    const growth = sg * (npg - pg) + sq * (npq - pq);
+    pg = npg; pq = npq;
+    cg += w * (p.monthly + net); cq += (1 - w) * (p.monthly + net);
+    if (p.whole) {
+      const bg = Math.floor(cg / pg + 1e-9), bq = Math.floor(cq / pq + 1e-9);
+      sg += bg; cg -= bg * pg; sq += bq; cq -= bq * pq;
+    } else {
+      sg += cg / pg; cg = 0; sq += cq / pq; cq = 0;
+    }
+    cumContrib += p.monthly; cumReinv += net; cumGrowth += growth; cumTax += gross - net;
   }
   const mixGross = w * yg + (1 - w) * yq;
-  return { months, crossAt, mixGross, mixNet: mixGross * netF, contrib };
+  return { months, crossAt, mixGross, mixNet: mixGross * netF };
 }
 const monthsTo = (y, p, target, drift, inflation) => simulate(y, p, { target, drift, inflation }).crossAt;
 // ==== model:end ====
 
 // ---- plan, defaults and saving ----
-// Defaults = the plan the owner described, including the $3,100 of GPIX held today.
-const DEFAULTS = { target: 1000, biweekly: 2500, gpixPct: 80, taxPct: 15, startGpix: 3100, startGpiq: 0, scenario: "base", inflation: 2.5 };
-const LIMITS = { target: [1, 1e6], biweekly: [0, 1e6], gpixPct: [0, 100], taxPct: [0, 60], startGpix: [0, 1e8], startGpiq: [0, 1e8], inflation: [0, 15] };
-const STORE_KEY = "retire-settings-v2";
-const OLD_STORE_KEY = "retire-settings-v1";   // the first version saved a single "start" slider value; it is not carried over
+// Defaults = the plan the owner described: $1,000 a month, and $3,100 of GPIX held today.
+const DEFAULTS = { target: 1000, monthly: 1000, gpixPct: 80, taxPct: 15, startGpix: 3100, startGpiq: 0, scenario: "base", inflation: 2.5, whole: true };
+const LIMITS = { target: [1, 1e6], monthly: [0, 1e6], gpixPct: [0, 100], taxPct: [0, 60], startGpix: [0, 1e8], startGpiq: [0, 1e8], inflation: [0, 15] };
+const STORE_KEY = "retire-settings-v2";   // the old "biweekly" amount is not carried over: the unit changed to monthly
 let S = { ...DEFAULTS };
 let storageOk = true;
 const clampTo = (k, v) => Math.min(LIMITS[k][1], Math.max(LIMITS[k][0], Number.isFinite(+v) ? +v : DEFAULTS[k]));
 
 function loadSettings() {
   try {
-    const raw = JSON.parse(localStorage.getItem(STORE_KEY) || localStorage.getItem(OLD_STORE_KEY) || "{}");
+    const raw = JSON.parse(localStorage.getItem(STORE_KEY) || "{}");
     for (const k of Object.keys(LIMITS)) if (raw[k] != null && raw[k] !== "") S[k] = clampTo(k, raw[k]);
     if (raw.scenario in SCENARIOS) S.scenario = raw.scenario;
+    if (typeof raw.whole === "boolean") S.whole = raw.whole;
     localStorage.setItem("retire-probe", "1"); localStorage.removeItem("retire-probe");
   } catch (e) { storageOk = false; }   // private mode etc.: the page still works, it just cannot save
 }
@@ -301,6 +319,7 @@ loadSettings();
 // ---- formatting ----
 let FX = 1400, FX_NOTE = "estimated rate";
 const fmt$ = v => "$" + Math.round(v).toLocaleString("en-US");
+const usd2 = v => "$" + v.toFixed(2);
 const fmt$k = v => v >= 1e6 ? "$" + (v / 1e6).toFixed(2) + "M" : "$" + Math.round(v / 1000) + "k";
 const won = usd => { const w = usd * FX; return "₩" + (w >= 1e9 ? (w / 1e9).toFixed(2) + "B" : w >= 1e8 ? Math.round(w / 1e6) + "M" : w >= 1e6 ? (w / 1e6).toFixed(2) + "M" : Math.round(w / 1e3) + "k"); };
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -345,21 +364,23 @@ function gauge(pct) {
   </svg>`;
 }
 
-function renderChart(sim, target) {
+function renderChart(sim, target, inflation) {
   const pts = sim.months;
   if (pts.length < 2) return "";
   const W = 820, H = 240, L = 56, R = 14, T = 14, B = 30;
   const lastM = pts[pts.length - 1].m;
-  const maxNet = Math.max(target * 1.15, ...pts.map(p => p.net));
+  const maxNet = Math.max(...pts.map(p => Math.max(p.net, p.target))) * 1.1;
   const xi = m => L + (m / lastM) * (W - L - R);
   const yv = v => T + (1 - v / maxNet) * (H - T - B);
   const line = pts.map((p, i) => (i ? "L" : "M") + xi(p.m).toFixed(1) + " " + yv(p.net).toFixed(1)).join(" ");
+  const goalLine = pts.map((p, i) => (i ? "L" : "M") + xi(p.m).toFixed(1) + " " + yv(p.target).toFixed(1)).join(" ");
   const area = line + ` L ${xi(lastM).toFixed(1)} ${yv(0)} L ${L} ${yv(0)} Z`;
   const gridVals = [0.25, 0.5, 0.75, 1].map(f => maxNet * f);
   const yearTicks = [];
   const yearStep = lastM > 120 ? 24 : 12;
   for (let m = yearStep; m < lastM; m += yearStep) yearTicks.push(m);
   const cross = sim.crossAt != null ? pts.find(p => p.m === sim.crossAt) : null;
+  const goalLabel = `goal ${fmt$(target)}/mo in today's prices${inflation > 0 ? ", growing " + inflation + "% a year" : ""}`;
   return `
   <svg viewBox="0 0 ${W} ${H}" id="csvg" role="img" aria-label="Monthly dividends after tax over time, compared with your goal">
     <defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1">
@@ -370,10 +391,10 @@ function renderChart(sim, target) {
     ${yearTicks.map(m => `<text x="${xi(m)}" y="${H - 10}" text-anchor="middle">${monthLabel(m)}</text>`).join("")}
     <path d="${area}" fill="url(#rg)"/>
     <path d="${line}" fill="none" stroke="var(--brg)" stroke-width="2.25"/>
-    <line x1="${L}" x2="${W - R}" y1="${yv(target)}" y2="${yv(target)}" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="5 4"/>
-    <text x="${W - R - 4}" y="${yv(target) - 6}" text-anchor="end" fill="#b91c1c">goal ${fmt$(target)}/mo after tax</text>
+    <path d="${goalLine}" fill="none" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="${L + 6}" y="${T + 10}" fill="#b91c1c">${goalLabel}</text>
     ${cross ? `<circle cx="${xi(cross.m)}" cy="${yv(cross.net)}" r="5.5" fill="var(--brg)" stroke="#fff" stroke-width="2"/>
-      <text x="${xi(cross.m)}" y="${yv(cross.net) - 12}" text-anchor="middle" font-weight="700" fill="var(--brg)">${monthLabel(cross.m)}</text>` : ""}
+      <text x="${xi(cross.m)}" y="${yv(cross.net) + 20}" text-anchor="middle" font-weight="700" fill="var(--brg)">${monthLabel(cross.m)}</text>` : ""}
   </svg>`;
 }
 
@@ -388,7 +409,7 @@ function attachChartHover(sim) {
     const fx = (ev.clientX - rect.left) / rect.width * 820;
     const m = Math.round(Math.max(0, Math.min(lastM, (fx - 56) / (820 - 56 - 14) * lastM)));
     const p = pts.find(q => q.m === m) || pts[pts.length - 1];
-    tip.textContent = monthLabel(p.m) + " · " + fmt$(p.net) + "/mo after tax · portfolio " + fmt$k(p.portfolio);
+    tip.textContent = monthLabel(p.m) + " · " + fmt$(p.net) + "/mo after tax · goal " + fmt$(p.target) + "/mo · portfolio " + fmt$k(p.portfolio);
     tip.style.display = "block";
     tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - 250) + "px";
     tip.style.top = (ev.clientY + 16) + "px";
@@ -412,12 +433,12 @@ function renderSkeleton(yields, meta) {
         <div class="ctl">
           <label for="n-target">Monthly dividend goal ${numBox("n-target", "$", "/month", "Monthly dividend goal in dollars")}</label>
           <input type="range" id="in-target" min="250" max="5000" step="250" aria-label="Monthly dividend goal, slider">
-          <div class="hint">The dividends you want the funds to pay you each month, after tax. This is not your pay from work. You reach your goal in the first month when your dividends cover it.</div>
+          <div class="hint">The dividends you want the funds to pay you each month, after tax, in today's prices. This is not your pay from work. Inflation makes the goal grow each year (see "Inflation per year").</div>
         </div>
         <div class="ctl">
-          <label for="n-biweekly">Money you add each paycheck ${numBox("n-biweekly", "$", "every 2 weeks", "Money you add each paycheck in dollars")}</label>
-          <input type="range" id="in-biweekly" min="0" max="5000" step="100" aria-label="Money you add each paycheck, slider">
-          <div class="hint" id="v-monthly"></div>
+          <label for="n-monthly">Money you add each month ${numBox("n-monthly", "$", "/month", "Money you add each month in dollars")}</label>
+          <input type="range" id="in-monthly" min="0" max="5000" step="50" aria-label="Money you add each month, slider">
+          <div class="hint">You add this amount every month from your pay. It stays the same each month. It is separate from the calculator on the GPIX page. That calculator shows one purchase today. This page repeats your monthly purchase until your goal.</div>
         </div>
         <div class="ctl">
           <label for="in-mix">Where new money goes <b id="v-mix"></b></label>
@@ -430,7 +451,7 @@ function renderSkeleton(yields, meta) {
             <div><span class="sublab">In GPIX</span>${numBox("n-startGpix", "$", "", "Amount already invested in GPIX, in dollars")}</div>
             <div><span class="sublab">In GPIQ</span>${numBox("n-startGpiq", "$", "", "Amount already invested in GPIQ, in dollars")}</div>
           </div>
-          <div class="hint">What you hold in each fund today. Your $3,100 of GPIX is the starting value. Type your own numbers.</div>
+          <div class="hint" id="holdnote"></div>
         </div>
         <div class="ctl">
           <label for="in-tax">Tax on dividends <b id="v-tax"></b></label>
@@ -447,9 +468,11 @@ function renderSkeleton(yields, meta) {
         <div class="ctl">
           <label for="in-infl">Inflation per year <b id="v-infl"></b></label>
           <input type="range" id="in-infl" min="0" max="8" step="0.5">
-          <div class="hint">Only used in "Inflation check" below. Prices rise over time, so the same goal needs more dollars later.</div>
+          <div class="hint">Prices rise over time, so your goal grows by this rate each year. The date counts this. Set 0% to keep the goal fixed in dollars.</div>
         </div>
         <div class="ctl resetcell">
+          <label class="switchrow" for="in-whole"><input type="checkbox" id="in-whole"><span>Buy whole shares only (no fractions)</span></label>
+          <div class="hint">Each month's money buys whole shares. What is left stays as cash until it can buy another share.</div>
           <button type="button" id="reset">Reset to my starting plan</button>
           <div class="hint" id="savedhint"></div>
         </div>
@@ -457,15 +480,15 @@ function renderSkeleton(yields, meta) {
     </div>
 
     <h2>Key numbers</h2>
-    <div class="h2sub">Dividend rates come from the latest data run${meta.asof ? " · " + meta.asof : ""}${meta.fallback && meta.fallback.length ? " (" + meta.fallback.join(" and ") + ": backup estimate, no live rate)" : ""}${meta.stale ? " · these data are older than expected" : ""}. They change from month to month, so every date here is an estimate. Won amounts use ₩${FX.toLocaleString("en-US", { maximumFractionDigits: 2 })} per dollar (${FX_NOTE}).</div>
+    <div class="h2sub">Dividend rates and share prices come from the latest data run${meta.asof ? " · " + meta.asof : ""}${meta.fallback && meta.fallback.length ? " (" + meta.fallback.join(" and ") + ": backup estimate, no live data)" : ""}${meta.stale ? " · these data are older than expected" : ""}. They change from month to month, so every date here is an estimate. Won amounts use ₩${FX.toLocaleString("en-US", { maximumFractionDigits: 2 })} per dollar (${FX_NOTE}).</div>
     <div class="stats" id="stats"></div>
 
     <h2>Your income over time</h2>
-    <div class="h2sub">Monthly dividends after tax as the portfolio grows. Your savings and the reinvested dividends both make it grow. Point at the line to see the portfolio size.</div>
+    <div class="h2sub">Monthly dividends after tax as the portfolio grows, against your goal. The goal line rises when inflation is above 0%. Point at the line to see the portfolio size.</div>
     <div class="card chartcard" id="chartbox"></div>
 
     <h2>Milestones on the way</h2>
-    <div class="h2sub">For each level of monthly dividends: the portfolio you need, and when your plan reaches it.</div>
+    <div class="h2sub">For each level of monthly dividends in today's prices: when your plan reaches it, and the portfolio you need by then.</div>
     <div class="card" style="padding: 8px 6px;" id="msbox"></div>
 
     <h2>Where the money comes from</h2>
@@ -481,7 +504,7 @@ function renderSkeleton(yields, meta) {
     <div class="stats" id="scenbox"></div>
 
     <h2>Two checks that real life adds</h2>
-    <div class="h2sub">The main date above ignores inflation and extra Korean tax. These cards show what changes when you add them.</div>
+    <div class="h2sub">The inflation check shows what inflation costs you. The tax check shows where extra Korean tax starts, which the date does not include.</div>
     <div class="stats checks" id="checks"></div>
 
     <h2 id="target-h2"></h2>
@@ -514,9 +537,10 @@ function renderSkeleton(yields, meta) {
     el.addEventListener("focus", () => el.select());
   };
   slider("in-target", "target", "n-target"); numeric("n-target", "target", "in-target");
-  slider("in-biweekly", "biweekly", "n-biweekly"); numeric("n-biweekly", "biweekly", "in-biweekly");
+  slider("in-monthly", "monthly", "n-monthly"); numeric("n-monthly", "monthly", "in-monthly");
   slider("in-mix", "gpixPct"); slider("in-tax", "taxPct"); slider("in-infl", "inflation");
   numeric("n-startGpix", "startGpix"); numeric("n-startGpiq", "startGpiq");
+  document.getElementById("in-whole").addEventListener("change", e => { S.whole = e.target.checked; update(yields); });
   document.querySelectorAll("[data-scen]").forEach(b =>
     b.addEventListener("click", () => { S.scenario = b.dataset.scen; update(yields); }));
   document.getElementById("reset").addEventListener("click", () => { S = { ...DEFAULTS }; syncControls(); update(yields); });
@@ -527,9 +551,10 @@ function renderSkeleton(yields, meta) {
 function syncControls() {
   const set = (id, v) => { document.getElementById(id).value = v; };
   set("in-target", S.target); set("n-target", fieldText(S.target));
-  set("in-biweekly", S.biweekly); set("n-biweekly", fieldText(S.biweekly));
+  set("in-monthly", S.monthly); set("n-monthly", fieldText(S.monthly));
   set("in-mix", S.gpixPct); set("in-tax", S.taxPct); set("in-infl", S.inflation);
   set("n-startGpix", fieldText(S.startGpix)); set("n-startGpiq", fieldText(S.startGpiq));
+  document.getElementById("in-whole").checked = S.whole;
 }
 
 // ---- results ----
@@ -545,34 +570,43 @@ function shiftText(base, other) {   // how far "other" moves the date compared w
 
 function update(yields) {
   saveSettings();
-  const p = { biweekly: S.biweekly, gpixPct: S.gpixPct, taxPct: S.taxPct, startGpix: S.startGpix, startGpiq: S.startGpiq };
-  const drift = SCENARIOS[S.scenario];
-  const sim = simulate(yields, p, { target: S.target, drift });
+  const y = yields;
+  const p = { monthly: S.monthly, gpixPct: S.gpixPct, taxPct: S.taxPct, startGpix: S.startGpix, startGpiq: S.startGpiq, whole: S.whole };
+  const drift = SCENARIOS[S.scenario], infl = S.inflation;
+  const sim = simulate(y, p, { target: S.target, drift, inflation: infl });
   const startTotal = S.startGpix + S.startGpiq;
-  const needPot = S.target * 12 / sim.mixNet;
+  const hold = initialHoldings(y, p);
+  const needPot = S.target * 12 / sim.mixNet;                 // in today's prices
   const progressPct = needPot > 0 ? startTotal / needPot * 100 : 0;
   const when = sim.crossAt;
   const goalRow = when != null ? sim.months[when] : null;
+  const goalThen = goalRow ? goalRow.target : null;            // the goal in the prices of that month
+  const needThen = goalThen != null ? goalThen * 12 / sim.mixNet : null;
   const $ = id => document.getElementById(id);
 
   // hero
   const heroWhen = when === 0 ? "Today" : when != null ? "≈ " + monthLabel(when) : "Not within 40 years";
-  const heroAway = when != null ? awayLabel(when) : "add more each paycheck or lower the goal";
+  const heroAway = when != null ? awayLabel(when) + " · needs a portfolio of about " + fmt$k(needThen) + " by then" : "add more each month or lower the goal";
+  const inflText = goalThen != null && infl > 0 && when > 0
+    ? ` Your goal of ${fmt$(S.target)} is in today's prices. With ${infl}% inflation it is <b>${fmt$(goalThen)} a month</b> by then (${won(goalThen)}).`
+    : ` That is about ${won(S.target)} a month.`;
   $("hero").innerHTML = `
     <div>
       <div class="whenlab">Your dividends reach your goal around</div>
       <div class="when">${heroWhen}</div>
-      <div class="away">${heroAway} · needs a portfolio of ${fmt$k(needPot)}</div>
-      <div class="summary">You add ${fmt$(S.biweekly)} every two weeks (${S.gpixPct}% GPIX / ${100 - S.gpixPct}% GPIQ) and reinvest every dividend after ${S.taxPct}% tax.
-      Then your dividends pay <b>${fmt$(S.target)} a month after tax</b> (about ${won(S.target)}) in the <b>${SCENARIO_LABEL[S.scenario].toLowerCase()}</b> case for share prices.
+      <div class="away">${heroAway}</div>
+      <div class="summary">You add ${fmt$(S.monthly)} every month (${S.gpixPct}% GPIX / ${100 - S.gpixPct}% GPIQ${S.whole ? ", whole shares only" : ""}) and reinvest every dividend after ${S.taxPct}% tax.
+      Then your dividends pay your goal of <b>${fmt$(S.target)} a month after tax</b> in the <b>${SCENARIO_LABEL[S.scenario].toLowerCase()}</b> case for share prices.${inflText}
       At that point your dividends alone could replace that amount of income. Your job pay is not part of this math.</div>
     </div>
     <div class="vgauge">${gauge(progressPct)}</div>`;
 
   // control labels
-  $("v-monthly").textContent = `= ${fmt$(S.biweekly * 26 / 12)} a month in total (26 paychecks a year). It comes from your pay. The rest of your pay is not used in this math.`;
   $("v-mix").textContent = S.gpixPct + "% GPIX / " + (100 - S.gpixPct) + "% GPIQ";
   $("v-start").textContent = fmt$(startTotal) + " in total";
+  $("holdnote").textContent = (S.whole
+    ? `What you hold in each fund today. At today's prices this is ${hold.sg} GPIX ${hold.sg === 1 ? "share" : "shares"} (${usd2(y.pxGpix)} each) and ${hold.sq} GPIQ ${hold.sq === 1 ? "share" : "shares"} (${usd2(y.pxGpiq)} each), plus ${fmt$(hold.cg + hold.cq)} in cash. `
+    : `What you hold in each fund today. With fractions this is ${hold.sg.toFixed(2)} GPIX shares and ${hold.sq.toFixed(2)} GPIQ shares. `) + "Your $3,100 of GPIX is the starting value. Type your own numbers.";
   $("v-tax").textContent = S.taxPct + "%";
   $("v-scen").textContent = SCENARIO_LABEL[S.scenario];
   $("v-infl").textContent = S.inflation + "%";
@@ -580,36 +614,39 @@ function update(yields) {
   $("savedhint").textContent = storageOk ? "Your numbers are saved in this browser. Another device or browser keeps its own numbers." : "This browser blocks saving, so your numbers will reset when you reload.";
 
   // key numbers
-  const todayNet = (S.startGpix * yields.gpix + S.startGpiq * yields.gpiq) / 100 / 12 * (1 - S.taxPct / 100);
+  const todayNet = (hold.sg * y.pxGpix * y.gpix + hold.sq * y.pxGpiq * y.gpiq) / 100 / 12 * (1 - S.taxPct / 100);
   $("stats").innerHTML = `
     <div class="stat"><div class="name">Dividend rate before tax</div><div class="val">${(sim.mixGross * 100).toFixed(2)}%</div>
-      <div class="note">GPIX ${yields.gpix.toFixed(2)}% × ${S.gpixPct}% + GPIQ ${yields.gpiq.toFixed(2)}% × ${100 - S.gpixPct}%</div></div>
+      <div class="note">GPIX ${y.gpix.toFixed(2)}% × ${S.gpixPct}% + GPIQ ${y.gpiq.toFixed(2)}% × ${100 - S.gpixPct}%</div></div>
     <div class="stat"><div class="name">Dividend rate after tax</div><div class="val">${(sim.mixNet * 100).toFixed(2)}%</div>
       <div class="note">This rate pays you, and it also makes the portfolio grow</div></div>
     <div class="stat"><div class="name">Portfolio needed for ${fmt$(S.target)} a month</div><div class="val">${fmt$k(needPot)}</div>
-      <div class="note">${fmt$(S.target * 12)} a year ÷ ${(sim.mixNet * 100).toFixed(2)}% (about ${won(needPot)})</div></div>
-    <div class="stat"><div class="name">You add</div><div class="val">${fmt$(sim.contrib)} a month</div>
-      <div class="note">${fmt$(S.biweekly * 26)} a year, before reinvested dividends</div></div>
+      <div class="note">${fmt$(S.target * 12)} a year ÷ ${(sim.mixNet * 100).toFixed(2)}% (about ${won(needPot)}) at today's prices${needThen != null && infl > 0 && when > 0 ? `. At your goal date it is ${fmt$k(needThen)}.` : ""}</div></div>
+    <div class="stat"><div class="name">You add</div><div class="val">${fmt$(S.monthly)} a month</div>
+      <div class="note">${fmt$(S.monthly * 12)} a year, before reinvested dividends</div></div>
     <div class="stat"><div class="name">Your holdings pay today</div><div class="val">${fmt$(todayNet)} a month</div>
       <div class="note">after tax, on ${fmt$(startTotal)} invested</div></div>
     <div class="stat"><div class="name">Each extra $1,000 pays</div><div class="val">${"$" + (1000 * sim.mixNet / 12).toFixed(2)} a month</div>
       <div class="note">after tax, at your mix and today's dividend rates</div></div>`;
 
-  $("chartbox").innerHTML = renderChart(sim, S.target);
+  $("chartbox").innerHTML = renderChart(sim, S.target, infl);
   attachChartHover(sim);
 
-  // milestones
+  // milestones (levels are in today's prices; the goal for each level grows with inflation)
   const milestones = [...new Set([250, 500, 1000, 1500, 2000, 3000, 5000, S.target])].sort((a, b) => a - b);
-  const msRows = milestones.map(level => ({ level, months: monthsTo(yields, p, level, drift), pot: level * 12 / sim.mixNet }));
+  const msRows = milestones.map(level => {
+    const months = monthsTo(y, p, level, drift, infl);
+    return { level, months, potThen: months != null ? level * Math.pow(1 + infl / 100, months / 12) * 12 / sim.mixNet : null };
+  });
   const maxMs = Math.max(1, ...msRows.filter(r => r.months != null).map(r => r.months));
   $("msbox").innerHTML = `
     <table class="ms-table">
-      <tr><th>Dividends a month (after tax)</th><th>In won</th><th>Portfolio needed</th><th>When</th><th class="msbar"></th></tr>
+      <tr><th>Dividends a month (today's prices)</th><th>In won</th><th>When</th><th>Portfolio needed by then</th><th class="msbar"></th></tr>
       ${msRows.map(r => `<tr class="${r.level === S.target ? "target" : ""}">
         <td>${fmt$(r.level)}</td>
         <td>${won(r.level)}</td>
-        <td>${fmt$k(r.pot)}</td>
         <td>${r.months != null ? monthLabel(r.months) + " · " + awayLabel(r.months) : "not within 40 years"}</td>
+        <td>${r.potThen != null ? fmt$k(r.potThen) : "—"}</td>
         <td class="msbar">${r.months != null ? `<div class="bg"><i style="width:${(r.months / maxMs * 100).toFixed(0)}%"></i></div>` : ""}</td>
       </tr>`).join("")}
     </table>`;
@@ -628,24 +665,26 @@ function update(yields) {
         <div class="lg"><i class="s2"></i><div><b>${fmt$k(reinv)}</b> reinvested dividends (${pct(reinv).toFixed(0)}%)<small>Dividends after tax that you put back into the funds.</small></div></div>
         <div class="lg"><i class="s3"></i><div><b>${fmt$k(growth)}</b> share price growth (${pct(growth).toFixed(0)}%)<small>From the ${SCENARIO_LABEL[S.scenario].toLowerCase()} case. A flat price case makes this zero.</small></div></div>
       </div>
-      <p class="after">Until then the US takes <b>${fmt$k(goalRow.cumTax)}</b> in tax from your dividends (${S.taxPct}%). Each month at your goal date, the portfolio pays ${fmt$(goalRow.net)} after tax and ${fmt$(goalRow.gross)} before tax.</p>`;
+      <p class="after">Until then the US takes <b>${fmt$k(goalRow.cumTax)}</b> in tax from your dividends (${S.taxPct}%). In the goal month the portfolio pays ${fmt$(goalRow.net)} after tax and ${fmt$(goalRow.gross)} before tax.${S.whole ? ` Cash waiting to buy the next share: ${fmt$(goalRow.cash)}.` : ""}</p>`;
   } else {
     $("srcsub").textContent = "Your plan does not reach the goal within 40 years, so there is no goal date to show.";
-    $("srcbox").innerHTML = `<p class="after">Add more each paycheck or lower the goal. Then this card shows how your portfolio is built.</p>`;
+    $("srcbox").innerHTML = `<p class="after">Add more each month or lower the goal. Then this card shows how your portfolio is built.</p>`;
   }
 
   // what changes the date the most
   const base = when;
-  const test = (label, pp, yy, target) => ({ label, months: monthsTo(yy || yields, pp || p, target ?? S.target, drift) });
-  const lower = { gpix: Math.max(0, yields.gpix - 1), gpiq: Math.max(0, yields.gpiq - 1) };
+  const test = (label, pp, yy, target, inf) => ({ label, months: monthsTo(yy || y, pp || p, target ?? S.target, drift, inf ?? infl) });
+  const lower = { ...y, gpix: Math.max(0, y.gpix - 1), gpiq: Math.max(0, y.gpiq - 1) };
   const sens = [
-    test("Add $500 more each paycheck", { ...p, biweekly: p.biweekly + 500 }),
-    S.biweekly >= 500 ? test("Add $500 less each paycheck", { ...p, biweekly: p.biweekly - 500 }) : null,
-    test("Lower the goal by $250 a month", null, null, Math.max(1, S.target - 250)),
+    test("Add $250 more each month", { ...p, monthly: p.monthly + 250 }),
+    S.monthly >= 250 ? test("Add $250 less each month", { ...p, monthly: p.monthly - 250 }) : null,
+    S.target > 250 ? test("Lower the goal by $250 a month", null, null, S.target - 250) : null,
     test("Raise the goal by $250 a month", null, null, S.target + 250),
     test("Dividend rates fall by 1 percentage point", null, lower),
+    test("Inflation is 1 point higher", null, null, null, infl + 1),
     test("Move 20% of new money from GPIX to GPIQ", { ...p, gpixPct: Math.max(0, p.gpixPct - 20) }),
     test("Move 20% of new money from GPIQ to GPIX", { ...p, gpixPct: Math.min(100, p.gpixPct + 20) }),
+    S.whole ? test("Buy fractions of shares (if your broker allows)", { ...p, whole: false }) : test("Buy whole shares only", { ...p, whole: true }),
   ].filter(Boolean).map(r => ({ ...r, shift: shiftText(base, r.months) }));
   $("sensbox").innerHTML = `
     <table class="ms-table">
@@ -654,7 +693,7 @@ function update(yields) {
     </table>`;
 
   // share price cases
-  const scen = Object.keys(SCENARIOS).map(k => ({ k, months: monthsTo(yields, p, S.target, SCENARIOS[k]) }));
+  const scen = Object.keys(SCENARIOS).map(k => ({ k, months: monthsTo(y, p, S.target, SCENARIOS[k], infl) }));
   const known = scen.filter(s => s.months != null).map(s => s.months);
   const gap = known.length === 3 ? Math.max(...known) - Math.min(...known) : null;
   $("scensub").textContent = "The same plan with three paths for the share price. " + (gap == null ? "Here the share price decides whether you reach the goal at all."
@@ -666,23 +705,22 @@ function update(yields) {
       <div class="note">${s.months != null ? awayLabel(s.months) : "the goal is not reached"}</div>
     </div>`).join("");
 
-  // check 1: inflation
-  const inflMonths = S.inflation > 0 ? monthsTo(yields, p, S.target, drift, S.inflation) : when;
+  // check 1: what inflation costs (the main date already counts it)
+  const noInfl = infl > 0 ? monthsTo(y, p, S.target, drift, 0) : when;
   let inflCard;
-  if (S.inflation <= 0) {
-    inflCard = `<div class="name">Inflation check</div><div class="val">Inflation is 0%</div><div class="note">Set "Inflation per year" above to see how rising prices move your date.</div>`;
-  } else if (inflMonths == null) {
-    inflCard = `<div class="name">Inflation check · ${S.inflation}% a year</div><div class="val">after 40 years</div><div class="note">If prices rise ${S.inflation}% a year and your goal rises with them, your plan does not reach it within 40 years.</div>`;
+  if (infl <= 0) {
+    inflCard = `<div class="name">Inflation check</div><div class="val">Inflation is 0%</div><div class="note">The goal stays at ${fmt$(S.target)} a month in dollars. Set "Inflation per year" above 0 to see what rising prices cost you.</div>`;
+  } else if (when == null) {
+    inflCard = `<div class="name">Inflation check · ${infl}% a year</div><div class="val">after 40 years</div><div class="note">With ${infl}% inflation your plan does not reach the goal within 40 years.${noInfl != null ? ` Without inflation it would reach it on ${monthLabel(noInfl)}.` : ""}</div>`;
   } else {
-    const later = when != null ? inflMonths - when : null;
-    const future = S.target * Math.pow(1 + S.inflation / 100, inflMonths / 12);
-    inflCard = `<div class="name">Inflation check · ${S.inflation}% a year</div><div class="val">${monthLabel(inflMonths)}</div>
-      <div class="note">${later != null && later > 0 ? `${span(later)} later than the main date. ` : ""}To keep the buying power of ${fmt$(S.target)} a month today, you need about <b>${fmt$(future)}</b> a month by then (${won(future)}).</div>`;
+    const cost = noInfl != null ? when - noInfl : null;
+    inflCard = `<div class="name">Inflation check · ${infl}% a year</div><div class="val">${cost != null && cost > 0 ? span(cost) + " later" : "no delay"}</div>
+      <div class="note">With ${infl}% inflation your date is ${monthLabel(when)}. ${noInfl != null ? `If prices did not rise, it would be ${monthLabel(noInfl)}. ` : ""}By your goal date the buying power of ${fmt$(S.target)} today costs <b>${fmt$(goalThen)}</b> a month (${won(goalThen)}). Your savings stay at ${fmt$(S.monthly)} a month. A raise would help.</div>`;
   }
 
   // check 2: the Korea tax line
   const lineUsd = KRW_TAX_LINE / FX;
-  const full = simulate(yields, p, { target: Infinity, drift });
+  const full = simulate(y, p, { target: Infinity, drift, inflation: 0 });
   const hit = full.months.find(r => r.gross * 12 >= lineUsd);
   const grossAtGoal = goalRow ? goalRow.gross * 12 : needPot * sim.mixGross;
   let taxCard;
@@ -692,20 +730,20 @@ function update(yields) {
   } else {
     const before = when != null && hit && hit.m <= when;
     taxCard = `<div class="name">Korea tax line · ₩20M a year</div><div class="val warn">Above the line</div>
-      <div class="note">At your goal the funds pay about ${fmt$(grossAtGoal)} a year before tax (${won(grossAtGoal)}). That is over ₩20M (about ${fmt$(lineUsd)}). ${hit ? `You cross the line on ${monthLabel(hit.m)}, when the portfolio is ${fmt$k(hit.portfolio)}${before ? ", before your goal date" : ""}. ` : ""}If you pay tax in Korea, the part above the line is taxed at higher rates, so the real income after tax is <b>lower</b> than this page shows. The date is probably later.</div>`;
+      <div class="note">At your goal the funds pay about ${fmt$(grossAtGoal)} a year before tax (${won(grossAtGoal)}). That is over ₩20M (about ${fmt$(lineUsd)}). ${hit ? `You cross the line on ${monthLabel(hit.m)}, when the portfolio is ${fmt$k(hit.portfolio)}${before ? ", before your goal date" : ""}. ` : ""}Because you pay tax in Korea, the part above the line is taxed at higher rates. Your real income after tax is <b>lower</b> than this page shows, and the date is probably later.</div>`;
   }
   $("checks").innerHTML = `<div class="stat wide">${inflCard}</div><div class="stat wide">${taxCard}</div>`;
 
   // closing text, written for the goal you chose
   $("target-h2").textContent = `Is ${fmt$(S.target)} a month enough to retire on?`;
-  const w = S.target * FX;
-  const t1 = monthsTo(yields, p, 1000, drift), t2 = monthsTo(yields, p, 2000, drift);
+  const wonGoal = S.target * FX;
+  const t1 = monthsTo(y, p, 1000, drift, infl), t2 = monthsTo(y, p, 2000, drift, infl);
   const budget = "about ₩1.5M to ₩2.5M a month, depending on the city and the rent";
-  const p1 = w < 1.5e6
+  const p1 = wonGoal < 1.5e6
     ? `<b>${fmt$(S.target)} a month (about ${won(S.target)}) is a first step, not a full retirement.</b> It is below a lean budget for one person in Korea (${budget}). It can still cover a pay cut, a break from work, or one large cost such as housing or food.`
-    : w <= 2.5e6
+    : wonGoal <= 2.5e6
     ? `<b>${fmt$(S.target)} a month (about ${won(S.target)}) is inside a lean budget for one person in Korea</b> (${budget}). It can work outside Seoul when the rent is low. In Seoul, rent can use most of it.`
-    : `<b>${fmt$(S.target)} a month (about ${won(S.target)}) is above a lean budget for one person in Korea</b> (${budget}). It can pay for a comfortable life for one person. The portfolio you need is large, though: ${fmt$k(needPot)}. See the Korea tax line card above.`;
+    : `<b>${fmt$(S.target)} a month (about ${won(S.target)}) is above a lean budget for one person in Korea</b> (${budget}). It can pay for a comfortable life for one person. The portfolio you need is large, though: ${fmt$k(needPot)} at today's prices. See the Korea tax line card above.`;
   let p2 = "";
   if (t1 != null && t2 != null) {
     const second = t2 - t1;
@@ -716,7 +754,7 @@ function update(yields) {
 
   $("honesty").innerHTML = `<b>Tax: what this page does not fully model.</b> The ${S.taxPct}% here is the US tax on dividends for people in Korea (US–Korea treaty). The funds take it before the money reaches you.
     Korea can add tax. If your interest and dividends together are above ₩20M a year (about ${fmt$(lineUsd)}), the part above ₩20M is added to your other income and taxed at higher rates, with a credit for the US tax. Below ₩20M, the US tax is usually the whole story.
-    The page also does not model: changes in the won-dollar rate (your dividends are in dollars and your costs may be in won), dividends that rise and fall with the option market (the 12-month rate looks backward), and falling share prices in a long bear market, which cut the dollar dividend even when the rate stays the same.
+    The page also does not model: changes in the won-dollar rate (your dividends are in dollars and your costs may be in won), dividends that rise and fall with the option market (the 12-month rate looks backward), raises in your pay, and falling share prices in a long bear market, which cut the dollar dividend even when the rate stays the same.
     Ask a tax adviser about your own case. Treat the date as a guide, not a promise.`;
 }
 
@@ -744,8 +782,12 @@ Promise.all([
     gpix: gpix && gpix.income && gpix.income.ttm_yield_pct,
     gpiq: gpiq && gpiq.income && gpiq.income.ttm_yield_pct,
   };
-  const yields = { gpix: live.gpix || FALLBACK_YIELD.gpix, gpiq: live.gpiq || FALLBACK_YIELD.gpiq };
-  const fallback = Object.keys(live).filter(k => !live[k]).map(k => k.toUpperCase());
+  const px = { gpix: gpix && gpix.fund && gpix.fund.price, gpiq: gpiq && gpiq.fund && gpiq.fund.price };
+  const yields = {
+    gpix: live.gpix || FALLBACK_YIELD.gpix, gpiq: live.gpiq || FALLBACK_YIELD.gpiq,
+    pxGpix: px.gpix > 0 ? px.gpix : FALLBACK_PRICE.gpix, pxGpiq: px.gpiq > 0 ? px.gpiq : FALLBACK_PRICE.gpiq,
+  };
+  const fallback = ["gpix", "gpiq"].filter(k => !live[k] || !(px[k] > 0)).map(k => k.toUpperCase());
   const fx = (gpix && gpix.fx && gpix.fx.usd_krw) || (gpiq && gpiq.fx && gpiq.fx.usd_krw);
   if (fx > 0) { FX = fx; FX_NOTE = "latest market rate"; }
   const asof = gpix && gpix.generated_at
@@ -753,7 +795,8 @@ Promise.all([
     : "using backup estimates";
   render(yields, { asof, fallback, stale: !!(gpix && gpix.generated_at && weekdayHoursSince(gpix.generated_at) > 30) });
 }).catch(() => {
-  render({ gpix: FALLBACK_YIELD.gpix, gpiq: FALLBACK_YIELD.gpiq }, { asof: "using backup estimates", fallback: ["GPIX", "GPIQ"] });
+  render({ gpix: FALLBACK_YIELD.gpix, gpiq: FALLBACK_YIELD.gpiq, pxGpix: FALLBACK_PRICE.gpix, pxGpiq: FALLBACK_PRICE.gpiq },
+    { asof: "using backup estimates", fallback: ["GPIX", "GPIQ"] });
 });
 </script>
 </body>
