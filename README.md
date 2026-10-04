@@ -25,12 +25,19 @@ itself which price bars are finished, so the numbers are right whenever it runs.
 and an estimated next ex-date projected from the payout cadence) which feeds the
 "What it actually pays" bar chart on the GPIX/GPIQ pages.
 
-A fifth page (`retire.html`) answers "when can I retire?" for a fixed savings plan
-($2,500 biweekly into 80% GPIX / 20% GPIQ by default, all adjustable). It reads the
-funds' live TTM yields from `data.json`/`data-gpiq.json`, simulates monthly
-contributions with after-tax (15% US withholding) reinvestment under three NAV-drift
-scenarios, and charts when the net payout crosses the target monthly income. Pure
-client-side - no new data files or workflow steps.
+A fifth page (`retire.html`) answers "when can I retire?" for a savings plan ($2,500 biweekly
+into 80% GPIX / 20% GPIQ by default). "Retire" means the month when the monthly dividends alone,
+after 15% US tax, pay the monthly goal you type in. Your job pay is not part of the math. The page
+reads the funds' live 12-month yields and the USD/KRW rate from `data.json` / `data-gpiq.json`.
+You type the goal, the savings per paycheck and what you already hold in each fund (number boxes,
+with sliders for the goal and the savings); every number is saved in your browser's local storage,
+and a Reset button restores the starting plan. The month-by-month simulation (the pure `model`
+block in the page script) tracks GPIX and GPIQ holdings separately, splits new money by the Mix,
+and reports: the goal date, a milestone table (in dollars and won), where the money comes from
+(own savings, reinvested dividends, share price growth, tax paid), what changes the date most
+(one change at a time), the three share-price cases, an inflation check (the goal grows each year)
+and a Korea tax line check (gross dividends against the 20M won a year line, using the live rate).
+Pure client-side - no new data files or workflow steps.
 
 The GPIX page (`index.html`) also carries a Korean after-tax dividend calculator
 ("GPIX 배당 세후 계산기") under the verdict. Enter a USD amount, or tap the $10 / $100 / $300 /
