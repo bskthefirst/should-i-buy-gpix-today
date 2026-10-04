@@ -198,6 +198,170 @@
   .err { margin-top: 30px; color: var(--bad); }
   #pxchart { touch-action: pan-y; display: block; }
 
+  /* Dividend calculator (GPIX 배당 세후 계산기) */
+  #calc { --ease: cubic-bezier(.22, 1, .36, 1); --spring: cubic-bezier(.34, 1.35, .64, 1); }
+  .calc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 16px; align-items: start; }
+  .cpanel {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px;
+    box-shadow: 0 1px 2px rgba(28,42,34,.04), 0 10px 30px rgba(28,42,34,.07);
+  }
+  .reveal { opacity: 0; transform: translateY(18px) scale(.985); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .1s; }
+  .reveal.d2 { transition-delay: .2s; }
+
+  .flabel { display: block; font-size: 13px; font-weight: 600; color: var(--muted); }
+  .amtbox {
+    display: flex; align-items: baseline; gap: 6px; margin-top: 7px; padding: 10px 16px;
+    background: var(--surface2); border: 1.5px solid transparent; border-radius: 13px;
+    transition: border-color .25s ease, background .25s ease, box-shadow .3s ease;
+  }
+  .amtbox:focus-within { background: #fff; border-color: var(--brg); box-shadow: 0 0 0 4px rgba(0,66,37,.10); }
+  .amtbox .won { font-size: 22px; font-weight: 600; color: var(--faint); }
+  .amtbox input {
+    flex: 1; min-width: 0; width: 100%; border: 0; outline: 0; background: transparent;
+    font: inherit; font-size: 30px; font-weight: 700; letter-spacing: -.02em; text-align: right;
+    color: var(--text); font-variant-numeric: tabular-nums;
+  }
+  .amtsub { margin-top: 6px; text-align: right; font-size: 12.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .presetlabel { margin-top: 16px; }
+
+  /* preset buttons: a green pill slides under whichever amount is selected */
+  .chips { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 7px; padding: 4px; background: var(--surface2); border-radius: 13px; }
+  .chips .pill {
+    position: absolute; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 10px; background: var(--brg);
+    box-shadow: 0 6px 14px rgba(0,66,37,.30); opacity: 0; pointer-events: none;
+    transition: transform .55s var(--spring), width .55s var(--spring), opacity .3s ease;
+  }
+  .chips .pill.snap { transition: opacity .3s ease; }
+  .chips button {
+    position: relative; z-index: 1; border: 0; background: transparent; padding: 11px 0; border-radius: 10px;
+    font: inherit; font-size: 15px; font-weight: 700; color: var(--muted); cursor: pointer;
+    transition: color .3s var(--ease), transform .2s var(--ease); -webkit-tap-highlight-color: transparent;
+  }
+  .chips button:hover { color: var(--brg); }
+  .chips button:active { transform: scale(.94); }
+  .chips button[aria-pressed="true"] { color: #fff; }
+  .chips button:focus-visible { outline: 2px solid var(--brg); outline-offset: 1px; }
+
+  .fgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 12px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border); }
+  .fhead { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0 6px; }
+  .fhead label { font-size: 13px; font-weight: 600; color: var(--muted); }
+  .fh { font-size: 11px; color: var(--faint); white-space: nowrap; }
+  .fh .live { color: var(--brg); font-weight: 600; }
+  .fh .live i { display: inline-block; width: 6px; height: 6px; margin-right: 5px; border-radius: 50%; background: var(--brg); vertical-align: 1px; }
+  .fh button {
+    border: 0; background: rgba(0,66,37,.08); color: var(--brg); font: inherit; font-size: 11px; font-weight: 600;
+    padding: 1px 8px; border-radius: 99px; cursor: pointer; transition: background .2s ease, transform .2s var(--ease);
+  }
+  .fh button:hover { background: rgba(0,66,37,.16); }
+  .fh button:active { transform: scale(.94); }
+  .fbox {
+    display: flex; align-items: center; margin-top: 6px; background: #fff;
+    border: 1.5px solid var(--border); border-radius: 10px;
+    transition: border-color .25s ease, box-shadow .3s ease;
+  }
+  .fbox:focus-within { border-color: var(--brg); box-shadow: 0 0 0 4px rgba(0,66,37,.10); }
+  .fbox input {
+    width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; padding: 9px 4px;
+    text-align: right; font: inherit; font-size: 15px; color: var(--text); font-variant-numeric: tabular-nums;
+  }
+  .fbox .pre, .fbox .suf { font-size: 13px; color: var(--faint); user-select: none; }
+  .fbox .pre { padding-left: 11px; } .fbox .suf { padding-right: 11px; }
+
+  .switch { position: relative; display: flex; align-items: center; gap: 11px; margin-top: 20px; cursor: pointer; }
+  .switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .switch .track { position: relative; flex: none; width: 42px; height: 26px; border-radius: 99px; background: #cdd4c6; transition: background .3s var(--ease); }
+  .switch .knob { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: transform .4s var(--spring); }
+  .switch:active .knob { width: 24px; }
+  .switch input:checked + .track { background: var(--brg); }
+  .switch input:checked + .track .knob { transform: translateX(16px); }
+  .switch input:checked:active + .track .knob { transform: translateX(12px); }
+  .switch input:focus-visible + .track { outline: 2px solid var(--brg); outline-offset: 2px; }
+  .switch .swl { font-size: 13.5px; color: var(--muted); }
+
+  .rhead { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+  .rhead .k { font-size: 13px; font-weight: 600; color: var(--muted); }
+  .rhead .v { font-size: 28px; font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .rhead .v small { margin-left: 4px; font-size: 13px; font-weight: 500; color: var(--faint); }
+  .leftover { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .5s var(--ease), opacity .35s ease; }
+  .leftover.open { grid-template-rows: 1fr; opacity: 1; }
+  .leftover > div { min-height: 0; overflow: hidden; }
+  .leftover .lo { display: flex; justify-content: space-between; padding-top: 9px; font-size: 12.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+
+  .split { margin-top: 18px; }
+  .splitbar { display: flex; gap: 2px; height: 12px; border-radius: 99px; overflow: hidden; background: #e7eae0; }
+  .splitbar i { display: block; width: 0; height: 100%; transition: width 1s var(--ease); }
+  .splitbar .net { background: linear-gradient(90deg, #2f6d4c, #004225); border-radius: 99px 0 0 99px; }
+  .splitbar .tax { background: linear-gradient(90deg, #d97706, #b45309); border-radius: 0 99px 99px 0; }
+  .legend { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--faint); }
+  .legend b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .legend .sw { display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; }
+
+  .receipt { width: 100%; margin-top: 18px; border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; }
+  .receipt th { padding: 0 0 8px; font-size: 11.5px; font-weight: 600; letter-spacing: .04em; color: var(--faint); text-align: right; }
+  .receipt th:first-child, .receipt td:first-child { text-align: left; padding-left: 10px; }
+  .receipt th:last-child, .receipt td:last-child { padding-right: 10px; }
+  .receipt th span { font-weight: 500; letter-spacing: 0; }
+  .receipt td { padding: 9px 0; border-top: 1px solid var(--border); text-align: right; vertical-align: baseline; }
+  .receipt td:first-child { font-size: 13px; color: var(--muted); }
+  .receipt .krw { display: block; font-size: 15px; font-weight: 600; color: var(--text); }
+  .receipt .usd { display: block; margin-top: 1px; font-size: 11px; color: var(--faint); }
+  .receipt tr.tax .krw { color: var(--rich); font-weight: 500; }
+  .receipt tr.net td { padding-top: 11px; padding-bottom: 11px; border-top: 1.5px solid var(--text); background: rgba(0,66,37,.05); }
+  .receipt tr.net td:first-child { font-weight: 700; color: var(--text); border-radius: 0 0 0 10px; }
+  .receipt tr.net td:last-child { border-radius: 0 0 10px 0; }
+  .receipt tr.net .krw { font-size: 19px; font-weight: 800; color: var(--brg); }
+  .receipt tr.net.flash td { animation: netflash 1s var(--ease); }
+  @keyframes netflash { from { background: rgba(0,66,37,.22); } to { background: rgba(0,66,37,.05); } }
+
+  .yields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+  .ypill { padding: 11px 14px; border-radius: 12px; background: var(--surface2); }
+  .ypill.hl { background: rgba(0,66,37,.08); }
+  .ypill .k { font-size: 11.5px; color: var(--faint); }
+  .ypill .v { font-size: 21px; font-weight: 700; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+  .ypill.hl .v { color: var(--brg); }
+
+  .taxpanel { margin-top: 16px; padding: 0; overflow: hidden; }
+  .taxbtn {
+    display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 15px 20px;
+    border: 0; background: transparent; font: inherit; font-size: 14px; font-weight: 600; color: var(--text);
+    cursor: pointer; text-align: left; transition: background .2s ease;
+  }
+  .taxbtn:hover { background: var(--surface2); }
+  .taxbtn:focus-visible { outline: 2px solid var(--brg); outline-offset: -2px; }
+  .taxbtn .chev { flex: none; color: var(--faint); transition: transform .5s var(--ease); }
+  .taxbtn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+  .taxbody { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .55s var(--ease); }
+  .taxbody.open { grid-template-rows: 1fr; }
+  .taxbody > div { min-height: 0; overflow: hidden; }
+  .taxlist { padding: 2px 20px 18px; font-size: 13px; line-height: 1.65; color: var(--muted); }
+  .taxlist li { list-style: none; padding-top: 9px; opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s var(--ease); }
+  .taxbody.open .taxlist li { opacity: 1; transform: none; }
+  .taxbody.open .taxlist li:nth-child(2) { transition-delay: .05s; }
+  .taxbody.open .taxlist li:nth-child(3) { transition-delay: .1s; }
+  .taxbody.open .taxlist li:nth-child(4) { transition-delay: .15s; }
+  .taxbody.open .taxlist li:nth-child(5) { transition-delay: .2s; }
+  .taxlist b { font-weight: 600; color: var(--text); }
+  .taxlist .num { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text); }
+  .calcfoot { margin-top: 12px; font-size: 12.5px; line-height: 1.6; color: var(--faint); max-width: 72ch; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  @media (max-width: 620px) {
+    .calc { grid-template-columns: 1fr; }
+    .cpanel { padding: 16px; }
+    .amtbox input { font-size: 26px; }
+    .rhead .v { font-size: 24px; }
+    .receipt .krw { font-size: 14px; }
+    .receipt tr.net .krw { font-size: 17px; }
+    .taxbtn { padding: 14px 16px; }
+    .taxlist { padding: 2px 16px 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #calc *, #calc *::before { transition-duration: .01ms !important; transition-delay: 0s !important; animation-duration: .01ms !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+
   @media (max-width: 620px) {
     .wrap { padding: 22px 14px 60px; }
     header { flex-direction: column; gap: 10px; }
@@ -465,6 +629,249 @@ function renderChart(series, sma50, sma200) {
   svg.addEventListener("pointercancel", hide);
 }
 
+// After-tax dividend calculator for Korean investors (GPIX 배당 세후 계산기).
+// Price and last payout are filled in from data.json; every figure tweens to its
+// new value, so a change reads as motion instead of a jump.
+function initCalculator(root, live) {
+  const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const PRESETS = [100000, 500000, 1000000];
+  const LIVE = {price: live.price > 0 ? live.price : null, dist: live.dist > 0 ? live.dist : null};
+  const st = {invest: 300000, price: String(LIVE.price ?? 56.04), dist: String(LIVE.dist ?? 0.39738), fx: "1480", rate: "15", whole: false};
+  const num = v => { const x = parseFloat(v); return isNaN(x) ? 0 : x; };
+  const krw = v => "₩" + Math.round(v).toLocaleString("en-US");
+  const usd = v => "$" + fmt2(v);
+
+  const field = (id, label, pre, suf, hint) => `
+    <div class="field">
+      <div class="fhead"><label for="c-${id}">${label}</label><span class="fh" id="h-${id}">${hint}</span></div>
+      <div class="fbox">${pre ? `<span class="pre">${pre}</span>` : ""}<input id="c-${id}" type="text" inputmode="decimal" autocomplete="off" spellcheck="false">${suf ? `<span class="suf">${suf}</span>` : ""}</div>
+    </div>`;
+  const row = (cls, label, p) => `
+    <tr class="${cls}"><td>${label}</td>
+      <td><span class="krw" data-t="m${p}K"></span><span class="usd" data-t="m${p}U"></span></td>
+      <td><span class="krw" data-t="a${p}K"></span><span class="usd" data-t="a${p}U"></span></td></tr>`;
+
+  const hist = (live.history || []).slice(-12).map(h => h.amount);
+  const range = hist.length ? `최근 ${hist.length}회 $${Math.min(...hist).toFixed(2)}~$${Math.max(...hist).toFixed(2)} 범위` : "최근 1년 $0.32~$0.40 범위";
+
+  root.innerHTML = `
+    <div class="calc">
+      <section class="cpanel reveal" aria-label="입력">
+        <label class="flabel" for="c-invest">투자 금액</label>
+        <div class="amtbox"><span class="won">₩</span><input id="c-invest" type="text" inputmode="numeric" autocomplete="off" spellcheck="false"></div>
+        <div class="amtsub">≈ <span data-t="usdIn"></span></div>
+        <div class="flabel presetlabel" id="c-presetlabel">빠른 선택</div>
+        <div class="chips" role="group" aria-labelledby="c-presetlabel">
+          <span class="pill" aria-hidden="true"></span>
+          ${PRESETS.map(n => `<button type="button" data-amt="${n}" aria-pressed="false">${n / 10000}만원</button>`).join("")}
+        </div>
+        <div class="fgrid">
+          ${field("price", "GPIX 주가", "$", "", "USD")}
+          ${field("dist", "월 분배금 / 주", "$", "", "최근 지급액")}
+          ${field("fx", "환율", "", "원", "USD → KRW")}
+          ${field("rate", "원천징수율", "", "%", "미국 15%")}
+        </div>
+        <label class="switch"><input type="checkbox" id="c-whole"><span class="track"><span class="knob"></span></span><span class="swl">소수점 매수 없이 온주만 매수</span></label>
+      </section>
+
+      <section class="cpanel reveal d1" aria-label="결과">
+        <div class="rhead"><span class="k">보유 수량</span><span class="v"><span data-t="shares"></span><small>주</small></span></div>
+        <div class="leftover" id="c-left"><div><div class="lo"><span>미투자 잔액</span><span data-t="left"></span></div></div></div>
+        <div class="split">
+          <div class="splitbar" role="img" aria-label="세전 배당에서 실수령과 원천징수가 차지하는 비율"><i class="net"></i><i class="tax"></i></div>
+          <div class="legend">
+            <span><i class="sw" style="background:var(--brg)"></i>실수령 <b id="c-lnet"></b></span>
+            <span><i class="sw" style="background:var(--rich)"></i>원천징수 <b id="c-ltax"></b></span>
+          </div>
+        </div>
+        <table class="receipt">
+          <thead><tr><th></th><th>월 배당</th><th>연 배당 <span>(월 × 12)</span></th></tr></thead>
+          <tbody>
+            ${row("", "세전", "Gross")}
+            ${row("tax", `<span id="c-taxlabel"></span>`, "Tax")}
+            ${row("net", "실수령", "Net")}
+          </tbody>
+        </table>
+        <div class="yields">
+          <div class="ypill"><div class="k">세전 수익률</div><div class="v" data-t="yGross"></div></div>
+          <div class="ypill hl"><div class="k">세후 수익률</div><div class="v" data-t="yNet"></div></div>
+        </div>
+        <div class="sr" id="c-sr" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <section class="cpanel taxpanel reveal d2">
+      <button type="button" class="taxbtn" aria-expanded="false" aria-controls="c-tax"><span>세금 정리</span>
+        <svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6"/></svg></button>
+      <div class="taxbody" id="c-tax"><div><ul class="taxlist">
+        <li><b>15%가 맞습니다.</b> 한미 조세조약상 미국 배당 원천징수는 15%. 한국 배당소득세율(지방세 제외)이 14%라 국내에서 추가 원천징수가 없습니다.</li>
+        <li><b>15.4%는 다른 경우입니다.</b> 국내 상장 ETF(TIGER·KODEX 미국 커버드콜 등)나 국내주식 배당에 붙는 세율(소득세 14% + 지방소득세 1.4%). GPIX 직접 매수에는 해당 없음.</li>
+        <li><b>금융소득종합과세.</b> 이자+배당 합산 연 2,000만 원 초과 시 종합과세 대상. 현재 입력값 기준 약 <span class="num" data-t="breakeven"></span> 투자 시 도달합니다.</li>
+        <li><b>ROC(원금반환) 변수.</b> 커버드콜 ETF 분배금 일부가 원금반환으로 분류되면 그 부분은 미국 원천징수 대상이 아닙니다. 증권사가 연말 정산 후 환급하는 경우가 있어 실수령이 위 계산보다 조금 높을 수 있습니다.</li>
+        <li><b>매매차익은 별도.</b> 해외주식 양도소득세 22%, 연 250만 원 기본공제 후 다음 해 5월 신고.</li>
+      </ul></div></div>
+    </section>
+    <p class="calcfoot">분배금은 매월 변동합니다 (${range}). ${LIVE.price || LIVE.dist ? "주가와 분배금은 이 페이지의 최신 데이터로 자동 입력되고, 환율은 직접 입력하세요." : "주가·환율·분배금은 직접 갱신해서 쓰세요."} 세무 자문이 아닙니다.</p>`;
+
+  const $ = sel => root.querySelector(sel);
+  const el = {invest: $("#c-invest"), price: $("#c-price"), dist: $("#c-dist"), fx: $("#c-fx"), rate: $("#c-rate"), whole: $("#c-whole")};
+  const chipsBox = $(".chips"), pill = $(".pill"), chips = [...chipsBox.querySelectorAll("button")];
+  const netRow = $("tr.net"), leftBox = $("#c-left"), taxBtn = $(".taxbtn"), taxBody = $(".taxbody");
+
+  // Value tween: easeOutQuart, and a new target restarts from the number
+  // currently on screen, so fast clicks and typing never snap or stutter.
+  const makeTween = (write, init) => {
+    let cur = init, raf = 0;
+    write(cur);
+    return {
+      to(target, dur = 750) {
+        cancelAnimationFrame(raf);
+        if (REDUCE || cur === target) { cur = target; write(cur); return; }
+        const from = cur, t0 = performance.now();
+        const step = now => {
+          const t = Math.min(1, (now - t0) / dur);
+          cur = t < 1 ? from + (target - from) * (1 - Math.pow(1 - t, 4)) : target;
+          write(cur);
+          if (t < 1) raf = requestAnimationFrame(step);
+        };
+        raf = requestAnimationFrame(step);
+      },
+      sync(v) { cancelAnimationFrame(raf); cur = v; },
+    };
+  };
+
+  // Each figure: [value from the result, text format].
+  const TW = {
+    usdIn: [r => r.usdIn, usd],
+    shares: [r => r.shares, v => v.toFixed(st.whole ? 0 : 4)],
+    left: [r => r.leftover, krw],
+    yGross: [r => r.grossYield, v => v.toFixed(2) + "%"],
+    yNet: [r => r.netYield, v => v.toFixed(2) + "%"],
+    breakeven: [r => r.breakeven, krw],
+  };
+  for (const [p, mult] of [["m", 1], ["a", 12]]) {
+    for (const [name, key, sign] of [["Gross", "mGross", ""], ["Tax", "mTax", "−"], ["Net", "mNet", ""]]) {
+      TW[p + name + "K"] = [r => r[key] * mult * r.fx, v => sign + krw(v)];
+      TW[p + name + "U"] = [r => r[key] * mult, v => sign + usd(v)];
+    }
+  }
+  const tweens = {};
+  for (const k in TW) { const e = $(`[data-t="${k}"]`); tweens[k] = makeTween(v => { e.textContent = TW[k][1](v); }, 0); }
+  const twInvest = makeTween(v => { el.invest.value = Math.round(v).toLocaleString("en-US"); }, st.invest);
+
+  // Same math as the original calculator.
+  const calc = () => {
+    const invest = st.invest, price = num(st.price), dist = num(st.dist), fx = num(st.fx) || 1, rate = num(st.rate);
+    const usdIn = invest / fx;
+    const raw = price > 0 ? usdIn / price : 0;
+    const shares = st.whole ? Math.floor(raw) : raw;
+    const deployed = shares * price;
+    const mGross = shares * dist, mTax = mGross * (rate / 100), mNet = mGross - mTax;
+    return {
+      usdIn, shares, fx, leftover: invest - deployed * fx, mGross, mTax, mNet,
+      grossYield: invest > 0 ? ((mGross * 12 * fx) / invest) * 100 : 0,
+      netYield: invest > 0 ? ((mNet * 12 * fx) / invest) * 100 : 0,
+      breakeven: dist > 0 && price > 0 ? (20000000 / (dist * 12 * fx)) * price * fx : 0,
+    };
+  };
+
+  const placePill = instant => {
+    const b = chips.find(c => +c.dataset.amt === st.invest);
+    if (!b) { pill.style.opacity = 0; return; }
+    const snap = instant || pill.style.opacity !== "1";   // first appearance: fade in place, don't slide from the left
+    if (snap) pill.classList.add("snap");
+    pill.style.width = b.offsetWidth + "px";
+    pill.style.transform = `translateX(${b.offsetLeft}px)`;
+    pill.style.opacity = 1;
+    if (snap) { void pill.offsetWidth; pill.classList.remove("snap"); }
+  };
+
+  const HINTS = [["price", "USD", v => "$" + fmt2(v), "자동 입력"], ["dist", "최근 지급액", v => "$" + v.toFixed(3), "최근 지급액"]];
+  const renderHints = () => {
+    for (const [k, plain, f, liveText] of HINTS) {
+      const h = $("#h-" + k);
+      const state = LIVE[k] == null ? "plain" : st[k] !== "" && Math.abs(num(st[k]) - LIVE[k]) < 1e-9 ? "live" : "edited";
+      if (h.dataset.s === state) continue;
+      h.dataset.s = state;
+      h.innerHTML = state === "plain" ? plain
+        : state === "live" ? `<span class="live"><i></i>${liveText}</span>`
+        : `<button type="button" data-reset="${k}" title="자동 입력값으로 되돌리기" aria-label="자동 입력값 ${f(LIVE[k])}으로 되돌리기">↺ ${f(LIVE[k])}</button>`;
+    }
+  };
+
+  let started = false, srTimer = 0;
+  const update = flash => {
+    const r = calc(), rate = num(st.rate);
+    $("#c-taxlabel").textContent = `원천징수 ${st.rate === "" ? "0" : st.rate}%`;
+    chips.forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.amt === st.invest)));
+    placePill();
+    renderHints();
+    leftBox.classList.toggle("open", st.whole && r.leftover > 0.5);
+    if (!started) return;
+    for (const k in TW) tweens[k].to(TW[k][0](r));
+    const net = Math.max(0, Math.min(100, 100 - rate));
+    $(".splitbar .net").style.width = net + "%";
+    $(".splitbar .tax").style.width = (100 - net) + "%";
+    $("#c-lnet").textContent = Number(net.toFixed(1)) + "%";
+    $("#c-ltax").textContent = Number((100 - net).toFixed(1)) + "%";
+    if (flash) { netRow.classList.remove("flash"); void netRow.offsetWidth; netRow.classList.add("flash"); }
+    clearTimeout(srTimer);
+    srTimer = setTimeout(() => {
+      $("#c-sr").textContent = `월 실수령 ${krw(r.mNet * r.fx)}, 연 실수령 ${krw(r.mNet * 12 * r.fx)}, 세후 수익률 ${r.netYield.toFixed(2)}%`;
+    }, 600);
+  };
+
+  // --- inputs ---
+  el.invest.value = st.invest.toLocaleString("en-US");
+  el.invest.addEventListener("input", () => {
+    const caret = el.invest.selectionStart ?? el.invest.value.length;
+    const before = el.invest.value.slice(0, caret).replace(/\D/g, "").length;
+    const digits = el.invest.value.replace(/\D/g, "").replace(/^0+/, "").slice(0, 12);
+    const n = digits ? Number(digits) : 0;
+    el.invest.value = digits ? n.toLocaleString("en-US") : "";
+    let pos = 0, seen = 0;                                    // keep the caret after the same digit
+    while (pos < el.invest.value.length && seen < before) { if (/\d/.test(el.invest.value[pos])) seen++; pos++; }
+    el.invest.setSelectionRange(pos, pos);
+    st.invest = n; twInvest.sync(n); update();
+  });
+  const cleanDec = s => { s = s.replace(/[^\d.]/g, ""); const i = s.indexOf("."); return i < 0 ? s : s.slice(0, i + 1) + s.slice(i + 1).replace(/\./g, ""); };
+  for (const k of ["price", "dist", "fx", "rate"]) {
+    el[k].value = st[k];
+    el[k].addEventListener("input", () => {
+      const c = cleanDec(el[k].value);
+      if (c !== el[k].value) el[k].value = c;
+      st[k] = c; update();
+    });
+  }
+  el.whole.addEventListener("change", () => { st.whole = el.whole.checked; update(true); });
+  chips.forEach(b => b.addEventListener("click", () => { st.invest = +b.dataset.amt; twInvest.to(st.invest); update(true); }));
+  root.addEventListener("click", e => {
+    const b = e.target.closest("[data-reset]");
+    if (!b) return;
+    const k = b.dataset.reset;
+    st[k] = String(LIVE[k]); el[k].value = st[k]; update(true);
+  });
+  taxBody.inert = true;
+  taxBtn.addEventListener("click", () => {
+    const open = taxBtn.getAttribute("aria-expanded") !== "true";
+    taxBtn.setAttribute("aria-expanded", String(open));
+    taxBody.classList.toggle("open", open);
+    taxBody.inert = !open;
+  });
+
+  // --- first paint: panels rise in and the numbers count up once the section is on screen ---
+  placePill(true);
+  if ("ResizeObserver" in window) new ResizeObserver(() => placePill(true)).observe(chipsBox);
+  const panels = [...root.querySelectorAll(".reveal")];
+  const start = () => { if (started) return; started = true; panels.forEach(p => p.classList.add("in")); update(); };
+  update();
+  if ("IntersectionObserver" in window && !REDUCE) {
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); start(); } }, {threshold: .1, rootMargin: "0px 0px -6% 0px"});
+    io.observe($(".calc"));
+    setTimeout(start, 3000);
+  } else start();
+}
+
 fetch("data.json").then(r => r.json()).then(d => {
   const g = d.fund, v = d.verdict, bt = d.backtest, rc = d.report_card;
   // Meter axis is the 0-100 buy score, floored at 50 (rules v4).
@@ -501,6 +908,10 @@ fetch("data.json").then(r => r.json()).then(d => {
     index's return has historically accrued overnight, not intraday (Lou–Polk–Skouras 2019; our
     validation: SPY ≈ +3.3bp per night, t=4.6, positive in every era). Buying near today's close
     instead of tomorrow's open captures it — a small free edge, worth basis points, not fortunes.</div>
+
+    <h2>GPIX 배당 세후 계산기</h2>
+    <div class="h2sub">토스증권 등 국내 증권사를 통한 미국 상장 ETF 직접 매수 기준. 미국 원천징수 15% 적용, 국내 추가 원천징수 없음.</div>
+    <div id="calc"></div>
 
     <h2>Why</h2>
     <div class="h2sub">Eleven checks each morning, and every one gets a definite read — green looks good, amber looks bad, gray neutral. Only the six validated rare conditions move the score, each weighted by the effect size our validation work measured (short-term reversal 2.0, discount and top-decile vol 1.5, the rest 1.0); nothing scores negative, because the audits showed this tool couldn't spot bad days, so it no longer claims to.</div>
@@ -583,6 +994,13 @@ fetch("data.json").then(r => r.json()).then(d => {
       <div class="caveat">Read honestly: nearby days share most of the same forward month, so these are overlapping windows — not ${rc.baseline.n} independent samples. And ${rc.backfilled_days} of ${rc.days_total} days are backfilled: today's rules replayed on historical data. The inputs contain no lookahead, but the rules themselves were designed recently, with the benefit of hindsight.${rc.fg_coverage_start ? " Fear & Greed history only reaches back to " + rc.fg_coverage_start + "; earlier days score that signal neutral." : ""}</div>
     </div>` : ""}
   `;
+  try {
+    initCalculator(document.getElementById("calc"), {
+      price: g.price,
+      dist: d.distributions ? d.distributions.last_amount : null,
+      history: d.distributions ? d.distributions.history : [],
+    });
+  } catch (e) { console.error("calculator failed to start", e); }
   renderChart(g.series, g.sma50, g.sma200);
   renderDistChart(d.distributions);
   let rT;

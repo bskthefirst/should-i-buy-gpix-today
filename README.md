@@ -32,6 +32,14 @@ contributions with after-tax (15% US withholding) reinvestment under three NAV-d
 scenarios, and charts when the net payout crosses the target monthly income. Pure
 client-side - no new data files or workflow steps.
 
+The GPIX page (`index.html`) also carries a Korean after-tax dividend calculator
+("GPIX 배당 세후 계산기") under the verdict. Enter a KRW amount, or tap the 10만원 / 50만원 /
+100만원 buttons, to see shares held, monthly and yearly dividends after 15% US withholding,
+and the pre- and after-tax yield. The share price and last payout fill in from `data.json`
+(each can be reset after editing); the USD/KRW rate is typed by hand. Pure client-side
+vanilla JS with no libraries; figures count up with `requestAnimationFrame`, and all motion
+is switched off under `prefers-reduced-motion`.
+
 ## How it decides
 
 A GitHub Action runs every weekday morning, pulls data from Yahoo Finance, FRED, CNN's
