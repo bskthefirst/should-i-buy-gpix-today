@@ -294,8 +294,8 @@ const monthsTo = (y, p, target, drift, inflation) => simulate(y, p, { target, dr
 // ==== model:end ====
 
 // ---- plan, defaults and saving ----
-// Defaults = the plan the owner described: $1,000 a month, and $3,100 of GPIX held today.
-const DEFAULTS = { target: 1000, monthly: 1000, gpixPct: 80, taxPct: 15, startGpix: 3100, startGpiq: 0, scenario: "base", inflation: 2.5, whole: true };
+// Defaults = the plan the owner described: a $250 monthly dividend goal, $1,000 added a month, and $3,100 of GPIX held today.
+const DEFAULTS = { target: 250, monthly: 1000, gpixPct: 80, taxPct: 15, startGpix: 3100, startGpiq: 0, scenario: "base", inflation: 2.5, whole: true };
 const LIMITS = { target: [1, 1e6], monthly: [0, 1e6], gpixPct: [0, 100], taxPct: [0, 60], startGpix: [0, 1e8], startGpiq: [0, 1e8], inflation: [0, 15] };
 const STORE_KEY = "retire-settings-v2";   // the old "biweekly" amount is not carried over: the unit changed to monthly
 let S = { ...DEFAULTS };
