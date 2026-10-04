@@ -217,7 +217,8 @@
     transition: border-color .25s ease, background .25s ease, box-shadow .3s ease;
   }
   .amtbox:focus-within { background: #fff; border-color: var(--brg); box-shadow: 0 0 0 4px rgba(0,66,37,.10); }
-  .amtbox .won { font-size: 22px; font-weight: 600; color: var(--faint); }
+  .amtbox .sym { font-size: 22px; font-weight: 600; color: var(--faint); }
+  .flabel .cur { margin-left: 6px; font-size: 11px; font-weight: 600; letter-spacing: .04em; color: var(--faint); }
   .amtbox input {
     flex: 1; min-width: 0; width: 100%; border: 0; outline: 0; background: transparent;
     font: inherit; font-size: 30px; font-weight: 700; letter-spacing: -.02em; text-align: right;
@@ -227,7 +228,7 @@
   .presetlabel { margin-top: 16px; }
 
   /* preset buttons: a green pill slides under whichever amount is selected */
-  .chips { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 7px; padding: 4px; background: var(--surface2); border-radius: 13px; }
+  .chips { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 7px; padding: 4px; background: var(--surface2); border-radius: 13px; }
   .chips .pill {
     position: absolute; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 10px; background: var(--brg);
     box-shadow: 0 6px 14px rgba(0,66,37,.30); opacity: 0; pointer-events: none;
@@ -284,10 +285,13 @@
   .rhead .k { font-size: 13px; font-weight: 600; color: var(--muted); }
   .rhead .v { font-size: 28px; font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
   .rhead .v small { margin-left: 4px; font-size: 13px; font-weight: 500; color: var(--faint); }
-  .leftover { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .5s var(--ease), opacity .35s ease; }
-  .leftover.open { grid-template-rows: 1fr; opacity: 1; }
-  .leftover > div { min-height: 0; overflow: hidden; }
-  .leftover .lo { display: flex; justify-content: space-between; padding-top: 9px; font-size: 12.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .fold { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .5s var(--ease), opacity .35s ease; }
+  .fold.open { grid-template-rows: 1fr; opacity: 1; }
+  .fold > div { min-height: 0; overflow: hidden; }
+  .fold .lo { display: flex; justify-content: space-between; padding-top: 9px; font-size: 12.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .fold .lo b { font-weight: 600; color: var(--muted); }
+  .fold .lo i { margin-left: 8px; font-style: normal; }
+  .fold .lo.warn { justify-content: flex-start; line-height: 1.5; color: var(--rich); }
 
   .split { margin-top: 18px; }
   .splitbar { display: flex; gap: 2px; height: 12px; border-radius: 99px; overflow: hidden; background: #e7eae0; }
@@ -305,13 +309,13 @@
   .receipt th span { font-weight: 500; letter-spacing: 0; }
   .receipt td { padding: 9px 0; border-top: 1px solid var(--border); text-align: right; vertical-align: baseline; }
   .receipt td:first-child { font-size: 13px; color: var(--muted); }
-  .receipt .krw { display: block; font-size: 15px; font-weight: 600; color: var(--text); }
-  .receipt .usd { display: block; margin-top: 1px; font-size: 11px; color: var(--faint); }
-  .receipt tr.tax .krw { color: var(--rich); font-weight: 500; }
+  .receipt .pri { display: block; font-size: 15px; font-weight: 600; color: var(--text); }
+  .receipt .sec { display: block; margin-top: 1px; font-size: 11px; color: var(--faint); }
+  .receipt tr.tax .pri { color: var(--rich); font-weight: 500; }
   .receipt tr.net td { padding-top: 11px; padding-bottom: 11px; border-top: 1.5px solid var(--text); background: rgba(0,66,37,.05); }
   .receipt tr.net td:first-child { font-weight: 700; color: var(--text); border-radius: 0 0 0 10px; }
   .receipt tr.net td:last-child { border-radius: 0 0 10px 0; }
-  .receipt tr.net .krw { font-size: 19px; font-weight: 800; color: var(--brg); }
+  .receipt tr.net .pri { font-size: 19px; font-weight: 800; color: var(--brg); }
   .receipt tr.net.flash td { animation: netflash 1s var(--ease); }
   @keyframes netflash { from { background: rgba(0,66,37,.22); } to { background: rgba(0,66,37,.05); } }
 
@@ -352,8 +356,8 @@
     .cpanel { padding: 16px; }
     .amtbox input { font-size: 26px; }
     .rhead .v { font-size: 24px; }
-    .receipt .krw { font-size: 14px; }
-    .receipt tr.net .krw { font-size: 17px; }
+    .receipt .pri { font-size: 14px; }
+    .receipt tr.net .pri { font-size: 17px; }
     .taxbtn { padding: 14px 16px; }
     .taxlist { padding: 2px 16px 16px; }
   }
@@ -629,17 +633,26 @@ function renderChart(series, sma50, sma200) {
   svg.addEventListener("pointercancel", hide);
 }
 
-// After-tax dividend calculator for Korean investors (GPIX 배당 세후 계산기).
-// Price and last payout are filled in from data.json; every figure tweens to its
-// new value, so a change reads as motion instead of a jump.
+// After-tax dividend calculator (GPIX 배당 세후 계산기). Amounts are in USD with the
+// won shown small beside them. Price, last payout and the USD/KRW rate fill in from
+// data.json; every figure tweens to its new value, so a change reads as motion.
 function initCalculator(root, live) {
   const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const PRESETS = [100000, 500000, 1000000];
-  const LIVE = {price: live.price > 0 ? live.price : null, dist: live.dist > 0 ? live.dist : null};
-  const st = {invest: 300000, price: String(LIVE.price ?? 56.04), dist: String(LIVE.dist ?? 0.39738), fx: "1480", rate: "15", whole: false};
+  const PRESETS = [10, 100, 300, 1000];
+  const LIVE = {
+    price: live.price > 0 ? live.price : null,
+    dist: live.dist > 0 ? live.dist : null,
+    fx: live.fx > 0 ? live.fx : null,
+  };
+  const st = {
+    invest: 300,   // USD
+    price: String(LIVE.price ?? 56.04), dist: String(LIVE.dist ?? 0.39738), fx: String(LIVE.fx ?? 1350),
+    rate: "15", whole: true,
+  };
   const num = v => { const x = parseFloat(v); return isNaN(x) ? 0 : x; };
   const krw = v => "₩" + Math.round(v).toLocaleString("en-US");
   const usd = v => "$" + fmt2(v);
+  const usd0 = v => "$" + Math.round(v).toLocaleString("en-US");
 
   const field = (id, label, pre, suf, hint) => `
     <div class="field">
@@ -648,22 +661,25 @@ function initCalculator(root, live) {
     </div>`;
   const row = (cls, label, p) => `
     <tr class="${cls}"><td>${label}</td>
-      <td><span class="krw" data-t="m${p}K"></span><span class="usd" data-t="m${p}U"></span></td>
-      <td><span class="krw" data-t="a${p}K"></span><span class="usd" data-t="a${p}U"></span></td></tr>`;
+      <td><span class="pri" data-t="m${p}U"></span><span class="sec" data-t="m${p}K"></span></td>
+      <td><span class="pri" data-t="a${p}U"></span><span class="sec" data-t="a${p}K"></span></td></tr>`;
 
   const hist = (live.history || []).slice(-12).map(h => h.amount);
   const range = hist.length ? `최근 ${hist.length}회 $${Math.min(...hist).toFixed(2)}~$${Math.max(...hist).toFixed(2)} 범위` : "최근 1년 $0.32~$0.40 범위";
+  const fxDay = live.fxDate ? `${+live.fxDate.slice(5, 7)}/${+live.fxDate.slice(8, 10)} ` : "";
+  const autoNote = (LIVE.price || LIVE.dist ? "주가와 분배금은 이 페이지의 최신 데이터로 자동 입력됩니다. " : "주가와 분배금은 직접 갱신해서 쓰세요. ")
+    + (LIVE.fx ? `환율은 ${fxDay}종가 기준 시장 환율이며 증권사 적용 환율과 조금 다를 수 있으니 필요하면 직접 고치세요.` : "환율은 직접 입력하세요.");
 
   root.innerHTML = `
     <div class="calc">
       <section class="cpanel reveal" aria-label="입력">
-        <label class="flabel" for="c-invest">투자 금액</label>
-        <div class="amtbox"><span class="won">₩</span><input id="c-invest" type="text" inputmode="numeric" autocomplete="off" spellcheck="false"></div>
-        <div class="amtsub">≈ <span data-t="usdIn"></span></div>
+        <label class="flabel" for="c-invest">투자 금액<span class="cur">USD</span></label>
+        <div class="amtbox"><span class="sym">$</span><input id="c-invest" type="text" inputmode="decimal" autocomplete="off" spellcheck="false"></div>
+        <div class="amtsub">≈ <span data-t="krwIn"></span></div>
         <div class="flabel presetlabel" id="c-presetlabel">빠른 선택</div>
         <div class="chips" role="group" aria-labelledby="c-presetlabel">
           <span class="pill" aria-hidden="true"></span>
-          ${PRESETS.map(n => `<button type="button" data-amt="${n}" aria-pressed="false">${n / 10000}만원</button>`).join("")}
+          ${PRESETS.map(n => `<button type="button" data-amt="${n}" aria-pressed="false">$${n.toLocaleString("en-US")}</button>`).join("")}
         </div>
         <div class="fgrid">
           ${field("price", "GPIX 주가", "$", "", "USD")}
@@ -671,12 +687,13 @@ function initCalculator(root, live) {
           ${field("fx", "환율", "", "원", "USD → KRW")}
           ${field("rate", "원천징수율", "", "%", "미국 15%")}
         </div>
-        <label class="switch"><input type="checkbox" id="c-whole"><span class="track"><span class="knob"></span></span><span class="swl">소수점 매수 없이 온주만 매수</span></label>
+        <label class="switch"><input type="checkbox" id="c-whole" checked><span class="track"><span class="knob"></span></span><span class="swl">소수점 매수 없이 온주만 매수</span></label>
       </section>
 
       <section class="cpanel reveal d1" aria-label="결과">
         <div class="rhead"><span class="k">보유 수량</span><span class="v"><span data-t="shares"></span><small>주</small></span></div>
-        <div class="leftover" id="c-left"><div><div class="lo"><span>미투자 잔액</span><span data-t="left"></span></div></div></div>
+        <div class="fold" id="c-note"><div><div class="lo warn" id="c-notetext"></div></div></div>
+        <div class="fold" id="c-left"><div><div class="lo"><span>미투자 잔액</span><span><b data-t="leftU"></b><i data-t="leftK"></i></span></div></div></div>
         <div class="split">
           <div class="splitbar" role="img" aria-label="세전 배당에서 실수령과 원천징수가 차지하는 비율"><i class="net"></i><i class="tax"></i></div>
           <div class="legend">
@@ -701,22 +718,22 @@ function initCalculator(root, live) {
     </div>
 
     <section class="cpanel taxpanel reveal d2">
-      <button type="button" class="taxbtn" aria-expanded="false" aria-controls="c-tax"><span>세금 정리</span>
+      <button type="button" class="taxbtn" aria-expanded="true" aria-controls="c-tax"><span>세금 정리</span>
         <svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6"/></svg></button>
-      <div class="taxbody" id="c-tax"><div><ul class="taxlist">
+      <div class="taxbody open" id="c-tax"><div><ul class="taxlist">
         <li><b>15%가 맞습니다.</b> 한미 조세조약상 미국 배당 원천징수는 15%. 한국 배당소득세율(지방세 제외)이 14%라 국내에서 추가 원천징수가 없습니다.</li>
         <li><b>15.4%는 다른 경우입니다.</b> 국내 상장 ETF(TIGER·KODEX 미국 커버드콜 등)나 국내주식 배당에 붙는 세율(소득세 14% + 지방소득세 1.4%). GPIX 직접 매수에는 해당 없음.</li>
-        <li><b>금융소득종합과세.</b> 이자+배당 합산 연 2,000만 원 초과 시 종합과세 대상. 현재 입력값 기준 약 <span class="num" data-t="breakeven"></span> 투자 시 도달합니다.</li>
+        <li><b>금융소득종합과세.</b> 이자+배당 합산 연 2,000만 원 초과 시 종합과세 대상. 현재 입력값 기준 약 <span class="num" data-t="breakU"></span> <span data-t="breakK"></span> 투자 시 도달합니다.</li>
         <li><b>ROC(원금반환) 변수.</b> 커버드콜 ETF 분배금 일부가 원금반환으로 분류되면 그 부분은 미국 원천징수 대상이 아닙니다. 증권사가 연말 정산 후 환급하는 경우가 있어 실수령이 위 계산보다 조금 높을 수 있습니다.</li>
         <li><b>매매차익은 별도.</b> 해외주식 양도소득세 22%, 연 250만 원 기본공제 후 다음 해 5월 신고.</li>
       </ul></div></div>
     </section>
-    <p class="calcfoot">분배금은 매월 변동합니다 (${range}). ${LIVE.price || LIVE.dist ? "주가와 분배금은 이 페이지의 최신 데이터로 자동 입력되고, 환율은 직접 입력하세요." : "주가·환율·분배금은 직접 갱신해서 쓰세요."} 세무 자문이 아닙니다.</p>`;
+    <p class="calcfoot">분배금은 매월 변동합니다 (${range}). ${autoNote} 세무 자문이 아닙니다.</p>`;
 
   const $ = sel => root.querySelector(sel);
   const el = {invest: $("#c-invest"), price: $("#c-price"), dist: $("#c-dist"), fx: $("#c-fx"), rate: $("#c-rate"), whole: $("#c-whole")};
   const chipsBox = $(".chips"), pill = $(".pill"), chips = [...chipsBox.querySelectorAll("button")];
-  const netRow = $("tr.net"), leftBox = $("#c-left"), taxBtn = $(".taxbtn"), taxBody = $(".taxbody");
+  const netRow = $("tr.net"), leftBox = $("#c-left"), noteBox = $("#c-note"), taxBtn = $(".taxbtn"), taxBody = $(".taxbody");
 
   // Value tween: easeOutQuart, and a new target restarts from the number
   // currently on screen, so fast clicks and typing never snap or stutter.
@@ -742,36 +759,36 @@ function initCalculator(root, live) {
 
   // Each figure: [value from the result, text format].
   const TW = {
-    usdIn: [r => r.usdIn, usd],
+    krwIn: [r => r.krwIn, krw],
     shares: [r => r.shares, v => v.toFixed(st.whole ? 0 : 4)],
-    left: [r => r.leftover, krw],
+    leftU: [r => r.leftover, usd],
+    leftK: [r => r.leftover * r.fx, v => "≈ " + krw(v)],
     yGross: [r => r.grossYield, v => v.toFixed(2) + "%"],
     yNet: [r => r.netYield, v => v.toFixed(2) + "%"],
-    breakeven: [r => r.breakeven, krw],
+    breakU: [r => r.breakK / r.fx, usd0],
+    breakK: [r => r.breakK, v => "(" + krw(v) + ")"],
   };
   for (const [p, mult] of [["m", 1], ["a", 12]]) {
     for (const [name, key, sign] of [["Gross", "mGross", ""], ["Tax", "mTax", "−"], ["Net", "mNet", ""]]) {
-      TW[p + name + "K"] = [r => r[key] * mult * r.fx, v => sign + krw(v)];
-      TW[p + name + "U"] = [r => r[key] * mult, v => sign + usd(v)];
+      TW[p + name + "U"] = [r => r[key] * mult, v => (sign && Math.round(v * 100) > 0 ? sign : "") + usd(v)];   // no minus sign on zero
+      TW[p + name + "K"] = [r => r[key] * mult * r.fx, v => (sign && Math.round(v) > 0 ? sign : "") + krw(v)];
     }
   }
   const tweens = {};
   for (const k in TW) { const e = $(`[data-t="${k}"]`); tweens[k] = makeTween(v => { e.textContent = TW[k][1](v); }, 0); }
   const twInvest = makeTween(v => { el.invest.value = Math.round(v).toLocaleString("en-US"); }, st.invest);
 
-  // Same math as the original calculator.
+  // Same math as the original calculator, with the amount entered in USD.
   const calc = () => {
-    const invest = st.invest, price = num(st.price), dist = num(st.dist), fx = num(st.fx) || 1, rate = num(st.rate);
-    const usdIn = invest / fx;
+    const usdIn = st.invest, price = num(st.price), dist = num(st.dist), fx = num(st.fx) || 1, rate = num(st.rate);
     const raw = price > 0 ? usdIn / price : 0;
-    const shares = st.whole ? Math.floor(raw) : raw;
-    const deployed = shares * price;
+    const shares = st.whole ? Math.floor(raw + 1e-9) : raw;
     const mGross = shares * dist, mTax = mGross * (rate / 100), mNet = mGross - mTax;
     return {
-      usdIn, shares, fx, leftover: invest - deployed * fx, mGross, mTax, mNet,
-      grossYield: invest > 0 ? ((mGross * 12 * fx) / invest) * 100 : 0,
-      netYield: invest > 0 ? ((mNet * 12 * fx) / invest) * 100 : 0,
-      breakeven: dist > 0 && price > 0 ? (20000000 / (dist * 12 * fx)) * price * fx : 0,
+      usdIn, krwIn: usdIn * fx, shares, fx, price, leftover: usdIn - shares * price, mGross, mTax, mNet,
+      grossYield: usdIn > 0 ? ((mGross * 12) / usdIn) * 100 : 0,
+      netYield: usdIn > 0 ? ((mNet * 12) / usdIn) * 100 : 0,
+      breakK: dist > 0 && price > 0 ? (20000000 * price) / (dist * 12) : 0,
     };
   };
 
@@ -786,7 +803,11 @@ function initCalculator(root, live) {
     if (snap) { void pill.offsetWidth; pill.classList.remove("snap"); }
   };
 
-  const HINTS = [["price", "USD", v => "$" + fmt2(v), "자동 입력"], ["dist", "최근 지급액", v => "$" + v.toFixed(3), "최근 지급액"]];
+  const HINTS = [
+    ["price", "USD", v => "$" + fmt2(v), "자동 입력"],
+    ["dist", "최근 지급액", v => "$" + v.toFixed(3), "최근 지급액"],
+    ["fx", "USD → KRW", v => "₩" + v.toLocaleString("en-US", {maximumFractionDigits: 2}), "자동 입력"],
+  ];
   const renderHints = () => {
     for (const [k, plain, f, liveText] of HINTS) {
       const h = $("#h-" + k);
@@ -795,7 +816,7 @@ function initCalculator(root, live) {
       h.dataset.s = state;
       h.innerHTML = state === "plain" ? plain
         : state === "live" ? `<span class="live"><i></i>${liveText}</span>`
-        : `<button type="button" data-reset="${k}" title="자동 입력값으로 되돌리기" aria-label="자동 입력값 ${f(LIVE[k])}으로 되돌리기">↺ ${f(LIVE[k])}</button>`;
+        : `<button type="button" data-reset="${k}" title="자동 입력값으로 되돌리기" aria-label="자동 입력값 되돌리기: ${f(LIVE[k])}">↺ ${f(LIVE[k])}</button>`;
     }
   };
 
@@ -806,7 +827,10 @@ function initCalculator(root, live) {
     chips.forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.amt === st.invest)));
     placePill();
     renderHints();
-    leftBox.classList.toggle("open", st.whole && r.leftover > 0.5);
+    const tooSmall = st.whole && r.usdIn > 0 && r.price > 0 && r.shares === 0;
+    if (tooSmall) $("#c-notetext").textContent = `투자 금액이 GPIX 1주 가격보다 적어서 온주로는 살 수 없습니다 (${usd(r.usdIn)} < ${usd(r.price)}). '온주만 매수'를 끄면 소수점 매수로 계산합니다.`;
+    noteBox.classList.toggle("open", tooSmall);
+    leftBox.classList.toggle("open", st.whole && r.shares > 0 && r.leftover > 0.005);
     if (!started) return;
     for (const k in TW) tweens[k].to(TW[k][0](r));
     const net = Math.max(0, Math.min(100, 100 - rate));
@@ -817,22 +841,28 @@ function initCalculator(root, live) {
     if (flash) { netRow.classList.remove("flash"); void netRow.offsetWidth; netRow.classList.add("flash"); }
     clearTimeout(srTimer);
     srTimer = setTimeout(() => {
-      $("#c-sr").textContent = `월 실수령 ${krw(r.mNet * r.fx)}, 연 실수령 ${krw(r.mNet * 12 * r.fx)}, 세후 수익률 ${r.netYield.toFixed(2)}%`;
+      $("#c-sr").textContent = `월 실수령 ${usd(r.mNet)} (${krw(r.mNet * r.fx)}), 연 실수령 ${usd(r.mNet * 12)} (${krw(r.mNet * 12 * r.fx)}), 세후 수익률 ${r.netYield.toFixed(2)}%`;
     }, 600);
   };
 
   // --- inputs ---
   el.invest.value = st.invest.toLocaleString("en-US");
+  el.whole.checked = st.whole;
   el.invest.addEventListener("input", () => {
-    const caret = el.invest.selectionStart ?? el.invest.value.length;
-    const before = el.invest.value.slice(0, caret).replace(/\D/g, "").length;
-    const digits = el.invest.value.replace(/\D/g, "").replace(/^0+/, "").slice(0, 12);
-    const n = digits ? Number(digits) : 0;
-    el.invest.value = digits ? n.toLocaleString("en-US") : "";
-    let pos = 0, seen = 0;                                    // keep the caret after the same digit
-    while (pos < el.invest.value.length && seen < before) { if (/\d/.test(el.invest.value[pos])) seen++; pos++; }
+    const raw = el.invest.value;
+    const caret = el.invest.selectionStart ?? raw.length;
+    const before = raw.slice(0, caret).replace(/[^\d.]/g, "").length;
+    const clean = raw.replace(/[^\d.]/g, "");
+    const dot = clean.indexOf(".");
+    const int = (dot < 0 ? clean : clean.slice(0, dot)).replace(/^0+(?=\d)/, "").slice(0, 9);
+    const frac = dot < 0 ? "" : clean.slice(dot + 1).replace(/\./g, "").slice(0, 2);
+    const shown = clean === "" ? "" : Number(int || 0).toLocaleString("en-US") + (dot < 0 ? "" : "." + frac);
+    el.invest.value = shown;
+    let pos = 0, seen = 0;                                    // keep the caret after the same character
+    while (pos < shown.length && seen < before) { if (/[\d.]/.test(shown[pos])) seen++; pos++; }
     el.invest.setSelectionRange(pos, pos);
-    st.invest = n; twInvest.sync(n); update();
+    st.invest = clean === "" ? 0 : parseFloat((int || "0") + "." + (frac || "0"));
+    twInvest.sync(st.invest); update();
   });
   const cleanDec = s => { s = s.replace(/[^\d.]/g, ""); const i = s.indexOf("."); return i < 0 ? s : s.slice(0, i + 1) + s.slice(i + 1).replace(/\./g, ""); };
   for (const k of ["price", "dist", "fx", "rate"]) {
@@ -851,7 +881,6 @@ function initCalculator(root, live) {
     const k = b.dataset.reset;
     st[k] = String(LIVE[k]); el[k].value = st[k]; update(true);
   });
-  taxBody.inert = true;
   taxBtn.addEventListener("click", () => {
     const open = taxBtn.getAttribute("aria-expanded") !== "true";
     taxBtn.setAttribute("aria-expanded", String(open));
@@ -999,6 +1028,8 @@ fetch("data.json").then(r => r.json()).then(d => {
       price: g.price,
       dist: d.distributions ? d.distributions.last_amount : null,
       history: d.distributions ? d.distributions.history : [],
+      fx: d.fx ? d.fx.usd_krw : null,
+      fxDate: d.fx ? d.fx.as_of : null,
     });
   } catch (e) { console.error("calculator failed to start", e); }
   renderChart(g.series, g.sma50, g.sma200);

@@ -558,6 +558,17 @@ def cached_rows(symbol: str, range_: str) -> tuple:
     return tuple(chart_rows(yahoo_chart(symbol, range_)))
 
 
+def usd_krw() -> dict | None:
+    """Latest USD/KRW close (Yahoo KRW=X) for the page's dividend calculator.
+    Display-only and guarded: on any failure the field is null and the page
+    falls back to a typed-in rate instead of breaking the daily build."""
+    try:
+        d, close, _ = cached_rows("KRW=X", "5d")[-1]
+        return {"usd_krw": round(close, 2), "as_of": d.isoformat()}
+    except Exception:
+        return None
+
+
 def fetch_fred(series_id: str) -> list[tuple[date, float]]:
     """FRED CSV: header 'observation_date,SERIES_ID'; missing values are '.'.
 
@@ -1580,6 +1591,7 @@ def build(fund: dict) -> dict:
         "flips": flips,
         "report_card": report_card(history) if history else None,
         "income": {"ttm_yield_pct": ttm_yield, "tbill_3mo": tbill},
+        "fx": usd_krw(),
         "distributions": distributions_block(div_events, today),
         "underlying": {
             "symbol": fund["underlying_symbol"],
