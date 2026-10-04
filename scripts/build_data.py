@@ -619,7 +619,8 @@ def fetch_earnings(ticker: str) -> tuple[str, bool] | None:
             errors.append(f"{name}: {err_text(exc)}")
             continue
         if got:
-            mark(f"earnings:{ticker}", True, as_of=got[0], source=name)
+            extra = {"first_source_error": "; ".join(errors)} if errors else {}  # why the fallback was needed
+            mark(f"earnings:{ticker}", True, as_of=got[0], source=name, **extra)
             return got
     mark(f"earnings:{ticker}", False, error="; ".join(errors) or "no upcoming date found")
     return None

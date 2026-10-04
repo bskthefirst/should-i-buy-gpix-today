@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   gate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest moves to a new Ubuntu on 2026-10-19
     timeout-minutes: 345       # the gate may wait up to 5.5 hours
     outputs:
       run: ${{ steps.gate.outputs.run }}
@@ -39,7 +39,7 @@ jobs:
   update:
     needs: gate
     if: needs.gate.outputs.run == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest moves to a new Ubuntu on 2026-10-19
     timeout-minutes: 15
     concurrency:               # one build at a time; a queued duplicate is replaced
       group: update-data
