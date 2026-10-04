@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T22:56:55+00:00",
+ "generated_at": "2026-10-04T18:22:27+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
@@ -120,15 +120,17 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 12d",
+   "value": "CPI in 10d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "No event risk in the next few days (CPI 2026-10-14, FOMC 2026-10-28). (Earnings date unavailable today - Yahoo's calendar endpoint didn't answer.)"
+   "note": "No event risk in the next few days (earnings 2026-10-28 est., CPI 2026-10-14, FOMC 2026-10-28)."
   }
  ],
  "fund": {
   "price": 370.59,
+  "as_of": "2026-10-02",
+  "bar": "final",
   "day_change_pct": 4.65,
   "sma50": 347.58,
   "sma200": 393.18,
@@ -1230,8 +1232,8 @@
   "start": "2023-10-27",
   "end": "2026-10-02",
   "days_total": 735,
-  "backfilled_days": 697,
-  "fg_coverage_start": "2025-10-02",
+  "backfilled_days": 707,
+  "fg_coverage_start": "2025-10-06",
   "baseline": {
    "n": 714,
    "avg_pct": 2.76,
@@ -1242,7 +1244,7 @@
     "tone": "good",
     "label": "Better-than-usual entry (score \u2265 69)",
     "n": 9,
-    "avg_pct": 13.01,
+    "avg_pct": 12.87,
     "median_pct": 12.48
    },
    {
@@ -1284,17 +1286,17 @@
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 26,
+  "days_until": 24,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 12
+  "days_until": 10
  },
  "earnings": {
-  "next": null,
-  "days_until": null,
-  "estimate": false
+  "next": "2026-10-28",
+  "days_until": 24,
+  "estimate": true
  },
  "backtest": {
   "start": "2022-10-03",
@@ -1312,40 +1314,153 @@
  },
  "headlines": [
   {
-   "title": "Tesla stock jumps 5% on better-than-expected vehicle deliveries report",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPLTV2TThXeklJVmVnSl9pMDYzQnNoaWVielg0ekwyYTJVemhmRDdKdlpaekRVYXdTcndZNGRyelluczN1MUIxQ3J6M2FDWTQ4dnQwd3c1OEVURkdBUGdQLTBXaE1iUWxXOGFUVlZOLWdscVp0UkFTSEpsWkM3QTRDT3pMdkFlME41OHRn0gGQAUFVX3lxTFBoR1hCMDN2NU1mQ1ZJdFg3XzBQYWJSMzZmQk5aVnlBTTg5YnBfUi1KMm9seGMydVVOU2p1WnloTVVUV25QRXdYT1hwQ1Y4ODlvc0RBcUhwOG9VWUh3OG9CSnJ6N2ZuQUlBUjdWT0xPTnFaN3JHOTdjMk8tZnpWamkwOF9FaHNSUnZHQ1ZpQWkwZQ?oc=5",
-   "published": "2026-10-02T13:03:51+00:00"
+   "title": "You Can Do Better Than Tesla. Buy Micron Instead.",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNb2tFRmotM2h0RldYeWRiMHdOVzVzYm0yV1pndmpxdm5ZRkpCRldlTnc5NEI3SUJyOWl6ZG95OWJoam1Od3BkVlBFcTJERjFHUkRFd3NwaFNNUHFnaW5ZVnJ2RWNELWJkUXJnSG9rTWhaSVB1bzNjaXhaVnNRNWdmWlF5bmp1M3R5a0ZtN0lwWXgzN1ls?oc=5",
+   "published": "2026-10-04T17:43:57+00:00"
   },
   {
-   "title": "Tesla stock rises as company reports Q3 deliveries that top analyst estimates",
+   "title": "Elon Musk says Tesla Robotaxi still struggles to see pets at night",
+   "source": "Digital Trends",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPaEZHa2sxSG9DbHFNMHBQUnhQZzRFVXpIQjRVS1llLXdVd2xDUjRPejRiZW1NemI1bVdSZENRNjR5T0U1RE1WQ2lydVRZcUhTT1RWQjJXeWp2MG9ib0dyQ2wxTG93OUJiY1Q2d1pHS0N0czE3ZlZua0lwMVVKRkltUTJaRDNHT2NYSWZwX0FQSVFjRUo0d0piOG5Qd3FkdXpvNEVCYg?oc=5",
+   "published": "2026-10-04T17:33:06+00:00"
+  },
+  {
+   "title": "Tesla CEO Elon Musk Cuts AI Chip Memory Amid Shortage",
+   "source": "\uc870\uc120\uc77c\ubcf4",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNS1I2MHhqR1JDNkRBYnU2c0o4U3hPVjhwNzhvTWx1SFRUU0NOVno4b3hiY21kWDBzUlVPWnlvUW16YkxnVFlNWEJsaXJ6Y3pnVzZaNEdUemFSUWEzM3BENDdDSm5HNldIU0xjM21kVFY4ZVQ1MGwxQU9WTnVxOUJFdzUwT240OHFa?oc=5",
+   "published": "2026-10-04T16:44:37+00:00"
+  },
+  {
+   "title": "Elon Musk Ends Relationship With Co-Parent Shivon Zilis",
+   "source": "\uc870\uc120\uc77c\ubcf4",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNY2pOQ0RxNGpEZ0Y2aldTVkRVX1VwTmVGa2hQSDFvVVY4eEFqcnY4eUF3QnZIUmhaamtiWVMwSEtXZXltV0o3X1dzWWxVb2ZXMXlqZEM0Qnl3VEpUUW5xaHRma3BQT0lmMk85WHFMbzFlTEh5R1RqcjV3OHNyVVBUNDBscEJWRDl3?oc=5",
+   "published": "2026-10-04T16:44:36+00:00"
+  },
+  {
+   "title": "Tesla announces delivery update as Tesla stock matches EUR 329.28 Xetra close",
+   "source": "AD HOC NEWS",
+   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPRzZ1QTRDbm1iaVIyMkFEd3VjRnJjX1hxWmpnQ28xcTc5a2hQbm9TZW5QTEl1czRtbS1wMzJRakNYRDhjZzRiR1c4dXA1U3NweTluSEdwVEQxMUQ3dkFnMkItNzdTenZlb0xKQVNXUDR3V2R4WkI0Y1FZalh2ZkNudkl5dlI0LW5lRTV3aUswQi1sOWZVaWVSUnF4VnhuRG9zVDZOX2ZCNUdGZDN5UlVsMHBuQm1BZ0hhalRUb2lyc0czQ1BwcndqSndRUzRCSGs?oc=5",
+   "published": "2026-10-04T16:37:21+00:00"
+  },
+  {
+   "title": "Tesla Delivered 22,141 More Vehicles Than It Built in Q3. Here\u2019s the Production Number That Decides What Comes Next",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNaFYteC1YV2FWTDNpU1g1cDZxR1RtNkZPNFY5Vi1oMUFrZWZnZ0wxZ0k2alRJbEV6bVI2amZqcmlnc2VUVDktdXBqYTJjV2JfWEJXSVlGT3NzWmpfd3JrdTA1X3RWbXNoRDFuc2stanZsdC0tQVprSnA2dVVsLTdFc1Q3c2RnWUdQZXNmQmk2eEJYVDcwQVpIcWZzVl9zVGIzX1Q4SWd3elpCbTBKc0FxZGo5Y3I4ZDFyb25XdDEzcjRVSHlrclRKNnBWRE52UDJTNjJSbmQ1QXQ?oc=5",
-   "published": "2026-10-02T13:39:42+00:00"
-  },
-  {
-   "title": "Tesla Delivered 486,532 Electric Vehicles In Q3, Beating Estimates. The Stock Is Rising.",
-   "source": "Investor's Business Daily",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUzdHU2lQU2hYbmhzN0ZRRVdwTHltRGIzUHl3dVVLLTU5dGczbFE1Rmt0bWpNZzg2NXVmZ0p2MFMzVjlFRkI5a3F1clRRNW1haEF1cHl2MnRlbmVWbzJzZWN3QzVya1dDWUF0Wk5hd2JhbVI0N2xHOXZpdW84enRvNTgzU2thSmR2SmhpVnk0bw?oc=5",
-   "published": "2026-10-02T18:25:00+00:00"
-  },
-  {
-   "title": "Why is Tesla stock surging today?",
-   "source": "Investing.com",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQVnROcUdCR3paQk5Wd3A2bHlHNk8tWGVKNTFSODlVTC0yOVVPSmJtdTRreG5ldDJJN3V6OUlHOUNUNHV0MjYyZ0ZnODdZMjhybDJ2blhtOTRKVk1Yc1B1QjZ6Ykx4V2dNY2hTOEFRWlhOVHM4YXlXaVMweTN2OVo3MHRYQjBuQlR0N2I2SGlUYlBhSzJReHBvNFR3?oc=5",
-   "published": "2026-10-02T14:16:18+00:00"
-  },
-  {
-   "title": "Tesla Stock Surges 5% After Company Reports Better-Than-Expected Q3 Deliveries",
-   "source": "Forbes",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdk16d1lZalRUWFJfbzdKZXlwaUlhdmRNaWx2eHFHcmlUVThqQ1ltWEd0UVdjeEFEQVpFSUZfN3ZFQ2NycFdkOTBkQ2VEXzB3T2RUWENYQVd0Q2gyNWc2cHVnZ0JpSWhrbmZ4U1JtczROS2ZHMGxlbVpVcjhYSE9vR09pV2pZdWN0QW5XY0V0bWR0d3ZVN21xMkstYmo3eFhMTlJoVFhUMGJqVnR4OHJVT2lDa1lFb2FEd0p1VUFfd1FLbUZLU0hDcg?oc=5",
-   "published": "2026-10-02T16:17:07+00:00"
-  },
-  {
-   "title": "Tesla Stock Jumps After Deliveries Top Estimates",
-   "source": "Investopedia",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxORWwtU19PVVJ0RUdCaGlRMVprUTZQaWRHMlE3SGQ5WjZCVmRCbmdWZDE1My03Yzdyc2c3T3h1d0JPVmhqNkVLNDExUXZnaDlTV3lvUDBSWmlVLUY3Z21DQ2tadnFWRDdBSjVPcF83ZkpZUWY3TXJrcmhWQW1oTUZyeFBXMmFudENjWDNZejBMclpLU0FMZlE3Z0JrYUNULXpsWjU5dF9nY18?oc=5",
-   "published": "2026-10-02T15:36:23+00:00"
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOM1REU1B0SGtrcjlUTmY0NF9raHFCZkg3THd0RnYwaWtrMW1BSUJDNF90dEd0STJDUFBpV21LVlRmLUFqRklPSFZraUM2dVBlSzBTTE9FRDhVVnYtb0VZZExwUThXN0ZZazFibTRSV0JwZWhha3FMRllVMjhzWU13RzBPRlRUblYyRERLY1N3ZHQtWUhhYVlR?oc=5",
+   "published": "2026-10-04T15:48:41+00:00"
   }
- ]
+ ],
+ "health": {
+  "run_at": "2026-10-04T18:22:28+00:00",
+  "session": {
+   "date": "2026-10-02",
+   "bar": "final"
+  },
+  "sources": {
+   "calendar:CPI": {
+    "ok": true,
+    "core": false,
+    "as_of": "2026-10-14"
+   },
+   "calendar:FOMC": {
+    "ok": true,
+    "core": false,
+    "as_of": "2026-10-28"
+   },
+   "cnn:fear_greed": {
+    "ok": true,
+    "core": true,
+    "as_of": "2026-10-02T23:59:58+00:00"
+   },
+   "earnings:TSLA": {
+    "ok": true,
+    "core": false,
+    "source": "nasdaq",
+    "as_of": "2026-10-28"
+   },
+   "fred:BAMLH0A0HYM2": {
+    "ok": true,
+    "core": true,
+    "as_of": "2026-10-01"
+   },
+   "fred:DGS3MO": {
+    "ok": true,
+    "core": true,
+    "as_of": "2026-10-01"
+   },
+   "news:GPIQ": {
+    "ok": true,
+    "core": false,
+    "items": 6,
+    "as_of": "2026-10-04T18:10:01+00:00"
+   },
+   "news:GPIX": {
+    "ok": true,
+    "core": false,
+    "items": 6,
+    "as_of": "2026-10-04T18:14:40+00:00"
+   },
+   "news:TSLA": {
+    "ok": true,
+    "core": false,
+    "items": 6,
+    "as_of": "2026-10-04T17:43:57+00:00"
+   },
+   "yahoo:GPIQ": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-10-02"
+   },
+   "yahoo:GPIX": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-10-02"
+   },
+   "yahoo:KRW=X": {
+    "ok": true,
+    "core": false,
+    "as_of": "2026-10-04T16:11Z"
+   },
+   "yahoo:QQQ": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-10-02"
+   },
+   "yahoo:SPY": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-10-02"
+   },
+   "yahoo:TSLA": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-10-02"
+   },
+   "yahoo:^VIX": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-10-02"
+   },
+   "yahoo:^VIX3M": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-10-02"
+   },
+   "yahoo:^VXN": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-10-02"
+   }
+  },
+  "degraded": [],
+  "degraded_core": []
+ }
 }
