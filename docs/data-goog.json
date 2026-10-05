@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-05T11:00:25+00:00",
+ "generated_at": "2026-10-05T19:10:31+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 98.6,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "25% ann. (p41)",
+   "value": "25% ann. (p40)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 40.9,
+    "pos": 40.1,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "14.6%",
+   "value": "13.6%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 14.6% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 13.6% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 29.2,
+    "pos": 27.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.3 (p15), F&G 38",
+   "value": "VIX 15.6 (p18), F&G 44",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 340.35,
-  "as_of": "2026-10-02",
-  "bar": "final",
-  "day_change_pct": 1.62,
-  "sma50": 341.77,
-  "sma200": 337.39,
+  "price": 344.27,
+  "as_of": "2026-10-05",
+  "bar": "provisional",
+  "day_change_pct": 1.15,
+  "sma50": 342.28,
+  "sma200": 337.57,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 14.7,
+  "drawdown_pct": 13.7,
   "series": [
-   {
-    "d": "2026-01-15",
-    "c": 333.16,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-16",
     "c": 330.34,
@@ -1217,6 +1211,12 @@
     "c": 340.35,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-10-05",
+    "c": 344.27,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1224,7 +1224,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+5.4% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+4.2% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1281,8 +1281,8 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 340.35,
-  "sma200": 337.39,
+  "price": 344.27,
+  "sma200": 337.57,
   "above_200d": true
  },
  "vol": {
@@ -1304,62 +1304,62 @@
   "estimate": true
  },
  "backtest": {
-  "start": "2022-10-03",
-  "end": "2026-10-02",
+  "start": "2022-10-05",
+  "end": "2026-10-05",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 43859.18,
-  "dca_return_pct": 109.85,
-  "dip_value": 43957.79,
-  "dip_return_pct": 110.32,
+  "invested": 21000.0,
+  "dca_value": 44454.33,
+  "dca_return_pct": 111.69,
+  "dip_value": 44564.08,
+  "dip_return_pct": 112.21,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 162,
+  "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Meta And Alphabet Will Beat OpenAI And Anthropic (NASDAQ:META)",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNblpmdGdTTE9aODc2aTRNc1JBUEVBVlZwLWxJZklQZW1pbzk5UHhSVXI5aUh4bFhlTG5HUEpKZS04OXZULTF3LVY3Z3pjbWsyNzBMSGV0QVVQSF82cGNUTVduRGxSN08zcURBTnJ3N3ltY3JsaHdzRklJT2tNQW0tYjc2M25Ral9zYnBqelY5SjM?oc=5",
-   "published": "2026-10-05T10:51:06+00:00"
-  },
-  {
-   "title": "Polish regulator suspects Google abused dominant position in publisher payment talks",
-   "source": "AOL.com",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPOEdzdnRKR2dKb1lFQXUxcHVLN2U1bmgzZGJCdHdGRzJpZmFUbVZ1VWwwVG9BNHhaNjctX2d6OHIxNkdCQV9TUXFaazRIdGlPVFg5dVZ4VDJUajMybDNWU0ppSW5RczY2d1V6MGZMak9oS0NPQkRBVTJQWDhpM2dyR0JnSXZubWlsQTVv?oc=5",
-   "published": "2026-10-05T10:43:06+00:00"
-  },
-  {
-   "title": "Google Just Hit Pause on Its Open-Source Bug Bounty Program \u2014Explosive Surge in Submissions Has Left the",
+   "title": "Amazon, Alphabet and Tesla: Robinhood Traders Sell - Tesla (NASDAQ:TSLA), Amazon.com (NASDAQ:AMZN), Alpha",
    "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMilAJBVV95cUxNQy1NODVoSHdjUzZkRWFrMlhDRFQ3dFgtQ05NLW1OczdnaGo2OUo3cGNKbl9ESkJ1dFNlUEtmYlRmc0ZwMXFxV3NoRXlWeEFudzFaMFJ3ZzdlVlZlbVFvNDdEcmNaYW9IT1Vnd2xXWTN0akFMMFB5Q0g0ZDlOOUNpdEZRWU9TbE8xbTJrbWZSZVA4TWhDYWtUalZDYkZjSm9HTmJVVmpGSkJjRXBjeFRJQzlZZENXUlQxMlNoMENCQ1YxWlV0MXlBQ2wxSDZ5dEtVLUkzSWI3X19Wd0ROVjJfQ2RiOHJjSDRGejdWSE02ZVBjZVdFdzlDR0MtbTNrTGhLVWR4X3ZndmVSZ2VpaG1VOHpBd28?oc=5",
-   "published": "2026-10-05T10:42:02+00:00"
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOOFI2ZWZWc1k1N0plSmExSFowdTdVOHE4QWNlVXcyNzNHRGplSEJ3YzhvRTJiZWhPQnN1ZTgwMTBJQWVxdFBXTG9VZnJSV216dlh3YjNPNU9qOVNYdHhBSXlLWGZtRkNyOGFhZlhkRUpJTEpBUjlWVXZPNFFIMnVjSDE5NFFkVkhHX0hZVHRzZzRZOHNYeXVUVFF3QV9FLW5SdVlpTFBtRWxQTlVLN2ZaQ1Bn?oc=5",
+   "published": "2026-10-05T19:01:25+00:00"
   },
   {
-   "title": "Anthropic, OpenAI, Google and Meta execs set to testify at NYC Council hearing on AI risks",
-   "source": "cnbc.com",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZUIydzZYNjQ4a2RSMEROU0N4RC1NM2JPdXp3RTdtRWVqSjc0Zk5YTU9EWGd2ZEtWSk1JTkZacVkwejgyajZIRlRvMnNsSkkzMFhFbzczNGM4eVVRLXktR19kYjNybkdpVzl4bkpIdHFzRVdYSmlUTjkwR2Z2VjR5cnpSMlRLcEVFSnVlVUN0MTdRLXZERzI1eURTaGxTNllCTndqbtIBqgFBVV95cUxPcVFrM05qVE9lTUtNUUdYV0ZtZ0xNSy1NdGQ2aURSQU1pd3g3ZnA1YlMwbUxPaFZhWlh4bWVwQ3NvalBSajNFZk5DNlA0NjVERUZiLXZ0cmZhMHdRQXo0dVg5elgyTjZsbDR5Sl9KWVJvaVVNZGRKZGFrWlpzak1veGN0Yy1PX3FIWEJCYXl3YlpFMXhnaFg4ZHpkcVMxblp4NTRWM2pRT2FPdw?oc=5",
-   "published": "2026-10-05T10:41:41+00:00"
+   "title": "I stopped leaving Google Maps to research places because Ask Maps does it now",
+   "source": "MakeUseOf",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNNE13bUM0Z3FVSXMtOW1sS0NWZnQzQlB0bGxhOHdVSllYWDhoTUVwMU1GZlZma0lDWlZDX3JHb3JyS2xkUXd1S20wYnVPMzlwVUhWekZnU2E3NHVQX0ZRWjZNVG9RYURaZ3pFd3Jpam9yZHBXRjAzcGNTUzQyTTBBc2hhSEJQOW1sN0RGUnlTVTJEbVhpU283N0VCVQ?oc=5",
+   "published": "2026-10-05T19:00:14+00:00"
   },
   {
-   "title": "Apple Watch Series 12 vs. Google Pixel Watch 5: How Do the Two New Wearables Compare?",
-   "source": "CNET",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcW9FYWhnZi1wdzRORlhoTHJ5MGEzUzhiQV9WTFJ5b3hFSUxLQW1ST19iaEJ4YmVLMk5FWkF2M1BuTjFsUzRhYjhlVUhwSG9qZV9IRFUxUFpqVlpFQ1ZULXl0R1dWR1k0amoza3pxbFJJZzBZQU5lcml1RmNiclBBbGhvY0VYTzlrMml0blN4UmJjUDRsR2FYQlJXSjVNMUFJenhCTVRWWUJFTTE0Mm9NT2FjQnlBaXc?oc=5",
-   "published": "2026-10-05T10:37:42+00:00"
+   "title": "Dhar Mann says YouTubers aren't his rivals. Hollywood is.",
+   "source": "USA Today",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNSC1DdlVCdGdGLWNIcEtSbzAzWjd0Rk81U3FHRUN6Z2hIOUFsakJaWmZuM3ducFZ3Umg5YVUzODdiNjE0Q19ub3pDM3JZdUs2NjVCUjdhbVRneG81RnZJaVVBamhxSnlyZHo4SnFTZGd1U0NyUUdxU3hYUmxXMzI0dm44WS1ickdac3Fya1JUcDA0M3dsLXF2X2NIQkZfeXdKeEVrUFpzRjMwTWdfRWsxU1lycWdqZzFCVllHMGFacEFXSGg4cFE?oc=5",
+   "published": "2026-10-05T18:54:54+00:00"
   },
   {
-   "title": "Google Suspends Open-Source Bug Bounty Due to AI Vulnerability Reports",
-   "source": "Infosecurity Magazine",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1GMmg5V1RUSnp1X1NTSWxmYkVQOC03d1BhSUloOVkwd2dSeWNYQVktenZwY2s3Qng2aEx1M2pFVUhwRDJEMWpyZHp0UVl6d25XZE9RaTdzN3pxd3NfdXZuMFIyMjBEbW1ZVnJxMjMyOHdCdWpNVGtMc01Qa2tIRmc?oc=5",
-   "published": "2026-10-05T10:30:00+00:00"
+   "title": "Google Wins Dismissal of Lawsuits About AI Search Impact on Website Traffic",
+   "source": "WinBuzzer",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPX2E0RGxuXzRUUmN1NlNxNDlsMk9VUVFreUszVUFhdnctMVlidEhvN1lCdEZlemVNU2xFUElNRTdsOTlQWXNHNDB5TkZ5eHhLQkdjcE81X3B5OFEwNXdZeUZEOHpmYTRLaC1xQzFfQ1N5Vk9Xa3g0Mk1XdzhJdE91UmExeXlha3d6NjFHb1FBWQ?oc=5",
+   "published": "2026-10-05T18:54:45+00:00"
+  },
+  {
+   "title": "Google pauses its open-source bug bounty program after a flood of AI slop reports",
+   "source": "TweakTown",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPUFZjZjZvSU9HNVdQV0dmbzM5NGV6X2NyYXliRmpJaTkzR0NVeGxwLXJJMC1LdkJkWDZDejZHSWxTMVZVYXNzY015VkRnVFNlaUU0UTVCalVicm5ES29kV0JRUTUxS2FFOENIYkx1TkE3bGQ2a093YlJXVWFYWHFPT3BVaXZ3QWJWOF9QOV9QWHozSXhscWhqM1lQVGU5ZUl3V2dZQngzN3RaNm5JZHFyTHB6emQ2SDNUUXB4N3VKLUZtaV9pVEVFNy1R?oc=5",
+   "published": "2026-10-05T18:40:12+00:00"
+  },
+  {
+   "title": "OpenAI, Anthropic, Google, Meta testify at NYC AI hearing",
+   "source": "qz.com",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBDdlNFRDVPMWE3TS1iLVdKZlo2NUlSR3YyQXpGRmVaQzJ6bTlWZlFOMHRIMHhKcUFSbGpSSjNFWjQwRWFFMHNBX0VmVHlQYXl1LXlJQTROYU9WTTg1ODg5R0U1NUtKdGNYTFNaNTNqUk9zXzJxVzB3LUNYcU1QUQ?oc=5",
+   "published": "2026-10-05T18:36:57+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-05T11:00:26+00:00",
+  "run_at": "2026-10-05T19:10:31+00:00",
   "session": {
-   "date": "2026-10-02",
-   "bar": "final"
+   "date": "2026-10-05",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-05T10:39:16+00:00"
+    "as_of": "2026-10-05T19:04:53+00:00"
    },
    "earnings:GOOG": {
     "ok": true,
@@ -1408,7 +1408,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-01"
+    "as_of": "2026-10-02"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1419,108 +1419,108 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-05T10:51:06+00:00"
+    "as_of": "2026-10-05T19:01:25+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-05T10:56:00+00:00"
+    "as_of": "2026-10-05T19:08:02+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-05T10:55:37+00:00"
+    "as_of": "2026-10-05T18:59:00+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-05T10:50:51+00:00"
+    "as_of": "2026-10-05T18:58:37+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-05T10:39:00+00:00"
+    "as_of": "2026-10-05T19:06:41+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-05T10:39:00+00:00"
+    "as_of": "2026-10-05T19:01:25+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-05T11:00Z"
+    "as_of": "2026-10-05T19:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-02"
+    "bar": "provisional",
+    "as_of": "2026-10-05"
    }
   },
   "degraded": [],
