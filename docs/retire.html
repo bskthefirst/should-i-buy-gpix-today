@@ -192,6 +192,114 @@
   .switchrow input { width: 18px; height: 18px; flex: none; accent-color: var(--brg); }
   .resetcell #reset { margin-top: 10px; }
   .ctl input[type=range]:focus-visible, #reset:focus-visible, .scenarios button:focus-visible { outline: 2px solid var(--brg); outline-offset: 2px; }
+
+  /* ================= motion ================= */
+  :root { --ease: cubic-bezier(.22, 1, .36, 1); --spring: cubic-bezier(.34, 1.45, .64, 1); }
+  @keyframes fadeup { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
+  @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes flashbg { 0% { background: rgba(0,66,37,.24); } 100% { background: transparent; } }
+  @keyframes flashcard { 0% { background: #e9f3e9; box-shadow: 0 0 0 4px rgba(0,66,37,.14); } 100% { background: var(--surface); box-shadow: 0 1px 2px rgba(28,42,34,.04), 0 6px 18px rgba(28,42,34,.05); } }
+  @keyframes swap { from { opacity: 0; transform: translateY(12px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
+  @keyframes pulse { 0% { transform: scale(1); opacity: .45; } 100% { transform: scale(3.4); opacity: 0; } }
+  @keyframes sheen { from { transform: translateX(-130%); } to { transform: translateX(130%); } }
+  @keyframes bump { 0% { transform: scale(1); } 40% { transform: scale(1.07); border-color: var(--brg); } 100% { transform: scale(1); } }
+
+  .topbar { animation: fadeup .7s var(--ease) both; }
+  header .kicker, header h1, header .sub { animation: fadeup .9s var(--ease) both; }
+  header h1 { animation-delay: .08s; }
+  header .sub { animation-delay: .16s; }
+
+  /* each section fades up when it scrolls into view */
+  .rv { opacity: 0; transform: translateY(20px) scale(.985); transition: opacity .85s var(--ease), transform .85s var(--ease); }
+  .rv.in { opacity: 1; transform: none; }
+  .verdict.rv { position: relative; overflow: hidden; }
+  .verdict.rv.in::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,.7) 50%, transparent 68%); transform: translateX(-130%); animation: sheen 1.7s .35s var(--ease) 1 both; }
+  .rv.enter .stats > .stat, .rv.enter .legend .lg, .rv.enter .prose p { animation: rise .8s var(--ease) backwards; }
+  .rv.enter .ms-table tr + tr { animation: fadein .9s var(--ease) backwards; }
+
+  /* a value that changed lights up once */
+  .flash td { animation: flashbg 1.4s var(--ease); }
+  .stat.flash { animation: flashcard 1.3s var(--ease); }
+  .swap { animation: swap .75s var(--ease); }
+
+  .stat { transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+  .stat:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(28,42,34,.05), 0 14px 28px rgba(28,42,34,.10); }
+  .ms-table tr { transition: background .25s ease; }
+  .ms-table tr:not(.target):hover td { background: rgba(0,66,37,.04); }
+  .msbar .bg i, .stack i { transition: width 1s var(--ease); }
+  .card { transition: box-shadow .3s var(--ease); }
+
+  /* chart */
+  .chartcard svg { overflow: visible; }
+  .cmark { opacity: 0; transition: opacity .6s ease; }
+  .cmark .pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s var(--ease) infinite; }
+  .chover { opacity: 0; transition: opacity .2s ease, transform .12s ease-out; pointer-events: none; }
+  .chover circle { transition: transform .12s ease-out; }
+
+  /* controls: round sliders that fill, a springy switch, a sliding pill */
+  .ctl input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; margin-top: 12px; border-radius: 99px; outline: none; cursor: pointer;
+    background: linear-gradient(90deg, var(--brg) 0, var(--brg) var(--p, 50%), #dfe4d6 var(--p, 50%), #dfe4d6 100%); }
+  .ctl input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 3px solid var(--brg);
+    box-shadow: 0 2px 6px rgba(0,66,37,.3); transition: transform .3s var(--spring), box-shadow .3s ease; }
+  .ctl input[type=range]:hover::-webkit-slider-thumb { transform: scale(1.14); }
+  .ctl input[type=range]:active::-webkit-slider-thumb { transform: scale(1.32); box-shadow: 0 0 0 9px rgba(0,66,37,.13), 0 2px 6px rgba(0,66,37,.3); }
+  .ctl input[type=range]::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid var(--brg); box-shadow: 0 2px 6px rgba(0,66,37,.3); }
+  .ctl input[type=range]::-moz-range-track { background: transparent; }
+  .numbox.bump { animation: bump .5s var(--spring); }
+
+  .ctl label.switchrow { cursor: pointer; }
+  .switchrow input[type=checkbox] { -webkit-appearance: none; appearance: none; width: 44px; height: 26px; flex: none; border-radius: 99px; background: #cdd4c6; position: relative; cursor: pointer; transition: background .35s var(--ease); }
+  .switchrow input[type=checkbox]::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    transition: transform .45s var(--spring), width .2s ease; }
+  .switchrow input[type=checkbox]:checked { background: var(--brg); }
+  .switchrow input[type=checkbox]:checked::after { transform: translateX(18px); }
+  .switchrow:active input[type=checkbox]::after { width: 25px; }
+  .switchrow:active input[type=checkbox]:checked::after { transform: translateX(13px); }
+  .switchrow input[type=checkbox]:focus-visible { outline: 2px solid var(--brg); outline-offset: 2px; }
+
+  .scenarios { position: relative; gap: 0; padding: 4px; background: var(--surface2); border-radius: 12px; }
+  .scenarios .spill { position: absolute; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 9px; background: var(--brg); box-shadow: 0 6px 14px rgba(0,66,37,.28); opacity: 0; pointer-events: none;
+    transition: transform .55s var(--spring), width .55s var(--spring), opacity .3s ease; }
+  .scenarios .spill.snap { transition: opacity .3s ease; }
+  .scenarios button { position: relative; z-index: 1; background: transparent; border: 0; transition: color .3s var(--ease), transform .2s var(--ease); }
+  .scenarios button.active { background: transparent; color: #fff; }
+  .scenarios button:not(.active):hover { color: var(--brg); }
+  .scenarios button:active { transform: scale(.95); }
+  #reset { transition: border-color .2s ease, color .2s ease, transform .2s var(--ease); }
+  #reset:active { transform: scale(.96); }
+
+  /* off switch: the system setting "reduce motion", or ?motion=off in the address */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .rv { opacity: 1; transform: none; }
+  }
+  .nomotion *, .nomotion *::before, .nomotion *::after { animation: none !important; transition: none !important; }
+  .nomotion .rv { opacity: 1; transform: none; }
+  .rv.enter .stats > .stat:nth-child(1), .rv.enter .legend .lg:nth-child(1), .rv.enter .prose p:nth-child(1) { animation-delay: 0.07s; }
+  .rv.enter .ms-table tr:nth-child(2) { animation-delay: 0.21s; }
+  .rv.enter .stats > .stat:nth-child(2), .rv.enter .legend .lg:nth-child(2), .rv.enter .prose p:nth-child(2) { animation-delay: 0.14s; }
+  .rv.enter .ms-table tr:nth-child(3) { animation-delay: 0.27s; }
+  .rv.enter .stats > .stat:nth-child(3), .rv.enter .legend .lg:nth-child(3), .rv.enter .prose p:nth-child(3) { animation-delay: 0.21s; }
+  .rv.enter .ms-table tr:nth-child(4) { animation-delay: 0.33s; }
+  .rv.enter .stats > .stat:nth-child(4), .rv.enter .legend .lg:nth-child(4), .rv.enter .prose p:nth-child(4) { animation-delay: 0.28s; }
+  .rv.enter .ms-table tr:nth-child(5) { animation-delay: 0.39s; }
+  .rv.enter .stats > .stat:nth-child(5), .rv.enter .legend .lg:nth-child(5), .rv.enter .prose p:nth-child(5) { animation-delay: 0.35s; }
+  .rv.enter .ms-table tr:nth-child(6) { animation-delay: 0.45s; }
+  .rv.enter .stats > .stat:nth-child(6), .rv.enter .legend .lg:nth-child(6), .rv.enter .prose p:nth-child(6) { animation-delay: 0.42s; }
+  .rv.enter .ms-table tr:nth-child(7) { animation-delay: 0.51s; }
+  .rv.enter .stats > .stat:nth-child(7), .rv.enter .legend .lg:nth-child(7), .rv.enter .prose p:nth-child(7) { animation-delay: 0.49s; }
+  .rv.enter .ms-table tr:nth-child(8) { animation-delay: 0.57s; }
+  .rv.enter .stats > .stat:nth-child(8), .rv.enter .legend .lg:nth-child(8), .rv.enter .prose p:nth-child(8) { animation-delay: 0.56s; }
+  .rv.enter .ms-table tr:nth-child(9) { animation-delay: 0.63s; }
+  .rv.enter .stats > .stat:nth-child(9), .rv.enter .legend .lg:nth-child(9), .rv.enter .prose p:nth-child(9) { animation-delay: 0.63s; }
+  .rv.enter .ms-table tr:nth-child(10) { animation-delay: 0.69s; }
+  .rv.enter .stats > .stat:nth-child(10), .rv.enter .legend .lg:nth-child(10), .rv.enter .prose p:nth-child(10) { animation-delay: 0.70s; }
+  .rv.enter .ms-table tr:nth-child(11) { animation-delay: 0.75s; }
+  .rv.enter .stats > .stat:nth-child(11), .rv.enter .legend .lg:nth-child(11), .rv.enter .prose p:nth-child(11) { animation-delay: 0.77s; }
+  .rv.enter .ms-table tr:nth-child(12) { animation-delay: 0.81s; }
+  .rv.enter .stats > .stat:nth-child(12), .rv.enter .legend .lg:nth-child(12), .rv.enter .prose p:nth-child(12) { animation-delay: 0.84s; }
+  .rv.enter .ms-table tr:nth-child(13) { animation-delay: 0.87s; }
 </style>
 </head>
 <body>
@@ -338,94 +446,226 @@ function awayLabel(m) { return m <= 0 ? "already there" : span(m) + " away"; }
 const num = (v, d = 0) => v.toLocaleString("en-US", { maximumFractionDigits: d });
 const fieldText = v => (v % 1 ? v.toFixed(2) : num(v));
 
-// Arc gauge: how much of the needed portfolio you hold today.
-function gauge(pct) {
-  const W = 236, H = 148, cx = W / 2, cy = 126, r = 90, bw = 17;
-  const frac = v => Math.max(0, Math.min(100, v)) / 100;
-  const pt = (v, rad) => {
-    const a = Math.PI * (1 + frac(v));
-    return [cx + rad * Math.cos(a), cy + rad * Math.sin(a)];
-  };
-  const arc = (v0, v1, color) => {
-    const [x0, y0] = pt(v0, r), [x1, y1] = pt(v1, r);
-    return `<path d="M ${x0.toFixed(1)} ${y0.toFixed(1)} A ${r} ${r} 0 0 1 ${x1.toFixed(1)} ${y1.toFixed(1)}" fill="none" stroke="${color}" stroke-width="${bw}"/>`;
-  };
-  const p = Math.max(0, Math.min(100, pct));
-  const [nx, ny] = pt(p, r - bw / 2 - 5);
-  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${p.toFixed(0)}% of the needed portfolio is held today">
-    ${arc(0, 100, "rgba(125,138,129,.22)")}
-    ${p > 0.5 ? arc(0, p, "rgba(0,66,37,.55)") : ""}
-    <line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="#1c2a22" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="${cx}" cy="${cy}" r="5.5" fill="#1c2a22"/>
-    <text class="gnum" x="${cx}" y="${cy - 26}" text-anchor="middle">${p.toFixed(p < 10 && p > 0 ? 1 : 0)}%</text>
-    <text class="gden" x="${cx}" y="${cy - 10}" text-anchor="middle">OF THE PORTFOLIO NEEDED</text>
-    <text class="gtick" x="${pt(0, r)[0].toFixed(1)}" y="${cy + 14}" text-anchor="middle">0%</text>
-    <text class="gtick" x="${pt(100, r)[0].toFixed(1)}" y="${cy + 14}" text-anchor="middle">100%</text>
-  </svg>`;
+// ================= motion =================
+// Every animation is switched off for people who ask for reduced motion, and with ?motion=off.
+const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches || /[?&]motion=off/.test(location.search);
+if (REDUCE) document.documentElement.classList.add("nomotion");
+const EASE = t => 1 - Math.pow(1 - t, 4);
+const $ = id => document.getElementById(id);
+const CUR = new Map();   // key -> the number now on screen (updated every frame), so a new tween starts where the last one is
+const RAF = new Map();   // key -> animation frame id
+const SIG = new Map();   // key -> last text of a row or card, to find what changed
+const FORMATS = { usd: fmt$, usdk: fmt$k, usd2, pct2: v => v.toFixed(2) + "%" };
+
+// A number the page counts up to. The text is already right in the HTML; runNumbers() animates it.
+const N = (key, value, f) => `<span data-k="${key}" data-num="${value}" data-f="${f}">${FORMATS[f](value)}</span>`;
+const inView = el => !!el.closest(".rv.in");
+
+function runNumbers(root) {
+  root.querySelectorAll("[data-num]").forEach(el => {
+    const key = el.dataset.k, to = +el.dataset.num, f = FORMATS[el.dataset.f];
+    cancelAnimationFrame(RAF.get(key));
+    if (!inView(el)) { el.textContent = f(0); return; }    // below the fold: it counts up when it scrolls into view
+    const from = CUR.has(key) ? CUR.get(key) : 0;
+    if (REDUCE || from === to) { el.textContent = f(to); CUR.set(key, to); return; }
+    const t0 = performance.now(), dur = 850;
+    const step = now => {
+      const t = Math.min(1, (now - t0) / dur), v = t < 1 ? from + (to - from) * EASE(t) : to;
+      CUR.set(key, v); el.textContent = f(v);
+      if (t < 1) RAF.set(key, requestAnimationFrame(step));
+    };
+    el.textContent = f(from);
+    RAF.set(key, requestAnimationFrame(step));
+  });
+}
+function runBars(root) {   // widths grow with a CSS transition
+  root.querySelectorAll("[data-w]").forEach(el => {
+    const key = "w:" + el.dataset.k, to = +el.dataset.w;
+    const from = inView(el) && CUR.has(key) && !REDUCE ? CUR.get(key) : 0;
+    el.style.transition = "none"; el.style.width = (REDUCE ? to : from) + "%";
+    if (!inView(el)) return;
+    void el.offsetWidth;
+    el.style.transition = ""; el.style.width = to + "%"; CUR.set(key, to);
+  });
+}
+function flashChanged(root) {   // a row or card that changed lights up once
+  root.querySelectorAll("[data-sig]").forEach(el => {
+    const key = el.dataset.k, sig = el.dataset.sig, prev = SIG.get(key);
+    SIG.set(key, sig);
+    if (prev === undefined || prev === sig || REDUCE) return;
+    const cls = el.dataset.anim === "swap" ? "swap" : "flash";
+    el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls);
+  });
 }
 
-function renderChart(sim, target, inflation) {
-  const pts = sim.months;
-  if (pts.length < 2) return "";
-  const W = 820, H = 240, L = 56, R = 14, T = 14, B = 30;
-  const lastM = pts[pts.length - 1].m;
-  const maxNet = Math.max(...pts.map(p => Math.max(p.net, p.target))) * 1.1;
-  const xi = m => L + (m / lastM) * (W - L - R);
-  const yv = v => T + (1 - v / maxNet) * (H - T - B);
-  const line = pts.map((p, i) => (i ? "L" : "M") + xi(p.m).toFixed(1) + " " + yv(p.net).toFixed(1)).join(" ");
-  const goalLine = pts.map((p, i) => (i ? "L" : "M") + xi(p.m).toFixed(1) + " " + yv(p.target).toFixed(1)).join(" ");
-  const area = line + ` L ${xi(lastM).toFixed(1)} ${yv(0)} L ${L} ${yv(0)} Z`;
-  const gridVals = [0.25, 0.5, 0.75, 1].map(f => maxNet * f);
-  const yearTicks = [];
-  const yearStep = lastM > 120 ? 24 : 12;
-  for (let m = yearStep; m < lastM; m += yearStep) yearTicks.push(m);
-  const cross = sim.crossAt != null ? pts.find(p => p.m === sim.crossAt) : null;
-  const goalLabel = `goal ${fmt$(target)}/mo in today's prices${inflation > 0 ? ", growing " + inflation + "% a year" : ""}`;
-  return `
+// ---- sections fade in as they scroll into view ----
+function onReveal(sec) {
+  sec.classList.add("enter");
+  setTimeout(() => sec.classList.remove("enter"), 1500);   // the entrance animation must not replay when the cards are redrawn
+  runNumbers(sec); runBars(sec);
+  if (sec.id === "sec-chart") drawIn();
+  if (sec.id === "sec-hero") moveGauge(GA.target);
+}
+function setupReveal() {
+  const secs = [...document.querySelectorAll(".rv")];
+  const show = sec => { if (!sec.classList.contains("in")) { sec.classList.add("in"); onReveal(sec); } };
+  if (REDUCE || !("IntersectionObserver" in window)) { secs.forEach(show); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.unobserve(e.target); show(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+  secs.forEach(s => io.observe(s));
+  setTimeout(() => secs.forEach(show), 5000);   // safety net
+}
+
+// ================= gauge: built once, the needle sweeps =================
+const GA = { W: 236, H: 148, cx: 118, cy: 126, r: 90, bw: 17, pct: 0, target: 0, raf: 0 };
+const gaugePt = (v, rad) => { const a = Math.PI * (1 + Math.max(0, Math.min(100, v)) / 100); return [GA.cx + rad * Math.cos(a), GA.cy + rad * Math.sin(a)]; };
+const gaugeArc = (v0, v1) => { const [x0, y0] = gaugePt(v0, GA.r), [x1, y1] = gaugePt(v1, GA.r); return `M ${x0.toFixed(1)} ${y0.toFixed(1)} A ${GA.r} ${GA.r} 0 0 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`; };
+function buildGauge() {
+  $("gauge").innerHTML = `<svg width="${GA.W}" height="${GA.H}" viewBox="0 0 ${GA.W} ${GA.H}" role="img" id="gsvg" aria-label="">
+    <path d="${gaugeArc(0, 100)}" fill="none" stroke="rgba(125,138,129,.22)" stroke-width="${GA.bw}"/>
+    <path id="g-fill" d="" fill="none" stroke="rgba(0,66,37,.55)" stroke-width="${GA.bw}"/>
+    <line id="g-needle" x1="${GA.cx}" y1="${GA.cy}" x2="${GA.cx - 70}" y2="${GA.cy}" stroke="#1c2a22" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="${GA.cx}" cy="${GA.cy}" r="5.5" fill="#1c2a22"/>
+    <text class="gnum" id="g-num" x="${GA.cx}" y="${GA.cy - 26}" text-anchor="middle">0%</text>
+    <text class="gden" x="${GA.cx}" y="${GA.cy - 10}" text-anchor="middle">OF THE PORTFOLIO NEEDED</text>
+    <text class="gtick" x="${gaugePt(0, GA.r)[0].toFixed(1)}" y="${GA.cy + 14}" text-anchor="middle">0%</text>
+    <text class="gtick" x="${gaugePt(100, GA.r)[0].toFixed(1)}" y="${GA.cy + 14}" text-anchor="middle">100%</text>
+  </svg>`;
+  paintGauge(0);
+}
+function paintGauge(p) {
+  GA.pct = p;
+  const [nx, ny] = gaugePt(p, GA.r - GA.bw / 2 - 5);
+  $("g-fill").setAttribute("d", p > 0.5 ? gaugeArc(0, p) : "");
+  $("g-needle").setAttribute("x2", nx.toFixed(1)); $("g-needle").setAttribute("y2", ny.toFixed(1));
+  $("g-num").textContent = p.toFixed(p < 10 && p > 0 ? 1 : 0) + "%";
+}
+function moveGauge(to) {
+  GA.target = Math.max(0, Math.min(100, to));
+  $("gsvg").setAttribute("aria-label", GA.target.toFixed(0) + "% of the needed portfolio is held today");
+  cancelAnimationFrame(GA.raf);
+  if (!inView($("gauge"))) return;
+  if (REDUCE) { paintGauge(GA.target); return; }
+  const from = GA.pct, t0 = performance.now(), dur = 1100;
+  const step = now => { const t = Math.min(1, (now - t0) / dur); paintGauge(t < 1 ? from + (GA.target - from) * EASE(t) : GA.target); if (t < 1) GA.raf = requestAnimationFrame(step); };
+  GA.raf = requestAnimationFrame(step);
+}
+
+// ================= chart: built once; it draws itself in and then morphs =================
+const CH = { W: 820, H: 240, L: 56, R: 14, T: 14, B: 30, K: 150, state: null, sim: null, raf: 0, drawn: false };
+function chartStateFrom(sim, target, infl) {
+  const pts = sim.months, n = pts.length, K = CH.K, net = [], goal = [];
+  for (let i = 0; i < K; i++) {   // K evenly spaced samples, linear between months, so short plans stay smooth
+    const f = i * (n - 1) / (K - 1), a = Math.floor(f), b = Math.min(n - 1, a + 1), w = f - a;
+    net.push(pts[a].net * (1 - w) + pts[b].net * w); goal.push(pts[a].target * (1 - w) + pts[b].target * w);
+  }
+  const cross = sim.crossAt != null ? pts[sim.crossAt] : null;
+  return { lastM: pts[n - 1].m, maxNet: Math.max(...pts.map(p => Math.max(p.net, p.target))) * 1.1, net, goal,
+    crossM: cross ? cross.m : null, crossNet: cross ? cross.net : null,
+    label: `goal ${fmt$(target)}/mo in today's prices${infl > 0 ? ", growing " + infl + "% a year" : ""}` };
+}
+function buildChart() {
+  const { W, H, L, T, B } = CH;
+  $("chartbox").innerHTML = `
   <svg viewBox="0 0 ${W} ${H}" id="csvg" role="img" aria-label="Monthly dividends after tax over time, compared with your goal">
-    <defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="rgba(0,66,37,.18)"/><stop offset="1" stop-color="rgba(0,66,37,0)"/>
-    </linearGradient></defs>
-    ${gridVals.map(v => `<line x1="${L}" x2="${W - R}" y1="${yv(v)}" y2="${yv(v)}" stroke="#e4e7dd" stroke-width="1"/>
-      <text x="2" y="${yv(v) + 4}">${fmt$(v)}/mo</text>`).join("")}
-    ${yearTicks.map(m => `<text x="${xi(m)}" y="${H - 10}" text-anchor="middle">${monthLabel(m)}</text>`).join("")}
-    <path d="${area}" fill="url(#rg)"/>
-    <path d="${line}" fill="none" stroke="var(--brg)" stroke-width="2.25"/>
-    <path d="${goalLine}" fill="none" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="5 4"/>
-    <text x="${L + 6}" y="${T + 10}" fill="#b91c1c">${goalLabel}</text>
-    ${cross ? `<circle cx="${xi(cross.m)}" cy="${yv(cross.net)}" r="5.5" fill="var(--brg)" stroke="#fff" stroke-width="2"/>
-      <text x="${xi(cross.m)}" y="${yv(cross.net) + 20}" text-anchor="middle" font-weight="700" fill="var(--brg)">${monthLabel(cross.m)}</text>` : ""}
+    <defs>
+      <linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(0,66,37,.20)"/><stop offset="1" stop-color="rgba(0,66,37,0)"/></linearGradient>
+      <clipPath id="c-clip"><rect id="c-clip-rect" x="0" y="0" width="0" height="${H}"/></clipPath>
+    </defs>
+    <g id="c-grid"></g><g id="c-ticks"></g>
+    <g clip-path="url(#c-clip)">
+      <path id="c-area" fill="url(#rg)"/>
+      <path id="c-goal" fill="none" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <path id="c-line" fill="none" stroke="var(--brg)" stroke-width="2.4" stroke-linejoin="round"/>
+    </g>
+    <text id="c-goallabel" x="${L + 6}" y="${T + 10}" fill="#b91c1c"></text>
+    <g id="c-mark" class="cmark"><circle class="pulse" r="6" fill="var(--brg)"/><circle r="5.5" fill="var(--brg)" stroke="#fff" stroke-width="2"/><text id="c-marklabel" y="22" text-anchor="middle" font-weight="700" fill="var(--brg)"></text></g>
+    <g id="c-hover" class="chover"><line y1="${T}" y2="${H - B}" stroke="#9aa79f" stroke-width="1"/><circle id="c-hdot" r="4" fill="#1c2a22" stroke="#fff" stroke-width="1.5"/></g>
   </svg>`;
-}
-
-function attachChartHover(sim) {
-  const svg = document.getElementById("csvg");
-  const tip = document.getElementById("ctip");
-  if (!svg) return;
-  const pts = sim.months;
-  const lastM = pts[pts.length - 1].m;
-  const move = ev => {
-    const rect = svg.getBoundingClientRect();
-    const fx = (ev.clientX - rect.left) / rect.width * 820;
-    const m = Math.round(Math.max(0, Math.min(lastM, (fx - 56) / (820 - 56 - 14) * lastM)));
-    const p = pts.find(q => q.m === m) || pts[pts.length - 1];
+  const svg = $("csvg"), tip = $("ctip");
+  svg.addEventListener("pointermove", ev => {
+    const s = CH.state, sim = CH.sim; if (!s || !sim) return;
+    const rect = svg.getBoundingClientRect(), fx = (ev.clientX - rect.left) / rect.width * CH.W;
+    const m = Math.round(Math.max(0, Math.min(s.lastM, (fx - CH.L) / (CH.W - CH.L - CH.R) * s.lastM)));
+    const p = sim.months.find(q => q.m === m) || sim.months[sim.months.length - 1];
+    const x = CH.L + (p.m / s.lastM) * (CH.W - CH.L - CH.R), y = CH.T + (1 - p.net / s.maxNet) * (CH.H - CH.T - CH.B);
+    $("c-hover").style.opacity = 1; $("c-hover").style.transform = `translate(${x}px,0)`; $("c-hdot").style.transform = `translate(0,${y}px)`;
     tip.textContent = monthLabel(p.m) + " · " + fmt$(p.net) + "/mo after tax · goal " + fmt$(p.target) + "/mo · portfolio " + fmt$k(p.portfolio);
     tip.style.display = "block";
     tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - 250) + "px";
     tip.style.top = (ev.clientY + 16) + "px";
+  });
+  svg.addEventListener("pointerleave", () => { tip.style.display = "none"; $("c-hover").style.opacity = 0; });
+  CH.state = null; CH.drawn = false;
+}
+function drawChart(s) {
+  const { W, H, L, R, T, B, K } = CH;
+  const xi = m => L + (m / s.lastM) * (W - L - R), xt = i => L + (i / (K - 1)) * (W - L - R);
+  const yv = v => T + (1 - v / s.maxNet) * (H - T - B);
+  const path = arr => arr.map((v, i) => (i ? "L" : "M") + xt(i).toFixed(1) + " " + yv(v).toFixed(1)).join("");
+  const line = path(s.net);
+  $("c-line").setAttribute("d", line); $("c-goal").setAttribute("d", path(s.goal));
+  $("c-area").setAttribute("d", line + ` L ${xt(K - 1).toFixed(1)} ${yv(0).toFixed(1)} L ${L} ${yv(0).toFixed(1)} Z`);
+  $("c-grid").innerHTML = [0.25, 0.5, 0.75, 1].map(f => s.maxNet * f).map(v =>
+    `<line x1="${L}" x2="${W - R}" y1="${yv(v).toFixed(1)}" y2="${yv(v).toFixed(1)}" stroke="#e4e7dd" stroke-width="1"/><text x="2" y="${(yv(v) + 4).toFixed(1)}">${fmt$(v)}/mo</text>`).join("");
+  const step = s.lastM > 120 ? 24 : 12, ticks = [];
+  for (let m = step; m < s.lastM; m += step) ticks.push(`<text x="${xi(m).toFixed(1)}" y="${H - 10}" text-anchor="middle">${monthLabel(Math.round(m))}</text>`);
+  $("c-ticks").innerHTML = ticks.join("");
+  $("c-goallabel").textContent = s.label;
+  const mk = $("c-mark");
+  if (s.crossM == null) mk.style.opacity = 0;
+  else {
+    mk.style.opacity = CH.drawn ? 1 : 0;
+    mk.style.transform = `translate(${xi(s.crossM).toFixed(1)}px,${yv(s.crossNet).toFixed(1)}px)`;
+    $("c-marklabel").textContent = monthLabel(Math.round(s.crossM));
+  }
+}
+function setClip(p) { $("c-clip-rect").setAttribute("width", (CH.W * p).toFixed(1)); }
+function drawIn() {   // the curve is drawn from left to right the first time you see it
+  const finish = () => { CH.drawn = true; setClip(1); if (CH.state) drawChart(CH.state); };
+  if (REDUCE) { finish(); return; }
+  const t0 = performance.now(), dur = 1600;
+  const step = now => { const t = Math.min(1, (now - t0) / dur); setClip(EASE(t)); if (t < 1) requestAnimationFrame(step); else finish(); };
+  requestAnimationFrame(step);
+}
+function showChart(next) {
+  cancelAnimationFrame(CH.raf);
+  if (!CH.state || REDUCE || !CH.drawn) { CH.state = next; drawChart(next); return; }
+  const from = CH.state, t0 = performance.now(), dur = 700, mix = (a, b, t) => a + (b - a) * t;
+  const step = now => {
+    const t = EASE(Math.min(1, (now - t0) / dur));
+    if (t >= 1) { CH.state = next; drawChart(next); return; }
+    CH.state = {
+      lastM: mix(from.lastM, next.lastM, t), maxNet: mix(from.maxNet, next.maxNet, t),
+      net: next.net.map((v, i) => mix(from.net[i], v, t)), goal: next.goal.map((v, i) => mix(from.goal[i], v, t)),
+      crossM: next.crossM == null ? null : mix(from.crossM ?? next.crossM, next.crossM, t),
+      crossNet: next.crossNet == null ? null : mix(from.crossNet ?? next.crossNet, next.crossNet, t), label: next.label,
+    };
+    drawChart(CH.state);
+    CH.raf = requestAnimationFrame(step);
   };
-  svg.addEventListener("pointermove", move);
-  svg.addEventListener("pointerleave", () => { tip.style.display = "none"; });
+  CH.raf = requestAnimationFrame(step);
 }
 
-// ---- page skeleton: rendered once, so typing and dragging are never interrupted ----
+// ================= page skeleton: built once, so typing and dragging are never interrupted =================
 function numBox(id, pre, suf, label) {
   return `<span class="numbox">${pre ? `<span class="pre">${pre}</span>` : ""}<input type="text" inputmode="decimal" autocomplete="off" id="${id}" aria-label="${label}">${suf ? `<span class="suf">${suf}</span>` : ""}</span>`;
 }
-function renderSkeleton(yields, meta) {
-  document.getElementById("app").innerHTML = `
-    <div class="verdict"><div class="vgrid" id="hero"></div></div>
+function paintSlider(el) { el.style.setProperty("--p", ((el.value - el.min) / (el.max - el.min) * 100) + "%"); }
+function bump(id) { const b = $(id); if (!b || REDUCE) return; const box = b.closest(".numbox"); box.classList.remove("bump"); void box.offsetWidth; box.classList.add("bump"); }
+function placeScenPill(instant) {   // a green pill slides under the chosen share price case
+  const pill = document.querySelector(".spill"), b = document.querySelector(".scenarios button.active");
+  if (!pill || !b) return;
+  const snap = instant || pill.style.opacity !== "1";
+  if (snap) pill.classList.add("snap");
+  pill.style.width = b.offsetWidth + "px"; pill.style.transform = `translateX(${b.offsetLeft}px)`; pill.style.opacity = 1;
+  if (snap) { void pill.offsetWidth; pill.classList.remove("snap"); }
+}
 
+function renderSkeleton(yields, meta) {
+  $("app").innerHTML = `
+    <section class="verdict rv" id="sec-hero"><div class="vgrid"><div id="hero-text"></div><div class="vgauge" id="gauge"></div></div></section>
+
+    <section class="rv" id="sec-plan">
     <h2>Your plan</h2>
     <div class="h2sub">Change any number. Everything below updates at once.</div>
     <div class="card">
@@ -460,7 +700,7 @@ function renderSkeleton(yields, meta) {
         </div>
         <div class="ctl">
           <label id="l-scen">Share price change per year <b id="v-scen"></b></label>
-          <div class="scenarios" role="group" aria-labelledby="l-scen">
+          <div class="scenarios" role="group" aria-labelledby="l-scen"><span class="spill" aria-hidden="true"></span>
             ${Object.keys(SCENARIOS).map(k => `<button type="button" data-scen="${k}">${SCENARIO_LABEL[k]}</button>`).join("")}
           </div>
           <div class="hint">How much the fund share price rises each year, apart from dividends. Covered-call funds keep only part of a market rise, so +2.5% a year is a careful middle case.</div>
@@ -478,47 +718,64 @@ function renderSkeleton(yields, meta) {
         </div>
       </div>
     </div>
+    </section>
 
+    <section class="rv" id="sec-key">
     <h2>Key numbers</h2>
     <div class="h2sub">Dividend rates and share prices come from the latest data run${meta.asof ? " · " + meta.asof : ""}${meta.fallback && meta.fallback.length ? " (" + meta.fallback.join(" and ") + ": backup estimate, no live data)" : ""}${meta.stale ? " · these data are older than expected" : ""}. They change from month to month, so every date here is an estimate. Won amounts use ₩${FX.toLocaleString("en-US", { maximumFractionDigits: 2 })} per dollar (${FX_NOTE}).</div>
     <div class="stats" id="stats"></div>
+    </section>
 
+    <section class="rv" id="sec-chart">
     <h2>Your income over time</h2>
     <div class="h2sub">Monthly dividends after tax as the portfolio grows, against your goal. The goal line rises when inflation is above 0%. Point at the line to see the portfolio size.</div>
     <div class="card chartcard" id="chartbox"></div>
+    </section>
 
+    <section class="rv" id="sec-ms">
     <h2>Milestones on the way</h2>
     <div class="h2sub">For each level of monthly dividends in today's prices: when your plan reaches it, and the portfolio you need by then.</div>
     <div class="card" style="padding: 8px 6px;" id="msbox"></div>
+    </section>
 
+    <section class="rv" id="sec-src">
     <h2>Where the money comes from</h2>
     <div class="h2sub" id="srcsub"></div>
     <div class="card" id="srcbox"></div>
+    </section>
 
+    <section class="rv" id="sec-sens">
     <h2>What changes your date the most</h2>
     <div class="h2sub">One change at a time, with everything else as you set it above.</div>
     <div class="card" style="padding: 8px 6px;" id="sensbox"></div>
+    </section>
 
+    <section class="rv" id="sec-scen">
     <h2>How much does the share price matter?</h2>
     <div class="h2sub" id="scensub"></div>
     <div class="stats" id="scenbox"></div>
+    </section>
 
+    <section class="rv" id="sec-checks">
     <h2>Two checks that real life adds</h2>
     <div class="h2sub">The inflation check shows what inflation costs you. The tax check shows where extra Korean tax starts, which the date does not include.</div>
     <div class="stats checks" id="checks"></div>
+    </section>
 
+    <section class="rv" id="sec-prose">
     <h2 id="target-h2"></h2>
     <div class="card prose" id="prose"></div>
-
     <div class="honesty" id="honesty"></div>
+    </section>
   `;
+  buildGauge(); buildChart();
 
   const slider = (sliderId, key, numId) => {
-    const el = document.getElementById(sliderId);
-    el.addEventListener("input", () => { S[key] = clampTo(key, el.value); if (numId) document.getElementById(numId).value = fieldText(S[key]); update(yields); });
+    const el = $(sliderId);
+    el.addEventListener("input", () => { S[key] = clampTo(key, el.value); paintSlider(el); if (numId) { $(numId).value = fieldText(S[key]); bump(numId); } update(yields); });
   };
   const numeric = (numId, key, sliderId) => {
-    const el = document.getElementById(numId);
+    const el = $(numId);
     el.addEventListener("input", () => {
       // The box always shows what the page uses: keep only digits, one dot and commas,
       // and cap a number that is above the limit.
@@ -530,7 +787,7 @@ function renderSkeleton(yields, meta) {
       S[key] = clampTo(key, raw);
       if (raw > LIMITS[key][1]) t = fieldText(S[key]);
       if (t !== el.value) el.value = t;
-      if (sliderId) document.getElementById(sliderId).value = S[key];
+      if (sliderId) { $(sliderId).value = S[key]; paintSlider($(sliderId)); }
       update(yields);
     });
     el.addEventListener("blur", () => { el.value = fieldText(S[key]); });   // tidy format when you leave the box
@@ -540,24 +797,26 @@ function renderSkeleton(yields, meta) {
   slider("in-monthly", "monthly", "n-monthly"); numeric("n-monthly", "monthly", "in-monthly");
   slider("in-mix", "gpixPct"); slider("in-tax", "taxPct"); slider("in-infl", "inflation");
   numeric("n-startGpix", "startGpix"); numeric("n-startGpiq", "startGpiq");
-  document.getElementById("in-whole").addEventListener("change", e => { S.whole = e.target.checked; update(yields); });
+  $("in-whole").addEventListener("change", e => { S.whole = e.target.checked; update(yields); });
   document.querySelectorAll("[data-scen]").forEach(b =>
     b.addEventListener("click", () => { S.scenario = b.dataset.scen; update(yields); }));
-  document.getElementById("reset").addEventListener("click", () => { S = { ...DEFAULTS }; syncControls(); update(yields); });
+  $("reset").addEventListener("click", () => { S = { ...DEFAULTS }; syncControls(); update(yields); });
+  if ("ResizeObserver" in window) new ResizeObserver(() => placeScenPill(true)).observe(document.querySelector(".scenarios"));
   syncControls();
 }
 
 // Put the saved numbers into the controls (used at the start and after Reset).
 function syncControls() {
-  const set = (id, v) => { document.getElementById(id).value = v; };
+  const set = (id, v) => { $(id).value = v; };
   set("in-target", S.target); set("n-target", fieldText(S.target));
   set("in-monthly", S.monthly); set("n-monthly", fieldText(S.monthly));
   set("in-mix", S.gpixPct); set("in-tax", S.taxPct); set("in-infl", S.inflation);
   set("n-startGpix", fieldText(S.startGpix)); set("n-startGpiq", fieldText(S.startGpiq));
-  document.getElementById("in-whole").checked = S.whole;
+  $("in-whole").checked = S.whole;
+  ["in-target", "in-monthly", "in-mix", "in-tax", "in-infl"].forEach(id => paintSlider($(id)));
 }
 
-// ---- results ----
+// ================= results =================
 function pl(n, one, many) { return n + " " + (n === 1 ? one : many); }
 function shiftText(base, other) {   // how far "other" moves the date compared with "base"
   if (base == null && other == null) return { cls: "", text: "still not within 40 years" };
@@ -582,7 +841,6 @@ function update(yields) {
   const goalRow = when != null ? sim.months[when] : null;
   const goalThen = goalRow ? goalRow.target : null;            // the goal in the prices of that month
   const needThen = goalThen != null ? goalThen * 12 / sim.mixNet : null;
-  const $ = id => document.getElementById(id);
 
   // hero
   const heroWhen = when === 0 ? "Today" : when != null ? "≈ " + monthLabel(when) : "Not within 40 years";
@@ -590,16 +848,14 @@ function update(yields) {
   const inflText = goalThen != null && infl > 0 && when > 0
     ? ` Your goal of ${fmt$(S.target)} is in today's prices. With ${infl}% inflation it is <b>${fmt$(goalThen)} a month</b> by then (${won(goalThen)}).`
     : ` That is about ${won(S.target)} a month.`;
-  $("hero").innerHTML = `
-    <div>
+  $("hero-text").innerHTML = `
       <div class="whenlab">Your dividends reach your goal around</div>
-      <div class="when">${heroWhen}</div>
-      <div class="away">${heroAway}</div>
+      <div class="when" data-k="hero-when" data-sig="${heroWhen}" data-anim="swap">${heroWhen}</div>
+      <div class="away" data-k="hero-away" data-sig="${heroAway}" data-anim="swap">${heroAway}</div>
       <div class="summary">You add ${fmt$(S.monthly)} every month (${S.gpixPct}% GPIX / ${100 - S.gpixPct}% GPIQ${S.whole ? ", whole shares only" : ""}) and reinvest every dividend after ${S.taxPct}% tax.
       Then your dividends pay your goal of <b>${fmt$(S.target)} a month after tax</b> in the <b>${SCENARIO_LABEL[S.scenario].toLowerCase()}</b> case for share prices.${inflText}
-      At that point your dividends alone could replace that amount of income. Your job pay is not part of this math.</div>
-    </div>
-    <div class="vgauge">${gauge(progressPct)}</div>`;
+      At that point your dividends alone could replace that amount of income. Your job pay is not part of this math.</div>`;
+  moveGauge(progressPct);
 
   // control labels
   $("v-mix").textContent = S.gpixPct + "% GPIX / " + (100 - S.gpixPct) + "% GPIQ";
@@ -611,26 +867,28 @@ function update(yields) {
   $("v-scen").textContent = SCENARIO_LABEL[S.scenario];
   $("v-infl").textContent = S.inflation + "%";
   document.querySelectorAll("[data-scen]").forEach(b => { b.classList.toggle("active", b.dataset.scen === S.scenario); b.setAttribute("aria-pressed", String(b.dataset.scen === S.scenario)); });
+  placeScenPill();
   $("savedhint").textContent = storageOk ? "Your numbers are saved in this browser. Another device or browser keeps its own numbers." : "This browser blocks saving, so your numbers will reset when you reload.";
 
   // key numbers
   const todayNet = (hold.sg * y.pxGpix * y.gpix + hold.sq * y.pxGpiq * y.gpiq) / 100 / 12 * (1 - S.taxPct / 100);
   $("stats").innerHTML = `
-    <div class="stat"><div class="name">Dividend rate before tax</div><div class="val">${(sim.mixGross * 100).toFixed(2)}%</div>
+    <div class="stat"><div class="name">Dividend rate before tax</div><div class="val">${N("st-gross", sim.mixGross * 100, "pct2")}</div>
       <div class="note">GPIX ${y.gpix.toFixed(2)}% × ${S.gpixPct}% + GPIQ ${y.gpiq.toFixed(2)}% × ${100 - S.gpixPct}%</div></div>
-    <div class="stat"><div class="name">Dividend rate after tax</div><div class="val">${(sim.mixNet * 100).toFixed(2)}%</div>
+    <div class="stat"><div class="name">Dividend rate after tax</div><div class="val">${N("st-net", sim.mixNet * 100, "pct2")}</div>
       <div class="note">This rate pays you, and it also makes the portfolio grow</div></div>
-    <div class="stat"><div class="name">Portfolio needed for ${fmt$(S.target)} a month</div><div class="val">${fmt$k(needPot)}</div>
+    <div class="stat"><div class="name">Portfolio needed for ${fmt$(S.target)} a month</div><div class="val">${N("st-need", needPot, "usdk")}</div>
       <div class="note">${fmt$(S.target * 12)} a year ÷ ${(sim.mixNet * 100).toFixed(2)}% (about ${won(needPot)}) at today's prices${needThen != null && infl > 0 && when > 0 ? `. At your goal date it is ${fmt$k(needThen)}.` : ""}</div></div>
-    <div class="stat"><div class="name">You add</div><div class="val">${fmt$(S.monthly)} a month</div>
+    <div class="stat"><div class="name">You add</div><div class="val">${N("st-add", S.monthly, "usd")} a month</div>
       <div class="note">${fmt$(S.monthly * 12)} a year, before reinvested dividends</div></div>
-    <div class="stat"><div class="name">Your holdings pay today</div><div class="val">${fmt$(todayNet)} a month</div>
+    <div class="stat"><div class="name">Your holdings pay today</div><div class="val">${N("st-today", todayNet, "usd")} a month</div>
       <div class="note">after tax, on ${fmt$(startTotal)} invested</div></div>
-    <div class="stat"><div class="name">Each extra $1,000 pays</div><div class="val">${"$" + (1000 * sim.mixNet / 12).toFixed(2)} a month</div>
+    <div class="stat"><div class="name">Each extra $1,000 pays</div><div class="val">${N("st-extra", 1000 * sim.mixNet / 12, "usd2")} a month</div>
       <div class="note">after tax, at your mix and today's dividend rates</div></div>`;
 
-  $("chartbox").innerHTML = renderChart(sim, S.target, infl);
-  attachChartHover(sim);
+  // chart
+  CH.sim = sim;
+  showChart(chartStateFrom(sim, S.target, infl));
 
   // milestones (levels are in today's prices; the goal for each level grows with inflation)
   const milestones = [...new Set([250, 500, 1000, 1500, 2000, 3000, 5000, S.target])].sort((a, b) => a - b);
@@ -642,13 +900,13 @@ function update(yields) {
   $("msbox").innerHTML = `
     <table class="ms-table">
       <tr><th>Dividends a month (today's prices)</th><th>In won</th><th>When</th><th>Portfolio needed by then</th><th class="msbar"></th></tr>
-      ${msRows.map(r => `<tr class="${r.level === S.target ? "target" : ""}">
+      ${msRows.map(r => { const when2 = r.months != null ? monthLabel(r.months) + " · " + awayLabel(r.months) : "not within 40 years"; return `<tr class="${r.level === S.target ? "target" : ""}" data-k="ms-${r.level}" data-sig="${when2}">
         <td>${fmt$(r.level)}</td>
         <td>${won(r.level)}</td>
-        <td>${r.months != null ? monthLabel(r.months) + " · " + awayLabel(r.months) : "not within 40 years"}</td>
-        <td>${r.potThen != null ? fmt$k(r.potThen) : "—"}</td>
-        <td class="msbar">${r.months != null ? `<div class="bg"><i style="width:${(r.months / maxMs * 100).toFixed(0)}%"></i></div>` : ""}</td>
-      </tr>`).join("")}
+        <td>${when2}</td>
+        <td>${r.potThen != null ? N("ms-pot-" + r.level, r.potThen, "usdk") : "—"}</td>
+        <td class="msbar">${r.months != null ? `<div class="bg"><i data-k="ms-bar-${r.level}" data-w="${(r.months / maxMs * 100).toFixed(0)}"></i></div>` : ""}</td>
+      </tr>`; }).join("")}
     </table>`;
 
   // where the money comes from
@@ -658,14 +916,14 @@ function update(yields) {
     $("srcsub").textContent = `On ${monthLabel(when)} your portfolio is about ${fmt$k(total)}. This is how it was built.`;
     $("srcbox").innerHTML = `
       <div class="stack" role="img" aria-label="Portfolio split: your own money ${pct(own).toFixed(0)}%, reinvested dividends ${pct(reinv).toFixed(0)}%, share price growth ${pct(growth).toFixed(0)}%">
-        <i class="s1" style="width:${pct(own).toFixed(2)}%"></i><i class="s2" style="width:${pct(reinv).toFixed(2)}%"></i><i class="s3" style="width:${pct(growth).toFixed(2)}%"></i>
+        <i class="s1" data-k="src-s1" data-w="${pct(own).toFixed(2)}"></i><i class="s2" data-k="src-s2" data-w="${pct(reinv).toFixed(2)}"></i><i class="s3" data-k="src-s3" data-w="${pct(growth).toFixed(2)}"></i>
       </div>
       <div class="legend">
-        <div class="lg"><i class="s1"></i><div><b>${fmt$k(own)}</b> your own money (${pct(own).toFixed(0)}%)<small>What you hold today plus ${fmt$(goalRow.cumContrib)} of savings.</small></div></div>
-        <div class="lg"><i class="s2"></i><div><b>${fmt$k(reinv)}</b> reinvested dividends (${pct(reinv).toFixed(0)}%)<small>Dividends after tax that you put back into the funds.</small></div></div>
-        <div class="lg"><i class="s3"></i><div><b>${fmt$k(growth)}</b> share price growth (${pct(growth).toFixed(0)}%)<small>From the ${SCENARIO_LABEL[S.scenario].toLowerCase()} case. A flat price case makes this zero.</small></div></div>
+        <div class="lg"><i class="s1"></i><div><b>${N("src-own", own, "usdk")}</b> your own money (${pct(own).toFixed(0)}%)<small>What you hold today plus ${fmt$(goalRow.cumContrib)} of savings.</small></div></div>
+        <div class="lg"><i class="s2"></i><div><b>${N("src-reinv", reinv, "usdk")}</b> reinvested dividends (${pct(reinv).toFixed(0)}%)<small>Dividends after tax that you put back into the funds.</small></div></div>
+        <div class="lg"><i class="s3"></i><div><b>${N("src-growth", growth, "usdk")}</b> share price growth (${pct(growth).toFixed(0)}%)<small>From the ${SCENARIO_LABEL[S.scenario].toLowerCase()} case. A flat price case makes this zero.</small></div></div>
       </div>
-      <p class="after">Until then the US takes <b>${fmt$k(goalRow.cumTax)}</b> in tax from your dividends (${S.taxPct}%). In the goal month the portfolio pays ${fmt$(goalRow.net)} after tax and ${fmt$(goalRow.gross)} before tax.${S.whole ? ` Cash waiting to buy the next share: ${fmt$(goalRow.cash)}.` : ""}</p>`;
+      <p class="after">Until then the US takes <b>${N("src-tax", goalRow.cumTax, "usdk")}</b> in tax from your dividends (${S.taxPct}%). In the goal month the portfolio pays ${fmt$(goalRow.net)} after tax and ${fmt$(goalRow.gross)} before tax.${S.whole ? ` Cash waiting to buy the next share: ${fmt$(goalRow.cash)}.` : ""}</p>`;
   } else {
     $("srcsub").textContent = "Your plan does not reach the goal within 40 years, so there is no goal date to show.";
     $("srcbox").innerHTML = `<p class="after">Add more each month or lower the goal. Then this card shows how your portfolio is built.</p>`;
@@ -689,7 +947,7 @@ function update(yields) {
   $("sensbox").innerHTML = `
     <table class="ms-table">
       <tr><th>If you change this</th><th>New date</th><th>Change</th></tr>
-      ${sens.map(r => `<tr><td>${r.label}</td><td>${r.months != null ? monthLabel(r.months) : "not within 40 years"}</td><td class="shift ${r.shift.cls}">${r.shift.text}</td></tr>`).join("")}
+      ${sens.map(r => { const d = r.months != null ? monthLabel(r.months) : "not within 40 years"; return `<tr data-k="sens-${r.label}" data-sig="${d}|${r.shift.text}"><td>${r.label}</td><td>${d}</td><td class="shift ${r.shift.cls}">${r.shift.text}</td></tr>`; }).join("")}
     </table>`;
 
   // share price cases
@@ -699,11 +957,11 @@ function update(yields) {
   $("scensub").textContent = "The same plan with three paths for the share price. " + (gap == null ? "Here the share price decides whether you reach the goal at all."
     : gap <= 6 ? `The dividend rate does most of the work. The share price path moves your date by only ${pl(gap, "month", "months")}.`
     : `The share price path moves your date by ${span(gap)} between the best and the worst case.`);
-  $("scenbox").innerHTML = scen.map(s => `<div class="stat">
+  $("scenbox").innerHTML = scen.map(s => { const d = s.months != null ? monthLabel(s.months) : "after 40 years"; return `<div class="stat" data-k="scen-${s.k}" data-sig="${d}">
       <div class="name">${SCENARIO_LABEL[s.k]}${s.k === S.scenario ? " · selected" : ""}</div>
-      <div class="val">${s.months != null ? monthLabel(s.months) : "after 40 years"}</div>
+      <div class="val">${d}</div>
       <div class="note">${s.months != null ? awayLabel(s.months) : "the goal is not reached"}</div>
-    </div>`).join("");
+    </div>`; }).join("");
 
   // check 1: what inflation costs (the main date already counts it)
   const noInfl = infl > 0 ? monthsTo(y, p, S.target, drift, 0) : when;
@@ -732,7 +990,7 @@ function update(yields) {
     taxCard = `<div class="name">Korea tax line · ₩20M a year</div><div class="val warn">Above the line</div>
       <div class="note">At your goal the funds pay about ${fmt$(grossAtGoal)} a year before tax (${won(grossAtGoal)}). That is over ₩20M (about ${fmt$(lineUsd)}). ${hit ? `You cross the line on ${monthLabel(hit.m)}, when the portfolio is ${fmt$k(hit.portfolio)}${before ? ", before your goal date" : ""}. ` : ""}Because you pay tax in Korea, the part above the line is taxed at higher rates. Your real income after tax is <b>lower</b> than this page shows, and the date is probably later.</div>`;
   }
-  $("checks").innerHTML = `<div class="stat wide">${inflCard}</div><div class="stat wide">${taxCard}</div>`;
+  $("checks").innerHTML = `<div class="stat wide" data-k="chk-infl" data-sig="${inflCard.length}|${when}|${noInfl}">${inflCard}</div><div class="stat wide" data-k="chk-tax" data-sig="${grossAtGoal < lineUsd}|${hit ? hit.m : ""}">${taxCard}</div>`;
 
   // closing text, written for the goal you chose
   $("target-h2").textContent = `Is ${fmt$(S.target)} a month enough to retire on?`;
@@ -756,11 +1014,16 @@ function update(yields) {
     Korea can add tax. If your interest and dividends together are above ₩20M a year (about ${fmt$(lineUsd)}), the part above ₩20M is added to your other income and taxed at higher rates, with a credit for the US tax. Below ₩20M, the US tax is usually the whole story.
     The page also does not model: changes in the won-dollar rate (your dividends are in dollars and your costs may be in won), dividends that rise and fall with the option market (the 12-month rate looks backward), raises in your pay, and falling share prices in a long bear market, which cut the dollar dividend even when the rate stays the same.
     Ask a tax adviser about your own case. Treat the date as a guide, not a promise.`;
+
+  // motion for everything that was just redrawn
+  const app = $("app");
+  flashChanged(app); runNumbers(app); runBars(app);
 }
 
 function render(yields, meta) {
   renderSkeleton(yields, meta);
   update(yields);
+  setupReveal();
 }
 
 const weekdayHoursSince = iso => {
@@ -794,7 +1057,8 @@ Promise.all([
     ? "as of " + new Date(gpix.generated_at).toLocaleDateString([], { month: "short", day: "numeric" })
     : "using backup estimates";
   render(yields, { asof, fallback, stale: !!(gpix && gpix.generated_at && weekdayHoursSince(gpix.generated_at) > 30) });
-}).catch(() => {
+}).catch(e => {
+  console.error(e);
   render({ gpix: FALLBACK_YIELD.gpix, gpiq: FALLBACK_YIELD.gpiq, pxGpix: FALLBACK_PRICE.gpix, pxGpiq: FALLBACK_PRICE.gpiq },
     { asof: "using backup estimates", fallback: ["GPIX", "GPIQ"] });
 });
