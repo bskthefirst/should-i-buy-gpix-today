@@ -359,10 +359,13 @@
   .bdg:hover { box-shadow: 0 2px 4px rgba(28,42,34,.05), 0 16px 30px rgba(28,42,34,.12); }
   .bdg-tilt { position: relative; width: 112px; height: 112px; transform: perspective(520px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .6s var(--ease); transform-style: preserve-3d; will-change: transform; }
   .bdg-tilt.live { transition: transform .08s linear; }
-  .bdg-medal { width: 100%; height: 100%; }
-  .bdg-medal svg { width: 100%; height: 100%; display: block; overflow: visible; }
-  .bdg.on .bdg-medal svg { filter: drop-shadow(0 9px 10px rgba(20,40,30,.28)); }
-  .bdg.off .bdg-medal svg { filter: drop-shadow(0 3px 4px rgba(20,40,30,.14)); }
+  .bdg-medal { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transform: rotateY(var(--spin, 0deg)); cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; -webkit-user-drag: none; }
+  .bdg-medal.spinning { cursor: grabbing; }
+  .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .f-back { transform: rotateY(180deg); }
+  .face svg { width: 100%; height: 100%; display: block; overflow: visible; pointer-events: none; }
+  .bdg.on .face svg { filter: drop-shadow(0 9px 10px rgba(20,40,30,.28)); }
+  .bdg.off .face svg { filter: drop-shadow(0 3px 4px rgba(20,40,30,.14)); }
   .bdg.off { opacity: .94; }
   .bdg svg circle[data-ring] { transition: stroke-dashoffset 1.2s var(--ease); }
   .bdg-glare { position: absolute; inset: 3%; border-radius: 50%; pointer-events: none; opacity: 0; transition: opacity .3s ease;
@@ -794,6 +797,30 @@ function badgeSVG(s, uid) {
     ${ring}
   </svg>`;
 }
+// the back of a medal: shown when you spin it
+function badgeBackSVG(s, uid) {
+  const [c1, c2, c3] = PAL[s.on ? s.pal : "gray"], ink = s.on ? "#fff" : "#8b9482", edge = s.on ? "rgba(0,0,0,.30)" : "rgba(255,255,255,.95)";
+  let outer;
+  if (s.kind === "bill") {
+    const pts = []; for (let i = 0; i < 32; i++) { const a = i * Math.PI / 16, r = i % 2 ? 52.5 : 58; pts.push((60 + r * Math.cos(a)).toFixed(1) + "," + (60 + r * Math.sin(a)).toFixed(1)); }
+    outer = `<polygon points="${pts.join(" ")}" fill="url(#bg${uid})" stroke="url(#bg${uid})" stroke-width="3" stroke-linejoin="round"/>`;
+  } else outer = `<circle cx="60" cy="60" r="57" fill="url(#bg${uid})"/>`;
+  const line1 = s.on ? "EARNED" : "UNLOCKS", line2 = s.on ? "✓" : s.months != null ? monthLabel(s.months) : "—", line3 = s.on ? "keep it up" : s.months != null ? "in " + span(s.months) : "not within 40 years";
+  const sz2 = s.on ? 40 : line2.length > 6 ? 17 : 20;
+  return `<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+    <defs><linearGradient id="bg${uid}" x1=".9" y1="0" x2=".1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset=".5" stop-color="${c2}"/><stop offset="1" stop-color="${c3}"/></linearGradient>
+    <radialGradient id="bd${uid}" cx=".66" cy=".26" r=".95"><stop offset="0" stop-color="${c1}"/><stop offset=".55" stop-color="${c2}"/><stop offset="1" stop-color="${c3}"/></radialGradient></defs>
+    ${outer}
+    <circle cx="60" cy="60" r="51" fill="${c3}" opacity=".55" stroke="rgba(0,0,0,.16)" stroke-width="1"/>
+    <circle cx="60" cy="60" r="47" fill="url(#bd${uid})"/>
+    <circle cx="60" cy="60" r="40" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1"/>
+    <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(0,0,0,.07)" stroke-width="1"/>
+    <text x="60" y="44" text-anchor="middle" font-size="8" font-weight="800" letter-spacing="1.6" fill="${s.on ? "rgba(255,255,255,.92)" : ink}">${line1}</text>
+    <text x="60" y="${(s.on ? 74 : 67) + 1.4}" text-anchor="middle" font-size="${sz2}" font-weight="800" fill="${edge}">${esc(line2)}</text>
+    <text x="60" y="${s.on ? 74 : 67}" text-anchor="middle" font-size="${sz2}" font-weight="800" fill="${ink}">${esc(line2)}</text>
+    <text x="60" y="84" text-anchor="middle" font-size="7.6" font-weight="700" fill="${s.on ? "rgba(255,255,255,.9)" : ink}">${esc(line3)}</text>
+  </svg>`;
+}
 function iconChip(kind) {
   return `<svg viewBox="22 24 76 62" width="30" height="26" aria-hidden="true"><g class="chipicon">${ICON_PATH[kind].replace(/#fff/g, "currentColor")}</g></svg>`;
 }
@@ -803,6 +830,7 @@ function setupBadgeTilt() {
   const grid = $("badges");
   if (REDUCE || !window.matchMedia("(hover: hover)").matches) return;
   grid.addEventListener("pointermove", e => {
+    if (SPIN.drag) return;
     const t = e.target.closest(".bdg-tilt"); if (!t) return;
     const r = t.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
     t.classList.add("live");
@@ -811,6 +839,55 @@ function setupBadgeTilt() {
   });
   grid.addEventListener("pointerout", e => { const t = e.target.closest(".bdg-tilt"); if (t && !t.contains(e.relatedTarget)) { t.classList.remove("live"); t.style.setProperty("--rx", "0deg"); t.style.setProperty("--ry", "0deg"); } });
 }
+// Drag a medal sideways and it spins around, keeps going when you let go, and settles on the front (or the back, if you stop it there).
+const SPIN = { drag: null, anim: new WeakMap() };
+function setSpin(el, deg) { el._deg = deg; el.style.setProperty("--spin", deg.toFixed(2) + "deg"); }
+function settle(el, v0) {   // a spring toward the nearest front position, starting with the speed of your flick
+  cancelAnimationFrame(SPIN.anim.get(el));
+  let v = v0, last = performance.now();
+  const K = 0.00005, C = 0.0105;
+  const step = now => {
+    let rest = Math.min(1500, now - last); last = now;
+    while (rest > 0) {
+      const dt = Math.min(8, rest); rest -= dt;
+      const target = Math.round(el._deg / 360) * 360;
+      v += (-K * (el._deg - target) - C * v) * dt;
+      el._deg += v * dt;
+    }
+    const target = Math.round(el._deg / 360) * 360;
+    if (Math.abs(el._deg - target) < 0.25 && Math.abs(v) < 0.003) { setSpin(el, 0); el.classList.remove("spinning"); return; }
+    setSpin(el, el._deg); SPIN.anim.set(el, requestAnimationFrame(step));
+  };
+  SPIN.anim.set(el, requestAnimationFrame(step));
+}
+function setupBadgeSpin() {
+  if (REDUCE) return;
+  const grid = $("badges");
+  grid.addEventListener("pointerdown", e => {
+    const el = e.target.closest(".bdg-medal"); if (!el || e.button > 0) return;
+    cancelAnimationFrame(SPIN.anim.get(el));
+    el.setPointerCapture(e.pointerId);
+    el.classList.add("spinning"); el.closest(".bdg-tilt").classList.remove("live");
+    SPIN.drag = { el, x: e.clientX, t: performance.now(), v: 0, id: e.pointerId };
+    if (el._deg == null) setSpin(el, 0);
+    e.preventDefault();
+  });
+  grid.addEventListener("pointermove", e => {
+    const d = SPIN.drag; if (!d || e.pointerId !== d.id) return;
+    const now = performance.now(), dx = e.clientX - d.x, dt = Math.max(1, now - d.t);
+    setSpin(d.el, d.el._deg + dx * 1.1);
+    d.v = 0.7 * d.v + 0.3 * (dx * 1.1 / dt);   // degrees per millisecond, smoothed
+    d.x = e.clientX; d.t = now;
+  });
+  const end = e => {
+    const d = SPIN.drag; if (!d || e.pointerId !== d.id) return;
+    SPIN.drag = null;
+    const idle = performance.now() - d.t > 90;   // you stopped before letting go: no flick
+    settle(d.el, idle ? 0 : Math.max(-3, Math.min(3, d.v)));
+  };
+  grid.addEventListener("pointerup", end); grid.addEventListener("pointercancel", end);
+}
+
 const PREV_ON = new Map();   // badge id -> was it unlocked at the last update
 function celebrate(id) {
   const el = document.querySelector(`[data-k="bdg-${id}"] .bdg-medal`); if (!el) return;
@@ -855,10 +932,10 @@ function renderWins(y, p, drift, infl, todayNet, sim) {
     s.status = s.on ? "Unlocked" : s.months != null ? monthLabel(s.months) + " · " + awayLabel(s.months) : "not within 40 years";
   });
   const unlocked = specs.filter(s => s.on).length, next = specs.find(s => !s.on);
-  $("badgesub").textContent = `${unlocked} of ${specs.length} unlocked. Your holdings pay ${fmt$(todayNet)} a month after tax today.` + (next ? ` The next badge is "${next.title}", ${next.months != null ? "in " + span(next.months) + " (" + monthLabel(next.months) + ")" : "not within 40 years"}.` : " You have every badge.");
+  $("badgesub").textContent = `${unlocked} of ${specs.length} unlocked. Your holdings pay ${fmt$(todayNet)} a month after tax today.` + (next ? ` The next badge is "${next.title}", ${next.months != null ? "in " + span(next.months) + " (" + monthLabel(next.months) + ")" : "not within 40 years"}.` : " You have every badge.") + " Drag a badge sideways to spin it.";
   const flips = specs.filter(s => s.on && PREV_ON.get(s.id) === false).map(s => s.id);
   $("badges").innerHTML = specs.map((s, i) => `<div class="bdg ${s.on ? "on" : "off"}" role="listitem" data-k="bdg-${s.id}" data-sig="${s.status}" style="--i:${i}" aria-label="${esc(s.title)}: ${s.on ? "unlocked" : s.status}">
-      <div class="bdg-tilt"><div class="bdg-medal">${badgeSVG(s, i)}</div><div class="bdg-glare"></div></div>
+      <div class="bdg-tilt"><div class="bdg-medal"><div class="face f-front">${badgeSVG(s, i)}</div><div class="face f-back">${badgeBackSVG(s, i)}</div></div><div class="bdg-glare"></div></div>
       <div class="bdg-title">${esc(s.title)}</div>
       <div class="bdg-sub">${s.on ? "✓ Unlocked" : s.status}</div></div>`).join("");
   specs.forEach(s => PREV_ON.set(s.id, s.on));
@@ -1281,7 +1358,7 @@ function renderSkeleton(yields, meta) {
   document.querySelectorAll("[data-scen]").forEach(b =>
     b.addEventListener("click", () => { S.scenario = b.dataset.scen; update(yields); }));
   $("reset").addEventListener("click", () => { S = freshPlan(); syncControls(); renderCostList(); update(yields); });
-  bindCosts(yields); setupBadgeTilt(); renderCostList();
+  bindCosts(yields); setupBadgeTilt(); setupBadgeSpin(); renderCostList();
   if ("ResizeObserver" in window) new ResizeObserver(() => placeScenPill(true)).observe(document.querySelector(".scenarios"));
   syncControls();
 }
