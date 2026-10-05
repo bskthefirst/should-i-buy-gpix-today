@@ -840,6 +840,14 @@ function renderWins(y, p, drift, infl, todayNet, sim) {
   const specs = LEVELS.map(([v, pal]) => ({ id: "lv" + v, kind: "level", threshold: v, pal, big: v >= 1000 ? "$1K" : "$" + v, small: v === S.target ? "YOUR GOAL" : "A MONTH", title: "$" + v.toLocaleString("en-US") + " a month", goal: v === S.target }));
   if (!LEVELS.some(([v]) => v === S.target)) specs.push({ id: "goal", kind: "level", threshold: S.target, pal: "gold", big: S.target >= 1000 ? "$" + (S.target / 1000).toFixed(S.target % 1000 ? 1 : 0) + "K" : "$" + Math.round(S.target), small: "YOUR GOAL", title: "Your goal: " + fmt$(S.target) + " a month", goal: true });
   costs.forEach((c, i) => specs.push({ id: "bill" + i, kind: "bill", threshold: c.cum, pal: BILL_PAL[i % BILL_PAL.length], icon: c.icon, small: c.name.trim().toUpperCase().slice(0, 9), title: i === 0 ? c.name.trim() + " paid" : i === 1 ? costs[0].name.trim() + " and " + c.name.trim() + " paid" : i === costs.length - 1 ? "All " + costs.length + " costs paid" : (i + 1) + " costs paid", goal: false }));
+  // "free lunch" badges: dividends alone pay for 1, 2, 3 ... of a weekly cost every week (each one stands on its own)
+  const plural = (n, k) => k === 1 ? n : /(ch|sh|s|x|z)$/.test(n) ? n + "es" : n + "s";
+  costs.forEach((c, i) => {
+    if (c.per !== "week") return;
+    const nm = c.name.trim().toLowerCase();
+    for (let k = 1; k <= Math.min(7, Math.floor(c.times)); k++)
+      specs.push({ id: "wk" + i + "_" + k, kind: "bill", threshold: k * c.amount * 52 / 12, pal: BILL_PAL[(i + k + 2) % BILL_PAL.length], icon: c.icon, small: k + " A WEEK", title: k + " free " + plural(nm, k) + " a week", goal: false });
+  });
   specs.sort((a, b) => a.threshold - b.threshold);
   specs.forEach(s => {
     s.on = todayNet >= s.threshold - 1e-9; s.progress = Math.max(0, Math.min(1, todayNet / s.threshold));
@@ -1218,7 +1226,7 @@ function renderSkeleton(yields, meta) {
 
     <section class="rv" id="sec-sens">
     <h2>What changes your date the most</h2>
-    <div class="h2sub">One change at a time, with everything else as you set it above.</div>
+    <div class="h2sub">One change at a time, with everything else as you set it above. The moves that bring your date closest are at the top.</div>
     <div class="card" style="padding: 8px 6px;" id="sensbox"></div>
     </section>
 
@@ -1408,23 +1416,37 @@ function update(yields) {
 
   // what changes the date the most
   const base = when;
-  const test = (label, pp, yy, target, inf) => ({ label, months: monthsTo(yy || y, pp || p, target ?? S.target, drift, inf ?? infl) });
+  const test = (label, pp, yy, target, inf, dr) => ({ label, months: monthsTo(yy || y, pp || p, target ?? S.target, dr ?? drift, inf ?? infl) });
   const lower = { ...y, gpix: Math.max(0, y.gpix - 1), gpiq: Math.max(0, y.gpiq - 1) };
+  const higher = { ...y, gpix: y.gpix + 1, gpiq: y.gpiq + 1 };
+  const weekly = S.costs.find(c => c.per === "week" && c.amount > 0 && c.name.trim());   // a cost you pay every week, for example lunch
+  const weeklyMonthly = weekly ? weekly.amount * 52 / 12 : 0;
   const sens = [
+    test("Add $100 more each month", { ...p, monthly: p.monthly + 100 }),
     test("Add $250 more each month", { ...p, monthly: p.monthly + 250 }),
-    S.monthly >= 250 ? test("Add $250 less each month", { ...p, monthly: p.monthly - 250 }) : null,
+    test("Add $500 more each month", { ...p, monthly: p.monthly + 500 }),
+    weekly ? test(`Invest the money for 1 ${esc(weekly.name.trim().toLowerCase())} a week (+${fmt$(weeklyMonthly)} a month)`, { ...p, monthly: p.monthly + weeklyMonthly }) : null,
+    test("Put $5,000 more into GPIX today", { ...p, startGpix: p.startGpix + 5000 }),
     S.target > 250 ? test("Lower the goal by $250 a month", null, null, S.target - 250) : null,
+    infl >= 1 ? test("Inflation is 1 point lower", null, null, null, infl - 1) : null,
+    test("Dividend rates rise by 1 percentage point", null, higher),
+    S.scenario !== "strong" ? test("Share prices rise 5% a year", null, null, null, null, SCENARIOS.strong) : null,
+    p.gpixPct > 0 ? test("Put all new money into GPIQ", { ...p, gpixPct: 0 }) : null,
+    p.gpixPct < 100 ? test("Put all new money into GPIX", { ...p, gpixPct: 100 }) : null,
+    S.whole ? test("Buy fractions of shares (if your broker allows)", { ...p, whole: false }) : null,
+    S.monthly >= 250 ? test("Add $250 less each month", { ...p, monthly: p.monthly - 250 }) : null,
     test("Raise the goal by $250 a month", null, null, S.target + 250),
     test("Dividend rates fall by 1 percentage point", null, lower),
     test("Inflation is 1 point higher", null, null, null, infl + 1),
     test("Move 20% of new money from GPIX to GPIQ", { ...p, gpixPct: Math.max(0, p.gpixPct - 20) }),
     test("Move 20% of new money from GPIQ to GPIX", { ...p, gpixPct: Math.min(100, p.gpixPct + 20) }),
-    S.whole ? test("Buy fractions of shares (if your broker allows)", { ...p, whole: false }) : test("Buy whole shares only", { ...p, whole: true }),
-  ].filter(Boolean).map(r => ({ ...r, shift: shiftText(base, r.months) }));
+    S.whole ? null : test("Buy whole shares only", { ...p, whole: true }),
+  ].filter(Boolean).map(r => ({ ...r, shift: shiftText(base, r.months) }))
+    .sort((a, b) => (a.months ?? 1e9) - (b.months ?? 1e9));   // the changes that bring your date closest come first
   $("sensbox").innerHTML = `
     <table class="ms-table">
       <tr><th>If you change this</th><th>New date</th><th>Change</th></tr>
-      ${sens.map(r => { const d = r.months != null ? monthLabel(r.months) : "not within 40 years"; return `<tr data-k="sens-${r.label}" data-sig="${d}|${r.shift.text}"><td>${r.label}</td><td>${d}</td><td class="shift ${r.shift.cls}">${r.shift.text}</td></tr>`; }).join("")}
+      ${sens.map(r => { const d = r.months != null ? monthLabel(r.months) : "not within 40 years"; return `<tr data-k="sens-${esc(r.label)}" data-sig="${d}|${r.shift.text}"><td>${r.label}</td><td>${d}</td><td class="shift ${r.shift.cls}">${r.shift.text}</td></tr>`; }).join("")}
     </table>`;
 
   // share price cases
