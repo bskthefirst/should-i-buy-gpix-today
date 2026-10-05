@@ -399,6 +399,26 @@
     .nx-top { gap: 14px; }
   }
 
+  /* ================= ticker, days earned back, date moved ================= */
+  @keyframes cf { from { opacity: 1; transform: translate(0, 0) rotate(0); } to { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--r)); } }
+  .cf { position: absolute; left: 50%; top: 42%; width: 8px; height: 13px; border-radius: 2px; pointer-events: none; z-index: 5; animation: cf 1.9s cubic-bezier(.2,.7,.4,1) both; }
+  .moved { display: inline-block; margin-top: 12px; padding: 7px 13px; border-radius: 99px; font-size: 13.5px; font-weight: 700; line-height: 1.4; }
+  .moved.up { background: #dff3e3; color: var(--good); }
+  .moved.down { background: #f7e1de; color: var(--bad); }
+  .moved.flat { background: var(--surface2); color: var(--muted); font-weight: 600; }
+  .tick-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 14px; }
+  .tick-strip > div { background: var(--surface2); border-radius: 12px; padding: 10px 12px; }
+  .tick-strip b { display: block; font-size: 20px; font-weight: 800; margin-top: 2px; font-variant-numeric: tabular-nums; color: var(--brg); }
+  .tick-strip small { font-size: 12px; color: var(--muted); }
+  .nx-tickhint { margin-top: 8px; font-size: 12.5px; color: var(--faint); line-height: 1.5; }
+  .earn-top { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .earn-score { flex: none; min-width: 150px; padding: 12px 18px; border-radius: 16px; background: linear-gradient(145deg, #e6f4e4, #d4ecd3); text-align: center; }
+  .earn-k { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .earn-big { font-size: 30px; font-weight: 800; color: var(--brg); font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .earn-text { flex: 1 1 280px; font-size: 14px; line-height: 1.6; color: var(--muted); margin: 0; }
+  .earn-text b { color: var(--text); }
+  .earn-table { margin-top: 14px; }
+
   /* off switch: the system setting "reduce motion", or ?motion=off in the address */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -534,10 +554,10 @@ const monthsTo = (y, p, target, drift, inflation) => simulate(y, p, { target, dr
 // ---- plan, defaults and saving ----
 // Defaults = the plan the owner described: a $250 monthly dividend goal, $1,000 added a month, and $3,100 of GPIX held today.
 // costs: what the owner pays every month, so the page can show when the dividends cover each one. "per" is "month" or "week".
-const DEFAULTS = { target: 250, monthly: 1000, gpixPct: 80, taxPct: 15, startGpix: 3100, startGpiq: 0, scenario: "base", inflation: 2.5, whole: true,
+const DEFAULTS = { target: 250, monthly: 1000, gpixPct: 80, taxPct: 15, startGpix: 3100, startGpiq: 0, scenario: "base", inflation: 2.5, whole: true, lunchbox: 0, homeCost: 6,
   costs: [{ name: "Claude", amount: 20, times: 1, per: "month" }, { name: "ChatGPT", amount: 20, times: 1, per: "month" }, { name: "Lunch", amount: 20, times: 4, per: "week" }] };
 const COST_LIMITS = { rows: 12, name: 30, amount: 1e6, times: 100 };
-const LIMITS = { target: [1, 1e6], monthly: [0, 1e6], gpixPct: [0, 100], taxPct: [0, 60], startGpix: [0, 1e8], startGpiq: [0, 1e8], inflation: [0, 15] };
+const LIMITS = { target: [1, 1e6], monthly: [0, 1e6], gpixPct: [0, 100], taxPct: [0, 60], startGpix: [0, 1e8], startGpiq: [0, 1e8], inflation: [0, 15], lunchbox: [0, 7], homeCost: [0, 1000] };
 const STORE_KEY = "retire-settings-v2";   // the old "biweekly" amount is not carried over: the unit changed to monthly
 const freshPlan = () => ({ ...DEFAULTS, costs: DEFAULTS.costs.map(c => ({ ...c })) });   // a copy, so editing the costs never changes the defaults
 let S = freshPlan();
@@ -627,15 +647,16 @@ function remaining(ms) {
 const two = n => String(n).padStart(2, "0");
 
 // ================= your next dividend =================
-const NEXT = { u: null, ringC: 2 * Math.PI * 46 };
+const NEXT = { u: null, monthly: 0, ringC: 2 * Math.PI * 46 };
 function renderNext(hold) {
   const u = pickUpcoming(DIST.gpix) || pickUpcoming(DIST.gpiq);
-  NEXT.u = u;
-  if (!u) { $("nextsub").textContent = "The date of the next dividend is not in the data yet."; $("nextbox").innerHTML = ""; return; }
+  NEXT.u = u; NEXT.monthly = 0;
+  if (!u) { NEXT.monthly = 0; $("nextsub").textContent = "The date of the next dividend is not in the data yet."; $("nextbox").innerHTML = ""; return; }
   const netF = 1 - S.taxPct / 100;
   const funds = [["GPIX", hold.sg, DIST.gpix && DIST.gpix.last_amount], ["GPIQ", hold.sq, DIST.gpiq && DIST.gpiq.last_amount]];
   const pay = funds.map(([, sh, per]) => (per || 0) * sh * netF);
   const total = pay[0] + pay[1];
+  NEXT.monthly = total;
   const r = remaining(u.close - Date.now());
   const P = 1 - Math.min(1, (u.close - Date.now()) / (31 * 864e5));   // how much of the month has gone
   $("nextsub").textContent = `The funds pay a dividend every month. You get it only if you own the shares before the ex-dividend date. The date below is an estimate. It follows the pattern of past months. The fund company announces the real date a few days before.`;
@@ -665,8 +686,24 @@ function renderNext(hold) {
         <td>${N("nx-pay-" + name, pay[i], "usd2")}</td></tr>`).join("")}
       <tr class="target"><td><b>Total</b></td><td></td><td></td><td>${N("nx-total", total, "usd2")}</td></tr>
     </table>
+    ${total > 0 ? `<div class="tick-strip" role="group" aria-label="What your shares have earned so far">
+      <div><span class="nx-k">Earned so far today</span><b id="tk-day">$0.000000</b></div>
+      <div><span class="nx-k">So far this month</span><b id="tk-month">$0.000000</b><small>of ${usd2(total)} you would get</small></div>
+      <div><span class="nx-k">Every hour</span><b id="tk-hour">$0.0000</b></div>
+    </div>
+    <p class="nx-tickhint">The funds pay once a month. These numbers show what your shares have earned so far, as if the money came in a little at a time.</p>` : ""}
     <p class="nx-note">Buy before the market closes on the last day. If you buy on the ex-dividend date or later, you get the next dividend instead. A day too late costs you a full month of dividend on every new share.</p>`;
+  tickEarn();
 }
+function tickEarn() {   // the money your shares have earned so far, counted up smoothly (local time)
+  const r = NEXT.monthly, day = $("tk-day"); if (!r || !day) return;
+  const now = new Date(), dim = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+  const f = (now - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 864e5, perDay = r / dim;
+  day.textContent = "$" + (perDay * f).toFixed(6);
+  $("tk-month").textContent = "$" + (perDay * (now.getDate() - 1 + f)).toFixed(6);
+  $("tk-hour").textContent = "$" + (perDay / 24).toFixed(4);
+}
+setInterval(tickEarn, 100);
 function tickNext() {
   const u = NEXT.u; if (!u || !$("nx-cs")) return;
   const left = u.close - Date.now();
@@ -680,6 +717,100 @@ function tickNext() {
   ring.style.strokeDashoffset = (NEXT.ringC * left1).toFixed(1); CUR.set("r:nx-prog", 1 - left1);
 }
 setInterval(tickNext, 1000);
+
+// ================= days earned back (lunchbox) =================
+function pluralize(n, k) { return k === 1 ? n : /(ch|sh|s|x|z)$/.test(n) ? n + "es" : n + "s"; }
+function lunchPlan() {   // the weekly cost (for example lunch) and the money a home-made version saves
+  const weekly = S.costs.find(c => c.per === "week" && c.amount > 0 && c.name.trim());
+  if (!weekly) return { weekly: null, max: 0, days: 0, saveEach: 0, extra: 0 };
+  const max = Math.min(7, Math.floor(weekly.times + 1e-9)), days = Math.min(max, Math.floor(S.lunchbox + 1e-9));
+  const saveEach = Math.max(0, weekly.amount - S.homeCost);
+  return { weekly, max, days, saveEach, extra: days * saveEach * 52 / 12 };
+}
+function fracMonths(y, p, target, drift, infl) {   // months until the goal, with the part of the last month (so small changes show as days)
+  const sim = simulate(y, p, { target, drift, inflation: infl }), c = sim.crossAt;
+  if (c == null) return null;
+  if (c === 0) return 0;
+  const a = sim.months[c - 1], b = sim.months[c], ga = a.net - a.target, gb = b.net - b.target;
+  return c - 1 + (-ga) / (gb - ga);
+}
+function daysText(d) {
+  const r = Math.round(d);
+  if (r <= 0) return "0 days";
+  return r < 45 ? r + (r === 1 ? " day" : " days") : span(Math.max(1, Math.round(d / 30.44)));
+}
+function renderEarn(y, p, drift, infl, lunch) {
+  const hint = $("lunchhint"), box = $("earnbox");
+  if (!lunch.weekly) {
+    hint.textContent = "Add a cost that you pay every week to the list above, for example Lunch, 4 times a week.";
+    box.innerHTML = `<p class="after">This section needs a cost that you pay every week. Add one in "What your dividends pay for".</p>`; return;
+  }
+  const nm = lunch.weekly.name.trim().toLowerCase(), times = Math.round(lunch.weekly.times);
+  hint.textContent = `Your list has ${times} ${pluralize(nm, times)} a week, so ${lunch.max} is the most that counts.`;
+  const base = { ...p, monthly: S.monthly };
+  const f0 = fracMonths(y, base, S.target, drift, infl);
+  const rows = [];
+  for (let k = 0; k <= lunch.max; k++) {
+    const extra = k * lunch.saveEach * 52 / 12, f = k === 0 ? f0 : fracMonths(y, { ...p, monthly: S.monthly + extra }, S.target, drift, infl);
+    rows.push({ k, extra, f, days: f0 != null && f != null ? (f0 - f) * 30.44 : null });
+  }
+  const cur = rows[lunch.days], score = cur.days != null ? cur.days : 0;
+  const dateOf = f => f == null ? "not within 40 years" : monthLabel(Math.ceil(f - 1e-9));
+  let text;
+  if (lunch.saveEach <= 0) text = `A lunch from home costs as much as the price in your list, so there is nothing to invest. Lower the cost of a lunch from home above.`;
+  else if (lunch.days === 0) text = `Each lunch from home saves ${fmt$(lunch.saveEach)} (${won(lunch.saveEach)}). The page invests that money for you. Set the days above, or read the table, to see how many days it earns back.`;
+  else text = `You bring a lunchbox ${lunch.days} ${lunch.days === 1 ? "day" : "days"} a week and save ${fmt$(lunch.saveEach)} each time. That is ${fmt$(lunch.extra)} more in the funds each month. Your date moves from <b>${dateOf(f0)}</b> to <b>${dateOf(cur.f)}</b>.`;
+  box.innerHTML = `
+    <div class="earn-top">
+      <div class="earn-score"><div class="earn-k">Days earned back</div><div class="earn-big">${N("earn-days", score, "days")}</div></div>
+      <p class="earn-text">${text}</p>
+    </div>
+    <table class="ms-table earn-table">
+      <tr><th>Lunchbox days a week</th><th>Extra in the funds</th><th>Your date</th><th>Earned back</th></tr>
+      ${rows.map(r => `<tr class="${r.k === lunch.days ? "target" : ""}" data-k="earn-${r.k}" data-sig="${dateOf(r.f)}|${Math.round(r.days || 0)}">
+        <td>${r.k === 0 ? "None" : r.k}</td><td>${r.k === 0 ? "—" : fmt$(r.extra) + " a month"}</td><td>${dateOf(r.f)}</td><td>${r.k === 0 ? "—" : r.days == null ? "reaches the goal" : daysText(r.days)}</td></tr>`).join("")}
+    </table>`;
+}
+
+// ---- how far your date moved since your last visit (it uses the numbers you already type, so there is nothing to check in) ----
+const VISIT_KEY = "retire-visit-v1";
+const VISIT = { data: null, loaded: false, lastDays: null };
+const localDay = () => { const d = new Date(); return d.getFullYear() + "-" + two(d.getMonth() + 1) + "-" + two(d.getDate()); };
+function nowMonthIndex() { const d = new Date(), dim = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate(); return d.getFullYear() * 12 + d.getMonth() + (d.getDate() - 1) / dim; }
+function trackDate(fm) {
+  const abs = fm == null ? null : nowMonthIndex() + fm, today = localDay();
+  if (!VISIT.loaded) {
+    VISIT.loaded = true;
+    try { const s = JSON.parse(localStorage.getItem(VISIT_KEY) || "null"); if (s && typeof s.day === "string") VISIT.data = s; } catch (e) { VISIT.data = null; }
+  }
+  let d = VISIT.data;
+  if (!d) d = { day: today, abs, prevDay: null, prevAbs: null };
+  else if (d.day !== today) d = { day: today, abs, prevDay: d.day, prevAbs: Number.isFinite(d.abs) ? d.abs : null };
+  else d = { ...d, abs };
+  VISIT.data = d;
+  try { localStorage.setItem(VISIT_KEY, JSON.stringify(d)); } catch (e) { /* no saving: the message still works for this visit */ }
+  const box = $("movedbox"); if (!box) return;
+  if (d.prevDay == null || d.prevAbs == null || abs == null) {
+    box.innerHTML = d.prevDay == null ? `<div class="moved flat">Come back later. This page will then show how far your date has moved.</div>` : "";
+    VISIT.lastDays = null; return;
+  }
+  const days = (d.prevAbs - abs) * 30.44, since = new Date(d.prevDay + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+  if (Math.abs(days) < 1) box.innerHTML = `<div class="moved flat">Your date has not moved since ${since}.</div>`;
+  else if (days > 0) box.innerHTML = `<div class="moved up" data-k="moved" data-sig="${Math.round(days)}">▲ ${daysText(days)} sooner than on ${since}</div>`;
+  else box.innerHTML = `<div class="moved down" data-k="moved" data-sig="${Math.round(days)}">▼ ${daysText(-days)} later than on ${since}. If you added money since then, update the amount you hold today.</div>`;
+  if (!REDUCE && VISIT.lastDays != null && days >= 1 && days > VISIT.lastDays + 0.5 && Date.now() - (VISIT.burst || 0) > 4000) { VISIT.burst = Date.now(); confetti($("sec-hero")); }
+  VISIT.lastDays = days;
+}
+function confetti(host) {
+  if (!host) return;
+  const cols = ["#22c58b", "#f6b21b", "#4a8cf7", "#ee4f9f", "#8f6bf2", "#fb7c3a"];
+  for (let i = 0; i < 34; i++) {
+    const c = document.createElement("i"); c.className = "cf";
+    const a = (i / 34) * Math.PI * 2 + Math.random() * .4, dist = 70 + Math.random() * 170;
+    c.style.cssText = `background:${cols[i % cols.length]};--dx:${(Math.cos(a) * dist).toFixed(0)}px;--dy:${(Math.sin(a) * dist * .6 + 90 + Math.random() * 70).toFixed(0)}px;--r:${(Math.random() * 900 - 450).toFixed(0)}deg;animation-delay:${(Math.random() * 120).toFixed(0)}ms`;
+    host.appendChild(c); setTimeout(() => c.remove(), 2200);
+  }
+}
 
 // ================= costs your dividends can pay =================
 const monthlyCost = c => c.amount * c.times * (c.per === "week" ? 52 / 12 : 1);
@@ -980,7 +1111,7 @@ const $ = id => document.getElementById(id);
 const CUR = new Map();   // key -> the number now on screen (updated every frame), so a new tween starts where the last one is
 const RAF = new Map();   // key -> animation frame id
 const SIG = new Map();   // key -> last text of a row or card, to find what changed
-const FORMATS = { usd: fmt$, usdk: fmt$k, usd2, pct2: v => v.toFixed(2) + "%" };
+const FORMATS = { usd: fmt$, usdk: fmt$k, usd2, pct2: v => v.toFixed(2) + "%", days: v => Math.round(v) + (Math.round(v) === 1 ? " day" : " days") };
 
 // A number the page counts up to. The text is already right in the HTML; runNumbers() animates it.
 const N = (key, value, f) => `<span data-k="${key}" data-num="${value}" data-f="${f}">${FORMATS[f](value)}</span>`;
@@ -1289,6 +1420,25 @@ function renderSkeleton(yields, meta) {
     </div>
     </section>
 
+    <section class="rv" id="sec-lunch">
+    <h2>Days earned back</h2>
+    <div class="h2sub">Bring a lunch from home and invest what you save. This shows how many days sooner you retire. The money joins the amount you add each month.</div>
+    <div class="card" id="lunchcard">
+      <div class="controls">
+        <div class="ctl">
+          <label for="n-lunchbox">Days a week you bring a lunchbox ${numBox("n-lunchbox", "", "days/week", "Days a week you bring a lunchbox")}</label>
+          <input type="range" id="in-lunchbox" min="0" max="7" step="1" aria-label="Lunchbox days a week, slider">
+          <div class="hint" id="lunchhint"></div>
+        </div>
+        <div class="ctl">
+          <label for="n-homeCost">A lunch from home costs ${numBox("n-homeCost", "$", "", "Cost of a lunch made at home in dollars")}</label>
+          <div class="hint">The food for a lunch you make yourself. The page invests the difference between this and the price in your cost list.</div>
+        </div>
+      </div>
+      <div id="earnbox"></div>
+    </div>
+    </section>
+
     <section class="rv" id="sec-badges">
     <h2>Your badges</h2>
     <div class="h2sub" id="badgesub"></div>
@@ -1352,6 +1502,7 @@ function renderSkeleton(yields, meta) {
   };
   slider("in-target", "target", "n-target"); numeric("n-target", "target", "in-target");
   slider("in-monthly", "monthly", "n-monthly"); numeric("n-monthly", "monthly", "in-monthly");
+  slider("in-lunchbox", "lunchbox", "n-lunchbox"); numeric("n-lunchbox", "lunchbox", "in-lunchbox"); numeric("n-homeCost", "homeCost");
   slider("in-mix", "gpixPct"); slider("in-tax", "taxPct"); slider("in-infl", "inflation");
   numeric("n-startGpix", "startGpix"); numeric("n-startGpiq", "startGpiq");
   $("in-whole").addEventListener("change", e => { S.whole = e.target.checked; update(yields); });
@@ -1368,10 +1519,11 @@ function syncControls() {
   const set = (id, v) => { $(id).value = v; };
   set("in-target", S.target); set("n-target", fieldText(S.target));
   set("in-monthly", S.monthly); set("n-monthly", fieldText(S.monthly));
+  set("in-lunchbox", S.lunchbox); set("n-lunchbox", fieldText(S.lunchbox)); set("n-homeCost", fieldText(S.homeCost));
   set("in-mix", S.gpixPct); set("in-tax", S.taxPct); set("in-infl", S.inflation);
   set("n-startGpix", fieldText(S.startGpix)); set("n-startGpiq", fieldText(S.startGpiq));
   $("in-whole").checked = S.whole;
-  ["in-target", "in-monthly", "in-mix", "in-tax", "in-infl"].forEach(id => paintSlider($(id)));
+  ["in-target", "in-monthly", "in-mix", "in-tax", "in-infl", "in-lunchbox"].forEach(id => paintSlider($(id)));
 }
 
 // ================= results =================
@@ -1388,7 +1540,8 @@ function shiftText(base, other) {   // how far "other" moves the date compared w
 function update(yields) {
   saveSettings();
   const y = yields;
-  const p = { monthly: S.monthly, gpixPct: S.gpixPct, taxPct: S.taxPct, startGpix: S.startGpix, startGpiq: S.startGpiq, whole: S.whole };
+  const lunch = lunchPlan();   // money saved by lunchboxes joins the monthly savings
+  const p = { monthly: S.monthly + lunch.extra, gpixPct: S.gpixPct, taxPct: S.taxPct, startGpix: S.startGpix, startGpiq: S.startGpiq, whole: S.whole };
   const drift = SCENARIOS[S.scenario], infl = S.inflation;
   const sim = simulate(y, p, { target: S.target, drift, inflation: infl });
   const startTotal = S.startGpix + S.startGpiq;
@@ -1410,9 +1563,10 @@ function update(yields) {
       <div class="whenlab">Your dividends reach your goal around</div>
       <div class="when" data-k="hero-when" data-sig="${heroWhen}" data-anim="swap">${heroWhen}</div>
       <div class="away" data-k="hero-away" data-sig="${heroAway}" data-anim="swap">${heroAway}</div>
-      <div class="summary">You add ${fmt$(S.monthly)} every month (${S.gpixPct}% GPIX / ${100 - S.gpixPct}% GPIQ${S.whole ? ", whole shares only" : ""}) and reinvest every dividend after ${S.taxPct}% tax.
+      <div class="summary">You add ${fmt$(p.monthly)} every month${lunch.extra > 0 ? ` (${fmt$(S.monthly)} plus ${fmt$(lunch.extra)} from lunchboxes)` : ""} (${S.gpixPct}% GPIX / ${100 - S.gpixPct}% GPIQ${S.whole ? ", whole shares only" : ""}) and reinvest every dividend after ${S.taxPct}% tax.
       Then your dividends pay your goal of <b>${fmt$(S.target)} a month after tax</b> in the <b>${SCENARIO_LABEL[S.scenario].toLowerCase()}</b> case for share prices.${inflText}
-      At that point your dividends alone could replace that amount of income. Your job pay is not part of this math.</div>`;
+      At that point your dividends alone could replace that amount of income. Your job pay is not part of this math.</div>
+      <div id="movedbox"></div>`;
   moveGauge(progressPct);
 
   // control labels
@@ -1437,8 +1591,8 @@ function update(yields) {
       <div class="note">This rate pays you, and it also makes the portfolio grow</div></div>
     <div class="stat"><div class="name">Portfolio needed for ${fmt$(S.target)} a month</div><div class="val">${N("st-need", needPot, "usdk")}</div>
       <div class="note">${fmt$(S.target * 12)} a year ÷ ${(sim.mixNet * 100).toFixed(2)}% (about ${won(needPot)}) at today's prices${needThen != null && infl > 0 && when > 0 ? `. At your goal date it is ${fmt$k(needThen)}.` : ""}</div></div>
-    <div class="stat"><div class="name">You add</div><div class="val">${N("st-add", S.monthly, "usd")} a month</div>
-      <div class="note">${fmt$(S.monthly * 12)} a year, before reinvested dividends</div></div>
+    <div class="stat"><div class="name">You add</div><div class="val">${N("st-add", p.monthly, "usd")} a month</div>
+      <div class="note">${fmt$(p.monthly * 12)} a year, before reinvested dividends</div></div>
     <div class="stat"><div class="name">Your holdings pay today</div><div class="val">${N("st-today", todayNet, "usd")} a month</div>
       <div class="note">after tax, on ${fmt$(startTotal)} invested</div></div>
     <div class="stat"><div class="name">Each extra $1,000 pays</div><div class="val">${N("st-extra", 1000 * sim.mixNet / 12, "usd2")} a month</div>
@@ -1447,6 +1601,8 @@ function update(yields) {
   // next dividend, costs and badges
   renderNext(hold);
   renderWins(y, p, drift, infl, todayNet, sim);
+  renderEarn(y, p, drift, infl, lunch);
+  const moved = trackDate(fracMonths(y, p, S.target, drift, infl));
 
   // chart
   CH.sim = sim;
@@ -1496,13 +1652,10 @@ function update(yields) {
   const test = (label, pp, yy, target, inf, dr) => ({ label, months: monthsTo(yy || y, pp || p, target ?? S.target, dr ?? drift, inf ?? infl) });
   const lower = { ...y, gpix: Math.max(0, y.gpix - 1), gpiq: Math.max(0, y.gpiq - 1) };
   const higher = { ...y, gpix: y.gpix + 1, gpiq: y.gpiq + 1 };
-  const weekly = S.costs.find(c => c.per === "week" && c.amount > 0 && c.name.trim());   // a cost you pay every week, for example lunch
-  const weeklyMonthly = weekly ? weekly.amount * 52 / 12 : 0;
   const sens = [
     test("Add $100 more each month", { ...p, monthly: p.monthly + 100 }),
     test("Add $250 more each month", { ...p, monthly: p.monthly + 250 }),
     test("Add $500 more each month", { ...p, monthly: p.monthly + 500 }),
-    weekly ? test(`Invest the money for 1 ${esc(weekly.name.trim().toLowerCase())} a week (+${fmt$(weeklyMonthly)} a month)`, { ...p, monthly: p.monthly + weeklyMonthly }) : null,
     test("Put $5,000 more into GPIX today", { ...p, startGpix: p.startGpix + 5000 }),
     S.target > 250 ? test("Lower the goal by $250 a month", null, null, S.target - 250) : null,
     infl >= 1 ? test("Inflation is 1 point lower", null, null, null, infl - 1) : null,
@@ -1511,7 +1664,7 @@ function update(yields) {
     p.gpixPct > 0 ? test("Put all new money into GPIQ", { ...p, gpixPct: 0 }) : null,
     p.gpixPct < 100 ? test("Put all new money into GPIX", { ...p, gpixPct: 100 }) : null,
     S.whole ? test("Buy fractions of shares (if your broker allows)", { ...p, whole: false }) : null,
-    S.monthly >= 250 ? test("Add $250 less each month", { ...p, monthly: p.monthly - 250 }) : null,
+    p.monthly >= 250 ? test("Add $250 less each month", { ...p, monthly: p.monthly - 250 }) : null,
     test("Raise the goal by $250 a month", null, null, S.target + 250),
     test("Dividend rates fall by 1 percentage point", null, lower),
     test("Inflation is 1 point higher", null, null, null, infl + 1),
@@ -1549,7 +1702,7 @@ function update(yields) {
   } else {
     const cost = noInfl != null ? when - noInfl : null;
     inflCard = `<div class="name">Inflation check · ${infl}% a year</div><div class="val">${cost != null && cost > 0 ? span(cost) + " later" : "no delay"}</div>
-      <div class="note">With ${infl}% inflation your date is ${monthLabel(when)}. ${noInfl != null ? `If prices did not rise, it would be ${monthLabel(noInfl)}. ` : ""}By your goal date the buying power of ${fmt$(S.target)} today costs <b>${fmt$(goalThen)}</b> a month (${won(goalThen)}). Your savings stay at ${fmt$(S.monthly)} a month. A raise would help.</div>`;
+      <div class="note">With ${infl}% inflation your date is ${monthLabel(when)}. ${noInfl != null ? `If prices did not rise, it would be ${monthLabel(noInfl)}. ` : ""}By your goal date the buying power of ${fmt$(S.target)} today costs <b>${fmt$(goalThen)}</b> a month (${won(goalThen)}). Your savings stay at ${fmt$(p.monthly)} a month. A raise would help.</div>`;
   }
 
   // check 2: the Korea tax line

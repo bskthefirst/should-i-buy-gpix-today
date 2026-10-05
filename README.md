@@ -61,7 +61,15 @@ expensive and shows the month when the after-tax dividends cover each one and al
 **Your badges** are Apple-Watch-style medals for dividend levels ($10 to $1,000 a month, with your
 goal in gold) and for each cost that gets paid; locked medals show a progress ring and the unlock
 month, unlocked ones shine, tilt toward the pointer and pop with sparkles the moment you unlock one.
-Medals are SVG drawn in the page script. Everything respects `prefers-reduced-motion` and `?motion=off`.
+Medals are SVG drawn in the page script; drag one sideways and it spins (a spring settles it on
+the front), and its back shows the unlock month. Everything respects `prefers-reduced-motion` and `?motion=off`.
+**Days earned back** lets you set how many days a week you bring a lunchbox instead of buying the
+weekly cost in your list (default Lunch, $20, 4 a week; a home lunch costs $6 by default). The
+difference is added to the monthly savings, and the page shows how many days sooner you retire
+(`fracMonths` adds the part of the last month, so small changes show in days). The **Your next
+dividend** card also counts up what your shares have earned so far today and this month. The hero
+shows how far your date moved since your last visit (a small record in local storage), with a
+confetti burst when it moves sooner. All of this is client-side.
 
 The GPIX page (`index.html`) also carries a Korean after-tax dividend calculator
 ("GPIX 배당 세후 계산기") under the verdict. Enter a USD amount, or tap the $10 / $100 / $300 /
