@@ -926,6 +926,70 @@ def load_history(path: Path) -> list[dict]:
     return []
 
 
+def _nth_weekday(y: int, m: int, wd: int, n: int) -> date:
+    first = date(y, m, 1)
+    return first + timedelta(days=(wd - first.weekday()) % 7) + timedelta(weeks=n - 1)
+
+
+def _last_weekday(y: int, m: int, wd: int) -> date:
+    d = date(y + (m == 12), m % 12 + 1, 1) - timedelta(days=1)
+    return d - timedelta(days=(d.weekday() - wd) % 7)
+
+
+def _easter(y: int) -> date:
+    a, b, c = y % 19, y // 100, y % 100
+    d, e, f = b // 4, b % 4, (b + 8) // 25
+    g = (b - f + 1) // 3
+    h = (19 * a + b - d - g + 15) % 30
+    i, k = c // 4, c % 4
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l) // 451
+    month = (h + l - 7 * m + 114) // 31
+    return date(y, month, (h + l - 7 * m + 114) % 31 + 1)
+
+
+def nyse_holidays(y: int) -> set:
+    """NYSE full-day closures for a year (rule-based; stdlib only). A holiday on
+    a Saturday is observed on Friday and one on a Sunday on Monday, except New
+    Year's Day on a Saturday, which the NYSE does not observe on the Friday."""
+    def observed(d: date) -> date:
+        return d - timedelta(days=1) if d.weekday() == 5 else d + timedelta(days=1) if d.weekday() == 6 else d
+    h = {
+        _nth_weekday(y, 1, 0, 3),               # Martin Luther King Jr. Day
+        _nth_weekday(y, 2, 0, 3),               # Presidents' Day
+        _easter(y) - timedelta(days=2),         # Good Friday
+        _last_weekday(y, 5, 0),                 # Memorial Day
+        observed(date(y, 7, 4)),                # Independence Day
+        _nth_weekday(y, 9, 0, 1),               # Labor Day
+        _nth_weekday(y, 11, 3, 4),              # Thanksgiving
+        observed(date(y, 12, 25)),              # Christmas
+    }
+    if y >= 2022:
+        h.add(observed(date(y, 6, 19)))         # Juneteenth
+    ny = date(y, 1, 1)
+    if ny.weekday() != 5:
+        h.add(ny + timedelta(days=1) if ny.weekday() == 6 else ny)
+    return h
+
+
+def is_business_day(d: date) -> bool:
+    return d.weekday() < 5 and d not in nyse_holidays(d.year)
+
+
+def first_business_day(y: int, m: int) -> date:
+    d = date(y, m, 1)
+    while not is_business_day(d):
+        d += timedelta(days=1)
+    return d
+
+
+def previous_business_day(d: date) -> date:
+    d -= timedelta(days=1)
+    while not is_business_day(d):
+        d -= timedelta(days=1)
+    return d
+
+
 def ttm_of(div_events: list, today: date) -> float:
     """Trailing-12-month payout per share: the last 12 payouts on or before
     today, if they fall inside ~13 months. (A plain 365-day window counts 13
@@ -946,7 +1010,24 @@ def distributions_block(div_events: list, today: date) -> dict | None:
         return None
     recent = div_events[-24:]
     est = None
-    if len(recent) >= 3:
+    upcoming = []
+    # GPIX and GPIQ go ex-dividend on the first business day of the month (every
+    # one of the last 21 months did). When the recent record follows that rule,
+    # use it: the old "last date plus the median gap" drifted by a day or two,
+    # and a wrong "last day to buy" can cost a dividend.
+    last12 = [d for d, _ in recent[-12:]]
+    if len(last12) >= 6 and sum(1 for d in last12 if d == first_business_day(d.year, d.month)) >= len(last12) - 1:
+        y, m = today.year, today.month
+        for _ in range(12):
+            cand = first_business_day(y, m)
+            if cand >= today and cand > recent[-1][0]:
+                upcoming.append({"ex": cand.isoformat(), "last_buy": previous_business_day(cand).isoformat()})
+                if len(upcoming) == 3:
+                    break
+            y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+        if upcoming:
+            est = upcoming[0]["ex"]
+    if est is None and len(recent) >= 3:
         gaps = sorted(
             (recent[i][0] - recent[i - 1][0]).days for i in range(1, len(recent))
         )
@@ -954,15 +1035,17 @@ def distributions_block(div_events: list, today: date) -> dict | None:
         nxt = recent[-1][0] + timedelta(days=med)
         while nxt < today:
             nxt += timedelta(days=med)
-        while nxt.weekday() >= 5:  # ex-dates fall on trading days
+        while not is_business_day(nxt):  # ex-dates fall on trading days
             nxt += timedelta(days=1)
         est = nxt.isoformat()
+        upcoming = [{"ex": est, "last_buy": previous_business_day(nxt).isoformat()}]
     return {
         "history": [{"date": d.isoformat(), "amount": round(a, 4)} for d, a in recent],
         "ttm_sum": round(ttm_of(div_events, today), 4),
         "last_ex": recent[-1][0].isoformat(),
         "last_amount": round(recent[-1][1], 4),
         "next_ex_estimate": est,
+        "upcoming": upcoming,   # [{ex, last_buy}]: the last day to buy to receive that dividend
         "is_estimate": True,
     }
 

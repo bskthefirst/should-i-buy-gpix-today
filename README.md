@@ -23,7 +23,16 @@ the open (07:00-09:15), in the last hour before the close (15:10-15:45) and afte
 close (16:25-19:00). See "How the daily refresh works" below. Each run decides for
 itself which price bars are finished, so the numbers are right whenever it runs. Fund JSONs also carry a `distributions` block (last 24 payouts, TTM sum,
 and an estimated next ex-date projected from the payout cadence) which feeds the
-"What it actually pays" bar chart on the GPIX/GPIQ pages.
+"What it actually pays" bar chart on the GPIX/GPIQ pages. Both funds have gone ex-dividend on the
+first New York Stock Exchange business day of every month for the last 21 months, so the script
+projects that rule forward with a built-in NYSE holiday calendar (`nyse_holidays`,
+`first_business_day`) and writes `distributions.upcoming`: the next three
+`{ex, last_buy}` pairs, where `last_buy` is the business day before the ex-date (the last day to
+own the shares in time). If fewer than 11 of the last 12 ex-dates follow that rule, it falls back to
+the median gap between payouts and gives one entry. The pages tolerate a data file without
+`upcoming` (they use the previous weekday of `next_ex_estimate`). Those pages print the last day to
+buy with the closing bell in New York time and in Korea time (`Intl`, so summer and winter time are
+right).
 
 A fifth page (`retire.html`) answers "when can I retire?" for a monthly savings plan ($1,000 a
 month into 80% GPIX / 20% GPIQ by default). "Retire" means the month when the monthly dividends
@@ -41,6 +50,18 @@ from (own savings, reinvested dividends, share price growth, tax paid), what cha
 a Korea tax line check (gross dividends against the 20M won a year line, using the live rate; the
 extra Korean tax is flagged, not computed). The page does not use the calculator on the GPIX page:
 that calculator shows one purchase today. Pure client-side - no new data files or workflow steps.
+
+Three more blocks on the retire page, all driven by what you hold today:
+**Your next dividend** shows the last day to buy before the next ex-dividend date, the closing bell
+in New York and in Korea time, a live countdown (it moves to the next month when the bell has
+rung), and what each fund would pay on the shares you hold after tax.
+**What your dividends pay for** is an editable list of monthly costs (default: Claude $20, ChatGPT
+$20 and lunch $20 four times a week, saved in local storage); it sorts them from cheap to
+expensive and shows the month when the after-tax dividends cover each one and all of them.
+**Your badges** are Apple-Watch-style medals for dividend levels ($10 to $1,000 a month, with your
+goal in gold) and for each cost that gets paid; locked medals show a progress ring and the unlock
+month, unlocked ones shine, tilt toward the pointer and pop with sparkles the moment you unlock one.
+Medals are SVG drawn in the page script. Everything respects `prefers-reduced-motion` and `?motion=off`.
 
 The GPIX page (`index.html`) also carries a Korean after-tax dividend calculator
 ("GPIX 배당 세후 계산기") under the verdict. Enter a USD amount, or tap the $10 / $100 / $300 /

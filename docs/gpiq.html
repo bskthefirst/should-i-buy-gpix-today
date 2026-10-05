@@ -302,6 +302,31 @@ const weekdayHoursSince = iso => {
 };
 const dayLabel = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", {weekday: "short", month: "short", day: "numeric", timeZone: "UTC"});
 // Which price bar the numbers are based on, and when the data job last ran.
+// The last day to buy before the next ex-dividend date, with the closing time in New York and in Korea.
+function lastBuyHTML(dist) {
+  if (!dist) return "";
+  const okDay = s => /^\d{4}-\d{2}-\d{2}$/.test(s || "");
+  const prevWeekday = iso => { const x = new Date(iso + "T12:00:00Z"); do { x.setUTCDate(x.getUTCDate() - 1); } while (x.getUTCDay() === 0 || x.getUTCDay() === 6); return x.toISOString().slice(0, 10); };
+  const nyClose = iso => {   // the moment when it is 4:00 PM in New York (summer or winter time)
+    const [y, m, d] = iso.split("-").map(Number), want = Date.UTC(y, m - 1, d, 16, 0);
+    let t = want;
+    for (let i = 0; i < 2; i++) {
+      const p = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hourCycle: "h23", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric" }).formatToParts(new Date(t));
+      const g = k => +p.find(q => q.type === k).value;
+      t += want - Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"));
+    }
+    return t;
+  };
+  const list = dist.upcoming && dist.upcoming.length ? dist.upcoming
+    : okDay(dist.next_ex_estimate) ? [{ ex: dist.next_ex_estimate, last_buy: prevWeekday(dist.next_ex_estimate) }] : [];
+  const u = list.find(x => okDay(x.ex) && okDay(x.last_buy) && nyClose(x.last_buy) > Date.now());
+  if (!u) return "";
+  const close = nyClose(u.last_buy), f = (tz, o) => new Intl.DateTimeFormat("en-US", { timeZone: tz, ...o }).format(close);
+  const day = { weekday: "short", month: "short", day: "numeric" }, time = { hour: "numeric", minute: "2-digit" };
+  const exDay = new Date(u.ex + "T12:00:00Z").toLocaleDateString("en-US", { ...day, timeZone: "UTC" });
+  return ` Next ex-dividend date ≈ <b>${exDay}</b> (an estimate from the payout pattern). To receive that dividend, buy before the market closes on <b>${f("America/New_York", day)}</b>: <b>${f("America/New_York", { ...time, timeZoneName: "short" })}</b> in New York, which is <b>${f("Asia/Seoul", time)} KST on ${f("Asia/Seoul", day)}</b> in Korea. <a href="retire.html">Live countdown and your payout</a>.`;
+}
+
 function stampHTML(d) {
   const when = new Date(d.generated_at).toLocaleString([], {month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short"});
   const bar = d.health && d.health.session && d.health.session.bar, day = d.fund && d.fund.as_of;
@@ -604,7 +629,7 @@ fetch("data-gpiq.json").then(r => { if (!r.ok) throw new Error("HTTP " + r.statu
 
     ${d.distributions && d.distributions.history && d.distributions.history.length ? `
     <h2>What it actually pays</h2>
-    <div class="h2sub">Per-share distribution at each ex-date — payout drift shows up here long before the trailing-yield average admits it. Trailing 12 months: $${d.distributions.ttm_sum.toFixed(2)}/share.${d.distributions.next_ex_estimate ? ` Next ex-div ≈ <b>${d.distributions.next_ex_estimate}</b> (estimated from the payout cadence — own shares before that date to receive the month's payout).` : ""}</div>
+    <div class="h2sub">Per-share distribution at each ex-date — payout drift shows up here long before the trailing-yield average admits it. Trailing 12 months: $${d.distributions.ttm_sum.toFixed(2)}/share.${d.distributions.next_ex_estimate ? `${lastBuyHTML(d.distributions)}` : ""}</div>
     <div class="card" id="distcard"></div>` : ""}
 
     <h2>Does waiting even work? A running experiment</h2>
