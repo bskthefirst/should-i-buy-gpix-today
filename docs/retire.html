@@ -649,7 +649,7 @@ function renderNext(hold) {
           <div class="nx-t"><span class="nx-k">New York</span><b>${zfmt(u.close, NY_TZ, { ...TIME_SHORT, timeZoneName: "short" })}</b><small>${zfmt(u.close, NY_TZ, DAY_SHORT)} · market closes</small></div>
           <div class="nx-t"><span class="nx-k">Korea</span><b>${zfmt(u.close, KR_TZ, TIME_SHORT)} KST</b><small>${zfmt(u.close, KR_TZ, DAY_SHORT)} · market closes</small></div>
         </div>
-        <div class="nx-clock" role="timer" aria-label="Time left to buy"><span id="nx-ch">${two(r.h)}</span>h <span id="nx-cm">${two(r.m)}</span>m <span id="nx-cs" class="nx-sec">${two(r.s)}</span>s <em>left</em></div>
+        <div class="nx-clock" role="timer" aria-label="Time left to buy"><span id="nx-cd">${r.d}</span>d <span id="nx-ch">${two(r.h)}</span>h <span id="nx-cm">${two(r.m)}</span>m <span id="nx-cs" class="nx-sec">${two(r.s)}</span>s <em>left to buy</em></div>
       </div>
     </div>
     <div class="nx-meta">Ex-dividend date (estimate): <b>${isoDay(u.ex)}</b>. The US market is open ${zfmt(u.open, NY_TZ, TIME_SHORT)} to ${zfmt(u.close, NY_TZ, TIME_SHORT)} New York time on that last day. That is ${zfmt(u.open, KR_TZ, TIME_SHORT)} to ${zfmt(u.close, KR_TZ, TIME_SHORT)} Korea time.</div>
@@ -669,7 +669,7 @@ function tickNext() {
   const left = u.close - Date.now();
   if (left <= 0) { if (YIELDS) update(YIELDS); return; }
   const r = remaining(left);
-  if ($("nx-d").textContent !== String(r.d)) $("nx-d").textContent = r.d;
+  if ($("nx-d").textContent !== String(r.d)) { $("nx-d").textContent = r.d; $("nx-cd").textContent = r.d; }
   $("nx-ch").textContent = two(r.h); $("nx-cm").textContent = two(r.m);
   const sec = $("nx-cs"), t = two(r.s);
   if (sec.textContent !== t) { sec.textContent = t; if (!REDUCE) { sec.classList.remove("tick"); void sec.offsetWidth; sec.classList.add("tick"); } }
