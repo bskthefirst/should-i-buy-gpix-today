@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-06T11:00:12+00:00",
+ "generated_at": "2026-10-06T19:10:14+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "33% ann. (p6)",
+   "value": "30% ann. (p2)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 6.0,
+    "pos": 2.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "22.7%",
+   "value": "22.4%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 45.4,
+    "pos": 44.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.5 (p18), F&G 43",
+   "value": "VIX 15.0 (p11), F&G 48",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 378.73,
-  "as_of": "2026-10-05",
-  "bar": "final",
-  "day_change_pct": 2.2,
-  "sma50": 348.9,
-  "sma200": 392.63,
+  "price": 380.01,
+  "as_of": "2026-10-06",
+  "bar": "provisional",
+  "day_change_pct": 0.34,
+  "sma50": 350.31,
+  "sma200": 392.19,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 22.7,
+  "drawdown_pct": 22.4,
   "series": [
-   {
-    "d": "2026-01-16",
-    "c": 437.5,
-    "t": "neutral",
-    "s": 47
-   },
    {
     "d": "2026-01-20",
     "c": 419.25,
@@ -1217,6 +1211,12 @@
     "c": 378.73,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-06",
+    "c": 380.01,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1224,7 +1224,7 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 33%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 30%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1276,13 +1276,13 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 378.73,
-  "sma200": 392.63,
+  "price": 380.01,
+  "sma200": 392.19,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 32.6
+  "level": 29.7
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1300,61 +1300,61 @@
  },
  "backtest": {
   "start": "2022-10-06",
-  "end": "2026-10-05",
+  "end": "2026-10-06",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 31180.47,
-  "dca_return_pct": 48.48,
-  "dip_value": 31203.2,
-  "dip_return_pct": 48.59,
+  "dca_value": 31285.85,
+  "dca_return_pct": 48.98,
+  "dip_value": 31308.65,
+  "dip_return_pct": 49.09,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 205,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Goldman Sachs reiterates Tesla stock rating ahead of earnings By Investing.com",
-   "source": "Investing.com India",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQWlMwNWxCaU5hZWxvbWQ4MWxUZkFZQ19DY2dkV0tPVXM0V05iMVEzZS1WNnFBb1lmMjBfNGhqN3B0aDBDLXU4VmhTc1NUM2lLRmt3bnVRbUlhTHZ5WXFjU0R5NWtjbDBhSkZROFd2Vk5VYWllQzRrTmNwYXlxc09FWXpkTFUzSV83RDlySEV0Z1RSenRKdlN5TTF0U0ltZTVIR0FqT0w4cTJSeHc0TjFNRE4wTkN2Q1FtdTNBMTFFcw?oc=5",
-   "published": "2026-10-06T10:58:54+00:00"
+   "title": "Tesla stock after-hours at EUR 337.38: minus 0.18 percent versus prior close",
+   "source": "AD HOC NEWS",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOV2NBb242YkQzU1Y1dzNUVTRQNmNKcVNGdXFmUlJUYmhDT2MzNVk0XzZJWXdOaEZzbThEaDJQMWRtQXl5OVdIcXNibjRtVXZ5VWx0ZFBzMDhlWFhMSW9YUGdVZmdZSG0zWVI1U2tESWdqd1Jydkx6SVROdWlDYkhwamZKNGk4b0lLSWYxQURlYmpPWEVONklrVjU3N0QtLVJOTENIY3VFbE5YcGVRQk1VRHppTFRXR3hIQno5Zm1EOTBMUjluQ1Vr?oc=5",
+   "published": "2026-10-06T18:26:42+00:00"
   },
   {
-   "title": "As Tesla Deliveries Rebound, Is It a Better Investment Than SpaceX Stock?",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOZmhzU1JKSXY0ZEtwV2VtVTNQYmZsOGROWmdsNXU3a21EYmZSZmNzYVM0bXVQM3pZUEdMV1NHOWs3dGJucHRqN29DMEZWZURuS2tmQ0F0MTdRWWtoWGZLd1k0TEJyRmpoeFRTX0g5MjBYbDVzTjB5Y1l6QzlvMlFIa0Fra1dJMUVnUFFmemFoYVdaYWNWMWNubWZpMjVHSnQtS2VyNWFod0RRWUU?oc=5",
-   "published": "2026-10-06T10:35:00+00:00"
+   "title": "Tesla will show off the Cybercab at the Paris Motor Show ahead of a potential Europe launch (TSLA:NASDAQ)",
+   "source": "Seeking Alpha",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNYjYtZ1FuMVM3b2Z1Z1JkcktCMTZ4TW4zZzZCbUl2ckQ1LV9FOFpYSnZfUlBoQWp1QmV4SGgtTGtIZGo2T1BWckZ3NVRnbDB3eVgwb3dVWEJ0Y0lQTktYRFEwZi1FS1k5T3pEQVQ0ZnJpTzNHZVVlbFhQZ3Y1eTFnMEVHRDN1Y193VHFBNmpRVVRnWGMxTWdyNzlETkZCV1NjM1g1TTBmWU9Rd0J6TlluZFJhYy1KTXc0UFRfUVFLcFd1Z0hGZll2eQ?oc=5",
+   "published": "2026-10-06T17:11:06+00:00"
   },
   {
-   "title": "Elon Musk is a trillionaire again: Wealth jumped $65b. in a single day",
-   "source": "The Jerusalem Post",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNYTNvWGxLWXlKZFZfTFFhQXBXd1JMbU5ZS1l1dG1rTG5uZHh1Z21rMnZ5dWtqZG0yUENRY21LRmt0LVJCQlpab0FzZW1ZU3ZVUVRJREpYX2I2RjMyVERFTk9ZSWtsZmNwQ3otZ2dLUVF1Y1QwNmh1Tlc2cmE3V3pqZ3VGOE9vSmc?oc=5",
-   "published": "2026-10-06T10:30:00+00:00"
+   "title": "Michael Dell\u2019s Net Worth Soars After Stock Market Gains\u2014Closing The Gap With Google\u2019s Larry Page",
+   "source": "Yahoo Finance UK",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOVmRqY1R6TEFkbGo1QmJoT2xEdE1UTmFVc29BYUJ1ZldycUVuN1JsZEN5eXB2aVlPVDRHS1dFSEk4cm5yOHBIYTA0ZlY5RkNSSThPT2tzV0xvaUZxaTlKOWJDSUhmOTQxdmZRbTJNcWRlUEdxVjE2NkN1UWh6cmRFVkRFQQ?oc=5",
+   "published": "2026-10-06T17:00:02+00:00"
   },
   {
-   "title": "Why Citi now thinks AMD stock could rip another 25% because of Meta Muse",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQdHg3ZWxodTlOaXpjenBnVC1sRHk2bGtURkM4a3RvYjFGbHBNY3hYZEx4X2VQQlFFbUd1Zk1uMlZoeDRfbVFZNExzTkdpVVFhbWlRejRNVVU4NUZmVHg3RmpqQTZmZDI1NDhuYVJGUVppS25SSHpwUjFpSDRTS0Nkc3lKT0wwSDF5c1FSZWNaa3dzX1Q4Mm9nekszNkhpQmhyT1dobG5Bb0RwTXh6ODg2YmxpUkcyTW9Wa1Bwb0VTZXFvOTZON0owbjByV0Ywemx6?oc=5",
-   "published": "2026-10-06T10:12:00+00:00"
+   "title": "Tesla Cybercab: A Trillion-Dollar Business I'm Not Buying (NASDAQ:TSLA)",
+   "source": "Seeking Alpha",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxORzgxY01LeWNuRXFVZ2MtQWNTUnlBTXhqRUpva1hkTnZMcVU0QmpvbWdFOHBiN2hlVFFGUzRLLVRmVjdHMGhXV3Q5Y0tfcGNrNGQ5TThJRlZNNDFVNmlpWmRLckJab3Z3QUgtWHZaYk9UNzBNNHVSbnZIanNSdEU4bERTZlFDTUFFWEI0ZVpUSld1THBGdjAyYmdWZ2E?oc=5",
+   "published": "2026-10-06T16:27:17+00:00"
   },
   {
-   "title": "Elon Musk vowed Tesla would never raise money again in 2012 \u2014 then came 29 funding rounds and a $465M federal loan",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOajJJRlNKZXFaOTVvMFNFbWtVUDlFdzFPMWp1bzFJNUdXWm9iWU9Mc1BBOTBCNkY5dnpUVjhhQkw5Wm03LU1ETjhCWTVuUlgzR29xNmZxbWo0ekFYTExORENrcmdvcUNkS0Z1UXhZSmZCV09HaDZna2dwWlNESWllcUhZdjRxVWpHZDhWMTBRQVJwZ2lrWE9v?oc=5",
-   "published": "2026-10-06T10:00:00+00:00"
+   "title": "Elon Musk Says That Tesla\u2019s Robotaxi Service Has A \u2018Cat Problem\u2019",
+   "source": "Yahoo Tech",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQN2lsSDE5U043UXJkT3VocFc1U1Bpb2l5R25yWEtNVWhha0VUR0tlWTlaS2k3OWdudGFMMEJMVVU1LUtsNmdKWXc5eGNJZ19weTZMMy1idXBrVW56R18waHZ3MW1yNmtzQzhXaVhpRndUZFdjY0R5TGdiSkhuQS1vOGNHRGhCMUdnaHUyLTZEX0NLZDJxLUE?oc=5",
+   "published": "2026-10-06T15:55:32+00:00"
   },
   {
-   "title": "TSLA Stock May Have 'More Near-Term Upside' as Delivery Beat Changes the Math \u2014 Gary Black Sees 'Room' Be",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxQc0psVWl3RkZPVG9oVUNFZ3Z6QWQtYWpKUjBmMlJVV25vWTNsdWJTT1dRbm00Z1NQNFczVjVOYzhscl9xbG4yNU9JVE41N2F0ZUhPSzJvMGp5UGl1cmtaNEluMVkxdGZVLTkzVWpoY1ZOdTdZTXgxX2J2ZUxMWVRPVGlEdXEtQ3hpOTF3TmdYeUgxZ0NUYkVnbFNJVm9zcDh6U3lzN29qWWxYOUNMdTk5Z0pTWmhPaWdKZFB3STNXM0MycEhTdWRtQ2hsTjNxSEd2NEZ4NkN6eWxGS2x5WlZKdjVoNHpaQ0JMdE44b29RLThkWFR0NnVyUWFVT2M3QTBNbjZWRDVZeF9TektaVEE?oc=5",
-   "published": "2026-10-06T09:54:32+00:00"
+   "title": "SpaceX Stocks Keep Rebounding. Elon Musk is a Trillionaire Again.",
+   "source": "International Business Times",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQWWdvLUh6ampFUDQxWDNDYUdQM0hsUG9rd3BIUDBHMVBHdTRXV3RLYmFKSWtBQ0xNR2oycEhJd2dhVk9Jc01EdUE1MW9NTmp3Tm83eEduWVRnb1NNZDBRbkhmUFg2cVA5M29kWXpzSldDakFDaDZrNm85aE80ZEtoeG9BN1JWeGV0aXlScmFrMmoyLWVP?oc=5",
+   "published": "2026-10-06T15:53:59+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-06T11:00:13+00:00",
+  "run_at": "2026-10-06T19:10:14+00:00",
   "session": {
-   "date": "2026-10-05",
-   "bar": "final"
+   "date": "2026-10-06",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1370,7 +1370,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-06T10:43:46+00:00"
+    "as_of": "2026-10-06T19:05:11+00:00"
    },
    "earnings:TSLA": {
     "ok": true,
@@ -1382,7 +1382,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-02"
+    "as_of": "2026-10-05"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1393,72 +1393,72 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T10:57:36+00:00"
+    "as_of": "2026-10-06T19:03:45+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T09:39:19+00:00"
+    "as_of": "2026-10-06T18:31:22+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T10:58:54+00:00"
+    "as_of": "2026-10-06T18:26:42+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-06T11:00Z"
+    "as_of": "2026-10-06T19:09Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    }
   },
   "degraded": [],

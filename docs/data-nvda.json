@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-06T11:00:16+00:00",
+ "generated_at": "2026-10-06T19:10:20+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "26% ann. (p1)",
+   "value": "24% ann. (p0)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for NVDA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 1.2,
+    "pos": 0.4,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.5 (p18), F&G 43",
+   "value": "VIX 15.0 (p11), F&G 48",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 238.9,
-  "as_of": "2026-10-05",
-  "bar": "final",
-  "day_change_pct": 2.12,
-  "sma50": 218.92,
-  "sma200": 201.02,
-  "high52w": 238.9,
+  "price": 239.8,
+  "as_of": "2026-10-06",
+  "bar": "provisional",
+  "day_change_pct": 0.38,
+  "sma50": 219.79,
+  "sma200": 201.36,
+  "high52w": 239.8,
   "high_label": "52-week high",
   "drawdown_pct": 0.0,
   "series": [
-   {
-    "d": "2026-01-16",
-    "c": 186.23,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-01-20",
     "c": 178.07,
@@ -1217,6 +1211,12 @@
     "c": 238.9,
     "t": "ok",
     "s": 56
+   },
+   {
+    "d": "2026-10-06",
+    "c": 239.8,
+    "t": "ok",
+    "s": 56
    }
   ]
  },
@@ -1224,7 +1224,7 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 45% annualized (now 26%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 45% annualized (now 24%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1276,13 +1276,13 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 238.9,
-  "sma200": 201.02,
+  "price": 239.8,
+  "sma200": 201.36,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 25.5
+  "level": 24.1
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1300,61 +1300,61 @@
  },
  "backtest": {
   "start": "2022-10-06",
-  "end": "2026-10-05",
+  "end": "2026-10-06",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 86613.6,
-  "dca_return_pct": 312.45,
-  "dip_value": 86809.56,
-  "dip_return_pct": 313.38,
+  "dca_value": 86939.91,
+  "dca_return_pct": 314.0,
+  "dip_value": 87136.23,
+  "dip_return_pct": 314.93,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 182,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Not Nvidia. Not AMD. This Networking Stock Is Gaining From Every AI Data Center Built.",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOTmppZ2JfWElmWmJPRmFScmRma1ZzR3NzNHNpX0N4SElzRUNnWHhpNlFWYVpRb0tOblFyU3U1YVBPT0JDYV92S3p6cVBFQUhZVllQcTY0N0VoaDV2bklTeTRjRmF0SnIxNXBzX0FFNDFYNWRqaWVnWjZEeExlNTBReElYeVZUcTJQU2R6X0pFSWxoREhfN04yTg?oc=5",
-   "published": "2026-10-06T10:56:11+00:00"
+   "title": "Artificial intelligence brings world to brink",
+   "source": "The Paisano",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQenRaXzlfSkpMcWtIbm9XMjVET0pSWEtfZS1wN0dzclF1dDFtSUkxT09fOHNKTkNaR09fRzVxemFLT2h0TVZYSFIyN0tWd29HaUFLTDhzTVVpa05YQ3o0Z3JiZlJwMHppVnRIUHRQV1R1aTQ0c0g3ejdlR0FWLXlYaV9BYmNJRDZ6ZmNzbnlTQzVUU1BxSGxVa0pXMk1RUWM?oc=5",
+   "published": "2026-10-06T19:03:24+00:00"
   },
   {
-   "title": "Groq-Nvidia $20B deal faces suit alleging stockholders were shortchanged: report (NVDA:NASDAQ)",
-   "source": "seekingalpha.com",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNjI0TjFHSm9fRUoyclQ0V2Y1X2RuR3FUVmhRS3BTa1pFWWNjQWxyNzZGTDJiSThqcHdXYWtCTlVhTnh6U3otRjVVR1ZiMTNqVEI5d3BOckdaZ3lpRWJZLWE1SmtCMmZmQ0lWX0NKU3Y3ZTJfSlN4Z3dNbmNVQWJRVkR0RkppdS04dWlLeUJMRWR3LS12bS0zTEhPMEgtbzF3UVhha3ZkbHhJVmIxVGZOYlRFUktlZEk?oc=5",
-   "published": "2026-10-06T10:53:10+00:00"
+   "title": "Nvidia-backed Lambda targets $4 billion raise ahead of planned IPO, WSJ reports",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQR3dfcjJxclVWTV9faDZyaUpIZ3F3cl95X2dFdzRaN0IxTWFuX0VwdWFBeEFtdjdqNVlKRHVCNVUzZF9paU9Cb0F3Y1NLR1l1UnNMVXNudDVYTEg4SVlVSHl2b1QwWjR6WV92ZV92MEUzRnozaEx4cHF6ZURxdUY2VDNlWWZSaGIxX3hsWEsxalhvZjhpSk85dWEwNWN6U0ZKeUNPdklHYnZpQjlORGpKemZOY0NfWkZFWHdvUkd3?oc=5",
+   "published": "2026-10-06T19:01:28+00:00"
   },
   {
-   "title": "Options market points to 50% chance Nvidia hits $6T market cap this month",
-   "source": "seekingalpha.com",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNMEFFcVZWVUxwYk9QVHVVRW1jY29KU2hHejREVUozQnlyblVuWkhTVEVYZlFKSHN4MUFaZ2FqNWxONWh4cmRmTkY3d3Awd3R3RERzWHRXb0didTNvVHY0S25YSjRlOHJZcjJjbWdsNWREcWh2YzBUUUZnZzlvT3E4VEd6eWV0elZtUUxzYVBQV0s3OWo0bnd2OUlSa1EtVkRMeWRqSDA3MDRtaXU0emc?oc=5",
-   "published": "2026-10-06T10:25:27+00:00"
+   "title": "NVIDIA & 2 Momentum Stocks to Buy in October for Big Upside",
+   "source": "Zacks Investment Research",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOeFBTWUdlY19TT3V5T19lUENka0x1YUlEZDRnMTZUNU9sOWFETk12RGxUeUJheW5IUTFLWTY5SklmM20yZDlscnprb2l4WnNaV3N1YzBVTXNOSmpkREFqalVPeWM5NWtiTlJmRUVvQ1NaMElYZ3BFX294NVlIVHVEMDZvWHNNVThtYnkyWXRpelpCYlNUZ0pWV0JwWmVja3M?oc=5",
+   "published": "2026-10-06T18:30:22+00:00"
   },
   {
-   "title": "What Are the Options-Implied Odds of Nvidia Hitting $6 Trillion This October?",
-   "source": "Moomoo",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPWVRQcVVBWVZpVzJMTW1LWHZPS2k1NXFYa3dENGRXYWppMlpFV29RT044emp4bDliRy1HdGs2MkJmdVVxS2NJM1M1TUpYYV8yYU1yMDE3cXV2LXF3WDZUbUlqTDhYblEzYUkxUkxydDhhbFNIU2Z6aF9rZXBuZXpvOHlBM0tnRWF6RUd5aXZSQXRRazltTEtkQ2U1TE9QVXhKMUtoeEFYUkdIRjA?oc=5",
-   "published": "2026-10-06T10:20:35+00:00"
+   "title": "What\u2019s Next for Nvidia, Apple, and Other Trillion-Dollar Stocks?",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOUVBBZVpqNnZPcjJLeUFoTTljZEhhT1JSY2hQcXFaVUFQaWNJdERIc0JvRDJyS0pGcVlhaEprT3d3VWVycVM0YnlCLXExaVUtSGk4ZllnYm1BNkE3YnFCRlJDRVFvb0dVZnJPWFVpUDdOcWE1VHVKRjdncjRLeGNXR3NkV0NIS0pUMHY1SFJuU05uTHFBeUpSa3EzQUk3eXc?oc=5",
+   "published": "2026-10-06T18:22:00+00:00"
   },
   {
-   "title": "Nvidia Is on the Verge of a $6 Trillion Market Value",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNM1VFTUV3THRHYUN1bUN2M0xoNU5kOVQ2MDFQaklHelQzRjRtWEp1bWRqR1pXTFpFMEVqVzJXbXJJbVBTTEpiam54MFlBWHNLakNOSzIxeUFSdDdnX2ZTc2JXanAzakZsRmw2eF9ZR2JiLTVhOXBKdk1WYnNNcGtwWmRKMGRxdi1aNUZWaUZmVkVxM0ZVSE16VDBvMnh4dFFPR0NoNDdmMVdVczZyQ0FjdzZWTDkwcTkyX0ZsZUxLQWVQa0s0?oc=5",
-   "published": "2026-10-06T10:09:50+00:00"
+   "title": "Nvidia Record-Breaking Jump Sends Shockwaves Through Nearly 900 ETFs",
+   "source": "TradingView",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNSmpHeUlDalhuQUZCTzNTQ18tSWs5d09hY1FNQWJxMV9pdXJtYnlkaXNrMERHTTQ3VzFsWlhqajFsMGJwdVFTY215ZWFMc2xKRmxpTnhJSElGOUZobWo0cUM1ckVLR0VYODRDWDBUcHNDUGprZzVJaXhlbXk1NWpLQnJGUjlxUjcwQkpNZFAtNVRSRFRFOFBkdnlKRXZHRUkxcXRzRVBxRTJPZ1pwTjFpQjIxYmhHcUlSWUp5UkVCd1VTLVpJR3pF?oc=5",
+   "published": "2026-10-06T18:11:59+00:00"
   },
   {
-   "title": "Artificial intelligence: the big bad",
-   "source": "thejustice.org",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQmVId2dlWlNQYzVIQkxadklQMVQ2Y2ZoUUhBMVJwWHhJUFU4SFFWclF6WW1OSE8tOWdTaG1wUk1xYmJTSFQ3WE04cGRRTEJjUXJhOE44QlZRN0xadjUybUtJV3E3eGtwdHBaX1A4Rm1vVnF5dmpLZDBpd2ZvVGUxWFlkTnk?oc=5",
-   "published": "2026-10-06T10:00:28+00:00"
+   "title": "Nvidia-backed neocloud Lambda is raising $4B in final round before IPO - WSJ (NVDA:NASDAQ)",
+   "source": "Seeking Alpha",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNbVJsWmxsbmQ0V3lLT09ZMHB5Vjd5dnYwcjNYTTM1SmNNWWNnanQ5TzEwN29TQ2JldExzTHJ1X0lfZG5VSVhKa1Awemg2Qlcxc3pzM2FZS21BemtHeGNhaWd5ZDQ2c3p0WHFLUGo0TjRQdnVpWXFXR3BaOWFEWEVEMWxOTndZck04UjdKbE9VZWliNE9zcUNwcmQ0c3lQbXRSa0ZJQldOQ0lxSzE3bEZjd1Vxdw?oc=5",
+   "published": "2026-10-06T17:52:01+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-06T11:00:16+00:00",
+  "run_at": "2026-10-06T19:10:20+00:00",
   "session": {
-   "date": "2026-10-05",
-   "bar": "final"
+   "date": "2026-10-06",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1370,7 +1370,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-06T10:43:46+00:00"
+    "as_of": "2026-10-06T19:05:11+00:00"
    },
    "earnings:NVDA": {
     "ok": true,
@@ -1396,7 +1396,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-02"
+    "as_of": "2026-10-05"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1407,96 +1407,96 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T10:57:36+00:00"
+    "as_of": "2026-10-06T19:03:45+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T09:39:19+00:00"
+    "as_of": "2026-10-06T18:31:22+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T10:56:11+00:00"
+    "as_of": "2026-10-06T19:03:24+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T10:46:04+00:00"
+    "as_of": "2026-10-06T19:00:00+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T10:58:54+00:00"
+    "as_of": "2026-10-06T18:26:42+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-06T11:00Z"
+    "as_of": "2026-10-06T19:09Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-05"
+    "bar": "provisional",
+    "as_of": "2026-10-06"
    }
   },
   "degraded": [],
