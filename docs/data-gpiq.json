@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-06T19:10:11+00:00",
+ "generated_at": "2026-10-06T20:25:12+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.0 (p21)",
+   "value": "21.1 (p22)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 21.4,
+    "pos": 21.9,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.85",
+   "value": "0.88",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 38.2,
+    "pos": 45.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.40x (p73)",
+   "value": "1.40x (p72)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 72.6,
+    "pos": 72.4,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.9 pts",
+   "value": "+6.0 pts",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
+   "lean": "good",
+   "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 82.2,
+    "pos": 83.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+4.7%",
+   "value": "+4.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 89.2,
+    "pos": 88.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 56.3,
+    "pos": 56.1,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "48 (neutral)",
+   "value": "47 (neutral)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 48.1,
+    "pos": 47.4,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,12 +257,12 @@
   }
  ],
  "fund": {
-  "price": 58.709,
+  "price": 58.66,
   "as_of": "2026-10-06",
-  "bar": "provisional",
-  "day_change_pct": 0.51,
+  "bar": "final",
+  "day_change_pct": 0.43,
   "sma50": 56.84,
-  "sma200": 54.95,
+  "sma200": 54.94,
   "high52w": 59.52,
   "drawdown_pct": 1.4,
   "series": [
@@ -1342,7 +1342,7 @@
    },
    {
     "d": "2026-10-06",
-    "c": 58.709,
+    "c": 58.66,
     "t": "neutral",
     "s": 50
    }
@@ -1352,22 +1352,22 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.95 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.90 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 48) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 47) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.0) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.1) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1378,14 +1378,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-05",
-  "days_total": 736,
+  "end": "2026-10-06",
+  "days_total": 737,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-10-06",
   "baseline": {
-   "n": 715,
-   "avg_pct": 1.92,
-   "median_pct": 2.17
+   "n": 716,
+   "avg_pct": 1.93,
+   "median_pct": 2.18
   },
   "bands": [
    {
@@ -1405,19 +1405,19 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 461,
+    "n": 462,
     "avg_pct": 1.28,
-    "median_pct": 1.67
+    "median_pct": 1.68
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.82,
-  "tbill_3mo": 4.19
+  "ttm_yield_pct": 9.83,
+  "tbill_3mo": 4.22
  },
  "fx": {
-  "usd_krw": 1337.51,
-  "as_of": "2026-10-06T19:09Z"
+  "usd_krw": 1337.56,
+  "as_of": "2026-10-06T20:25Z"
  },
  "distributions": {
   "history": [
@@ -1540,13 +1540,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 760.385,
-  "sma200": 670.13,
+  "price": 759.66,
+  "sma200": 670.12,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.01
+  "level": 21.15
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1563,57 +1563,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15500.0,
-  "dca_value": 21974.51,
-  "dca_return_pct": 41.77,
-  "dip_value": 21726.83,
-  "dip_return_pct": 40.17,
+  "dca_value": 21956.17,
+  "dca_return_pct": 41.65,
+  "dip_value": 21708.95,
+  "dip_return_pct": 40.06,
   "dip_cash_uninvested": 300.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Anthropic opens its most powerful AI models to more security teams",
+   "title": "TMF Invests $83.4M in 4 AI-Enabled Modernization Projects",
+   "source": "MeriTalk",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQUWFwdEtKWDhjNExYeGQxNDEwdTJNY3FyVTB5aFFwN09pbFVpVnYyMVl1MWlYckltMEhWREtXcGxIR1lkUFg3QXZldHUtcFJ6Nkp0aTJzbFZQaFFjcExPZU1uOFRHYThXUVRwdmFVcDFPT3IxZmZTVEl4TEJqaEk0M1ZHOWtlSThQMTFtQWczOVRLUk1ISnc?oc=5",
+   "published": "2026-10-06T20:17:47+00:00"
+  },
+  {
+   "title": "Gonzaga Community Explores AI Through Faith, Ethics, and Dialogue",
+   "source": "Gonzaga University",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQlY3T2tTUGdIbXpWelZNX2pIajJYM3RtWGF1RXAxQkFldGNqbWxCdU9UR3VqOHFRR2hOME42d2NJSW16Znhmb2k1aEYtY1p0OTFkbGplQkN4V0ZuRk9xMklSdkNsU3l1WFVxczhqOW01N0tUR3JfODJjWlc0UU41dTFMQ3c?oc=5",
+   "published": "2026-10-06T20:16:06+00:00"
+  },
+  {
+   "title": "What Buyers Now Diligence in AI and Autonomy Deals: Lessons from Apple's AI Acquisition",
+   "source": "Foley & Lardner LLP",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOZWswVWs1VUNWVnBLNWpOakI5Y3dQc1k4eVZwazB1NlJ6X1RtR1oyUUFKUFZ4R1JueUJNaWlLSWU3bi1XVU1sd2ZqSlo1bUVvdVZWQVNVeUFsdmh6NDFQaU9Va0VFSVZRUl9odGNSUGk1b3laX3l1RGNVX0xkV0lWU0VNUnRFclVWeTd3dURFTW1lejQweVNzMEYwWjJkVkhlWGo0M2RSaVpfVnJCUHJWY19KRjA2aWRveHFiS0tlX2xrRXpiTzhENlZmaUttajh1VnM4UQ?oc=5",
+   "published": "2026-10-06T20:13:33+00:00"
+  },
+  {
+   "title": "California Becomes First State to Legislate Lawyers\u2019 Use of AI",
+   "source": "JDSupra",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNVnBxNmI2WW1GaDBPaHA3Z2hTVW1xYU5XWHRjUUxQNmJ1YkdfX1BzbURqNlFVWk03X0hLNEV0RWVsbTh6MllDTXM4el9EbzQ3d19saVp6Q0J0QmZva09oY0kyRTZ2MW80V2N5amx1WmFLNDgwRGRHTkxoZGhUYmhtaVdn?oc=5",
+   "published": "2026-10-06T20:13:14+00:00"
+  },
+  {
+   "title": "US Justice Dept tells staff to call AI 'super intelligence' under Trump order",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQRkxQM2QzdFNaWVZ2cDdhMGNGb24za0lLSjNZOTlLTkMwMTNPNDBnSjMyaHRXZ0QwVkRLV2RwNUdob2ZpNHhfX19TVkNxQW1XOFEybjdJWTZFbGZPU1hLR1pEcFpyNmZLV19IUVJqUm9LOWxZNnNhRjVSc1pFQU1YR2lXZEw4X19FT3pXM0dVUmdZdW5QNWtKU3YxS0RkLUI4UnJPZXJkeERJdlNSakNLUE9GX2d2Zm8?oc=5",
-   "published": "2026-10-06T19:03:45+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPN0M0T3dic0tvbGhzbmx3WVNKNm9iU2l0ZUNBUk5jbzZCM24zT0FOV3RFYXpVQ3NPS1BuMU1zOXNzSmdvbE9falZVOTZja2hqMGtVQWxpXzg2VE15T1FVT0pCc0NLRVowMnBKY0J4dTl0WkJTWUlsbXFOeE1VZjJTUlpEOHlldTE3MTdrMGVRQjF3NEo1aDZxUFNJa21Zb0hMdWFLSjY5dVA5YUlBQjltbmcwSDRZV1M1S2xPQUtWSXVGd2M?oc=5",
+   "published": "2026-10-06T20:13:08+00:00"
   },
   {
-   "title": "AI populism and the future of American democracy",
-   "source": "Princeton University Press",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNU3lGMWFGWlpheUhnaG5WZDBoQlVqTnd4bzdPSFhTSDJ4bEJDY1BpeldXSFVUMG5SbWd1ZkFEWjB6Y1pZQk9jaXR1MTJXMlBTNWNyeHFGa0JnejM1ZHhrZkJSU0E2ZlJoSXhuUllFX0dDVFB6WHBxNW00Nzg3a1U2MGdHYnFHVHNGc1E?oc=5",
-   "published": "2026-10-06T18:59:12+00:00"
-  },
-  {
-   "title": "California Governor Signs Over 20 AI-related Bills into Law",
-   "source": "Inside Privacy",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPUW9wanRYNmEycm1EWU5Ma2dUandkUmlndjRTYVZYUTJLNTFQNVptem9sTkthS2NIRE4zWXNMNU8zMVQtNDk4ZlB4QUU0b05lbXVTaHNwSnkwbkxtcG1sODhULXpHYnV5RktoZnZRY3lmZlphaG9yV09nNkg2aW8yZEdPbXU0SzJYQlZPTGd3NXV6MDZzcEJ6bUNzV2RzQWtqUG1KY2VUZkRMRzFMSEFJczNObl8?oc=5",
-   "published": "2026-10-06T18:54:29+00:00"
-  },
-  {
-   "title": "\u2018Hallelujah\u2019: Stakeholders react with praise and concern to GSA AI acquisitions clause",
-   "source": "FedScoop",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5aT2k0VHFLZ0hSMUgyNzY4eHl1b010MUI3Rk15aUhqZlN5NDJLMVljQ3FCbU5WNEJ3U19taUhzWmhOMkdLUUY4eDM1YW1RcG9RdWVfSW1pSXdwbF9QdzFjYllHZzVFZ0tGMFV2SDkxOA?oc=5",
-   "published": "2026-10-06T18:53:49+00:00"
-  },
-  {
-   "title": "California Enacts Over Two Dozen Key Privacy and AI Bills into Law in 2026 Legislative Session",
-   "source": "Wilson Sonsini",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPclBxQkJNT2xrY0dURjJnQTduOTAzeFBBbGNHZWdDNWNqWHF0VTdlSThmRmN1UVVFRXNFem5LZm4wQXowNU5zWXo1VFFSdl8zZXVuMnM1WExXWWd6QTlldV9yQUdKeXJwQUhqa1NVVWFjSVVwVnAwdWNVTXdlVTZNMmZoMGVjTDQwa3BXRWZZMW4wRDlfQ3A2QVdyYnpPdVhEMG1GSFhBUnI5SlZDUzI4Y3h4YTBDZ0ZTTV9lT2N4dWxHdHZPNkgybG9yQmk?oc=5",
-   "published": "2026-10-06T18:48:10+00:00"
-  },
-  {
-   "title": "Texas high court toys with AI transcripts for witness depositions",
-   "source": "Courthouse News",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNSWxHSzZjSTBUdFBRXzVLd0V6dEdkLW94dkJkc3BEaDdxd3J1bi14RFdSejFIMGZhRUFkTjJyRDBCQzFWUTJwRjJaLUUyYTFuM1hUNU04VzRQOFB1WE1NbkxhcW5LU29sWUpVaXQ3MnlFNWdnOUhoS3d5R1dXeHFGdzIyY2RLOU1lU3A1SGtsVUVpc2tNMXVnZHE2d0VZdw?oc=5",
-   "published": "2026-10-06T18:43:42+00:00"
+   "title": "RFK Jr.'s Embrace of AI Confounds Some Trump Allies",
+   "source": "Broadband Breakfast",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPZ1gyUGRSZHZGRXBpZ1V5MjdLX0hlNG5DSFQ0bElpbFl0OG8xd2lDWG04NUtwaGZQM1pJZTFwbnBjWW9uNVY2R1VTSlJaVktTZEg1U3pwTzdGdTVoV09tNHdkc1Q0QWRwX1RPeUhtS0J6SlZ0c09xMHR3YjU1WlJVQTZ4T2lybjItTVE?oc=5",
+   "published": "2026-10-06T20:09:56+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-06T19:10:12+00:00",
+  "run_at": "2026-10-06T20:25:12+00:00",
   "session": {
    "date": "2026-10-06",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1629,7 +1629,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-06T19:05:11+00:00"
+    "as_of": "2026-10-06T20:10:31+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1639,65 +1639,65 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-02"
+    "as_of": "2026-10-05"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T19:03:45+00:00"
+    "as_of": "2026-10-06T20:17:47+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T18:31:22+00:00"
+    "as_of": "2026-10-06T20:01:23+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-06"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-06"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-06T19:09Z"
+    "as_of": "2026-10-06T20:25Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-06"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-06"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
-    "as_of": "2026-10-06"
+    "bar": "prior_close",
+    "as_of": "2026-10-05"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-06"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-06"
    }
   },
