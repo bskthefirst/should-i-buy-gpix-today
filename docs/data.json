@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T19:10:10+00:00",
+ "generated_at": "2026-10-07T20:25:12+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.1 (p11)",
+   "value": "15.0 (p11)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 11.4,
+    "pos": 10.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 38.1,
+    "pos": 36.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.8 pts",
+   "value": "+4.7 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 73.2,
+    "pos": 72.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 39.2,
+    "pos": 39.3,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -200,7 +200,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 44.7,
+    "pos": 44.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,10 +230,10 @@
   }
  ],
  "fund": {
-  "price": 56.345,
+  "price": 56.34,
   "as_of": "2026-10-07",
-  "bar": "provisional",
-  "day_change_pct": -0.17,
+  "bar": "final",
+  "day_change_pct": -0.18,
   "sma50": 55.95,
   "sma200": 54.06,
   "high52w": 56.67,
@@ -1315,7 +1315,7 @@
    },
    {
     "d": "2026-10-07",
-    "c": 56.345,
+    "c": 56.34,
     "t": "neutral",
     "s": 50
    }
@@ -1340,7 +1340,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.1) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.0) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1351,12 +1351,12 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-06",
-  "days_total": 737,
+  "end": "2026-10-07",
+  "days_total": 738,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-10-07",
   "baseline": {
-   "n": 716,
+   "n": 717,
    "avg_pct": 1.65,
    "median_pct": 1.97
   },
@@ -1378,7 +1378,7 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 523,
+    "n": 524,
     "avg_pct": 1.24,
     "median_pct": 1.66
    }
@@ -1386,11 +1386,11 @@
  },
  "income": {
   "ttm_yield_pct": 8.14,
-  "tbill_3mo": 4.22
+  "tbill_3mo": 4.21
  },
  "fx": {
-  "usd_krw": 1338.7,
-  "as_of": "2026-10-07T19:10Z"
+  "usd_krw": 1339.5,
+  "as_of": "2026-10-07T20:25Z"
  },
  "distributions": {
   "history": [
@@ -1513,13 +1513,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 777.36,
+  "price": 777.22,
   "sma200": 721.99,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.08
+  "level": 15.01
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1536,57 +1536,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15500.0,
-  "dca_value": 20337.38,
-  "dca_return_pct": 31.21,
-  "dip_value": 20079.95,
-  "dip_return_pct": 29.55,
+  "dca_value": 20335.57,
+  "dca_return_pct": 31.2,
+  "dip_value": 20078.32,
+  "dip_return_pct": 29.54,
   "dip_cash_uninvested": 1700.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Trump says Federal Reserve Board would like to see the country do badly",
-   "source": "Yahoo",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOdXJWOTcxUC1nYXpuSjVfVVhtaWhWaEZtYzRkVURPV3l3aUFlODFFdHRMVk9QSm1uQ2ZWVTAxWHU5cS1JcWluOHZWTUxUUFlySDFGcUNDT0hXMnh6a0NtLXFFVTFyOFRHYUpqcElFQi1tSEhJU2hjTEZocl9JYnFmSTAyamN4LWVla0F1TUFRZGJwUQ?oc=5",
-   "published": "2026-10-07T19:03:45+00:00"
+   "title": "Tariffs drove up prices for consumer goods, study finds",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNWThaYVdHekItYl9fUUYtSWhPUktMbGNMcU1pNXAyVTE5S3pkdVJCbTNlYUNjRzR0VHVweHBxOXNzbW5IY2VkRWczMGtLaTBYYXRQa0g2Yzk1SmwwYlFwSEFaaDJpWUEwQUxFc2d3Xy05TVljSFZZbnZCX01Wd2MzSHZ1SkdmQmRkdlRmSUlqVkdmdVNNeHpJdWtISTZ4Wlg5czRoNQ?oc=5",
+   "published": "2026-10-07T20:19:01+00:00"
   },
   {
-   "title": "Fed Officials Expect to Hike Rates Again Before the Year Ends. Odds of it Happening in October Remain Low.",
-   "source": "International Business Times",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxObWthMXFnOTh1TmlBdEIyM0F5UnJNcU94b01yeXV6bkZ3LW5hMHhkSFZXVlc2S3NXSkpJQ2ZralpXeVk0OXA1ZWxaMTBndUhIQ2RrZ2pSTGxQMHgweTNteWdjR08tNlN2UC1vZzR4OFJuZnFFUXhsWFoyVmdsbU44YnF2bEE0NG1EVUtUUGh0b1BQZFNZc0Y4clBIUDRiM0x1Z0ZaRFdHUG5wVk4tZFdMTmtLYTZ3VHFYRWFPUzdjWmU?oc=5",
-   "published": "2026-10-07T18:47:23+00:00"
+   "title": "Minneapolis 2040 Plan indicators point to stable rents, stalled development",
+   "source": "Federal Reserve Bank of Minneapolis",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbWlXdmdWWDJyLXFsVjljS2hBZ29TOUhLd2dycVQ0NkYzc3lFLTRzYTF5aGxSbUJEUFNOVXpHYjl1R29aVlVIeWtJY2g2YXhwOVVsTTkwMWFVQUdIeFNlVkdZekFXU3M2MVVQYWNpWWJDOS1FazNNQUdDSlpuQ3k1S2VPVEs0bURlbzRfb0V4OVBiOWVFcDJycVlubjZ3MEo2LVQ0YkYtcVJ0bFZzR0txcDEtV1ZMWEdOd1E?oc=5",
+   "published": "2026-10-07T20:15:00+00:00"
   },
   {
-   "title": "FILE PHOTO: Federal Reserve Board building is seen in Washington",
-   "source": "The Daily News | Texas' Oldest Newspaper",
-   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPUjlvczJ3c1dsUV9SQ0VEY0FSOXVzMkg0d2NEZFkwNHJFQXRvNElLNTBTY1FYb2VUX1I3dlUyb2R3MUZDTHNkUnk5eTRVa0dpd2VMRHZkOVE2QWJYSV8tUmJ4eWNPOE5JbnFvWU9kZF95Mkt4cEpwd1hZZmRrMXo1c2ZSdmNuQUVaUHpIdDlQeDZ4NzFnd2NRSUJ3bmRLT0ZNUC1OcnJscnp1REcyTzhSOTg3VVZPbGpqZ0hBRDFuRGw4ZEZua2haOWIxa2k4MUM3NE43Wm5BeUN1T1d3bDJYSlc3Uk81N1QwSm5Ock1BZw?oc=5",
-   "published": "2026-10-07T18:45:00+00:00"
+   "title": "SA analyst: S&P 500 shows resilience despite higher Treasury yields",
+   "source": "TradingView",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNMW5hdEFjZThicE81ZDhOZVdUcVNqQkFlU1ZLUDRENlZ0bDIxQk9MTnMzTkJrYVhUV3d3RHl4bUdMS1J4YWhKc1liYnhCZ3RSQzluQmI5Ukl2UjFWTnJScy1mVEJNbzg1QjY2U2padmx3cHRMTUt2WWVzb0wzUzQ1eDNzSlIyVFhZenBTRGUtckFfZ0NQR09QQ3djTjNROTBLRE8xYk5nT3ZaSVF6cUJtbzBSdWlmVmdpVFNjSTd1RUNobjM4d0JpTw?oc=5",
+   "published": "2026-10-07T20:01:26+00:00"
   },
   {
-   "title": "Fed officials expect another rate hike will be needed this year: meeting minutes",
-   "source": "New York Post",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdkthenZQLXpHZ3B6bE1jc3BzWHdoMjlHX1RCVklaYkFrRW9FTkkwcVdMQXpyaGN2WnFpQUlENmtNNGdxVk9mUHpicmRlV2pfbFpWUXRDb01relNCdWEzRnI1TS1peENwN3RwbnVNcS11cnhDaDgtZlU1Rnk4Rzc2QTJ3V2JuZUNOUVdRNzBYNkZ2dTlFTzkzZnN3UXlEZGxFMVZEMV9EeUNwOTUwQlFyVENwMUM2QkptR19r?oc=5",
-   "published": "2026-10-07T18:43:01+00:00"
+   "title": "The Federal Reserve Is Raising Interest Rates. Here's What History Says That Means for Investors.",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQMWYwdW1KV0VaZ3V0WlkzRXZ3cTNlNXVEdkt5dWlEcmllb2F2ZFNUWjZ0OFdRMmdSX0wya09fZUVxeVZ6X3NBVU4waXJiMTJYQ2taVjBFbnA3TzZIa2lDUDZGWVRhb0RmNmp3SDVwbG9ta01RYXB2cl9oYTllb0EzRldFMk1RdG4zeF9FOHRPMngxVWlCSXBWRXFib09XWjl5TzlV?oc=5",
+   "published": "2026-10-07T19:57:00+00:00"
   },
   {
-   "title": "Most Fed Officials See Another Rate Hike This Year but Leave Timing Open",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE12YldKeENTSzMzU0hTU0h2dnFJWWU5RTNBU3daWlZObEd2SjRNWVVOTVBHdFp0QnlsNTBBVGxKZV9MTHR0TE5oTjNraHprUmU0cWVENERBdkx2aHNQX2dYTXUxdjJITmZVX0VlOHFuUzdhNjBob3dCY3RxcjZMZw?oc=5",
-   "published": "2026-10-07T18:43:00+00:00"
+   "title": "Fed\u2019s minutes show no appetite for a series of interest-rate hikes",
+   "source": "MarketWatch",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNaF9QQWc3MVFwTXJjNGdBRjd0NUZ6aExkdFpqRkxBSThxMUZteXNiSWJDak1qdTdwRXBkNkdQdDRfekQzN243ODFqNUhBQllGV0pQS3pWY090WThXMTVzZmFnc3pBbENCMGJLaVRXSF9zRUZtZ2dzZE0zelF5dzBadldsZm51dVNVaVpHQTNvVHA3Q2wzQWFmemJIOEs1RzZmQUp5N1hKZzJ1Umc?oc=5",
+   "published": "2026-10-07T19:35:00+00:00"
   },
   {
-   "title": "Most Fed officials see need for another rate hike before end of 2026",
-   "source": "Anadolu Ajans\u0131",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPNDgtRzYwalFELU41Rk9FSzc4TURnWXdwZGdQbzRFcGo4eUlTaVctd3hlSVg2MzYwb0JKS1hjZDFBU1VEb1N5R211YUNkWFQzanJDMEc5eHFxNDVTWHVDcFZzRnZBYjJKR2d6aGVqb1ZUODQydUR5MnY4MGVINDJKeHItamNOWlhyeFM5aWdyTVFwZFV0Z0s1TklucUU3RS1jbEk1MmdDbi0?oc=5",
-   "published": "2026-10-07T18:35:55+00:00"
+   "title": "Fed minutes reveal another hike likely before year end amid elevated inflation",
+   "source": "InvestmentNews",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZzdNSGt6UzBUbGsweTBNMVBwNDZDQlJHU3ZWUUdWVTJrV09GbGRhRzZrVjdFX1ViWFpFZzhyV2d6T1h4aWhsc3pWUlZ3cnBIcjlQU0hHMi1LVlRMMm0zLVUwaUlRcEFCalQwQnYyVEc1TENsMEVjMEJNMUhaVy1vbktLMjcxbmEyZWt5OTY4WEJ6djhqcDh3WXFLLURiYXV2U3pwOUJXRjk0cHdNTFpIRVhWLXlFN1JwTUlTNVhJeG5oY2s?oc=5",
+   "published": "2026-10-07T19:34:44+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-07T19:10:11+00:00",
+  "run_at": "2026-10-07T20:25:12+00:00",
   "session": {
    "date": "2026-10-07",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1602,7 +1602,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-07T19:04:51+00:00"
+    "as_of": "2026-10-07T20:14:26+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1612,41 +1612,41 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-05"
+    "as_of": "2026-10-06"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-07T19:03:45+00:00"
+    "as_of": "2026-10-07T20:19:01+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-07T19:10Z"
+    "as_of": "2026-10-07T20:25Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
-    "as_of": "2026-10-07"
+    "bar": "prior_close",
+    "as_of": "2026-10-06"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    }
   },

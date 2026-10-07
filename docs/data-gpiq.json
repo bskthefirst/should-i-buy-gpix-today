@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T19:10:12+00:00",
+ "generated_at": "2026-10-07T20:25:13+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "21.1 (p21)",
+   "value": "21.0 (p21)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 21.4,
+    "pos": 20.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 38.1,
+    "pos": 36.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.40x (p72)",
+   "value": "1.41x (p74)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 71.8,
+    "pos": 74.0,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -96,7 +96,7 @@
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 82.2,
+    "pos": 82.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.3%",
+   "value": "0.2%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 3.0,
+    "pos": 2.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+4.0%",
+   "value": "+4.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Stretched more than 3% above its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 83.3,
+    "pos": 85.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,7 +194,7 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "9.9% vs 4.2% cash",
+   "value": "9.8% vs 4.2% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -227,7 +227,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 44.7,
+    "pos": 44.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,14 +257,14 @@
   }
  ],
  "fund": {
-  "price": 58.47,
+  "price": 58.55,
   "as_of": "2026-10-07",
-  "bar": "provisional",
-  "day_change_pct": -0.32,
+  "bar": "final",
+  "day_change_pct": -0.19,
   "sma50": 56.92,
   "sma200": 54.98,
   "high52w": 59.52,
-  "drawdown_pct": 1.8,
+  "drawdown_pct": 1.6,
   "series": [
    {
     "d": "2026-01-21",
@@ -1342,7 +1342,7 @@
    },
    {
     "d": "2026-10-07",
-    "c": 58.47,
+    "c": 58.55,
     "t": "neutral",
     "s": 50
    }
@@ -1352,7 +1352,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.90 (-2.7% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.90 (-2.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1367,7 +1367,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 21.1) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 21.0) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1378,12 +1378,12 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-06",
-  "days_total": 737,
+  "end": "2026-10-07",
+  "days_total": 738,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-10-07",
   "baseline": {
-   "n": 716,
+   "n": 717,
    "avg_pct": 1.93,
    "median_pct": 2.18
   },
@@ -1405,19 +1405,19 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 462,
-    "avg_pct": 1.28,
-    "median_pct": 1.68
+    "n": 463,
+    "avg_pct": 1.29,
+    "median_pct": 1.69
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.86,
-  "tbill_3mo": 4.22
+  "ttm_yield_pct": 9.85,
+  "tbill_3mo": 4.21
  },
  "fx": {
-  "usd_krw": 1338.7,
-  "as_of": "2026-10-07T19:10Z"
+  "usd_krw": 1339.5,
+  "as_of": "2026-10-07T20:25Z"
  },
  "distributions": {
   "history": [
@@ -1540,13 +1540,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 756.6801,
-  "sma200": 670.86,
+  "price": 757.73,
+  "sma200": 670.87,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 21.05
+  "level": 21.0
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1563,57 +1563,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15500.0,
-  "dca_value": 21885.06,
-  "dca_return_pct": 41.19,
-  "dip_value": 21639.61,
-  "dip_return_pct": 39.61,
+  "dca_value": 21915.0,
+  "dca_return_pct": 41.39,
+  "dip_value": 21668.8,
+  "dip_return_pct": 39.8,
   "dip_cash_uninvested": 300.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "AI-linked groups spent $3.5M to boost these Texas congressional candidates",
-   "source": "Houston Chronicle",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNM3NIZlBZbVQ1QnI4R2phM1NKdVVQME1STGtBeUREbXlZTkxXdzZpc3R5aXFfOG5rM2dTSG55S2Etd1c0WmFmR1dmLUE1Zi1GU0g0UXZ6cWRzcmp1SE8xVFFJaEg5R1V2Vnowd1lsTWEtZDFWTzNPMFlFTlJSUEdOMWxnN2FfanBhaEgwUkVIcnhVTmozNktSSXJQaFF4dw?oc=5",
-   "published": "2026-10-07T19:06:44+00:00"
+   "title": "Democratic FCC member warns of AI robocall misinformation risks in US",
+   "source": "Al Jazeera",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNM1R1dkFnWFZJWURRb25uWEZnNnJmcW1QNE9XcWE5UkNDcC05YkR5a2M4TmRnSUhmR3FUSWJTMU1QV0lZOVZtaHYzWmVKZ0lCVDg0ZFpFQVZxMGt3cFNHb3JfU2pqUnBqNzhCVnFwbE50dU9NZWt2OWNaU0N0UDhqbWZ4a2lUSlF6ckFMTHlSZVNwTlJOeE9sVVV1RUk4Q3E4OWZ1VTVZdUh1MkhoYjdZY2VSa9IBuAFBVV95cUxNX1RhNkJBcktZcnl4UFpPNVY0SHZ4eHE1MFluRkJDWGtkaWFBZk50SkQteUtQUEJaY1VyR2dGOC1UMElOLUVlRThpTzNtdGFEdU1rbndaR0cxdzNSR1A4MGpydkxnQmc4NVpnSTVYUmh4dFdkRTZ5VGdNeHdFVTFsemlXVm9TeVg2eXZWMWNIMDY4OXFkN0FDTnNja2toT1ZGd2FLV3lCU1NRd1JzNUV0Z1pHN0poeldy?oc=5",
+   "published": "2026-10-07T20:15:08+00:00"
   },
   {
-   "title": "Exclusive: Inside Trump's AI science summit",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE8zamFZZTFpRFZlaGxRWjJqYzVTZEtiM2RZU0JKSW9FMWJGZU1OQ19felRyU0dqRDRMbXhoOExBT3lTV1c2V1NTalZ0SHhvUzhSS3F0OE1IbzNWbUhURXF1VmZmYjF4MDNJV2pQX3VHa21GY1NJdG5VaDFZWk5uMEE?oc=5",
-   "published": "2026-10-07T19:04:01+00:00"
+   "title": "AI & Tech Brief: Congress\u2019s AI use",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOMkROTFF5VXgzM3RfbVhIdnd5dnFKbTI0c1VOUFp2azN6ekktZ0JyeHM1Wk5STDFEcUEwZnZkR2JZaW16dklDaXg2S0trRVFJMGs2em9yWUJUUTV1RXZwc29Mek0yUXNmNG9SaGFSZWdMMDVpZjFyS25VRHh4T2hXQmlUcWVZWWxDUDRLeS1zNzlyRmRWRUNSNjVyTHdwUHJRTzZGeVhB?oc=5",
+   "published": "2026-10-07T20:15:00+00:00"
   },
   {
-   "title": "Facebook whistleblower says it's time for AI whistleblowers to speak up : Here & Now Anytime",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPT1VoMUR0T216LVhNaC1SelRrRXBZTXR4a2N0anh0MXpyVlY3dmM4UTZ3a0c5eEgtaVptNTl4RmFCSnlmaXVPdzBtQUx3WWdRdzczT2lUT3o5MDI4cG5naWViZTlaM1lBeUlYdXpzZUxNbmJZR3duV21EWVBFUklBZjEzcFppNkRVaXU5MjYwTGd4UkRrNlhZcjZxZTU5Z0lTQmZuZHZPTHNOTGtYaXlNb1pySFphQQ?oc=5",
-   "published": "2026-10-07T19:00:00+00:00"
+   "title": "How AI will change the Delta experience | CNN Business",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNU3U2TmpseFVBekFyMmV4a3htWlNPNW5BbjR2TmJ6ckJhNV9SODlMOF9nSlVfR195RlV2anoyUjFiUTNnUUJodExhbi11VUV4VHdnT0dvZHRuWnVhUVd6akJIWEdtQmdjSW1NbEphektVX0FfQjRFcV9JUHRJeVQ3aFYyWUJGYUZoTDdkVGdnQk9FY1U?oc=5",
+   "published": "2026-10-07T20:10:00+00:00"
   },
   {
-   "title": "Microsoft brings more AI to PCs as it challenges Apple",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZkNrUEtoYUtLa3FYRlVtVnBCblY5Tmx2aHp5MFJwTldqSndfVUdmWDNTemFjb3l2YW5OaExPOXRyWTlTaUc1MUN2cW1tNVA4VUNJczRwMDVQZTJMTmhjT1hScHVYTklXNjJrOVpNamE3bVBGalo3RVFLbURIUkpFTGxEMEtjU01SaDVMOWM4OThPSWtmMEI0b0RtVDlvc1YwUWx5R2V3MHVIdm8?oc=5",
-   "published": "2026-10-07T18:59:52+00:00"
+   "title": "Marketing Toolkit and templates, AI guidance available for marketing and communication needs",
+   "source": "Marquette Today",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxObTh1dG1yaVNZYko5QmFmc21XVVZJSGRFaXFsazA0OVpJb1lxWG03Z2pNQ0hXVlc5LWVqNmNNRXJqYzdNZTFidlZmRFl2cjU4Tm95SVZsaDJGeGJvOExleGhYc3h0VEFPMVpxTGtoeWtLSzQ0c1RpbWlfM1UtdVdWM2FDbXNZbDEtclhpNndRR0QyU0lxeHZUOTBiQUJMVnBKNFhUb0pEWWRIV2pyY1ZLSUZrMTVJd1JmYVJMZXBBM2MwaFo2RFlB?oc=5",
+   "published": "2026-10-07T20:09:31+00:00"
   },
   {
-   "title": "McDonald's Sued Over AI Tool That Recommends Prices to U.S. Franchisees",
-   "source": "Broadband Breakfast",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxONUFQVE1XRjB5ZWhHWk1QU0FqSW9TU1FLT2JpZDgyd1BZejBmWXAybFdoOUs2MGNQb2x3UlhtV2VGMWpyUUpDRDBFdE5MbW4tbU5La1o4SlBFZlpqWGVEdHdGNGEyN05ZMzZkQTB6ejkxWk9SVERzcGlCeXpJV3Jsa1Y5MHJRSzA4TFJ5djJqcDRFUHhFa2hkTU5aQTh4TGUzaU40?oc=5",
-   "published": "2026-10-07T18:54:51+00:00"
+   "title": "Working on AI and Technology Policy in the U.S. Senate",
+   "source": "Communications of the ACM",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQcEZESFBWeUlPNk5vbnVaQ09XckxQMDZUSGxRSmowQS15UFVCQ0FlMDRhR1NtNlhBekJhSUxvdWpCYTFRQzI0RDBGN3g5cm8ySUs5U01Qa2RVY0ZZaXowZEhwNE1RSTViRkNhaUdUSTl5dnVuZ3JiTC1qNXY5MGxTNVptQWlEQ0dFY2lV?oc=5",
+   "published": "2026-10-07T20:03:30+00:00"
   },
   {
-   "title": "University of Delaware leads $21M program exploring AI in health care",
-   "source": "NBC10 Philadelphia",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNZnVCSmUxQlZTeDI0cXRzT1FCTWZNTUtQOHluaDBhOWc1S1dhbFlCT040RDhVaXROOXJpMnh3TUNjMUpZYThYY3JFc3dYTldkdVR3Q1dNMjFWMmdiQjRhczJ4aTloSWpzSUdjeFFiMjdxNGhtSWIxbVhuUXFIOVJYN3ItNHFia3lSOWVzUnhZRDltZF80V0VjMXQ5UkdscXBpaXc4OW5nSDJSSlpUUjN1c3p0cmFIeHB2VHVyatIBxAFBVV95cUxQcklrQ0Y3a3ZMU3NNMC1oTTd2c285MzMwUWlad3Rjam9OeXRoOG40TmRyOVlPZGNyU0M1VXhfYWYzQm52WEtOaVZqeXNWRG1mWlEzYlFuekU2RTBRQU9pWlh3XzhiRkFuckVIX1FVcW51M3pSaEs2M0lKN1V2bFEyTTNuUHdVdGk4NEh2M1RNNjdLQ3o4UmlUX1FlRWQxUldPcXRmT1NYMzJSY3M5T3Q1UHd5VENtZXZSM25pVDZITlE0dlJk?oc=5",
-   "published": "2026-10-07T18:53:19+00:00"
+   "title": "Study Shows AI Chatbots Offer the Rich Higher Price Recommendations",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNbTN4RlBPVnhEaXZTSnd2SWlHRndfNENTRDhtWGV5WHVmTUxyMkxuWTlsbFVBV2NucFpsLXVuWHkzTmM5RGw1S1dQQVRWUG9Cbl9qdFlHM0lOek5DUm1CZ1VEUzBEOFVlbDNnUDY2Y1hldDBERk03RWZoVElEQzFLeGtUcjdYb081aXhQMnd4N1ltbks0d1NDY1dfR0hVNkFJSjJWMTRCQ2Fic2Z6ZW5KbUU5MF8xZ05jQU5McjY2YmhiYktiLUhtVmNn?oc=5",
+   "published": "2026-10-07T20:03:28+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-07T19:10:13+00:00",
+  "run_at": "2026-10-07T20:25:13+00:00",
   "session": {
    "date": "2026-10-07",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1629,7 +1629,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-07T19:04:51+00:00"
+    "as_of": "2026-10-07T20:14:26+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1639,65 +1639,65 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-05"
+    "as_of": "2026-10-06"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-07T19:06:44+00:00"
+    "as_of": "2026-10-07T20:15:08+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-07T19:03:45+00:00"
+    "as_of": "2026-10-07T20:19:01+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-07T19:10Z"
+    "as_of": "2026-10-07T20:25Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
-    "as_of": "2026-10-07"
+    "bar": "prior_close",
+    "as_of": "2026-10-06"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    }
   },

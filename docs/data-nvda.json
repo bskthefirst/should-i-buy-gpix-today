@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-07T19:10:22+00:00",
+ "generated_at": "2026-10-07T20:25:21+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "24% ann. (p1)",
+   "value": "24% ann. (p0)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for NVDA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 0.8,
+    "pos": 0.4,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "1.1%",
+   "value": "0.7%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 1.1% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 0.7% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 2.2,
+    "pos": 1.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.1 (p11), F&G 45",
+   "value": "VIX 15.0 (p11), F&G 45",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,15 +128,15 @@
   }
  ],
  "fund": {
-  "price": 236.7,
+  "price": 237.47,
   "as_of": "2026-10-07",
-  "bar": "provisional",
-  "day_change_pct": -1.06,
-  "sma50": 220.57,
-  "sma200": 201.67,
+  "bar": "final",
+  "day_change_pct": -0.74,
+  "sma50": 220.58,
+  "sma200": 201.68,
   "high52w": 239.24,
   "high_label": "52-week high",
-  "drawdown_pct": 1.1,
+  "drawdown_pct": 0.7,
   "series": [
    {
     "d": "2026-01-21",
@@ -1214,7 +1214,7 @@
    },
    {
     "d": "2026-10-07",
-    "c": 236.7,
+    "c": 237.47,
     "t": "neutral",
     "s": 50
    }
@@ -1224,7 +1224,7 @@
   {
    "label": "Momentum: new high",
    "direction": 1,
-   "text": "NVDA at $238.04 (+0.6% from here) = back within 0.5% of the 52-week high (+6 pts)"
+   "text": "NVDA at $238.04 (+0.2% from here) = back within 0.5% of the 52-week high (+6 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1235,14 +1235,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-06",
-  "days_total": 737,
+  "end": "2026-10-07",
+  "days_total": 738,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-10-07",
   "baseline": {
-   "n": 716,
+   "n": 717,
    "avg_pct": 5.45,
-   "median_pct": 3.43
+   "median_pct": 3.47
   },
   "bands": [
    {
@@ -1262,9 +1262,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 380,
-    "avg_pct": 3.92,
-    "median_pct": 1.94
+    "n": 381,
+    "avg_pct": 3.93,
+    "median_pct": 1.96
    },
    {
     "tone": "caution",
@@ -1277,17 +1277,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.22
+  "tbill_3mo": 4.21
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 236.7,
-  "sma200": 201.67,
+  "price": 237.47,
+  "sma200": 201.68,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 24.3
+  "level": 24.0
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1304,62 +1304,62 @@
   "estimate": true
  },
  "backtest": {
-  "start": "2022-10-07",
+  "start": "2022-10-10",
   "end": "2026-10-07",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 21000.0,
-  "dca_value": 85973.9,
-  "dca_return_pct": 309.4,
-  "dip_value": 85789.89,
-  "dip_return_pct": 308.52,
+  "invested": 20900.0,
+  "dca_value": 84280.04,
+  "dca_return_pct": 303.25,
+  "dip_value": 84107.02,
+  "dip_return_pct": 302.43,
   "dip_cash_uninvested": 100.0,
   "dip_buy_days": 179,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Microsoft brings more AI to PCs as it challenges Apple",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZkNrUEtoYUtLa3FYRlVtVnBCblY5Tmx2aHp5MFJwTldqSndfVUdmWDNTemFjb3l2YW5OaExPOXRyWTlTaUc1MUN2cW1tNVA4VUNJczRwMDVQZTJMTmhjT1hScHVYTklXNjJrOVpNamE3bVBGalo3RVFLbURIUkpFTGxEMEtjU01SaDVMOWM4OThPSWtmMEI0b0RtVDlvc1YwUWx5R2V3MHVIdm8?oc=5",
-   "published": "2026-10-07T18:59:52+00:00"
+   "title": "Federal government launches National Council on Artificial Intelligence",
+   "source": "Dentons",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNallGR3RLNFdYVTh4d2VwMld1VndxS2JEdUg1cEJDSVk0NmRXek5rU3p6UFpyOUFsbmhLRXh5WTBOaXU3cjdfT1cwLWNMWkxNX3dzTENmRXlhZ2hobkdUOTk5UVgzblV3OU80Z1JENXpJLWRBTmc1U25uWTdFNnJ1MGJ1dDhwTXFlam9EM191VTQ4OXAwazhCTGNkLVZWUmZWeXdvWXVkQnZieVlvbU9pYm9aYUR4cHZKdFVEekY1Wm9Ic2hqYkdKZXBMUQ?oc=5",
+   "published": "2026-10-07T20:17:25+00:00"
   },
   {
-   "title": "Prediction: Micron Will Have a Larger Market Cap Than Nvidia by 2030",
+   "title": "What a $5,000 Investment in Nvidia Could Be Worth by 2030",
    "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQRWQwdjZHdEhtd3RjRWpCV3V1WndWcVNUM05KMHBNN29POG5SUUNzc0RJaWhRcXhzaHdzUGpNakJJRVd6alNTMFVPd2NBT2Zhd1NDWnM3dEJOWHdzXzRtQ2Q1MFpHamIwaUw5U3pZb1I4clBWMndTQVhzZWVqdWM0Z21La0JxZGNwNXRlNk5sVQ?oc=5",
-   "published": "2026-10-07T18:57:16+00:00"
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPQXhHMDZMcUVubmRGeVFCZXB5ZVl4cDkzUGF6VnlGYTVFWDVqQ2E1RERHVDV5ZmpaMFZQM3otNktDYWt4UnlROWNVUDhlWGxrX2lEWVhUT1BPNVp5TWtOMlBXM3FVN0dqc0tDYkZRdk9haThrYjlqVDFoX1pheU1QdFpKVUR6QmhlcHRZenBxMnc3THF5OXlpVw?oc=5",
+   "published": "2026-10-07T20:14:47+00:00"
   },
   {
-   "title": "Microsoft debuts Nvidia-powered Surface Laptop Ultra, as it aims for AI market",
+   "title": "Satya Nadella jokes Nvidia needs 'transfer of market cap back to' Microsoft",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNSGR6M2gxc2tYM1YxN1M3WnpZdmt3OEN4SFVJbHlOMFN4WW44MlJzLTRCMklUNWVTNUtHUE1yd3ZnLUZjaGNGVUpGVDQ5MnU5ZzBiRDdXam9tcGsxR2wzYzFPdFk2aVc5X3lVUVVZanZ6MFdGOGhYWTlLN09ZMEFuYTY4UU81ZU91UThWZnZBbGx0cmxxemRVMjhiOFlIUkI0RElPbVlrMTE2RmNpV2dqS18tS19VbWpxTHVhUlRFS0Y4RGY2c1NLczBibDF0SWVRWk04?oc=5",
-   "published": "2026-10-07T18:56:30+00:00"
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPc0RkMURKU3hKV3pSazk0dXVwSEdwMjJRaVlVSm4wVTFSYllzTENZME1fdU9KajZfdVVWeGxranVOMlRMeHJkRVk3Zm9VWmNzRVlubDBvNGd6OEtZbXVqX1Y5MFJaNUhWVnQ3TFBYelIzS2s2b1lwWEhNeEYxZUhFOVhBck5YeXVRcmFGQlhwZ0NPZHBDNkVYc0dFZ016QnpmWnI1Z2Vsb3E3eV81ZjJzOHV0cG0wQlRrX3BsNQ?oc=5",
+   "published": "2026-10-07T20:11:40+00:00"
   },
   {
-   "title": "NVIDIA, Microsoft Kick Off a New Beginning for Windows PCs with RTX Spark and AI Agents",
-   "source": "NVIDIA Blog",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE42emZsS3FlLU1vaVE4WW40aGFZa09nS1VLaV9td0JZS2t3Z2pwTDhkTG5ITkJVajYzQWVtWURTTkJTenR6N0paeE14bzg3OTVZYXkzNmRMWUFqSVQ4ZlhNZnpFdWdWUXlHcGdOTUVwSWlQcTd1SE1XZ25OWEdjZw?oc=5",
-   "published": "2026-10-07T18:48:10+00:00"
+   "title": "SpaceX Secures $40B Financing for Massive Nvidia GPU Buy",
+   "source": "The Tech Buzz",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObkxrYlRCbmd5Rms3RFhGNGJQdEdJbW15ZF9hSXVkMUhXbGRzaThjS3htVURETkNsdW1tblI3ZEhDV0lZa01OREsxT1RYYXJBQ2gycGZiUTYxTDNLYkVZWERLc2dudDlqc3hXbUpWdWFlbDJONHF1VHgxYkwwdHFraF9GUDdZYmtOb2JMcTVLM2Zpdw?oc=5",
+   "published": "2026-10-07T20:07:00+00:00"
   },
   {
-   "title": "Artificial intelligence (AI)-supported symptom self-assessment led to more appropriate patient care-seeking decisions",
-   "source": "2 Minute Medicine",
-   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPY0tUN2UzUG1uNXhVbzllbkR4a1F0OG9FTjNwS1VmV0tzSWhXN0NYNlBQd0VkV1g1dUgtek1mVUx1eEdjXzRaa0hkWkNRNlhUOUpaMy1ERE5qMEpOYmloMHhyQkhJVU9hREttR0w5RURIOEJYbkI3YWNEMUpWOFF1T253OXdBXzQ0MXhhM2Z6R3NnR3J2dmNraGdVeEV3OS1wZmpQd1NyU2pQMnRWbndfN25uY3dxZ0V0MnBZQTVWTERzbldTUmt2Ukh1YzhIWDVlNFBsZWdqSQ?oc=5",
-   "published": "2026-10-07T18:45:00+00:00"
+   "title": "Microsoft plays the Windows card in the AI game, with help from Nvidia",
+   "source": "GeekWire",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOLTZLeUxsRXo3dGM4c0xsRVQ2b2Z6WEpRMlV3cHYtWm12SW5salRSQzJ1c1cza0RuLUJKU1F3SGdHc1c4M2s4bFptYUxmM2l4b0dxcnhMY3RBWkQtNEJVci1VOXF4QkNpZzl0WVU4RHAxNTJJd1hDSEhvUnZUaFZrZTBDc3NkWEQ2UnJJMVNmX3JlRkZnM3RzbkQ4ZmlQNHRkc0E?oc=5",
+   "published": "2026-10-07T19:52:34+00:00"
   },
   {
-   "title": "Microsoft Says New Laptop With Nvidia Chip Outperforms MacBooks",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPa09BTnNZWVFzMlJobFBTbUN1TVlHMW9fX0NJOXpZbG82TlphcktROG8tY1VYdkNNTVZONGJaNUJDZlJPcndhOWVDYjhkV0tNcDhkeUd5RUQxLTRvRHJNT0NKV3FGOVNMbDZMN3VLLV83NEZfR1hHY0F3dnNFWlBFNllUbVdlZFBRb0g2VFRXQ1lmZ1FhZ3pEa2pWbnVETGtfVnAweGF4MGV6NVoxeTdoYUlIT2Q?oc=5",
-   "published": "2026-10-07T18:39:23+00:00"
+   "title": "Microsoft unveils new AI laptop powered by Nvidia chips",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQV0xTVTJFVzFCeDhHRXNLWGdBU2RhSWJ4RmpXdkJ1TzU1dlFGUjVOODViUkFhZFV6VUtycHkzQ1A0ZlFKYThGcndBRkMzOWwtOXJvZG0tQzlWc3JnUEpQemZLWlVEc3VxMGFacnhjTjNYNzZNbENfWXFvSXZwZlY2ZW5WeFNlcXpSR1E?oc=5",
+   "published": "2026-10-07T19:42:27+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-07T19:10:22+00:00",
+  "run_at": "2026-10-07T20:25:21+00:00",
   "session": {
    "date": "2026-10-07",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-07T19:04:51+00:00"
+    "as_of": "2026-10-07T20:14:26+00:00"
    },
    "earnings:NVDA": {
     "ok": true,
@@ -1406,101 +1406,101 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-05"
+    "as_of": "2026-10-06"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-07T19:06:44+00:00"
+    "as_of": "2026-10-07T20:15:08+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-07T19:03:45+00:00"
+    "as_of": "2026-10-07T20:19:01+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-07T18:59:52+00:00"
+    "as_of": "2026-10-07T20:17:25+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-07T19:00:00+00:00"
+    "as_of": "2026-10-07T20:23:53+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-07T18:34:46+00:00"
+    "as_of": "2026-10-07T19:26:25+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-07T19:10Z"
+    "as_of": "2026-10-07T20:25Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
-    "as_of": "2026-10-07"
+    "bar": "prior_close",
+    "as_of": "2026-10-06"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-07"
    }
   },
