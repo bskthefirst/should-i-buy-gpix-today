@@ -1,35 +1,69 @@
-# Optional Telegram dividend updates
+# Telegram dividend journey
 
-The website does not send Telegram messages. An existing OpenClaw Gateway runs the scheduled job and delivers the digest to your private Telegram chat. The website's holdings file stays on your device until you share it.
+The existing OpenClaw bot keeps a private holdings file on its host. The website keeps a separate browser copy. Neither reads a brokerage account. Transfers between the two copies are manual.
 
-1. Open **Already invested** on the retirement page.
-2. Expand **Use these holdings for Telegram updates**.
-3. Click **Download holdings for Telegram**.
-4. Put `retirement-telegram-plan.json` on the machine running OpenClaw, outside any public web directory or Git repository.
-5. Give that file read permissions only for your user account.
-6. Copy `scripts/retirement_digest.py` to that machine.
-7. Preview the digest with `python3 scripts/retirement_digest.py --plan /private/path/retirement-telegram-plan.json`.
+## Update from the website
 
-The digest uses current public GPIX and GPIQ snapshots. It calculates the latest monthly payout estimate and the past year's average after your selected tax rate. Milestones use the past-year average, matching the website. The script rejects missing payouts and data more than four days old. It does not read your brokerage account or infer purchases.
+1. Enter total shares and your brokerage's average purchase prices in **Already invested**.
+2. Click **Record holdings update** to preserve a dated browser snapshot.
+3. Expand **Use these holdings for Telegram updates**.
+4. Click **Copy update for Telegram**.
+5. Paste the copied command into your connected bot's private chat.
+6. Check the bot's confirmation of the saved totals.
 
-## Connect the existing OpenClaw bot
+The command includes shares, average prices, tax, income goal, costs, and the chosen expense. It updates the bot's private plan and adds a dated report when holdings change. It preserves the bot's existing history. It does not transfer the browser's entire history. **Download holdings backup** exports the full browser record, including purchase prices, for private backup.
 
-First identify the private Telegram chat ID and your Gateway version. Run `openclaw automations --help` on the Gateway machine. Inspect existing jobs before adding a new one, so you do not create duplicate reminders.
+## Update from Telegram
 
-OpenClaw supports scheduled command jobs with Telegram announcement delivery. [OpenClaw automation documentation](https://docs.openclaw.ai/cli/cron).
-
-This template sends one digest each Sunday at 7 p.m. Korea time. Replace both paths and `YOUR_PRIVATE_CHAT_ID` before running it. Use the schedule the owner selects.
-
-```sh
-openclaw automations create '0 19 * * 0' \
-  --name 'Dividend progress' \
-  --tz Asia/Seoul \
-  --command-argv '["python3","/path/to/retirement_digest.py","--plan","/private/path/retirement-telegram-plan.json"]' \
-  --announce --channel telegram --to 'YOUR_PRIVATE_CHAT_ID'
+```text
+/holdings GPIX 57.71 54.70 GPIQ 3 56.43
 ```
 
-For a monthly digest, use `0 19 1 * *`. For milestone-only delivery, add `--milestones-only` and `--state /private/path/dividend-milestones.json` to the command arguments. That mode sets a silent baseline on the first run. Later runs announce newly reached milestones once and print `NO_REPLY` otherwise. A lower estimate and later recovery do not send the same milestone again. Schedule the checks no more often than once daily.
+Each fund has two numbers: total shares currently owned and average purchase price in USD. The command replaces totals. It does not add the entered shares to the previous total. Use actual brokerage figures.
 
-Test one delivery after the chat destination is verified. Confirm the job appears in the Gateway's job list. Telegram is connected only after the test message arrives.
+```text
+/expense Claude 20
+/dividends
+/retire_history
+/retire_export
+```
 
-Download and replace the private plan file after you change your holdings. This is a manual update: the bot cannot read changes saved only in your browser. Purchase prices and bot credentials are not part of the export. Disable the Gateway job to stop reminders.
+`/expense` chooses one expense and its monthly USD cost. `/dividends` shows current estimates. `/retire_history` shows the latest reported changes. `/retire_export` sends a private JSON file containing current holdings, average prices, the chosen expense, and the complete history.
+
+To update the website, download that file from Telegram. Choose **Import from Telegram** on the website. Review the incoming values. Click **Apply this file** to replace current values and merge both histories. The file does not import automatically.
+
+## What the record means
+
+- Each snapshot preserves total shares and average purchase prices at the time reported.
+- A share increase can reflect a purchase, reinvestment, transfer, or correction. It is labeled a reported change.
+- The service does not infer trade prices or execution dates from average prices.
+- Milestone dates record the first observation of an income estimate. Milestones present at the starting point are labeled as baseline observations.
+- A later decline does not erase a milestone memory or create another celebration on recovery.
+- Income changes are split into share-count, payout-per-share, and tax-rate effects. Purchase prices do not affect dividends.
+- The weekly digest compares the previous weekly report. The website compares its recent holdings reports. Each names its comparison date.
+
+## Install on an OpenClaw host
+
+This project includes a native command plugin in `scripts/openclaw-retirement`. It uses [OpenClaw custom commands](https://docs.openclaw.ai/plugins/sdk-overview/tools-and-commands), which bypass model interpretation.
+
+Copy `scripts/retirement_service.cjs` and `docs/retirement-journal.js` into a private directory. Put a validated exported plan in that directory as `plan.json`. Restrict the directory to your user and files to mode 600. No bot token belongs in this project.
+
+Install the local plugin with the host's supported plugin installation command. Configure its entry with `ownerId`, `planPath`, `servicePath`, and `nodePath`. Limit `ownerId` to the verified private Telegram user. The handler also checks the Telegram account and private destination. Exported files are copied into OpenClaw's private media directory for delivery.
+
+Run the service once with action `baseline` before enabling the weekly job. That establishes a comparison and marks existing milestones without sending a message.
+
+```sh
+node /private/path/retirement_service.cjs /private/path/plan.json baseline
+```
+
+Configure one existing OpenClaw command job with the argv array below. Use the host's verified Telegram account and private chat destination. Inspect existing jobs to avoid duplicates.
+
+```json
+["/path/to/node", "/private/path/retirement_service.cjs", "/private/path/plan.json", "weekly"]
+```
+
+The standard schedule is Sundays at 7 p.m. Korea time, using timezone `Asia/Seoul`. There are no separate milestone notifications. On-demand commands reply only when requested. Disable the OpenClaw job to stop the digest.
+
+The service refreshes the public GPIX and GPIQ feeds on each estimate. It rejects stale data, incomplete payouts for owned funds, and reported source failures. A holdings command can still save reported shares during an outage. It does not award income milestones without usable data.
+
+The older Python digest remains available for simple exports and milestone-only deployments. The connected journey uses the shared Node service.

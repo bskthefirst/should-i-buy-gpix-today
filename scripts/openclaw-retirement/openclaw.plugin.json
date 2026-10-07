@@ -1,0 +1,26 @@
+{
+  "id": "gpix-retirement",
+  "name": "Dividend Journey",
+  "description": "Private holdings records and occasional dividend progress through the existing Telegram bot.",
+  "activation": { "onStartup": true },
+  "commandAliases": [
+    { "name": "holdings", "kind": "runtime-slash" },
+    { "name": "dividends", "kind": "runtime-slash" },
+    { "name": "expense", "kind": "runtime-slash" },
+    { "name": "retire_history", "kind": "runtime-slash" },
+    { "name": "retire_export", "kind": "runtime-slash" },
+    { "name": "retire_import", "kind": "runtime-slash" }
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["ownerId", "planPath", "servicePath", "nodePath"],
+    "properties": {
+      "ownerId": { "type": "string", "pattern": "^[0-9]+$" },
+      "planPath": { "type": "string", "pattern": "^/" },
+      "servicePath": { "type": "string", "pattern": "^/" },
+      "nodePath": { "type": "string", "pattern": "^/" },
+      "mediaDir": { "type": "string", "pattern": "^/" }
+    }
+  }
+}

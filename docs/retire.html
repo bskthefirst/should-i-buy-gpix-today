@@ -603,6 +603,35 @@
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   html:has(.nomotion) { scroll-behavior: auto; }
+  .journey-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
+  .journey-card { border:1px solid var(--border); border-radius:18px; padding:22px; background:#fff; min-width:0; }
+  .journey-card h3 { margin:0 0 8px; font-size:18px; letter-spacing:-.025em; }
+  .journey-card p { color:var(--muted); font-size:12px; line-height:1.6; }
+  .journey-kicker { color:var(--brg); font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px; }
+  .expense-form { display:flex; flex-wrap:wrap; gap:10px; align-items:end; margin:16px 0; }
+  .expense-form label { flex:1; min-width:100px; font-size:12px; color:var(--muted); }
+  .expense-form input,.expense-form select { display:block; width:100%; box-sizing:border-box; margin-top:6px; border:1px solid var(--border); border-radius:10px; padding:10px; font:inherit; background:#fff; color:var(--text); }
+  .journey-button,.import-actions button { border:1px solid var(--border); border-radius:10px; padding:10px 14px; min-height:40px; background:#fff; color:var(--brg); font:inherit; font-size:12px; font-weight:650; cursor:pointer; }
+  .journey-button.primary,#record-holdings { background:var(--brg); color:#fff; border-color:var(--brg); }
+  .journey-button:disabled { opacity:.5; cursor:default; }
+  .journey-income { font-size:30px; color:var(--brg); font-weight:750; letter-spacing:-.035em; margin:6px 0; }
+  .journey-income small { font-size:12px; color:var(--muted); font-weight:500; }
+  .journey-timeline { list-style:none; padding:0; margin:16px 0 0; }
+  .journey-timeline li { position:relative; border-left:2px solid #dce7d8; padding:0 0 18px 18px; margin-left:5px; font-size:12px; }
+  .journey-timeline li::before { position:absolute; content:''; left:-6px; top:3px; width:10px; height:10px; border-radius:50%; background:var(--brg); }
+  .journey-timeline b,.journey-timeline span { display:block; }
+  .journey-timeline span { font-size:11px; color:var(--muted); margin-top:4px; }
+  .history-scroll { overflow:auto; max-height:360px; margin-top:14px; }
+  .history-table { font-size:12px; width:100%; min-width:660px; }
+  .history-table th,.history-table td { padding:10px 12px; text-align:left; white-space:nowrap; }
+  .change-rows { display:grid; gap:8px; margin:14px 0; }
+  .change-rows div { display:flex; justify-content:space-between; gap:12px; font-size:12px; }
+  .change-rows span { color:var(--muted); }
+  .import-preview { padding:14px; border:1px solid var(--border); border-radius:12px; margin-top:12px; font-size:12px; line-height:1.6; }
+  .import-preview[hidden] { display:none; }
+  .import-actions { display:flex; gap:10px; margin-top:12px; }
+  #telegram-command { width:100%; box-sizing:border-box; min-height:70px; border:1px solid var(--border); border-radius:10px; padding:10px; font:11px monospace; margin-top:12px; }
+  @media(max-width:620px) { .journey-grid { grid-template-columns:1fr; }.journey-card{padding:18px;} }
 </style>
 </head>
 <body>
@@ -630,8 +659,8 @@
   <nav class="page-nav" aria-label="Retirement page sections">
     <a href="#sec-hero" aria-current="true">Overview</a>
     <a href="#sec-holdings">Holdings</a>
+    <a href="#sec-journey">Journey</a>
     <a href="#sec-plan">Your plan</a>
-    <a href="#sec-badges">Badges</a>
     <a href="#sec-chart">Forecast</a>
   </nav>
 
@@ -639,12 +668,13 @@
 
   <footer>
     <p><b>Method.</b> The page runs a month-by-month simulation in your browser. Each month the funds pay dividends at their 12-month dividend rates, on what you hold at the start of the month. The tax comes off, and the rest is reinvested together with that month's savings. New money is split by your Mix. With the whole-share switch on, it buys whole shares, and money that cannot buy a whole share waits as cash. Share prices change by the path you choose. Your savings stay the same every month, and your goal grows with inflation. Your goal is reached in the first month when the dividends after tax are at least your goal. The money you already hold stays in its own fund, and the share prices come from the latest data run. Dividend rates come from <a href="data.json">data.json</a> and <a href="data-gpiq.json">data-gpiq.json</a>.</p>
-    <p><b>Your numbers.</b> The page saves your numbers only in your browser. Nothing is sent anywhere. Another device or browser keeps its own numbers.</p>
+    <p><b>Your numbers.</b> The page saves your entries and reported history in this browser. Copying an update lets you send these numbers to your connected Telegram bot. Each device keeps its own copy until you import an update.</p>
     <p><b>What this is not.</b> This page is not advice and not a promise. Dividend rates move with the option market, and covered-call funds give up part of a market rise to pay income. Read the tax box before you plan a big change in your life.</p>
   </footer>
 </div>
 <div id="ctip"></div>
 
+<script src="retirement-journal.js"></script>
 <script>
 "use strict";
 
@@ -1263,6 +1293,7 @@ function renderWins(y, p, drift, infl, todayNet, sim) {
   // ---- badges ----
   const specs = LEVELS.map(([v, pal]) => ({ id: "lv" + v, kind: "level", threshold: v, pal, big: v >= 1000 ? "$1K" : "$" + v, small: v === S.target ? "YOUR GOAL" : "A MONTH", title: "$" + v.toLocaleString("en-US") + " a month", goal: v === S.target }));
   if (!LEVELS.some(([v]) => v === S.target)) specs.push({ id: "goal", kind: "level", threshold: S.target, pal: "gold", big: S.target >= 1000 ? "$" + (S.target / 1000).toFixed(S.target % 1000 ? 1 : 0) + "K" : "$" + Math.round(S.target), small: "YOUR GOAL", title: "Your goal: " + fmt$(S.target) + " a month", goal: true });
+  if (JOURNEY.selectedExpense) specs.push({ id:"mission",kind:"bill",threshold:JOURNEY.selectedExpense.amount,pal:"aqua",icon:costIconKind(JOURNEY.selectedExpense.name),small:"YOUR MISSION",title:JOURNEY.selectedExpense.name+" covered",goal:false });
   costs.forEach((c, i) => specs.push({ id: "bill" + i, kind: "bill", threshold: c.cum, pal: BILL_PAL[i % BILL_PAL.length], icon: c.icon, small: c.name.trim().toUpperCase().slice(0, 9), title: i === 0 ? c.name.trim() + " paid" : i === 1 ? costs[0].name.trim() + " and " + c.name.trim() + " paid" : i === costs.length - 1 ? "All " + costs.length + " costs paid" : (i + 1) + " costs paid", goal: false }));
   // "free lunch" badges: dividends alone pay for 1, 2, 3 ... of a weekly cost every week (each one stands on its own)
   const plural = (n, k) => k === 1 ? n : /(ch|sh|s|x|z)$/.test(n) ? n + "es" : n + "s";
@@ -1551,6 +1582,105 @@ function placeScenPill(instant) {   // a green pill slides under the chosen shar
   if (snap) { void pill.offsetWidth; pill.classList.remove("snap"); }
 }
 
+// Dated reports are saved separately from editable calculator settings.
+const J = RetirementJournal, JOURNEY_KEY = "retire-journal-v1";
+let JOURNEY = { journal:{snapshots:[],achievements:[]},selectedExpense:null }, JOURNEY_ERROR = "", pendingImport = null;
+try {
+  const raw=JSON.parse(localStorage.getItem(JOURNEY_KEY)||"null");
+  if(raw) JOURNEY={journal:J.journal(raw.journal),selectedExpense:J.expense(raw.selectedExpense)};
+} catch(e) { JOURNEY_ERROR="The saved history could not be read. Export a backup before replacing browser data."; }
+function persistJourney(next=JOURNEY) {
+  if(JOURNEY_ERROR) throw new Error(JOURNEY_ERROR);
+  // Merge another tab's records before saving. An existing record never changes.
+  const other=JSON.parse(localStorage.getItem(JOURNEY_KEY)||"null");
+  if(other) next.journal=J.merge(J.journal(other.journal),next.journal);
+  localStorage.setItem(JOURNEY_KEY,JSON.stringify(next)); JOURNEY=next;
+}
+function journalProfile() {
+  return J.profile({schemaVersion:2,exportedAt:new Date().toISOString(),...Object.fromEntries(["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"].map(k=>[k,S[k]])),...JOURNEY});
+}
+function observation() { return J.observe(S,{GPIX:MARKET_CACHE.gpix,GPIQ:MARKET_CACHE.gpiq}); }
+const recordDate=at=>new Date(at).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});
+const signedMoney=n=>(n<-.00000001?"−":"+")+usd2(Math.abs(n));
+const signedShares=n=>(n<0?"−":"+")+sharesText(Math.abs(n));
+function renderJourney() {
+  let ob=null,error="";
+  try { ob=observation(); } catch(e) { error=e.message; }
+  const first=JOURNEY.journal.snapshots.length===0;
+  if(!JOURNEY_ERROR&&ob) {
+    const next=JSON.parse(JSON.stringify(JOURNEY));
+    if(first) J.record(next.journal,S,ob.rates,"website");
+    // Typing previews never award permanent memories. Recorded shares must match.
+    if(J.sameHoldings(next.journal.snapshots.at(-1),S)) J.award(next.journal,J.milestones(journalProfile()),ob.average,new Date().toISOString(),first);
+    if(first||next.journal.achievements.length!==JOURNEY.journal.achievements.length) {
+      try { persistJourney(next); } catch(e) { error="This browser could not save the history. Download a backup before leaving."; }
+    }
+  }
+  const rows=JOURNEY.journal.snapshots,last=rows.at(-1),pending=!!last&&!J.sameHoldings(last,S);
+  $("record-holdings").disabled=!!JOURNEY_ERROR||(!pending&&!!last);
+  $("record-status").textContent=JOURNEY_ERROR||error||(pending?"Your entries changed. Click Record holdings update after both shares and average prices are correct.":last?"Last holdings report: "+recordDate(last.at)+". Your history starts with the first saved report.":"Enter your holdings, then record your starting point.");
+  const e=JOURNEY.selectedExpense;
+  $("expense-progress").innerHTML=!e?'<p>Choose one monthly expense. Your website and Telegram digest will show how close your dividends are to covering it.</p>':!ob?'<p>'+esc(error)+'</p>':`<div class="journey-income">${Math.min(100,ob.average/e.amount*100).toFixed(1)}% <small>of ${esc(e.name)}</small></div><div class="goal-track" role="progressbar" aria-label="Chosen expense coverage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.min(100,ob.average/e.amount*100).toFixed(1)}"><i style="width:${Math.min(100,ob.average/e.amount*100)}%"></i></div><p>${usd2(ob.average)} of ${usd2(e.amount)}/month after tax. ${ob.average>=e.amount?"Your current estimate covers this expense.":usd2(Math.max(.01,Math.ceil((e.amount-ob.average)*100-1e-9)/100))+"/month left."}</p>`;
+  const reference=pending?last:rows.at(-2)||last,diff=ob?J.changes(reference,S,ob.rates):null;
+  $("journey-changes").innerHTML=!diff?'<p>'+(error?esc(error):'Your first report sets the starting point. Later updates will show what changed.')+'</p>':`<div class="journey-income">${signedMoney(diff.total)} <small>a month</small></div><p>Since ${recordDate(reference.at)}${pending?" · preview of your unrecorded edits":""}.</p><div class="change-rows"><div><span>Reported share counts</span><b>${signedMoney(diff.shares)}</b></div><div><span>Payout amounts per share</span><b>${signedMoney(diff.payouts)}</b></div><div><span>Tax rate</span><b>${signedMoney(diff.tax)}</b></div></div><p>GPIX ${signedShares(diff.deltaGpix)} shares. GPIQ ${signedShares(diff.deltaGpiq)} shares. These are reported changes, not verified purchases.</p>`;
+  const awards=JOURNEY.journal.achievements;
+  $("journey-timeline").innerHTML=awards.length?awards.slice().sort((a,b)=>Date.parse(b.at)-Date.parse(a.at)).map(a=>`<li><b>${esc(a.title)}</b><span>${recordDate(a.at)} · ${a.baseline?"Observed at the starting point":"First recorded"}${ob&&ob.average<a.threshold?" · current estimate is below this milestone":""}</span></li>`).join(""):'<li><b>Your journey starts here</b><span>Record your holdings. The timeline will remember estimated income milestones from that point.</span></li>';
+  $("holdings-history").innerHTML=rows.length?`<table class="history-table"><thead><tr><th scope="col">Recorded</th><th scope="col">GPIX shares</th><th scope="col">GPIX average</th><th scope="col">GPIQ shares</th><th scope="col">GPIQ average</th><th scope="col">Reported share change</th></tr></thead><tbody>${rows.slice().reverse().map(r=>{const i=rows.indexOf(r),old=rows[i-1];return `<tr><td>${recordDate(r.at)} · ${esc(r.source)}</td><td>${sharesText(r.sharesGpix)}</td><td>${r.costGpix?usd2(r.costGpix):"Not entered"}</td><td>${sharesText(r.sharesGpiq)}</td><td>${r.costGpiq?usd2(r.costGpiq):"Not entered"}</td><td>${old?"GPIX "+signedShares(r.sharesGpix-old.sharesGpix)+" · GPIQ "+signedShares(r.sharesGpiq-old.sharesGpiq):"Starting point"}</td></tr>`;}).join("")}</tbody></table>`:'<p class="holding-source">No holdings reports saved yet.</p>';
+}
+function bindJourney() {
+  const e=JOURNEY.selectedExpense;
+  if(e) { $("expense-name").value=e.name;$("expense-amount").value=e.amount;$("expense-preset").value="custom"; }
+  $("expense-preset").addEventListener("change",ev=>{if(ev.target.value!=="custom"){const [name,amount]=ev.target.value.split("|");$("expense-name").value=name;$("expense-amount").value=amount;}});
+  $("expense-form").addEventListener("submit",ev=>{
+    ev.preventDefault();
+    try { const next=JSON.parse(JSON.stringify(JOURNEY)); next.selectedExpense=J.expense({name:$("expense-name").value,amount:Number($("expense-amount").value)});persistJourney(next);update(YIELDS);$("expense-status").textContent="Expense chosen. Copy an update below to use the same expense in Telegram."; }
+    catch(e){$("expense-status").textContent=e.message;}
+  });
+  $("record-holdings").addEventListener("click",()=>{
+    try {
+      let ob=null;try{ob=observation();}catch(e){}
+      const next=JSON.parse(JSON.stringify(JOURNEY));J.record(next.journal,S,ob?.rates||null,"website");
+      if(ob)J.award(next.journal,J.milestones(journalProfile()),ob.average);
+      persistJourney(next);update(YIELDS);
+      $("record-status").textContent="Holdings report saved in this browser. Copy an update for Telegram to update the bot too.";
+    } catch(e){$("record-status").textContent="The report was not saved. "+e.message;}
+  });
+  $("copy-telegram-update").addEventListener("click",async()=>{
+    try {
+      const bytes=new TextEncoder().encode(JSON.stringify(J.transport(journalProfile())));
+      const command="/retire_import "+btoa(String.fromCharCode(...bytes)).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+      if(command.length>3900)throw new Error("This update is too large for one Telegram message. Reduce the expense list before copying.");
+      $("telegram-command").hidden=false;$("telegram-command").value=command;
+      try {await navigator.clipboard.writeText(command);$("notification-export-status").textContent="Copied. Paste this message into your connected Telegram bot. The bot will confirm the saved totals.";}
+      catch(e){$("telegram-command").select();$("notification-export-status").textContent="Select and copy the command above, then paste it into your connected Telegram bot.";}
+    } catch(e){$("notification-export-status").textContent=e.message;}
+  });
+  $("import-notification-plan").addEventListener("change",async ev=>{
+    pendingImport=null;$("import-preview").hidden=true;
+    try {
+      const f=ev.target.files[0];if(!f)return;if(f.size>2e6)throw new Error("The file is too large.");
+      pendingImport=J.profile(JSON.parse(await f.text()));
+      const p=pendingImport;$("import-preview").hidden=false;
+      const last=JOURNEY.journal.snapshots.at(-1),older=last&&Date.parse(p.exportedAt)<Date.parse(last.at);
+      $("import-preview").innerHTML=`<b>Review incoming holdings</b><p>Exported ${recordDate(p.exportedAt)}. ${older?"This file is older than your latest report. Review the numbers carefully.":""}</p><p>GPIX: ${sharesText(p.sharesGpix)} shares · average ${usd2(p.costGpix)}.<br>GPIQ: ${sharesText(p.sharesGpiq)} shares · average ${usd2(p.costGpiq)}.<br>Tax: ${p.taxPct}%. Goal: ${usd2(p.target)}/month.<br>Chosen expense: ${p.selectedExpense?esc(p.selectedExpense.name)+" · "+usd2(p.selectedExpense.amount):"None"}.<br>${p.journal.snapshots.length} holdings reports. ${p.journal.achievements.length} milestone memories.</p><p>Applying this file replaces current holdings, tax, goal, and expenses. It merges both histories.</p><div class="import-actions"><button id="apply-telegram-import" type="button">Apply this file</button><button id="cancel-telegram-import" type="button">Cancel</button></div>`;
+      $("cancel-telegram-import").addEventListener("click",()=>{pendingImport=null;$("import-preview").hidden=true;});
+      $("apply-telegram-import").addEventListener("click",()=>{
+        try {
+          const p=pendingImport;if(!p)return;
+          const next={selectedExpense:p.selectedExpense,journal:J.merge(JOURNEY.journal,p.journal)};
+          let rates=null;try{rates=J.observe(p,{GPIX:MARKET_CACHE.gpix,GPIQ:MARKET_CACHE.gpiq}).rates;}catch(e){}
+          J.record(next.journal,p,rates,"import");
+          persistJourney(next);
+          for(const k of ["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"])S[k]=p[k];
+          S.holdingsReview=false;saveSettings();syncControls();renderCostList();update(YIELDS);
+          if(p.selectedExpense){$("expense-name").value=p.selectedExpense.name;$("expense-amount").value=p.selectedExpense.amount;$("expense-preset").value="custom";}
+          pendingImport=null;$("import-preview").hidden=true;$("notification-export-status").textContent="Imported. Your previous records remain in the merged history.";
+        }catch(e){$("notification-export-status").textContent="Nothing was imported. "+e.message;}
+      });
+    }catch(e){$("notification-export-status").textContent="Nothing was imported. "+e.message;}
+  });
+}
+
 function renderSkeleton(yields, meta) {
   $("app").innerHTML = `
     <section class="verdict rv" id="sec-hero"><div class="vgrid"><div id="hero-text"></div><div class="vgauge" id="gauge"></div></div></section>
@@ -1577,22 +1707,50 @@ function renderSkeleton(yields, meta) {
       </div>
       <div class="holding-summary" id="holdings-summary"></div>
       <div class="holding-tools">
+        <button type="button" id="record-holdings">Record holdings update</button>
         <button type="button" id="refresh-market">Update prices and dividends</button>
         <button type="button" id="confirm-holdings" hidden>My share counts are correct</button>
         <button type="button" id="clear-holdings">Clear holdings</button>
       </div>
+      <p class="holding-source" id="record-status" role="status"></p>
+      <details class="holding-help"><summary>Your reported holdings history</summary>
+        <p class="holding-source">After editing both share counts and average prices, click Record holdings update. Each entry preserves those numbers and the reported share change. This is not a brokerage trade record.</p>
+        <div class="history-scroll" id="holdings-history"></div>
+      </details>
       <details class="holding-help"><summary>How these numbers work</summary>
       <p class="holding-source">Total purchase cost (cost basis) is your shares multiplied by the average price you paid per share. Your purchase price does not change your dividends.</p>
       <p class="holding-source">This browser remembers your entries. To use another browser or device, enter your shares and purchase prices there too.</p>
       </details>
       <p class="holding-source" id="holdings-data-status" role="status"></p>
       <details class="holding-help"><summary>Use these holdings for Telegram updates</summary>
-        <p class="holding-source">Your OpenClaw bot uses a separate copy of your holdings for scheduled Telegram updates. Changes here do not update that copy automatically.</p>
-        <p class="holding-source">After changing your shares, download this file and replace the bot's holdings file. It contains your shares, tax rate, income goal, and expense list. It does not contain your purchase prices.</p>
-        <div class="holding-tools"><button type="button" id="export-notification-plan">Download holdings for Telegram</button></div>
+        <p class="holding-source">The bot keeps a separate private record. Copy an update below and paste it into your connected bot. Website edits do not update Telegram automatically.</p>
+        <div class="holding-tools"><button type="button" id="copy-telegram-update">Copy update for Telegram</button><button type="button" id="export-notification-plan">Download holdings backup</button></div>
+        <textarea id="telegram-command" aria-label="Update command for Telegram" readonly hidden></textarea>
+        <p class="holding-source">The update includes shares, average purchase prices, tax, your income goal, and chosen expense. Downloaded backups also contain your history. Keep them private.</p>
+        <p class="holding-source">In Telegram, use /holdings to report total shares and average prices. Use /retire_export to get a file for this website.</p>
+        <label class="holding-source" for="import-notification-plan">Import from Telegram <input type="file" id="import-notification-plan" accept=".json,application/json"></label>
+        <div id="import-preview" class="import-preview" hidden></div>
         <p class="holding-source" id="notification-export-status" role="status"></p>
       </details>
     </div>
+    </section>
+
+    <section id="sec-journey" class="rv">
+      <h2>Your dividend journey</h2>
+      <div class="journey-grid">
+        <article class="journey-card">
+          <div class="journey-kicker">One expense at a time</div><h3>Your dividend mission</h3>
+          <div id="expense-progress"></div>
+          <form id="expense-form" class="expense-form">
+            <label for="expense-preset">Choose an expense<select id="expense-preset"><option value="Claude|20">Claude · $20/month</option><option value="Coffee|25">Coffee · $25/month</option><option value="Phone|50">Phone · $50/month</option><option value="custom">My own expense</option></select></label>
+            <label for="expense-name">Expense name<input id="expense-name" maxlength="30" value="Claude" required></label>
+            <label for="expense-amount">USD per month<input id="expense-amount" type="number" min="0.01" max="1000000" step="0.01" value="20" required></label>
+            <button class="journey-button primary" type="submit">Choose this expense</button>
+          </form><p id="expense-status" role="status"></p>
+        </article>
+        <article class="journey-card"><div class="journey-kicker">Your progress explained</div><h3>What changed?</h3><div id="journey-changes"></div><p>Compares reported shares, payout data, and your tax rate. A change in purchase price affects your cost basis, not your dividends.</p></article>
+      </div>
+      <article class="journey-card" style="margin-top:16px"><div class="journey-kicker">Keep the memory</div><h3>Your milestone timeline</h3><p>Dates show when this record first observed an estimated income milestone. Current income can fall while the memory stays.</p><ol class="journey-timeline" id="journey-timeline"></ol></article>
     </section>
 
     <section class="rv" id="sec-next">
@@ -1784,12 +1942,13 @@ function renderSkeleton(yields, meta) {
   $("confirm-holdings").addEventListener("click", () => { S.holdingsReview = false; update(yields); });
   $("refresh-market").addEventListener("click", () => refreshMarket());
   $("export-notification-plan").addEventListener("click", () => {
-    const plan = { schemaVersion: 1, exportedAt: new Date().toISOString(), sharesGpix: S.sharesGpix, sharesGpiq: S.sharesGpiq, taxPct: S.taxPct, target: S.target, costs: S.costs };
+    const plan = journalProfile();
     const url = URL.createObjectURL(new Blob([JSON.stringify(plan, null, 2)], { type: "application/json" }));
     const link = document.createElement("a"); link.href = url; link.download = "retirement-telegram-plan.json"; link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    $("notification-export-status").textContent = "Holdings file downloaded. Replace your bot's holdings file to use these numbers in Telegram updates.";
+    $("notification-export-status").textContent = "Private backup downloaded, including average purchase prices and history.";
   });
+  bindJourney();
   $("in-whole").addEventListener("change", e => { S.whole = e.target.checked; update(yields); });
   document.querySelectorAll("[data-scen]").forEach(b =>
     b.addEventListener("click", () => { S.scenario = b.dataset.scen; update(yields); }));
@@ -1941,6 +2100,7 @@ function update(yields) {
   // next dividend, costs and badges
   renderNext(hold);
   renderWins(y, p, drift, infl, todayNet, sim);
+  renderJourney();
   renderEarn(y, p, drift, infl, lunch);
   const moved = trackDate(fracMonths(y, p, S.target, drift, infl));
 

@@ -80,11 +80,19 @@ goal in gold) and for each cost that gets paid; locked medals show a progress ri
 month, unlocked ones shine, tilt toward the pointer and pop with sparkles the moment you unlock one.
 The featured next badge near the top of the page shows a progress ring and the remaining estimated
 monthly income after tax. It updates from entered holdings and current fund data, without tracking purchases.
+**Your dividend journey** lets you choose one monthly expense, explains changes in estimated income,
+and preserves dated milestone memories. **Record holdings update** saves a snapshot of total shares,
+average purchase prices, tax, and available payout rates. Share differences are reported changes,
+not verified trades. History starts with the first report and does not reconstruct past purchases.
+The browser and the private Node service use the same `docs/retirement-journal.js` calculations.
 The overview shows income, goal progress, and reached badges. The badge collection can show all,
 reached, or upcoming milestones. Editing a planned contribution does not unlock an income badge.
 For optional, infrequent OpenClaw Telegram updates, see [Telegram setup](docs/telegram-setup.md).
-The website exports a private holdings file. Reminders are inactive until an existing OpenClaw
-Gateway has been configured. No bot token or personal holdings are stored in the website source.
+The website copies a command for the existing bot and imports its exported holdings file after review.
+Backups now include average purchase prices and history. Transfers are manual. The private OpenClaw
+plugin supports `/holdings`, `/expense`, `/dividends`, `/retire_history`, `/retire_export`, and
+`/retire_import`. One weekly digest combines progress, changes, and new milestone celebrations.
+No bot token or personal holdings are stored in the website source.
 Medals are SVG drawn in the page script; drag one sideways and it spins (a spring settles it on
 the front), and its back shows the unlock month. Everything respects `prefers-reduced-motion` and `?motion=off`.
 **Days earned back** lets you set how many days a week you bring a lunchbox instead of buying the
