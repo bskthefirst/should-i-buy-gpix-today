@@ -216,10 +216,6 @@
   .holding-tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 16px; }
   .holding-tools label { color: var(--muted); font-size: 12px; }
   .holding-tools .numbox { margin-left: 6px; }
-  .first-purchase { margin-top: 16px; padding: 12px 14px; background: var(--surface2); border-radius: 9px; }
-  .first-purchase label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 13px; font-weight: 600; }
-  .first-purchase .numbox { margin-left: auto; }
-  .first-purchase p { margin-top: 6px; font-size: 12px; color: var(--muted); }
   .holding-tools button, .tax-presets button { padding: 6px 10px; border: 1px solid var(--border); border-radius: 8px; color: var(--brg); background: var(--surface); font: inherit; font-size: 11px; cursor: pointer; }
   .tax-presets { display: flex; gap: 6px; margin-top: 8px; }
   .tax-presets button[aria-pressed=true] { background: var(--brg); color: white; border-color: var(--brg); }
@@ -557,8 +553,7 @@ const KRW_TAX_LINE = 20000000;  // yearly interest + dividends above this get hi
 // Existing shares are never rounded or bought again. The whole-share switch
 // applies only to future purchases. Cost basis does not determine dividends.
 function initialHoldings(y, p) {
-  const cash = p.startCash || 0, w = p.gpixPct / 100;
-  return { sg: p.sharesGpix, sq: p.sharesGpiq, cg: cash * w, cq: cash * (1 - w) };
+  return { sg: p.sharesGpix, sq: p.sharesGpiq, cg: 0, cq: 0 };
 }
 
 function holdingMetrics(shares, averageCost, price, lastAmount, annualAmount, taxPct) {
@@ -572,7 +567,7 @@ function holdingMetrics(shares, averageCost, price, lastAmount, annualAmount, ta
     yieldOnCost: basis > 0 && annualNet !== null ? annualNet / basis * 100 : null };
 }
 
-// One month at a time. p: {monthly, gpixPct, taxPct, sharesGpix, sharesGpiq, startCash, whole}.
+// One month at a time. p: {monthly, gpixPct, taxPct, sharesGpix, sharesGpiq, whole}.
 // o: {target, drift, inflation}: the goal in $ a month after tax in today's prices, the share
 // price change in % a year, and inflation in % a year (the goal grows with it; 0 = fixed).
 // Each month: the funds pay dividends on the shares you hold, tax comes off, share prices move,
@@ -617,10 +612,10 @@ const monthsTo = (y, p, target, drift, inflation) => simulate(y, p, { target, dr
 // ---- plan, defaults and saving ----
 // Personal purchase records are entered and saved in the browser, not published.
 // costs: what the owner pays every month, so the page can show when the dividends cover each one. "per" is "month" or "week".
-const DEFAULTS = { target: 250, monthly: 1000, gpixPct: 80, taxPct: 15, sharesGpix: 0, sharesGpiq: 0, costGpix: 0, costGpiq: 0, startCash: 0, scenario: "base", inflation: 2.5, whole: true, lunchbox: 0, homeCost: 6,
+const DEFAULTS = { target: 250, monthly: 1000, gpixPct: 80, taxPct: 15, sharesGpix: 0, sharesGpiq: 0, costGpix: 0, costGpiq: 0, scenario: "base", inflation: 2.5, whole: true, lunchbox: 0, homeCost: 6,
   costs: [{ name: "Claude", amount: 20, times: 1, per: "month" }, { name: "ChatGPT", amount: 20, times: 1, per: "month" }, { name: "Lunch", amount: 20, times: 4, per: "week" }] };
 const COST_LIMITS = { rows: 12, name: 30, amount: 1e6, times: 100 };
-const LIMITS = { target: [1, 1e6], monthly: [0, 1e6], gpixPct: [0, 100], taxPct: [0, 60], sharesGpix: [0, 1e8], sharesGpiq: [0, 1e8], costGpix: [0, 1e6], costGpiq: [0, 1e6], startCash: [0, 1e8], inflation: [0, 15], lunchbox: [0, 7], homeCost: [0, 1000] };
+const LIMITS = { target: [1, 1e6], monthly: [0, 1e6], gpixPct: [0, 100], taxPct: [0, 60], sharesGpix: [0, 1e8], sharesGpiq: [0, 1e8], costGpix: [0, 1e6], costGpiq: [0, 1e6], inflation: [0, 15], lunchbox: [0, 7], homeCost: [0, 1000] };
 const STORE_KEY = "retire-settings-v3";
 const freshPlan = () => ({ ...DEFAULTS, costs: DEFAULTS.costs.map(c => ({ ...c })) });   // a copy, so editing the costs never changes the defaults
 let S = freshPlan();
@@ -657,13 +652,11 @@ loadSettings();
 // Leave those costs unknown and ask the user to verify the estimated shares.
 function migrateHoldings(y) {
   if (!legacyBalances) return;
-  S.startCash = 0;
   for (const [name, px] of [["Gpix", y.pxGpix], ["Gpiq", y.pxGpiq]]) {
     const dollars = Math.min(1e8, Math.max(0, Number(legacyBalances["start" + name]) || 0));
     const shares = dollars / px;
     S["shares" + name] = S.whole ? Math.floor(shares + 1e-9) : shares;
     S["cost" + name] = 0;
-    S.startCash += Math.max(0, dollars - S["shares" + name] * px);
   }
   S.holdingsReview = true;
   legacyBalances = null;
@@ -1435,13 +1428,8 @@ function renderSkeleton(yields, meta) {
         </article>`).join("")}
       </div>
       <div class="holding-summary" id="holdings-summary"></div>
-      <div class="first-purchase">
-        <label for="n-startCash">Extra money for the first purchase ${numBox("n-startCash", "$", "", "Extra money added once to the first monthly purchase in dollars")}</label>
-        <p>This amount is added once to your first monthly purchase. Later purchases use your monthly contribution and reinvested dividends.</p>
-        <p>For example, $500 here and $1,500 per month means $2,000 for the first purchase, plus reinvested dividends. If you will not add extra money, enter $0.</p>
-      </div>
       <div class="holding-tools">
-        <button type="button" id="clear-holdings">Set shares, average prices, and extra money to zero</button>
+        <button type="button" id="clear-holdings">Set shares and average prices to zero</button>
         <button type="button" id="confirm-holdings" hidden>My share counts are correct</button>
         <button type="button" id="refresh-market">Check for updated prices and dividends</button>
       </div>
@@ -1622,12 +1610,12 @@ function renderSkeleton(yields, meta) {
   slider("in-monthly", "monthly", "n-monthly"); numeric("n-monthly", "monthly", "in-monthly");
   slider("in-lunchbox", "lunchbox", "n-lunchbox"); numeric("n-lunchbox", "lunchbox", "in-lunchbox"); numeric("n-homeCost", "homeCost");
   slider("in-mix", "gpixPct"); slider("in-tax", "taxPct", "n-taxPct"); numeric("n-taxPct", "taxPct", "in-tax"); slider("in-infl", "inflation");
-  for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq", "startCash"]) numeric("n-" + key, key);
+  for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq"]) numeric("n-" + key, key);
   document.querySelectorAll("[data-tax]").forEach(b => b.addEventListener("click", () => {
     S.taxPct = +b.dataset.tax; syncControls(); update(yields);
   }));
   $("clear-holdings").addEventListener("click", () => {
-    for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq", "startCash"]) S[key] = 0;
+    for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq"]) S[key] = 0;
     S.holdingsReview = false; syncControls(); update(yields);
   });
   $("confirm-holdings").addEventListener("click", () => { S.holdingsReview = false; update(yields); });
@@ -1648,7 +1636,7 @@ function syncControls() {
   set("in-monthly", S.monthly); set("n-monthly", fieldText(S.monthly));
   set("in-lunchbox", S.lunchbox); set("n-lunchbox", fieldText(S.lunchbox)); set("n-homeCost", fieldText(S.homeCost));
   set("in-mix", S.gpixPct); set("in-tax", S.taxPct); set("n-taxPct", fieldText(S.taxPct)); set("in-infl", S.inflation);
-  for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq", "startCash"]) set("n-" + key, key.startsWith("shares") ? sharesText(S[key]) : fieldText(S[key]));
+  for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq"]) set("n-" + key, key.startsWith("shares") ? sharesText(S[key]) : fieldText(S[key]));
   $("in-whole").checked = S.whole;
   ["in-target", "in-monthly", "in-mix", "in-tax", "in-infl", "in-lunchbox"].forEach(id => paintSlider($(id)));
 }
@@ -1691,7 +1679,7 @@ function renderHoldings(y) {
     <div><span>Total purchase cost (cost basis)</span><b>${completeCost ? usd2(total("basis")) : "Average prices missing"}</b><small>${completeCost ? "The amount you paid for the shares you own now" : "Enter the average price you paid per share for each fund above."}</small></div>
     <div><span>Monthly dividend estimate after tax</span><b>${latestNet === null ? "Unavailable" : usd2(latestNet)}</b><small>${latestNet === null ? "The latest payouts are unavailable" : won(latestNet) + ". Uses each fund's most recent payout per share. The next payout can change."}</small></div>
     <div><span>Yearly dividend estimate after tax</span><b>${annualNet === null ? "Unavailable" : usd2(annualNet)}</b><small>Uses the past year's payouts and the shares you own now. This is an estimate, not your actual past income.</small></div>`;
-  $("holdings-notice").textContent = S.holdingsReview ? "The previous page saved dollar amounts, so these share counts are estimates. Enter your actual share counts and average prices from your brokerage. Check the extra money for the first purchase too. It includes the remainder from those estimated share counts." : "";
+  $("holdings-notice").textContent = S.holdingsReview ? "The previous page saved dollar amounts, so these share counts are estimates. Enter your actual share counts and average prices from your brokerage." : "";
   $("confirm-holdings").hidden = !S.holdingsReview;
   const issues = MARKET_META.issues || [];
   $("holdings-data-status").textContent = issues.length ? issues.join(" ") : "Prices and dividend amounts update three times each weekday. Your entered shares and average prices stay the same.";
@@ -1713,10 +1701,10 @@ function update(yields) {
   saveSettings();
   const y = YIELDS || yields;
   const lunch = lunchPlan();   // money saved by lunchboxes joins the monthly savings
-  const p = { monthly: S.monthly + lunch.extra, gpixPct: S.gpixPct, taxPct: S.taxPct, sharesGpix: S.sharesGpix, sharesGpiq: S.sharesGpiq, startCash: S.startCash, whole: S.whole };
+  const p = { monthly: S.monthly + lunch.extra, gpixPct: S.gpixPct, taxPct: S.taxPct, sharesGpix: S.sharesGpix, sharesGpiq: S.sharesGpiq, whole: S.whole };
   const drift = SCENARIOS[S.scenario], infl = S.inflation;
   const sim = simulate(y, p, { target: S.target, drift, inflation: infl });
-  const startTotal = S.sharesGpix * y.pxGpix + S.sharesGpiq * y.pxGpiq + S.startCash;
+  const startTotal = S.sharesGpix * y.pxGpix + S.sharesGpiq * y.pxGpiq;
   const hold = initialHoldings(y, p);
   const needPot = S.target * 12 / sim.mixNet;                 // in today's prices
   const progressPct = needPot > 0 ? startTotal / needPot * 100 : 0;
@@ -1744,7 +1732,7 @@ function update(yields) {
   // control labels
   $("v-mix").textContent = S.gpixPct + "% GPIX / " + (100 - S.gpixPct) + "% GPIQ";
   $("v-start").textContent = fmt$(startTotal) + " in total";
-  $("holdnote").textContent = `${sharesText(hold.sg)} GPIX shares and ${sharesText(hold.sq)} GPIQ shares at today's market prices, plus ${usd2(S.startCash)} for the first purchase. The extra money is added once.`;
+  $("holdnote").textContent = `${sharesText(hold.sg)} GPIX shares and ${sharesText(hold.sq)} GPIQ shares at today's market prices. Your monthly contribution and reinvested dividends buy additional shares.`;
   document.querySelectorAll("[data-tax]").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.tax === S.taxPct)));
   renderHoldings(y);
   $("v-scen").textContent = SCENARIO_LABEL[S.scenario];
@@ -1827,7 +1815,7 @@ function update(yields) {
     test("Add $100 more each month", { ...p, monthly: p.monthly + 100 }),
     test("Add $250 more each month", { ...p, monthly: p.monthly + 250 }),
     test("Add $500 more each month", { ...p, monthly: p.monthly + 500 }),
-    test("Put $5,000 more into GPIX today", { ...p, sharesGpix: p.sharesGpix + (p.whole ? Math.floor(5000 / y.pxGpix) : 5000 / y.pxGpix), startCash: p.startCash + (p.whole ? 5000 % y.pxGpix : 0) }),
+    test("Put $5,000 more into GPIX today", { ...p, sharesGpix: p.sharesGpix + (p.whole ? Math.floor(5000 / y.pxGpix) : 5000 / y.pxGpix) }),
     S.target > 250 ? test("Lower the goal by $250 a month", null, null, S.target - 250) : null,
     infl >= 1 ? test("Inflation is 1 point lower", null, null, null, infl - 1) : null,
     test("Dividend rates rise by 1 percentage point", null, higher),
