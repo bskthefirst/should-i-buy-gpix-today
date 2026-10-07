@@ -50,12 +50,12 @@
     }
     async function connect(config) {
       if(busy)throw new Error('Wait for the current update to finish.');
-      const previous=saved;saved={...validate(config),dirty:false};busy=true;notify('Connecting to Mac mini…');
+      const previous=saved;saved={...validate(config),pending:true,dirty:!!config.keepLocal};busy=true;notify('Connecting to Mac mini…');
       try {
         const data=await request('GET'),local=read(),remote=J.profile(data.profile);
-        saved.revision=data.revision;
+        saved.revision=data.revision;saved.pending=false;
         // A blank or migrated browser adopts the shared record. Real unconnected edits require a choice.
-        if(!config.keepLocal && config.isEmpty)accept(data);
+        if(!config.keepLocal && config.isEmpty&&!saved.dirty&&!editing())accept(data);
         else if(values(local)!==values({...remote,forecast:remote.forecast||local.forecast})) {conflict=data;persist();notify('Your browser and Mac mini have different numbers. Choose which copy to keep.');}
         else {apply({...remote,journal:J.merge(remote.journal,local.journal)});saved.dirty=fingerprint(read())!==fingerprint(remote);saved.synced=fingerprint(remote);persist();notify('Connected. Finishing the history sync…');}
       } catch(e){
