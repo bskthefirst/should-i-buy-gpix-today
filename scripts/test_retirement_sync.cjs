@@ -83,6 +83,14 @@ test('a first connection retries after the HTTPS server becomes reachable',async
     offline=false;await b.client.cycle();assert.equal(b.client.connected(),true);assert.equal(b.p.sharesGpix,50.25);
   }finally{await f.cleanup();}
 });
+test('edits made during a failed first connection remain a draft after retry',async()=>{
+  const f=await fixture();let rejectFirst,first=true;try{
+    const b=browser((_,o)=>{if(first){first=false;return new Promise((resolve,reject)=>{rejectFirst=reject;});}return f.request(o.method,o.body?JSON.parse(o.body):undefined);});
+    const pending=b.client.connect({endpoint:'https://sync.example',token:f.token,isEmpty:true});
+    b.edit(51.75);rejectFirst(new Error('Offline'));await pending;assert.equal(b.client.dirty(),true);
+    await b.client.cycle();assert.ok(b.client.conflict());assert.equal(b.p.sharesGpix,51.75);assert.equal(state(f.file).profile.sharesGpix,50.25);
+  }finally{await f.cleanup();}
+});
 test('a connection link cannot redirect a paired website to a different server',async()=>{
   let requests=0;const b=browser(async()=>{requests++;});const c=Sync.create({...b.options,allowedEndpoint:'https://trusted.example'});
   await assert.rejects(c.connect({endpoint:'https://other.example',token:crypto.randomBytes(32).toString('base64url')}),/unrecognized/);assert.equal(requests,0);

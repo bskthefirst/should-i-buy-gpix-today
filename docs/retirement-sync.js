@@ -60,7 +60,8 @@
         else {apply({...remote,journal:J.merge(remote.journal,local.journal)});saved.dirty=fingerprint(read())!==fingerprint(remote);saved.synced=fingerprint(remote);persist();notify('Connected. Finishing the history sync…');}
       } catch(e){
         if(previous&&!previous.pending){saved=previous;throw e;}
-        saved={...validate(config),pending:true,isEmpty:!!config.isEmpty,dirty:!!config.keepLocal};persist();
+        const dirty=!!saved?.dirty||!!config.keepLocal||!!previous?.dirty;
+        saved={...validate(config),pending:true,isEmpty:!!config.isEmpty&&!dirty,dirty};persist();
         notify('Mac mini unavailable. This connection will retry automatically.');
       }finally{busy=false;}
       if(!saved?.pending)await cycle();
