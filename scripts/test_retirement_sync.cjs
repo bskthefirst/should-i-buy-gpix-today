@@ -2,7 +2,7 @@ const test=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),crypto=require('node:crypto');
 const J=require('./retirement-journal.js'),Sync=require('../docs/retirement-sync.js');
 const {createServer}=require('./retirement_sync_server.cjs');
-const {operate,state}=require('./retirement_service.cjs');
+const {operate,state,locked}=require('./retirement_service.cjs');
 function profile(){return J.profile({schemaVersion:2,sharesGpix:50.25,sharesGpiq:3,costGpix:52,costGpiq:56,taxPct:15,target:250,costs:[{name:'Claude',amount:20,times:1,per:'month'}],selectedExpense:{name:'Claude',amount:20},forecast:{monthly:1000,gpixPct:80,inflation:2.5,lunchbox:0,homeCost:6,scenario:'base',whole:true}});}
 async function fixture(){
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'retirement-sync-')),file=path.join(dir,'plan.json'),token=crypto.randomBytes(32).toString('base64url');
@@ -74,5 +74,22 @@ test('a Telegram edit reaches connected browsers through the same record',async(
   const f=await fixture();try{
     const b=browser((_,o)=>f.request(o.method,o.body?JSON.parse(o.body):undefined));await b.client.connect({endpoint:'https://sync.example',token:f.token});
     await operate(f.file,'holdings','GPIX 53.25 52.30 GPIQ 3 56',f.dir);await b.client.cycle();assert.equal(b.p.sharesGpix,53.25);assert.equal(b.p.costGpix,52.30);
+  }finally{await f.cleanup();}
+});
+test('a first connection retries after the HTTPS server becomes reachable',async()=>{
+  const f=await fixture();let offline=true;try{
+    const b=browser(async(_,o)=>{if(offline)throw new Error('Offline');return f.request(o.method,o.body?JSON.parse(o.body):undefined);});
+    await b.client.connect({endpoint:'https://sync.example',token:f.token});assert.equal(b.client.connected(),false);
+    offline=false;await b.client.cycle();assert.equal(b.client.connected(),true);assert.equal(b.p.sharesGpix,50.25);
+  }finally{await f.cleanup();}
+});
+test('a connection link cannot redirect a paired website to a different server',async()=>{
+  let requests=0;const b=browser(async()=>{requests++;});const c=Sync.create({...b.options,allowedEndpoint:'https://trusted.example'});
+  await assert.rejects(c.connect({endpoint:'https://other.example',token:crypto.randomBytes(32).toString('base64url')}),/unrecognized/);assert.equal(requests,0);
+});
+test('updates recover an abandoned process lock and refuse an active process lock',async()=>{
+  const f=await fixture();try{
+    fs.writeFileSync(f.file+'.lock',JSON.stringify({pid:99999999}));assert.equal(await locked(f.file,()=>42),42);assert.equal(fs.existsSync(f.file+'.lock'),false);
+    fs.writeFileSync(f.file+'.lock',JSON.stringify({pid:process.pid}));await assert.rejects(locked(f.file,()=>42),/running/);fs.unlinkSync(f.file+'.lock');
   }finally{await f.cleanup();}
 });

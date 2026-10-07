@@ -18,7 +18,7 @@
     const validate=v=>{const c=connection(v);if(allowedEndpoint&&c.endpoint!==allowedEndpoint)throw new Error('This connection points to an unrecognized server.');return c;};
     try {const v=JSON.parse(storage.getItem(KEY)||'null');if(v)saved={...v,...validate(v)};}catch(e){status('Connection settings could not be read. Reconnect this browser.');}
     function persist(){if(saved)storage.setItem(KEY,JSON.stringify(saved));else storage.removeItem(KEY);}
-    function notify(text){status(text,{connected:!!saved,conflict:!!conflict});}
+    function notify(text){status(text,{connected:!!saved&&!saved.pending,pending:!!saved?.pending,conflict:!!conflict});}
     async function request(method,body) {
       const r=await fetcher(saved.endpoint+'/v1/plan',{method,headers:{Authorization:'Bearer '+saved.token,...(body?{'Content-Type':'application/json'}:{})},body:body?JSON.stringify(body):undefined,cache:'no-store',signal:AbortSignal.timeout(30000)});
       const data=await r.json();
@@ -30,6 +30,7 @@
     function mark(){if(!saved)return;generation++;saved.dirty=true;persist();notify('Editing. Your update will save when you leave the fields.');}
     async function cycle() {
       if(!saved||busy||conflict||editing())return;
+      if(saved.pending){await connect({...saved,keepLocal:!!saved.dirty});return;}
       busy=true;
       try {
         if(saved.dirty) {
@@ -49,7 +50,7 @@
     }
     async function connect(config) {
       if(busy)throw new Error('Wait for the current update to finish.');
-      const previous=saved;saved={...validate(config),dirty:false};busy=true;
+      const previous=saved;saved={...validate(config),dirty:false};busy=true;notify('Connecting to Mac mini…');
       try {
         const data=await request('GET'),local=read(),remote=J.profile(data.profile);
         saved.revision=data.revision;
@@ -57,8 +58,12 @@
         if(!config.keepLocal && config.isEmpty)accept(data);
         else if(values(local)!==values({...remote,forecast:remote.forecast||local.forecast})) {conflict=data;persist();notify('Your browser and Mac mini have different numbers. Choose which copy to keep.');}
         else {apply({...remote,journal:J.merge(remote.journal,local.journal)});saved.dirty=fingerprint(read())!==fingerprint(remote);saved.synced=fingerprint(remote);persist();notify('Connected. Finishing the history sync…');}
-      } catch(e){saved=previous;throw e;}finally{busy=false;}
-      await cycle();
+      } catch(e){
+        if(previous&&!previous.pending){saved=previous;throw e;}
+        saved={...validate(config),pending:true,isEmpty:!!config.isEmpty,dirty:!!config.keepLocal};persist();
+        notify('Mac mini unavailable. This connection will retry automatically.');
+      }finally{busy=false;}
+      if(!saved?.pending)await cycle();
     }
     async function resolve(which) {
       if(!conflict)return;
@@ -67,7 +72,7 @@
       else {saved.revision=data.revision;saved.dirty=true;persist();await cycle();}
     }
     function disconnect(){if(busy)throw new Error('Wait for the current update to finish.');saved=null;conflict=null;persist();notify('Disconnected. Your browser copy remains saved.');}
-    return {connect,cycle,mark,resolve,disconnect,connected:()=>!!saved,dirty:()=>!!saved?.dirty,conflict:()=>conflict};
+    return {connect,cycle,mark,resolve,disconnect,connected:()=>!!saved&&!saved.pending,dirty:()=>!!saved?.dirty,conflict:()=>conflict};
   }
   return {create,connection,fingerprint,values};
 });

@@ -1633,7 +1633,7 @@ function bindAutomaticSync() {
       $("automatic-sync-status").textContent=text;
       $("automatic-sync-status").dataset.connected=String(info.connected||false);
       $("sync-conflict").hidden=!info.conflict;
-      $("disconnect-sync").hidden=!info.connected;
+      $("disconnect-sync").hidden=!(info.connected||info.pending);
       $("record-holdings").hidden=!!info.connected;
       const remote=AUTO_SYNC?.conflict();
       if(remote){const p=remote.profile;$("sync-conflict-values").textContent=`This device: GPIX ${sharesText(S.sharesGpix)} at ${usd2(S.costGpix)}, GPIQ ${sharesText(S.sharesGpiq)} at ${usd2(S.costGpiq)}. Mac mini: GPIX ${sharesText(p.sharesGpix)} at ${usd2(p.costGpix)}, GPIQ ${sharesText(p.sharesGpiq)} at ${usd2(p.costGpiq)}. Your other plan settings also follow the selected copy.`;}
@@ -1657,14 +1657,17 @@ function bindAutomaticSync() {
     }catch(err){$("automatic-sync-status").textContent=err.message;}
     e.target.value="";
   });
-  if(location.hash.startsWith("#retire-connect=")) {
+  const connectFromLink=()=>{if(!location.hash.startsWith("#retire-connect="))return false;
     const encoded=location.hash.slice("#retire-connect=".length);
     history.replaceState(null,"",location.pathname+location.search+"#sec-holdings");
     try {
       const config=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(encoded.replace(/-/g,"+").replace(/_/g,"/")),c=>c.charCodeAt(0))));
       AUTO_SYNC.connect({...config,isEmpty:S.holdingsReview||(!S.sharesGpix&&!S.sharesGpiq&&!S.costGpix&&!S.costGpiq)}).catch(e=>{$("automatic-sync-status").textContent=e.message;});
     } catch(e){$("automatic-sync-status").textContent="This connection link is invalid. Use /retire_connect to get a fresh one.";}
-  } else if(AUTO_SYNC.connected()){$("record-holdings").hidden=true;$("disconnect-sync").hidden=false;AUTO_SYNC.cycle();}
+    return true;
+  };
+  window.addEventListener("hashchange",connectFromLink);
+  if(!connectFromLink()){if(AUTO_SYNC.connected()){$("record-holdings").hidden=true;$("disconnect-sync").hidden=false;}AUTO_SYNC.cycle();}
   setInterval(()=>{if(!document.hidden)AUTO_SYNC.cycle();},30000);
   window.addEventListener("online",()=>AUTO_SYNC.cycle());
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)AUTO_SYNC.cycle();});

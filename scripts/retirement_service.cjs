@@ -23,8 +23,16 @@ function state(file) {
 async function locked(file,fn) {
   const lock=file+'.lock'; let fd;
   try { fd=fs.openSync(lock,'wx',0o600); }
-  catch(e) { const err=new Error('Another holdings update is running. Try again shortly.');err.code='BUSY';throw err; }
-  try { return await fn(); } finally { fs.closeSync(fd);fs.unlinkSync(lock); }
+  catch(e) {
+    if(e.code==='EEXIST')try {
+      const inode=fs.statSync(lock).ino,owner=JSON.parse(fs.readFileSync(lock,'utf8')).pid;
+      if(Number.isSafeInteger(owner)&&owner>0)try{process.kill(owner,0);}catch(error){
+        if(error.code==='ESRCH'&&fs.statSync(lock).ino===inode){fs.unlinkSync(lock);fd=fs.openSync(lock,'wx',0o600);}
+      }
+    }catch(recoveryError){}
+    if(fd==null){const err=new Error('Another holdings update is running. Try again shortly.');err.code='BUSY';throw err;}
+  }
+  try { fs.writeSync(fd,JSON.stringify({pid:process.pid}));return await fn(); } finally { fs.closeSync(fd);fs.unlinkSync(lock); }
 }
 async function feeds(directory) {
   const results = await Promise.all(['GPIX','GPIQ'].map(async ticker => {
