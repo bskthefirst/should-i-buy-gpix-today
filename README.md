@@ -37,19 +37,36 @@ right).
 A fifth page (`retire.html`) answers "when can I retire?" for a monthly savings plan ($1,000 a
 month into 80% GPIX / 20% GPIQ by default). "Retire" means the month when the monthly dividends
 alone, after 15% US tax, pay the monthly goal you type in. Your job pay is not part of the math.
-The page reads the funds' live 12-month yields, share prices and the USD/KRW rate from
-`data.json` / `data-gpiq.json`. You type the goal, the monthly savings and what you already hold in
-each fund (number boxes, with sliders for the goal and the savings); every number is saved in your
-browser's local storage, and a Reset button restores the starting plan. The month-by-month
-simulation (the pure `model` block in the page script) tracks GPIX and GPIQ holdings separately,
-splits new money by the Mix, buys whole shares by default (money that cannot buy a whole share
-waits as cash; a switch allows fractions), and grows the goal with inflation, so the date counts
-inflation. It reports: the goal date, a milestone table (in dollars and won), where the money comes
-from (own savings, reinvested dividends, share price growth, tax paid), what changes the date most
-(one change at a time), the three share-price cases, an inflation check (what inflation costs) and
-a Korea tax line check (gross dividends against the 20M won a year line, using the live rate; the
-extra Korean tax is flagged, not computed). The page does not use the calculator on the GPIX page:
-that calculator shows one purchase today. Pure client-side - no new data files or workflow steps.
+The page reads the funds' latest prices, distribution history and USD/KRW rate from
+`data.json` / `data-gpiq.json`. The **Already invested** section accepts each fund's actual
+share count and average purchase cost. It calculates total purchase cost, market value,
+unrealized gain or loss, after-tax yield on purchase cost, the latest monthly distribution
+estimate and trailing 12-month income. Distributions depend on shares, not purchase cost.
+The forecast uses the trailing distribution yield, calculated directly from per-share payouts.
+Existing fractional shares are preserved even when future purchases use whole shares.
+Cash to invest is entered separately. The page stores personal inputs only in browser local
+storage, with no server upload and no personal holdings in the public starting values.
+Old `retire-settings-v2` dollar balances convert to estimated shares once. A notice asks users
+to verify those shares and enter purchase costs, which the old page did not record.
+
+Tax defaults to **15% US withholding** for a Korean resident with treaty eligibility. Users
+can select 15.4% or enter a custom effective rate, including decimal rates. Each after-tax
+figure deducts the selected rate once. The page links to the US–Korea treaty and a Korean
+brokerage's distribution-reclassification notice. It distinguishes withholding estimates from
+final tax after reclassification and annual Korean financial-income aggregation.
+
+The month-by-month simulation tracks the two funds separately, reinvests after-tax income,
+buys whole shares by default, retains unspent cash and adjusts the goal for inflation.
+It reports the goal date, milestones, sources of portfolio growth, sensitivity to assumptions,
+share-price scenarios and Korea's ₩20M financial-income check. That check covers only the two
+funds in this model, not the user's other financial income or final tax liability.
+Market snapshots refresh through the existing workflow three times each weekday. The browser
+checks for updates every five minutes while visible, on return to the page and on a manual
+refresh. Refreshes preserve purchase records. Missing distributions show “Unavailable”. Failed
+refreshes retain the previous snapshot, and old or incomplete snapshots produce a visible notice.
+Pure client-side vanilla JavaScript. No additional data provider, workflow or API key is required.
+
+Run the holdings and simulation checks with `node --test scripts/test_retire.cjs`.
 
 Three more blocks on the retire page, all driven by what you hold today:
 **Your next dividend** shows the last day to buy before the next ex-dividend date, the closing bell
