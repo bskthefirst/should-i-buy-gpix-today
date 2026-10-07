@@ -1293,7 +1293,6 @@ function renderWins(y, p, drift, infl, todayNet, sim) {
   // ---- badges ----
   const specs = LEVELS.map(([v, pal]) => ({ id: "lv" + v, kind: "level", threshold: v, pal, big: v >= 1000 ? "$1K" : "$" + v, small: v === S.target ? "YOUR GOAL" : "A MONTH", title: "$" + v.toLocaleString("en-US") + " a month", goal: v === S.target }));
   if (!LEVELS.some(([v]) => v === S.target)) specs.push({ id: "goal", kind: "level", threshold: S.target, pal: "gold", big: S.target >= 1000 ? "$" + (S.target / 1000).toFixed(S.target % 1000 ? 1 : 0) + "K" : "$" + Math.round(S.target), small: "YOUR GOAL", title: "Your goal: " + fmt$(S.target) + " a month", goal: true });
-  if (JOURNEY.selectedExpense) specs.push({ id:"mission",kind:"bill",threshold:JOURNEY.selectedExpense.amount,pal:"aqua",icon:costIconKind(JOURNEY.selectedExpense.name),small:"YOUR MISSION",title:JOURNEY.selectedExpense.name+" covered",goal:false });
   costs.forEach((c, i) => specs.push({ id: "bill" + i, kind: "bill", threshold: c.cum, pal: BILL_PAL[i % BILL_PAL.length], icon: c.icon, small: c.name.trim().toUpperCase().slice(0, 9), title: i === 0 ? c.name.trim() + " paid" : i === 1 ? costs[0].name.trim() + " and " + c.name.trim() + " paid" : i === costs.length - 1 ? "All " + costs.length + " costs paid" : (i + 1) + " costs paid", goal: false }));
   // "free lunch" badges: dividends alone pay for 1, 2, 3 ... of a weekly cost every week (each one stands on its own)
   const plural = (n, k) => k === 1 ? n : /(ch|sh|s|x|z)$/.test(n) ? n + "es" : n + "s";
@@ -1303,6 +1302,11 @@ function renderWins(y, p, drift, infl, todayNet, sim) {
     for (let k = 1; k <= Math.min(7, Math.floor(c.times)); k++)
       specs.push({ id: "wk" + i + "_" + k, kind: "bill", threshold: k * c.amount * 52 / 12, pal: BILL_PAL[(i + k + 2) % BILL_PAL.length], icon: c.icon, small: k + " A WEEK", title: k + " free " + plural(nm, k) + " a week", goal: false });
   });
+  if(JOURNEY.selectedExpense) {
+    const e=JOURNEY.selectedExpense,existing=specs.find(s=>Math.abs(s.threshold-e.amount)<1e-9&&s.title===e.name+" paid");
+    if(existing)existing.small="YOUR MISSION";
+    else specs.push({id:"mission",kind:"bill",threshold:e.amount,pal:"aqua",icon:costIconKind(e.name),small:"YOUR MISSION",title:e.name+" covered",goal:false});
+  }
   specs.sort((a, b) => a.threshold - b.threshold);
   specs.forEach(s => {
     s.on = todayNet >= s.threshold - 1e-9; s.progress = Math.max(0, Math.min(1, todayNet / s.threshold));
@@ -1670,9 +1674,13 @@ function bindJourney() {
           const next={selectedExpense:p.selectedExpense,journal:J.merge(JOURNEY.journal,p.journal)};
           let rates=null;try{rates=J.observe(p,{GPIX:MARKET_CACHE.gpix,GPIQ:MARKET_CACHE.gpiq}).rates;}catch(e){}
           J.record(next.journal,p,rates,"import");
-          persistJourney(next);
-          for(const k of ["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"])S[k]=p[k];
-          S.holdingsReview=false;saveSettings();syncControls();renderCostList();update(YIELDS);
+          if(JOURNEY_ERROR)throw new Error(JOURNEY_ERROR);
+          const other=JSON.parse(localStorage.getItem(JOURNEY_KEY)||"null");
+          if(other)next.journal=J.merge(J.journal(other.journal),next.journal);
+          const settings={...S,holdingsReview:false};
+          for(const k of ["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"])settings[k]=p[k];
+          J.commitBrowser(localStorage,{[STORE_KEY]:JSON.stringify(settings),[JOURNEY_KEY]:JSON.stringify(next)});
+          S=settings;JOURNEY=next;storageOk=true;syncControls();renderCostList();update(YIELDS);
           if(p.selectedExpense){$("expense-name").value=p.selectedExpense.name;$("expense-amount").value=p.selectedExpense.amount;$("expense-preset").value="custom";}
           pendingImport=null;$("import-preview").hidden=true;$("notification-export-status").textContent="Imported. Your previous records remain in the merged history.";
         }catch(e){$("notification-export-status").textContent="Nothing was imported. "+e.message;}

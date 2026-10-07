@@ -57,6 +57,22 @@ test('bad numbers and stale feeds cannot award income milestones',()=>{
   const p=profile(),feed={ticker:'GPIX',generated_at:new Date(Date.now()-5*86400000).toISOString(),fund:{price:55},distributions:{last_amount:.4,ttm_sum:4.8,last_ex:at.slice(0,10)}};
   assert.throws(()=>J.observe(p,{GPIX:feed,GPIQ:{...feed,ticker:'GPIQ'}}),/stale/);
 });
+test('a selected expense reuses its existing badge instead of counting it twice',()=>{
+  const p=profile();p.selectedExpense={name:'Claude',amount:20};
+  const rows=J.milestones(p);
+  assert.equal(rows.filter(r=>r.threshold===20).length,1);
+  p.selectedExpense={name:'Phone',amount:50};
+  assert.equal(J.milestones(p).filter(r=>r.title==='Phone covered').length,1);
+});
+test('failed browser imports restore settings and history together',()=>{
+  const map=new Map([['settings','old shares'],['history','old reports']]);
+  let fail=true;
+  const storage={getItem:k=>map.get(k)??null,setItem:(k,v)=>{if(k==='history'&&fail){fail=false;throw new Error('quota');}map.set(k,v);},removeItem:k=>map.delete(k)};
+  assert.throws(()=>J.commitBrowser(storage,{settings:'new shares',history:'new reports'}),/could not be saved/);
+  assert.equal(map.get('settings'),'old shares');assert.equal(map.get('history'),'old reports');
+  J.commitBrowser(storage,{settings:'new shares',history:'new reports'});
+  assert.equal(map.get('settings'),'new shares');assert.equal(map.get('history'),'new reports');
+});
 test('Telegram updates totals, preserves history, supports expenses and exports a website file',async()=>{
   const f=fixture();try{
     await operate(f.file,'baseline','',f.dir);

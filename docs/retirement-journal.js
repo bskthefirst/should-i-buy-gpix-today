@@ -93,7 +93,7 @@
         rows.push({threshold:k*c.amount*52/12,title:k+' free '+plural+' a week'});
       }
     });
-    if (p.selectedExpense) rows.push({threshold:p.selectedExpense.amount,title:p.selectedExpense.name+' covered'});
+    if (p.selectedExpense && !rows.some(r=>Math.abs(r.threshold-p.selectedExpense.amount)<1e-9 && r.title===p.selectedExpense.name+' paid')) rows.push({threshold:p.selectedExpense.amount,title:p.selectedExpense.name+' covered'});
     return rows.sort((a,b)=>a.threshold-b.threshold).map(r=>({...r,key:r.threshold.toFixed(8)+':'+r.title}));
   }
   function award(j,rows,net,at=new Date().toISOString(),baseline=false) {
@@ -123,5 +123,13 @@
     return journal({snapshots:[...records.values()],achievements:[...awards.values()]});
   }
   function transport(p) { const v=profile(p); delete v.journal; return v; }
-  return {number,profile,journal,expense,snapshot,income,observe,record,sameHoldings,milestones,award,changes,merge,transport};
+  function commitBrowser(storage,values) {
+    const previous=Object.fromEntries(Object.keys(values).map(k=>[k,storage.getItem(k)]));
+    try { for(const [k,v] of Object.entries(values))storage.setItem(k,v); }
+    catch(e) {
+      for(const [k,v] of Object.entries(previous))try{if(v===null)storage.removeItem(k);else storage.setItem(k,v);}catch(restoreError){}
+      throw new Error('Browser storage failed. The import could not be saved. Download a backup before reloading.');
+    }
+  }
+  return {number,profile,journal,expense,snapshot,income,observe,record,sameHoldings,milestones,award,changes,merge,transport,commitBrowser};
 });
