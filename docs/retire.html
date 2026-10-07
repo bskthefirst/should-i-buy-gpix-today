@@ -1587,8 +1587,8 @@ function renderSkeleton(yields, meta) {
       </details>
       <p class="holding-source" id="holdings-data-status" role="status"></p>
       <details class="holding-help"><summary>Use these holdings for Telegram updates</summary>
-        <p class="holding-source">Telegram is not connected yet. OpenClaw needs your share counts to calculate your income when this page is closed.</p>
-        <p class="holding-source">Download this file and give it to your existing bot. It contains your shares, tax rate, income goal, and expense list. It does not contain your purchase prices. Update the file when your shares change.</p>
+        <p class="holding-source">Your OpenClaw bot uses a separate copy of your holdings for scheduled Telegram updates. Changes here do not update that copy automatically.</p>
+        <p class="holding-source">After changing your shares, download this file and replace the bot's holdings file. It contains your shares, tax rate, income goal, and expense list. It does not contain your purchase prices.</p>
         <div class="holding-tools"><button type="button" id="export-notification-plan">Download holdings for Telegram</button></div>
         <p class="holding-source" id="notification-export-status" role="status"></p>
       </details>
@@ -1788,7 +1788,7 @@ function renderSkeleton(yields, meta) {
     const url = URL.createObjectURL(new Blob([JSON.stringify(plan, null, 2)], { type: "application/json" }));
     const link = document.createElement("a"); link.href = url; link.download = "retirement-telegram-plan.json"; link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    $("notification-export-status").textContent = "File downloaded. Reminders will start only after your OpenClaw bot is configured.";
+    $("notification-export-status").textContent = "Holdings file downloaded. Replace your bot's holdings file to use these numbers in Telegram updates.";
   });
   $("in-whole").addEventListener("change", e => { S.whole = e.target.checked; update(yields); });
   document.querySelectorAll("[data-scen]").forEach(b =>
