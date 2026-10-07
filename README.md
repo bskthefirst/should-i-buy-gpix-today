@@ -78,6 +78,13 @@ expensive and shows the month when the after-tax dividends cover each one and al
 **Your badges** are Apple-Watch-style medals for dividend levels ($10 to $1,000 a month, with your
 goal in gold) and for each cost that gets paid; locked medals show a progress ring and the unlock
 month, unlocked ones shine, tilt toward the pointer and pop with sparkles the moment you unlock one.
+The featured next badge near the top of the page shows a progress ring and the remaining estimated
+monthly income after tax. It updates from entered holdings and current fund data, without tracking purchases.
+The overview shows income, goal progress, and reached badges. The badge collection can show all,
+reached, or upcoming milestones. Editing a planned contribution does not unlock an income badge.
+For optional, infrequent OpenClaw Telegram updates, see [Telegram setup](docs/telegram-setup.md).
+The website exports a private holdings file. Reminders are inactive until an existing OpenClaw
+Gateway has been configured. No bot token or personal holdings are stored in the website source.
 Medals are SVG drawn in the page script; drag one sideways and it spins (a spring settles it on
 the front), and its back shows the unlock month. Everything respects `prefers-reduced-motion` and `?motion=off`.
 **Days earned back** lets you set how many days a week you bring a lunchbox instead of buying the
