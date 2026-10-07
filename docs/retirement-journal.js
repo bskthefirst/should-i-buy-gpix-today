@@ -54,6 +54,12 @@
       return { name: c.name, amount: number(c.amount,'expense price',1e6), times: number(c.times,'expense count',100), per:c.per };
     });
     p.selectedExpense = expense(v.selectedExpense);
+    if (v.forecast != null) {
+      p.forecast = {};
+      for (const [k,max] of [['monthly',1e6],['gpixPct',100],['inflation',15],['lunchbox',7],['homeCost',1000]]) p.forecast[k] = number(v.forecast[k],k,max);
+      if (!['flat','base','strong'].includes(v.forecast.scenario) || typeof v.forecast.whole !== 'boolean') throw new Error('Invalid forecast settings.');
+      p.forecast.scenario=v.forecast.scenario; p.forecast.whole=v.forecast.whole;
+    }
     p.journal = journal(v.journal);
     return p;
   }

@@ -613,6 +613,11 @@
   .expense-form input,.expense-form select { display:block; width:100%; box-sizing:border-box; margin-top:6px; border:1px solid var(--border); border-radius:10px; padding:10px; font:inherit; background:#fff; color:var(--text); }
   .journey-button,.import-actions button { border:1px solid var(--border); border-radius:10px; padding:10px 14px; min-height:40px; background:#fff; color:var(--brg); font:inherit; font-size:12px; font-weight:650; cursor:pointer; }
   .journey-button.primary,#record-holdings { background:var(--brg); color:#fff; border-color:var(--brg); }
+  .sync-panel { background:var(--bg); border:1px solid var(--border); padding:16px; border-radius:14px; margin:16px 0; font-size:13px; }
+  .sync-panel p { margin:8px 0; line-height:1.6; }
+  .sync-panel summary { cursor:pointer; color:var(--brg); font-weight:600; }
+  .sync-panel input { max-width:100%; margin:10px 0; }
+  #automatic-sync-status[data-connected="true"]::before { content:"● "; color:var(--brg); }
   .journey-button:disabled { opacity:.5; cursor:default; }
   .journey-income { font-size:30px; color:var(--brg); font-weight:750; letter-spacing:-.035em; margin:6px 0; }
   .journey-income small { font-size:12px; color:var(--muted); font-weight:500; }
@@ -668,13 +673,14 @@
 
   <footer>
     <p><b>Method.</b> The page runs a month-by-month simulation in your browser. Each month the funds pay dividends at their 12-month dividend rates, on what you hold at the start of the month. The tax comes off, and the rest is reinvested together with that month's savings. New money is split by your Mix. With the whole-share switch on, it buys whole shares, and money that cannot buy a whole share waits as cash. Share prices change by the path you choose. Your savings stay the same every month, and your goal grows with inflation. Your goal is reached in the first month when the dividends after tax are at least your goal. The money you already hold stays in its own fund, and the share prices come from the latest data run. Dividend rates come from <a href="data.json">data.json</a> and <a href="data-gpiq.json">data-gpiq.json</a>.</p>
-    <p><b>Your numbers.</b> The page saves your entries and reported history in this browser. Copying an update lets you send these numbers to your connected Telegram bot. Each device keeps its own copy until you import an update.</p>
+    <p><b>Your numbers.</b> Connected browsers share a private record on your Mac mini with your Telegram bot. Unconnected browsers keep their own entries. The website does not read your brokerage account.</p>
     <p><b>What this is not.</b> This page is not advice and not a promise. Dividend rates move with the option market, and covered-call funds give up part of a market rise to pay income. Read the tax box before you plan a big change in your life.</p>
   </footer>
 </div>
 <div id="ctip"></div>
 
 <script src="retirement-journal.js"></script>
+<script src="retirement-sync.js"></script>
 <script>
 "use strict";
 
@@ -1601,7 +1607,67 @@ function persistJourney(next=JOURNEY) {
   localStorage.setItem(JOURNEY_KEY,JSON.stringify(next)); JOURNEY=next;
 }
 function journalProfile() {
-  return J.profile({schemaVersion:2,exportedAt:new Date().toISOString(),...Object.fromEntries(["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"].map(k=>[k,S[k]])),...JOURNEY});
+  return J.profile({schemaVersion:2,exportedAt:new Date().toISOString(),...Object.fromEntries(["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"].map(k=>[k,S[k]])),forecast:Object.fromEntries(["monthly","gpixPct","inflation","lunchbox","homeCost","scenario","whole"].map(k=>[k,S[k]])),...JOURNEY});
+}
+let AUTO_SYNC=null,syncTimer=null;
+function recordCurrentHoldings() {
+  if(JOURNEY_ERROR)throw new Error(JOURNEY_ERROR);
+  let ob=null;try{ob=observation();}catch(e){}
+  const next=JSON.parse(JSON.stringify(JOURNEY));J.record(next.journal,S,ob?.rates||null,"website");
+  if(ob)J.award(next.journal,J.milestones(journalProfile()),ob.average);
+  persistJourney(next);
+}
+function applySharedProfile(p) {
+  const next={selectedExpense:p.selectedExpense,journal:J.merge(JOURNEY.journal,p.journal)};
+  const settings={...S,...p.forecast,holdingsReview:false};
+  for(const k of ["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"])settings[k]=p[k];
+  J.commitBrowser(localStorage,{[STORE_KEY]:JSON.stringify(settings),[JOURNEY_KEY]:JSON.stringify(next)});
+  S=settings;JOURNEY=next;syncControls();renderCostList();update(YIELDS);
+  if(p.selectedExpense){$("expense-name").value=p.selectedExpense.name;$("expense-amount").value=p.selectedExpense.amount;$("expense-preset").value="custom";}
+}
+function bindAutomaticSync() {
+  const ids=new Set(["n-sharesGpix","n-sharesGpiq","n-costGpix","n-costGpiq","n-target","in-target","n-taxPct","in-tax","n-monthly","in-monthly","in-mix","in-infl","n-homeCost","n-lunchbox","in-lunchbox"]);
+  const editing=()=>ids.has(document.activeElement?.id)||!!document.activeElement?.closest(".costrow,.expense-form");
+  AUTO_SYNC=RetirementSync.create({storage:localStorage,read:journalProfile,apply:applySharedProfile,prepare:recordCurrentHoldings,editing,allowedEndpoint:"https://bills-mac-mini.tailf2c209.ts.net:8443",
+    status:(text,info={})=>{
+      $("automatic-sync-status").textContent=text;
+      $("automatic-sync-status").dataset.connected=String(info.connected||false);
+      $("sync-conflict").hidden=!info.conflict;
+      $("disconnect-sync").hidden=!info.connected;
+      $("record-holdings").hidden=!!info.connected;
+      const remote=AUTO_SYNC?.conflict();
+      if(remote){const p=remote.profile;$("sync-conflict-values").textContent=`This device: GPIX ${sharesText(S.sharesGpix)} at ${usd2(S.costGpix)}, GPIQ ${sharesText(S.sharesGpiq)} at ${usd2(S.costGpiq)}. Mac mini: GPIX ${sharesText(p.sharesGpix)} at ${usd2(p.costGpix)}, GPIQ ${sharesText(p.sharesGpiq)} at ${usd2(p.costGpiq)}. Your other plan settings also follow the selected copy.`;}
+    }
+  });
+  const schedule=()=>{clearTimeout(syncTimer);syncTimer=setTimeout(()=>AUTO_SYNC.cycle(),500);};
+  const changed=()=>{AUTO_SYNC.mark();schedule();};
+  document.addEventListener("input",e=>{if(ids.has(e.target.id)||e.target.closest(".costrow"))changed();});
+  document.addEventListener("focusout",()=>{if(AUTO_SYNC.dirty())schedule();});
+  document.addEventListener("change",e=>{if(e.target.id==="in-whole")changed();});
+  document.addEventListener("click",e=>{if(e.target.closest("[data-tax],[data-scen],#clear-holdings,#reset,#addcost,.cdel"))changed();});
+  $("expense-form").addEventListener("submit",()=>{if(!$("expense-status").textContent.includes("Invalid"))changed();});
+  $("sync-use-local").addEventListener("click",()=>AUTO_SYNC.resolve("local"));
+  $("sync-use-remote").addEventListener("click",()=>AUTO_SYNC.resolve("remote"));
+  $("disconnect-sync").addEventListener("click",()=>{try{AUTO_SYNC.disconnect();}catch(e){$("automatic-sync-status").textContent=e.message;}});
+  $("sync-connection-file").addEventListener("change",async e=>{
+    try {
+      const f=e.target.files[0];if(!f)return;if(f.size>10000)throw new Error("Choose the private connection file from Telegram.");
+      const config=JSON.parse(await f.text());
+      await AUTO_SYNC.connect({...config,isEmpty:S.holdingsReview||(!S.sharesGpix&&!S.sharesGpiq&&!S.costGpix&&!S.costGpiq)});
+    }catch(err){$("automatic-sync-status").textContent=err.message;}
+    e.target.value="";
+  });
+  if(location.hash.startsWith("#retire-connect=")) {
+    const encoded=location.hash.slice("#retire-connect=".length);
+    history.replaceState(null,"",location.pathname+location.search+"#sec-holdings");
+    try {
+      const config=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(encoded.replace(/-/g,"+").replace(/_/g,"/")),c=>c.charCodeAt(0))));
+      AUTO_SYNC.connect({...config,isEmpty:S.holdingsReview||(!S.sharesGpix&&!S.sharesGpiq&&!S.costGpix&&!S.costGpiq)}).catch(e=>{$("automatic-sync-status").textContent=e.message;});
+    } catch(e){$("automatic-sync-status").textContent="This connection link is invalid. Use /retire_connect to get a fresh one.";}
+  } else if(AUTO_SYNC.connected()){$("record-holdings").hidden=true;$("disconnect-sync").hidden=false;AUTO_SYNC.cycle();}
+  setInterval(()=>{if(!document.hidden)AUTO_SYNC.cycle();},30000);
+  window.addEventListener("online",()=>AUTO_SYNC.cycle());
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)AUTO_SYNC.cycle();});
 }
 function observation() { return J.observe(S,{GPIX:MARKET_CACHE.gpix,GPIQ:MARKET_CACHE.gpiq}); }
 const recordDate=at=>new Date(at).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});
@@ -1622,7 +1688,7 @@ function renderJourney() {
   }
   const rows=JOURNEY.journal.snapshots,last=rows.at(-1),pending=!!last&&!J.sameHoldings(last,S);
   $("record-holdings").disabled=!!JOURNEY_ERROR||(!pending&&!!last);
-  $("record-status").textContent=JOURNEY_ERROR||error||(pending?"Your entries changed. Click Record holdings update after both shares and average prices are correct.":last?"Last holdings report: "+recordDate(last.at)+". Your history starts with the first saved report.":"Enter your holdings, then record your starting point.");
+  $("record-status").textContent=JOURNEY_ERROR||error||(pending?(AUTO_SYNC?.connected()?"Your edits save automatically when you leave the fields.":"Your entries changed. Click Record holdings update after both shares and average prices are correct."):last?"Last holdings report: "+recordDate(last.at)+". Your history starts with the first saved report.":"Enter your holdings, then record your starting point.");
   const e=JOURNEY.selectedExpense;
   $("expense-progress").innerHTML=!e?'<p>Choose one monthly expense. Your website and Telegram digest will show how close your dividends are to covering it.</p>':!ob?'<p>'+esc(error)+'</p>':`<div class="journey-income">${Math.min(100,ob.average/e.amount*100).toFixed(1)}% <small>of ${esc(e.name)}</small></div><div class="goal-track" role="progressbar" aria-label="Chosen expense coverage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.min(100,ob.average/e.amount*100).toFixed(1)}"><i style="width:${Math.min(100,ob.average/e.amount*100)}%"></i></div><p>${usd2(ob.average)} of ${usd2(e.amount)}/month after tax. ${ob.average>=e.amount?"Your current estimate covers this expense.":usd2(Math.max(.01,Math.ceil((e.amount-ob.average)*100-1e-9)/100))+"/month left."}</p>`;
   const reference=pending?last:rows.at(-2)||last,diff=ob?J.changes(reference,S,ob.rates):null;
@@ -1637,15 +1703,12 @@ function bindJourney() {
   $("expense-preset").addEventListener("change",ev=>{if(ev.target.value!=="custom"){const [name,amount]=ev.target.value.split("|");$("expense-name").value=name;$("expense-amount").value=amount;}});
   $("expense-form").addEventListener("submit",ev=>{
     ev.preventDefault();
-    try { const next=JSON.parse(JSON.stringify(JOURNEY)); next.selectedExpense=J.expense({name:$("expense-name").value,amount:Number($("expense-amount").value)});persistJourney(next);update(YIELDS);$("expense-status").textContent="Expense chosen. Copy an update below to use the same expense in Telegram."; }
+    try { const next=JSON.parse(JSON.stringify(JOURNEY)); next.selectedExpense=J.expense({name:$("expense-name").value,amount:Number($("expense-amount").value)});persistJourney(next);update(YIELDS);$("expense-status").textContent=AUTO_SYNC?.connected()?"Expense chosen. It will sync automatically.":"Expense chosen. Connect your Mac mini below to share this with Telegram."; }
     catch(e){$("expense-status").textContent=e.message;}
   });
   $("record-holdings").addEventListener("click",()=>{
     try {
-      let ob=null;try{ob=observation();}catch(e){}
-      const next=JSON.parse(JSON.stringify(JOURNEY));J.record(next.journal,S,ob?.rates||null,"website");
-      if(ob)J.award(next.journal,J.milestones(journalProfile()),ob.average);
-      persistJourney(next);update(YIELDS);
+      recordCurrentHoldings();update(YIELDS);
       $("record-status").textContent="Holdings report saved in this browser. Copy an update for Telegram to update the bot too.";
     } catch(e){$("record-status").textContent="The report was not saved. "+e.message;}
   });
@@ -1678,11 +1741,13 @@ function bindJourney() {
           const other=JSON.parse(localStorage.getItem(JOURNEY_KEY)||"null");
           if(other)next.journal=J.merge(J.journal(other.journal),next.journal);
           const settings={...S,holdingsReview:false};
+          if(p.forecast)Object.assign(settings,p.forecast);
           for(const k of ["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"])settings[k]=p[k];
           J.commitBrowser(localStorage,{[STORE_KEY]:JSON.stringify(settings),[JOURNEY_KEY]:JSON.stringify(next)});
           S=settings;JOURNEY=next;storageOk=true;syncControls();renderCostList();update(YIELDS);
           if(p.selectedExpense){$("expense-name").value=p.selectedExpense.name;$("expense-amount").value=p.selectedExpense.amount;$("expense-preset").value="custom";}
           pendingImport=null;$("import-preview").hidden=true;$("notification-export-status").textContent="Imported. Your previous records remain in the merged history.";
+          AUTO_SYNC?.mark();setTimeout(()=>AUTO_SYNC?.cycle(),500);
         }catch(e){$("notification-export-status").textContent="Nothing was imported. "+e.message;}
       });
     }catch(e){$("notification-export-status").textContent="Nothing was imported. "+e.message;}
@@ -1714,6 +1779,16 @@ function renderSkeleton(yields, meta) {
         </article>`).join("")}
       </div>
       <div class="holding-summary" id="holdings-summary"></div>
+      <div class="sync-panel">
+        <b>One record across your devices</b>
+        <p id="automatic-sync-status" role="status">Connect this browser once. Your shares, average prices, plan, and history will sync with your Mac mini and Telegram.</p>
+        <div id="sync-conflict" hidden><p id="sync-conflict-values"></p><div class="holding-tools"><button id="sync-use-local" type="button">Keep this device’s numbers</button><button id="sync-use-remote" type="button">Use Mac mini’s numbers</button></div></div>
+        <details><summary>Connection settings</summary>
+          <p>Open your private /retire_connect link from Telegram once on each browser. You can also import its connection file here. Keep the link and file private.</p>
+          <label for="sync-connection-file">Connect Mac mini <input type="file" id="sync-connection-file" accept=".json,application/json"></label>
+          <button id="disconnect-sync" type="button" hidden>Disconnect this browser</button>
+        </details>
+      </div>
       <div class="holding-tools">
         <button type="button" id="record-holdings">Record holdings update</button>
         <button type="button" id="refresh-market">Update prices and dividends</button>
@@ -1722,16 +1797,16 @@ function renderSkeleton(yields, meta) {
       </div>
       <p class="holding-source" id="record-status" role="status"></p>
       <details class="holding-help"><summary>Your reported holdings history</summary>
-        <p class="holding-source">After editing both share counts and average prices, click Record holdings update. Each entry preserves those numbers and the reported share change. This is not a brokerage trade record.</p>
+        <p class="holding-source">Connected browsers record changes automatically when you leave the fields. Each entry preserves your share counts and average prices. This is not a brokerage trade record.</p>
         <div class="history-scroll" id="holdings-history"></div>
       </details>
       <details class="holding-help"><summary>How these numbers work</summary>
       <p class="holding-source">Total purchase cost (cost basis) is your shares multiplied by the average price you paid per share. Your purchase price does not change your dividends.</p>
-      <p class="holding-source">This browser remembers your entries. To use another browser or device, enter your shares and purchase prices there too.</p>
+      <p class="holding-source">Connected browsers use the same private record on your Mac mini. An unconnected browser saves only its own entries.</p>
       </details>
       <p class="holding-source" id="holdings-data-status" role="status"></p>
-      <details class="holding-help"><summary>Use these holdings for Telegram updates</summary>
-        <p class="holding-source">The bot keeps a separate private record. Copy an update below and paste it into your connected bot. Website edits do not update Telegram automatically.</p>
+      <details class="holding-help"><summary>Backups and manual transfer</summary>
+        <p class="holding-source">Automatic sync replaces copying updates. These controls remain available for a private backup or an unconnected browser.</p>
         <div class="holding-tools"><button type="button" id="copy-telegram-update">Copy update for Telegram</button><button type="button" id="export-notification-plan">Download holdings backup</button></div>
         <textarea id="telegram-command" aria-label="Update command for Telegram" readonly hidden></textarea>
         <p class="holding-source">The update includes shares, average purchase prices, tax, your income goal, and chosen expense. Downloaded backups also contain your history. Keep them private.</p>
@@ -1972,6 +2047,7 @@ function renderSkeleton(yields, meta) {
     navLinks.forEach(a => navObserver.observe($(a.hash.slice(1))));
   }
   bindCosts(yields); setupBadgeTilt(); setupBadgeSpin(); renderCostList();
+  bindAutomaticSync();
   if ("ResizeObserver" in window) new ResizeObserver(() => placeScenPill(true)).observe(document.querySelector(".scenarios"));
   syncControls();
 }
@@ -2087,7 +2163,7 @@ function update(yields) {
   $("v-infl").textContent = S.inflation + "%";
   document.querySelectorAll("[data-scen]").forEach(b => { b.classList.toggle("active", b.dataset.scen === S.scenario); b.setAttribute("aria-pressed", String(b.dataset.scen === S.scenario)); });
   placeScenPill();
-  $("savedhint").textContent = storageOk ? "Your numbers are saved in this browser. Another device or browser keeps its own numbers." : "This browser blocks saving, so your numbers will reset when you reload.";
+  $("savedhint").textContent = storageOk ? (AUTO_SYNC?.connected()?"Connected browsers share your Mac mini’s private record. Offline edits wait here until the connection returns.":"Your numbers are saved in this browser. Connect your Mac mini to share them across devices.") : "This browser blocks saving, so your numbers will reset when you reload.";
 
   // key numbers
   const todayNet = (hold.sg * y.pxGpix * y.gpix + hold.sq * y.pxGpiq * y.gpiq) / 100 / 12 * (1 - S.taxPct / 100);

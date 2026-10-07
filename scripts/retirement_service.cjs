@@ -2,6 +2,7 @@
 // Private service used by OpenClaw commands and the single weekly job.
 const fs = require('node:fs');
 const path = require('node:path');
+const crypto = require('node:crypto');
 const J = require('./retirement-journal.js');
 const BASE = 'https://bskthefirst.github.io/should-i-buy-gpix-today/';
 const signed = n => (n < -1e-8 ? '−' : '+') + '$' + Math.abs(n).toFixed(2);
@@ -13,6 +14,17 @@ function write(file,value) {
   const temporary = file + '.' + process.pid + '.tmp';
   fs.writeFileSync(temporary,JSON.stringify(value,null,2),{mode:0o600});
   fs.renameSync(temporary,file); fs.chmodSync(file,0o600);
+}
+function state(file) {
+  const raw=read(file),p=J.profile(raw); delete p.exportedAt;
+  const revision=crypto.createHash('sha256').update(JSON.stringify(p)).digest('hex');
+  return {revision,profile:{...p,exportedAt:new Date().toISOString()},updatedAt:raw.updatedAt||null};
+}
+async function locked(file,fn) {
+  const lock=file+'.lock'; let fd;
+  try { fd=fs.openSync(lock,'wx',0o600); }
+  catch(e) { const err=new Error('Another holdings update is running. Try again shortly.');err.code='BUSY';throw err; }
+  try { return await fn(); } finally { fs.closeSync(fd);fs.unlinkSync(lock); }
 }
 async function feeds(directory) {
   const results = await Promise.all(['GPIX','GPIQ'].map(async ticker => {
@@ -72,11 +84,17 @@ async function operate(file,action,args='',dataDir=null) {
     if(!match) return {text:'Choose one monthly expense:\n/expense Claude 20\nThe amount is USD per month.'};
     p.selectedExpense=J.expense({name:match[1],amount:Number(match[2])}); changed=true;
     confirmation='Chosen expense saved: '+p.selectedExpense.name+' · '+money(p.selectedExpense.amount)+'/month.\n\n';
-  } else if(action==='import') {
-    if(args.length>10000 || !/^[A-Za-z0-9_-]+$/.test(args)) throw new Error('Invalid website update. Copy a fresh command from the website.');
+  } else if(action==='import'||action==='sync') {
+    if(action==='sync') {
+      const input=typeof args==='string'?JSON.parse(args):args;
+      if(input.expectedRevision!==state(file).revision) {const e=new Error('The shared record changed.');e.code='CONFLICT';throw e;}
+      args=Buffer.from(JSON.stringify(J.profile(input.profile))).toString('base64url');
+    }
+    if(args.length>(action==='sync'?3000000:10000) || !/^[A-Za-z0-9_-]+$/.test(args)) throw new Error('Invalid website update. Copy a fresh command from the website.');
     const imported=J.profile(JSON.parse(Buffer.from(args,'base64url').toString('utf8')));
-    if(raw.updatedAt && Date.parse(imported.exportedAt)<Date.parse(raw.updatedAt)) throw new Error('This website update is older than the bot’s last edit. Copy a fresh update after reviewing the current holdings.');
+    if(action==='import' && raw.updatedAt && Date.parse(imported.exportedAt)<Date.parse(raw.updatedAt)) throw new Error('This website update is older than the bot’s last edit. Copy a fresh update after reviewing the current holdings.');
     for(const k of ['sharesGpix','sharesGpiq','costGpix','costGpiq','taxPct','target','costs','selectedExpense']) p[k]=imported[k];
+    if(imported.forecast)p.forecast=imported.forecast;
     p.journal=J.merge(p.journal,imported.journal); changed=true;
     confirmation='Website update saved. GPIX '+quantity(p.sharesGpix)+' @ '+money(p.costGpix)+'; GPIQ '+quantity(p.sharesGpiq)+' @ '+money(p.costGpiq)+'.\nThe weekly digest now uses these numbers.\n\n';
   } else if(!['weekly','progress','baseline'].includes(action)) throw new Error('Unknown retirement action.');
@@ -85,12 +103,12 @@ async function operate(file,action,args='',dataDir=null) {
   try { ob=J.observe(p,await feeds(dataDir)); }
   catch(e) {
     if(!changed) throw e;
-    J.record(p.journal,p,null,'telegram');
+    J.record(p.journal,p,null,action==='sync'?'website':'telegram');
     write(file,{...p,updatedAt:new Date().toISOString(),weekly:raw.weekly});
     return {text:confirmation+'Market data unavailable. Your reported holdings were saved. No income milestone was awarded.'};
   }
   const baseline=p.journal.snapshots.length===0;
-  J.record(p.journal,p,ob.rates,'telegram');
+  J.record(p.journal,p,ob.rates,action==='sync'?'website':'telegram');
   const newAwards=J.award(p.journal,J.milestones(p),ob.average,new Date().toISOString(),baseline);
   let weekly=raw.weekly || {announced:[],comparison:null};
   const pending=p.journal.achievements.filter(r=>!r.baseline&&!weekly.announced.includes(r.key));
@@ -106,14 +124,10 @@ async function operate(file,action,args='',dataDir=null) {
 async function main() {
   const [file,action,args='',dataDir]=process.argv.slice(2);
   if(!file||!action) throw new Error('A private plan path and action are required.');
-  const lock=file+'.lock';
-  let fd;
-  try { fd=fs.openSync(lock,'wx',0o600); }
-  catch(e) { throw new Error('Another holdings update is running. Try again shortly.'); }
-  try {
+  await locked(file,async()=>{
     const result=await operate(file,action,args,dataDir);
     console.log(action==='weekly'?result.text:JSON.stringify(result));
-  } finally { fs.closeSync(fd); fs.unlinkSync(lock); }
+  });
 }
 if(require.main===module) main().catch(e=>{ console.error('Retirement update stopped: '+e.message);process.exitCode=1; });
-module.exports={operate,card};
+module.exports={operate,card,state,locked};

@@ -2,35 +2,47 @@
 
 The existing OpenClaw bot keeps a private holdings file on its host. The website keeps a separate browser copy. Neither reads a brokerage account. Transfers between the two copies are manual.
 
-## Update from the website
+## Automatic sync
 
-1. Enter total shares and your brokerage's average purchase prices in **Already invested**.
-2. Click **Record holdings update** to preserve a dated browser snapshot.
-3. Expand **Use these holdings for Telegram updates**.
-4. Click **Copy update for Telegram**.
-5. Paste the copied command into your connected bot's private chat.
-6. Check the bot's confirmation of the saved totals.
+Connected browsers and the existing Telegram bot share the private `plan.json` on the Mac mini.
+The public GitHub Pages website contains no holdings or connection key.
 
-The command includes shares, average prices, tax, income goal, costs, and the chosen expense. It updates the bot's private plan and adds a dated report when holdings change. It preserves the bot's existing history. It does not transfer the browser's entire history. **Download holdings backup** exports the full browser record, including purchase prices, for private backup.
+1. Use `/retire_connect` in the bot's private chat to get your private connection link.
+2. Open that link once on each browser.
+3. If the browser has different numbers, choose the copy you want to keep. An empty browser adopts the shared record.
 
-## Update from Telegram
+The bot also sends a connection file. It can be imported under **Connection settings** as an alternative.
+
+After connecting, enter total shares and average purchase prices as usual. Leaving the fields records the change and saves it automatically. You do not need to copy Telegram commands. The weekly digest reads the same private file.
+
+Visible browsers check for changes every 30 seconds and when the page returns to the foreground. Offline edits remain in browser storage and retry automatically. If another device edited the record before a waiting update arrives, the page preserves the draft and asks which copy to keep. Both histories are merged. A device which has never connected still has only its browser copy. Existing mobile data does not reach the server until that mobile browser connects.
+
+The sync includes share counts, average prices, tax, income goal, expenses, forecast settings, and history. It does not read brokerage trades. It does not create extra Telegram notifications.
+
+### Mac mini service
+
+Copy `retirement_sync_server.cjs`, `retirement_service.cjs`, and `retirement-journal.js` to the private service directory. Create `sync.json` with a randomly generated 256-bit base64url key, `planPath`, `endpoint`, `origin`, and optional `port`. Restrict the directory to mode 700 and files to mode 600.
+
+The Node server binds only to `127.0.0.1:8787`. A dedicated HTTPS proxy must route to that port. The API exposes only `/v1/plan`. It requires a bearer key, accepts the configured website origin, validates inputs, and rejects stale revisions. It never serves plan files, keys, bot configuration, or other applications.
+
+A macOS LaunchAgent runs the Node service at login and restarts it after failure. HTTPS routing must also persist across restarts. Tailscale Serve works within the private network. [Tailscale Funnel](https://tailscale.com/docs/features/tailscale-funnel) makes the dedicated HTTPS port reachable by browsers which do not have Tailscale. Funnel requires the tailnet administrator to enable it. Use a separate port so existing services remain unchanged.
+
+The connection file contains only the HTTPS endpoint and bearer key. It grants read and write access to the private retirement record. Deliver it only through the owner’s private bot chat. The connection link carries the key in a URL fragment, which is removed immediately and is not sent to GitHub. The page accepts only the configured Mac mini endpoint. Open the link once on each browser. **Disconnect this browser** removes that browser’s connection, while its local holdings remain. Rotate the server key to revoke all existing connection files.
+
+## Telegram commands and backups
 
 ```text
 /holdings GPIX 57.71 54.70 GPIQ 3 56.43
-```
-
-Each fund has two numbers: total shares currently owned and average purchase price in USD. The command replaces totals. It does not add the entered shares to the previous total. Use actual brokerage figures.
-
-```text
 /expense Claude 20
 /dividends
 /retire_history
 /retire_export
+/retire_connect
 ```
 
-`/expense` chooses one expense and its monthly USD cost. `/dividends` shows current estimates. `/retire_history` shows the latest reported changes. `/retire_export` sends a private JSON file containing current holdings, average prices, the chosen expense, and the complete history.
+Each fund has two numbers: total shares currently owned and average purchase price in USD. `/holdings` replaces totals. It does not add the entered shares to the previous total. Connected browsers receive the changed totals automatically. Use actual brokerage figures.
 
-To update the website, download that file from Telegram. Choose **Import from Telegram** on the website. Review the incoming values. Click **Apply this file** to replace current values and merge both histories. The file does not import automatically.
+`/retire_export` sends a private JSON file containing holdings and the complete history. **Download holdings backup** saves the browser record. Manual copy and import controls remain under **Backups and manual transfer** for browsers without a connection. Applying a backup replaces current values and merges histories.
 
 ## What the record means
 

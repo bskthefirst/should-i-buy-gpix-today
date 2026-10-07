@@ -44,8 +44,8 @@ unrealized gain or loss, after-tax yield on purchase cost, the latest monthly di
 estimate and trailing 12-month income. Distributions depend on shares, not purchase cost.
 The forecast uses the trailing distribution yield, calculated directly from per-share payouts.
 Existing fractional shares are preserved even when future purchases use whole shares.
-Cash to invest is entered separately. The page stores personal inputs only in browser local
-storage, with no server upload and no personal holdings in the public starting values.
+The page saves inputs in browser storage. Connected browsers sync a private copy to the owner’s
+Mac mini over authenticated HTTPS. No personal holdings or connection keys are in the public source.
 Old `retire-settings-v2` dollar balances convert to estimated shares once. A notice asks users
 to verify those shares and enter purchase costs, which the old page did not record.
 
@@ -64,7 +64,7 @@ Market snapshots refresh through the existing workflow three times each weekday.
 checks for updates every five minutes while visible, on return to the page and on a manual
 refresh. Refreshes preserve purchase records. Missing distributions show “Unavailable”. Failed
 refreshes retain the previous snapshot, and old or incomplete snapshots produce a visible notice.
-Pure client-side vanilla JavaScript. No additional data provider, workflow or API key is required.
+The calculator uses vanilla JavaScript. Automatic personal-data sync uses an optional private Node server.
 
 Run the holdings and simulation checks with `node --test scripts/test_retire.cjs`.
 
@@ -81,17 +81,20 @@ month, unlocked ones shine, tilt toward the pointer and pop with sparkles the mo
 The featured next badge near the top of the page shows a progress ring and the remaining estimated
 monthly income after tax. It updates from entered holdings and current fund data, without tracking purchases.
 **Your dividend journey** lets you choose one monthly expense, explains changes in estimated income,
-and preserves dated milestone memories. **Record holdings update** saves a snapshot of total shares,
+and preserves dated milestone memories. Connected browsers record updates automatically when the user leaves the fields.
+Unconnected browsers use **Record holdings update** to save a snapshot of total shares,
 average purchase prices, tax, and available payout rates. Share differences are reported changes,
 not verified trades. History starts with the first report and does not reconstruct past purchases.
 The browser and the private Node service use the same `docs/retirement-journal.js` calculations.
 The overview shows income, goal progress, and reached badges. The badge collection can show all,
 reached, or upcoming milestones. Editing a planned contribution does not unlock an income badge.
 For optional, infrequent OpenClaw Telegram updates, see [Telegram setup](docs/telegram-setup.md).
-The website copies a command for the existing bot and imports its exported holdings file after review.
-Backups now include average purchase prices and history. Transfers are manual. The private OpenClaw
-plugin supports `/holdings`, `/expense`, `/dividends`, `/retire_history`, `/retire_export`, and
-`/retire_import`. One weekly digest combines progress, changes, and new milestone celebrations.
+Connected browsers and the Telegram bot share one private plan on the Mac mini. Open the private connection link once
+on each browser. Edits save after the user leaves the fields. Visible browsers check for changes every 30 seconds.
+Offline drafts retry automatically. Conflicting edits require a choice rather than overwriting newer numbers.
+Manual transfer and full backups remain available. The private OpenClaw plugin supports `/holdings`, `/expense`,
+`/dividends`, `/retire_history`, `/retire_export`, `/retire_import`, and `/retire_connect`.
+One weekly digest combines progress, changes, and new milestone celebrations.
 No bot token or personal holdings are stored in the website source.
 Medals are SVG drawn in the page script; drag one sideways and it spins (a spring settles it on
 the front), and its back shows the unlock month. Everything respects `prefers-reduced-motion` and `?motion=off`.
