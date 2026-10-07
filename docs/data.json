@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-06T20:25:10+00:00",
+ "generated_at": "2026-10-07T11:00:10+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.5 (p18)",
+   "value": "15.0 (p11)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 18.2,
+    "pos": 10.7,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.88",
+   "value": "0.85",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 45.0,
+    "pos": 37.7,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.1 pts",
+   "value": "+4.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 75.8,
+    "pos": 71.5,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 47.4,
+    "pos": 47.3,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 8d",
+   "value": "CPI in 7d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1330,7 +1330,7 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1340,7 +1340,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.5) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.0) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1354,7 +1354,7 @@
   "end": "2026-10-06",
   "days_total": 737,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-10-06",
+  "fg_coverage_start": "2025-10-07",
   "baseline": {
    "n": 716,
    "avg_pct": 1.65,
@@ -1389,8 +1389,8 @@
   "tbill_3mo": 4.22
  },
  "fx": {
-  "usd_krw": 1337.56,
-  "as_of": "2026-10-06T20:25Z"
+  "usd_krw": 1338.43,
+  "as_of": "2026-10-07T11:00Z"
  },
  "distributions": {
   "history": [
@@ -1519,16 +1519,16 @@
  },
  "vol": {
   "index": "VIX",
-  "level": 15.52
+  "level": 15.01
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 22,
+  "days_until": 21,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 8
+  "days_until": 7
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1536,7 +1536,7 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15500.0,
-  "dca_value": 20371.67,
+  "dca_value": 20371.66,
   "dca_return_pct": 31.43,
   "dip_value": 20110.94,
   "dip_return_pct": 29.75,
@@ -1546,44 +1546,44 @@
  },
  "headlines": [
   {
-   "title": "How the Pulling Power of Diesel Risks Higher Inflation Into 2027",
+   "title": "Wall St futures slip as yields and oil rebound; Fed minutes in focus",
+   "source": "Modesto Bee",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5BQ1VMMW1tMzJTajNEVEFfQ1lKekUzWGdfc1VnQl80TXFRNjdocUlkbUFGNU1mVUxBa1JrSWV0dGNFeGNlanB4dk5MY01xeE9ZTWFDVGNUczd1WGFHbVV2NDdoWjdOT0doMXc?oc=5",
+   "published": "2026-10-07T10:52:06+00:00"
+  },
+  {
+   "title": "RBI raises rates amid rising inflation and global risks outlook",
+   "source": "BBC",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9HaFhnN1dxaGRKTU9oOTNhRnA1SFZJaDczMDYxZ09TMUNfaHNUX21TcEx0RXI1eVNHMHR0UmMxRXczZnFNdXRFX0lXd0RLVDJhemN6UjExTXY4YnM?oc=5",
+   "published": "2026-10-07T10:44:02+00:00"
+  },
+  {
+   "title": "Want to be a stock market bear? BCA says watch potential U.S. tax increases",
+   "source": "Yahoo Finance Singapore",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOcUFHYXFDYktERlFHbV9qVU5vbjMyY0JyWUtycHpCMnJ4NzNlcHFKSnE1MjMzQ2Q4OThwVlFneGRISFBFN1B0d2JlWnVmTFA1S0x6Y1FCUHlFbGVLUFUwa0dRY3lqWl9OZ1VIZFMzQTRDT2cwUHVTYlBCUm10ZEY1QQ?oc=5",
+   "published": "2026-10-07T10:42:11+00:00"
+  },
+  {
+   "title": "US 30-year bond yield hits fresh 24-year high",
+   "source": "The Mighty 790 KFGO",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9ZTHRYZkhxLTBCbzFaazkwSV9nUlhWMG9fRGk0U0FucEtpeG5ad0dfRTBkaUR6T0hOeXRfSi1CcFJ0aDFtMlZIWU11ZndaLWNqOTFOd1NDMmVEYnlvQ1VyVDNBclJRNkF3RXQ3SkR4NU16UmZ0RDc5cGpRcWtwNjA?oc=5",
+   "published": "2026-10-07T10:39:35+00:00"
+  },
+  {
+   "title": "AI Bots Swarm the Fed\u2019s FRED Data Site as Risks Rise",
    "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxON0xYR1NCdVp1SUFUYmtYWWVteWtVSmxxTTczQWl1bUNhaFRWTU4tNjNPZTBOcEhGUkVxbVZad0VwUHlUQnp2V0NZWHpWcWhuS0YtcGtTcU1tQjNKM0pCS3l4TFloNmcycmlNN3E4MzZLcXpjVW8tQnRMbjBEa3VwME1YdGZCS3ZOYnlTQjc5TlBlZzh2dG42MjZBYWdFTGpXTDFPem5wUVU?oc=5",
-   "published": "2026-10-06T20:01:23+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOZkl4WUVLOVdsb2pDQW13aWYzZ3JlX3RhQkNhMUFwc2VkVnd5ZnNRXzEybjFWa1R6dnJXX3AwNlB5WGR2bUNqTExaNWlwemFlZjF6a0FVV0NiZ24wMTdaV29sQXhyVjRkb0FxTWpqWjlGak1jWWlCcmREOVgxdENqVW1WTGhiOHFDd0NHVHl0WkR3X1pUSkRaWHhmNWROdDhoOXdSTHhrdEN6OWZEZGdFWUFnTHF3ZHRIQWhQd1pDQmRTb1NhODU1MGpKdw?oc=5",
+   "published": "2026-10-07T10:28:01+00:00"
   },
   {
-   "title": "Oil reserve \"scarily thin\"",
-   "source": "Oklahoma Energy Today",
-   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE56c1NzZ1A5RFFEZ3hLUWpfM2QtMkZBR0taRlNlbzlrNHJ0cTdkR09BWmFRYVd2eDliUWtLWk95azNYSkRnUHBWMVVSTmFqbXZ5ZC1wb2tlak93WTdGN1hmX05tMUEtcGhOX2xn?oc=5",
-   "published": "2026-10-06T19:28:39+00:00"
-  },
-  {
-   "title": "Mortgage Rates Rise as Treasury Yields Top 5%",
-   "source": "Eye On Housing",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPWWhZMzFXNFpScTNpZ0dEU2VzbDZXRXgtdW44X21QeGkwRUFsemNuUzZGbzlmc0ZnMXJFc2NHTTJPVVI1NnYzeXVUOEpGYUNPU1ZuQVBlMDRaSE85bEtBWWdOSExqUW9Lb3JlQ2dXaXNIbzl1OHZseTdZVldzRFU4TVhaUVc?oc=5",
-   "published": "2026-10-06T18:26:12+00:00"
-  },
-  {
-   "title": "Fed's Schmid warns inflation fight has a \u201cway to go\u201d",
-   "source": "FXStreet",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNbG1FalBVSGxUNFZ2NW9yVjRBSTZnVkhBVlByMW85WW5DNmthV0I3ZWExWWNaaE5BWm5ENmlOc2poQnhaTEN6bW1KdjlMWm9xM0g4eEdYWDJpVllMZjV2Rkhlb0k5cVRMUzBjQUY2eldsbzNtTGl2dURydXNRS24tYlZ6VHRIbTR0LWRVUTNSZVYtSE00N0Mw?oc=5",
-   "published": "2026-10-06T18:22:55+00:00"
-  },
-  {
-   "title": "Fed plans to overhaul bank supervision responsibilities, Bowman says",
+   "title": "Fed minutes could detail rate-hike decision, policy path",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQeXUxU2F5X1UwSTZreDdOc3FaTDdsWVBreUNYY3U1WVlpZXVUNGM1UE8tLU50eUU1UTlzVHRPVlhOTlBmemF5ZTJGY3lNa2Njc1NwaFNkWG04OVdTbkUxVGd4d1E1WkFkVkpXdmFoVkEyUHFkX24tSUlMTkZaS3FUYy1pQzJfQ1Nldy10bDhwdEhoOHg5eHFpVDFMWDJ6bkcyT1F3R0tDaWhFSU4tb0RHeUVYNFVSUHJT?oc=5",
-   "published": "2026-10-06T18:15:37+00:00"
-  },
-  {
-   "title": "Big drivers of inflation right now are energy prices, AI driven demand: KC Fed's Schmid (TLT:NASDAQ)",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNbWlFX09JOUFpV2Y3R2xFcmR3UWN5NnNBbDRqZllWaGZjMGRpclRWVjRadTFiSzRjellETWxyak9uQmw5dEdLSEFPQjNwQ0hoWEIxQXNzalByS20yMS1haXZnaldtallwWTZtaWFBZnRLYy1iT093MUdNU0F6M0hvYl9odlVHRi1HaFpfcEF5aFdBTFdiamNqSVZmV1J3VmVIeXZJck05T3FzdFI2UmFDRjF1ZWlzbzMtcG0xZHBVWQ?oc=5",
-   "published": "2026-10-06T18:12:04+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaFdleVVLSGdCQUlSODJ0bVFmdlh3cl9WZFFrUG5oUHhxdGNTMUlKUW1QaDBfVXAwd2FLaE0yYk9nb1lNcGY2Z0twTXNweEtEV203X09TTUR3ai1fellVelpWUHlEWWRUYW9oVTByX0ttLXl5b1I0ZjRyQm9ZVFBldFVLR0Z3UVRScGI2b2NuVC1pblU3dzJtd1JnNHY0M1Y0SlE?oc=5",
+   "published": "2026-10-07T10:11:43+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-06T20:25:11+00:00",
+  "run_at": "2026-10-07T11:00:11+00:00",
   "session": {
    "date": "2026-10-06",
    "bar": "final"
@@ -1602,7 +1602,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-06T20:10:31+00:00"
+    "as_of": "2026-10-07T10:43:46+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1618,7 +1618,7 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-06T20:01:23+00:00"
+    "as_of": "2026-10-07T10:52:06+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
@@ -1629,7 +1629,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-06T20:25Z"
+    "as_of": "2026-10-07T11:00Z"
    },
    "yahoo:SPY": {
     "ok": true,
@@ -1641,7 +1641,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-10-05"
+    "as_of": "2026-10-06"
    },
    "yahoo:^VIX3M": {
     "ok": true,
