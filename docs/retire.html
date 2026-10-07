@@ -195,8 +195,8 @@
   .holding-title b { font-size: 19px; letter-spacing: -.02em; }
   .holding-title small { display: block; color: var(--muted); font-size: 11px; }
   .holding-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; }
-  .holding-inputs label { font-size: 11px; color: var(--muted); }
-  .holding-inputs .numbox { display: flex; margin-top: 4px; padding: 8px; }
+  .holding-inputs label { display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: var(--muted); }
+  .holding-inputs .numbox { display: flex; margin-top: auto; padding: 8px; }
   .holding-inputs input { width: 100%; font-size: 17px; }
   .holding-detail { padding: 0 16px 14px; }
   .holding-detail dl { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; font-size: 12px; }
@@ -216,6 +216,10 @@
   .holding-tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 16px; }
   .holding-tools label { color: var(--muted); font-size: 12px; }
   .holding-tools .numbox { margin-left: 6px; }
+  .first-purchase { margin-top: 16px; padding: 12px 14px; background: var(--surface2); border-radius: 9px; }
+  .first-purchase label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 13px; font-weight: 600; }
+  .first-purchase .numbox { margin-left: auto; }
+  .first-purchase p { margin-top: 6px; font-size: 12px; color: var(--muted); }
   .holding-tools button, .tax-presets button { padding: 6px 10px; border: 1px solid var(--border); border-radius: 8px; color: var(--brg); background: var(--surface); font: inherit; font-size: 11px; cursor: pointer; }
   .tax-presets { display: flex; gap: 6px; margin-top: 8px; }
   .tax-presets button[aria-pressed=true] { background: var(--brg); color: white; border-color: var(--brg); }
@@ -1425,20 +1429,24 @@ function renderSkeleton(yields, meta) {
           <div class="holding-title"><b>${key.toUpperCase()}</b><small>${name} · USD</small></div>
           <div class="holding-inputs">
             <label for="n-shares${key}">Shares you own ${numBox("n-shares" + key, "", "", key.toUpperCase() + " shares you own")}</label>
-            <label for="n-cost${key}">Average purchase cost ${numBox("n-cost" + key, "$", "", key.toUpperCase() + " average purchase cost per share in dollars")}</label>
+            <label for="n-cost${key}">Average price you paid per share ${numBox("n-cost" + key, "$", "", key.toUpperCase() + " average price you paid per share in dollars")}</label>
           </div>
           <div class="holding-detail" id="holding-${key.toLowerCase()}"></div>
         </article>`).join("")}
       </div>
       <div class="holding-summary" id="holdings-summary"></div>
-      <div class="holding-tools">
-        <label for="n-startCash">Cash to invest ${numBox("n-startCash", "$", "", "Cash available to invest in dollars")}</label>
-        <button type="button" id="clear-holdings">Clear holdings</button>
-        <button type="button" id="confirm-holdings" hidden>Confirm my shares</button>
-        <button type="button" id="refresh-market">Refresh market data</button>
+      <div class="first-purchase">
+        <label for="n-startCash">Extra money for the first purchase ${numBox("n-startCash", "$", "", "Extra money added once to the first monthly purchase in dollars")}</label>
+        <p>This amount is added once to your first monthly purchase. Later purchases use your monthly contribution and reinvested dividends.</p>
+        <p>For example, $500 here and $1,500 per month means $2,000 for the first purchase, plus reinvested dividends. If you will not add extra money, enter $0.</p>
       </div>
-      <p class="holding-source">Total cost is shares × average purchase cost. Dividends depend on shares, not purchase cost. Future whole-share purchases preserve existing fractions.</p>
-      <p class="holding-source">Your shares and purchase costs stay in this browser. The page does not send them to a server. Enter your brokerage's current holdings to begin.</p>
+      <div class="holding-tools">
+        <button type="button" id="clear-holdings">Set shares, average prices, and extra money to zero</button>
+        <button type="button" id="confirm-holdings" hidden>My share counts are correct</button>
+        <button type="button" id="refresh-market">Check for updated prices and dividends</button>
+      </div>
+      <p class="holding-source">Total purchase cost (cost basis) is your shares multiplied by the average price you paid per share. Your purchase price does not change your dividends.</p>
+      <p class="holding-source">This browser remembers your entries. To use another browser or device, enter your shares and purchase prices there too.</p>
       <p class="holding-source" id="holdings-data-status" role="status"></p>
     </div>
     </section>
@@ -1660,18 +1668,18 @@ function renderHoldings(y) {
     const gainKnown = cost > 0 || shares === 0;
     $("holding-" + key.toLowerCase()).innerHTML = `
       <dl>
-        <dt>Cost basis · total purchase cost</dt><dd>${gainKnown ? usd2(m.basis) : "Enter average cost"}</dd>
+        <dt>Total purchase cost (cost basis)</dt><dd>${gainKnown ? usd2(m.basis) : "Price not entered"}</dd>
         <dt>Share price · ${MARKET_META[key.toLowerCase()]?.priceDate || "backup estimate"}</dt><dd>${usd2(price)}</dd>
         <dt>Current market value</dt><dd>${usd2(m.value)}</dd>
         <dt>Unrealized gain / loss</dt><dd class="${gainKnown ? m.gain < 0 ? "gain-down" : "gain-up" : ""}">${gainKnown ? signed(m.gain) + (m.gainPct === null ? "" : " (" + percent(m.gainPct) + ")") : "—"}</dd>
         <dt>Annual yield on purchase cost · after tax</dt><dd>${m.yieldOnCost === null ? "—" : m.yieldOnCost.toFixed(2) + "%"}</dd>
       </dl>
       <div class="holding-income">
-        <div class="income-label">Latest distribution estimate · after ${S.taxPct}% tax</div>
+        <div class="income-label">Monthly dividend estimate after ${S.taxPct}% tax</div>
         <div class="income-value">${m.latestNet === null ? "Unavailable" : usd2(m.latestNet)} <small>/ month</small></div>
         <p>${last === null ? "Latest distribution is unavailable. No payout is assumed here." : `${sharesText(shares)} shares × $${last.toFixed(5)} × ${(1 - S.taxPct / 100).toLocaleString("en-US", { maximumFractionDigits: 8 })} = ${usd2(m.latestNet)}`}</p>
-        <p>${m.averageNet === null ? "12-month history unavailable" : `12-month average: ${usd2(m.averageNet)}/month · ${usd2(m.annualNet)}/year after tax`}</p>
-        <p>${dist?.last_ex ? "Last recorded ex-dividend date: " + isoDay(dist.last_ex) + ". " : ""}Future amounts can change. You must have owned the shares before the ex-dividend date.</p>
+        <p>${m.averageNet === null ? "Past payout history unavailable" : `Using the past year's average payouts: ${usd2(m.averageNet)}/month or ${usd2(m.annualNet)}/year after tax.`}</p>
+        <p>${dist?.last_ex ? "Uses the payout with an ex-dividend date of " + isoDay(dist.last_ex) + ". " : ""}The next payout can change. You qualify only for payouts with an ex-dividend date after you bought the shares.</p>
       </div>
       <p class="holding-source"><a href="${ticker === "GPIX" ? "data.json" : "data-gpiq.json"}">Yahoo Finance data</a> · ${MARKET_META[key.toLowerCase()]?.asof || "not available"}</p>`;
   }
@@ -1680,13 +1688,13 @@ function renderHoldings(y) {
   const latestNet = total("latestNet"), annualNet = total("annualNet");
   $("holdings-value").textContent = usd2(records.reduce((sum, r) => sum + r.value, 0));
   $("holdings-summary").innerHTML = `
-    <div><span>Total cost basis</span><b>${completeCost ? usd2(total("basis")) : "Enter purchase costs"}</b><small>${completeCost ? "What you paid for your current shares" : "The old dollar balances did not include purchase costs"}</small></div>
-    <div><span>Latest monthly estimate · after tax</span><b>${latestNet === null ? "Unavailable" : usd2(latestNet)}</b><small>${latestNet === null ? "Waiting for distribution data" : won(latestNet) + " · based on the last payouts"}</small></div>
-    <div><span>12-month income · after tax</span><b>${annualNet === null ? "Unavailable" : usd2(annualNet)}</b><small>Current shares × distributions per share from the last 12 months</small></div>`;
-  $("holdings-notice").textContent = S.holdingsReview ? "Your old dollar balances were converted into estimated shares once. Verify the shares and enter your average purchase costs from your brokerage. Confirm the shares when you have checked them." : "";
+    <div><span>Total purchase cost (cost basis)</span><b>${completeCost ? usd2(total("basis")) : "Average prices missing"}</b><small>${completeCost ? "The amount you paid for the shares you own now" : "Enter the average price you paid per share for each fund above."}</small></div>
+    <div><span>Monthly dividend estimate after tax</span><b>${latestNet === null ? "Unavailable" : usd2(latestNet)}</b><small>${latestNet === null ? "The latest payouts are unavailable" : won(latestNet) + ". Uses each fund's most recent payout per share. The next payout can change."}</small></div>
+    <div><span>Yearly dividend estimate after tax</span><b>${annualNet === null ? "Unavailable" : usd2(annualNet)}</b><small>Uses the past year's payouts and the shares you own now. This is an estimate, not your actual past income.</small></div>`;
+  $("holdings-notice").textContent = S.holdingsReview ? "The previous page saved dollar amounts, so these share counts are estimates. Enter your actual share counts and average prices from your brokerage. Check the extra money for the first purchase too. It includes the remainder from those estimated share counts." : "";
   $("confirm-holdings").hidden = !S.holdingsReview;
   const issues = MARKET_META.issues || [];
-  $("holdings-data-status").textContent = issues.length ? issues.join(" ") : "The project refreshes market data three times each weekday. This page checks for new data every five minutes.";
+  $("holdings-data-status").textContent = issues.length ? issues.join(" ") : "Prices and dividend amounts update three times each weekday. Your entered shares and average prices stay the same.";
   $("holdings-data-status").classList.toggle("gain-down", issues.length > 0);
   $("market-note").textContent = `The forecast uses the last 12 months of distributions divided by current prices. The holdings card uses the latest recorded payout. ${issues.join(" ")} Won amounts use ₩${FX.toLocaleString("en-US", { maximumFractionDigits: 2 })} per dollar (${FX_NOTE}). Future income is an estimate.`;
 }
@@ -1736,7 +1744,7 @@ function update(yields) {
   // control labels
   $("v-mix").textContent = S.gpixPct + "% GPIX / " + (100 - S.gpixPct) + "% GPIQ";
   $("v-start").textContent = fmt$(startTotal) + " in total";
-  $("holdnote").textContent = `${sharesText(hold.sg)} GPIX shares and ${sharesText(hold.sq)} GPIQ shares, plus ${usd2(S.startCash)} in cash. The forecast uses current market value. Your purchase cost stays recorded above.`;
+  $("holdnote").textContent = `${sharesText(hold.sg)} GPIX shares and ${sharesText(hold.sq)} GPIQ shares at today's market prices, plus ${usd2(S.startCash)} for the first purchase. The extra money is added once.`;
   document.querySelectorAll("[data-tax]").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.tax === S.taxPct)));
   renderHoldings(y);
   $("v-scen").textContent = SCENARIO_LABEL[S.scenario];
@@ -1987,7 +1995,7 @@ async function refreshMarket() {
   } finally {
     refreshingMarket = false;
     const b = $("refresh-market");
-    if (b) { b.disabled = false; b.textContent = "Refresh market data"; }
+    if (b) { b.disabled = false; b.textContent = "Check for updated prices and dividends"; }
   }
 }
 refreshMarket();
