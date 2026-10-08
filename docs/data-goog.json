@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-08T11:00:57+00:00",
+ "generated_at": "2026-10-08T19:10:23+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "24% ann. (p34)",
+   "value": "24% ann. (p35)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 33.7,
+    "pos": 35.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "12.8%",
+   "value": "13.5%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 12.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 13.5% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 25.6,
+    "pos": 27.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.1 (p11), F&G 45",
+   "value": "VIX 15.6 (p20), F&G 38",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 347.37,
-  "as_of": "2026-10-07",
-  "bar": "final",
-  "day_change_pct": 0.81,
-  "sma50": 342.93,
-  "sma200": 338.02,
+  "price": 344.64,
+  "as_of": "2026-10-08",
+  "bar": "provisional",
+  "day_change_pct": -0.79,
+  "sma50": 343.1,
+  "sma200": 338.2,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 12.9,
+  "drawdown_pct": 13.6,
   "series": [
-   {
-    "d": "2026-01-21",
-    "c": 328.38,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-22",
     "c": 330.84,
@@ -1217,6 +1211,12 @@
     "c": 347.37,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-10-08",
+    "c": 344.64,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1224,7 +1224,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+3.3% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+4.1% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1281,13 +1281,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 347.37,
-  "sma200": 338.02,
+  "price": 344.64,
+  "sma200": 338.2,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 23.6
+  "level": 23.9
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1305,61 +1305,61 @@
  },
  "backtest": {
   "start": "2022-10-10",
-  "end": "2026-10-07",
+  "end": "2026-10-08",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 44511.71,
-  "dca_return_pct": 112.97,
-  "dip_value": 44624.82,
-  "dip_return_pct": 113.52,
+  "dca_value": 44161.89,
+  "dca_return_pct": 111.3,
+  "dip_value": 44274.11,
+  "dip_return_pct": 111.84,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "What Google's 3.6GW Nuclear Deal Means for Data Centres",
-   "source": "Data Centre Magazine",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPM20wWGFCVzRxRGs0NVVJUmtMdkVLN0F0RmJRUUZiRWRXTXlPY0ltcDFSX1d6ZjFEWURDcUhjSXphSVJIcXFoZWQzSDlHdndRM1hpZ1JQMFdXY1Rmc05Xa083aHlhZnhocmVfQy14bUlmWDRwSnh5S2lpMEl5V3JHN0RnaGdPem1waHMwU1N1cnlLa0dN?oc=5",
-   "published": "2026-10-08T10:45:12+00:00"
+   "title": "ML Drift: Next-Gen GPU AI/ML Inference at the Edge",
+   "source": "blog.google",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPeDBMdldKVEp0VGsxTno4WDVlbE9sb0RUVS1ka2xvX0hOT3RXYkNIaFRnZVZ4WE96ZlFkWGItV0J6ZldrNU02T0dvREJfbHJ3UHhBa1doVmc5Y2dzRW1zQV9Md0RxaTNRcXI1RU00RzFzSDlyZXkzS1VRaC02R3dwZEJIWFB2NG9OTkFj?oc=5",
+   "published": "2026-10-08T19:04:53+00:00"
   },
   {
-   "title": "US privacy official clears Google's $10 million Spirit data buy, as unions warn about safety",
-   "source": "The Cool Down",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOYWgwaWl4aWpyN0EzU2xYajRqZkp5VTRCaG5iQTY1VURjNlN1OHV5R0FIYjhKZXY2OVhFb1lmeW9tUEJYRHphaEk5cjFXa0Z3dmVqZFB1d1V0ZG0tSElrVG95M1RFcUg3NUdvR2UwYXZ4QklCa0lPWXhseUNBTms4R0pxN2NDcmc?oc=5",
-   "published": "2026-10-08T10:35:00+00:00"
-  },
-  {
-   "title": "I replaced Google Drive with Syncthing and realized I never needed the cloud",
-   "source": "MakeUseOf",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQMVpwZDdPZlkwWWx1elJrSnBwSW5BalNHYlB5MWhIZFpHeDdkSU9TbFIzQ0VTSm40SC1GMnJialM5enY1SHIyaTVRaXQ2T0FVcFFNUTlETzhKcVpBMHNkRFRxMWh0TVpiVnZJM0d4eWowUERDZWpORFVyNkp2cWRrWlJOaVFzLW9WTmt6a2c3MkF3bzRmUENRM0F0cWsxZE9MT0phbTVB?oc=5",
-   "published": "2026-10-08T10:30:16+00:00"
-  },
-  {
-   "title": "Advertising texts in Google Messages aren't what we want \u2014 these 5 fixes are",
-   "source": "Android Authority",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOX2R0YmtRa2lHd2l0NjU1dkNRbF82U1g4OTY2S19NX0VMM24ydnVwWUwxVmdKSzExT01CMG9GQWRRZVVMcm02QW5EX3l4UmlPSjR0SU5LeDh2MnotczNUY01oY2ROLTRTYlMwUEpHMFcyd2VuOHZkdTg3S0RrZ1FlaGxBNS0?oc=5",
-   "published": "2026-10-08T10:30:00+00:00"
-  },
-  {
-   "title": "Google Playground Turns Prompts Into Browser Games",
-   "source": "Technology Org",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNN1NJWHJvam0zRnd2dmFaaTVDanVpeGx6bGVNTXN3VVJIZ2t4aW5Lck1TS1JhaUU4RDdBV3A5VS05QTRMRS1xR29qbDlEaS1tSFJ4QXdlMGJLMEJTYXRhYlRDSTdsRW9sZDJGTDItLVAzOHU1bDVoNzZHZEJPX2hFcjgzblU?oc=5",
-   "published": "2026-10-08T10:20:00+00:00"
-  },
-  {
-   "title": "Why Black Hills (BKH) Is Up 8.2% After Inking Long-Term Google Data Center Power Deal",
+   "title": "SpaceX's Google AI Pact Is Worth Up to $29 Billion, but Investors Shouldn't Bank on It",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVy11MDBpMFpGZ0hPSEgxc1dVMVpVZ3VxekdISGQzenRjMnctRzJHTGlLclFBSks5Z1FBUmR2SkJrdFc1aGNfM3RQWGtPVE1xdmtNU2tiZE44Z3RSNW80bzJSWlpreUxxYlF0eXpQOW43dDk4ZXNpSmRGUGZveGhBTUFBc3E?oc=5",
-   "published": "2026-10-08T10:11:48+00:00"
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQZVZvYzBWaWQzMnJZSWF0WTFDMGtNaXRBY2pDNmxzdnIyeDVVWm81S1o3X21oeHJ6WGVMZzJYVjBXMUZULW5oU3c3OXFFSEtpaEpRdURRTVFoS1JDT2VySHJYZERFQVFYZzV1UW5TbGowVGplbmpiSlVKRFBhc1ppMFBzUzNYM0Jza3BjekxmU0gzSkR2VF9B?oc=5",
+   "published": "2026-10-08T18:54:00+00:00"
+  },
+  {
+   "title": "Congressional Leaders Send Joint Letter to Spirit & Google CEOs Objecting to Data Sale in Watershed Moment for Workers\u2019 Fight for Data & AI Protections - Association of Flight Attendants-CWA",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE05OWFuWVpTeEJBNTlPT0I2UXFSR1BvaWpJZ1lObFZ5Wk1XWFgwWmh4TVhtUDVNNGhjQ1pjXzBEal9iM1M5ajZ6aHhQdGdXXy01OTJBRHRwSTdRQ0E?oc=5",
+   "published": "2026-10-08T18:52:46+00:00"
+  },
+  {
+   "title": "'Lake America' change fuels surge in Google Maps alternatives",
+   "source": "Audacy",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPNm1uZG50TTltRVA0OENPNXJhUTV2YmZldTJhcTJ4anljQ0lROTAxLWxRVGE0bE95czc3cUN3NjJiMXRIVHRPR3pYV0loakQ3QzRwOWtvNE93dzNmNHMtaWN1Qi1Zby1ON1ZTaFlKUTVKbmdfbjlyNFlNT3pyc1FvbjlmckRYTjRuYnJnckVGQXY2REZlVld4cW1qZWJKcWNZQ3c?oc=5",
+   "published": "2026-10-08T18:49:00+00:00"
+  },
+  {
+   "title": "How much does it cost to use open source software?",
+   "source": "blog.google",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNbkxVZlhiTW03djFoUjNQZF92aDF4eFBaMkZNYUZmVldPOHU5MmpFS1VCTHZjaFI5UVBxVE9jU3dJZ24tUnptV1pVNlVHX01VeVhwekNCWHlGT3c1c1pqLXJXb0xrZ2Fnb0xoRWNMdm4zdl9DeXF0Wk1pYXJCNHZyLUM5a3BodW9JTGRWVmc0UE1Tdzk2RThxSGpqWDA?oc=5",
+   "published": "2026-10-08T18:32:23+00:00"
+  },
+  {
+   "title": "Google is ending support for Pixel Watch\u2019s emergency LTE \u2018Safety Signal\u2019",
+   "source": "9to5Google",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOWURqVlpoNy1QT3ljeFNiMXVJTVVIYTN0ZTd3MVZKblROU0U0NmVJc3FVNXBDcWQ4NHV1Um16WFRiZGJKUThJN2lVdmRvUXlKOGpBdW5BYVlCbUhzMl9KUEtibWEtLTBjQkVHUFZwMlhIbEg4Q2hJTzJmSVJBM1JyengxOGt1WWR5ZXc?oc=5",
+   "published": "2026-10-08T18:29:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-08T11:00:57+00:00",
+  "run_at": "2026-10-08T19:10:23+00:00",
   "session": {
-   "date": "2026-10-07",
-   "bar": "final"
+   "date": "2026-10-08",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-08T10:42:46+00:00"
+    "as_of": "2026-10-08T19:09:20+00:00"
    },
    "earnings:GOOG": {
     "ok": true,
@@ -1408,7 +1408,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-06"
+    "as_of": "2026-10-07"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1419,108 +1419,108 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-08T10:45:12+00:00"
+    "as_of": "2026-10-08T19:04:53+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-08T10:50:08+00:00"
+    "as_of": "2026-10-08T19:01:24+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-08T10:49:01+00:00"
+    "as_of": "2026-10-08T18:59:14+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-08T10:47:00+00:00"
+    "as_of": "2026-10-08T19:04:53+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-08T10:41:22+00:00"
+    "as_of": "2026-10-08T18:43:51+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-08T09:05:38+00:00"
+    "as_of": "2026-10-08T19:05:02+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-08T11:00Z"
+    "as_of": "2026-10-08T19:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-07"
+    "bar": "provisional",
+    "as_of": "2026-10-08"
    }
   },
   "degraded": [],
