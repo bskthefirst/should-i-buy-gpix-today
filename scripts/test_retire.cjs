@@ -14,7 +14,7 @@ function load(saved = {}) {
     setItem: (k, v) => storage.set(k, v),
     removeItem: k => storage.delete(k),
   } });
-  const api = vm.runInContext(model + settings + '\n({ initialHoldings, holdingMetrics, simulate, migrateHoldings, saveSettings, settings: () => S })', context);
+  const api = vm.runInContext(model + settings + '\n({ initialHoldings, holdingMetrics, additionalGpixPurchase, simulate, migrateHoldings, saveSettings, settings: () => S })', context);
   return { ...api, storage };
 }
 const market = { gpix: 8, gpiq: 10, pxGpix: 50, pxGpiq: 60 };
@@ -44,6 +44,18 @@ test('purchase cost changes gain and yield on cost, but never the distribution',
 test('15.4% is accepted and deducted once', () => {
   const m = load().holdingMetrics(100, 50, 55, 1, 12, 15.4);
   close(m.latestNet, 84.6); close(m.annualNet, 1015.2);
+});
+test('badge purchase estimate buys enough GPIX after tax and respects whole shares', () => {
+  const estimate = load().additionalGpixPurchase;
+  const fractional = estimate(.96, 56, 4.8, 15, false);
+  close(fractional.shares, 2.82352942);
+  assert.ok(fractional.monthlyNet >= .96);
+  const whole = estimate(.96, 56, 4.8, 15, true);
+  close(whole.shares, 3); close(whole.cost, 168); close(whole.monthlyNet, 1.02);
+  assert.ok((whole.shares - 1) * 4.8 / 12 * .85 < .96);
+  close(estimate(.34, 56, 4.8, 15, true).shares, 1);
+  assert.ok(estimate(.96, 56, 4.8, 15.4, false).shares > fractional.shares);
+  for (const args of [[0,56,4.8,15,true], [.96,56,null,15,true], [.96,0,4.8,15,true], [.96,56,0,15,true], [.96,56,4.8,100,true]]) assert.equal(estimate(...args), null);
 });
 test('unknown distributions and zero purchase costs do not create income or infinite yields', () => {
   const m = load().holdingMetrics(10, 0, 50, null, null, 15);

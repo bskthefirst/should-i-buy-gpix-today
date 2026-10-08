@@ -83,6 +83,16 @@ test('a first connection retries after the HTTPS server becomes reachable',async
     offline=false;await b.client.cycle();assert.equal(b.client.connected(),true);assert.equal(b.p.sharesGpix,50.25);
   }finally{await f.cleanup();}
 });
+test('a saved connection does not show as reachable after a network failure',async()=>{
+  const f=await fixture();let offline=false;const notices=[];
+  try {
+    const b=browser(async(_,o)=>{if(offline)throw new Error('Offline');return f.request(o.method,o.body?JSON.parse(o.body):undefined);});
+    const client=Sync.create({...b.options,status:(text,info)=>notices.push({text,info})});
+    await client.connect({endpoint:'https://sync.example',token:f.token});assert.equal(notices.at(-1).info.connected,true);
+    offline=true;await client.cycle();assert.equal(notices.at(-1).info.connected,false);assert.equal(notices.at(-1).info.paired,true);assert.match(notices.at(-1).text,/this device only/);
+    offline=false;await client.cycle();assert.equal(notices.at(-1).info.connected,true);
+  }finally{await f.cleanup();}
+});
 test('edits made during a failed first connection remain a draft after retry',async()=>{
   const f=await fixture();let rejectFirst,first=true;try{
     const b=browser((_,o)=>{if(first){first=false;return new Promise((resolve,reject)=>{rejectFirst=reject;});}return f.request(o.method,o.body?JSON.parse(o.body):undefined);});

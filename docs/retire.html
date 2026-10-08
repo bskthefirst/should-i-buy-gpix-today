@@ -416,6 +416,9 @@
   .next-badge-gap small { font-size: 13px; font-weight: 600; color: var(--muted); }
   .next-badge-income { font-size: 13px; color: var(--muted); }
   .next-badge-note { margin-top: 9px; font-size: 12px; color: var(--faint); }
+  .next-badge-buy { margin-top: 14px; padding: 12px 14px; border-left: 3px solid #326aa0; border-radius: 0 10px 10px 0; background: #edf3fb; color: #245580; font-size: 14px; line-height: 1.5; }
+  .next-badge-buy strong { font-weight: 800; }
+  .next-badge-buy small { display: block; margin-top: 4px; font-size: 12px; }
   .bdg { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; padding: 18px 10px 14px; border-radius: 18px; background: var(--surface); box-shadow: 0 1px 2px rgba(28,42,34,.04), 0 6px 18px rgba(28,42,34,.05); transition: box-shadow .3s var(--ease), transform .3s var(--ease); }
   .bdg.on { background: linear-gradient(180deg, #fff, #f3f8f1); }
   .bdg:hover { box-shadow: 0 2px 4px rgba(28,42,34,.05), 0 16px 30px rgba(28,42,34,.12); }
@@ -680,7 +683,7 @@
 <div id="ctip"></div>
 
 <script src="retirement-journal.js?v=3"></script>
-<script src="retirement-sync.js?v=4"></script>
+<script src="retirement-sync.js?v=5"></script>
 <script>
 "use strict";
 
@@ -709,6 +712,14 @@ function holdingMetrics(shares, averageCost, price, lastAmount, annualAmount, ta
     latestNet: Number.isFinite(lastAmount) ? shares * lastAmount * netF : null,
     annualNet, averageNet: annualNet === null ? null : annualNet / 12,
     yieldOnCost: basis > 0 && annualNet !== null ? annualNet / basis * 100 : null };
+}
+
+function additionalGpixPurchase(gap, price, annualAmount, taxPct, whole) {
+  if (![gap, price, annualAmount, taxPct].every(Number.isFinite) || gap <= 0 || price <= 0 || annualAmount <= 0 || taxPct < 0 || taxPct >= 100) return null;
+  const monthlyPerShare = annualAmount / 12 * (1 - taxPct / 100);
+  const needed = gap / monthlyPerShare;
+  const shares = whole ? Math.ceil(needed - 1e-9) : Math.ceil(needed * 1e8) / 1e8;
+  return { shares, cost: shares * price, monthlyNet: shares * monthlyPerShare };
 }
 
 // One month at a time. p: {monthly, gpixPct, taxPct, sharesGpix, sharesGpiq, whole}.
@@ -1264,11 +1275,15 @@ function applyBadgeFilter() {
   $("badge-empty").hidden = shown > 0;
   $("badge-empty").textContent = BADGE_FILTER === "reached" ? "No income badges reached yet. Your next milestone is shown above." : "You have reached every current income badge.";
 }
-function nextBadgeHTML(specs, todayNet) {
+function nextBadgeHTML(specs, todayNet, purchase) {
   const next = specs.find(s => !s.on), featured = next || specs[specs.length - 1];
   const percent = next ? Math.min(99, Math.floor(next.progress * 100)) : 100;
   // Round the remaining gap up to a cent so a locked badge never says "$0.00 to go".
   const gap = next ? Math.max(.01, Math.ceil((next.threshold - todayNet) * 100 - 1e-9) / 100) : 0;
+  const buy = next && additionalGpixPurchase(next.threshold - todayNet, purchase.price, purchase.annualAmount, purchase.taxPct, purchase.whole);
+  const buyHTML = !next ? "" : buy
+    ? `<div class="next-badge-buy"><strong>About ${usd2(Math.ceil(buy.cost * 100) / 100)} of GPIX could unlock this badge.</strong><small>${sharesText(buy.shares)} ${purchase.whole ? "whole " : ""}${buy.shares === 1 ? "share" : "shares"} · about ${usd2(buy.monthlyNet)}/month after tax. Uses the past year's payouts and today's share price. Prices and payouts can change.</small></div>`
+    : '<div class="next-badge-buy">The GPIX purchase estimate needs current price and dividend data.</div>';
   return `<div class="next-badge-medal" role="progressbar" aria-label="${esc(next ? next.title : "All current badges")}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}" aria-valuetext="${percent}% of estimated monthly income milestone">
       ${badgeSVG({ ...featured, id: "featured-" + featured.id }, "featured")}
       <span class="next-badge-percent">${percent}% ${next ? "there" : "complete"}</span>
@@ -1280,6 +1295,7 @@ function nextBadgeHTML(specs, todayNet) {
       <div class="next-badge-income">${usd2(todayNet)}${next ? " of " + usd2(next.threshold) : " a month"} · estimated monthly income after tax</div>
       <p class="next-badge-note">Uses the past year's average payouts after tax. Progress follows your entered shares, not your planned contributions.</p>
       <div class="next-badge-meta"><span>${next ? (next.months === null ? "Beyond the 40-year forecast" : "Your plan could reach this in " + monthLabel(next.months)) : "All current milestones reached"}</span><a class="text-link" href="#sec-badges">View your badge collection</a></div>
+      ${buyHTML}
     </div>`;
 }
 
@@ -1320,7 +1336,7 @@ function renderWins(y, p, drift, infl, todayNet, sim) {
     s.status = s.on ? "Unlocked" : s.months != null ? monthLabel(s.months) + " · " + awayLabel(s.months) : "not within 40 years";
   });
   const unlocked = specs.filter(s => s.on).length, next = specs.find(s => !s.on);
-  $("nextbadge").innerHTML = nextBadgeHTML(specs, todayNet);
+  $("nextbadge").innerHTML = nextBadgeHTML(specs, todayNet, {price: MARKET_CACHE.gpix?.fund?.price, annualAmount: DIST.gpix?.ttm_sum, taxPct: S.taxPct, whole: S.whole});
   const goalProgress = Math.min(100, Math.max(0, todayNet / S.target * 100));
   $("overview-stats").innerHTML = `<div><span>Average monthly dividends</span><b>${usd2(todayNet)}</b><small>After tax · past year's payouts</small></div>
     <div><span>Your monthly goal</span><b>${fmt$(S.target)}</b><div class="goal-track" role="progressbar" aria-label="Monthly income goal progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.floor(goalProgress)}"><i style="width:${goalProgress}%"></i></div><small>${goalProgress.toFixed(1)}% of today's goal</small></div>
@@ -1633,8 +1649,8 @@ function bindAutomaticSync() {
       $("automatic-sync-status").textContent=text;
       $("automatic-sync-status").dataset.connected=String(info.connected||false);
       $("sync-conflict").hidden=!info.conflict;
-      $("disconnect-sync").hidden=!(info.connected||info.pending);
-      $("record-holdings").hidden=!!info.connected;
+      $("disconnect-sync").hidden=!(info.paired||info.pending);
+      $("record-holdings").hidden=!!info.paired;
       const remote=AUTO_SYNC?.conflict();
       if(remote){const p=remote.profile;$("sync-conflict-values").textContent=`This device: GPIX ${sharesText(S.sharesGpix)} at ${usd2(S.costGpix)}, GPIQ ${sharesText(S.sharesGpiq)} at ${usd2(S.costGpiq)}. Mac mini: GPIX ${sharesText(p.sharesGpix)} at ${usd2(p.costGpix)}, GPIQ ${sharesText(p.sharesGpiq)} at ${usd2(p.costGpiq)}. Your other plan settings also follow the selected copy.`;}
     }
