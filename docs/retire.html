@@ -544,6 +544,22 @@
   .overview-stats small { display: block; font-size: 11px; color: var(--muted); margin-top: 4px; }
   .goal-track { height: 5px; margin-top: 8px; background: var(--surface2); border-radius: 9px; overflow: hidden; }
   .goal-track i { height: 100%; display: block; background: var(--brg); border-radius: inherit; transition: width .5s ease; }
+  #sec-hero { margin-top: 0; }
+  #sec-hero .overview-stats { margin-top: 0; }
+  #dashboard-sync-status { color: var(--muted); font-size: 12px; margin: -8px 2px 18px; }
+  .dashboard-details { margin-top: 20px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
+  .dashboard-details > summary { padding: 18px 20px; cursor: pointer; color: var(--brg); font-weight: 650; font-size: 15px; }
+  .dashboard-details > summary h2 { display: inline; padding: 0; margin: 0; border: 0; color: inherit; font: inherit; letter-spacing: -.01em; text-transform: none; }
+  .dashboard-details > summary small { display: block; color: var(--muted); font-weight: 400; font-size: 12px; margin: 3px 0 0 17px; }
+  .dashboard-details > summary:focus-visible { outline: 2px solid var(--brg); outline-offset: 3px; border-radius: 14px; }
+  .dashboard-details[open] > summary { border-bottom: 1px solid var(--border); }
+  .dashboard-details > .details-body { padding: 18px 20px 20px; }
+  .dashboard-details .card { box-shadow: none; }
+  .dashboard-details .h2sub { margin-bottom: 14px; }
+  .dashboard-details .verdict { margin-bottom: 20px; padding: 20px; }
+  .dashboard-details .journey-grid { margin-top: 0; }
+  .overview-stats > div:first-child { background: #f0f6ee; }
+  .overview-stats > div:first-child b { font-size: 34px; }
   .next-badge { border-radius: 20px; margin-bottom: 0; box-shadow: 0 8px 25px rgba(28,42,34,.06); }
   .next-badge-label { letter-spacing: .1em; }
   .next-badge-note { max-width: 62ch; }
@@ -592,6 +608,9 @@
     .overview-stats > div { padding: 12px 10px; border-right: 1px solid var(--border); }
     .overview-stats > div:last-child { border-right: 0; }
     .overview-stats b { font-size: 22px; }
+    .overview-stats > div:first-child b { font-size: 26px; }
+    .dashboard-details > summary { padding: 15px 16px; min-height: 48px; }
+    .dashboard-details > .details-body { padding: 16px 14px; }
     .overview-stats span, .overview-stats small { font-size: 10px; }
     .next-badge { grid-template-columns: 80px minmax(0,1fr); gap: 14px; padding: 20px 16px; }
     .next-badge-medal svg { width: 78px; height: 78px; }
@@ -616,6 +635,16 @@
   .expense-form input,.expense-form select { display:block; width:100%; box-sizing:border-box; margin-top:6px; border:1px solid var(--border); border-radius:10px; padding:10px; font:inherit; background:#fff; color:var(--text); }
   .journey-button,.import-actions button { border:1px solid var(--border); border-radius:10px; padding:10px 14px; min-height:40px; background:#fff; color:var(--brg); font:inherit; font-size:12px; font-weight:650; cursor:pointer; }
   .journey-button.primary,#record-holdings { background:var(--brg); color:#fff; border-color:var(--brg); }
+  .purchase-entry { margin-top:20px; border:1px solid var(--border); border-radius:14px; padding:16px; }
+  .purchase-entry summary { cursor:pointer; color:var(--brg); font-size:17px; font-weight:700; }
+  .purchase-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px; }
+  .purchase-form label { font-size:12px; color:var(--muted); }
+  .purchase-form input,.purchase-form select { width:100%; min-width:0; box-sizing:border-box; display:block; margin-top:6px; padding:12px; border:1px solid var(--border); border-radius:10px; font:inherit; font-size:16px; background:white; color:var(--text); }
+  .purchase-form .purchase-wide { grid-column:1 / -1; }
+  #purchase-preview { background:#edf4e9; padding:12px; border-radius:10px; color:var(--brg); font-size:13px; line-height:1.7; }
+  #purchase-status { margin:10px 0 0; font-size:13px; line-height:1.6; }
+  #save-purchase { width:100%; background:var(--brg); color:#fff; min-height:44px; }
+  #save-purchase:disabled { opacity:.5; cursor:default; }
   .sync-panel { background:var(--bg); border:1px solid var(--border); padding:16px; border-radius:14px; margin:16px 0; font-size:13px; }
   .sync-panel p { margin:8px 0; line-height:1.6; }
   .sync-panel summary { cursor:pointer; color:var(--brg); font-weight:600; }
@@ -682,8 +711,8 @@
 </div>
 <div id="ctip"></div>
 
-<script src="retirement-journal.js?v=3"></script>
-<script src="retirement-sync.js?v=5"></script>
+<script src="retirement-journal.js?v=4"></script>
+<script src="retirement-sync.js?v=6"></script>
 <script>
 "use strict";
 
@@ -919,12 +948,12 @@ function renderNext(hold) {
         <td>${pay[i] === null ? "Unavailable" : N("nx-pay-" + name, pay[i], "usd2")}</td></tr>`).join("")}
       <tr class="target"><td><b>Total estimate</b></td><td></td><td></td><td>${total === null ? "Unavailable" : N("nx-total", total, "usd2")}</td></tr>
     </table>
-    ${total > 0 ? `<div class="tick-strip" role="group" aria-label="What your shares have earned so far">
-      <div><span class="nx-k">Earned so far today</span><b id="tk-day">$0.000000</b></div>
-      <div><span class="nx-k">So far this month</span><b id="tk-month">$0.000000</b><small>of ${usd2(total)} you would get</small></div>
-      <div><span class="nx-k">Every hour</span><b id="tk-hour">$0.0000</b></div>
+    ${total > 0 ? `<div class="tick-strip" role="group" aria-label="Estimated income equivalents">
+      <div><span class="nx-k">Estimated income equivalent today</span><b id="tk-day">$0.000000</b></div>
+      <div><span class="nx-k">Estimated equivalent this month</span><b id="tk-month">$0.000000</b><small>of ${usd2(total)} estimated for the month</small></div>
+      <div><span class="nx-k">Estimated equivalent per hour</span><b id="tk-hour">$0.0000</b></div>
     </div>
-    <p class="nx-tickhint">The funds pay once a month. These numbers show what your shares have earned so far, as if the money came in a little at a time.</p>` : ""}
+    <p class="nx-tickhint">These counters spread the estimated monthly payout across time. They do not track dividends received. The funds pay monthly.</p>` : ""}
     <p class="nx-note">Buy before the market closes on the last day. If you buy on the ex-dividend date or later, you get the next dividend instead. A day too late costs you a full month of dividend on every new share.</p>`;
   tickEarn();
 }
@@ -1338,7 +1367,7 @@ function renderWins(y, p, drift, infl, todayNet, sim) {
   const unlocked = specs.filter(s => s.on).length, next = specs.find(s => !s.on);
   $("nextbadge").innerHTML = nextBadgeHTML(specs, todayNet, {price: MARKET_CACHE.gpix?.fund?.price, annualAmount: DIST.gpix?.ttm_sum, taxPct: S.taxPct, whole: S.whole});
   const goalProgress = Math.min(100, Math.max(0, todayNet / S.target * 100));
-  $("overview-stats").innerHTML = `<div><span>Average monthly dividends</span><b>${usd2(todayNet)}</b><small>After tax · past year's payouts</small></div>
+  $("overview-stats").innerHTML = `<div><span>Your monthly income estimate</span><b>${usd2(todayNet)}</b><small>After ${S.taxPct}% tax · past year's payouts</small></div>
     <div><span>Your monthly goal</span><b>${fmt$(S.target)}</b><div class="goal-track" role="progressbar" aria-label="Monthly income goal progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.floor(goalProgress)}"><i style="width:${goalProgress}%"></i></div><small>${goalProgress.toFixed(1)}% of today's goal</small></div>
     <div><span>Income badges reached</span><b>${unlocked} <span style="display:inline;font-size:15px">/ ${specs.length}</span></b><small>Based on the shares you entered</small></div>`;
   $("badge-count").textContent = `${unlocked} of ${specs.length} reached`;
@@ -1451,7 +1480,7 @@ function onReveal(sec) {
   setTimeout(() => sec.classList.remove("enter"), 1500);   // the entrance animation must not replay when the cards are redrawn
   runNumbers(sec); runBars(sec); runRings(sec);
   if (sec.id === "sec-chart") drawIn();
-  if (sec.id === "sec-hero") moveGauge(GA.target);
+  if (sec.id === "sec-chart" || sec.id === "sec-forecast-date") moveGauge(GA.target);
 }
 function setupReveal() {
   const secs = [...document.querySelectorAll(".rv")];
@@ -1633,8 +1662,10 @@ function recordCurrentHoldings() {
   if(ob)J.award(next.journal,J.milestones(journalProfile()),ob.average);
   persistJourney(next);
 }
-function applySharedProfile(p) {
-  const next={selectedExpense:p.selectedExpense,journal:J.merge(JOURNEY.journal,p.journal)};
+function applySharedProfile(p,options={}) {
+  // Choosing shared totals must not merge a rejected purchase into applied history.
+  if(options.replaceJournal){localStorage.setItem("retire-conflict-backup-v1",JSON.stringify(journalProfile()));$("export-conflict-backup").hidden=false;}
+  const next={selectedExpense:p.selectedExpense,journal:options.replaceJournal?p.journal:J.merge(JOURNEY.journal,p.journal)};
   const settings={...S,...p.forecast,holdingsReview:false};
   for(const k of ["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"])settings[k]=p[k];
   J.commitBrowser(localStorage,{[STORE_KEY]:JSON.stringify(settings),[JOURNEY_KEY]:JSON.stringify(next)});
@@ -1648,11 +1679,23 @@ function bindAutomaticSync() {
     status:(text,info={})=>{
       $("automatic-sync-status").textContent=text;
       $("automatic-sync-status").dataset.connected=String(info.connected||false);
+      const labels={unpaired:"Saved on this device only",checking:"Checking Mac mini connection",synced:"Synced with Mac mini",editing:"Changes waiting to sync",saving:"Saving to Mac mini",offline:"Offline · saved on this device only",conflict:"Different copies · review required"};
+      const time=info.lastSyncedAt?new Date(info.lastSyncedAt).toLocaleString(undefined,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}):null;
+      $("dashboard-sync-status").textContent=(labels[info.phase]||"Saved on this device only")+(time?" · last synced "+time:"");
+      $("dashboard-sync-status").dataset.connected=String(info.connected||false);
+      $("sync-last-saved").textContent=time?"Last successful sync: "+time+". Changes on another device appear when this page is open.":"No successful sync in this browser yet.";
+      $("connect-telegram").hidden=!!info.paired;
+      if(["synced","unpaired"].includes(info.phase)&&PURCHASE_DRAFT&&JOURNEY.journal.purchases?.some(r=>r.id===PURCHASE_DRAFT.id)){
+        localStorage.removeItem(PURCHASE_DRAFT_KEY);PURCHASE_DRAFT=null;
+        $("purchase-status").textContent=info.phase==="synced"?"Purchase saved on Mac mini. Your connected devices and Telegram use these totals.":"Purchase saved on this device only. Connect this browser to share it.";
+      }
+      $("sync-use-local").disabled=!!PURCHASE_DRAFT&&!PURCHASE_DRAFT.awaitingReview;
+      renderPurchasePreview();
       $("sync-conflict").hidden=!info.conflict;
       $("disconnect-sync").hidden=!(info.paired||info.pending);
       $("record-holdings").hidden=!!info.paired;
       const remote=AUTO_SYNC?.conflict();
-      if(remote){const p=remote.profile;$("sync-conflict-values").textContent=`This device: GPIX ${sharesText(S.sharesGpix)} at ${usd2(S.costGpix)}, GPIQ ${sharesText(S.sharesGpiq)} at ${usd2(S.costGpiq)}. Mac mini: GPIX ${sharesText(p.sharesGpix)} at ${usd2(p.costGpix)}, GPIQ ${sharesText(p.sharesGpiq)} at ${usd2(p.costGpiq)}. Your other plan settings also follow the selected copy.`;}
+      if(remote){const p=remote.profile;$("sync-conflict-values").textContent=`This device: GPIX ${sharesText(S.sharesGpix)} at ${usd2(S.costGpix)}, GPIQ ${sharesText(S.sharesGpiq)} at ${usd2(S.costGpiq)}. Mac mini: GPIX ${sharesText(p.sharesGpix)} at ${usd2(p.costGpix)}, GPIQ ${sharesText(p.sharesGpiq)} at ${usd2(p.costGpiq)}. Your other plan settings also follow the selected copy.${PURCHASE_DRAFT&&!PURCHASE_DRAFT.awaitingReview?" Your purchase is saved as a draft. Use Mac mini’s numbers, then review and save the purchase again.":""}`;}
     }
   });
   const schedule=()=>{clearTimeout(syncTimer);syncTimer=setTimeout(()=>AUTO_SYNC.cycle(),500);};
@@ -1663,7 +1706,14 @@ function bindAutomaticSync() {
   document.addEventListener("click",e=>{if(e.target.closest("[data-tax],[data-scen],#clear-holdings,#reset,#addcost,.cdel"))changed();});
   $("expense-form").addEventListener("submit",()=>{if(!$("expense-status").textContent.includes("Invalid"))changed();});
   $("sync-use-local").addEventListener("click",()=>AUTO_SYNC.resolve("local"));
-  $("sync-use-remote").addEventListener("click",()=>AUTO_SYNC.resolve("remote"));
+  $("sync-use-remote").addEventListener("click",async()=>{
+    await AUTO_SYNC.resolve("remote");
+    if(AUTO_SYNC.phase()==="synced"&&PURCHASE_DRAFT&&!JOURNEY.journal.purchases?.some(r=>r.id===PURCHASE_DRAFT.id)){
+      PURCHASE_DRAFT.awaitingReview=true;localStorage.setItem(PURCHASE_DRAFT_KEY,JSON.stringify(PURCHASE_DRAFT));
+      restorePurchaseDraft();$("purchase-status").textContent="This purchase has not been added to the shared record. Review it against the latest holdings, then save it again.";
+      $("purchase-entry").open=true;
+    }
+  });
   $("disconnect-sync").addEventListener("click",()=>{try{AUTO_SYNC.disconnect();}catch(e){$("automatic-sync-status").textContent=e.message;}});
   $("sync-connection-file").addEventListener("change",async e=>{
     try {
@@ -1705,6 +1755,8 @@ function renderJourney() {
       try { persistJourney(next); } catch(e) { error="This browser could not save the history. Download a backup before leaving."; }
     }
   }
+  const purchases=JOURNEY.journal.purchases||[];
+  $("purchase-history").innerHTML=purchases.length?`<table class="history-table"><thead><tr><th>Purchase date</th><th>Fund</th><th>Shares bought</th><th>Price per share</th><th>Total including fees</th></tr></thead><tbody>${purchases.slice().reverse().map(r=>`<tr><td>${esc(r.date)}</td><td>${r.ticker}</td><td>${sharesText(r.shares)}</td><td>${usd2(r.price)}</td><td>${usd2(r.totalCost)}</td></tr>`).join("")}</tbody></table>`:'<p class="holding-source">No purchases recorded yet. Editing your total holdings does not create a purchase.</p>';
   const rows=JOURNEY.journal.snapshots,last=rows.at(-1),pending=!!last&&!J.sameHoldings(last,S);
   $("record-holdings").disabled=!!JOURNEY_ERROR||(!pending&&!!last);
   $("record-status").textContent=JOURNEY_ERROR||error||(pending?(AUTO_SYNC?.connected()?"Your edits save automatically when you leave the fields.":"Your entries changed. Click Record holdings update after both shares and average prices are correct."):last?"Last holdings report: "+recordDate(last.at)+". Your history starts with the first saved report.":"Enter your holdings, then record your starting point.");
@@ -1728,7 +1780,7 @@ function bindJourney() {
   $("record-holdings").addEventListener("click",()=>{
     try {
       recordCurrentHoldings();update(YIELDS);
-      $("record-status").textContent="Holdings report saved in this browser. Copy an update for Telegram to update the bot too.";
+      $("record-status").textContent="Holdings report saved on this device. Connect this browser to share it automatically with Mac mini and Telegram.";
     } catch(e){$("record-status").textContent="The report was not saved. "+e.message;}
   });
   $("copy-telegram-update").addEventListener("click",async()=>{
@@ -1773,11 +1825,81 @@ function bindJourney() {
   });
 }
 
+const PURCHASE_DRAFT_KEY="retire-purchase-draft-v1";
+let PURCHASE_DRAFT=null,purchaseBusy=false,purchaseId=null;
+try{PURCHASE_DRAFT=JSON.parse(localStorage.getItem(PURCHASE_DRAFT_KEY)||"null");}catch(e){}
+function purchaseInput() {
+  const numeric=id=>{const raw=$(id).value.trim().replace(/,/g,"");if(!raw||!/^\d+(\.\d*)?$/.test(raw))throw new Error("Enter a valid number for "+$(id).closest("label").firstChild.textContent.trim()+".");return Number(raw);};
+  purchaseId=purchaseId||crypto.randomUUID();
+  return {id:purchaseId,ticker:$("purchase-ticker").value,shares:numeric("purchase-shares"),price:numeric("purchase-price"),date:$("purchase-date").value,fees:numeric("purchase-fees")};
+}
+function purchasePreparation() {
+  let rates=null;try{rates=observation().rates;}catch(e){}
+  return J.preparePurchase(journalProfile(),purchaseInput(),{rates});
+}
+function purchaseBlocked() {
+  const state=AUTO_SYNC?.state();
+  if(state&&(state.paired||state.pending)&&state.phase!=="synced")return "Wait until this browser is synced with Mac mini before adding a purchase. Your current entries remain here.";
+  if(PURCHASE_DRAFT&&!PURCHASE_DRAFT.awaitingReview)return "Your previous purchase is waiting to sync. Wait for confirmation before recording another.";
+  if(JOURNEY_ERROR)return JOURNEY_ERROR;
+  return "";
+}
+function renderPurchasePreview() {
+  if(!$("purchase-preview"))return;
+  let blocked=purchaseBlocked();
+  try{
+    if(!$("purchase-shares").value&&!$("purchase-price").value)throw new Error("Enter the shares bought and price to preview your new holdings.");
+    const {record:r}=purchasePreparation();
+    let added="";try{const rate=observation().rates[r.ticker==="GPIX"?"Gpix":"Gpiq"];added=`<br>Estimated extra income: ${usd2(r.shares*rate*(1-S.taxPct/100))}/month after tax. Uses the past year’s payouts.`;}catch(e){}
+    $("purchase-preview").innerHTML=`${r.ticker}: <b>${sharesText(r.resultingShares)} total shares</b> at an average of <b>${usd2(r.resultingCost)}</b>.<br>Purchase cost including fees: ${usd2(r.totalCost)}.${added}${blocked?"<br>"+esc(blocked):""}`;
+  }catch(e){$("purchase-preview").textContent=blocked||e.message;blocked=blocked||e.message;}
+  $("save-purchase").disabled=!!blocked||purchaseBusy;
+}
+function restorePurchaseDraft(){
+  if(!PURCHASE_DRAFT)return;
+  purchaseId=PURCHASE_DRAFT.id;
+  for(const k of ["ticker","shares","price","date","fees"])$("purchase-"+k).value=PURCHASE_DRAFT[k];
+  $("purchase-entry").open=true;$("purchase-status").textContent=PURCHASE_DRAFT.awaitingReview?"Review this purchase against the latest holdings, then save it again.":"Your purchase is saved on this device and waiting for shared confirmation.";renderPurchasePreview();
+}
+function bindPurchases(){
+  $("purchase-date").value=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+  restorePurchaseDraft();
+  $("purchase-form").addEventListener("input",renderPurchasePreview);
+  $("purchase-form").addEventListener("change",renderPurchasePreview);
+  $("purchase-form").addEventListener("submit",async ev=>{
+    ev.preventDefault();if(purchaseBusy)return;
+    try{
+      const block=purchaseBlocked();if(block)throw new Error(block);
+      // Do not replace settings another tab changed since this page last rendered.
+      const stored=JSON.parse(localStorage.getItem(STORE_KEY)||"null");
+      if(stored&&JSON.stringify(stored)!==JSON.stringify(S))throw new Error("Another tab changed your holdings. Reload this page before recording the purchase.");
+      const input=purchaseInput(),result=purchasePreparation(),p=result.profile;
+      const other=JSON.parse(localStorage.getItem(JOURNEY_KEY)||"null");
+      if(other)p.journal=J.merge(J.journal(other.journal),p.journal);
+      const next={selectedExpense:p.selectedExpense,journal:p.journal},settings={...S,sharesGpix:p.sharesGpix,sharesGpiq:p.sharesGpiq,costGpix:p.costGpix,costGpiq:p.costGpiq,holdingsReview:false};
+      const draft={...input,awaitingReview:false};
+      const writes={[STORE_KEY]:JSON.stringify(settings),[JOURNEY_KEY]:JSON.stringify(next),[PURCHASE_DRAFT_KEY]:JSON.stringify(draft)};
+      const connection=JSON.parse(localStorage.getItem("retire-sync-v1")||"null");
+      if(connection){connection.dirty=true;writes["retire-sync-v1"]=JSON.stringify(connection);}
+      J.commitBrowser(localStorage,writes);
+      S=settings;JOURNEY=next;PURCHASE_DRAFT=draft;storageOk=true;purchaseBusy=true;
+      syncControls();update(YIELDS);AUTO_SYNC?.mark();
+      $("purchase-status").textContent=AUTO_SYNC?.paired()?"Purchase saved on this device. Sending to Mac mini…":"Purchase saved on this device only. Connect this browser to share it with your other devices and Telegram.";
+      $("purchase-form").reset();$("purchase-date").value=input.date;purchaseId=null;
+      if(AUTO_SYNC?.paired())await AUTO_SYNC.cycle();
+      else{localStorage.removeItem(PURCHASE_DRAFT_KEY);PURCHASE_DRAFT=null;}
+    }catch(e){$("purchase-status").textContent="Purchase was not added. "+e.message;}
+    finally{purchaseBusy=false;renderPurchasePreview();}
+  });
+}
+
 function renderSkeleton(yields, meta) {
   $("app").innerHTML = `
-    <section class="verdict rv" id="sec-hero"><div class="vgrid"><div id="hero-text"></div><div class="vgauge" id="gauge"></div></div></section>
+    <section id="sec-hero" aria-label="Your retirement overview">
     <div class="overview-stats" id="overview-stats"></div>
+    <p id="dashboard-sync-status" role="status">Saved on this device</p>
     <section class="card next-badge rv" id="nextbadge" aria-label="Your next income badge"></section>
+    </section>
 
     <section class="rv" id="sec-holdings">
     <div class="card" style="margin-top:24px">
@@ -1798,13 +1920,29 @@ function renderSkeleton(yields, meta) {
         </article>`).join("")}
       </div>
       <div class="holding-summary" id="holdings-summary"></div>
+      <details class="purchase-entry" id="purchase-entry"><summary>Record a purchase</summary>
+        <p class="holding-source">Enter a purchase you already made. The page adds the shares and calculates your new average purchase price.</p>
+        <form id="purchase-form" class="purchase-form">
+          <label for="purchase-ticker">Fund<select id="purchase-ticker"><option>GPIX</option><option>GPIQ</option></select></label>
+          <label for="purchase-date">Purchase date<input type="date" id="purchase-date" required></label>
+          <label for="purchase-shares">Shares you bought<input id="purchase-shares" inputmode="decimal" autocomplete="off" placeholder="For example, 3.5" required></label>
+          <label for="purchase-price">Price paid per share · USD<input id="purchase-price" inputmode="decimal" autocomplete="off" placeholder="For example, 56.00" required></label>
+          <details class="purchase-wide holding-help"><summary>Add purchase fees</summary><label for="purchase-fees">Fees · USD<input id="purchase-fees" inputmode="decimal" value="0"></label></details>
+          <div id="purchase-preview" class="purchase-wide" role="status">Enter the shares bought and price to preview your new holdings.</div>
+          <button class="journey-button purchase-wide" id="save-purchase" type="submit">Save this purchase</button>
+        </form>
+        <p id="purchase-status" role="status"></p>
+        <details class="holding-help"><summary>Your reported purchases</summary><p class="holding-source">These purchases are your entries. The page does not connect to your brokerage or place orders.</p><div class="history-scroll" id="purchase-history"></div></details>
+      </details>
       <div class="sync-panel">
         <b>One record across your devices</b>
         <p id="automatic-sync-status" role="status">Connect this browser once. Your shares, average prices, plan, and history will sync with your Mac mini and Telegram.</p>
+        <p id="sync-last-saved" class="holding-source"></p>
+        <a class="journey-button" id="connect-telegram" href="https://t.me/mokaassistantbot?text=%2Fretire_connect" target="_blank" rel="noopener noreferrer">Get connection link in Telegram</a>
         <div id="sync-conflict" hidden><p id="sync-conflict-values"></p><div class="holding-tools"><button id="sync-use-local" type="button">Keep this device’s numbers</button><button id="sync-use-remote" type="button">Use Mac mini’s numbers</button></div></div>
         <details><summary>Connection settings</summary>
           <p>Open your private /retire_connect link from Telegram once on each browser. You can also import its connection file here. Keep the link and file private.</p>
-          <label for="sync-connection-file">Connect Mac mini <input type="file" id="sync-connection-file" accept=".json,application/json"></label>
+          <label for="sync-connection-file">Optional: import a connection file <input type="file" id="sync-connection-file" accept=".json,application/json"></label>
           <button id="disconnect-sync" type="button" hidden>Disconnect this browser</button>
         </details>
       </div>
@@ -1826,7 +1964,7 @@ function renderSkeleton(yields, meta) {
       <p class="holding-source" id="holdings-data-status" role="status"></p>
       <details class="holding-help"><summary>Backups and manual transfer</summary>
         <p class="holding-source">Automatic sync replaces copying updates. These controls remain available for a private backup or an unconnected browser.</p>
-        <div class="holding-tools"><button type="button" id="copy-telegram-update">Copy update for Telegram</button><button type="button" id="export-notification-plan">Download holdings backup</button></div>
+        <div class="holding-tools"><button type="button" id="copy-telegram-update">Copy update for Telegram</button><button type="button" id="export-notification-plan">Download holdings backup</button><button type="button" id="export-conflict-backup" hidden>Download previous device copy</button></div>
         <textarea id="telegram-command" aria-label="Update command for Telegram" readonly hidden></textarea>
         <p class="holding-source">The update includes shares, average purchase prices, tax, your income goal, and chosen expense. Downloaded backups also contain your history. Keep them private.</p>
         <p class="holding-source">In Telegram, use /holdings to report total shares and average prices. Use /retire_export to get a file for this website.</p>
@@ -1837,8 +1975,8 @@ function renderSkeleton(yields, meta) {
     </div>
     </section>
 
-    <section id="sec-journey" class="rv">
-      <h2>Your dividend journey</h2>
+    <details class="dashboard-details rv" id="sec-journey"><summary><h2>Your dividend journey</h2><small>Your chosen expense, income changes, and milestone memories.</small></summary><div class="details-body">
+
       <div class="journey-grid">
         <article class="journey-card">
           <div class="journey-kicker">One expense at a time</div><h3>Your dividend mission</h3>
@@ -1853,13 +1991,13 @@ function renderSkeleton(yields, meta) {
         <article class="journey-card"><div class="journey-kicker">Your progress explained</div><h3>What changed?</h3><div id="journey-changes"></div><p>Compares reported shares, payout data, and your tax rate. A change in purchase price affects your cost basis, not your dividends.</p></article>
       </div>
       <article class="journey-card" style="margin-top:16px"><div class="journey-kicker">Keep the memory</div><h3>Your milestone timeline</h3><p>Dates show when this record first observed an estimated income milestone. Current income can fall while the memory stays.</p><ol class="journey-timeline" id="journey-timeline"></ol></article>
-    </section>
+    </div></details>
 
-    <section class="rv" id="sec-next">
-    <h2>Your next dividend</h2>
+    <details class="dashboard-details rv" id="sec-next"><summary><h2>Your next dividend</h2><small>Payout estimates, dates, and income equivalents.</small></summary><div class="details-body">
+
     <div class="h2sub" id="nextsub"></div>
     <div class="card nextcard" id="nextbox"></div>
-    </section>
+    </div></details>
 
     <section class="rv" id="sec-plan">
     <h2>Your plan</h2>
@@ -1914,36 +2052,37 @@ function renderSkeleton(yields, meta) {
     </div>
     </section>
 
-    <section class="rv" id="sec-key">
-    <h2>Key numbers</h2>
+    <details class="dashboard-details rv" id="sec-key"><summary><h2>Key numbers</h2><small>Rates, portfolio targets, and the data behind your estimate.</small></summary><div class="details-body">
+
     <div class="h2sub" id="market-note"></div>
     <div class="stats" id="stats"></div>
-    </section>
+    </div></details>
 
-    <section class="rv" id="sec-chart">
-    <h2>Your income over time</h2>
+    <details class="dashboard-details rv" id="sec-chart"><summary><h2>Your income over time</h2><small>Your projected goal date and monthly income over time.</small></summary><div class="details-body">
+<section class="verdict rv" id="sec-forecast-date"><div class="vgrid"><div id="hero-text"></div><div class="vgauge" id="gauge"></div></div></section>
+
     <div class="h2sub">Monthly dividends after tax as the portfolio grows, against your goal. The goal line rises when inflation is above 0%. Point at the line to see the portfolio size.</div>
     <div class="card chartcard" id="chartbox"></div>
-    </section>
+    </div></details>
 
-    <section class="rv" id="sec-ms">
-    <h2>Milestones on the way</h2>
+    <details class="dashboard-details rv" id="sec-ms"><summary><h2>Milestones on the way</h2><small>Projected dates for larger monthly income goals.</small></summary><div class="details-body">
+
     <div class="h2sub">For each level of monthly dividends in today's prices: when your plan reaches it, and the portfolio you need by then.</div>
     <div class="card" style="padding: 8px 6px;" id="msbox"></div>
-    </section>
+    </div></details>
 
-    <section class="rv" id="sec-costs">
-    <h2>What your dividends pay for</h2>
+    <details class="dashboard-details rv" id="sec-costs"><summary><h2>What your dividends pay for</h2><small>Choose the expenses your dividends could cover.</small></summary><div class="details-body">
+
     <div class="h2sub">Your monthly costs, from the cheapest to the most expensive. The page shows when your dividends (after tax) pay each one. Change a cost, add your own, or remove one. The page saves your list in this browser.</div>
     <div class="card" id="costcard">
       <div id="costlist" class="costlist"></div>
       <button type="button" id="addcost" class="addcost">+ Add a cost</button>
       <div id="billbox"></div>
     </div>
-    </section>
+    </div></details>
 
-    <section class="rv" id="sec-lunch">
-    <h2>Days earned back</h2>
+    <details class="dashboard-details rv" id="sec-lunch"><summary><h2>Days earned back</h2><small>Explore how investing lunch savings changes your plan.</small></summary><div class="details-body">
+
     <div class="h2sub">Bring a lunch from home and invest what you save. This shows how many days sooner you retire. The money joins the amount you add each month.</div>
     <div class="card" id="lunchcard">
       <div class="controls">
@@ -1959,7 +2098,7 @@ function renderSkeleton(yields, meta) {
       </div>
       <div id="earnbox"></div>
     </div>
-    </section>
+    </div></details>
 
     <section class="rv" id="sec-badges">
     <div class="badge-heading"><h2>Your badge collection</h2><span id="badge-count"></span></div>
@@ -1974,35 +2113,35 @@ function renderSkeleton(yields, meta) {
     <p id="badge-empty" class="badge-empty" hidden></p>
     </section>
 
-    <section class="rv" id="sec-src">
-    <h2>Where the money comes from</h2>
+    <details class="dashboard-details rv" id="sec-src"><summary><h2>Where the money comes from</h2><small>See savings, reinvested dividends, and price growth.</small></summary><div class="details-body">
+
     <div class="h2sub" id="srcsub"></div>
     <div class="card" id="srcbox"></div>
-    </section>
+    </div></details>
 
-    <section class="rv" id="sec-sens">
-    <h2>What changes your date the most</h2>
+    <details class="dashboard-details rv" id="sec-sens"><summary><h2>What changes your date the most</h2><small>Compare changes to your contribution and income goal.</small></summary><div class="details-body">
+
     <div class="h2sub">One change at a time, with everything else as you set it above. The moves that bring your date closest are at the top.</div>
     <div class="card" style="padding: 8px 6px;" id="sensbox"></div>
-    </section>
+    </div></details>
 
-    <section class="rv" id="sec-scen">
-    <h2>How much does the share price matter?</h2>
+    <details class="dashboard-details rv" id="sec-scen"><summary><h2>How much does the share price matter?</h2><small>Compare share-price growth assumptions.</small></summary><div class="details-body">
+
     <div class="h2sub" id="scensub"></div>
     <div class="stats" id="scenbox"></div>
-    </section>
+    </div></details>
 
-    <section class="rv" id="sec-checks">
-    <h2>Two checks that real life adds</h2>
+    <details class="dashboard-details rv" id="sec-checks"><summary><h2>Two checks that real life adds</h2><small>Check inflation and additional tax assumptions.</small></summary><div class="details-body">
+
     <div class="h2sub">The inflation check shows what inflation costs you. The tax check shows where extra Korean tax starts, which the date does not include.</div>
     <div class="stats checks" id="checks"></div>
-    </section>
+    </div></details>
 
-    <section class="rv" id="sec-prose">
-    <h2 id="target-h2"></h2>
+    <details class="dashboard-details rv" id="sec-prose"><summary><h2 id="target-h2"></h2><small>Read the forecast assumptions and limits.</small></summary><div class="details-body">
+
     <div class="card prose" id="prose"></div>
     <div class="honesty" id="honesty"></div>
-    </section>
+    </div></details>
   `;
   buildGauge(); buildChart();
 
@@ -2050,13 +2189,33 @@ function renderSkeleton(yields, meta) {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
     $("notification-export-status").textContent = "Private backup downloaded, including average purchase prices and history.";
   });
+  $("export-conflict-backup").hidden=!localStorage.getItem("retire-conflict-backup-v1");
+  $("export-conflict-backup").addEventListener("click",()=>{
+    const raw=localStorage.getItem("retire-conflict-backup-v1");if(!raw)return;
+    const url=URL.createObjectURL(new Blob([raw],{type:"application/json"})),link=document.createElement("a");
+    link.href=url;link.download="retirement-previous-device-copy.json";link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
   bindJourney();
+  bindPurchases();
   $("in-whole").addEventListener("change", e => { S.whole = e.target.checked; update(yields); });
   document.querySelectorAll("[data-scen]").forEach(b =>
     b.addEventListener("click", () => { S.scenario = b.dataset.scen; update(yields); }));
   $("reset").addEventListener("click", () => { S = freshPlan(); syncControls(); renderCostList(); update(yields); });
   document.querySelectorAll("[data-badge-filter]").forEach(button => button.addEventListener("click", () => { BADGE_FILTER = button.dataset.badgeFilter; applyBadgeFilter(); }));
   const navLinks = [...document.querySelectorAll(".page-nav a")];
+  const openSection = hash => {
+    const target = $(hash.replace(/^#/, ""));
+    if (!target) return;
+    for (let node = target; node; node = node.parentElement) {
+      if (node.tagName === "DETAILS") node.open = true;
+    }
+  };
+  document.querySelectorAll('a[href^="#sec-"]').forEach(link => link.addEventListener("click", () => openSection(link.hash)));
+  document.querySelectorAll(".dashboard-details").forEach(details => details.addEventListener("toggle", () => {
+    if (details.open) { details.classList.add("in"); onReveal(details); }
+  }));
+  window.addEventListener("hashchange", () => openSection(location.hash));
+  openSection(location.hash);
   navLinks.forEach(link => link.addEventListener("click", () => navLinks.forEach(a => a.setAttribute("aria-current", String(a === link)))));
   if ("IntersectionObserver" in window) {
     const navObserver = new IntersectionObserver(entries => {
@@ -2162,12 +2321,11 @@ function update(yields) {
     ? ` Your goal of ${fmt$(S.target)} is in today's prices. With ${infl}% inflation it is <b>${fmt$(goalThen)} a month</b> by then (${won(goalThen)}).`
     : ` That is about ${won(S.target)} a month.`;
   $("hero-text").innerHTML = `
-      <div class="whenlab">Your dividends reach your goal around</div>
+      <div class="whenlab">Projected monthly goal date</div>
       <div class="when" data-k="hero-when" data-sig="${heroWhen}" data-anim="swap">${heroWhen}</div>
       <div class="away" data-k="hero-away" data-sig="${heroAway}" data-anim="swap">${heroAway}</div>
-      <div class="summary">You add ${fmt$(p.monthly)} every month${lunch.extra > 0 ? ` (${fmt$(S.monthly)} plus ${fmt$(lunch.extra)} from lunchboxes)` : ""} (${S.gpixPct}% GPIX / ${100 - S.gpixPct}% GPIQ${S.whole ? ", whole shares only" : ""}) and reinvest every dividend after ${S.taxPct}% tax.
-      Your goal is <b>${fmt$(S.target)} a month after tax</b>.</div>
-      <details class="forecast-details"><summary>How this forecast works</summary><div class="summary">Then your dividends pay your goal of <b>${fmt$(S.target)} a month after tax</b> in the <b>${SCENARIO_LABEL[S.scenario].toLowerCase()}</b> case for share prices.${inflText}
+      <div class="summary">Goal: <b>${fmt$(S.target)} a month after tax</b>. You add ${fmt$(p.monthly)} each month and reinvest distributions after ${S.taxPct}% tax.</div>
+      <details class="forecast-details"><summary>How this forecast works</summary><div class="summary">New purchases use ${S.gpixPct}% GPIX and ${100 - S.gpixPct}% GPIQ${S.whole ? ", in whole shares" : ""}${lunch.extra > 0 ? `. Contributions include ${fmt$(lunch.extra)} from lunch savings` : ""}. This date uses the <b>${SCENARIO_LABEL[S.scenario].toLowerCase()}</b> case for share prices.${inflText}
       At that point your dividends alone could replace that amount of income. Your job pay is not part of this math.</div></details>
       <div id="movedbox"></div>`;
   moveGauge(progressPct);
@@ -2204,6 +2362,7 @@ function update(yields) {
   renderNext(hold);
   renderWins(y, p, drift, infl, todayNet, sim);
   renderJourney();
+  renderPurchasePreview();
   renderEarn(y, p, drift, infl, lunch);
   const moved = trackDate(fracMonths(y, p, S.target, drift, infl));
 

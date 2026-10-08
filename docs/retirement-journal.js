@@ -32,15 +32,41 @@
     s.income = s.rates ? income(s, s.rates) : null;
     return s;
   }
+  function purchaseDate(v) {
+    if (typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v) || !Number.isFinite(Date.parse(v + 'T00:00:00Z')) || new Date(v + 'T00:00:00Z').toISOString().slice(0,10) !== v) throw new Error('Enter a valid purchase date.');
+    // A calendar date can already be tomorrow in the buyer's time zone.
+    if (v > new Date(Date.now() + 86400000).toISOString().slice(0,10)) throw new Error('The purchase date cannot be in the future.');
+    return v;
+  }
+  function purchaseInput(v) {
+    const r = { id:text(v.id,'purchase ID',100), ticker:v.ticker, shares:number(v.shares,'shares bought'), price:number(v.price,'purchase price',1e6), date:purchaseDate(v.date), fees:number(v.fees == null ? 0 : v.fees,'purchase fees',1e6) };
+    if (!['GPIX','GPIQ'].includes(r.ticker)) throw new Error('Choose GPIX or GPIQ.');
+    if (!r.shares || !r.price) throw new Error('Shares bought and purchase price must be positive.');
+    return r;
+  }
+  function purchase(v) {
+    const r = { ...purchaseInput(v), at:date(v.at), source:text(v.source,'purchase source',30) };
+    r.previousShares = number(v.previousShares,'previous shares');
+    r.previousCost = number(v.previousCost,'previous average cost',1e6);
+    if (r.previousShares > 0 && r.previousCost === 0) throw new Error('Enter the average price of your existing shares before recording a purchase.');
+    r.totalCost = r.shares * r.price + r.fees;
+    r.resultingShares = number(r.previousShares + r.shares,'resulting shares');
+    r.resultingCost = number((r.previousShares * r.previousCost + r.totalCost) / r.resultingShares,'resulting average cost',1e6);
+    // Computed fields are checked instead of trusting imported totals.
+    for (const k of ['totalCost','resultingShares','resultingCost']) if (v[k] != null && (typeof v[k] !== 'number' || !Number.isFinite(v[k]) || Math.abs(v[k]-r[k]) > Math.max(1e-9,Math.abs(r[k])*1e-12))) throw new Error('A purchase record has inconsistent ' + k + '.');
+    return r;
+  }
   function journal(v = {}) {
-    const snapshots = v.snapshots || [], achievements = v.achievements || [];
-    if (!Array.isArray(snapshots) || snapshots.length > MAX_RECORDS || !Array.isArray(achievements) || achievements.length > MAX_RECORDS) throw new Error('The history is too large. Export a backup before adding records.');
+    const snapshots = v.snapshots || [], achievements = v.achievements || [], purchases = v.purchases || [];
+    if ([snapshots,achievements,purchases].some(rows=>!Array.isArray(rows)||rows.length>MAX_RECORDS)) throw new Error('The history is too large. Export a backup before adding records.');
     const seen = new Set();
     const records = snapshots.map(snapshot).sort((a,b) => Date.parse(a.at) - Date.parse(b.at));
     for (const r of records) { if (seen.has(r.id)) throw new Error('Duplicate record ID.'); seen.add(r.id); }
     const awards = achievements.map(r => ({ key: text(r.key, 'milestone ID', 300), title: text(r.title, 'milestone title', 120), threshold: number(r.threshold, 'milestone threshold', 1e9), at: date(r.at), baseline: r.baseline === true }));
     if (new Set(awards.map(r => r.key)).size !== awards.length) throw new Error('Duplicate milestone ID.');
-    return { snapshots: records, achievements: awards };
+    const buys = purchases.map(purchase).sort((a,b)=>Date.parse(a.at)-Date.parse(b.at));
+    if (new Set(buys.map(r=>r.id)).size !== buys.length) throw new Error('Duplicate purchase ID.');
+    return { snapshots: records, achievements: awards, purchases: buys };
   }
   function profile(v) {
     if (!v || ![1,2].includes(v.schemaVersion)) throw new Error('Choose a retirement holdings file.');
@@ -86,6 +112,25 @@
     j.snapshots.push(snapshot({ ...p, id: at + '-' + Math.random().toString(36).slice(2,10), at, source, rates }));
     return true;
   }
+  function preparePurchase(value,input,options={}) {
+    const p = profile(value), requested = purchaseInput(input);
+    const existing = p.journal.purchases.find(r=>r.id===requested.id);
+    if (existing) {
+      if (JSON.stringify(purchaseInput(existing)) !== JSON.stringify(requested)) throw new Error('A saved purchase conflicts with this purchase ID.');
+      return {profile:p,record:existing,applied:false};
+    }
+    if (p.journal.purchases.length >= MAX_RECORDS) throw new Error('Purchase history is full. Export a backup before adding records.');
+    const key = requested.ticker === 'GPIX' ? 'Gpix' : 'Gpiq';
+    const at = options.at || new Date().toISOString();
+    const r = purchase({...requested,at,source:options.source||'website',previousShares:p['shares'+key],previousCost:p['cost'+key]});
+    // Record the starting totals before replacing them. Existing report history stays intact.
+    record(p.journal,p,options.rates||null,r.source,at);
+    p['shares'+key] = r.resultingShares;
+    p['cost'+key] = r.resultingCost;
+    p.journal.purchases.push(r);
+    record(p.journal,p,options.rates||null,'purchase',at);
+    return {profile:profile(p),record:r,applied:true};
+  }
   function milestones(p) {
     const rows = [10,25,50,100,250,500,1000].map(v => ({ threshold:v,title:'$'+v.toLocaleString('en-US')+' a month' }));
     if (![10,25,50,100,250,500,1000].includes(p.target)) rows.push({threshold:p.target,title:'Your goal: $'+p.target.toFixed(2)+' a month'});
@@ -119,6 +164,7 @@
     return {shares,payouts,tax,total:income(p,rates)-income(old,old.rates),deltaGpix:p.sharesGpix-old.sharesGpix,deltaGpiq:p.sharesGpiq-old.sharesGpiq};
   }
   function merge(a,b) {
+    a=journal(a);b=journal(b);
     const records=new Map(a.snapshots.map(r=>[r.id,r]));
     for(const r of b.snapshots) {
       if(records.has(r.id)&&JSON.stringify(records.get(r.id))!==JSON.stringify(r)) throw new Error('A saved record conflicts with this file.');
@@ -126,9 +172,14 @@
     }
     const awards=new Map(a.achievements.map(r=>[r.key,r]));
     for(const r of b.achievements) if(!awards.has(r.key)||Date.parse(r.at)<Date.parse(awards.get(r.key).at)) awards.set(r.key,r);
-    return journal({snapshots:[...records.values()],achievements:[...awards.values()]});
+    const purchases=new Map(a.purchases.map(r=>[r.id,r]));
+    for(const r of b.purchases) {
+      if(purchases.has(r.id)&&JSON.stringify(purchases.get(r.id))!==JSON.stringify(r)) throw new Error('A saved purchase conflicts with this file.');
+      purchases.set(r.id,r);
+    }
+    return journal({snapshots:[...records.values()],achievements:[...awards.values()],purchases:[...purchases.values()]});
   }
-  function transport(p) { const v=profile(p); delete v.journal; return v; }
+  function transport(p) { const v=profile(p),purchases=v.journal.purchases; delete v.journal; if(purchases.length)v.journal={purchases}; return v; }
   function commitBrowser(storage,values) {
     const previous=Object.fromEntries(Object.keys(values).map(k=>[k,storage.getItem(k)]));
     try { for(const [k,v] of Object.entries(values))storage.setItem(k,v); }
@@ -137,5 +188,5 @@
       throw new Error('Browser storage failed. The import could not be saved. Download a backup before reloading.');
     }
   }
-  return {number,profile,journal,expense,snapshot,income,observe,record,sameHoldings,milestones,award,changes,merge,transport,commitBrowser};
+  return {number,profile,journal,expense,snapshot,purchase,preparePurchase,income,observe,record,sameHoldings,milestones,award,changes,merge,transport,commitBrowser};
 });

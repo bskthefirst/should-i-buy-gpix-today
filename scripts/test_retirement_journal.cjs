@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const os=require('node:os');
 const path=require('node:path');
 const J=require('./retirement-journal.js');
-const {operate,card}=require('./retirement_service.cjs');
+const {operate,card,state}=require('./retirement_service.cjs');
 const at=new Date().toISOString();
 const profile=()=>J.profile({schemaVersion:2,exportedAt:at,sharesGpix:50.25,sharesGpiq:3,costGpix:52,costGpiq:56,taxPct:15,target:250,costs:[{name:'Claude',amount:20,times:1,per:'month'}]});
 const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-9,`${a} != ${b}`);
@@ -122,5 +122,93 @@ test('the OpenClaw plugin refuses other senders, groups and bot accounts',async(
     const exported=await commands.retire_export.handler(owner);
     assert.equal(path.dirname(exported.mediaUrl),path.join(f.dir,'media'));
     for(const patch of [{senderId:'999'},{to:'telegram:-999'},{accountId:'other'},{isAuthorizedSender:false},{channel:'discord'}])assert.match((await commands.holdings.handler({...owner,...patch})).text,/owner’s private/);
+  }finally{f.cleanup();}
+});
+const buy=(id='buy-one',ticker='GPIX')=>({id,ticker,shares:2.125,price:57.25,date:at.slice(0,10),fees:.35});
+test('preparing a purchase preserves fractions, uses weighted costs including fees, and leaves the original untouched',()=>{
+  const p=profile();J.record(p.journal,p,{Gpix:.4,Gpiq:.5});
+  const original=JSON.stringify(p);
+  const result=J.preparePurchase(p,buy(),{at,rates:{Gpix:.4,Gpiq:.5}});
+  close(result.profile.sharesGpix,52.375);
+  close(result.profile.costGpix,(50.25*52+2.125*57.25+.35)/52.375);
+  close(result.record.totalCost,2.125*57.25+.35);
+  assert.equal(result.profile.sharesGpiq,3);assert.equal(result.profile.costGpiq,56);
+  assert.equal(result.profile.journal.snapshots.length,2);
+  assert.equal(result.profile.journal.purchases.length,1);
+  assert.equal(JSON.stringify(p),original);assert.equal(result.applied,true);
+});
+test('unknown existing basis rejects purchases but a first purchase establishes its own basis',()=>{
+  const p=profile();p.costGpix=0;
+  assert.throws(()=>J.preparePurchase(p,buy()),/average price of your existing/);
+  p.sharesGpix=0;
+  const result=J.preparePurchase(p,buy());
+  close(result.profile.sharesGpix,2.125);
+  close(result.profile.costGpix,(2.125*57.25+.35)/2.125);
+});
+test('purchase IDs prevent duplicate application even after a later holdings correction',()=>{
+  const first=J.preparePurchase(profile(),buy()).profile;
+  first.sharesGpix=60;first.costGpix=55;
+  const replay=J.preparePurchase(first,buy());
+  assert.equal(replay.applied,false);assert.equal(replay.profile.sharesGpix,60);assert.equal(replay.profile.costGpix,55);
+  assert.equal(replay.profile.journal.purchases.length,1);
+  assert.throws(()=>J.preparePurchase(first,{...buy(),price:58}),/conflicts/);
+});
+test('purchase validation rejects invalid dates, negative fees, unsupported funds, and changed computed totals',()=>{
+  for(const patch of [{date:'2026-02-30'},{date:'2099-01-01'},{fees:-1},{shares:0},{price:0},{ticker:'TSLA'}])assert.throws(()=>J.preparePurchase(profile(),{...buy(),...patch}));
+  const p=J.preparePurchase(profile(),buy()).profile;
+  p.journal.purchases[0].resultingCost+=1;
+  assert.throws(()=>J.profile(p),/inconsistent/);
+});
+test('old journals remain valid and purchases survive profiles, merges, and lightweight Telegram transport',()=>{
+  const old={snapshots:[],achievements:[]};
+  assert.deepEqual(J.journal(old).purchases,[]);
+  const p=J.preparePurchase(profile(),buy()).profile;
+  J.award(p.journal,J.milestones(p),30);
+  const restored=J.profile(JSON.parse(JSON.stringify(p)));
+  assert.deepEqual(restored,p);
+  const merged=J.merge(old,restored.journal);
+  assert.equal(merged.purchases.length,1);assert.equal(merged.snapshots.length,2);
+  assert.equal(J.merge(merged,restored.journal).purchases.length,1);
+  const transport=J.profile(J.transport(p));
+  assert.deepEqual(transport.journal.purchases,p.journal.purchases);
+  const conflict=JSON.parse(JSON.stringify(restored.journal));conflict.purchases[0].date='2020-01-01';
+  assert.throws(()=>J.merge(merged,conflict),/purchase conflicts/);
+});
+test('shared updates preserve purchases, exports, and Telegram purchase history without applying twice',async()=>{
+  const f=fixture();try{
+    await operate(f.file,'baseline','',f.dir);
+    const current=state(f.file),prepared=J.preparePurchase(current.profile,buy(),{at});
+    await operate(f.file,'sync',{expectedRevision:current.revision,profile:prepared.profile},f.dir);
+    const saved=state(f.file);close(saved.profile.sharesGpix,52.375);
+    assert.equal(saved.profile.journal.purchases.length,1);
+    await operate(f.file,'sync',{expectedRevision:saved.revision,profile:saved.profile},f.dir);
+    close(state(f.file).profile.sharesGpix,52.375);
+    assert.match((await operate(f.file,'history','',f.dir)).text,/Purchases you recorded/);
+    const exported=await operate(f.file,'export','',f.dir);
+    assert.equal(J.profile(JSON.parse(fs.readFileSync(exported.mediaUrl))).journal.purchases.length,1);
+    assert.match(card(saved.profile,{average:30,latest:20,rates:{Gpix:.4,Gpiq:.5},at}, { ...saved.profile.journal.snapshots[0],at:'2020-01-01T00:00:00.000Z'}),/Purchases you recorded since/);
+  }finally{f.cleanup();}
+});
+test('concurrent purchase totals cannot silently overwrite one another after merging their histories',async()=>{
+  const f=fixture();try{
+    const base=state(f.file),first=J.preparePurchase(base.profile,buy('buy-a')).profile,second=J.preparePurchase(base.profile,buy('buy-b')).profile;
+    await operate(f.file,'sync',{expectedRevision:base.revision,profile:first},f.dir);
+    const saved=state(f.file),before=fs.readFileSync(f.file,'utf8');
+    second.journal=J.merge(saved.profile.journal,second.journal);
+    await assert.rejects(operate(f.file,'sync',{expectedRevision:saved.revision,profile:second},f.dir),error=>error.code==='CONFLICT');
+    assert.equal(fs.readFileSync(f.file,'utf8'),before);
+    const sequential=J.preparePurchase(saved.profile,buy('buy-b')).profile;
+    await operate(f.file,'sync',{expectedRevision:saved.revision,profile:sequential},f.dir);
+    close(state(f.file).profile.sharesGpix,54.5);
+    assert.equal(state(f.file).profile.journal.purchases.length,2);
+  }finally{f.cleanup();}
+});
+test('purchases still save during a payout feed outage and service replays are idempotent',async()=>{
+  const f=fixture();try{
+    fs.unlinkSync(path.join(f.dir,'data.json'));
+    assert.match((await operate(f.file,'purchase',buy(),'missing-folder')).text,/Market data unavailable/);
+    let saved=state(f.file);close(saved.profile.sharesGpix,52.375);assert.equal(saved.profile.journal.purchases.length,1);
+    await assert.rejects(operate(f.file,'purchase',buy(),'missing-folder'),/ENOENT/);
+    close(state(f.file).profile.sharesGpix,52.375);
   }finally{f.cleanup();}
 });

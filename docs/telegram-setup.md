@@ -1,6 +1,6 @@
 # Telegram dividend journey
 
-The existing OpenClaw bot keeps a private holdings file on its host. The website keeps a separate browser copy. Neither reads a brokerage account. Transfers between the two copies are manual.
+Connected browsers and the existing OpenClaw bot use one private record on the Mac mini. Unconnected browsers save their own copies. Neither reads a brokerage account.
 
 ## Automatic sync
 
@@ -15,9 +15,17 @@ The bot also sends a connection file. It can be imported under **Connection sett
 
 After connecting, enter total shares and average purchase prices as usual. Leaving the fields records the change and saves it automatically. You do not need to copy Telegram commands. The weekly digest reads the same private file.
 
-Visible browsers check for changes every 30 seconds and when the page returns to the foreground. Offline edits remain in browser storage and retry automatically. If another device edited the record before a waiting update arrives, the page preserves the draft and asks which copy to keep. Both histories are merged. A device which has never connected still has only its browser copy. Existing mobile data does not reach the server until that mobile browser connects.
+Visible browsers check for changes every 30 seconds and when the page returns to the foreground. Offline edits remain in browser storage and retry automatically. If another device edited the record before a waiting update arrives, the page preserves the draft and asks which copy to keep. Choosing the shared copy saves a browser backup and adopts its history. A rejected purchase stays as a separate draft for review. A device which has never connected still has only its browser copy. Existing mobile data does not reach the server until that mobile browser connects.
 
 The sync includes share counts, average prices, tax, income goal, expenses, forecast settings, and history. It does not read brokerage trades. It does not create extra Telegram notifications.
+
+### Record a purchase
+
+Use **Record a purchase** after buying shares. Enter the additional shares, price per share, purchase date, and optional fees. The preview shows the new total and weighted average purchase price. Saving adds a dated purchase record.
+
+An existing holding must have its average purchase price entered first. Fractional shares are preserved. Connected browsers must finish syncing before recording a purchase. An unconnected browser can save locally.
+
+If two devices record purchases at the same time, the page preserves the rejected purchase as a draft. Use the latest Mac mini totals, review the draft, and save again. Its original ID prevents duplicate application. The service validates purchase chains before accepting updates.
 
 ### Mac mini service
 
