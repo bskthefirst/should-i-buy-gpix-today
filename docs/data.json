@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T19:10:10+00:00",
+ "generated_at": "2026-10-09T20:25:10+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "14.8 (p7)",
+   "value": "15.4 (p17)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 7.1,
+    "pos": 17.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.83",
+   "value": "0.87",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 33.3,
+    "pos": 42.2,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.9 pts",
+   "value": "+5.5 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 73.9,
+    "pos": 78.8,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "46 (neutral)",
+   "value": "45 (neutral)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 45.5,
+    "pos": 45.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,10 +230,10 @@
   }
  ],
  "fund": {
-  "price": 56.445,
+  "price": 56.44,
   "as_of": "2026-10-09",
-  "bar": "provisional",
-  "day_change_pct": 0.49,
+  "bar": "final",
+  "day_change_pct": 0.48,
   "sma50": 56.02,
   "sma200": 54.09,
   "high52w": 56.67,
@@ -1315,7 +1315,7 @@
    },
    {
     "d": "2026-10-09",
-    "c": 56.445,
+    "c": 56.44,
     "t": "neutral",
     "s": 50
    }
@@ -1330,17 +1330,17 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.87) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 46) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 45) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 14.8) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1351,12 +1351,12 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-08",
-  "days_total": 739,
+  "end": "2026-10-09",
+  "days_total": 740,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-10-09",
   "baseline": {
-   "n": 718,
+   "n": 719,
    "avg_pct": 1.65,
    "median_pct": 1.97
   },
@@ -1371,9 +1371,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 123,
-    "avg_pct": 2.15,
-    "median_pct": 2.69
+    "n": 124,
+    "avg_pct": 2.16,
+    "median_pct": 2.71
    },
    {
     "tone": "neutral",
@@ -1385,12 +1385,12 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.12,
-  "tbill_3mo": 4.22
+  "ttm_yield_pct": 8.13,
+  "tbill_3mo": 4.23
  },
  "fx": {
-  "usd_krw": 1341.03,
-  "as_of": "2026-10-09T19:10Z"
+  "usd_krw": 1340.66,
+  "as_of": "2026-10-09T20:25Z"
  },
  "distributions": {
   "history": [
@@ -1513,13 +1513,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 778.93,
+  "price": 778.57,
   "sma200": 722.93,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 14.85
+  "level": 15.41
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1536,57 +1536,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15500.0,
-  "dca_value": 20373.47,
-  "dca_return_pct": 31.44,
-  "dip_value": 20112.57,
-  "dip_return_pct": 29.76,
+  "dca_value": 20371.66,
+  "dca_return_pct": 31.43,
+  "dip_value": 20110.94,
+  "dip_return_pct": 29.75,
   "dip_cash_uninvested": 1700.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Trump announces committee investigation of Fed Governor Lisa Cook",
-   "source": "SCOTUSblog",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQSzEteVpBaXpTZ1dVcFFoejBFNDh6d1I2b0t1RzZWRTgtUTBJaGFfbWNEMS1xdEZYcUhuQkI2ZHFGSFJ6ZnFZMEVoODV3VllUQmp4Y3owMVhfcU1vR1JLN1F5Q1pvT1J2TlpoTGMzb0VUR0tpQzNnWVliUUhMM1AxM0U5UjNNb29ZaW5jZ01oZE1sQ3BFTFJQek4tZVNsYVlXVUpv?oc=5",
-   "published": "2026-10-09T19:04:43+00:00"
+   "title": "Tariffs pushed up consumer goods prices by 2.9 percentage points: NY Fed",
+   "source": "CFO Dive",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOR0NJbXg0VW80eHY3QXIwUndTZko0bWlCSHFTS3ZiQjJ6VVVUOTBzTHNwelRkejZMeUMxa3F5QkxBVUdKLWVGTTlmdHZrbDc1aWF6V1hydzRfLWdvOWlIbndySWp1UThQaXkycHZIcFhoRWdwR2pscTR6bmNGNGZtMGRlQXVNdEE0QXk5akFkOW9JbjBxdF9SNHBZZ3NndWFhbU03RFZ5N2JTVUo3QkhOcUt1OA?oc=5",
+   "published": "2026-10-09T20:24:20+00:00"
   },
   {
-   "title": "What's closed on Columbus Day? Are banks open, do we get mail?",
-   "source": "Bergen Record",
-   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPclhtdGlwTHRZeHZvUzRtcVV0VzRnakRoQ0tXXzZfYmtDcVNKWEJtQi1vQjN5bXkwcC1pZUFsbnM5RmhPUDR2eWg3cU5sX0NWM28xczRvMjF1UnJuemZranJtd0lHcmJtT1VpcDk2Y0hsWFBhbFo5elVibmthZW1xTGJQTTlLZjNTQWI3Mm51LXQ3d1dBQ0psdmRsTnFMaFR2VkF4a0xOQkpzUXI1ZUJ2UUc3eTMzRE55NVhBMGxqNXZDS282OU9uQXFTR3ZhdXB6YVVCVWdQZnd0Vi1OQ3liLVBzRnBBYUhLS2pCbFJwTQ?oc=5",
-   "published": "2026-10-09T19:01:00+00:00"
+   "title": "Inflation dominates headlines, but not Wall Street",
+   "source": "Courthouse News",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPQW5LM0RrdEd5ZHg0NExYcmpjbnd2azgtZzd6Zm9tMDB3U2lnWHo0WTJaT3J2SnhpZ0M4NWlHSGpEYkJ5QURUN2NHODZxV3Q2VWdPNk9MWHM0TG9IRklpR0ZtMnRsQnRsMklreHhOMmRHb1piSEVrTmVlZHN4UDZUSk55S2NjRjND?oc=5",
+   "published": "2026-10-09T20:23:33+00:00"
   },
   {
-   "title": "Wall Street set for weekly gains with earnings, inflation data on tap",
-   "source": "Mahoning Matters",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPTE5oWmtzRjV0Q284aGFhMUZreG5MdHRsa28zX1o5R3FXcWJSbER4QlgzUWRXSHg4OE50ZC1QWmRqX3VtRTZ5a2c0a0F0enF1X2tQTGczRDNIZjNua2prVTI2SnZrc0ttWEpvcGhTcFZwNlBsaUxWeXVtWEtnc2luMEIyaE4zY0U?oc=5",
-   "published": "2026-10-09T18:52:23+00:00"
-  },
-  {
-   "title": "Trump establishes committee to investigate Federal Reserve\u2019s Lisa Cook in latest effort to fire her",
-   "source": "The Seattle Times",
-   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQOWV4aUNzVjVSdFU1cUZfbDBMYUhfdVdCd3A4S21TWWM1X1M5V1YzQlVmVUI4bVhVU0tRRmxMMER1M25ydWxfRVRIUmhyd1NBUmsxRzZxR1NvdTV4aGx2TWxhV3kyYXE1QTJKcEZwZkd5cjJlelpsZHB1aWVXbk9tN2pjS2FlYmFHQkZ5S2Fra0N6T2Zmd3FabHB1OFlPNFhVNm1ka2FJYk1XX2ZWTHBSUHNLdEhoVDZEckExS0tGdUxBVkl5SDBnR1VhdkxrVE9HMG13?oc=5",
-   "published": "2026-10-09T18:43:43+00:00"
+   "title": "Ticker: EU and China strike interim trade deal; Trump aims at Cook, again",
+   "source": "Boston Herald",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPTXE2bUZkcjZTclVNLUFRTHN6cFdBeS1QeHNjTGpJNm5EYTZCYnEyVnJENHU5Mm1DSVMtRE85ZUFvNGxxZEpQYnRheTZHRjdjSk94RkxRUTlSU01ob3BVR3dDX0tXb0ZOdUtodzk0Vko1dzBuQTFXVVhnY1V5b2Q0eE5jNVNablpndUFyZ0YwUUY2RE9ucDNlZ2hwZXNxM3BGb3NxOFh4ejdXcFctX2ZZeQ?oc=5",
+   "published": "2026-10-09T20:18:09+00:00"
   },
   {
    "title": "Trump escalates effort to fire Federal Reserve governor Lisa Cook",
    "source": "The Washington Post",
    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQYjlOZTQ4TndWWU5vZlFJRXZmTWpHemhxVnlsWi1RVE1aalh6MEhhRTNzU1Vvc2lpb050STlEWFJ5OVE1a0tjWnZGZkxtbnpUVWZocHBOSTR3MnREUXBmbTJpN2pRb0s1LXByRkRjekxYdXVxaVFGdlNib0JQUnptYndHUkplMURQUG5mcnFkbzY2QV9mRE44Z2dnUTZVUGVTbFBsQXJieHR5NG9lR2NFZk43enU?oc=5",
-   "published": "2026-10-09T18:42:52+00:00"
+   "published": "2026-10-09T20:03:39+00:00"
   },
   {
-   "title": "Trump created a committee to dig into the Fed's Lisa Cook. What is it and what comes next?",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNdFZHdVZsdmlGRFJvSldMZnYtaWhpLTk1SHRhWXBqcEt6c01lS3ZzX29Id3dubGFQOHByM1M2dFJlYXk4LV9PeUZYQTVRZFRuc0dHbzIzOWp1RUhvcC05SGVVMkR5NHpWbWJLQ21tSklKa0QyUWFOZW12WXRySjh6eDdfby1tTERFem930gGQAUFVX3lxTE8ySzFEclJ6Q1ZHNi02dkRnVEFHVnhnRXFQM0ZuUkxURzNqVDUyRFZldkhrTzZicHdzendRNllHZ1JNRDZ4c3dxUWRDcGl3RnRQcVJGbExmSG9HNnZXLUhSdVllTTRwZF9VWktGNXcxaGdtejJva2JYdURjUlRmUGN3d0J2VGxPbkQyR25XdktzWA?oc=5",
-   "published": "2026-10-09T18:20:57+00:00"
+   "title": "Wall Street posts weekly gains with earnings, inflation data on tap",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQZzJlXzBkaVdTcWk1RzBHc3ZqQWtfbUpPbjZlaE1JcWRGX29qamNJeTFrRXhCN1FzWGxRQnJ5aDRHVmJocmJSTE5UY2dPam9WX3RKdm56U3UwajB6d0psU1ROQndvVTBpMmZCcHNvNlh0eVBhVlQ0dmVQTnIyeHluZFBYWFJCbTdTSFVQNENBN3pzQjQ?oc=5",
+   "published": "2026-10-09T20:00:38+00:00"
+  },
+  {
+   "title": "Oklahoma part of energy growth in KC Federal Reserve Bank district",
+   "source": "Oklahoma Energy Today",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNakhpSnpuZXRURnkwbzRHMktjcjNlQ0NYWFdyd09icHlwMUk4dWpIR1QxSTFTUzZEV1ljbTB3dkQtY2FFbDkyT0s2QnhzUVphazdEVklUOGdKdWUtaFZSSlkzanFoU0FpTU9FZUh3QWZtQWlabW93aVVLd3BuRmM0QjgzX2VpY3ZGTVRLRThEdlliLVdCeGRJMWFLeVp2cGRhS0pN?oc=5",
+   "published": "2026-10-09T20:00:02+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-09T19:10:10+00:00",
+  "run_at": "2026-10-09T20:25:10+00:00",
   "session": {
    "date": "2026-10-09",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1602,7 +1602,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-09T19:04:45+00:00"
+    "as_of": "2026-10-09T20:10:04+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1612,41 +1612,41 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-07"
+    "as_of": "2026-10-08"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-09T19:04:43+00:00"
+    "as_of": "2026-10-09T20:24:20+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-09"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-09T19:10Z"
+    "as_of": "2026-10-09T20:25Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-09"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
-    "as_of": "2026-10-09"
+    "bar": "prior_close",
+    "as_of": "2026-10-08"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-09"
    }
   },
