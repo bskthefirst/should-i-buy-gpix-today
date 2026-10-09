@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-10-09T11:00:17+00:00",
+ "generated_at": "2026-10-09T19:10:17+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 82,
+  "sessions": 83,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~82 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~83 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -30,7 +30,7 @@
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 82 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 83 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
     "pos": 100.0,
     "labels": [
@@ -41,7 +41,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "54% ann.",
+   "value": "53% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "24.0%",
+   "value": "23.9%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 24.0% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 23.9% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 48.0,
+    "pos": 47.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "82 sessions",
+   "value": "83 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 82 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 83 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.4 (p17), F&G 38",
+   "value": "VIX 14.8 (p7), F&G 46",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -88,15 +88,15 @@
   }
  ],
  "fund": {
-  "price": 160.57,
-  "as_of": "2026-10-08",
-  "bar": "final",
-  "day_change_pct": -4.19,
-  "sma50": 143.23,
+  "price": 160.775,
+  "as_of": "2026-10-09",
+  "bar": "provisional",
+  "day_change_pct": 0.13,
+  "sma50": 144.2,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 24.0,
+  "drawdown_pct": 23.9,
   "series": [
    {
     "d": "2026-06-12",
@@ -589,6 +589,12 @@
     "c": 160.57,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-09",
+    "c": 160.775,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -635,13 +641,13 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 160.57,
+  "price": 160.775,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 53.5
+  "level": 53.2
  },
  "fomc": {
   "next": "2026-10-28",
@@ -659,61 +665,61 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-10-08",
+  "end": "2026-10-09",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1800.0,
-  "dca_value": 1995.19,
-  "dca_return_pct": 10.84,
-  "dip_value": 1979.43,
-  "dip_return_pct": 9.97,
+  "dca_value": 1997.74,
+  "dca_return_pct": 10.99,
+  "dip_value": 1981.96,
+  "dip_return_pct": 10.11,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 17,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "William Blair reiterates SpaceX stock rating after spectrum acquisition",
-   "source": "Investing.com",
-   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQaVphQmhFY2NvOG9TVi1yQmw0SE4xYlItM3lnRmVmS19xWEtrOEJKOWdBSDMzSGM4UjQxTFhDMzVvQU5fSnZRMVV3eE12ZlpBdGR2bjNfNGVZd2tlMjk3a1JSdmQ2R2hCQzJhTTlGMGxoODFLOTZDOHZ4SHdVOFFfbHJYQ3BUakZ2STVqcERiTkNEUkxGRlBrQjVmRF9jYVZ5b0FLYnJWZGo5Qm84SHlnQlc3andjbUVNTHhOTmVlZ3RXdjJCeUxUY2E1SQ?oc=5",
-   "published": "2026-10-09T10:45:29+00:00"
+   "title": "SpaceX's Secret Weapon Is Hiding in Plain Sight",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQUGxqbkdYZGZOZUF6ckUyazRqMHFoRjZ0VjFicmQzMjFTS3ZPZGt0VFVBakhXNnFLWXdlSHFiSGYwMkZCX1FidlB2Tkx0WE1MbEpZQWZrWElRMU44YzVtb0dob0VocXRKSzlMYWhGTVF4Wi1RWUUySXR2T2laY1o0TEF5TmttOUdqZlozbEtwZWE3NUU?oc=5",
+   "published": "2026-10-09T18:56:26+00:00"
   },
   {
-   "title": "SpaceX, Verizon, Humana, AMD, Delta, and More Stocks That Explain Today\u2019s Market",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFB1R00wTW03Ml8xUElCVkQ4UUVHVE1Cd0hqWW5tXy1DU0VuRWtwS0xDU2NJTWpVMG15RjBTUldwLWtoU19KSDlYSE9xbkVpdTJKYlMtSlVyd1NtOGdkZXduU2l6YTI?oc=5",
-   "published": "2026-10-09T10:37:00+00:00"
+   "title": "SpaceX Buys Spectrum to Make Starlink a U.S. Phone Carrier",
+   "source": "Not a Tesla App",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNcUh4UHZDYzR4NzM1N0JGXzkyMWRneFliRmU1cTlSbnNUNU9pdnFEaWNZN2FXTXZFeU1feXl2LTBFOF9VXzJ3VVNjakZzQ2tzQVJDSmI2cmRWVVhPTl9KRDI5MkNtMFRDeG5qSWxXbmdWdDJDWUVOaUdiYjhHakR5TlpfNEhEZTJMS0EwZmRRSGlBOHdBV0l6cmF0dw?oc=5",
+   "published": "2026-10-09T18:54:00+00:00"
   },
   {
-   "title": "Delta\u2019s CEO on Skipping Starlink, Premium-Travel Rush and High Fuel Prices",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQcXhTenVYcmZfLWFtTEh5dzBvQUlnUmpwWjlLcFVTTnhjNjRoR2xpd1ZzWkNNN0Q1V0tsa1VnUjNyUTZmQUROaWpKelU2VzFJTlRIdC1kYWhPVXZ1cnBKc3ZqZlJadnZtT3o3SVJhd3gwN0VQaXF1VmVWY2Q0WHFYRlJwbHpWUVVMaGwxX3pvZ3dodXhERF85LXgzbjlfNEt4cUZadHYyTzFTWGJZNmFZd056Y1pxZGFiZXNR?oc=5",
-   "published": "2026-10-09T10:33:00+00:00"
+   "title": "Musk: Starlink Mobile V2 Brings \u201c100 Times the Bandwidth,\u201d Raising the Stakes for Verizon and AT&T",
+   "source": "TIKR.com",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPd1dxWmo3aTZ0VmZJYmZWUlREdnFnLTZPT05QaDVYQ1JxS2dSclBjZXd0allHU0dUd094Zm9lQ2JzUkFsaWNvTGdMTC03SURtQy1vaFBlbnhLZURxZjkySnY0YW5iNWF3N0trbXVxTjdUUlc1aGQyemNlT2trLTlCaVFNUVoxSVo5VXo3dEp6RUo1VzJDaVNoVllBY0FyTy1oYTFYaVFTZy05MUNDeXZZSzR5LV9tbTZ2a1U4?oc=5",
+   "published": "2026-10-09T18:52:42+00:00"
   },
   {
-   "title": "Wall St futures gain as oil slips; telecoms pressured by SpaceX spectrum deal",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNY0hWbFNBUlE5SFJjLVpMMnIwZzFpN2hVNEd2YkxlalYyVDRKTDZxcGJ0REJLUERXb0tlVVVreVZLMHFodlAtZlY0eDhuN2xiOHcybjM1c3gxMlBNTmZMWWdrdkhQOG9Pc2JRdTEwYXM5N181QmttRVEyRkdXTy1LT2J0ZVA4d2FXdjZZeGZwaGRaSUtDUXJUZXFjSU94cnprbTVUSXRpXzFtQzV2TWtpR1dNSjdaWVplUlE?oc=5",
-   "published": "2026-10-09T10:25:43+00:00"
+   "title": "ASTS Stock Crashes 15%: Can SpaceX Gains Offset This ETF's Losses? - Procure Space ETF (NASDAQ:UFO)",
+   "source": "Benzinga",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOWnFncWVYM3Z4ZmtKSi1CM2ZtSnd6cjJRNGdjbXcyMHVDbHdyRTJzN2lvRVdHZG4zelEyemFiOVlxdGlsRUo1LS13eFRZZ3RkOTZHdjdFQlR2S0E3OFVaam5jM3gwcklWRlp1Q3RLT2tjZDdQRkJ6Skt2Q1o1cGdYMzVqcERNZFNFNS1zTmdIaFdSTlJSRmNlVlRLWGs4cVhFdXhxYmNnTTBOZHNtZ0lHbFV5TmowaF9FVFJZV0wtZnM4aTR1TXZNVW1ra2R5UFBEZXY1Zlhjdw?oc=5",
+   "published": "2026-10-09T18:34:27+00:00"
   },
   {
-   "title": "Musk\u2019s SpaceX buys spectrum to take Starlink against carriers",
-   "source": "Billionaires.Africa",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPVFlzNWltVlFnX0NVYUEyeTZwVnhDb1BvMjRYb1ZnMVlCTjhHYXFqNUladVpBal9RbXlsZDRDZ0NYOGQ2dHdjdk8zUHgySnRvNVZSaGU0eEMzZE1CaTRteG5DY0NHS19YUVg2MHI3Z1lYYmF2T1pmVjB3Mk52R2VvX0Noa3VyLVpkRGFMZTdXSUQ0M3pXQi1xSm9xNFRqVlhJLXc3YjlXTjg4ZVNPMGVvWVNSNnJwb1Q5dC16WmM4Ul9Sd2s?oc=5",
-   "published": "2026-10-09T10:22:00+00:00"
+   "title": "Starlink spectrum deal boosts Musk plan to beat AT&T, T-Mobile, and Verizon",
+   "source": "Ars Technica",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQWkpVTGlrc0RIa3kza2lfU1RCYkRXTUcwTmxkN1R6T3FLS2VjLTBSWmhjRi1XNXhTRjY0UDI0bnRVWUk0Y3VmUTg3NGYtcEZKYzFKSTREWk82aVhPY2k4MnBNaDktVXFlMWRnbmVHUk5GMzNQWmJGZHI4Nlpoc2VkXzNGaXZNSVI2VjNnb3VtWVptMFozMGpKSG5oLW5rYkRIV3pSY01taDJxZ3BIZ29ZaFpJZ2pHeFB2?oc=5",
+   "published": "2026-10-09T18:24:39+00:00"
   },
   {
-   "title": "Starlink sets its sights on the U.S. mobile communications market, with SpaceX unlocking new growth opportunities: Wall Street is focusing on the reshaping of the telecom industry landscape.",
-   "source": "\u5bcc\u9014\u725b\u725b",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNSzdRQU5rS2lDYzRtTjAzVF9EYnZvQ0NQMXctLUNnTUNnTTk3Y0FmNlR1d3FRTU5uZ0U3dE5RNDNLSFFNV00yN2JPZ3FpVVN1UGxmR0xSMUpBVkpWb2d2elVxYWVHX1dXbEZBalo4MlhKbHAwLWl3X0lJOHQ3SnVEVVVZdFhoMkNpN1hPX3ZYd0pwZjZDMFljNEEwZjdSSlJtZUlQQVVHNVdGUQ?oc=5",
-   "published": "2026-10-09T10:15:00+00:00"
+   "title": "Next year will be test case for if Starlink is an airline advantage, says TD Cowen's Tom Fitzgerald",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOTGxIT2NFaThiNk5GN3F3SmxNem54RExJS2ZxdDF0WjlnRE9NeWExb0w3eWgtUXpHNTRlOURhYTJlMU9WUy16M1psbVB6U3p6TUViM3c0YVp1Wkp2Y00zSVNPRUlXeVpMdDlrVUMzUUR3M0lzMFAyNHYtNnREbmNjQlBXaklKczdxX2NtbzZJUkwybzB3TnRONzk2RVZWSUExVnRPSDhOX2dPckM4d1lQTTE5WTB6RURKd1VIT05HaC1FZmxBU3AwR3BIOHlpMG9QV0JMdTBZWQ?oc=5",
+   "published": "2026-10-09T18:22:30+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-09T11:00:17+00:00",
+  "run_at": "2026-10-09T19:10:17+00:00",
   "session": {
-   "date": "2026-10-08",
-   "bar": "final"
+   "date": "2026-10-09",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -729,7 +735,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-09T10:38:31+00:00"
+    "as_of": "2026-10-09T19:04:45+00:00"
    },
    "earnings:SPCX": {
     "ok": true,
@@ -748,7 +754,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-07"
+    "as_of": "2026-10-08"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -759,84 +765,84 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-09T10:49:43+00:00"
+    "as_of": "2026-10-09T19:06:22+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-09T10:45:00+00:00"
+    "as_of": "2026-10-09T19:04:43+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-09T10:45:29+00:00"
+    "as_of": "2026-10-09T18:56:26+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-09T10:33:07+00:00"
+    "as_of": "2026-10-09T18:00:46+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-08"
+    "bar": "provisional",
+    "as_of": "2026-10-09"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-08"
+    "bar": "provisional",
+    "as_of": "2026-10-09"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-09T10:08Z"
+    "as_of": "2026-10-09T19:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-08"
+    "bar": "provisional",
+    "as_of": "2026-10-09"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-08"
+    "bar": "provisional",
+    "as_of": "2026-10-09"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-08"
+    "bar": "provisional",
+    "as_of": "2026-10-09"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-08"
+    "bar": "provisional",
+    "as_of": "2026-10-09"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-08"
+    "bar": "provisional",
+    "as_of": "2026-10-09"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-08"
+    "bar": "provisional",
+    "as_of": "2026-10-09"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-08"
+    "bar": "provisional",
+    "as_of": "2026-10-09"
    }
   },
   "degraded": [],
