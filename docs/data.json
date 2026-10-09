@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-08T20:25:18+00:00",
+ "generated_at": "2026-10-09T11:00:11+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.1 (p11)",
+   "value": "15.4 (p17)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 11.5,
+    "pos": 17.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.83",
+   "value": "0.85",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 33.7,
+    "pos": 38.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+4.9 pts",
+   "value": "+5.3 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 74.4,
+    "pos": 77.1,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 6d",
+   "value": "CPI in 5d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1340,12 +1340,12 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.83) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.85) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.1) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.4) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1354,7 +1354,7 @@
   "end": "2026-10-08",
   "days_total": 739,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-10-08",
+  "fg_coverage_start": "2025-10-09",
   "baseline": {
    "n": 718,
    "avg_pct": 1.65,
@@ -1389,8 +1389,8 @@
   "tbill_3mo": 4.22
  },
  "fx": {
-  "usd_krw": 1342.28,
-  "as_of": "2026-10-08T20:25Z"
+  "usd_krw": 1340.9,
+  "as_of": "2026-10-09T10:08Z"
  },
  "distributions": {
   "history": [
@@ -1513,22 +1513,22 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 773.97,
+  "price": 773.93,
   "sma200": 722.46,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.08
+  "level": 15.41
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 20,
+  "days_until": 19,
   "imminent": false
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 6
+  "days_until": 5
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1546,44 +1546,44 @@
  },
  "headlines": [
   {
-   "title": "Palmer named to Minneapolis Fed leadership",
-   "source": "Federal Reserve Bank of Minneapolis",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNLXhWUmVjb1p3blJIN0cyUE43MVdhdFNYby1rUGo3RmJFcy1laFFYUlNQRjFodkZRTEJYTHpqWlMtLUlFV1ZZeFBVSGotczhIRlRBNV9JT2hsQXNzWVZheDFpOG5ENElUWG1odUJ0ZDQ5cFhFUFpiSVNpZmNMdV9xTnU2OERGdi10b1RoNkxodGtxUlJ4cHNv?oc=5",
-   "published": "2026-10-08T20:19:10+00:00"
+   "title": "Is the US bond market more scared of the government\u2019s deficit than inflation itself?",
+   "source": "Washington Examiner",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPY3piVF9MZ3owV3RSdzBHVWVfd2FLRDhHV2FQeGZyUklidDUtR2dFUlVSWHQtczd2Q09MUjBSbkxiUENHbzd1dTZ2N3pPdlJFWG1QUWZDRVZMUXEzbFJ2eWtyLTM0a0FJbnlUMXpRR2lBZDBzemdydmFNUWw5OFNNV28zSWdrRi1MVmwzeHlvMy1wSE5lWnJHS3A2STFJN09WU3FRSENtU3p1THM?oc=5",
+   "published": "2026-10-09T10:45:00+00:00"
   },
   {
-   "title": "Fed's Musalem: More Rate Hikes Needed to Reach 2% Inflation Target - News and Statistics",
-   "source": "IndexBox",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQNmE5c3NNQU5fZ0l3NnFTdVJKdF81NmhJaEE5SU0tOURFYWc1OWNic1ZSRDliVDFDRjlwdWk5TE9HUWhBNWtnT1AxeFFKOWlMV1JQR1BZdVNzM0I2b2kxWF85MkJCOUFhSlpXYUNHU2dqdVZSaFE1eXVtcExGby1OazJWQm0yODYyMzJEd01rWDNvYUV2Ti1QU2FXMUtIbXI5TnI5eQ?oc=5",
-   "published": "2026-10-08T19:53:44+00:00"
+   "title": "Why Didn\u2019t 2008 Bank Bailouts Produce COVID-Level Inflation?",
+   "source": "The Daily Economy",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQQ1JZNjBaOWdwTTRCaGE3UkRBWjVGTUdyT2tUQ2RuS2FUM3d2WTRUX3dsekxoc2pIZmEwLUZ2bDhjNXFVc2dwd1lSR3ZvOG1JR2tCRnZOZFA1MHRmUnBIa21vc1R3cEtsQ1VMQkpSRjladkNsZTJWNnZQU1ptemtac0xYS0IwM0VWcFhxekI0TzdLZ2dy?oc=5",
+   "published": "2026-10-09T10:32:00+00:00"
   },
   {
-   "title": "Federal Reserve Financial Services names Kim Robbins Chief Payments Executive",
-   "source": "Voice of Alexandria",
-   "link": "https://news.google.com/rss/articles/CBMimAJBVV95cUxNNi12dURUeGxSRzM3VG9kQmFuQjIyd1htYnloODhwWE5PbVdwcTJVVFd1em1HVFQtaEZfdy02TENqUGVqZi1TbEtnbEFXbjM3QWFxQ3BMRVhWYl9tbHZhT0YwT2xoekR2UEZuNE9qM3RwWE5Wb3FYYTczX3hLMV9mblczNnVXYzNJTDFuNHdBWDJsMkMxMVNVQUhjSEF3RE9mZHFSa2RPNDAtamhYSk5CYnZIRTVaMVdfNTJVVnVzWUZIbnNmckpEM1lqSktwZGQwUklIYjk1OGJ1N05JWFpTVjc1U1pYUnhxbXMzMjVQTUhkWEVYaWQxa0hRZHBVTGQ4cU9Zck1SQmJtd2xsRkdQRjgxSDZfRXk5?oc=5",
-   "published": "2026-10-08T19:30:16+00:00"
+   "title": "Four signs it is about to get uglier in the bond market",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOZnpPbXRYRlc0T3dINmZIZnM3VEgxWWJzS2tLRVBadmJMVnQ2ekdHaTQ1NG1SZlhfTV84VjNsM3JNR0RRSTZyVWJ1ODJFZmxpa1pxckluaktPY0d6T0d3bUVUUnRGQjlCVmwxWUNGWEs2cEo1VGV4R3MxN19PakJaZ3FUZnZfMWxqUHAzNk1nOTVFT0hr?oc=5",
+   "published": "2026-10-09T10:29:48+00:00"
   },
   {
-   "title": "Fed Data Shows Tariffs Drove Inflation in 2025",
-   "source": "PYMNTS.com",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQd2xsc3lTSDdyQjlnTHNiY3BReXV0bVdEcTBmVmk4Yl9YYUkyeGJjMlBINjlmdG5uWUlnZEh0aVlreldXUWNLem4wOG9lTEhOY0ZZU0ZWTGFUR2QxS3FWVGhwZ1RiU2JadmdhZFdWYkdqcEY0TEN1RW1DaWlCa0hnQTV6dHVNUUltQjBV?oc=5",
-   "published": "2026-10-08T19:26:36+00:00"
+   "title": "Federal Reserve Financial Services Appoints Kim Robbins as Chief Payments Executive",
+   "source": "FF News",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPck00a2djV2hhdWNSYmlTVTB5WVlrekZLNXlzbDlrclZMbFBFVkZLZEtpeDN2VXZVM203aWo1Xy0zOEM3WjBtNGtTVGIydGJNbWFHMHJIWDV0alROTDN4NkprbXBkdkl3NDBNSDdsVkFvUWxSdVJLM0Qta3lBMmczaWwtR3lGcV9SczdOSHNVYl9DcHNTczEzamZXaWZLRnNxMFZTaWl6SFpwOUl6VXRV?oc=5",
+   "published": "2026-10-09T10:29:26+00:00"
   },
   {
-   "title": "Surveying Consumers' Use of Personal Checks",
-   "source": "Atlanta Federal Reserve Bank",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOX2Zfcy1NbkdWM3YtR0o0MFpUd3VFTVVLbEdMNEhkSHVyaERXMTItS2lTb0pfaFlCcGJ6bEZZQjctYTdBOWZMVTNxWFZYcWZCRDRELVU4SC1GeE8yM2JjSFlId0pjd1Y0bmRRQVJzOWFuN2hQMWpuTklLSS1rM3lRWkdUNVNJRDBtbEZlTWhiYU5UZnNBLVVVdl9CLXR6RzRjNUU2UFZvejgzaXJXOWFlSjNkdnFnSzVpUjlVLWdaWFo4YV9DTkQxc3J5ZE0?oc=5",
-   "published": "2026-10-08T19:16:33+00:00"
+   "title": "Michael Walden: Why the bond market is so important",
+   "source": "Rocky Mount Telegram",
+   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPLXpqWWZkbFR1M0VfaW9Sc1k4bk01STNMNUVGdUxQNUF5UXFEclZicnNkQWo5ODJBbHpyV1BuM1A1SjIxbEREd2JKZW05Qmk3bC1LVUdGSkhDd2dUY1hHUENmV2dUNV9kbVNiT18ycEdxMjA3REFwX3BDVEZkMlRKUGNYTldOZkppeG4zSlloSHQ1OVNMY0VnZTZueUxIQ0hCdllfNzVfUkc4VFRaaFF1Rm9MVFcwWGtuOFBpR3QtNTJ6N1pJWXRHX09iU3A5dHNnTWJXNjhRMmFzWXJKOXQwWEY1OThRZmliRE5V?oc=5",
+   "published": "2026-10-09T10:00:00+00:00"
   },
   {
-   "title": "More rate hikes are coming, says Fed's Waller",
-   "source": "Mortgage Professional America",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPNDRlQ0N0ams5Z1RrNlJ4alViRU5BeS1LeGpfdnByNEU0cHJCSmluQ1N4ZVQxQjhNMU1Ec0kxMkxVcFlrelM5MWQ4LS1WcEdvRjZ0c0Z3WkhKYWE3NnNCLVBuRjNVT29TUWNCY2o3NTY2LWU2ZW9PRS1mZ2ZGQzBfN3lOaE9pSVRNRld0MFo1VC05Wkk3d1c0aURIVklEMnJsNjE1MElvdVFramdtaUJr?oc=5",
-   "published": "2026-10-08T18:59:21+00:00"
+   "title": "Stock Market Today: S&P 500, Dow Jones Futures Gain as Scott Bessent Says US Is Starving Iran's 'Tyrannic",
+   "source": "Benzinga",
+   "link": "https://news.google.com/rss/articles/CBMilwJBVV95cUxQVE1VSjdmVE9LTVBQUFJ5bjR6bkdvY2ZEQThDdmRmN2lzU0VDR0lRbFdvc1dwODBxbEZzMFpzcVNubFRJbE1ib29XbFl2ZE5QazNnSTZyOTlTdUlwVldrT2FiYzJPYnBRZmZnT3loWC1Gd2VnSVNHT01iNV9YMnpDZlNCNHY2ZzQ0N2UxNkJUaGFMc3J0a1o1dGMwTThienZGYVJ2S2Zya05pN3AxNVh3aHZFRURMV3EzWHctZnphRDBCbnBWMV9HbjM1aE8yM2xLeVNjSnVfYU5ReXZKdFNiam5jbThxTFViMTVFOWpRSGM0SS1oell0WUM4UHAzX2pHOXg3N3dTcDNnYjh2eThBeko4bjZvNms?oc=5",
+   "published": "2026-10-09T09:41:14+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-08T20:25:18+00:00",
+  "run_at": "2026-10-09T11:00:11+00:00",
   "session": {
    "date": "2026-10-08",
    "bar": "final"
@@ -1602,7 +1602,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-08T20:09:36+00:00"
+    "as_of": "2026-10-09T10:38:31+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1618,7 +1618,7 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-08T20:19:10+00:00"
+    "as_of": "2026-10-09T10:45:00+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
@@ -1629,7 +1629,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-08T20:25Z"
+    "as_of": "2026-10-09T10:08Z"
    },
    "yahoo:SPY": {
     "ok": true,
@@ -1641,7 +1641,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-10-07"
+    "as_of": "2026-10-08"
    },
    "yahoo:^VIX3M": {
     "ok": true,
