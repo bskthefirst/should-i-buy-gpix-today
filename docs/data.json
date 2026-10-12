@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T19:10:09+00:00",
+ "generated_at": "2026-10-12T21:10:18+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "15.3 (p16)",
+   "value": "15.2 (p15)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "S&P 500 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 16.2,
+    "pos": 14.6,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 37.9,
+    "pos": 37.1,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.5 pts",
+   "value": "+5.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 79.3,
+    "pos": 78.7,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "0.1%",
+   "value": "0.0%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "At (or within a whisker of) the 52-week high with distributions reinvested. Not a red flag: the audits found buying at the high performed perfectly fine on average.",
    "viz": {
-    "pos": 1.0,
+    "pos": 0.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.5%",
+   "value": "+1.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 62.5,
+    "pos": 63.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "45 (neutral)",
+   "value": "46 (neutral)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Sentiment in the normal range - no contrarian edge either way.",
    "viz": {
-    "pos": 45.2,
+    "pos": 45.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,14 +230,14 @@
   }
  ],
  "fund": {
-  "price": 56.3853,
+  "price": 56.43,
   "as_of": "2026-10-12",
-  "bar": "provisional",
-  "day_change_pct": -0.1,
+  "bar": "final",
+  "day_change_pct": -0.02,
   "sma50": 56.04,
   "sma200": 54.11,
   "high52w": 56.67,
-  "drawdown_pct": 0.5,
+  "drawdown_pct": 0.4,
   "series": [
    {
     "d": "2026-01-26",
@@ -1315,7 +1315,7 @@
    },
    {
     "d": "2026-10-12",
-    "c": 56.3853,
+    "c": 56.43,
     "t": "neutral",
     "s": 50
    }
@@ -1325,7 +1325,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIX at $54.75 (-2.9% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIX at $54.75 (-3.0% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1335,12 +1335,12 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 45) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 46) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.6 (now 15.3) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.6 (now 15.2) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1351,12 +1351,12 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-09",
-  "days_total": 740,
+  "end": "2026-10-12",
+  "days_total": 741,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-10-13",
   "baseline": {
-   "n": 719,
+   "n": 720,
    "avg_pct": 1.65,
    "median_pct": 1.97
   },
@@ -1378,7 +1378,7 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 524,
+    "n": 525,
     "avg_pct": 1.24,
     "median_pct": 1.66
    }
@@ -1389,8 +1389,8 @@
   "tbill_3mo": 4.23
  },
  "fx": {
-  "usd_krw": 1334.76,
-  "as_of": "2026-10-12T19:10Z"
+  "usd_krw": 1333.89,
+  "as_of": "2026-10-12T21:05Z"
  },
  "distributions": {
   "history": [
@@ -1513,13 +1513,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 777.205,
-  "sma200": 723.37,
+  "price": 778.1,
+  "sma200": 723.38,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 15.32
+  "level": 15.21
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1536,57 +1536,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15600.0,
-  "dca_value": 20451.92,
-  "dca_return_pct": 31.1,
-  "dip_value": 20193.1,
-  "dip_return_pct": 29.44,
+  "dca_value": 20468.06,
+  "dca_return_pct": 31.21,
+  "dip_value": 20207.68,
+  "dip_return_pct": 29.54,
   "dip_cash_uninvested": 1800.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Fed's Hammack warns inflation is persistent, favors more restrictive policy",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNRTg0RjF0SDRoWE96RFJfY0xSeGR4LTljR1NLZnZZUXUyUy1NY2lKRTduOHBpdlJCak50eVh3OVkydzZrNW5IZmhWeWdtbjJwWTRDZ1o5TF9vbzhyV095UnN3MXA2R2VMeGpZZmJjeTFpWS1sZC1HdTloQ2Z0M3JLYUFmSzFWWG5fdDZYb083WFhsYlA2MXZ1aU0xUWN1eEp6aWRvT1JPdkU2ZHMzZEViTk1NZWtPOVNlSGZCWnFIa1lGNGJjS1Zsc2E2RVYwUFJ1a2Fj?oc=5",
-   "published": "2026-10-12T18:58:35+00:00"
+   "title": "Hammack says Fed rate hikes are unlikely to mitigate key inflation drivers",
+   "source": "Scotsman Guide",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQc2pRTUluYl94OHBEREw5NDJCT2NOUnVXSFpLemJaUlBVbFJWWTlPUEVMU1IxandIaVlpN2xGNlhHMHoxaEdFM2hRZThhQTFQR3pnS00xS0pKcVRyZlRoZFRGbm1lSUVMTDZ5OXBxVFVnbjQzNVRDbFJOeURGdWhfQ2R2QUlyRGxQQm5xR1pRVFNVdGNJamRYUGUwbzRGNWVnTlY1WTVTRXNaX292cS1j?oc=5",
+   "published": "2026-10-12T20:52:39+00:00"
   },
   {
-   "title": "News | Distressed Federal Reserve landmark poised for revival in downtown San Francisco",
-   "source": "CoStar",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQaFF4ZGIyZkkzd3I3Qnl6TzhEWlJzUGZTYTBQSmdqZnJLWmZSSDN3Q2lyVWNORWZXaWxVQnNGdzgxNzE0bTBISmVjcmh4Q0preHJTcGlLcnVGcTVnZU5KSm1qSHYxVEJPMzhHMUJ4QXBxNU5Ub1U3UE4ycFVBLTBWeWFoVkpGVGVZQUVqcWNXNlpzbjVDdmRDeWhuSm9wWlAzLWxlUkd1bEF0SExyRnk2MloyNUtrcUJfLUV6SnRRUQ?oc=5",
-   "published": "2026-10-12T18:46:52+00:00"
+   "title": "Federal Reserve voting member Hammack: Combatting inflation requires faster and more frequent small interest rate adjustments; guard against the entrenchment of inflation expectations.",
+   "source": "\u5bcc\u9014\u725b\u725b",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOREFvSDBJUTBLQmpiZDdnNU8wNVVKVkxhTmppS0daay15WW5zNFEzbEhLTDRNQ0pHajExTTlhNEktRnRLbzUwY2hWVUNqTzRTZHo0bmNCeExXMVJZWTFDWTNGZkxVc2hteE9uenlFaUhaVlM5QVZ2M21lelYxYmpvc0paNl9vcG95THh5TzdXNTRxNGh0LVF4UXMxRXZ5QjN1cDVnT0FiTmFWUjJ2SFphaEpVVWNYVW5JZFFvbUF3?oc=5",
+   "published": "2026-10-12T20:50:44+00:00"
   },
   {
-   "title": "Gold Slips Below $4,173, Silver at $60.5 as Markets Await U.S. Inflation Data",
-   "source": "BigGo Finance",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5LbTJISC1Ub2lWUHhpa2l4cXdiLWpRcFpaSXNyVmJkN1ctT3RKM0lDWW9rR0tWMVNxczlPRV9sY0hYNElmOEJHQ2dMRlVGbE9tMmJfU1EzTVFoSGN2Q0luczJ0WDRCU21LZFBhM19mOHdNTjJ5NWc?oc=5",
-   "published": "2026-10-12T18:28:00+00:00"
+   "title": "The week ahead: Senate races, sequins, and September inflation",
+   "source": "Kalshi News",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOUTRDUVJsX29lMmtQWlJncHZ5VGxMTmRjV3FJLU5ETFppUmFkS3IxdFk3M3pkUjNmdEV4S2I3X0RhUENxTFpYRnZIMGt2RUNiTlNyNWFIZkZYSENfdFROaF9oVFc5WG1LWDl4UXJxaS1OdUJ5YlNIVkpvS0hsNWJuN1NKdVNwYzh1MnN0clNIbw?oc=5",
+   "published": "2026-10-12T20:39:38+00:00"
   },
   {
-   "title": "Bitcoin Faces Inflation Gauntlet as CPI, PPI and Retail Sales Loom",
-   "source": "BigGo Finance",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1IU0VaRVNwZzhkancxWFVSNnFubGI2MjMyMXl3cW51dGpVX1pnZkZRM3hRMnJlQnUxUGd5Y0FXdTBYRDhENjBuUW1Eazg0eFNIUXlfZ2hLRl9GZlFCU2g0ZTVfS01CZ2c5N2ZXZmsyXzFIUFpHM1E?oc=5",
-   "published": "2026-10-12T18:27:00+00:00"
+   "title": "Squeezed by inflation, more Americans are falling behind on debt payments",
+   "source": "CBS News",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE05V1F5bGpfSllUN3ZSRnNaNnlmbC1FRElfOGdvR1NYNXFodnEwRlFqRGxEa0Q3Zy1NM0ZHekgwRUpMT1FWaWRGeDlOZU5YRWVtLTg5ajY3YjN1ZzQxWlV1aTFvWm1ic0ZXVENQU051V3AzdmpwS0J0T19aVkR6Zw?oc=5",
+   "published": "2026-10-12T20:29:44+00:00"
   },
   {
-   "title": "Fed's Hammack backs restrictive policy, says better if it comes 'relatively quickly'",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQS3JSQmJSVHVtZDBjMUV0VUlYb0xQaGJvUUkyZG12VVQzVWJYc0pIcjZjQ2R5VUR5Nm1MaTV4SVpLOTB2Rno0b0lRak5ORWFKX21GdGVrTm51b2VKYU9DQWdBUk1TNWlUZkt4WjQ2dEx1OEt0N2hKNjYtVUh1elVZSFJMNG80WUxVUTdqVTdMaU43VUE5SzVGd1FsWnlGSU95VElLNk92VzlMU0NIU1VkZW5nc0xrak11STE1MTl4X19kRUpHZ1E?oc=5",
-   "published": "2026-10-12T18:19:38+00:00"
+   "title": "Borrowing costs still too low to cool inflation, economists say in survey",
+   "source": "CFO Dive",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNanJzMm0wX0x1UEUwd3hXdHFCdmlXb0FUY1FoM1c0OWpHajB1bUxpSWUxQ0ItVThGWXI0cjdpYmhHUEZ6eHpwMW1wTWViUHd4TnJSQ1BvUWJvXzlsRzduaGZpeG1LS2ExaVdhQ3BCU2xiZndzbC0zblhhX3Z1cWRoUXh6MHAyN0JGNjlCZk9LNGFzbW52SE9oQi1tSXVXQ3ZWWVpjTUlud2twa3dJ?oc=5",
+   "published": "2026-10-12T20:28:59+00:00"
   },
   {
-   "title": "CPI Forecasts Show Moderated Inflation in September, Keeping the Fed on Hold",
-   "source": "Morningstar",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNenF3SGlyN01CNU0tRFozMlU0cTJNN2s2X29PYmRkNnRRRVR0UjBnc2J0TmtFWXBLRVFhRERLWlRmWlozeHJKRWxUNTNlNzZiVV83QzZueVNkb0E0NU9JNmJSZnYzekpVbDBFWHB4R0JhdnpaV3NEZGZHQXh5MXBpeXN6aENKbERnS25zeVh0SFFsSlVXYmJOXzZFb3prajR4ODBN?oc=5",
-   "published": "2026-10-12T18:05:55+00:00"
+   "title": "September US inflation forecast rises to 3.6% h...",
+   "source": "Pluang",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQWGVwek93NWdDUW9NN2RkR3JnVThyVUZqdzIzLTV1U1lmYlFaSlptS1lucG4zdXFsY3RHUlM4cXdkdWxlN3Q1NGdFNmg4aHVKY1plbldZM2RHbE9vOWgxZDJ6bDFLUXkzeW81RG9YcE9DQWQ0WDVvbzJKZE1hYXJkZUFROA?oc=5",
+   "published": "2026-10-12T19:25:02+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-12T19:10:10+00:00",
+  "run_at": "2026-10-12T21:10:19+00:00",
   "session": {
    "date": "2026-10-12",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1602,7 +1602,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-12T19:00:23+00:00"
+    "as_of": "2026-10-12T20:51:11+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1618,35 +1618,35 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-12T18:58:35+00:00"
+    "as_of": "2026-10-12T20:52:39+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-12"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-12T19:10Z"
+    "as_of": "2026-10-12T21:05Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-12"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-12"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-12"
    }
   },
