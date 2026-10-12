@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-12T11:00:46+00:00",
+ "generated_at": "2026-10-12T19:10:24+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "24% ann. (p33)",
+   "value": "21% ann. (p12)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "Realized volatility mid-range for GOOG's own past year.",
+   "lean": "bad",
+   "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 32.9,
+    "pos": 11.9,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "12.7%",
+   "value": "12.4%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 12.7% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 12.4% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 25.4,
+    "pos": 24.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.8 (p7), F&G 45",
+   "value": "VIX 15.3 (p16), F&G 45",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 347.86,
-  "as_of": "2026-10-09",
-  "bar": "final",
-  "day_change_pct": 0.87,
-  "sma50": 343.39,
-  "sma200": 338.38,
+  "price": 349.1495,
+  "as_of": "2026-10-12",
+  "bar": "provisional",
+  "day_change_pct": 0.37,
+  "sma50": 343.24,
+  "sma200": 338.55,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 12.8,
+  "drawdown_pct": 12.5,
   "series": [
-   {
-    "d": "2026-01-23",
-    "c": 328.43,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-26",
     "c": 333.59,
@@ -1217,6 +1211,12 @@
     "c": 347.86,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-10-12",
+    "c": 349.1495,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1224,12 +1224,12 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+3.1% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+2.7% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 24%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 21%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1281,13 +1281,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 347.86,
-  "sma200": 338.38,
+  "price": 349.1495,
+  "sma200": 338.55,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 23.5
+  "level": 21.0
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1304,25 +1304,62 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-10-10",
-  "end": "2026-10-09",
+  "start": "2022-10-12",
+  "end": "2026-10-12",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 44574.5,
-  "dca_return_pct": 113.28,
-  "dip_value": 44687.76,
-  "dip_return_pct": 113.82,
+  "invested": 21000.0,
+  "dca_value": 44841.22,
+  "dca_return_pct": 113.53,
+  "dip_value": 44953.42,
+  "dip_return_pct": 114.06,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 162,
+  "dip_buy_days": 163,
   "winner": "dip"
  },
- "headlines": [],
+ "headlines": [
+  {
+   "title": "The Google TV Streamer was just quietly discontinued - Pocket-lint",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPV0tBb3RvNWRESVMxUVpTaFVHcU5zMDBOYjY4eTYweGJJMGtQcS1tSUlCOW5LVkpKRTdGWkxmNGpzYWZNUkQ0ck5sVjZHbFo1UEFhX2FsRllKMnJfV0lybkVZQ1NwWmc3UnpXc0hYN1BUQUtuQnRVT0NyYnFjZnZ3U3JoU09WaXdh?oc=5",
+   "published": "2026-10-12T19:04:20+00:00"
+  },
+  {
+   "title": "Google Challenges Apple With a New Health Data Play - Apple (NASDAQ:AAPL), Alphabet (NASDAQ:GOOGL), Alpha",
+   "source": "Benzinga",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQU1g3a3ZGcml1RG5PN2tfU2lVOUUyY2J0dExxRjVSRTFZTVN6ckJRS1c1RlowSkk0dzlreHVkbm1udHJwUEJ6X3RFSXRKaHkwV1J4X2RHeVZXN21VSnpfV2FnUzd1Y0FtWmNQQm8zeVNjOE5SY2VjZklhQWdSR2xkUUtiejZqYno0VWljdUgzekNKUGc?oc=5",
+   "published": "2026-10-12T19:01:49+00:00"
+  },
+  {
+   "title": "Alphabet Inc. (GOOGL) Shareholders Who Lost Money Have Opportunity to Lead Securities Fraud Lawsuit",
+   "source": "PR Newswire",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNVGhIQmZOZHotSTgwdzFOTDV6Q29XRHd4SUFXRGZaT05nYno5Q2FrNXdCYUUtRVhST29SYXQ1TDdjckpPZ0ZqaVR6RlBJYWZOQWV4QkxXajU5UnVERklXT0I5d2F2SXNPYjQ5VlFzVDZ0UlhIRHZVTDl6U2RoOGxwVW9kVnVpNUNMaWxUMzQ4ek1HVXZSX2N1TUFlMko2WVp5VFFLOWpuaWlRczAtNVhNMUtESXJyX0tLeU5fY21pY2lBM01HbDFUMWxtRjFWWGtJTkIxbUp4X3VDXzNSOEJmWGRvMVM1dFE?oc=5",
+   "published": "2026-10-12T18:40:00+00:00"
+  },
+  {
+   "title": "Google Ads tests automated bidding for Video Reach campaigns",
+   "source": "Search Engine Land",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxONUJyeHpndHNwOWh5amVNWkEzckRUellpM0RsWGNJci1FNjg2QXFGZE5OQ0FGR2p1dHNsR3ZLb2dBTVZmaEhsWm93NU51TEJZNG1vRlljSGswRFVmT0JmeTMtaFNPeXRrYWFXQ3FRWEtTT0tWQnhFUHRWTXNOSEQ1c3c5NWhNTm9lajhPNDRjdmYyX1kxUjRYQklIdXE?oc=5",
+   "published": "2026-10-12T18:39:52+00:00"
+  },
+  {
+   "title": "Google Launches Women\u2019s Health Partnership and New Fitbit",
+   "source": "PYMNTS.com",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPVHk1TXViM0lnLTRsT0FVX3dhcHlFQW1fSGhPQlduYlM5V2g2VW1ENjgwRVpJVWFNb25uNDQ4U1dPUGhKTUZ1WXozNHk0YzR5TFFxcGwzb3YwaXNRMWxYajBxOVdWcWEwSkYwU3FCQkstVGZPWGg1cndITWNFWEFHQzNiRlN2eFJrVHJFVkljeEsxN3ptM1RybEstaTU?oc=5",
+   "published": "2026-10-12T18:33:33+00:00"
+  },
+  {
+   "title": "Warren Buffett Bought This Magnificent Artificial Intelligence (AI) Stock a Year Ago. Here's Why It's Still a Buy Today.",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPSS1Mb0lpSGpEcWpOU1ZKd1RPQjJxeU9ZNjRxV2FkMk1TcE5EYm9WUDR3M3ZEQWlZa0dtVGxhUkJIU3pZX3ltQWktNXJGaE53UHBLRGs1cE16M01zZzI0Q3p4aTMxbElQZkE3VGZEcm5UdjczaE9fQmJfMV9RTkpIRC1KTDNKYmZmcFNtOWpIM2J6c0RhOXFF?oc=5",
+   "published": "2026-10-12T18:26:11+00:00"
+  }
+ ],
  "health": {
-  "run_at": "2026-10-12T11:00:50+00:00",
+  "run_at": "2026-10-12T19:10:24+00:00",
   "session": {
-   "date": "2026-10-09",
-   "bar": "final"
+   "date": "2026-10-12",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1338,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-12T10:44:16+00:00"
+    "as_of": "2026-10-12T19:00:23+00:00"
    },
    "earnings:GOOG": {
     "ok": true,
@@ -1379,99 +1416,105 @@
     "as_of": "2026-10-08"
    },
    "news:GOOG": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T19:04:20+00:00"
    },
    "news:GPIQ": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T19:02:05+00:00"
    },
    "news:GPIX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T18:58:35+00:00"
    },
    "news:NVDA": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T19:02:05+00:00"
    },
    "news:SPCX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T19:00:43+00:00"
    },
    "news:TSLA": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T18:25:00+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-12T11:00Z"
+    "as_of": "2026-10-12T19:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:^VXN": {
     "ok": true,
@@ -1480,14 +1523,7 @@
     "as_of": "2026-10-09"
    }
   },
-  "degraded": [
-   "news:GOOG",
-   "news:GPIQ",
-   "news:GPIX",
-   "news:NVDA",
-   "news:SPCX",
-   "news:TSLA"
-  ],
+  "degraded": [],
   "degraded_core": []
  }
 }

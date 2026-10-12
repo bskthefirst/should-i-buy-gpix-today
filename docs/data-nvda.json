@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-12T11:00:39+00:00",
+ "generated_at": "2026-10-12T19:10:21+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "3 down days",
+   "value": "4 down days",
    "score": 1.0,
    "weight": 2.0,
    "lean": "good",
-   "note": "NVDA has closed down 3 straight sessions. Under the TSLA single-stock framework this earns +1.0 (provisional on NVDA): three down closes tended to bounce the next day on the calibrated name.",
+   "note": "NVDA has closed down 4 straight sessions. Under the TSLA single-stock framework this earns +1.0 (provisional on NVDA): three down closes tended to bounce the next day on the calibrated name.",
    "viz": {
-    "pos": 86.7,
+    "pos": 64.9,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "25% ann. (p2)",
+   "value": "22% ann. (p0)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for NVDA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 2.4,
+    "pos": 0.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "4.2%",
+   "value": "5.4%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 4.2% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 5.4% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 8.4,
+    "pos": 10.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 14.8 (p7), F&G 45",
+   "value": "VIX 15.3 (p16), F&G 45",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 229.28,
-  "as_of": "2026-10-09",
-  "bar": "final",
-  "day_change_pct": -0.52,
-  "sma50": 222.08,
-  "sma200": 202.15,
+  "price": 226.315,
+  "as_of": "2026-10-12",
+  "bar": "provisional",
+  "day_change_pct": -1.29,
+  "sma50": 222.59,
+  "sma200": 202.34,
   "high52w": 239.24,
   "high_label": "52-week high",
-  "drawdown_pct": 4.2,
+  "drawdown_pct": 5.4,
   "series": [
-   {
-    "d": "2026-01-23",
-    "c": 187.67,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-26",
     "c": 186.47,
@@ -1217,6 +1211,12 @@
     "c": 229.28,
     "t": "ok",
     "s": 56
+   },
+   {
+    "d": "2026-10-12",
+    "c": 226.315,
+    "t": "ok",
+    "s": 56
    }
   ]
  },
@@ -1224,7 +1224,7 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 45% annualized (now 25%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 45% annualized (now 22%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1276,13 +1276,13 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 229.28,
-  "sma200": 202.15,
+  "price": 226.315,
+  "sma200": 202.34,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 25.3
+  "level": 22.1
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1299,25 +1299,62 @@
   "estimate": true
  },
  "backtest": {
-  "start": "2022-10-10",
-  "end": "2026-10-09",
+  "start": "2022-10-12",
+  "end": "2026-10-12",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 81373.34,
-  "dca_return_pct": 289.35,
-  "dip_value": 81209.2,
-  "dip_return_pct": 288.56,
+  "invested": 21000.0,
+  "dca_value": 80449.81,
+  "dca_return_pct": 283.09,
+  "dip_value": 80259.03,
+  "dip_return_pct": 282.19,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 180,
+  "dip_buy_days": 181,
   "winner": "dca"
  },
- "headlines": [],
+ "headlines": [
+  {
+   "title": "Microsoft Introduces New AI Chip, Maia 300, to Reduce Dependence on Nvidia",
+   "source": "Nacionale News",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNVlBxOS1EME9kbnRid2drQ0NvXy1iTXNaVzYwVXdfUWc4ZGlRRDl6ZExxT1lJSDlPYlNodGdCZllXa1FqVldpaHJubkFiMXV0Y0pMT1poUjJCemkzVlNPQVhKSW9oUUhYSkhxZFl0V2dMd1VMOHduSC1iMGRXUGxmejIxX01VRWJVd3c2U29ISnh2NGRiNGp0XzYzR3BsNjE2N01PVEFXdXU3U2FpT2lv?oc=5",
+   "published": "2026-10-12T19:02:05+00:00"
+  },
+  {
+   "title": "Nvidia Might Kill the RTX 5090 and Replace It With a 24GB RTX 5080",
+   "source": "ExtremeTech",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQYUt6TFRiNHhRQUdQMHdjS2paNFBsekxFUjR2SVp0Rk03dmY2QWZBUnJmVXZwTHIwQm42SXJVUU9PUFBXYzFRanRHODlhRVJ1YXdqOUNTUGxMbmthN3JrempWLWlkam15OFZ4Rjlva0c5U2U3bDV1ZjNMTnp5NExqZ2VscEdaQ1Vld3VLQ2NkSmRVMUJJcXByN084YnRFWEJ0YnBWT2J2bw?oc=5",
+   "published": "2026-10-12T18:45:06+00:00"
+  },
+  {
+   "title": "Representatives of artificial intelligence companies testify during a New York City Council Committee hearing in New York",
+   "source": "The Lufkin Daily News",
+   "link": "https://news.google.com/rss/articles/CBMitAJBVV95cUxNd0t0S2llN1prbktaUXU2ODI1UlBfTG5CTWNnT2syMGkzLVNfdlZpaTJNeFE5dGRnenpYZ3J5M1BETXVBT2pYa3FVVjVKMlMxM0F3Y2xBLVNBUUVyeVJXazBxRlRiR1B3Ykx2VFdULXZDWW9FWVdrOENpejFNMUxLUDFiTzhEQ3JXQkRKYmYxcnRuY2ZCb2QzS2lzT052Zk9FeUJkUTF3c0pmb2hPMUM1RE0tbVVScG5kZzV5VlF4WTdTbDVIOTdMTjNjeFNQcngtR3lnMGo5UTFZbzBqNXppeElseGp4MjhJNC1nYTNtV2F5bWRaRTJqT3RTdFZSZ3JKeEVzbUhHdF90RFVsVFZLRTlKRHhSd3Npczh5RktocndnN1dTNGtJc2Uzd1hKS2I2QmJnVA?oc=5",
+   "published": "2026-10-12T18:41:28+00:00"
+  },
+  {
+   "title": "NVDA Stock Falls to $225 as Microsoft Chip and Talks to Invest in Reflection AI Raise Debt Concerns",
+   "source": "FXLeaders",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOUW93M2xqckdrUXFJV1lIdUNRNjY0UlQyVlBtQk9iYUd4bjRXUGhxaW1ZWGI5eEtiSkU1THU1amE1aHZQRFdXY3JzbTRKVFpXUFlyMjJHd25HcFVIZjRFR094cUpjSUxFRTNfZ3d6cG4xdmt5UGhwZlFrc0F3a2Jpdnp3eHlwVjZrdTR2U0hqODFlRTE5ZUZtY2ZzTENucGUzaVJqbUhsRURMSXRIRFhJTlRNLTZ0aGlMblhyV2ROR201WE1CdjV0YS1ubkRwbnR1ZGVvUkV2ZU0?oc=5",
+   "published": "2026-10-12T18:32:52+00:00"
+  },
+  {
+   "title": "Warren Buffett Bought This Magnificent Artificial Intelligence (AI) Stock a Year Ago. Here's Why It's Still a Buy Today.",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPSS1Mb0lpSGpEcWpOU1ZKd1RPQjJxeU9ZNjRxV2FkMk1TcE5EYm9WUDR3M3ZEQWlZa0dtVGxhUkJIU3pZX3ltQWktNXJGaE53UHBLRGs1cE16M01zZzI0Q3p4aTMxbElQZkE3VGZEcm5UdjczaE9fQmJfMV9RTkpIRC1KTDNKYmZmcFNtOWpIM2J6c0RhOXFF?oc=5",
+   "published": "2026-10-12T18:26:11+00:00"
+  },
+  {
+   "title": "Watch Cisco, Nvidia Tackle AI\u2019s Growing Data Center Bottleneck",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQY3A0ZVhpdnpoV0UzVzdXMkxVb1dJcnV4S25HV2RXSnl1aTVDYWR1Z1g3X0k2NDdQWUNmU0F0VWlJYkpGQ2pQQXo2cmFVVGdsay1tWHZUbVIzZ2VEQjNpSU82ZmVIVFpHdTNlSVFfYVZoTGl5TTJib1AwdmRFQVdiRy10LUt0ajhQLWJKeUlGendvMEUwMzZ3akc1YVdOTmhrbDh1TVhpelM3TW4wTFBV?oc=5",
+   "published": "2026-10-12T18:25:31+00:00"
+  }
+ ],
  "health": {
-  "run_at": "2026-10-12T11:00:43+00:00",
+  "run_at": "2026-10-12T19:10:21+00:00",
   "session": {
-   "date": "2026-10-09",
-   "bar": "final"
+   "date": "2026-10-12",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1333,7 +1370,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-12T10:44:16+00:00"
+    "as_of": "2026-10-12T19:00:23+00:00"
    },
    "earnings:NVDA": {
     "ok": true,
@@ -1367,88 +1404,93 @@
     "as_of": "2026-10-08"
    },
    "news:GPIQ": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T19:02:05+00:00"
    },
    "news:GPIX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T18:58:35+00:00"
    },
    "news:NVDA": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T19:02:05+00:00"
    },
    "news:SPCX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T19:00:43+00:00"
    },
    "news:TSLA": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "no headlines returned"
+    "items": 6,
+    "as_of": "2026-10-12T18:25:00+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-12T11:00Z"
+    "as_of": "2026-10-12T19:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-09"
+    "bar": "provisional",
+    "as_of": "2026-10-12"
    },
    "yahoo:^VXN": {
     "ok": true,
@@ -1457,13 +1499,7 @@
     "as_of": "2026-10-09"
    }
   },
-  "degraded": [
-   "news:GPIQ",
-   "news:GPIX",
-   "news:NVDA",
-   "news:SPCX",
-   "news:TSLA"
-  ],
+  "degraded": [],
   "degraded_core": []
  }
 }
