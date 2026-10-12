@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T20:25:20+00:00",
+ "generated_at": "2026-10-12T11:00:46+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.4 (p17), F&G 45",
+   "value": "VIX 14.8 (p7), F&G 45",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,11 +120,11 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 5d",
+   "value": "CPI in 2d",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "No event risk in the next few days (earnings 2026-10-28, CPI 2026-10-14, FOMC 2026-10-28)."
+   "lean": "bad",
+   "note": "CPI print within 2 days - a market-wide volatility event. Expect a swing either way."
   }
  ],
  "fund": {
@@ -1238,7 +1238,7 @@
   "end": "2026-10-09",
   "days_total": 740,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-10-09",
+  "fg_coverage_start": "2025-10-13",
   "baseline": {
    "n": 719,
    "avg_pct": 3.18,
@@ -1291,16 +1291,16 @@
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 19,
-  "imminent": false
+  "days_until": 16,
+  "imminent": true
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 5
+  "days_until": 2
  },
  "earnings": {
   "next": "2026-10-28",
-  "days_until": 19,
+  "days_until": 16,
   "estimate": false
  },
  "backtest": {
@@ -1317,46 +1317,9 @@
   "dip_buy_days": 162,
   "winner": "dip"
  },
- "headlines": [
-  {
-   "title": "YouTube",
-   "source": "Paramount Press Express",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1YbkYxbEtYanlNU3dDNm9idlk2RGRTUWRxSTdjbmM1OVU3R2liUWJnVVdYOUI3VGJlVk91LV9xQ1NwcDlwSkRPZVB3QXBxZ3lBTWVrQi03aGxmSHViaGM0TEdKVWZwV1JaSllaSWtOaXptM1otYXExeg?oc=5",
-   "published": "2026-10-09T20:11:29+00:00"
-  },
-  {
-   "title": "Google invests billions into nuclear plants: Sen. Rezin on Illinois' push for more nuclear power",
-   "source": "FOX 32 Chicago",
-   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE93a1pLbjMtNXBlZTYyQ1ZoajZvZzFibkNmbFhRY2EwbzNVY1Vkd1BVMmpGWnJGWnRTUVZlaXlLdHduTVMyby1aNUxESmZyN05aY3doQ2I3REJjRHZ4TnV1SER2TGhvd9IBa0FVX3lxTFB6RXNub0Q5d0hPMnJnbU51N3p6UkNwbFl0NWNNTUwtVWtTM2x2ZjBTaXF5Rm9YRjZSbWNIdHBQdjBMTmhsTlBkYUJudGYyWW5uYlBzTTcwcjF5TEJKMjRFWUV0dVVYQ2hPTzBZ?oc=5",
-   "published": "2026-10-09T19:56:11+00:00"
-  },
-  {
-   "title": "Google officially teases Fitbit Edge tracker, confirms October 12 launch",
-   "source": "9to5Google",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQSGExOW5rLXc3Vmg1NGhKdTVCTGJ6emlsTGNZQlVodzJPVDdVdDloZDQ4SEI4b0RYVFlWYTBLRTl5UV8yWTg1eVBKTWtVNWNMZ1dacnlpcEw1VFFHOWpSeWcxODNzMXpHeG56WmgySjcxSnZGUkVjbXZTSHpYWTdfU2s5Q2kwdWkzUFptVGFuTG1JTlluSlpTTjdTVU1TX0dTMzhPeHBIRWxxQQ?oc=5",
-   "published": "2026-10-09T19:45:00+00:00"
-  },
-  {
-   "title": "Sony\u2019s Screen Gems Sets YouTube Exec Fede Goldenberg To Top Genre Label; Ashley Brucks Segues To Producer Role",
-   "source": "IMDb",
-   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9Uc1FLdHlOWW1FTDRmRmpKWlg2Vi0xTjJQOFIwb2ZCOXVtbW5DY0NZa2NjZkI3T2VvdWp2bHRPOE9HdzFXQl9VZkdkc1gxYnZ3RlpTRFpKT2J0Y1RLWXN3RjlaWmcxUVE?oc=5",
-   "published": "2026-10-09T19:39:28+00:00"
-  },
-  {
-   "title": "Google is about to roll out a new AI model. Employees say they're testing another that's way better.",
-   "source": "Business Insider",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQek5BQ0xxejNBZlRPNDF4dWtsM2NoYUQydDBjRndLcEZVMzFlcEhDVG1tVzF6djdPOWplWkZua0JRTk40T3dwS0pSRG5IT01vR1lfMXFxbE9yNjA4NS1waVhSSkJ2bXYzZmg2ZkV5VGd2Nk1keEhlZ1FkVWg4dmxwU1Z3YXY0Y2hxb1kxNGVwVXkyVWNEZkk4TzBFTXV1dUhpR2c?oc=5",
-   "published": "2026-10-09T19:37:00+00:00"
-  },
-  {
-   "title": "Google unlocks its fake-photo detector for everyone, but there's a catch",
-   "source": "PhoneArena",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPT2t6V2tYVXVscU04TVRjM09qeGFvYVJ6NWhBSE9GWjRFWm9ia28xbzVXc1VhR3BHQkdmdVFET19JdmdSeFRZN1hDUGFkZUcydDdqbDZ1T0tlc2hPV044R0c2OEdGdHJ5QUtiQTFtdW1tV2NhbnFTMEdwWWtUZU1SMnRUN21jaUdOSjFyRUFOb3NrWnVySmlreHZvRExZTlJBTWhLdlBzQ2p1Ymd6Y1l5aw?oc=5",
-   "published": "2026-10-09T19:23:22+00:00"
-  }
- ],
+ "headlines": [],
  "health": {
-  "run_at": "2026-10-09T20:25:20+00:00",
+  "run_at": "2026-10-12T11:00:50+00:00",
   "session": {
    "date": "2026-10-09",
    "bar": "final"
@@ -1375,7 +1338,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-09T20:10:04+00:00"
+    "as_of": "2026-10-12T10:44:16+00:00"
    },
    "earnings:GOOG": {
     "ok": true,
@@ -1416,40 +1379,34 @@
     "as_of": "2026-10-08"
    },
    "news:GOOG": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:11:29+00:00"
+    "error": "no headlines returned"
    },
    "news:GPIQ": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:19:30+00:00"
+    "error": "no headlines returned"
    },
    "news:GPIX": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:24:20+00:00"
+    "error": "no headlines returned"
    },
    "news:NVDA": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:21:41+00:00"
+    "error": "no headlines returned"
    },
    "news:SPCX": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:17:00+00:00"
+    "error": "no headlines returned"
    },
    "news:TSLA": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T19:57:44+00:00"
+    "error": "no headlines returned"
    },
    "yahoo:GOOG": {
     "ok": true,
@@ -1472,7 +1429,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-09T20:25Z"
+    "as_of": "2026-10-12T11:00Z"
    },
    "yahoo:NVDA": {
     "ok": true,
@@ -1508,7 +1465,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-10-08"
+    "as_of": "2026-10-09"
    },
    "yahoo:^VIX3M": {
     "ok": true,
@@ -1523,7 +1480,14 @@
     "as_of": "2026-10-09"
    }
   },
-  "degraded": [],
+  "degraded": [
+   "news:GOOG",
+   "news:GPIQ",
+   "news:GPIX",
+   "news:NVDA",
+   "news:SPCX",
+   "news:TSLA"
+  ],
   "degraded_core": []
  }
 }

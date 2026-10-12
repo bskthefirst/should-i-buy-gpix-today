@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T20:25:11+00:00",
+ "generated_at": "2026-10-12T11:00:17+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.87",
+   "value": "0.84",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 42.2,
+    "pos": 33.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.43x (p76)",
+   "value": "1.38x (p69)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 76.0,
+    "pos": 69.2,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -221,11 +221,11 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "45 (neutral)",
+   "value": "45 (fear)",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "Sentiment in the normal range - no contrarian edge either way.",
+   "lean": "good",
+   "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
     "pos": 45.0,
     "labels": [
@@ -249,11 +249,11 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 5d",
+   "value": "CPI in 2d",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "No event risk in the next few days (next CPI 2026-10-14, next FOMC 2026-10-28)."
+   "lean": "bad",
+   "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but expect a swing."
   }
  ],
  "fund": {
@@ -1357,7 +1357,7 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.87) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.84) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1381,7 +1381,7 @@
   "end": "2026-10-09",
   "days_total": 740,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-10-09",
+  "fg_coverage_start": "2025-10-13",
   "baseline": {
    "n": 719,
    "avg_pct": 1.94,
@@ -1416,8 +1416,8 @@
   "tbill_3mo": 4.23
  },
  "fx": {
-  "usd_krw": 1340.66,
-  "as_of": "2026-10-09T20:25Z"
+  "usd_krw": 1332.16,
+  "as_of": "2026-10-12T11:00Z"
  },
  "distributions": {
   "history": [
@@ -1550,12 +1550,12 @@
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 19,
-  "imminent": false
+  "days_until": 16,
+  "imminent": true
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 5
+  "days_until": 2
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1571,46 +1571,9 @@
   "dip_buy_days": 61,
   "winner": "dca"
  },
- "headlines": [
-  {
-   "title": "Cybersecurity, AI, and the Future of Technology: A Q&A with Professor Jose Martinez",
-   "source": "Felician University",
-   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE40UkFqNHJDdHNVNDRmdC1YT2pwMHJ5cHNzeVBNUGhXSmJBWi0tTTh2cWNLNF9oWVEwcjFHVkdndkg4OGRUNzJ5NFBlWExJZnIyanppd2hBOElFNXdxRGZJZmRjQ2xQNWNFSWc?oc=5",
-   "published": "2026-10-09T20:19:30+00:00"
-  },
-  {
-   "title": "Stocks Recovered From an AI-Fueled Drop To End The Week Despite Higher Oil Prices And Bond Yields",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNUnFmcTQzT1ROS3dtVDdaTW9zYWlWb0dPQ2l5NzY4cVlVLXdRTHRnWHFNQk1QVEQ2U3VYTkw3V3dDdDhteWNBVTlaemJYWWdrQ2dLRk95eHUwVENDbHdRR2hIZkFiNW9aeGxhaTZPV3VyOVRidjBabWRmRmRybnBJQ09sR2VfalJkeEVlNmVpMlRzc3ZPZGZ1bkNsQWU?oc=5",
-   "published": "2026-10-09T20:05:10+00:00"
-  },
-  {
-   "title": "Trump escalates effort to fire Federal Reserve governor Lisa Cook",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQYjlOZTQ4TndWWU5vZlFJRXZmTWpHemhxVnlsWi1RVE1aalh6MEhhRTNzU1Vvc2lpb050STlEWFJ5OVE1a0tjWnZGZkxtbnpUVWZocHBOSTR3MnREUXBmbTJpN2pRb0s1LXByRkRjekxYdXVxaVFGdlNib0JQUnptYndHUkplMURQUG5mcnFkbzY2QV9mRE44Z2dnUTZVUGVTbFBsQXJieHR5NG9lR2NFZk43enU?oc=5",
-   "published": "2026-10-09T20:03:39+00:00"
-  },
-  {
-   "title": "OPM launches beta AI chatbot for federal workforce data",
-   "source": "FedScoop",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBpUlF1WF95RDAzcUxRckZnZVJlZTItZThKUFFsby1yZnJvWXgyaUdHeVFtZFp6UXIya1FYeXFJZHBzWktTaFhIOVROVWVEMzNiWms4ZjlvcTNWaUdjZ09xZUZ1OUFtUXJuU3FtbTFLNmRYRkNnaUl1NFJ3?oc=5",
-   "published": "2026-10-09T19:58:38+00:00"
-  },
-  {
-   "title": "AI, Data And The 2026 Life Sciences Investment Playbook",
-   "source": "JDSupra",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQMF9oWk85bXpmMnhPUmNiSUhIOFRUWmkxWVNxcDZJUVVMck9rZl9rMlQzclhTc3pTWmpTWGtTMW9ZcE9ISmhmci05d2lSMFJmRFZzazFwMElIdGpFYUNOaDlrSS1JbGxNbGo3eGlfUTBXUmVjS1dvLTAyenRacUlONWVudw?oc=5",
-   "published": "2026-10-09T19:51:00+00:00"
-  },
-  {
-   "title": "Nvidia Is Making a Bold Move in AI Chips -- Here's What's Behind It",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNSTJSUlQ4Mi1DMUtOWFhQQy1UMkNobGN1QW5TcGxDUGtEWkZfYjd4R2pvWlh5djNtMHJRbUxDek96a2w2YzRJemFFc0tUcGZxZ2Rsd0dGZzJQS3pGczJCRFh1YXV3Rnc3VnJSanBOUWUxNnlfUmNKWG40RW42amt2UW9TZTBod3VEZG1VZ093QjRGVFNE?oc=5",
-   "published": "2026-10-09T19:49:29+00:00"
-  }
- ],
+ "headlines": [],
  "health": {
-  "run_at": "2026-10-09T20:25:11+00:00",
+  "run_at": "2026-10-12T11:00:23+00:00",
   "session": {
    "date": "2026-10-09",
    "bar": "final"
@@ -1629,7 +1592,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-09T20:10:04+00:00"
+    "as_of": "2026-10-12T10:44:16+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1642,16 +1605,14 @@
     "as_of": "2026-10-08"
    },
    "news:GPIQ": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:19:30+00:00"
+    "error": "no headlines returned"
    },
    "news:GPIX": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:24:20+00:00"
+    "error": "no headlines returned"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -1668,7 +1629,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-09T20:25Z"
+    "as_of": "2026-10-12T11:00Z"
    },
    "yahoo:QQQ": {
     "ok": true,
@@ -1686,7 +1647,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-10-08"
+    "as_of": "2026-10-09"
    },
    "yahoo:^VIX3M": {
     "ok": true,
@@ -1701,7 +1662,10 @@
     "as_of": "2026-10-09"
    }
   },
-  "degraded": [],
+  "degraded": [
+   "news:GPIQ",
+   "news:GPIX"
+  ],
   "degraded_core": []
  }
 }

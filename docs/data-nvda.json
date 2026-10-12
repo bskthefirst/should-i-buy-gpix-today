@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T20:25:18+00:00",
+ "generated_at": "2026-10-12T11:00:39+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.4 (p17), F&G 45",
+   "value": "VIX 14.8 (p7), F&G 45",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,11 +120,11 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 5d",
+   "value": "CPI in 2d",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "No event risk in the next few days (earnings 2026-11-18 est., CPI 2026-10-14, FOMC 2026-10-28)."
+   "lean": "bad",
+   "note": "CPI print within 2 days - a market-wide volatility event. Expect a swing either way."
   }
  ],
  "fund": {
@@ -1233,7 +1233,7 @@
   "end": "2026-10-09",
   "days_total": 740,
   "backfilled_days": 711,
-  "fg_coverage_start": "2025-10-09",
+  "fg_coverage_start": "2025-10-13",
   "baseline": {
    "n": 719,
    "avg_pct": 5.45,
@@ -1286,16 +1286,16 @@
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 19,
-  "imminent": false
+  "days_until": 16,
+  "imminent": true
  },
  "cpi": {
   "next": "2026-10-14",
-  "days_until": 5
+  "days_until": 2
  },
  "earnings": {
   "next": "2026-11-18",
-  "days_until": 40,
+  "days_until": 37,
   "estimate": true
  },
  "backtest": {
@@ -1306,52 +1306,15 @@
   "invested": 20900.0,
   "dca_value": 81373.34,
   "dca_return_pct": 289.35,
-  "dip_value": 81209.21,
+  "dip_value": 81209.2,
   "dip_return_pct": 288.56,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 180,
   "winner": "dca"
  },
- "headlines": [
-  {
-   "title": "Digital detox how-to; artificial intelligence in nursing; when to see your doctor about GI issues; plus other stories with Vanderbilt Health sources",
-   "source": "Vanderbilt Health News",
-   "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxPTHhFNGY4UEJ1RHlXM24tT1ZvRUxoSURjbHBwbGU1M2lqc2ZYdGxOOTlnY2d0QVd3S3c1cEI2NlNrdHBXM2FEcjltTUVvQVhlUFFBTnlXbm1NR3JUZldFV0pFUFNfeFVjcUNqTm81LTNwNTZpMkFkcFIxX2JXZGVpcy1iZmRoNmpTUHNWQnVieWttbEk2bzJ6R3VoRmt0eUlLcUxlc29rNkYwXzVaUXhUd3BDRUNSVTl6R2Q0OWIxNlU5dU1QRXRkX0Qyd1E2UlVyOHBxNTBESHpxRkRGMW10dEJaR2RreURzd1UzMFhfSlh3Zi1sR0hFNlZGODZqMVk0bU1zNDY3d0xuM2M?oc=5",
-   "published": "2026-10-09T20:21:41+00:00"
-  },
-  {
-   "title": "Nvidia Stocks Edge Higher as $1 Billion Science Bet Tests Returns",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdk9kd2NycDc0TFpjZVhuZEZrTjVNcENWdW9PMHBoV0loT2hfWGQwQ0ZNUHNZdXlfUGdIZ1dvUXlQUm1va2VBYVI3ZXdKVzNkd1NhcC0tOEhlbzM0cVcwN1lsOUNKbmV3Q1pzOUJab3ZxQThiWVM5Vk5TTjlFODhUMnBHYW5IU1BLU1lNTHVzRHVIQWNvOUp3?oc=5",
-   "published": "2026-10-09T20:03:05+00:00"
-  },
-  {
-   "title": "NVIDIA cuPhoton accelerates scientific image analysis ...",
-   "source": "eeNews Europe",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4xTjY2elZTX2l4X3NRdDh5ZXgzUVo3Y2NTQndlTVA0X0xfM25MdVFYSExKT1pRNkkzUXRnZlp4YTFBNGxlaEZoOVg0UmZVQk92bEd1UEJjOWtHQUZmTUFZQjJ5cVVBMGxHTjVuVTk0VHhiVnpvbTl3UVhMdlNOYW8?oc=5",
-   "published": "2026-10-09T19:52:12+00:00"
-  },
-  {
-   "title": "Nvidia Is Making a Bold Move in AI Chips -- Here's What's Behind It",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNSTJSUlQ4Mi1DMUtOWFhQQy1UMkNobGN1QW5TcGxDUGtEWkZfYjd4R2pvWlh5djNtMHJRbUxDek96a2w2YzRJemFFc0tUcGZxZ2Rsd0dGZzJQS3pGczJCRFh1YXV3Rnc3VnJSanBOUWUxNnlfUmNKWG40RW42amt2UW9TZTBod3VEZG1VZ093QjRGVFNE?oc=5",
-   "published": "2026-10-09T19:49:29+00:00"
-  },
-  {
-   "title": "Question of the Day: Is artificial intelligence safe for kids to use?",
-   "source": "KQ2",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNSWlqUE83eXZveWJnNWdaZnR1c2lZSW94OXJPb3pySHFBNjBFSURpck9DdmxHZDgzOUFMNlAybjR2Vnh5aGZBWTRtLU1NZU1HdllycHdFRUZzQnJQeGxtajQ1Tk1heWVKd1MzSEhvdnRhNUlqa0NwTURoRmQ1Uy1xRTE0d05TTWRHSzVCdDNsUnJPNGtWVDAxbWNCV1BVaGliVFNpUGRwQVVUQzc2QTJLMU1PTjRiN2M?oc=5",
-   "published": "2026-10-09T19:25:52+00:00"
-  },
-  {
-   "title": "American billionaire Jensen Huang loses $6.1 billion as Nvidia shares fall",
-   "source": "Billionaires.Africa",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxONEhUOHpNR1F1NldaeWkwa19BZzdNdWozSkhScFB5ZFRVT2d5UkstRGU5VzJYVFdVNTdtWDh2YUltSE05VFBfY2JWUjFLd29WbTgtYjV3QVRoNmp4eXB2anlMdkhfbDhpaUFzX3dSMnVPVUE5QXdEMkJtX2E2eGJiTy1qdkpDSWg1bWxWR2pFenZjdnJ3NGFrZHUwTF9yMHltMzZISlROcnFOanl2ZFpZSGFFdE8xcDg1?oc=5",
-   "published": "2026-10-09T19:16:46+00:00"
-  }
- ],
+ "headlines": [],
  "health": {
-  "run_at": "2026-10-09T20:25:18+00:00",
+  "run_at": "2026-10-12T11:00:43+00:00",
   "session": {
    "date": "2026-10-09",
    "bar": "final"
@@ -1370,7 +1333,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-09T20:10:04+00:00"
+    "as_of": "2026-10-12T10:44:16+00:00"
    },
    "earnings:NVDA": {
     "ok": true,
@@ -1404,34 +1367,29 @@
     "as_of": "2026-10-08"
    },
    "news:GPIQ": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:19:30+00:00"
+    "error": "no headlines returned"
    },
    "news:GPIX": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:24:20+00:00"
+    "error": "no headlines returned"
    },
    "news:NVDA": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:21:41+00:00"
+    "error": "no headlines returned"
    },
    "news:SPCX": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T20:17:00+00:00"
+    "error": "no headlines returned"
    },
    "news:TSLA": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-10-09T19:57:44+00:00"
+    "error": "no headlines returned"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -1448,7 +1406,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-09T20:25Z"
+    "as_of": "2026-10-12T11:00Z"
    },
    "yahoo:NVDA": {
     "ok": true,
@@ -1484,7 +1442,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-10-08"
+    "as_of": "2026-10-09"
    },
    "yahoo:^VIX3M": {
     "ok": true,
@@ -1499,7 +1457,13 @@
     "as_of": "2026-10-09"
    }
   },
-  "degraded": [],
+  "degraded": [
+   "news:GPIQ",
+   "news:GPIX",
+   "news:NVDA",
+   "news:SPCX",
+   "news:TSLA"
+  ],
   "degraded_core": []
  }
 }
