@@ -45,7 +45,7 @@
           persist({book:result.book,base:result.book,pending:[],conflicts:[],lastSyncedAt:now().toISOString()});
         }else persist({book:remote.book,base:remote.book,pending:[],conflicts:[],lastSyncedAt:now().toISOString()});
         notify('synced');
-      }catch(e){notify('offline',e.message);}
+      }catch(e){notify('offline',/fetch|network|abort|timeout/i.test(e.message||'')?'Cannot reach Mac mini. Revenue entries stay here and will retry automatically.':e.message);}
       finally{busy=false;if(queued){queued=false;Promise.resolve().then(cycle);}}
     }
     async function save(input){
