@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T19:10:15+00:00",
+ "generated_at": "2026-10-13T20:25:12+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -23,7 +23,7 @@
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 19.1,
+    "pos": 19.2,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 37.1,
+    "pos": 37.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -69,7 +69,7 @@
    "lean": "neutral",
    "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 64.1,
+    "pos": 64.0,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -96,7 +96,7 @@
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 81.3,
+    "pos": 81.8,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "1.6%",
+   "value": "1.5%",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Barely below the 52-week high (distributions reinvested) - not the 3%+ discount the audits proved out, and not a warning either.",
    "viz": {
-    "pos": 16.0,
+    "pos": 15.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+2.1%",
+   "value": "+2.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 67.5,
+    "pos": 68.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 57.6,
+    "pos": 57.3,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "44 (fear)",
+   "value": "45 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 44.3,
+    "pos": 44.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,14 +257,14 @@
   }
  ],
  "fund": {
-  "price": 57.7299,
+  "price": 57.79,
   "as_of": "2026-10-13",
-  "bar": "provisional",
-  "day_change_pct": -0.31,
+  "bar": "final",
+  "day_change_pct": -0.21,
   "sma50": 57.16,
   "sma200": 55.07,
   "high52w": 59.52,
-  "drawdown_pct": 3.0,
+  "drawdown_pct": 2.9,
   "series": [
    {
     "d": "2026-01-27",
@@ -1342,7 +1342,7 @@
    },
    {
     "d": "2026-10-13",
-    "c": 57.7299,
+    "c": 57.79,
     "t": "neutral",
     "s": 50
    }
@@ -1357,7 +1357,7 @@
   {
    "label": "Real discount",
    "direction": 1,
-   "text": "GPIQ at $56.90 (-1.4% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
+   "text": "GPIQ at $56.90 (-1.5% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1367,7 +1367,7 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 44) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 45) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
@@ -1378,12 +1378,12 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-12",
-  "days_total": 741,
+  "end": "2026-10-13",
+  "days_total": 742,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-10-13",
   "baseline": {
-   "n": 720,
+   "n": 721,
    "avg_pct": 1.94,
    "median_pct": 2.2
   },
@@ -1398,8 +1398,8 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 147,
-    "avg_pct": 2.63,
+    "n": 148,
+    "avg_pct": 2.64,
     "median_pct": 2.9
    },
    {
@@ -1412,12 +1412,12 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.99,
-  "tbill_3mo": 4.23
+  "ttm_yield_pct": 9.98,
+  "tbill_3mo": 4.25
  },
  "fx": {
-  "usd_krw": 1341.14,
-  "as_of": "2026-10-13T19:10Z"
+  "usd_krw": 1339.82,
+  "as_of": "2026-10-13T20:25Z"
  },
  "distributions": {
   "history": [
@@ -1540,8 +1540,8 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 742.815,
-  "sma200": 673.39,
+  "price": 743.57,
+  "sma200": 673.4,
   "above_200d": true
  },
  "vol": {
@@ -1563,57 +1563,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15600.0,
-  "dca_value": 21707.73,
-  "dca_return_pct": 39.15,
-  "dip_value": 21469.49,
-  "dip_return_pct": 37.62,
+  "dca_value": 21730.33,
+  "dca_return_pct": 39.3,
+  "dip_value": 21491.43,
+  "dip_return_pct": 37.77,
   "dip_cash_uninvested": 400.0,
   "dip_buy_days": 61,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Why AI could end the price tag as we know it",
-   "source": "CBS News",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAxVWVrellGMnM1a2dRSXBRdENXdTAzM1V2d0hUM1JFdjdQMXN6ZmJqSk95UUtNdkJEaW5YWmVlNkNLOWZIdzk1YXU2Tlh6MFdEeV82VzN3MEhsMlRfR2RHY3FFaFEtUnI5RE9wWTAtVlQ?oc=5",
-   "published": "2026-10-13T19:05:02+00:00"
+   "title": "California Bans AI From Making Medical Decisions on Its Own",
+   "source": "Governing",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPdTBsVXV4MUJHZkZReFpJUnlPdzZtLWEtUnRVTllRMzVYaG80ajBNQmR3WlFVaXhaOEUtWEpHbHkxWTZvVDlfb0ZxZEZMQWV1RXBoa1ZoUnkxX3JuR1dLNjFObkNXTmhaNWhqcVZtR0F2X1FEZk90MFRfNGEzS05PQUFvV0JZZG91eUM5RGRWenF5THkxSDdrUWx1aG56TEtBLVRidzhxZWdNT0lnR2c?oc=5",
+   "published": "2026-10-13T20:11:43+00:00"
   },
   {
-   "title": "Plano, Texas, OKs Spending $390K for Citywide AI Initiative",
-   "source": "GovTech",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQNGdFX29YaU40Q00xYldHUm93QmdxSDBYQlJCaThLYXZla21nc0lKM1dRdXdOMk45U0J2N1pXNDY0OVdPdDJWQm1fdWtLSDdCak9xeng5M1hLRHF1S213cnNUYW1qelBfVWdkQTRnZU03Uy04b2l6RmRDaFE2Nm5IZmhZcmhPVXY3ck9iODdPcnZFX0puSHlDZk9SZXViM0wtNk5HMWl1aw?oc=5",
-   "published": "2026-10-13T18:58:32+00:00"
+   "title": "Panel: AI Rogue Agents Raise Liability Questions for Tech Companies",
+   "source": "Broadband Breakfast",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNckVINXNsT0UwUjgtelJJYTNKbnZsYVZCdkFQNFc2OTA1ZlFuRnp0cV9wMk1hTk9sdWktbGNob0R5TC1qR1liUXdRUGt1X1VlV1FVcl9CaXhjT1U3YmZDYkJqYVFZSktNMTZ1ZWxsOVEwbVp5V2lxVDFkZzY2VTgwUmROR2R5dU1zSmdqTU9UQjY3Mno1MHppUE1pZEx0NFk?oc=5",
+   "published": "2026-10-13T19:59:37+00:00"
   },
   {
-   "title": "JPMorgan Chase blocks outside AI agents like Muse, Instinct from directly accessing accounts",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE50RmxUSE5meHNnY241Q0xkdGEtbDNzZHFFR0lnTWhZTVhPV1YyWkRjN0FkdUFUWlZSckh4ODVNSHFRazlTQlA1SGlsckEwaXlheUt0clZoYjR0RnVvMl9IZWc1cHM5MnA1Q1AzM0tucjk0Ujc2LVltb3l30gF_QVVfeXFMTjRGWklGa21nZTlTdDRXRVRqdFlWXzZUVGJ0ODMxRkRQNUxxeVJscHltWnhSQllvRThCck1XNGo5LUI2cnl4SHFNU3hRQ3dWTThvd2tnZnU5MnRaeU9PblJXb1NYbW9zMndEcWppU2g3TGZ4Y2Fvam4xQlFfeDFBYw?oc=5",
-   "published": "2026-10-13T18:46:27+00:00"
+   "title": "Owned, not licensed: Why community colleges should build their own AI infrastructure",
+   "source": "Community College Daily",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPMGR3UENEcVlmZ3NqMDJxaWdLaTIyVUw1bW1MeWYxTXk3blcwbC04NXdNWFlnQlBNQjl6ZS02djhNTkZUMGtncThqdi1KZ3dCbi1mZC0tSklDWXJKODFDc0UyR2lOMXRaX1hsTlpMVXFVWThjbDRiVGRrTExUU1VEaDVRcExDd0dPMThoTXplVnBFT00teEJOeWxqZWVqamljWFBFbEM2SkdTc05QOHRkQTBhc1Axdw?oc=5",
+   "published": "2026-10-13T19:46:56+00:00"
   },
   {
-   "title": "Kennesaw State researcher brings AI lessons to life with shark teeth",
-   "source": "Kennesaw State University",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNNHZhRXRrQmREVUgzMFFkYkxQWmlUcE5ZUjU5TkpuSnlIZzBFU2puNV9yY09zZjNQdHdhQ0kyM1RSREhwR2xpVlIyS3lPVUhseFFkVzZyS0lUYUZtdmZmQTZvYlVEN3dqcmJlTDNMOERrVkhaMXhjaEgtOHlpeFp4U0M3THgwTkV3UHZCMFUtYzlKaG9leGh2dWNuNkhlWk05?oc=5",
-   "published": "2026-10-13T18:46:13+00:00"
+   "title": "Legal responsibility for AI agents: Who answers when an agent acts alone?",
+   "source": "IAPP",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQcFIxb2J5TThXSTNlUF9tRkVFN2NwU0FYOVphVjNvYzdOTV9Zd0pscTdYSjM1ckt1anhOM05lNlNCOVpwY1NfaGtRcU1kYWJFamROcnZQZG9xb1VITE9hWXVwMUFubUdjTkRudmo3TURobWR4RmdfNEYwRlhFN1pHNmhGZnlpclVoR0lZVXpNaGV0clV2NC14YXhwSlFtb09kWHFOZTBncHZxV2s?oc=5",
+   "published": "2026-10-13T19:44:01+00:00"
   },
   {
-   "title": "Google Cloud\u2019s Lohmeyer: Agentic AI will kick off a CPU comeback",
-   "source": "Fierce Network",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQb3VZLTdRLUc0d2VRcTZ0b2dfRkQ3cVVDczlkb29RVW5QX29kbXFJMG9PeV9HU0RFaWFhaEN0YjhZZFdZM1FTelg1Z0Q0NExVeXNsc01kVHhVNzlNSGg3VHM3b1BTODU1NHIyMk9SVl83eUMyNzIwaTJYeWFEc1dEVUh2NHUzUzA2MnlDN1ItOWdlS1plc0p4Mg?oc=5",
-   "published": "2026-10-13T18:45:25+00:00"
+   "title": "Put AI into practice with October workshops",
+   "source": "Clemson News",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBtaUc0SmtsV3ZHMXhuSzFldzR3UVhrMFltSGtQemNDNmZ2ZzlITXdCbzhncDBodGY0dE1MQXJ5VkVKNFZ4Qks3RjM3TjVnTjkyMkNreGZJUjBtbk1XSHh4OGRFR1ctZXFpa2Y2UzBvWU9nSFZOVWZqRw?oc=5",
+   "published": "2026-10-13T19:43:44+00:00"
   },
   {
-   "title": "A new phase of government AI adoption could bring a very different budget reality",
-   "source": "Federal News Network",
-   "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQdXVEd0tCOS1XNWVLUWtJYmM5b1NZY0RsbnlZNzFFOEJ0aHRYWm4wZk1jdkh2dkRGVVg1bDA2dlloNmtQNTBIUmJhMWVXYWtwcjh2TkNIaVI1WHdWeTR0ZXk3M2hSQThBT255UWp6Nm1hTUR5S2lPbEpUZWw2ZTBQcUZqU0R5cnNCeERsYi1obl9ydTNvRlJiR0VHbDd6WUk3VjZaeGcyNEtST0hyWk12VHYxVGxHMDRoblRRc3kzNExhQWpSX2lOdFlvd2FMVEtzaFFWVS1oTl9XeE1hbVE?oc=5",
-   "published": "2026-10-13T18:42:54+00:00"
+   "title": "Officials Seek Probe Into AI Use By Public Utilities",
+   "source": "CT News Junkie",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPNGZqY3o3Y1VNRDJVVWdBRUpETks2VGlUaWc2MFNVRzRWZVVLZUdqaEpmUWlQM0pqMXJFblN0NlFPV2NrT0h4c1VMaUNCbV9ZRjhySXB2b2VkeU5RdF9GdjN5Wm5nUFpJU3pSeEExTDRvUFVxOEowMkFFenF5RmtkcmF6V0Qtd0RKdDY1eWMxa2ZsMnM?oc=5",
+   "published": "2026-10-13T19:37:43+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-13T19:10:16+00:00",
+  "run_at": "2026-10-13T20:25:13+00:00",
   "session": {
    "date": "2026-10-13",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1629,7 +1629,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-13T19:04:05+00:00"
+    "as_of": "2026-10-13T20:10:46+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1639,60 +1639,60 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-08"
+    "as_of": "2026-10-09"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T19:05:02+00:00"
+    "as_of": "2026-10-13T20:11:43+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T18:47:00+00:00"
+    "as_of": "2026-10-13T20:11:00+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-13T19:10Z"
+    "as_of": "2026-10-13T20:25Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
+    "bar": "prior_close",
     "as_of": "2026-10-12"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-10-12"
+    "as_of": "2026-10-13"
    },
    "yahoo:^VXN": {
     "ok": true,

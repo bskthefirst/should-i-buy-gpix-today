@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T19:10:13+00:00",
+ "generated_at": "2026-10-13T20:25:11+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 37.1,
+    "pos": 37.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -69,7 +69,7 @@
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 80.6,
+    "pos": 80.5,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 39.0,
+    "pos": 38.8,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "44 (fear)",
+   "value": "45 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 44.3,
+    "pos": 44.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,9 +230,9 @@
   }
  ],
  "fund": {
-  "price": 56.4199,
+  "price": 56.42,
   "as_of": "2026-10-13",
-  "bar": "provisional",
+  "bar": "final",
   "day_change_pct": -0.02,
   "sma50": 56.05,
   "sma200": 54.13,
@@ -1315,13 +1315,18 @@
    },
    {
     "d": "2026-10-13",
-    "c": 56.4199,
+    "c": 56.42,
     "t": "neutral",
     "s": 50
    }
   ]
  },
  "flips": [
+  {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "SPY has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
+  },
   {
    "label": "Real discount",
    "direction": 1,
@@ -1335,30 +1340,25 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 44) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 45) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
    "text": "VIX above 23.6 (now 15.2) = top decile of its past year (+9 pts)"
-  },
-  {
-   "label": "Extreme credit stress",
-   "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.11%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-12",
-  "days_total": 741,
+  "end": "2026-10-13",
+  "days_total": 742,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-10-13",
   "baseline": {
-   "n": 720,
+   "n": 721,
    "avg_pct": 1.65,
-   "median_pct": 1.97
+   "median_pct": 1.98
   },
   "bands": [
    {
@@ -1378,19 +1378,19 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 525,
+    "n": 526,
     "avg_pct": 1.24,
-    "median_pct": 1.66
+    "median_pct": 1.67
    }
   ]
  },
  "income": {
   "ttm_yield_pct": 8.13,
-  "tbill_3mo": 4.23
+  "tbill_3mo": 4.25
  },
  "fx": {
-  "usd_krw": 1341.14,
-  "as_of": "2026-10-13T19:10Z"
+  "usd_krw": 1339.82,
+  "as_of": "2026-10-13T20:25Z"
  },
  "distributions": {
   "history": [
@@ -1513,7 +1513,7 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 778.22,
+  "price": 778.01,
   "sma200": 723.82,
   "above_200d": true
  },
@@ -1536,9 +1536,9 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15600.0,
-  "dca_value": 20464.39,
+  "dca_value": 20464.43,
   "dca_return_pct": 31.18,
-  "dip_value": 20204.39,
+  "dip_value": 20204.42,
   "dip_return_pct": 29.52,
   "dip_cash_uninvested": 1800.0,
   "dip_buy_days": 31,
@@ -1546,47 +1546,47 @@
  },
  "headlines": [
   {
-   "title": "Treasury, Eurozone Yields Decline as Markets Look to U.S. Inflation Data",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQaVJGTVRQcWlpaDNiZVFTYW1od1ZiMVNKRU14QWVocUs2SnlZLW1KNzFwTVliUHczVUZhMURPSEtiay01cXJ0cnZOMkllU3phWk8xWVlIT2lzQlZFOE5rRTBFNlJjRTJYb1JPT2h5aFhrX2M2MjllVGc2NHhuNGJoMFVnOFFoY05SRnRsUEkxX25ZM1JndThkVGZjMW9XZDBrVFYtWEVDdmxmVFNseFotZW5pOExsSTZHRVVVNg?oc=5",
-   "published": "2026-10-13T18:47:00+00:00"
+   "title": "September CPI Preview: Inflation Expected to Accelerate on Energy Prices",
+   "source": "IndexBox",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOUzZXZjNZQXg5aEhZcW1PVFE0NnpUc0pZbVFLSTZKcUdmY3I5UWN5RS1DVFprNEdmU1Rma3FBVFRzenVtS25Yd0JnYndFZUNvSFA5ZkRjTnVCdy1MbEVuSnVvVWFUVDJTY2FUT0Itb0I4eVFRMnRrMGphZFVYVWJkdzR2RVM4UEJyeXEzMWw2Y0ZPNENHX0xYVWVCamMyMnc2UzVB?oc=5",
+   "published": "2026-10-13T20:11:00+00:00"
   },
   {
-   "title": "Fed\u2019s Barkin says persistent inflation warrants policy action",
-   "source": "FXStreet",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNaE01STIxSG91YkJJZmw1QmJidkN5cUJjc1RTNk5GVnBHbzBDZ01mYU5meUNVaUkzLVpSdnoyZ3czZ0tTNktlQktvemI3cXZ0eE00N3dkYl9VTzJ0MVFhVFc3LXlOSWdDNklmeUc0Z1FMX1dUa3UtZEFydUFMenRfSGFSeXFTdVlpSUJFSDd6SG5pbDlsMUtmbHVMTTJCSTc2NzZwN05R?oc=5",
-   "published": "2026-10-13T18:31:49+00:00"
-  },
-  {
-   "title": "Fed's Williams currently sees no need for rate hike in 2027, Bloomberg News reports",
+   "title": "Fed's Collins sees another rate hike on the table before end of 2026",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOVlpnSjdVeERKaFdNRkxCTHhRNmY5Y0FFN3k0by1ndE9MYXIzN0pybnJzUFBqR1hOaHpUYjFjODI1ZGNSMjVLRF83S19ZNXB6eGU0YU5MUUVMWEFtSjN4UlRReUpsWFktZ2lfX1pQZDBNS1Qtbk02bXNGRVNQZUlSS2pKZ2wxRUtGZzBWYUxCdGJpbHZkOFlMYWhtb0lRNFZEMDd6ZnY2RjdDRXpVdWhsUVhwN3ZsZ1k?oc=5",
-   "published": "2026-10-13T18:30:33+00:00"
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPQTNoWUtZWjdLcTc2ZmNycnptRmR1cmluWThZU2ZTYU5JUkdaazY1Z2hEdjIxNWZ3VU5RSVZvejc3VnlueGZoN0JyNlNmdkptQk9ZNEZqU1MyLTNUblpOaF9FMkdGbnZhX1hTVllLTzYxNFEwamlyazZKem00N1k1UFBablNQSVRCZTgySWNNR3pHemxzSEl1S0VBeE1DQlYyS0Ntdw?oc=5",
+   "published": "2026-10-13T20:08:52+00:00"
   },
   {
-   "title": "Gold subdued ahead of US inflation data, Warsh remarks",
-   "source": "TradingView",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNMVFRN2J0WW9qVXJPcnRFekF5c3hybFNSeVJZWEZQdlRNR3d6X2tfbHhjdndrU0RLdkhaZFgwQ2ZmOVlJMDBqZGFlV3NST3JyX2RibkFyN2N5eWJ5TlMwNWZwZDZzWHNfTW13M280RDZMWHpyNVFMLUJGRGgtN1JGT19TaEVvc2FoS1ZReFZSRjdnRXkwY2EyaE1hZ25nZHlUZ0laRjlMT3EzZzQ0UUt5X2lXOVVsbTJickNuVS03dEI?oc=5",
-   "published": "2026-10-13T18:30:00+00:00"
+   "title": "Economists expect September CPI to show accelerating inflation as energy costs surge",
+   "source": "Quartz",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9IQnRIZndFMFRTUmdxV0xJXzVBanFkSnBFWmdJdEgxQ2Y4ZE5RcHB2dTFGenR3RWQ5bThxUXJUanZOTlNPcnpLbjhaMFFReFUtS0tfWm5tc0dLZkRvdTRUY3VwdC1FQ2FkLVN6M0NFc21OY2M0TklMVQ?oc=5",
+   "published": "2026-10-13T20:04:43+00:00"
   },
   {
-   "title": "Walmart Shares Outperform Luxury Sector by 21% \u2014 Strategist Says Recession Signal Is Flashing, Fed May Be Forced to Pivot to Rate Cuts",
-   "source": "BigGo Finance",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1odDd3aFRoTWRid0RxSDR0Zkt3X0l1eUh6SGJGYmFleVZHYzh4UkVpcksxX1dOY2dPMDhZQTFmM19pdUlfd1ZSTUltNzUzYXBCUkFCcENpMGJHMGZFQUVua3JiMjM1VDN0QjlGZTNGeUxpdzJlWWc?oc=5",
-   "published": "2026-10-13T18:30:00+00:00"
+   "title": "Inflation likely to spark more rate hikes: Boston Fed's Collins",
+   "source": "American Banker",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNMmxsVEEySFFJU0JydFB1Y0U1RXdhX0NocGpMeGhNZ3NkZGNsNjVpOXdnYmM5TzAtVEk0TURGLWNRbnB3QmxIaUdMcEM5bnJfTllWVUJrN29WRFNLaF92VkFPMTFyazdEMnhVYklVUWU5bGoyV2NzOXE1TkJTZ3BlY0tDWS0teF9DX0JTb0hkdXp1V1NLYnVPc2ljcGV6UQ?oc=5",
+   "published": "2026-10-13T20:01:00+00:00"
   },
   {
-   "title": "Read Full Transcript of NY Fed's John Williams Q&A",
+   "title": "Fed\u2019s Collins Sees Higher Rates Likely This Year to Tame Prices",
    "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOTGMwQ3dOMERyZmpMdFRUOEoyV1BZNE1aNlhTV2RMbUpXZHluUGFEdGVFMy15UzI4SFJlekh0V2JhLXpGX1RRVTJmTUNkRDdqUDE3RHQ4OGhkUHZsUGV4S3EwTmhWN2tWb0FRTUZaUl85dklOQXFZWU1ZSXYybkdCWWRkTGZPOUpEaVRMN0lLZ2tSUGQwR2tybmlPbnMza19LNVBuekU5NVhaLVl5SEFTaQ?oc=5",
-   "published": "2026-10-13T18:07:10+00:00"
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPblhrenBSaG5hbXFGMWlESlVpYklwVnhCWHdJc2stVUVhZUdRUG9uTVdfS0ZnTjZOQ1VvRzBoWWUwNV9keThBUlJVYXNIYU16dGxUalBWckUwMjdzWHpLWG1vd3RLOW5KMHVjVjl1S1Znc1lqakxtd1JPdjVWTlZRM3ZOMUNsQ011V0czd0NzX3RnUW5DMXBramQyZ1FfNnVfVTBtUTJWTndFdkNkYThwSjBDTzc?oc=5",
+   "published": "2026-10-13T20:00:00+00:00"
+  },
+  {
+   "title": "NY Fed's Williams Sees One More Rate Hike This Year as Appropriate, No Need Next Year",
+   "source": "BigGo Finance",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5LbUx3ZFJQTHBzUFF0NEZrdnF2d3k0Yk9EeHZYNXpFSm1QZUhaTmVHdVprOU9XUFJ0Yk0xbUF2am9Eanh1eXJ3c0JPeWZ4a0VJNVJWM0hpdThMR2hhRzhIejE1dG9YMTh5Qldyc0RxQ0l5WTZVdkE?oc=5",
+   "published": "2026-10-13T19:55:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-13T19:10:14+00:00",
+  "run_at": "2026-10-13T20:25:11+00:00",
   "session": {
    "date": "2026-10-13",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1602,7 +1602,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-13T19:04:05+00:00"
+    "as_of": "2026-10-13T20:10:46+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1612,42 +1612,42 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-08"
+    "as_of": "2026-10-09"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T18:47:00+00:00"
+    "as_of": "2026-10-13T20:11:00+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-13T19:10Z"
+    "as_of": "2026-10-13T20:25Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
+    "bar": "prior_close",
     "as_of": "2026-10-12"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-10-12"
+    "as_of": "2026-10-13"
    }
   },
   "degraded": [],

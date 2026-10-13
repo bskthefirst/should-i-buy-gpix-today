@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-13T19:10:17+00:00",
+ "generated_at": "2026-10-13T20:25:14+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 87.8,
+    "pos": 90.5,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -55,7 +55,7 @@
    "lean": "bad",
    "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 4.4,
+    "pos": 4.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "23.7%",
+   "value": "23.4%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 47.4,
+    "pos": 46.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.2 (p15), F&G 44",
+   "value": "VIX 15.2 (p15), F&G 45",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,15 +128,15 @@
   }
  ],
  "fund": {
-  "price": 373.72,
+  "price": 375.23,
   "as_of": "2026-10-13",
-  "bar": "provisional",
-  "day_change_pct": -1.14,
-  "sma50": 357.11,
-  "sma200": 389.51,
+  "bar": "final",
+  "day_change_pct": -0.74,
+  "sma50": 357.14,
+  "sma200": 389.52,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 23.7,
+  "drawdown_pct": 23.4,
   "series": [
    {
     "d": "2026-01-27",
@@ -1214,7 +1214,7 @@
    },
    {
     "d": "2026-10-13",
-    "c": 373.72,
+    "c": 375.23,
     "t": "neutral",
     "s": 50
    }
@@ -1235,14 +1235,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-12",
-  "days_total": 741,
+  "end": "2026-10-13",
+  "days_total": 742,
   "backfilled_days": 707,
   "fg_coverage_start": "2025-10-13",
   "baseline": {
-   "n": 720,
-   "avg_pct": 2.76,
-   "median_pct": 0.78
+   "n": 721,
+   "avg_pct": 2.77,
+   "median_pct": 0.79
   },
   "bands": [
    {
@@ -1262,9 +1262,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 367,
-    "avg_pct": 2.67,
-    "median_pct": 0.85
+    "n": 368,
+    "avg_pct": 2.68,
+    "median_pct": 0.89
    },
    {
     "tone": "caution",
@@ -1277,17 +1277,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.23
+  "tbill_3mo": 4.25
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 373.72,
-  "sma200": 389.51,
+  "price": 375.23,
+  "sma200": 389.52,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 30.2
+  "level": 30.0
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1304,20 +1304,26 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-10-13",
+  "start": "2022-10-14",
   "end": "2026-10-13",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 30710.86,
-  "dca_return_pct": 46.24,
-  "dip_value": 30755.96,
-  "dip_return_pct": 46.46,
+  "dca_value": 30848.76,
+  "dca_return_pct": 46.9,
+  "dip_value": 30878.21,
+  "dip_return_pct": 47.04,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 205,
+  "dip_buy_days": 204,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "AST SpaceMobile Stock Falls as Piper Flags SpaceX Threat",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQeW52U3FiQXNfUi1FNnUtR01mLXJuUjItdF9LeEN0WlVqdXI0RUdPZjgtNlM1NXZRVHJUQ3lzaGVmcnRWU1h3b1pwQVJBUE1OR0FHc3BuT1ZaZXJocGlYMmVPVC1fRk1Da0gzZnhTeENtWENSbTRtQnc3cllaajJmNWN1VkRCY1owdVlROTRUQk52cFBYZkU4S2NDc1oxUmM?oc=5",
+   "published": "2026-10-13T19:20:00+00:00"
+  },
   {
    "title": "Elon Musk Says Robot Hands Are 'Shockingly Difficult'",
    "source": "Benzinga",
@@ -1337,29 +1343,23 @@
    "published": "2026-10-13T17:28:48+00:00"
   },
   {
+   "title": "BMW won't give Germany's far right a company car, so they called Elon Musk",
+   "source": "Boing Boing",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5idzY0X1p1Wlc4cmpESkgwODNmUC1PV3pNZ1hxdkhCSExqM0NfRGNZclREY0lUbG9MUEJkbGZfbF85cC1NSDU4TU01aEpsTHJiQ0tmYXZiSEhTa1VtOFlIVkxXRGYwVmJ0UG1uOHRpTG1GalBOQ043VEgxVi13MDTSAYQBQVVfeXFMTXlpQlU3OHB6VUhZYlFwWF9lRDZmOFZINjY4Qk1UT3luRVBnaE9RVE5QdFFwblBPN2RuWnkzYmE1R2JJNk5jVTVmNXIzQ3poLUdyWFVpLUhnRWNhSV9PVmZWV1hFN05KaW93SS11Sl9KRHltQ1lCOXVCZ3NxSlhSSkV4am42?oc=5",
+   "published": "2026-10-13T17:21:02+00:00"
+  },
+  {
    "title": "TSLA Oct 2026 370.000 call (TSLA261012C00370000) stock price, news, quote and history",
    "source": "Yahoo Finance UK",
    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBTclBvNFUwM3lmMUNOSGZRZXUyMkNhS3g3bTFrSG5LNW9VYWxTT2NneXV2MHg4aUJZSDhPYUQ5cWctV3JfMkFBR3Y2cmE0bVpnSnh0ckw1X1Qta3djLXNqMThfSHNxUQ?oc=5",
    "published": "2026-10-13T17:05:51+00:00"
-  },
-  {
-   "title": "Tesla Stock's $1.5 Trillion Valuation Leaves a Nearly $1 Trillion Question",
-   "source": "TradingView",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPZzVBR3gyZFJhUmdxRUszRXctTWlwdldLVGE1eVRkM1Z2ZW5WOWFZSC1mUHNKMk1ZdEhXUkVxUy05N19YWkdNLWdQdVloZU1PQW9rRGFLYnktaG1FWFZQdU00eUZzb3RHekxXUnRwdVh0ek0tWWhUUmx2cUJfNThiTmE1ZVpvT2xSU3RKQm8tUlYzdlhWSHprTldhRVdadjJvWF9EYS1zLTZuTDVHT3ZGWldud3JPOFdSS01SMzdOR1Mwc09QQ0Z1dUZUMGk?oc=5",
-   "published": "2026-10-13T15:45:31+00:00"
-  },
-  {
-   "title": "Citigroup Stock Slips Despite Best Third Quarter in a Decade",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQMktKcjMxYWFwazJlUWdwZzhjUUc1MmdmTkV6ZzhUcjNGaW1uazNlU1ptejR1aHJ1OXZfZ05aN1FENkI5ZE84VGJnWXZtdDRBQ3o3bERaWWh4Z2JYbURPN0p0cF96NE9fVzJfUEo5N0Q4QkV6VDFNSWJLLTVZSVUwSkdsQXlEc1p6T21PRVFMMjQ3ckNaM1kwaHMyYWdZMm1O?oc=5",
-   "published": "2026-10-13T15:42:40+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-13T19:10:18+00:00",
+  "run_at": "2026-10-13T20:25:15+00:00",
   "session": {
    "date": "2026-10-13",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-13T19:04:05+00:00"
+    "as_of": "2026-10-13T20:10:46+00:00"
    },
    "earnings:TSLA": {
     "ok": true,
@@ -1392,72 +1392,72 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-08"
+    "as_of": "2026-10-09"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T19:05:02+00:00"
+    "as_of": "2026-10-13T20:11:43+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T18:47:00+00:00"
+    "as_of": "2026-10-13T20:11:00+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T18:05:47+00:00"
+    "as_of": "2026-10-13T19:20:00+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-13T19:10Z"
+    "as_of": "2026-10-13T20:25Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-13"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
+    "bar": "prior_close",
     "as_of": "2026-10-12"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-10-12"
+    "as_of": "2026-10-13"
    },
    "yahoo:^VXN": {
     "ok": true,
