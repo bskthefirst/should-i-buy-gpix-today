@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-10-13T11:00:15+00:00",
+ "generated_at": "2026-10-13T19:10:19+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 84,
+  "sessions": 85,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~84 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~85 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-4.5% in 5 sessions",
+   "value": "-8.9% in 5 sessions",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 84 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 85 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 70.1,
+    "pos": 40.3,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -41,7 +41,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "53% ann.",
+   "value": "54% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "22.7%",
+   "value": "25.9%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 22.7% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 25.9% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 45.4,
+    "pos": 51.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "84 sessions",
+   "value": "85 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 84 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 85 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.2 (p15), F&G 46",
+   "value": "VIX 15.2 (p15), F&G 44",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -88,15 +88,15 @@
   }
  ],
  "fund": {
-  "price": 163.42,
-  "as_of": "2026-10-12",
-  "bar": "final",
-  "day_change_pct": 0.52,
-  "sma50": 145.34,
+  "price": 156.536,
+  "as_of": "2026-10-13",
+  "bar": "provisional",
+  "day_change_pct": -4.21,
+  "sma50": 146.18,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 22.7,
+  "drawdown_pct": 25.9,
   "series": [
    {
     "d": "2026-06-12",
@@ -601,6 +601,12 @@
     "c": 163.42,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-13",
+    "c": 156.536,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -647,13 +653,13 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 163.42,
+  "price": 156.536,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 52.5
+  "level": 53.7
  },
  "fomc": {
   "next": "2026-10-28",
@@ -671,61 +677,61 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-10-12",
+  "end": "2026-10-13",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1900.0,
-  "dca_value": 2130.6,
-  "dca_return_pct": 12.14,
-  "dip_value": 2114.56,
-  "dip_return_pct": 11.29,
+  "dca_value": 2040.85,
+  "dca_return_pct": 7.41,
+  "dip_value": 2025.49,
+  "dip_return_pct": 6.6,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 18,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "SpaceX launch brings sonic booms, cosmic jellyfish to Space Coast",
-   "source": "Orlando Sentinel",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNjdEdG5zdFh6ZVpsNmdMNjRNbUhDeHIxUHhTOHVMeFBHOWRQX3BtU19mUmg1bkI2cFdnWEdaTWltdXBHWjZwMEZrTmkzVXVsYTFmSnRRWGdmWnlENGw4VF9ZY1QxNk1qcDNHRG9EQlpRVWpCT2VpRUpfVl9UbklMSUsxWW1aRXJWVzFFSWtmS2FBV0pXdUJJM0Z6cWFvZ0w1MzFBV0dDXy1Pb1RtRm9LWVp4QQ?oc=5",
-   "published": "2026-10-13T10:57:34+00:00"
+   "title": "Ukraine allies in Poland after Starlink sabotage, Trump diesel deal",
+   "source": "DW.com",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPbktKbFY0bUZSZk5ZZ0o2SVhycnFMeGwzQ1hDcFdUQlV1Q2xscmI3VmVIOEdibGg1R1Rxd2lBU0xMMzRIeWtrT0hXSDYyaFBtUG1oczRROHA1cVAxVDdXdnkyb3FIN3ZHWUYzTEFnZnRMakc4VXJpT0QxQjlnTmZyZWpWSlJYWTRuRUZNenpLRC11akR1VnZBWHlySjFMajVJ0gGgAUFVX3lxTFBoclA1aElnbXdDRENYSlp3eW05eTBhbGNVR0M3ZW0td2hkN1JTY3VmbW9GWkJ4Vm0yeW1jd0hkZ1dWejN0bVRmaXlfU1llUy1VUWdORzR1WU9vVkhiQVE3MGpfM29yOXdYdWJGUmhpa1ZPaXRRMTB5cFBtYXk4YTkzN3JHb1VWWWdMNnpJQmZpZlVhNFpzYzBVeEI5dzNpa1Y?oc=5",
+   "published": "2026-10-13T18:55:19+00:00"
   },
   {
-   "title": "SpaceX Dragon Lifts Off for Thursday Cargo Delivery",
-   "source": "NASA (.gov)",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPUEJfNDNWV2dRTnhkRjU0QzZ4UTdwM05xSE5WQVdFaU5BVllXclo5YmF1OHN4QzdzMXpoMkhYdm1XMzdFc1FHTDRicEtCdkZya2d5LWRMMTFZQm5ZSjBwNXZrVUVfc1dTbjNwd3AzMmRsTk12c21QQ3dhUl95VTNuVS1zeTNTMXI5ZERFdmlLNFg0RFJ4MWVkM0ZqMzI1M1JWbTRTVFVn?oc=5",
-   "published": "2026-10-13T10:55:31+00:00"
+   "title": "SpaceX rocket launch creates 'space jellyfish,' 'heart contrail' in Florida - Sarasota Herald-Tribune",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNNVU5QnJIRmJCYkljQXd0T2g3bWctOEtKQnY3MGtXQ0drVU9iZ0JUWEJhVkVia3JGeGNvVE1ZUFlFeHl2eU9hQVphcUx5Sklmd3NlTmhVSzI2YXhCZXk0dkR6M2RHZ3R1emFVa1NIdGw5d3M5dGZLQTRjdHd1VVR3VTVTYm5oRV9YOVdPX0NJY0hpcUE5LTJyRi1XZzBVR240NnM1VXM2cXRUalc3X0ZtSm1TelRqUGxfbjZ3WE9oWmlhTUJnN2tEOVZVVklsZU1ESENVaUVZNDhmeUJqcFhhTVR3bXgwWlRXMTN6RTUzenhtb29rTGEtbHk3M1BkcVhWaXdrb2xR?oc=5",
+   "published": "2026-10-13T18:44:02+00:00"
   },
   {
-   "title": "SpaceX launches Falcon 9 rocket from Florida",
-   "source": "Action News Jax",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQYVVDWjBjeVNMNmxwRWc2aS1UV05BbS1RT0VDWXB4T041YldBT3kyb2ltYmFaWjh4eHJpRkxOTnlwYTBpejdDbWVqTTVDVEkzakJ2VUxaZGlUcUNRM0RJcWtCVkZ2bWNzaHBKR3BGaU9MMUFmT1VHV1U1ekhFMWJ0NWEzTEVCS1lwbE01SnpJMEppSGpwYzZZa3FYbjFMZnJIYjlDZHdtXzlrbTBtQjlLX1lEb0JrVng2ekE?oc=5",
-   "published": "2026-10-13T10:54:28+00:00"
+   "title": "SpaceX rocket launch captured on camera in western Pennsylvania",
+   "source": "CBS News",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPQ2ROd0JVR3N5S2dTUDUtQVZsQS1iZkZ5Tno4ZlA1X2dBN19iV0p6Q0RpQWRJQ3dzajdXQmFQeThmMEpBZFFyNHZaakFOUGFsdk14aWRMeVJGeUc5bWpPYnlqYlRnRmdDX1JfdDZoS1FGeE0tNG5VSURnUGxxNV9HbnhHSG93X3hC?oc=5",
+   "published": "2026-10-13T18:41:25+00:00"
   },
   {
-   "title": "SpaceX launch creates jellyfish-shaped cloud over Northeast Florida, Southeast Georgia",
-   "source": "News4JAX",
-   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNX2VrY21ZZ1gwb1R3eC10VDNEU2wzVkN3UEo5NDBPY2loa3RyUDdLbkNZalVfQ2l3VlU2U1dOVjV5eUdGUTlBanMtQ3NlQ0tsbVV4R1BhbEE4eFNKOUl2TFQxaDllalJTOEt6ckQ1WVMwSER1X3dpV1VUNUJZd0g3bHpPOTdia1RXSTRxY1pLUHExaFVHc0V4Vm5LbjA0cnVweHl4d3gwdENwN1E2YXhpMUoyTWRYUTBsdEhPNFlaRDktMkJlRnZuYlljTnVmZw?oc=5",
-   "published": "2026-10-13T10:52:53+00:00"
+   "title": "What SpaceX Still Needs to Build a Cell Network and Challenge AT&T",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNTEs1RWhiS0pFekdXbkFKV0dYYUJkb3hiajAxR08wZVhGYndmOVNKejdOTnhDdmI1UUNVZkRiMGFLbjdLUFN2QVVZN1lUVnVjSk5wNGFIOW9SZFl2OFBuV1VvWnpTa2hoUHRneW5xa3NhalBPTFRaLUhZcko4RUpodlZvTHN1eXhYN2VuS202VUpIeFhCbFVoZA?oc=5",
+   "published": "2026-10-13T18:39:00+00:00"
   },
   {
-   "title": "SpaceX Stock Outlook as BofA Warns Starlink Poses 3 Major Risks to Apple",
-   "source": "CoinGape",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNU2taMlFyVkFVMnVjR3JuUlo5VkUzSkpEdGhSVTRhcFJKMmtZeVpudXdETnVPVmhuNkJjdW9BTjVoVkFKMlBBRnBZd2RNbnN1X2JSQncxSjNLYmtKSUxkcWVFdjhQaTVPQzF5NFdJQVBfZG9hTHMzeXZEX3Y2VERkT1pqanNwUjdjdmoyc2VIQ25TdnFlbldYMXotd3Fwal9pRk9POA?oc=5",
-   "published": "2026-10-13T10:42:57+00:00"
+   "title": "'Jellyfish' effect lights up US sky after SpaceX launch",
+   "source": "BBC",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5mckt6a054ZFNWbWJqSkVIT3V0WS1SM2YzUzJEOHJBUjJ5S0ZPV2pqSENnOFpmVlVoX1hCUGtZWk5Dc0dSaEl1NWplX2tHYXVKRUpPaHoxcHE?oc=5",
+   "published": "2026-10-13T18:35:34+00:00"
   },
   {
-   "title": "SpaceX launches Dragon cargo mission to ISS",
-   "source": "Breakingthenews.net",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVnN0aXJzdDU3M2pJR0F6c0FKeTBtajNjNWJ0Smd6RkxidklocU9QX3BvVC1zUHhHaFpuQkE1aDk3cERlX0NzVXdNQXY1VGszb3ZmTDAzQU9mdkEzREdlOXlPYWMzcVpnODJVN3FpRkp0c05RWmE3bGVZMk11YjN3OWNnVVBtbFgwWEd3NnlvdFBoUQ?oc=5",
-   "published": "2026-10-13T10:38:00+00:00"
+   "title": "SpaceX Launch dazzles Pennsylvania, east coast sky",
+   "source": "WTAJ",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxObEw5aWphYmE4clZzZGJPaTk4S2dhVU5iN3dtLUhsbWI4bGE2UW9kQnNoUW9MN1FZQktKd1ZKaU9FeWlUVVJuNUpyTHFSZlluQ0VJa3pJTzkxRVg3Q25GYXFHT3RhMnZmWW1RdzRJOXltLThLZ3NHQnJrNmNXQ19saHJtOC1Ya0pwZ2NRWHdrVXfSAZYBQVVfeXFMUHVTbUlFdnR4aXpvNDRXX1RaZXluNXV4ZjJSZ2tKUmQtemdyZXZzd2V6Z2piVmhKcUR4Z3EtVUV0cWhQZGNnQU5LMHl1MlRGQms5algyNWxnZ2RoOE01bmZEemFuX3Q5Q01XM083TEZaaHNpbWZhakJOUGVNa2ZkOU0tQVN5WWVLajhZalJsTEw0dmNQNkNn?oc=5",
+   "published": "2026-10-13T18:28:18+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-13T11:00:15+00:00",
+  "run_at": "2026-10-13T19:10:20+00:00",
   "session": {
-   "date": "2026-10-12",
-   "bar": "final"
+   "date": "2026-10-13",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -741,7 +747,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-13T10:44:01+00:00"
+    "as_of": "2026-10-13T19:04:05+00:00"
    },
    "earnings:SPCX": {
     "ok": true,
@@ -760,7 +766,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-08"
+    "as_of": "2026-10-12"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -771,71 +777,71 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T10:56:02+00:00"
+    "as_of": "2026-10-13T19:05:02+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T10:58:22+00:00"
+    "as_of": "2026-10-13T18:47:00+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T10:57:34+00:00"
+    "as_of": "2026-10-13T18:55:19+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T10:45:03+00:00"
+    "as_of": "2026-10-13T18:05:47+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-12"
+    "bar": "provisional",
+    "as_of": "2026-10-13"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-12"
+    "bar": "provisional",
+    "as_of": "2026-10-13"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-13T11:00Z"
+    "as_of": "2026-10-13T19:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-12"
+    "bar": "provisional",
+    "as_of": "2026-10-13"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-12"
+    "bar": "provisional",
+    "as_of": "2026-10-13"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-12"
+    "bar": "provisional",
+    "as_of": "2026-10-13"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-12"
+    "bar": "provisional",
+    "as_of": "2026-10-13"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
+    "bar": "final",
     "as_of": "2026-10-12"
    },
    "yahoo:^VIX3M": {

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T11:00:10+00:00",
+ "generated_at": "2026-10-13T19:10:13+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+5.4 pts",
+   "value": "+5.7 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 78.7,
+    "pos": 80.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "+1.6%",
+   "value": "+1.5%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 63.3,
+    "pos": 62.5,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.15% (+0.44 1mo)",
+   "value": "3.11% (+0.46 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 28.7,
+    "pos": 27.7,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "46 (neutral)",
+   "value": "44 (fear)",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "Sentiment in the normal range - no contrarian edge either way.",
+   "lean": "good",
+   "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 45.9,
+    "pos": 44.3,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,21 +230,15 @@
   }
  ],
  "fund": {
-  "price": 56.43,
-  "as_of": "2026-10-12",
-  "bar": "final",
+  "price": 56.4199,
+  "as_of": "2026-10-13",
+  "bar": "provisional",
   "day_change_pct": -0.02,
-  "sma50": 56.04,
-  "sma200": 54.11,
+  "sma50": 56.05,
+  "sma200": 54.13,
   "high52w": 56.67,
   "drawdown_pct": 0.4,
   "series": [
-   {
-    "d": "2026-01-26",
-    "c": 53.24,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-01-27",
     "c": 53.41,
@@ -1318,6 +1312,12 @@
     "c": 56.43,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-13",
+    "c": 56.4199,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1335,7 +1335,7 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 46) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 44) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
@@ -1345,7 +1345,7 @@
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.15%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.11%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1389,8 +1389,8 @@
   "tbill_3mo": 4.23
  },
  "fx": {
-  "usd_krw": 1339.95,
-  "as_of": "2026-10-13T11:00Z"
+  "usd_krw": 1341.14,
+  "as_of": "2026-10-13T19:10Z"
  },
  "distributions": {
   "history": [
@@ -1513,8 +1513,8 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 778.1,
-  "sma200": 723.38,
+  "price": 778.22,
+  "sma200": 723.82,
   "above_200d": true
  },
  "vol": {
@@ -1532,61 +1532,61 @@
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-10-12",
+  "end": "2026-10-13",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15600.0,
-  "dca_value": 20468.06,
-  "dca_return_pct": 31.21,
-  "dip_value": 20207.68,
-  "dip_return_pct": 29.54,
+  "dca_value": 20464.39,
+  "dca_return_pct": 31.18,
+  "dip_value": 20204.39,
+  "dip_return_pct": 29.52,
   "dip_cash_uninvested": 1800.0,
   "dip_buy_days": 31,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "US inflation expectations are well anchored, Fed's Waller says",
-   "source": "StreetInsider",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPTVI5V2RtWTlQalpJdFFaRERnNkoxdVBqODBnTGZBRmx5OFBadTdtckRkeWEwNnZ3dndBWDVMNGl5TWZfVEljR3llSEdGSmpraWVPYU5fcXNnYWZiTTVYM0k5X0tINXVfbGhrUVFXYmpnaTk1ZXltN3BKNVNWZkRxRW1YWmF6UmxTRHBVQjJHSTZZaGFqSlZOQWZHc0ozLUIzV1gwN0VoYTlZMU5uV1EzZVIzNW1uZw?oc=5",
-   "published": "2026-10-13T10:58:22+00:00"
+   "title": "Treasury, Eurozone Yields Decline as Markets Look to U.S. Inflation Data",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQaVJGTVRQcWlpaDNiZVFTYW1od1ZiMVNKRU14QWVocUs2SnlZLW1KNzFwTVliUHczVUZhMURPSEtiay01cXJ0cnZOMkllU3phWk8xWVlIT2lzQlZFOE5rRTBFNlJjRTJYb1JPT2h5aFhrX2M2MjllVGc2NHhuNGJoMFVnOFFoY05SRnRsUEkxX25ZM1JndThkVGZjMW9XZDBrVFYtWEVDdmxmVFNseFotZW5pOExsSTZHRVVVNg?oc=5",
+   "published": "2026-10-13T18:47:00+00:00"
   },
   {
-   "title": "Rising U.S. Long-Term Yields Driven by Growth and AI Investment, Inflation Expectations Stable: Fed Governor",
+   "title": "Fed\u2019s Barkin says persistent inflation warrants policy action",
+   "source": "FXStreet",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNaE01STIxSG91YkJJZmw1QmJidkN5cUJjc1RTNk5GVnBHbzBDZ01mYU5meUNVaUkzLVpSdnoyZ3czZ0tTNktlQktvemI3cXZ0eE00N3dkYl9VTzJ0MVFhVFc3LXlOSWdDNklmeUc0Z1FMX1dUa3UtZEFydUFMenRfSGFSeXFTdVlpSUJFSDd6SG5pbDlsMUtmbHVMTTJCSTc2NzZwN05R?oc=5",
+   "published": "2026-10-13T18:31:49+00:00"
+  },
+  {
+   "title": "Fed's Williams currently sees no need for rate hike in 2027, Bloomberg News reports",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOVlpnSjdVeERKaFdNRkxCTHhRNmY5Y0FFN3k0by1ndE9MYXIzN0pybnJzUFBqR1hOaHpUYjFjODI1ZGNSMjVLRF83S19ZNXB6eGU0YU5MUUVMWEFtSjN4UlRReUpsWFktZ2lfX1pQZDBNS1Qtbk02bXNGRVNQZUlSS2pKZ2wxRUtGZzBWYUxCdGJpbHZkOFlMYWhtb0lRNFZEMDd6ZnY2RjdDRXpVdWhsUVhwN3ZsZ1k?oc=5",
+   "published": "2026-10-13T18:30:33+00:00"
+  },
+  {
+   "title": "Gold subdued ahead of US inflation data, Warsh remarks",
+   "source": "TradingView",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNMVFRN2J0WW9qVXJPcnRFekF5c3hybFNSeVJZWEZQdlRNR3d6X2tfbHhjdndrU0RLdkhaZFgwQ2ZmOVlJMDBqZGFlV3NST3JyX2RibkFyN2N5eWJ5TlMwNWZwZDZzWHNfTW13M280RDZMWHpyNVFMLUJGRGgtN1JGT19TaEVvc2FoS1ZReFZSRjdnRXkwY2EyaE1hZ25nZHlUZ0laRjlMT3EzZzQ0UUt5X2lXOVVsbTJickNuVS03dEI?oc=5",
+   "published": "2026-10-13T18:30:00+00:00"
+  },
+  {
+   "title": "Walmart Shares Outperform Luxury Sector by 21% \u2014 Strategist Says Recession Signal Is Flashing, Fed May Be Forced to Pivot to Rate Cuts",
    "source": "BigGo Finance",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB3bnVtUUVGS285UVZ6WWZKTTYzeS0xSGhoMzFVTFd0VS11dnpNdExtbWxaVi0wOXFxRXNSTmw1dWU2SldKVWpUcTJiVHdza0xsVERmSmdVd0NSUEYwTG9mLUlrWDY4MzdzNnBkb2VTT2p0MmdyYWc?oc=5",
-   "published": "2026-10-13T10:05:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1odDd3aFRoTWRid0RxSDR0Zkt3X0l1eUh6SGJGYmFleVZHYzh4UkVpcksxX1dOY2dPMDhZQTFmM19pdUlfd1ZSTUltNzUzYXBCUkFCcENpMGJHMGZFQUVua3JiMjM1VDN0QjlGZTNGeUxpdzJlWWc?oc=5",
+   "published": "2026-10-13T18:30:00+00:00"
   },
   {
-   "title": "Stock Market Today: Dow Jones, S&P 500 Futures Gain While Nasdaq 100 Falls as Scott Bessent Says Iran's E",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxQYm04Q1VfLWNuMGpHTHN0NUpxbzA4cHBneW50MGpMSUFtZHNEQ0Q2anNDdlg0dzRMbnR2d0hNWnlscGJmUXpXbWVPX0xGRlhKZ1Fjd01rSkVSWko4Vm1taGoyUmdnOVZqSF9zcTVoVkpvRjRoNGc5aC0zOXB1VHBSY1BtdEJwdUtWSlBBamRnZV9hTzR4cUMzTWFDR2Z2dGVWVzZtT3ludVlZSk1OT0VMNnoyMGJjZWRYYy1ncjBjWEdVZENrMzlXZmVyRHVGbUd2elMyTVNKcFlnX1hfS0xNaHBWak5JU0FPNVp1Z2pYdllaamhfZHk2S3pMZllCcDBHVlE3bEV4cW9uajRNZDRFNnE3WWZBamJKaG5sRGM4ZHhmaGpPQUdaMQ?oc=5",
-   "published": "2026-10-13T09:55:18+00:00"
-  },
-  {
-   "title": "Prediction: A Stock Market Crash Is Coming. Here's What Investors Should Do Based on Almost 7 Decades' Worth of History.",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQNENJSTRYaGRsLTBnVmhsZ3g1TVlWUjllLU5ENnFmZndoQkNEZ3o4U21PZVJvblpKNGRSNFpmRm8wcHdzcEU1MjNDNUQ3cUdXb3UwUTdHSHdOX25ybWFvMnRwOTRad2FnV0xQQ0ZCNHppeDRkU20tTWw4WVhuVTZHSlk2YUQxZnAwemFGZ0NhMEhQQm83YVR2czFCTEE3ZFhCTXhN?oc=5",
-   "published": "2026-10-13T09:39:00+00:00"
-  },
-  {
-   "title": "S&P futures erase declines with bank earnings slate ahead",
-   "source": "Investing.com",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNUmFUMkhCTURMRVpKS0tuUW1FbVNsX3RTSjlsMHRWVUFCaDlPcE1FTHdBVmdKNlF5aTUtSTBLU01GWFhsSEprQ3QwOGZ1dXQ0bWhXbzZrVllwM0lWV01iSFAwWHlhcGpsQVFoWmh0cTEyU2FCdjhrNUJ3VDZ3cUZzbDR4VVR3blhBSkpxVVI0eTRGaXNMb3BGZTVzcG56aVZTaWthX0VHYXowbGh0YkdDdFU3aHdRN2JI?oc=5",
-   "published": "2026-10-13T09:38:05+00:00"
-  },
-  {
-   "title": "Fed Governor Waller: Surging Long-Term Yields Are Helping Curb Inflation",
-   "source": "BigGo Finance",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1TUzZZNWllblhpUTZUeEpJa21VTFM3eFZaUWlVRnZlV3pIN19CRzNGX1gydklaMTVmbUVEOHhWLXJ5aW5FQzZWRF9LRjByTjJSb2hqRU9aMkNjbmdPZWNXcmhWenJyQ1ZrTy0xc1dzazkxZHpJWWc?oc=5",
-   "published": "2026-10-13T09:35:00+00:00"
+   "title": "Read Full Transcript of NY Fed's John Williams Q&A",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOTGMwQ3dOMERyZmpMdFRUOEoyV1BZNE1aNlhTV2RMbUpXZHluUGFEdGVFMy15UzI4SFJlekh0V2JhLXpGX1RRVTJmTUNkRDdqUDE3RHQ4OGhkUHZsUGV4S3EwTmhWN2tWb0FRTUZaUl85dklOQXFZWU1ZSXYybkdCWWRkTGZPOUpEaVRMN0lLZ2tSUGQwR2tybmlPbnMza19LNVBuekU5NVhaLVl5SEFTaQ?oc=5",
+   "published": "2026-10-13T18:07:10+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-13T11:00:11+00:00",
+  "run_at": "2026-10-13T19:10:14+00:00",
   "session": {
-   "date": "2026-10-12",
-   "bar": "final"
+   "date": "2026-10-13",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1602,12 +1602,12 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-13T10:44:01+00:00"
+    "as_of": "2026-10-13T19:04:05+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-08"
+    "as_of": "2026-10-12"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1618,29 +1618,29 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-13T10:58:22+00:00"
+    "as_of": "2026-10-13T18:47:00+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-12"
+    "bar": "provisional",
+    "as_of": "2026-10-13"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-13T11:00Z"
+    "as_of": "2026-10-13T19:10Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-12"
+    "bar": "provisional",
+    "as_of": "2026-10-13"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
+    "bar": "final",
     "as_of": "2026-10-12"
    },
    "yahoo:^VIX3M": {
