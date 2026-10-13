@@ -3,6 +3,7 @@
 const http=require('node:http'),fs=require('node:fs'),crypto=require('node:crypto');
 const {state,locked,operate}=require('./retirement_service.cjs');
 const J=require('./retirement-journal.js');
+const path=require('node:path'),Business=require('./business_service.cjs');
 function createServer(config,{dataDir=null}={}) {
   if(!/^[A-Za-z0-9_-]{43}$/.test(config.token))throw new Error('A private 256-bit connection key is required.');
   const origin=config.origin||'https://bskthefirst.github.io',attempts=new Map();
@@ -18,8 +19,9 @@ function createServer(config,{dataDir=null}={}) {
     const bearer=Buffer.from(req.headers.authorization||''),expected=Buffer.from('Bearer '+config.token);
     if(bearer.length!==expected.length||!crypto.timingSafeEqual(bearer,expected))return send(401,{error:'Connection key required.'});
     const url=(req.url||'').replace(/^\/retirement-sync(?=\/)/,'');
-    if(url!=='/v1/plan')return send(404,{error:'Not found.'});
-    if(req.method==='GET') {try{return send(200,state(config.planPath));}catch(e){return send(503,{error:'The shared record could not be read.'});}}
+    if(!['/v1/plan','/v1/business'].includes(url))return send(404,{error:'Not found.'});
+    const business=url==='/v1/business',businessPath=config.businessPath||path.join(path.dirname(config.planPath),'business.json');
+    if(req.method==='GET') {try{return send(200,business?Business.state(businessPath):state(config.planPath));}catch(e){return send(503,{error:'The shared record could not be read.'});}}
     if(req.method!=='PUT')return send(405,{error:'Method not allowed.'});
     if(!/^application\/json(?:;|$)/i.test(req.headers['content-type']||''))return send(415,{error:'JSON required.'});
     const address=req.socket.remoteAddress,now=Date.now(),recent=(attempts.get(address)||[]).filter(t=>now-t<60000);
@@ -28,13 +30,15 @@ function createServer(config,{dataDir=null}={}) {
     const chunks=[];let size=0;
     try {
       for await(const chunk of req) {size+=chunk.length;if(size>2000000)return send(413,{error:'The record is too large.'});chunks.push(chunk);}
-      const input=JSON.parse(Buffer.concat(chunks).toString('utf8'));J.profile(input.profile);
+      const input=JSON.parse(Buffer.concat(chunks).toString('utf8'));
+      if(business)return send(200,await Business.update(businessPath,input));
+      J.profile(input.profile);
       if(!/^[a-f0-9]{64}$/.test(input.expectedRevision||''))return send(400,{error:'A current revision is required.'});
       return await locked(config.planPath,async()=>{
         await operate(config.planPath,'sync',input,dataDir);return send(200,state(config.planPath));
       });
     } catch(e) {
-      if(e.code==='CONFLICT')return send(409,{error:'Another device changed the shared record.',...state(config.planPath)});
+      if(e.code==='CONFLICT')return send(409,{error:'Another device changed the shared record.',...(business?Business.state(businessPath):state(config.planPath))});
       if(e.code==='BUSY')return send(503,{error:'An update is running. Try again shortly.'});
       return send(400,{error:'The update could not be saved. Check the entered values.'});
     }
