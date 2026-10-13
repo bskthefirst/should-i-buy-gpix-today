@@ -1,15 +1,15 @@
 (function(){
   'use strict';
   const B=BusinessData,$=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const now=new Date(),month=B.localMonth(now);let currency='USD',client=null,current=null,inputDirty=false,selectedMonth=month;
-  try{const view=JSON.parse(localStorage.getItem('business-view-v1')||'null');if(view&&['USD','KRW'].includes(view.currency)&&/^\d{4}-(0[1-9]|1[0-2])$/.test(view.month)&&view.month<=month){currency=view.currency;selectedMonth=view.month;}}catch(e){}
+  const now=new Date(),month=B.localMonth(now);let currency='USD',client=null,current=null,inputDirty=false,selectedMonth=month,viewConfigured=false;
+  try{const view=JSON.parse(localStorage.getItem('business-view-v1')||'null');if(view&&['USD','KRW'].includes(view.currency)&&/^\d{4}-(0[1-9]|1[0-2])$/.test(view.month)&&view.month<=month){currency=view.currency;selectedMonth=view.month;viewConfigured=true;}}catch(e){}
   $('revenue-month').value=selectedMonth;$('revenue-month').max=month;$('revenue-currency').value=currency;
   const label=m=>new Date(m+'-01T12:00:00Z').toLocaleDateString('en-US',{month:'short',year:'numeric',timeZone:'UTC'});
   const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency,maximumFractionDigits:currency==='KRW'?0:2,minimumFractionDigits:currency==='KRW'?0:2}).format(n);
   const compact=n=>new Intl.NumberFormat('en-US',{style:'currency',currency,notation:'compact',maximumFractionDigits:1}).format(n);
   const signed=n=>(n<0?'−':'+')+money(Math.abs(n));
-  function selectMonth(){
-    inputDirty=false;try{localStorage.setItem('business-view-v1',JSON.stringify({month:$('revenue-month').value,currency}));}catch(e){}
+  function selectMonth(persistView=true){
+    inputDirty=false;if(persistView!==false){viewConfigured=true;try{localStorage.setItem('business-view-v1',JSON.stringify({month:$('revenue-month').value,currency}));}catch(e){}}
     const r=B.entry(current?.book||B.book(),currency+':'+$('revenue-month').value);
     $('revenue-amount').value=r?r.amount:'';$('save-revenue').textContent=r?'Update revenue':'Save revenue';
     $('entry-status').textContent='';$('entry-status').classList.remove('error');render();
@@ -65,7 +65,7 @@
     $('save-revenue').disabled=!!current.error||!!current.conflicts.length;
   }
   try{
-    client=BusinessSync.create({storage:localStorage,status:(state,message)=>{current=state;render();if(state.phase==='synced'&&!inputDirty&&!document.activeElement?.closest('#revenue-form')){const r=B.entry(state.book,currency+':'+$('revenue-month').value);$('revenue-amount').value=r?r.amount:'';$('save-revenue').textContent=r?'Update revenue':'Save revenue';}if(state.error||message){$('entry-status').textContent=state.error||message;$('entry-status').classList.toggle('error',state.phase==='error');}}});selectMonth();client.cycle();
+    client=BusinessSync.create({storage:localStorage,status:(state,message)=>{current=state;if(!viewConfigured&&!inputDirty&&!document.activeElement?.closest('#revenue-form')){const latest=state.book.records.filter(r=>r.month<=month).sort((a,b)=>Date.parse(b.updatedAt)-Date.parse(a.updatedAt))[0];if(latest){currency=latest.currency;$('revenue-currency').value=currency;$('revenue-month').value=latest.month;selectMonth();}}render();if(state.phase==='synced'&&!inputDirty&&!document.activeElement?.closest('#revenue-form')){const r=B.entry(state.book,currency+':'+$('revenue-month').value);$('revenue-amount').value=r?r.amount:'';$('save-revenue').textContent=r?'Update revenue':'Save revenue';}if(state.error||message){$('entry-status').textContent=state.error||message;$('entry-status').classList.toggle('error',state.phase==='error');}}});selectMonth(false);client.cycle();
   }catch(e){$('entry-status').textContent='This browser could not save data. '+e.message;$('entry-status').classList.add('error');$('save-revenue').disabled=true;}
   $('revenue-amount').addEventListener('input',()=>{inputDirty=true;});
   $('revenue-month').addEventListener('change',selectMonth);
