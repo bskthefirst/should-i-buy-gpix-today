@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-10-14T11:00:39+00:00",
+ "generated_at": "2026-10-14T19:10:15+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 85,
+  "sessions": 86,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~85 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~86 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-8.9% in 5 sessions",
+   "value": "-9.7% in 5 sessions",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 85 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 86 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 40.4,
+    "pos": 35.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -41,7 +41,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "54% ann.",
+   "value": "52% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "25.9%",
+   "value": "28.4%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 25.9% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 28.4% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 51.8,
+    "pos": 56.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "85 sessions",
+   "value": "86 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 85 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 86 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.3 (p15), F&G 45",
+   "value": "VIX 17.0 (p48), F&G 30",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -88,15 +88,15 @@
   }
  ],
  "fund": {
-  "price": 156.54,
-  "as_of": "2026-10-13",
-  "bar": "final",
-  "day_change_pct": -4.21,
-  "sma50": 146.18,
+  "price": 151.42,
+  "as_of": "2026-10-14",
+  "bar": "provisional",
+  "day_change_pct": -3.27,
+  "sma50": 146.7,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 25.9,
+  "drawdown_pct": 28.4,
   "series": [
    {
     "d": "2026-06-12",
@@ -607,6 +607,12 @@
     "c": 156.54,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-14",
+    "c": 151.42,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -653,13 +659,13 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 156.54,
+  "price": 151.42,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 53.7
+  "level": 52.4
  },
  "fomc": {
   "next": "2026-10-28",
@@ -677,24 +683,61 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-10-13",
+  "end": "2026-10-14",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 1900.0,
-  "dca_value": 2040.9,
-  "dca_return_pct": 7.42,
-  "dip_value": 2025.54,
-  "dip_return_pct": 6.61,
+  "dca_value": 1974.15,
+  "dca_return_pct": 3.9,
+  "dip_value": 1959.29,
+  "dip_return_pct": 3.12,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 18,
   "winner": "dca"
  },
- "headlines": [],
+ "headlines": [
+  {
+   "title": "As Ukraine struggles with Starlink and US satellite data, Europe has no quick fix",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNa3dydXBrSC1NYlBrVXhkeFhyYWJzbGM2X3ZGQ3pMMXljNFYzbzNXSW1WQXl2TTM4U0lrQ3BqZnhlNk9DQmZ2Qm5ISmRCZ1EyOWZic25OenA0NmVySlJoc2ZfNldiNlVkZUZveExMdU96blJnTU9vSzhZRkRXV2hLRUNYZkgxbUJGX0VDV2tuZ0EtUURTVnZCNTJDd3c1M3RnazkxMTRWRFNzY1FzalpTSUp1WmtDdzRWZlhZUGI0U1FtWlpnQ280U3BMWGs?oc=5",
+   "published": "2026-10-14T19:06:24+00:00"
+  },
+  {
+   "title": "In Ukraine, civilian casualties were already rising. Restrictions on Starlink will only worsen the death toll",
+   "source": "The Guardian",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPMTE4emhxZmc4NVhvR0J4R3VteVBIa19JcVRoZVZIaDA0ZDJJeWRiczRoaUVDRDdsRDh0S1AyeW5yN3J2UjhUeEhUcU5jeXZmVElOWHdNOFhBcnBNNDdRLWZPMkkyMUVreS0tc0lZZGpYNmVTNFZiY0FWSjFTYjV3aUxXWDBLdHBBWVJPQlhrU2xnclVaVXFuSg?oc=5",
+   "published": "2026-10-14T18:55:00+00:00"
+  },
+  {
+   "title": "Ukraine says military operations disrupted from new Starlink restrictions",
+   "source": "NBC News",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUEFJM1VBcFFtUDE4NVRtUDgwc2dfMUV3WmRTTGJhR05LbHJndGlhTjVGRWpnSmxYNzlUSzlOakp4UGg1b28zaG1NWEx3Ul9WaFBIN2xTYUExMkZrbWZDVUpxWmFoLVJ1R0hsZV9admMxaFF6NGotMnFVNnExLUZfckdBYjctaEpBZzlFLTZ5VTVZS2dJMldQeDYxS240bmU0U01ETEQzNTNIZXliSGtHRHktdjBmQ1F4M3dGOA?oc=5",
+   "published": "2026-10-14T18:52:44+00:00"
+  },
+  {
+   "title": "Zelensky says \u2018people will die\u2019 because of Starlink decision",
+   "source": "The Hill",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOOUJ2SWZPNHZwZWZfSVdSb2o3TC1RX3JEZERPT2lJQW5meHRVdkNtQlRUN0l0aGVZUGpoalJCQjdZc2tYNnp5azVsaktzVU9ma1kweDg4bnNFM2NnN2NrTkNsZnFvbXF3UmxmdE15M1ozdTF5S3VWdkhtYW1SRGhfNm82SGtjeWgtTUFuaWxLcnlweEdW?oc=5",
+   "published": "2026-10-14T18:26:00+00:00"
+  },
+  {
+   "title": "A-B Tech student experiment heads to International Space Station on board SpaceX rocket",
+   "source": "FOX Carolina News",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQdG1mQmZVb1NZVVBJNWlUa2lFS3Voc2phVE15Yi1ZNFpRcDI3RWVBRFVmOEdURWYwTnN1RGpzMzZRYy1kb2MyX0JSYi1ZaFB0X0hST3hmc3hYQ3RPdmdvYjVtclF1VlN6VzdxNi05OXcxcXBsX19TaTZpcno3b2ttX0dEVmtpWkRwcFpLZmt6OEN2U0NTT1JzY3JvMHFFZksyT0F2OWFGUjZFUkg5ODhjbk9pcGcyWkZ1MXdOVEd3?oc=5",
+   "published": "2026-10-14T18:26:00+00:00"
+  },
+  {
+   "title": "SpaceX rocket launch causes stunning \u2018jellyfish cloud\u2019 visible off US east coast",
+   "source": "The Guardian",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNTzg5WF95OVh5dmpfZ1RfTl95Q2w1eUd3dDQtVEhNZF9CS29NbDB1S21GTVQ0RmVWZVIwWHItaDVCM2ZDRVgyVnVtOEFGaHQ1em9vNHFmd2lWSlF2aG1NSjg4WFEtSWRfQkU0YWQ2MVVITmV6enhHZWoxT2FTQ2ZOWUR6MzZWOGwxWGxvbw?oc=5",
+   "published": "2026-10-14T18:16:00+00:00"
+  }
+ ],
  "health": {
-  "run_at": "2026-10-14T11:00:45+00:00",
+  "run_at": "2026-10-14T19:10:15+00:00",
   "session": {
-   "date": "2026-10-13",
-   "bar": "final"
+   "date": "2026-10-14",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -710,7 +753,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-14T10:43:46+00:00"
+    "as_of": "2026-10-14T18:57:24+00:00"
    },
    "earnings:SPCX": {
     "ok": true,
@@ -729,7 +772,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-12"
+    "as_of": "2026-10-13"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -737,77 +780,81 @@
     "as_of": "2026-10-09"
    },
    "news:GPIQ": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-10-14T18:48:48+00:00"
    },
    "news:GPIX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-10-14T18:58:43+00:00"
    },
    "news:SPCX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-10-14T19:06:24+00:00"
    },
    "news:TSLA": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-10-14T18:32:25+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-14T11:00Z"
+    "as_of": "2026-10-14T19:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:^VXN": {
     "ok": true,
@@ -816,12 +863,7 @@
     "as_of": "2026-10-13"
    }
   },
-  "degraded": [
-   "news:GPIQ",
-   "news:GPIX",
-   "news:SPCX",
-   "news:TSLA"
-  ],
+  "degraded": [],
   "degraded_core": []
  }
 }

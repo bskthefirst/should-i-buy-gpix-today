@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-10-14T11:00:28+00:00",
+ "generated_at": "2026-10-14T19:10:13+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
  },
  "verdict": {
-  "label": "No edge either way",
-  "summary": "None of the scored TSLA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
-  "tone": "neutral",
-  "score": 0.0,
-  "score100": 50,
+  "label": "Mild tailwind - fine day to buy",
+  "summary": "A validated single-stock condition is in your favor on TSLA today. Nothing dramatic - and single-stock risk still dwarfs entry timing.",
+  "tone": "ok",
+  "score": 1.0,
+  "score100": 56,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "no pullback",
-   "score": 0.0,
+   "value": "3 down days",
+   "score": 1.0,
    "weight": 2.0,
-   "lean": "neutral",
-   "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
+   "lean": "good",
+   "note": "TSLA has closed down 3 straight sessions. Historically bounced the next day (+0.35pt excess, t=1.7, positive in every era at the 1-day horizon). Longer horizons were mixed, so it earns 1.0 - half the crash band's weight.",
    "viz": {
-    "pos": 90.5,
+    "pos": 76.5,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "30% ann. (p4)",
+   "value": "32% ann. (p8)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 4.0,
+    "pos": 8.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "23.4%",
+   "value": "25.6%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 46.8,
+    "pos": 51.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 15.3 (p15), F&G 45",
+   "value": "VIX 17.0 (p48), F&G 30",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 375.23,
-  "as_of": "2026-10-13",
-  "bar": "final",
-  "day_change_pct": -0.74,
-  "sma50": 357.14,
-  "sma200": 389.52,
+  "price": 364.48,
+  "as_of": "2026-10-14",
+  "bar": "provisional",
+  "day_change_pct": -2.86,
+  "sma50": 357.89,
+  "sma200": 388.96,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 23.4,
+  "drawdown_pct": 25.6,
   "series": [
-   {
-    "d": "2026-01-27",
-    "c": 430.9,
-    "t": "neutral",
-    "s": 47
-   },
    {
     "d": "2026-01-28",
     "c": 431.46,
@@ -1217,19 +1211,20 @@
     "c": 375.23,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-14",
+    "c": 364.48,
+    "t": "ok",
+    "s": 56
    }
   ]
  },
  "flips": [
   {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "TSLA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
-  },
-  {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 30%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 32%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1281,13 +1276,13 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 375.23,
-  "sma200": 389.52,
+  "price": 364.48,
+  "sma200": 388.96,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 30.0
+  "level": 32.1
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1305,24 +1300,61 @@
  },
  "backtest": {
   "start": "2022-10-14",
-  "end": "2026-10-13",
+  "end": "2026-10-14",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 30848.76,
-  "dca_return_pct": 46.9,
-  "dip_value": 30878.21,
-  "dip_return_pct": 47.04,
+  "dca_value": 29964.97,
+  "dca_return_pct": 42.69,
+  "dip_value": 29993.58,
+  "dip_return_pct": 42.83,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 204,
   "winner": "dip"
  },
- "headlines": [],
+ "headlines": [
+  {
+   "title": "Tesla Wants to Make Its Own Chips\u2014What Could Go Wrong?",
+   "source": "MarketBeat",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPb3dsRjV1VHlsVEkwVFN4aU56LUVXRDVFc1JHTm45MU5zOHRWbnU2UDYzWGhSVU9pOHJ4aXI3dm1GUHB1MHVERlZ6NjhpMjJaZFk1Qlh5VUdiRm45MlNES2pBb1JIbDNfVXlYV2J1ZlNFMWltQkh3UVFZSFp4S0hEME1KQnZKelhEc0JoZnljLTg1U1U?oc=5",
+   "published": "2026-10-14T18:32:25+00:00"
+  },
+  {
+   "title": "Intel Stock Is Up 175%. Is the Turnaround Already Priced In?",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOWUdKY1FiaGxZbkk5Z3ZadjlNclJaVF9OV2syMm9pQ1FTaHlCNTZ0M2QtaXlFMDVWZGxacnAyUzNFYnZ2eFZlRk13ZlJES0dJZ0pLVnM0bk9Va2UtTnk0elRub0FhMHVLZVJPaFowQ0stX0VaTTl2S2JUYUdESHRPcEtNWHM2al9OVUY1UDU4M2N2QUVHZE81TTJHTEp0dC1D?oc=5",
+   "published": "2026-10-14T18:06:23+00:00"
+  },
+  {
+   "title": "Tesla, Inc. $TSLA Stake Lessened by Thurston Springer Miller Herd & Titak Inc.",
+   "source": "MarketBeat",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQZ01QTkVpdlhtTXF2MlJEeWlNTmdtMVUzR0NndENrczFBRWEtNnpIS0xpajNEdXM4QWl1emIxSlZnOTN3enNkQmtlaFVhYmRIZWY4emw1V1ZBZDNXd1NMU1l2OG9wTmlrZUJEREx0WjUyd0F2QzUtcndVTG1LQmE5WGdsQVM2MWNYajBkMEd3QjBSeWhXT3ZFN1pMWjUxNFdlSHN2bGFKOV9zVlg5X2N1YVZzbVZOQW5sUFNCbE1tZjBoVDg3MmEyZHF5WU9VUQ?oc=5",
+   "published": "2026-10-14T17:55:52+00:00"
+  },
+  {
+   "title": "Controversial \"Musk\" documentary hits theaters amid legal threats, X ban (TSLA:NASDAQ)",
+   "source": "Seeking Alpha",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNcmNVVHJQb2ZXZEszdjFWWDJacFpPNGh6R1EzMGxFandhbXIxeF84MXM0MDFsREh3T1E1OThHRU5oeko3NVppY3dicG5TVzJqdWJPNm1CdHhJaWRSOUVGak5VYXVfcEt0N1ZZX0I2UEdpT2lDTGJHdFhQLXNLNGNzV2dza25SVy14NXJCYl9TZzRBVEZ5bDNfV3l5bklrWnZGeXltVk1XREc0ZWs?oc=5",
+   "published": "2026-10-14T17:47:30+00:00"
+  },
+  {
+   "title": "Tesla (TSLA Stock) Turns to Arizona Desert Sun for Its Next Big Clean Energy Project",
+   "source": "CarbonCredits.com",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQQm93OHZWLXRPODZ3eUtTSXJxT2tuYlNhR2lsTkRXM0xvNWh1cVBiSG1rWnlJNVVhYlB2RkZ0aHk5UFB2N2ZwLXIwV2Y4M29kTUdHLXVhWmlNSDZBUmd5OVl4dlJNY2pSb2s2TjF6N3o3UjE4WTRvOG91SUZsOTRDc2V3RkpoTG9lTnc?oc=5",
+   "published": "2026-10-14T17:16:59+00:00"
+  },
+  {
+   "title": "Tesla, Inc. $TSLA Stock: Generate Investment Management Ltd Grows Stake",
+   "source": "MarketBeat",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPMHl0MzVtZkZVT24yb2FKZjVheXZQb3h2THAyRnItMDRNSTJEMGlYMnkzcEdjSEpUNGpSYWllTl80QmJmXzhiWlFTUlFtbmdYdk4xUFNyLVh1bl9RQnhjaHlFeGhZM25tSm04YWRCQ0huUWJ3YmY2Xzh3VmtmTUE0ck9sV1VWWWRJZ05KRHdqV3l5YnRUd1RJMi1fU1M2TWZ0c2VPbUU2ek1SNGdFTU4wY1BLWUd2TmhIRUxjQllKUGZQdHRQUWlJ?oc=5",
+   "published": "2026-10-14T17:12:22+00:00"
+  }
+ ],
  "health": {
-  "run_at": "2026-10-14T11:00:37+00:00",
+  "run_at": "2026-10-14T19:10:13+00:00",
   "session": {
-   "date": "2026-10-13",
-   "bar": "final"
+   "date": "2026-10-14",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1338,7 +1370,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-14T10:43:46+00:00"
+    "as_of": "2026-10-14T18:57:24+00:00"
    },
    "earnings:TSLA": {
     "ok": true,
@@ -1350,7 +1382,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-12"
+    "as_of": "2026-10-13"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1358,66 +1390,69 @@
     "as_of": "2026-10-09"
    },
    "news:GPIQ": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-10-14T18:48:48+00:00"
    },
    "news:GPIX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-10-14T18:58:43+00:00"
    },
    "news:TSLA": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-10-14T18:32:25+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-14T11:00Z"
+    "as_of": "2026-10-14T19:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-13"
+    "bar": "provisional",
+    "as_of": "2026-10-14"
    },
    "yahoo:^VXN": {
     "ok": true,
@@ -1426,11 +1461,7 @@
     "as_of": "2026-10-13"
    }
   },
-  "degraded": [
-   "news:GPIQ",
-   "news:GPIX",
-   "news:TSLA"
-  ],
+  "degraded": [],
   "degraded_core": []
  }
 }
