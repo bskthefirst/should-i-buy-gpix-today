@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T19:10:11+00:00",
+ "generated_at": "2026-10-14T20:59:40+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -23,7 +23,7 @@
    "lean": "bad",
    "note": "Nasdaq-100 volatility near the bottom of its 1-year range - thin option premiums mean the income engine is earning less than usual. A lean, not a score: the old low-vol penalty didn't survive the audit.",
    "viz": {
-    "pos": 21.9,
+    "pos": 22.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 50.2,
+    "pos": 49.5,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.38x (p69)",
+   "value": "1.38x (p68)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 68.5,
+    "pos": 68.4,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+3.6 pts",
+   "value": "+4.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 63.7,
+    "pos": 67.6,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.3%",
+   "value": "3.1%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 33.0,
+    "pos": 31.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.3%",
+   "value": "+0.5%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 52.5,
+    "pos": 54.2,
     "labels": [
      "\u22126%",
      "+6%"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.2% vs 4.2% cash",
+   "value": "10.1% vs 4.3% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 59.1,
+    "pos": 58.8,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "30 (fear)",
+   "value": "32 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 30.2,
+    "pos": 32.4,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,14 +257,14 @@
   }
  ],
  "fund": {
-  "price": 56.725,
+  "price": 56.85,
   "as_of": "2026-10-14",
-  "bar": "provisional",
-  "day_change_pct": -1.84,
+  "bar": "final",
+  "day_change_pct": -1.63,
   "sma50": 57.15,
   "sma200": 55.09,
   "high52w": 59.52,
-  "drawdown_pct": 4.7,
+  "drawdown_pct": 4.5,
   "series": [
    {
     "d": "2026-01-28",
@@ -1342,7 +1342,7 @@
    },
    {
     "d": "2026-10-14",
-    "c": 56.725,
+    "c": 56.85,
     "t": "good",
     "s": 72
    }
@@ -1352,7 +1352,7 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 30) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 32) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
@@ -1373,14 +1373,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-13",
-  "days_total": 742,
+  "end": "2026-10-14",
+  "days_total": 743,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-10-14",
   "baseline": {
-   "n": 721,
+   "n": 722,
    "avg_pct": 1.94,
-   "median_pct": 2.2
+   "median_pct": 2.21
   },
   "bands": [
    {
@@ -1393,7 +1393,7 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 148,
+    "n": 149,
     "avg_pct": 2.64,
     "median_pct": 2.9
    },
@@ -1407,12 +1407,12 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.16,
-  "tbill_3mo": 4.25
+  "ttm_yield_pct": 10.14,
+  "tbill_3mo": 4.26
  },
  "fx": {
-  "usd_krw": 1341.47,
-  "as_of": "2026-10-14T19:10Z"
+  "usd_krw": 1341.09,
+  "as_of": "2026-10-14T20:59Z"
  },
  "distributions": {
   "history": [
@@ -1535,8 +1535,8 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 727.01,
-  "sma200": 673.91,
+  "price": 728.95,
+  "sma200": 673.92,
   "above_200d": true
  },
  "vol": {
@@ -1558,57 +1558,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15600.0,
-  "dca_value": 21329.86,
-  "dca_return_pct": 36.73,
-  "dip_value": 21102.74,
-  "dip_return_pct": 35.27,
+  "dca_value": 21376.87,
+  "dca_return_pct": 37.03,
+  "dip_value": 21148.36,
+  "dip_return_pct": 35.57,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 62,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Could AI help scientists with their paperwork?",
-   "source": "The Economist",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNaVhBNzhFblJJX3drSmxJRTQ0ZFpTR28xb3VFRHlmY2hPaGN0OUhMU3NOQ2hadXNLYXltYkFyUzU5eThBdEdGZnpVd3RUYkE3VXFuZlNkaElfNkdtOGdRejRGNkQ2a2tkaTdhMjRNMm1hbkJneV9VdTF0VDU1S1diM0dZMmp5eThVQXUteUFuUkR0bTVqd2p0bVVRa2tYOWhyeEcteDlELWs?oc=5",
-   "published": "2026-10-14T18:48:48+00:00"
+   "title": "UNG brings AI tools, training to community",
+   "source": "University of North Georgia",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWUlyeFRQOVNGclhVYzJEdjBIdVVuUnIzU1pfMXdJUmJIdW5saklxS3h6R0t0N3FxUzJBVUtQZ3NLR2ZTczVhQkpxVkhkbjdLWURUZ28zc2JELXlBN1FaMGRwMXpxSFRsWFZPdFNOOUJLUmFZOXdvWVA4cjFFay05X3huandhQTZzSURr?oc=5",
+   "published": "2026-10-14T20:57:48+00:00"
   },
   {
-   "title": "AI will make it possible to design and build organisms from scratch",
-   "source": "The Economist",
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOT1BRQ3J1WnhnV2tOamNZWlNmTW84TW84X3B5dkF0Nkpod2syd2lSV1l6MkcwcUhJejZmWkNSaDJhd2NjdmVGNDBkVUNGNFFIajdPWW9RSGxzOGlodHQwSWJBbWRkQUIwV2R2M2FZVERVcVY0S3VDck10QlVQdVpZSE9PTDdfT3FGS3FCbTZvdWMzVkZDTWpwT1RaNXNQdFdpcXM4RERRUzJRN1FFN2JSeS16ZnVVbGpTUEQyeGFubnBQTm52Q1E?oc=5",
-   "published": "2026-10-14T18:47:25+00:00"
+   "title": "Scaling AI Inferencing with the Second Generation of Marvell Structera X: Industry-first Six-channel CXL 3.2 Memory Expanders",
+   "source": "Marvell Technology",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOcjZwUHNFS003cWNqM2JJV3luSGhuZjhzTmJNdVBCRXpjNjNIbm1FeWQ5UEozZ1RQeUZGWHZTWWpmc1JTX19EQkhaWkxIMVNYSndqVXd2Zk5zSERubzFTS29GYWNQUGhwVlFoOWJrNGF3cEllRk5kN1N1OWhvQW9tS3FNS2VBZEpXenpRSkJuUW9ld2xHVUFXUVEwdktoM1FqRkFpUkx4Yk9rN1U?oc=5",
+   "published": "2026-10-14T20:56:18+00:00"
   },
   {
-   "title": "A $1,000 Investment in This AI Stock Became $22,715. The Real Story Is the Last 12 Months",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPY2hmbTllRl9Oejc0WjNqODZqdDZKYVFHVHltZUNsNUVjZVNZQUxRX1dWLUZSSXh6bHZPdHdLZU96VURXSjYyMmcyVHkzY2pzRGh5N0ZBTllhREYxZEgwMTctSmhkNnJJZlBUNTdnX0N3RkVHQ05YaWRuaHoyYm5CeGVhYWNTV2VOdGNHdlA1WkxMaU44?oc=5",
-   "published": "2026-10-14T18:45:45+00:00"
+   "title": "AMD Stock Takes a Bigger Hit as Cracks Emerge in the AI Trade",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBucjRrUkMta1k0LWpMUE5NSnZIbVAweFNyZWI3RG9aaGZydDdSLV93Z2tjRS1qY3ltNkFhZXFERWFNc2dFTU9yN1RTSGQ2YVhVbGdxNjlweGNwUUUwWjVyR3hva3UwekhJd0doMVdwc0Uyam41YXBXQzI2cVZhZw?oc=5",
+   "published": "2026-10-14T20:46:00+00:00"
   },
   {
-   "title": "AI companies want to become frontier scientific researchers",
-   "source": "The Economist",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOUG1fWVFrY3FCXzFKVTRoUlQ1M1RCRGk3ckY2UnZEdVV6Z1B5dndjUGN5ekRQUDdxSEZES0cxYmdSejJSTzU0Q3YxaVd2ZU9sUlN1VFBuRTA3eGNOR2FJRnVvQmdZbHZFbnFtWUExTWNVTjdMSlM1LVhjVmlXalFtaVhibUlpX2dKSVptbXFDalFiVXFoUTVPRUE4amREa1A2SFpVN0V5UHNoUFpRNDYxenhuYjh4YkV2Y1lB?oc=5",
-   "published": "2026-10-14T18:45:42+00:00"
+   "title": "NYU Researchers Are Building AI to Piece Together Broken Archaeological Finds",
+   "source": "New York University",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOdEYyZWFoTmtEUFVKR2ZxYmNYVjZOekVUVXlRV29CcF9qbGR4Qm5BdE9KNnJoMEk4SlN6dURwQWRPdXZZbUJWWWozMmJXZG16eVZob2lEZ0hPOXVRd191cFBJcTlNRTJxc2puQUhJNWhvSDhDUWU2cWYwUTduX0dxRER4Um1rQmFIcXBCd0FwR3BDd1dBdUpmeEZyWjNTMEplQ1hoYU9mN1lhX0VHLVRjRDl5TkVHQUNhZFduS3Fpc2tUMzVvMkRNWEh6OA?oc=5",
+   "published": "2026-10-14T20:38:30+00:00"
   },
   {
-   "title": "A-State secures $2.1 million federal award for AI-driven steel research",
-   "source": "K8 News | Jonesboro, Arkansas",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPd0RyMDJrbGdMNE9yMXM5TEZtQkZhYmlheW1wa0pOd28yNlFQLVZubXk1U3lsWDJNXzhtQ1JWYTE5Wm5zNmczcjRmSWVqbzRubnliUC1zdk9IbkFjcm5IMWhRNm5PUmwyMGN6NFFCTXRvc2JTY2tnemtZR0RPYlhFZ196S3NDd3BRdVEwbkRnVDkwSVNhbGRpZE9fUGhNMzNm?oc=5",
-   "published": "2026-10-14T18:41:00+00:00"
+   "title": "YouTube to Label AI-Generated Songs Across Its Platforms: Listeners \u2018Want Transparency\u2019",
+   "source": "Variety",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOSkQ1RkJjUWFyTy1kcWJheF9wVEE5S1p5Njh4UVJMYms1cGRVaW9yMVR5NmNVeFBNXzIzaEZQUTVRNHV2UlpNX2lybk1xek9UYUlPLTdnWUxkQ2lBTTNlbWhyQVd1VzZmeEd4OUh1dnpDbFM0ZnhDcmN2SGljVy1IUHNiSHBqcUFYSmo2NkYwYjNyVTg?oc=5",
+   "published": "2026-10-14T20:31:00+00:00"
   },
   {
-   "title": "Red hot CPI report fuels AI rout",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPOVVDZGpleGljMkt2cm12UEhqSHA5QWpUR3JITXBsQWpPZ1hkYXQyMkRjSmJXTWg5dkNJd0w4U1RpSGVWVnFrYUtydk91VzN2ZXNoQ3NLSmpqMExESkliZ3pmQ1JISjJqN0NtYVlzYkhCSUpRQ3Azay1MWGRWZVVpSXpScw?oc=5",
-   "published": "2026-10-14T18:40:09+00:00"
+   "title": "Finding Purpose in the Age of AI",
+   "source": "Psychology Today",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNRzNxSTVBNUNlTndUY3FlWnNwVUdlcVNKdjhZXzBXNWJXUWtPa2k4RG5fVFkyWEhVbE5zcVNyWHBpcVpGTTROMUFXS0NBNjlYa2MxalNxeGR6RjQyZF9lNXF4c2Y2TXVYSHJEMm1xZjJuXzlHU1hKZWxod3h1QWQ5Uk52ZzhubTUyOThhcURGOUhtVERFS2NKN1J2S0pHMjVXa0RybmFJcEdNckNGNktUeGNBSGFyZw?oc=5",
+   "published": "2026-10-14T20:26:21+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-14T19:10:11+00:00",
+  "run_at": "2026-10-14T20:59:40+00:00",
   "session": {
    "date": "2026-10-14",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1624,7 +1624,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-14T18:57:24+00:00"
+    "as_of": "2026-10-14T20:43:36+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1634,59 +1634,59 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-09"
+    "as_of": "2026-10-13"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-14T18:48:48+00:00"
+    "as_of": "2026-10-14T20:57:48+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-14T18:58:43+00:00"
+    "as_of": "2026-10-14T20:49:00+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-14"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-14"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-14T19:10Z"
+    "as_of": "2026-10-14T20:59Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-14"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-14"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-14"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-14"
    },
    "yahoo:^VXN": {
