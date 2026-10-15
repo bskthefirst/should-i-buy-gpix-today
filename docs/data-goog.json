@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-15T11:00:25+00:00",
+ "generated_at": "2026-10-15T19:10:25+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 92.9,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "21% ann. (p12)",
+   "value": "21% ann. (p11)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 12.3,
+    "pos": 11.1,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "13.8%",
+   "value": "13.4%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 13.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 13.4% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 27.6,
+    "pos": 26.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.9 (p44), F&G 30",
+   "value": "VIX 16.6 (p42), F&G 31",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 343.65,
-  "as_of": "2026-10-14",
-  "bar": "final",
-  "day_change_pct": -1.68,
-  "sma50": 342.14,
-  "sma200": 338.86,
+  "price": 345.165,
+  "as_of": "2026-10-15",
+  "bar": "provisional",
+  "day_change_pct": 0.44,
+  "sma50": 341.84,
+  "sma200": 339.02,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 13.9,
+  "drawdown_pct": 13.5,
   "series": [
-   {
-    "d": "2026-01-28",
-    "c": 336.28,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2026-01-29",
     "c": 338.66,
@@ -1217,6 +1211,12 @@
     "c": 343.65,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-10-15",
+    "c": 345.165,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1224,7 +1224,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+4.4% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+3.9% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1281,13 +1281,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 343.65,
-  "sma200": 338.86,
+  "price": 345.165,
+  "sma200": 339.02,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 21.3
+  "level": 20.9
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1305,61 +1305,61 @@
  },
  "backtest": {
   "start": "2022-10-17",
-  "end": "2026-10-14",
+  "end": "2026-10-15",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 43782.07,
-  "dca_return_pct": 109.48,
-  "dip_value": 43879.55,
-  "dip_return_pct": 109.95,
+  "dca_value": 43975.08,
+  "dca_return_pct": 110.41,
+  "dip_value": 44072.99,
+  "dip_return_pct": 110.88,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Google Search\u2019s $250 Billion Business Faces a New AI Threat: Why Gene Munster Thinks Meta\u2019s Muse May Be M",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNRFY0bU9ESjczcm0wNXlUU1FGYVd1NzU5Q2RyX1NuT1hxQXdIWHZZQ0ZpMnFJRnMzemdNSzRySDIwNVVHd0FIRWVCN0VpZ05ZMUVWSkpPVFl4UFFUVl9ld1gxRkM4dnBHcG9LYkxwT3ZNbWtMcmwtVGVCT1V3RWREWUZFRUIwelk2LWdXcmVBOXBReTVjY0pZLTZQTURFVG1kMVhDNzBoY2JNdk9Vb3FpclF6amp1a3JIZl9DbzljcDhFeEZCUkJ6Uk9aWm5sSWJ4VGptQnE1Vi16aW84aTJIa0tiZmRyS3gxb0xaNjBNMGVJdXFSSFpiYlFuMjVKSjR3UGthV3Y4MUd4aUF6?oc=5",
-   "published": "2026-10-15T10:43:30+00:00"
+   "title": "[YouTube LIVE] Dinamo Zagreb vs Anderlecht Free Live October 15, 2026",
+   "source": "Universidad de C\u00f3rdoba (UCO)",
+   "link": "https://news.google.com/rss/articles/CBMihANBVV95cUxQRF9VejFsSEozVnBxODAtRU42UTRFMkIyWEtsS1pUSUU5LUVUbUd0NC1MNTFoWWJHMjB4WXI4Z1ROdnhNazB4V1dmeTVhZF9Jc0RSMkxiVktXci01OG4xT3JXY0x0YnhybEdpVlBOWVdZM1NoXzF1aHc3dHVjYWJ5UDhkcG9BNndHOFRGT1BvSV9FUXczVDcwZWZtV2kyZkpTOGYxMl9hRTJLSU1kSzMyR2VhYWd2cVhNa3pnRm1ZLXJuZ0txa2IyeFJITHptcUNvdjlOdF9mN3lmZXdpVHROSm5neDExamhrazRqUWhCak8xSE85R3ZudTg3MG53UHJIdlZDbDZIUnZsVnRSYmpDQk1SbXUtOGdxTnRPNWxMOUsyMDZaUk5nU3BGaWhWdER1SFQ3a0hXb2d2UVpwYXEzUWowblk5UG1qWUczYmVQdjBPYWRZUm1FYzlnemhKUm5SM0pHWFV1aUVjLVNXZGZQRld3ZHljejlrd2RKbzRnX1YyMFFR?oc=5",
+   "published": "2026-10-15T19:04:51+00:00"
   },
   {
-   "title": "Google is handing out a surprise 30% discount on the Pixel 11 series",
-   "source": "Android Police",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQWjFxOFV5SXFEUWtqcUFUQWFZNUI2YTVwUUlOMlFfNmlDcUw2MFJNZ1VnMDdjWGhDQUphYVNlSmpTNi14LTllbUxRT05KemU4SGZ6RGRqZkRsTmI5ZnNDWjFBald6clhQRkx2N3hLWU5qRUY4Vk52Q3N1ODRSZkhkVHZQSHprUWQtZE40eHBkblFkOTEwVlFMeUln?oc=5",
-   "published": "2026-10-15T10:24:18+00:00"
+   "title": "[\u2594YOUTUBE-LIVE\u2594]! Dinamo Zagreb UEFA Europa League \uff2c\uff49\uff56\uff45\uff26\uff52\uff45\uff45 \uff2f\uff2e \uff34\uff56 \uff23\uff48\uff41\uff4e\uff4e\uff45\uff4c 15 October 2026",
+   "source": "Universidad de C\u00f3rdoba (UCO)",
+   "link": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxNVnNna2l6enJqTXZ6dkJQbnprWEtUeGVObm5PQjBHOGdWRTh3Q1JwLTFwTWNzWTBvblhtVmZXMHRWSjA3dmRJZGxPT2FteWszcEI5VHV6OFdmNy1pYjlITnNfTndEbEFHQzZOdlhDajRFdm82UG90eGhJT3Ixb3lvbTZGT05VSmZZeHlOcXBSUHJfeUt1TEdOT1djbTRfSjhsY3ZsVjRZc0xhSkY2cWdKWXF3VEMyMXd1VldpbW5DT2YzUUhvQUN2V1VTVzM4Vno0cGVGYjdGWGt2Wk1XN0t1OTZTNlJxQ3JwdFEzN1A3QVZOSWFPT3NrN0ZsQ2VlS1RlVng0Y0NaWVh1M05KR1NQNkRWVmNjbkxrVWJPMkd0SjNUdFFGU3huRjFRd1VZSThsQ29hbTdJZGlEbXlyZmljNVR2d0p6NzFvdC1NamJ2b1lmbGdmTVJzbC1qLTh6Y2c?oc=5",
+   "published": "2026-10-15T18:54:13+00:00"
   },
   {
-   "title": "MIPCOM 2026 Takeaways: Surfing The New Wave Of TV With YouTube, \u2018Baywatch\u2019, Skydance, Banijay & More",
-   "source": "Deadline",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxORkI4YXF2WVNNSEdtd195NkhncWtXdkRhMGU0c3JGMjBRQU1CbG9QSi1TcGk2eVQtOUl2T3RDZENPSGRHS2VCQW1Rd3NYekd3UGdvQzAxcGhiOURBTENJX1NZVXJXSzdMXzdKVnRuUC1EcG0tV2s4amNEOEl0THhwUlVfX2cwQ003aU5icjEwTElVbS11S05TamM5NlA?oc=5",
-   "published": "2026-10-15T10:12:00+00:00"
+   "title": "Google's Universal Cart reaches US Search and Gemini, but not YouTube",
+   "source": "PPC Land",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPQkhPdzQxMFdDVDNtMWN6Y01QYzZvUVhTWTNJSU1CWWRxbnhaZkFJZlF5TFU0bTcyQnRrQTR5dUV5dWFNbTJoQVRMUnVxd3MweFpZSDVKTmtvLVVmaWEwQi11cGpiQlA3UktoM3NSNzFTZ01qR2VNR0Y1S2lSS0lPT29NVHFfLUNFTnEzQ1pB?oc=5",
+   "published": "2026-10-15T18:54:08+00:00"
   },
   {
-   "title": "Google Fitbit Edge Cheat Sheet: Price, Features, Battery Life, and More",
-   "source": "TechRepublic",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1UQVdGQU1lMGI0dGlSM0dvSU9vNHBneVIyaDlkc2RiVXE0Vm84ZXVZWUE1UVNCOGFfOXNLX1RmNUxoRERZQ3AwSmlUYlQzelo5cllSc2l1TDRZVmtVcGxLV3l0b2FOZ0xRdVVkUEpseVZBS2kyR1lRakhJbGVIdw?oc=5",
-   "published": "2026-10-15T10:11:46+00:00"
+   "title": "Kaplan Fox Encourages Alphabet Inc. (NASDAQ: GOOGL, GOOG) Investo",
+   "source": "The National Law Review",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPaFlfV1JpTjNPQnJpNUxIU2IyY3A3c2h5aEZnWC0wOVQ4WUdvemFKUTYzdXoyTl9mYldoMktaZWN1TGZwaTNyWlNqX3pPaXJXUUROdTcybjMxWlhNaHVtaThGMXFIajd4ZmhlU3EwOVFKN3RpMm9ZdEEtakZnaVJ5M2x3NVdvcS1YZHFlTmxWWi14OW9nV1dZSDA4UTI3M2UxdnJON1JsSWxqNDdyZWww?oc=5",
+   "published": "2026-10-15T18:53:41+00:00"
   },
   {
-   "title": "Van Buren Township officials approve plans for controversial Google data center campus",
-   "source": "WXYZ 7 News Detroit",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPTFlndkVfMXU1M191a3AwNllfRnI2Si1UN2tMZlg2QlV2TURIczZFNG1oUFJYWHVLN3ZzMl83ZDRGem1zX1p5NENZSTIwZ0VUc3hZeFFCNllpdk5Nanh2RElxa3JKbDUtNC0zbUFoM2tVNm1XOGNEaUtvSi05T1U4cjV4OE5aYTBQWVZ5TXdGME1HTkJrbGx6S0x6OFhCSkE0NWhOMkx3WGNtTGNhb0Q1TFp3?oc=5",
-   "published": "2026-10-15T10:11:15+00:00"
+   "title": "Google Trends reveals the most-searched Halloween costumes of 2026",
+   "source": "ABC10",
+   "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNU29fX3d2b3JldDYxUWJvSHZPWVlIaUtaV085LWdxVWlINnByVFJ5R0ZnTWpHTnp3dDIzMjRIaTUyc3NxWGQxU2RyWlFPV2Z1OTdoWEozQjlNQkVheDhmZmJHMGlJemJnWFh4NG5reE1VakhHVnBTX3UtS0JwcExzOVNOOHFMWDFRQzFjSHJQSXExV0hrNzFvVU9ZMzVYRkV3TWZkankxOFJvRVJuR0NIYUlrWlA0M01Xb3diRW9CSW9wdVNtVTlPSWdQMVNncFNzUW00ejA2d05SRU5Zd1NNZnh2RQ?oc=5",
+   "published": "2026-10-15T18:37:00+00:00"
   },
   {
-   "title": "YouTube Is Reportedly Gearing Up To Offer Audiobooks",
-   "source": "Engadget",
-   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9WbXRoOW9MaVNqSnZiWkEyeFIyVXdacl8waHFqNXdxWG9sQlNScW5vX25xTjNjNG41RVIxRWRzU1NIYlNUeG1wMF81YzlXWHcyT1pDbThuRldYNGt5VE1ha0VodTNNYUxNRURKZHBsYmE2UFpR?oc=5",
-   "published": "2026-10-15T10:07:37+00:00"
+   "title": "[\u2594YOUTUBE-LIVE\u2594]! Anderlecht - Dinamo Zagreb Game LIVE 15/10/2026",
+   "source": "Universidad de C\u00f3rdoba (UCO)",
+   "link": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxPelM4R29NOGNWN1hiWVpZMWtXdlVqc1VUeVdpQ0RmXzA4RWNkVGZNaENkdW5LMGJxb09wb1N2emRwZ1JDMDdPbGZGeUh3bElrWDNHYXdfX3kwREdWSnI3X1pQOU5mNHc5cERfemh6QUVRcDd3UDZFcWZDcXJzRW9TWnBFSktFZEhPelRfZEotSjNFNGYwQnZKdHF5Sk04TFRkeTc3clFPR2I2MkQ1dFhFY290a0RtNGo4TWpqLS1hOXhqUjUwOEdEVk5Gdk83dEk5R2Z0UW5rTWVaZDMxNHltemJtSlNzdkJMd09LaXZ1SE54TWFPQWp1NTJiZUppWXMzMm1DWjdLZDlVS2RRTDJvYTE1em1zY1c1MkJXTExDOVVZVS1FVmY5LU5UeTcydC1UekJ0bXFqejUzbWVTX0QteGlUQUQxU0JIV0dPRWtYZUliZw?oc=5",
+   "published": "2026-10-15T18:36:38+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-15T11:00:25+00:00",
+  "run_at": "2026-10-15T19:10:25+00:00",
   "session": {
-   "date": "2026-10-14",
-   "bar": "final"
+   "date": "2026-10-15",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-15T10:41:16+00:00"
+    "as_of": "2026-10-15T19:07:45+00:00"
    },
    "earnings:GOOG": {
     "ok": true,
@@ -1408,7 +1408,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-13"
+    "as_of": "2026-10-14"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1419,102 +1419,102 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-15T10:43:30+00:00"
+    "as_of": "2026-10-15T19:04:51+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-15T10:52:58+00:00"
+    "as_of": "2026-10-15T18:56:52+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-15T10:40:45+00:00"
+    "as_of": "2026-10-15T18:45:39+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-15T10:22:19+00:00"
+    "as_of": "2026-10-15T19:06:42+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-15T10:39:29+00:00"
+    "as_of": "2026-10-15T18:51:33+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-15T10:04:01+00:00"
+    "as_of": "2026-10-15T18:59:00+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-14"
+    "bar": "provisional",
+    "as_of": "2026-10-15"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-14"
+    "bar": "provisional",
+    "as_of": "2026-10-15"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-14"
+    "bar": "provisional",
+    "as_of": "2026-10-15"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-15T11:00Z"
+    "as_of": "2026-10-15T19:09Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-14"
+    "bar": "provisional",
+    "as_of": "2026-10-15"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-14"
+    "bar": "provisional",
+    "as_of": "2026-10-15"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-14"
+    "bar": "provisional",
+    "as_of": "2026-10-15"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-14"
+    "bar": "provisional",
+    "as_of": "2026-10-15"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-14"
+    "bar": "provisional",
+    "as_of": "2026-10-15"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-14"
+    "bar": "provisional",
+    "as_of": "2026-10-15"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-14"
+    "bar": "provisional",
+    "as_of": "2026-10-15"
    },
    "yahoo:^VXN": {
     "ok": true,
