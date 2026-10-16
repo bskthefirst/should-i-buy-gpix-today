@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T19:10:16+00:00",
+ "generated_at": "2026-10-16T20:25:15+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
@@ -32,7 +32,7 @@
    "lean": "good",
    "note": "TSLA has closed down 5 straight sessions. Historically bounced the next day (+0.35pt excess, t=1.7, positive in every era at the 1-day horizon). Longer horizons were mixed, so it earns 1.0 - half the crash band's weight.",
    "viz": {
-    "pos": 43.8,
+    "pos": 51.3,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "33% ann. (p10)",
+   "value": "31% ann. (p8)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 9.5,
+    "pos": 7.5,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "28.5%",
+   "value": "27.6%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 57.0,
+    "pos": 55.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 20.8 (p85), F&G 18",
+   "value": "VIX 16.5 (p39), F&G 18",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,15 +128,15 @@
   }
  ],
  "fund": {
-  "price": 350.4101,
+  "price": 354.72,
   "as_of": "2026-10-16",
-  "bar": "provisional",
-  "day_change_pct": -3.32,
-  "sma50": 359.38,
-  "sma200": 387.97,
+  "bar": "final",
+  "day_change_pct": -2.13,
+  "sma50": 359.46,
+  "sma200": 387.99,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 28.5,
+  "drawdown_pct": 27.6,
   "series": [
    {
     "d": "2026-01-30",
@@ -1214,7 +1214,7 @@
    },
    {
     "d": "2026-10-16",
-    "c": 350.4101,
+    "c": 354.72,
     "t": "ok",
     "s": 56
    }
@@ -1224,25 +1224,25 @@
   {
    "label": "Crash band",
    "direction": 1,
-   "text": "TSLA 5-session return -8.4% - another -3.6% reaches the validated crash band (+6 pts)"
+   "text": "TSLA 5-session return -7.3% - another -4.7% reaches the validated crash band (+6 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 33%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 31%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-15",
-  "days_total": 744,
+  "end": "2026-10-16",
+  "days_total": 745,
   "backfilled_days": 707,
   "fg_coverage_start": "2025-10-16",
   "baseline": {
-   "n": 723,
+   "n": 724,
    "avg_pct": 2.76,
-   "median_pct": 0.85
+   "median_pct": 0.82
   },
   "bands": [
    {
@@ -1262,9 +1262,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 370,
-    "avg_pct": 2.67,
-    "median_pct": 0.96
+    "n": 371,
+    "avg_pct": 2.66,
+    "median_pct": 0.93
    },
    {
     "tone": "caution",
@@ -1281,13 +1281,13 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 350.4101,
-  "sma200": 387.97,
+  "price": 354.72,
+  "sma200": 387.99,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 32.8
+  "level": 31.4
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1309,57 +1309,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 28637.3,
-  "dca_return_pct": 37.02,
-  "dip_value": 28666.69,
-  "dip_return_pct": 37.16,
+  "dca_value": 28989.53,
+  "dca_return_pct": 38.71,
+  "dip_value": 29019.28,
+  "dip_return_pct": 38.85,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 204,
   "winner": "dip"
  },
  "headlines": [
   {
+   "title": "With Tesla Roadster debut, Elon Musk shows \"flying cars are real\"",
+   "source": "CBS News",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOT3lCdkZnNjI5dXpHQ0tnUkFMR3laX1QtZVF3QW9YXzJfX3NoSHdfQXVySkxRLXpEaFhoRUtVQTA3YjFMTUp0cGthYjJGanJGMFlJaFk3X3BxT1RPcGotV0tPRF8wX01aSkhPVGF1NmNEbkhrbld6VzYxTVI3YzFOZXg5Y2Q2YzN0?oc=5",
+   "published": "2026-10-16T19:43:18+00:00"
+  },
+  {
+   "title": "Tesla Shows Off Flying Roadster: Don\u2019t Buy the Hype",
+   "source": "GearJunkie",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBrLXgzUlhnU0hLN0tEMnROQi1yRlRibWV4TnpWbWotV3A4Z0xCYmVpcVlKVS1RQURBS3AxTUhnZTNYX0ZSc1Q3YkZaZE5wQ2lJNmoyZXExcmhnTUJhcFV6eURUeE40Y3BiZGp2d2dR?oc=5",
+   "published": "2026-10-16T19:19:05+00:00"
+  },
+  {
+   "title": "TSLY: Tesla Flies, The Stock Doesn\u2019t For Me, The Premiums Do (NYSEARCA:TSLY)",
+   "source": "Seeking Alpha",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNZ1M1UDVDc2g3alprVkNiMEh6Zlc4eExwdkRPeVNDMDUzR3dDNHdfYUpHRFFOMjVzcUN1RU15bzd5QlhVZEo2RVFDZ2xPSlNCUFdxRW9yTUhpdHZobUdkMU9YSjA0Nm5mUDZjYVJiN1pkUVRNdTFuZjVSanVabWNFWXhWUElwOC1kU1Rjc09kNzNGQlExdTBHUlhORXJFdw?oc=5",
+   "published": "2026-10-16T19:04:10+00:00"
+  },
+  {
+   "title": "Forget zero to 60. Tesla Roadster flies, flips with SpaceX thrusters",
+   "source": "USA Today",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQcFk3NGNwRWFZakR3U2dOZEViU2k2RkJfZjJGQW82bUtxbkhQRy1yZlJlTnY3eVQ5a2pVYUxMcHhjclFYMUtOTGQ3UmtNbHNmMGI5c3Z0RVVZbElNZmltNWpjVVE2SVJnOThYWDI0NWNhS2RqZEoyem9hUzhnd2hTWXd1Mi1oTi1QWDhTSHR4V00yZ0NndXpnY2djd3BQLUpBdkt6RnJaMGcxYmRh?oc=5",
+   "published": "2026-10-16T19:01:00+00:00"
+  },
+  {
    "title": "Flying Teslas, walking robots and other wild Elon Musk tech",
-   "source": "Detroit Free Press",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNQWVibnVLZGNxVW1abS1QeXpZM2c1NFhVTjZtQnVFbHk1UGV6eFVZRTcwTlY1TkdkcDdXeHMwVFJvdUp2M05IbkVkVU9Wd25WRzV2dXMxSWxLRG5QUVIzZmc4UUxzX3U2Tm1ZREJtZWgyVnlRckFzWEVxSjBDVjRXTmY1bFZtcUNncGxUQWNMbTNIUXpwOEExZVBZVkV2cGllRFpoQWlNTHBwREpZUGxjS1Q0b0lvZnhuclVwTQ?oc=5",
+   "source": "USA Today",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNR0ZyV3NJX0xqSGNZZmd0cXN2M2h3RFZMcFBKV1c5SmlERUdZWERhUU5ONnUyQ3d1V3JEVVVXci1IbkE1R1ZURksyeDR6VXdWbndpc2xfdDdVd0xVNGRpZ3ZIS0VQWE5kVlNVS09peEYxaUdMWHFGSHRjT1ZOaHl1WVhVcm1EbVAyX19zY0dWRnNhZlJWWEtuUUthTGMyLTQwRmRINFpfZjdGR1hUU2lOY1RJQ3J2eWlYSmxXeVNtcW0?oc=5",
    "published": "2026-10-16T19:00:00+00:00"
   },
   {
-   "title": "Opinion | Another reason to be excited about Elon Musk\u2019s flying car",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTl9DWkVDYWRkQ3R0Qmg3el8wV1BteFRDSDE0aXZ2ZndkeHk3ZUZrVEtxQXMxYmYySDhGYUpRX2xKRVFPcm9hMlZPRmFROHpfeHNVT1VKU3pheWxwelZnN200akV0TW9wZVpJZHRhbEtFN05Bby1xTldHeDVfTGVLUHpHNlgyNk1fX1ZfUU9wSUduRkJlLWhZQWZqYm11a1FIbWYteExkOTlHQ3k2ZmF3V05maw?oc=5",
-   "published": "2026-10-16T18:57:47+00:00"
-  },
-  {
-   "title": "Elon Musk\u2019s Flying Tesla is the Perfect Ad for Trump\u2019s America",
-   "source": "Newsweek",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE91cWJtMU4ybEpCMEd3TmZ2MGh0X0tCY0tFWWt4NTJyZFdZUFlkNHZzaDFjNXd6R0E2OXlqWDdSeS1scXJBN0hubjM2MzJSakZfWVA0cS14QXdyWkRhQUFGcWQ1T2Z3LTJwU1hxZU9nd2dCUDlMOFhjQjRR?oc=5",
-   "published": "2026-10-16T18:46:00+00:00"
-  },
-  {
-   "title": "Tesla unveils Roadster that can flip in the air and land using thrusters",
-   "source": "CBC",
-   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1zUG5aWS1jM2dIYm15eGNiUzR5VS02Y1dOUW1wWi1nUERVeF96VjVRajR6Sl9LNmo5TDBIdnRrYW1yT1d1amZ4THc3QU9Ia0RfekoyTkNWNkRmQVc2djBQeWxtaG4?oc=5",
-   "published": "2026-10-16T18:43:13+00:00"
-  },
-  {
-   "title": "Elon Musk\u2019s flying Tesla Roadster flips upside down during Texas demonstration",
-   "source": "ABC10",
-   "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNUzFlOUlTT0hsM2NWWVo4RFRGUTFKMGozdzE2MGRucGpGZXlQRDN2MWVUdzlHTUFlbnBOT2xablQ2aWZJdzhnb1MzZGRfMDl6QXRUQW9ScVN3ZXU1aHVWdFlLemRIUzk3ZUE5QUszR3hJN1BSYmNUS2I1RDRsVloyX2RuSkM0UVBKR3dMUlNYRHI2eGVXRXh0cFJVNVhwWW9mRzI1UWFoa29takM4bW1IOXIzaF84U016RjZCejRodmRhdGIwRVp6Z0tWMnFnVHRXaFAwNDRRdzh6VS1peW95QTBuZFZmdw?oc=5",
-   "published": "2026-10-16T18:29:00+00:00"
-  },
-  {
-   "title": "Elon Musk unveils Tesla's new flying car in Texas",
-   "source": "Bergen Record",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPWm5oeFRVZ3dUTWVCcXRyUkRvNVF5OXg2VEZtWXN5aER0d1VKRlVZR1Z1YzgybjBONDNwOWp2TG9tOGRhT1MyRmZiWEh5UTh1b2pDbXF6ckx0U1NmVFBYNXZGVUtTbzcyODRKaGpwUElSZHRWamxfR1hLOFpwWFVXaHNhLS1BWEV6NjlJSE1yRHFpTGU4cU16ay11QlZxQWlzMFE5UlpCaVloUHdrS2pSUlVRaERGZUZvRzQ1YkN1dlV5WU5UNzFF?oc=5",
-   "published": "2026-10-16T18:17:00+00:00"
+   "title": "Tesla\u2019s new Roadster \u2018flying car\u2019 can thrust itself in the air",
+   "source": "Valley News Live",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNRWZMandsSUg3RUdIbEZ5WXduUzFZeEdqZE5ybzZHWDRRZUlNd21ReUUxQnlRR0V3X2hweUc1OUpVT1JIZ3c0UkphZTh5cE1DNlRyOURtbndOLUd0NTN5WDc1TWM0bGNSSmYwc1dVaVlhbnEwQ1dzeS1FUm8yb2FBMVlmZTFEdHBpd2tsM09sUVpISlE0UzRwQlVhQdIBrwFBVV95cUxOQzFRTExHejMtSTJxZTl0OVZMTnZpZlowZVdNVDRQR2w0c2ljVmdybTBsSFkzSlpLaVVnMU5wUHVfblZxZmJ1VE9ZLWMtWkdObG90MWtnMHJwTVAwU28tUFlnOXNxTDl1V2tlNlJEZmpvbVM3dnU5ZFgwN0NoRFJCUl9GU3kzV1F6V1lNTnppelBiMU1Db1pZR2QzclJ0bHNiSW9qQTlfTXU1T0RtTWlR?oc=5",
+   "published": "2026-10-16T18:59:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-16T19:10:17+00:00",
+  "run_at": "2026-10-16T20:25:16+00:00",
   "session": {
    "date": "2026-10-16",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-16T19:07:27+00:00"
+    "as_of": "2026-10-16T20:12:55+00:00"
    },
    "earnings:TSLA": {
     "ok": true,
@@ -1392,71 +1392,71 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-14"
+    "as_of": "2026-10-15"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-16T19:07:13+00:00"
+    "as_of": "2026-10-16T20:18:55+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-16T18:50:25+00:00"
+    "as_of": "2026-10-16T20:08:28+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-16T19:00:00+00:00"
+    "as_of": "2026-10-16T19:43:18+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-16"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-16"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-16T19:10Z"
+    "as_of": "2026-10-16T20:25Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-16"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-16"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-16"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
-    "as_of": "2026-10-16"
+    "bar": "prior_close",
+    "as_of": "2026-10-15"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-16"
    },
    "yahoo:^VXN": {
