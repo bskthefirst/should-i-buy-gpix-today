@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T20:34:01+00:00",
+ "generated_at": "2026-10-16T11:00:11+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "22.7 (p44)",
+   "value": "22.9 (p45)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 43.6,
+    "pos": 45.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.35x (p58)",
+   "value": "1.39x (p70)",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
+   "lean": "bad",
+   "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 58.0,
+    "pos": 69.7,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+6.7 pts",
+   "value": "+6.9 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
    "note": "Options pricing far more turbulence than the Nasdaq-100 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 88.9,
+    "pos": 90.5,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -227,7 +227,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 31.5,
+    "pos": 32.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 13d",
+   "value": "FOMC in 12d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1362,7 +1362,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 22.7) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 22.9) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1376,7 +1376,7 @@
   "end": "2026-10-15",
   "days_total": 744,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-10-15",
+  "fg_coverage_start": "2025-10-16",
   "baseline": {
    "n": 723,
    "avg_pct": 1.95,
@@ -1411,8 +1411,8 @@
   "tbill_3mo": 4.28
  },
  "fx": {
-  "usd_krw": 1341.41,
-  "as_of": "2026-10-15T20:33Z"
+  "usd_krw": 1331.18,
+  "as_of": "2026-10-16T11:00Z"
  },
  "distributions": {
   "history": [
@@ -1541,16 +1541,16 @@
  },
  "vol": {
   "index": "VXN",
-  "level": 22.7
+  "level": 22.89
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 13,
+  "days_until": 12,
   "imminent": false
  },
  "cpi": {
   "next": "2026-11-10",
-  "days_until": 26
+  "days_until": 25
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1558,7 +1558,7 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15600.0,
-  "dca_value": 21373.11,
+  "dca_value": 21373.1,
   "dca_return_pct": 37.01,
   "dip_value": 21144.64,
   "dip_return_pct": 35.54,
@@ -1568,44 +1568,44 @@
  },
  "headlines": [
   {
-   "title": "AI use in STEM PhD dissertations reaches 29%, study finds",
-   "source": "Chemical & Engineering News",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOc242U25saEMwNFdRaVdubks0dlp4WVdPWlhubzBJTHh4cFB3UFpNYVZnRFZXRjF0LU5yX0RKUVg4TjdSZlAwc0dDVThucWtQVGQ4b2ZJaFY3Y2cyZ3ZVczJQaHU5RXd2Ri1VYTN6TWxDeVZSWFdRZ2M3UzZxLVFNX1ZZWXg3S0xtMlUtanJ1TkNnbWY4QlZKOTFleHowbFlpMnc?oc=5",
-   "published": "2026-10-15T20:26:15+00:00"
+   "title": "Elon Musk's SpaceX to testify at NYC Council meeting on AI safety",
+   "source": "CBS News",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNNWJHTmY0Z2VudGVwZWxiektfRnFUZWlBZ0gwUG80VGY1STBoSDRvWThtbmZxZWtoOWl3alNpeUdLU1BLaGFnUkRBejV4Sk9PaTdUQVMzbFBqN0luWWUwMjV6dDd6XzM2M3g0ZUlfeUM2TVk3VEdHY0pzay1PbWdDVTd6VQ?oc=5",
+   "published": "2026-10-16T10:45:26+00:00"
   },
   {
-   "title": "Wall Street muscles higher despite more swings for AI stocks",
-   "source": "Los Angeles Times",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOQlhmTGc0UmZJU0JPcWEyRlhXckZGOEFsOXk3Z2xaZ0VWODBLeWVNUXlnVHpqbFkxSU1xU1JKWEZVLXRpVU13OTExNTBkQU94RVZaWTRHRnZvMWdxdm9TWktZZ3JsalJ6MGY4T0JFMGRSSEFUakU5V3RoOVltUFltZzFqRWZ0N2o1RXBEeDNIRU8zVjlMTnhlNGJybEpqNmdMWmdNeE8zOElMT2lOamxn?oc=5",
-   "published": "2026-10-15T20:24:00+00:00"
+   "title": "Conversational brain AI for adaptive epilepsy care",
+   "source": "Nature",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9OQjBCOER6MTBFX3NvR0RpaGR4M1pkVnlINExSS254WjBESGp6alFxV3JNN3dnYzFYQmRyTElLVVlZYzhXWG12cEhoY3MzS3FhN2R3TXVEZGlTdkhkNGZn?oc=5",
+   "published": "2026-10-16T10:41:25+00:00"
   },
   {
-   "title": "S&P 500 ends higher as traders shift from AI to healthcare",
+   "title": "Better AI Stock: SpaceX vs. Nvidia",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNQWx2bm9JeUhiN0VLVzJtbENUX1pkQXhhMnd2OERFVnQwQ092elg5cDNqTTJYQTBiX3pjM0pBZUlVc1hGeG5uQ0RTWUtvdXE5TkFlTlhjdjExdWF3cXRfM0k1TFg3cjZzR0FyTTZ2OHFYeXM2VWRhMDJfRk4yNWxVcA?oc=5",
+   "published": "2026-10-16T10:39:05+00:00"
+  },
+  {
+   "title": "As bear attacks rise, Japan turns to AI, 4-legged robots and pepper-spraying drones",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPaXJiOFdYdE0zN0UybU8wWEpwRnpWV1h0emlYNDIzM3BjS3k0a2dZTlp1a3dIVnJjM2Q0ZlQ1MzM0Mlc3MW9IOE4zbUM3QmpiemRHYS1oTlB1OE9kZmt1aWpzZEk3RzlyZ3dDbjRMZ3dtX041QWxIOEYyTlFXaFg5ZlRMX1VldzJIajkyRHRTX2lJRXZVU0FGbEN0SGJrZ2NNMlRqVU43SjA1T3dNQkpGd2NlNjd0R1FTQktDTw?oc=5",
+   "published": "2026-10-16T10:32:36+00:00"
+  },
+  {
+   "title": "Sen. Marsha Blackburn AI video raising legal question",
+   "source": "WATE 6 On Your Side",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQcWlRVUkzeE1lYzJMMVVRaEM0Uk5QMGFvTGJMR2w5NXluVDdEWUFVRlZmNVh4VWdPYS0zdi1ZbDZlNVM4eWw2T2xnTW1QSk9TQXlWVmhiWW9NQUZIeEk5aE1sNXlJOEpwSm5pRjh3TUJWVWZ0N3JBYUd5V21nLUNDd0piOVpzelFrWk9sd3BnYUhBLWvSAZgBQVVfeXFMTldOT1NIX0tiZzR0elY2QUQxUHpDYzJ3UzRzakRpYng2em1Ga1l6dUpBZFIxMncza2dubUF1LUdMUnVYSDFKQ2t4U0dEdVZkZU9uRGJjR2Z6eG1xbGhUSWNaR3B2d1Rfay11SHFXX0Q4ZVFhMU1yeW9OWHVQc1ZCN2pqNkNacm51aUlOcWRrQnV5ZEV2UlQ3LUk?oc=5",
+   "published": "2026-10-16T10:26:55+00:00"
+  },
+  {
+   "title": "CoreWeave bond rout tests market's math on AI buildout",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOZTRob0s4X3hCYkZQZzFfeUxuU1ZlN0tPT2hvelcwcW9QdU9yeVN1ZUZfR253ZUNoN3NjUlRHbG9aS0wzMmVGLUpNOVcyTUlHOWo3WERDX1psTXlmWGthb0JPN19GMGxnT2pkYkRWQ0R1THEyODhoWnZTd1NIQjdZbm5fLXNYb0M2c1g2YU02TENSSi1xSFZMQzRuUTc?oc=5",
-   "published": "2026-10-15T20:14:49+00:00"
-  },
-  {
-   "title": "AI Stocks Are Hurting. Look at These Other Sectors for Protection.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQbGw4T0VkbENlZE1LdExBSkRzWG9palFkTEJPQmxQZVdVQjQxaGc3UWRZc3czdEdXMTA2UVpSYUhLal9ZSXlBcXFYcVczVmFpcUZSMjNkUzIxcDJyM1FJUGJjRE1KMTcwS1Q0WkpNZExJdlJCRThaX3liOXNtVS1uS3RB?oc=5",
-   "published": "2026-10-15T20:13:00+00:00"
-  },
-  {
-   "title": "How AI became a political and market flashpoint",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPWkNlZ3BpNHhZSWtpNUpkRE91d0pyR1FnQ1JuN2MtSGQ1ZFJxWnBjXzhvZTRrejh0a1ZDRk1CTEczOFBwdUtVR1loR0xxX0VDck95RjNkWjJmeGZ1RDBWLWhpbEtsSXV0SWhOWjk4YXdfSkJ4bmZ6MVRKNlFWdy1WaXhaQ1kzWGpxVC1NLUpLWFB5NE9p?oc=5",
-   "published": "2026-10-15T20:09:07+00:00"
-  },
-  {
-   "title": "CoreWeave's slump spotlights growing burden of debt behind AI boom",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOckxhLTlLMHVuWl93dlRGWngzUjBqY0wxaU85Q2lPNGxaMzg0ZjJhT0ZGd210N1N5SDVpV1lLNl9GOXlNazFrN193TFNFREg1dU5OTkpadm9LVHRxU0ZzQWVWbFV1MnNHY2RGZHVsajI5UWRlWDE5NmtGaDctV0o5ME85dkV3RU5LSEFWdTlNUW5RWXZ5S1BXelNMZkI5ZEZfR05kd1UwNnBZQlQ0MHkyQVN3?oc=5",
-   "published": "2026-10-15T19:57:10+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdm5VTll1VmRrVEdWNm9HMmh4dUtxaDN2alV3YnJxUmtZdVJjZV9obW5Kc2tOYTNEQVdQNE1XMnFNbk1PaFBTTHZqcWxFZklDOVRtYm9IOWhnMjRuZTYyM2U0NVA1WmY0a3ZGQTFJbFp5cU1ha3h2WXBwLVFBSmtjRnVmZm8xdUtCMWlaX1YyUkpCSDhZamRzRG9UV3paVU9MalVpa0FFbzRBZw?oc=5",
+   "published": "2026-10-16T10:25:55+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-15T20:34:02+00:00",
+  "run_at": "2026-10-16T11:00:12+00:00",
   "session": {
    "date": "2026-10-15",
    "bar": "final"
@@ -1624,7 +1624,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-15T20:20:01+00:00"
+    "as_of": "2026-10-16T10:41:01+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1640,13 +1640,13 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-15T20:26:15+00:00"
+    "as_of": "2026-10-16T10:45:26+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-15T20:21:04+00:00"
+    "as_of": "2026-10-16T10:27:59+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -1663,7 +1663,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-15T20:33Z"
+    "as_of": "2026-10-16T11:00Z"
    },
    "yahoo:QQQ": {
     "ok": true,
@@ -1680,7 +1680,7 @@
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
+    "bar": "prior_close",
     "as_of": "2026-10-15"
    },
    "yahoo:^VIX3M": {
@@ -1693,7 +1693,7 @@
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-10-14"
+    "as_of": "2026-10-15"
    }
   },
   "degraded": [],
