@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-16T11:00:24+00:00",
+ "generated_at": "2026-10-16T19:10:25+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "no pullback",
+   "value": "-3.4% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 100.0,
+    "pos": 77.1,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "21% ann. (p11)",
+   "value": "23% ann. (p27)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "bad",
-   "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
+   "lean": "neutral",
+   "note": "Realized volatility mid-range for GOOG's own past year.",
    "viz": {
-    "pos": 11.1,
+    "pos": 27.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "13.5%",
+   "value": "15.7%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 13.5% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.7% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 27.0,
+    "pos": 31.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "GOOG regime",
-   "value": "uptrend",
+   "value": "downtrend",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "GOOG above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "bad",
+   "note": "GOOG below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.5 (p39), F&G 32",
+   "value": "VIX 20.8 (p85), F&G 18",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 344.91,
-  "as_of": "2026-10-15",
-  "bar": "final",
-  "day_change_pct": 0.37,
-  "sma50": 341.84,
-  "sma200": 339.02,
+  "price": 335.89,
+  "as_of": "2026-10-16",
+  "bar": "provisional",
+  "day_change_pct": -2.62,
+  "sma50": 341.43,
+  "sma200": 339.12,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 13.6,
+  "drawdown_pct": 15.8,
   "series": [
-   {
-    "d": "2026-01-29",
-    "c": 338.66,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2026-01-30",
     "c": 338.53,
@@ -1217,6 +1211,12 @@
     "c": 344.91,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-10-16",
+    "c": 335.89,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
@@ -1224,12 +1224,12 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+4.0% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+6.8% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 21%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 23%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1281,13 +1281,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 344.91,
-  "sma200": 339.02,
-  "above_200d": true
+  "price": 335.89,
+  "sma200": 339.12,
+  "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 20.9
+  "level": 22.9
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1305,61 +1305,61 @@
  },
  "backtest": {
   "start": "2022-10-17",
-  "end": "2026-10-15",
+  "end": "2026-10-16",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 43942.6,
-  "dca_return_pct": 110.25,
-  "dip_value": 44040.43,
-  "dip_return_pct": 110.72,
+  "dca_value": 42793.42,
+  "dca_return_pct": 104.75,
+  "dip_value": 42888.7,
+  "dip_return_pct": 105.21,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "UK YouTube Breakout \u2018A Memory Owed\u2019, With James Bolam & Rumi Sutton, Moves Into Feature Development",
-   "source": "Deadline",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQRUNTYWRHVllUSHFJZ0hMT0lyeFJoeW9KR3dmYmFqZFR4LVlIem5faGp3bGtCNFJGSUVqaVJTWHJKaWRqcnQ1dkZuYjJPaDJjbEdLZnEtc0h5M01BNlZscC1nTmtYVzF1WlZTUEdUTDgyMGFwRFRqZzRRZlNxLWdkbHRHeGRGMGFhNEh5OUwydmtwdVJaLXZRQkRxSHQ?oc=5",
-   "published": "2026-10-16T10:50:00+00:00"
+   "title": "Google's DV360 now requires a business name and logo on YouTube ads",
+   "source": "PPC Land",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNcFdNV0gxbDdSdWlKalNKdHJySGdyX3VyMHg4eHhMLXhOa0s3OVdYTVUzWGdpaWNWQUk1Rmo1TDdJVWhGd3JEZGdwTTFWY0R3Z0ZfS3d3bzVubjFoek45VFZRQnFyN3VDalNYVHRrZVAtekVFMFdib3NPOHFMcE91X0NDLWN6Uy1QQkIwdA?oc=5",
+   "published": "2026-10-16T19:05:54+00:00"
   },
   {
-   "title": "Google Cuts Quantum Errors 40x With Magic State Breakthrough",
-   "source": "Bitbo",
-   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE13NWxLaFpNTjBEaUgtMzZ4RTEyMkZESkFWQU8tQ0EtVTliRWRKdVllU0RqSzctZmdiNnhpUnJ2Yk11NUVKTHZteXI3T2xxdWJzbkd2REo4OTExLVBMRTZJ?oc=5",
-   "published": "2026-10-16T10:30:00+00:00"
+   "title": "Google lets gambling advertisers apply for certification inside Google Ads",
+   "source": "PPC Land",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOSjdUQkFOdUFrZERDVTZpTHNVRlBiZ2RoSG1FV3otaEM1TndOVXdJVllLRDBsQnpqd2lhQ3FDWXlnVUpQQWVhSFJrN29BM1lndnczel8zYXh5QnJLd0tzLVZ5NlY4bHNoSjFuNWlYVVBvQUxtNEdDd3YybW5zWlRWaHNQM0FlaXhneHdVOE1nSGRVRjdfMkJJ?oc=5",
+   "published": "2026-10-16T19:05:52+00:00"
   },
   {
-   "title": "This Dividend King Is Getting In on the AI Energy Boom With Its Recent Deal with Google. Is It a Buy?",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPZE5vVmMzbEJuMzRPWlpMSUt0a2lmLUJNSk1SZ0F0V3FGWnpVMEJkRjFjZFJBc2N6SmlNNWpBNURWUFhJLUtqemJnMW9GRkNvNkVobmlmSF9Xb3MxMkx2S2VsWUtESVNEN25HZHB2VU1TV3JnMnlvTnJmTlJHbWpwVGZLTUY5dmVNMnc?oc=5",
-   "published": "2026-10-16T10:29:01+00:00"
+   "title": "Are Marketers Ready for Google Search That Answers Before Anyone Clicks?",
+   "source": "CMSWire",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQQ3FFWnhvd1UwUHBaaWRSMVBZZEJ2X1RtUDNlbVRJYkRFNWY0OXZscnNZblVoVXZ1Nk1NNkMyYm94cnZmZGRfM1RYaE90RnV0M0dfc01xOXRGS1AzX3VxSWRKM1BaZzBmTWxHTlhTNFVfaVFZam5QRXA0Q0VyT2VYOXNpdm9vREE2WWpFNWhnbHNQMExST0w1XzdSZG1LcnRvcDlzeV9SYVJXNm10S1E?oc=5",
+   "published": "2026-10-16T18:52:07+00:00"
   },
   {
-   "title": "GOOG, GOOGL Securities Announcement: Alphabet Investors",
-   "source": "GlobeNewswire",
-   "link": "https://news.google.com/rss/articles/CBMi3AJBVV95cUxOQllRMldldVZJUmxIVlRIeUFTYWNBeV96cnVxak8zUmhzOGRTbHFqMkNxeHV4bjlkOUJaeW9YODhKLXhyemJOejVTMkZvYjFWV2NCbkNFanBTa1E2aFlMZk9Vd1I2TEVSaVFRYW1WS3JQVUNPenE2TDVoaGlFYkRwUmJpRGd5RGZQTTFNd29kVWltUm5rVEp3T3p5MXA2UUtmUUMzSVRKYVJ5TFJtM21pWXEtQjlWcHQ0RUpWdndVM2t4d2FrS29aWDRGUU5UdjFIYmxXUGdZMTVaclR0QS1DQ1ZOWlVLQ3FXanNwbDdobVdwZE5Oczd3dkxTVFl4WmtkTlI1bmZxSlMzd3hZUnJNYlBzWng0QnZ3OGFwaWxQMXo4RDljSGdLLUFiaTNGZjMwdTlpV0w0dDBFUVpiTGREM3pxUlk1RWlQR182WHNVbEg4MTFJZ0hBRXZ0WVc?oc=5",
-   "published": "2026-10-16T10:18:00+00:00"
+   "title": "Goggle Search Trends Expert reveals top Halloween costumes of the year - 13WHAM-TV",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPcDhzQjNHLWhMRWtzd2tCWjYzcVVxQXN5eDRJRWNucnpqeUNRT2dudVB3M2NZYnlrX0Y1V1V3Sy1nNnVWRkJSbGV2NlhTU1BDWXJNUzRaRjAtVTdUdmdkazNVWUNpSzdiLWNZdzQ1T2g1WFc2bGI2TG8zLUNBcC00MHc2aHJRVTBJYmJFVVhNMEJEWWNCaVlWQ1BkaDdBNmxHU29ORVJrdklBSTRSc01wY0l1Y1lOMndx?oc=5",
+   "published": "2026-10-16T18:29:03+00:00"
   },
   {
-   "title": "Alphabet\u2019s Waymo to launch autonomous ride-hailing in Toronto in 2028 (WAYMO:Private)",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPWkxkVVVJMGlmR3JfU3k3c29DMmd5UlZOdV9NUnh3ZVdGWXlLZXctZFExZnRUU21ZVW05ZllpUVBpN0d1X2ZHRzh5UkhrclVuOTZqbVdXQXdraVNtSWVReEU0WHF6MWdGeHdEUHQ1dVVXbHFUY0JnSkFDVDBZbTc5YUIxZlhHbkZmYW02VHphajV0WTJVcUh2YURaN28ybWpoWUVGZzhHTzdBZw?oc=5",
-   "published": "2026-10-16T10:11:29+00:00"
+   "title": "Anthropic Donors Near Google's Top Spot in 2026 Midterm Giving",
+   "source": "Legis1",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE92NVo1bVNfME8zRGtLUVUtcFY1eEFQSGhLR0RJRTJUbTdfTGJ4cVU2UWlVc19oMnYzWk5TR05uSlN5dDVxX1pNZG5HWlphZ0hDTmV5MjF2OFliUjdLV1hLTkJfVUo3YjBQR0pKaG1UMmVnOFNiOGc?oc=5",
+   "published": "2026-10-16T18:24:17+00:00"
   },
   {
-   "title": "Google AI Search Puts More Source Links Up Front",
-   "source": "ContentGrip",
-   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9JbmtfQ0JHNE9NYXZ1ZWx4Ni1EM3lid3QyQ3B4eGZVZFdwdEo0V2FtM25XWmZpR3JKNkEwM1JGNmY4WnlJNy1haGtoZE9PU3J4b003Z3FVQmhtS3dWM3FKZXkwd1psS0ZfOUE?oc=5",
-   "published": "2026-10-16T10:08:29+00:00"
+   "title": "Wild about play: YouTube star Coyote Peterson visits Bozeman to support Pine Creek School",
+   "source": "Bozeman Daily Chronicle",
+   "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNUnNFbTZxVGlSWWprbUVfVmV4bUJ2d0thb1J0YWlTUFJldlI3LVVDMEhFZF8wUnJualVpcTh6YW1VV0FNelZEZWhPb1AydmMxZC1kTlcza3BFdlFKX21yWVhNZkpldmNxVUJJV291UktTRmlqMDQzUGJ0VXppVGpjdU5xTjlfa2Uza1Y0X2ktTGJVZWFSTlF1eGZzbHFsRDRZSTlrUV9xRHdFTkNXMEFFcjF1RjB5OTdQLThVaW5UaVpwZzVYeXVRTTVIVlNTME8wajktX09CZkZ1TDRGa3NSVWFUSlpJUWpvZk9YWDNwaDhQZFFCcEJ3WXdFemNDU2NRbDBsLVNJMnpfdFIwVjhwcTI3dDYzdw?oc=5",
+   "published": "2026-10-16T18:15:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-16T11:00:24+00:00",
+  "run_at": "2026-10-16T19:10:26+00:00",
   "session": {
-   "date": "2026-10-15",
-   "bar": "final"
+   "date": "2026-10-16",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-16T10:41:01+00:00"
+    "as_of": "2026-10-16T19:07:27+00:00"
    },
    "earnings:GOOG": {
     "ok": true,
@@ -1408,7 +1408,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-14"
+    "as_of": "2026-10-15"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1419,102 +1419,102 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-16T10:50:00+00:00"
+    "as_of": "2026-10-16T19:05:54+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-16T10:45:26+00:00"
+    "as_of": "2026-10-16T19:07:13+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-16T10:27:59+00:00"
+    "as_of": "2026-10-16T18:50:25+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-16T10:44:46+00:00"
+    "as_of": "2026-10-16T19:01:19+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-16T10:45:26+00:00"
+    "as_of": "2026-10-16T18:27:02+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-16T10:48:49+00:00"
+    "as_of": "2026-10-16T19:00:00+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-15"
+    "bar": "provisional",
+    "as_of": "2026-10-16"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-15"
+    "bar": "provisional",
+    "as_of": "2026-10-16"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-15"
+    "bar": "provisional",
+    "as_of": "2026-10-16"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-16T11:00Z"
+    "as_of": "2026-10-16T19:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-15"
+    "bar": "provisional",
+    "as_of": "2026-10-16"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-15"
+    "bar": "provisional",
+    "as_of": "2026-10-16"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-15"
+    "bar": "provisional",
+    "as_of": "2026-10-16"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-15"
+    "bar": "provisional",
+    "as_of": "2026-10-16"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-15"
+    "bar": "provisional",
+    "as_of": "2026-10-16"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-15"
+    "bar": "provisional",
+    "as_of": "2026-10-16"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-15"
+    "bar": "provisional",
+    "as_of": "2026-10-16"
    },
    "yahoo:^VXN": {
     "ok": true,
