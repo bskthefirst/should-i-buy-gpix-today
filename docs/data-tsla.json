@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-20T19:10:16+00:00",
+ "generated_at": "2026-10-20T20:55:01+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 100.0,
+    "pos": 97.3,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "33% ann. (p11)",
+   "value": "33% ann. (p10)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 11.1,
+    "pos": 10.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "23.4%",
+   "value": "23.7%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 46.8,
+    "pos": 47.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.4 (p56), F&G 28",
+   "value": "VIX 17.3 (p54), F&G 27",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,15 +128,15 @@
   }
  ],
  "fund": {
-  "price": 375.445,
+  "price": 373.71,
   "as_of": "2026-10-20",
-  "bar": "provisional",
-  "day_change_pct": 2.01,
-  "sma50": 361.14,
-  "sma200": 387.27,
+  "bar": "final",
+  "day_change_pct": 1.54,
+  "sma50": 361.11,
+  "sma200": 387.26,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 23.4,
+  "drawdown_pct": 23.7,
   "series": [
    {
     "d": "2026-02-03",
@@ -1214,7 +1214,7 @@
    },
    {
     "d": "2026-10-20",
-    "c": 375.445,
+    "c": 373.71,
     "t": "neutral",
     "s": 50
    }
@@ -1230,14 +1230,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-19",
-  "days_total": 746,
+  "end": "2026-10-20",
+  "days_total": 747,
   "backfilled_days": 707,
   "fg_coverage_start": "2025-10-20",
   "baseline": {
-   "n": 725,
+   "n": 726,
    "avg_pct": 2.75,
-   "median_pct": 0.85
+   "median_pct": 0.82
   },
   "bands": [
    {
@@ -1257,9 +1257,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 372,
+    "n": 373,
     "avg_pct": 2.65,
-    "median_pct": 0.96
+    "median_pct": 0.93
    },
    {
     "tone": "caution",
@@ -1272,17 +1272,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.26
+  "tbill_3mo": 4.27
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 375.445,
-  "sma200": 387.27,
+  "price": 373.71,
+  "sma200": 387.26,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 33.1
+  "level": 32.8
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1299,20 +1299,38 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-10-20",
+  "start": "2022-10-21",
   "end": "2026-10-20",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 30795.26,
-  "dca_return_pct": 46.64,
-  "dip_value": 30807.21,
-  "dip_return_pct": 46.7,
+  "dca_value": 30646.93,
+  "dca_return_pct": 45.94,
+  "dip_value": 30664.84,
+  "dip_return_pct": 46.02,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 203,
   "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Tesla (TSLA) Q3 2026 earnings preview: flat revenue, falling profits",
+   "source": "Electrek",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE91d1BzbkdVbFZVbnlzbmVuTnJGSkdXaWVDVk1jNHRsb1lPd2dqZG9DSHotaW1Zd0VTUjAxN29FQ3dNY2ExZl9lNkI5c0N3Zmc1c0xWYi1BODhhSmxqQlpoU19YVUdwOEd1Ri1Cdl96V2U4dkNjU3c?oc=5",
+   "published": "2026-10-20T20:13:00+00:00"
+  },
+  {
+   "title": "Elon Musk to give a share of SpaceX (SPCX) to every American child, President Trump praises the act, more",
+   "source": "Tesla Oracle",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOdWFuQ2VvYl9HWE9iQ2dtUk5sNFE3X3ZlUEROSkZQakNtZkNmVFdvVG1admE5SmJhaHdpUnU4cWp6V0pYTFpnSG9MSUVWQjgtcVhBb3dsaUh0MEl5ZVpjMXVGV3V6TWJ2cWh6eHl3LVg3Z1hsWjFSOWNSLVQ4WmhILXBCWERxSGtOcGo5bVo1cVVKZDdmenJWbk1SRXJiNjFmSl85VU1oZHR0ekxLTWlEeG42N0JKcGZsMHRhM3lpOG8xLURleHFYUnF4MmQ0TEU5YThfaHVBcXA?oc=5",
+   "published": "2026-10-20T20:03:58+00:00"
+  },
+  {
+   "title": "Ark Invest Says Tesla Stock Could Reach $5,000 by 2031",
+   "source": "bloomingbit",
+   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5KdllTbXltZ0U4cTVQckRJVjhLVzk0SkdCbzNXRGxPUHcyeTl1V3lPV2Fhb29lYjBEWTVxZERUdHRzWVkxWHgxM3VXMzhLYmcwUms5SA?oc=5",
+   "published": "2026-10-20T19:16:38+00:00"
+  },
   {
    "title": "Why Tesla Stock Probably Won\u2019t Get a Big Boost From the Roadster",
    "source": "Barchart.com",
@@ -1330,31 +1348,13 @@
    "source": "Barchart.com",
    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNbU1tM1V3NnBuZHZOOElscTJOQVlaX2JrVlpLdXRVT3gwcFp1SGpZaXg0cFdaMnZWd0ZCQVBaMGF0Y1hDeVVwaWRfNTVaYjh1bHIzQWRSUlp1cUsyeEQtOVdDTlRZMGxoXzVtUFZzOG5ZYXlZRnpZeE5NenY5UF9iaVRtcXhDVWY2QmpUZ294MHp5dDJLV0VvYlgzLVhwbktUVkE?oc=5",
    "published": "2026-10-20T18:28:47+00:00"
-  },
-  {
-   "title": "SpaceX investors, ahead of results, press Musk on Tesla merger - The Spokesman-Review",
-   "source": "",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNRGlRNktSNHNHSEw3Uk9SMk5yMGVDbWxfbEJXcGloN1dibGtJN1ltT1BCN21NVHFwdHlhdkV4bGQ1WXZrSXY5NmpDTGVaaW04UmduMGZRMnh4UF9IYkNNX0ctaDlwb2ZjTXpKYkNSY0xUYWlyck5TTmZEeW9HZ3lseUNhNGtQSERiZ0dhUnRHcHFlSWFYQXk5TW1PR21HZw?oc=5",
-   "published": "2026-10-20T18:09:00+00:00"
-  },
-  {
-   "title": "Cantor Fitzgerald reiterates Tesla stock rating after roadster unveil By Investing.com",
-   "source": "Investing.com South Africa",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOVEdwVmRieEIzc2h2ZldIY2loR25hVEVvVjNxSi1ZYUc1cWR6NVl2TTk3NmFCVm81OWNQdWRPNXlVa05PWEt2aXBLOE43SUhnTWRkTlFxWE8zeElwR1BsamNMbmhuN2tfd0NSZ2VFcFA1cTFEbmx5c2h3VHNjcWVtUTBBM3RXWW9MVmRGZDNlOWJmOWtpekxQRmNleGtNVmROWnZfOXpsSnB5dmI0UWk2TVZYa0RYeml3d2VLRUdBU3hHUFR3YmZjRGRn?oc=5",
-   "published": "2026-10-20T16:58:34+00:00"
-  },
-  {
-   "title": "Tesla Analyst Raises Revenues Estimates Ahead Of Q3 Results",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxObDdDTGVlaHloeTZOZUM3SUFIdG5xQTZYcGJPUk8zTEF2WU82amtrSk9DQXJGNHVjMlpCYTlmMmhsSlZWcGNtenNobndzX19CcHdRbm41Ykw3Sm9PalVLY2lDWGJXWmI5ekRPVmFuNTdBaUhfMFFrNXJSSUZDMjc2dmdld3lKakpOd3RSLVpaWUVTWXJMUGRoajJNZUx5a2JWTWRuYUNrTllEcFJya2hQN0I5VVlsS2czZGlrR2JRQVFoU1RmZ2xtUi1kdTI5Tk5H?oc=5",
-   "published": "2026-10-20T16:42:01+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-20T19:10:16+00:00",
+  "run_at": "2026-10-20T20:55:02+00:00",
   "session": {
    "date": "2026-10-20",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1370,7 +1370,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-20T19:08:14+00:00"
+    "as_of": "2026-10-20T20:38:46+00:00"
    },
    "earnings:TSLA": {
     "ok": true,
@@ -1387,71 +1387,71 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-16"
+    "as_of": "2026-10-19"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-20T19:01:00+00:00"
+    "as_of": "2026-10-20T20:49:17+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-20T19:00:00+00:00"
+    "as_of": "2026-10-20T19:52:30+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-20T18:59:39+00:00"
+    "as_of": "2026-10-20T20:13:00+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-20T19:10Z"
+    "as_of": "2026-10-20T20:54Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:^VXN": {

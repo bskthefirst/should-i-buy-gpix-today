@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-20T19:10:24+00:00",
+ "generated_at": "2026-10-20T20:55:12+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-4.1% in 5 sessions",
+   "value": "-3.8% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 72.7,
+    "pos": 75.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "22% ann. (p19)",
+   "value": "22% ann. (p18)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 19.0,
+    "pos": 18.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "15.9%",
+   "value": "15.6%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 15.9% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 15.6% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 31.8,
+    "pos": 31.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.4 (p56), F&G 28",
+   "value": "VIX 17.3 (p54), F&G 27",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,15 +128,15 @@
   }
  ],
  "fund": {
-  "price": 335.21,
+  "price": 336.4,
   "as_of": "2026-10-20",
-  "bar": "provisional",
-  "day_change_pct": -1.46,
-  "sma50": 340.77,
+  "bar": "final",
+  "day_change_pct": -1.11,
+  "sma50": 340.79,
   "sma200": 339.36,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 16.0,
+  "drawdown_pct": 15.7,
   "series": [
    {
     "d": "2026-02-03",
@@ -1214,7 +1214,7 @@
    },
    {
     "d": "2026-10-20",
-    "c": 335.21,
+    "c": 336.4,
     "t": "caution",
     "s": 41
    }
@@ -1224,7 +1224,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+7.0% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+6.6% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1235,14 +1235,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-19",
-  "days_total": 746,
+  "end": "2026-10-20",
+  "days_total": 747,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-10-20",
   "baseline": {
-   "n": 725,
-   "avg_pct": 3.16,
-   "median_pct": 2.97
+   "n": 726,
+   "avg_pct": 3.15,
+   "median_pct": 2.96
   },
   "bands": [
    {
@@ -1269,25 +1269,25 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 188,
-    "avg_pct": 3.45,
-    "median_pct": 2.33
+    "n": 189,
+    "avg_pct": 3.41,
+    "median_pct": 2.3
    }
   ]
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.26
+  "tbill_3mo": 4.27
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 335.21,
+  "price": 336.4,
   "sma200": 339.36,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 21.9
+  "level": 21.7
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1304,62 +1304,62 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-10-20",
+  "start": "2022-10-21",
   "end": "2026-10-20",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 42806.17,
-  "dca_return_pct": 103.84,
-  "dip_value": 42900.42,
-  "dip_return_pct": 104.29,
+  "dca_value": 42954.96,
+  "dca_return_pct": 104.55,
+  "dip_value": 43052.71,
+  "dip_return_pct": 105.01,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "10.20.26 - Media Availability",
-   "source": "nmuwildcats.com",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPbVBQQ05kNlY3TC1xSlBiNHB3Z196dHFGU0thTWVQWHNnTkZKa252UFlOQ09LTXhSQVlVWVk4dXR3V2l1bW5RMnp5ZUhuanY3RER1MWlqUXExRkFwVVJkWmQwcVlaSHdaY0VrR2RONHo1cTYwWFkwVktmMFhZZUZxbzdpdF93WWdlck4wTDRmcWV6VmRJRmRFLVhXQQ?oc=5",
-   "published": "2026-10-20T18:48:47+00:00"
+   "title": "Google's TorchTPU Takes On Nvidia GPU Lock-In [2026] - tech-insider.org",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9zZEVuQ0pMVWs0VXBuYnVCWEs2SG03Rm81eklVZm9lc21tXzQ2Ri01eGItTFlhRjAxUFFYUHV4cGJmcVFkVXZObXJqb19wVG5JN3o1djFqVUJuZTVGejVOZm8xZVMyMmNNdEdnUFRVYTJ6Vlk?oc=5",
+   "published": "2026-10-20T20:52:52+00:00"
   },
   {
-   "title": "Microsoft and Google Are Reviving Retired Nuclear Reactors for AI",
+   "title": "Meta vs. Alphabet: Meta Is Better Built for AGI",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNVHBnUkNISDZHV1BVQlg5WlBhSnJpamxfWkt5WnUzVk16LTNTclpCYm9ld3dUcE5yN1BHZW0zMlpETmtqWlkzTWJFVWdfRFkyelBEbEZhVm5Jb2JsS3kzM1MxNzdYejBLN1l4T3ZHZXpqQ3Y3QVRrd25HcDZYZ0psRVpncExOaFoxMkdBaTlnblVIdw?oc=5",
+   "published": "2026-10-20T20:32:35+00:00"
+  },
+  {
+   "title": "As Google and OpenAI Race to Automate Work, Trust Is the Next A.I. Battleground",
+   "source": "Observer",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPc2tzWkQ2Q3p6VVdNajc5T0l1YVJnWEdZdUxCQTEyOEUzbnhNTTlrcUVqbnVpeFNBbXM4YWM2ZXd6dnZhYjlqd3RkM055dW90SGRmaU03cXJqMGRsalBaZWxRSXNDejB5RXd1X2t6RjR5dzdCanF6SnFjTmpxZlEtY0tGUUs?oc=5",
+   "published": "2026-10-20T20:21:57+00:00"
+  },
+  {
+   "title": "Microsoft, Alphabet, Goldman Sachs Join Growing List of Companies Objecting to Tokenized Stocks",
    "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQMno2b0RlQUhOX0l0eUFubUtYYkNYSEtwdmNPbVlOS1hfTUFGblByN3BVelBXWklwUFBtMXBoNGFwcWdpQ3JYS0tiRlBaVlZFajAxZEZiRDNBNWJ1blNiVFNZblE3X0RfVUdPeFF2TEF5UVFzRVZMaHoxWk43bUFzaFNFc1ZpbkI0aTZ2dEFPTEFIdFBnVmh5bFo3NUtmemM?oc=5",
-   "published": "2026-10-20T18:39:05+00:00"
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNYmRnei1WX3ROWmlBbHNXbDZaS3BQMkhhTzR3M1RmdlVmRHV2YU5XOENpeWdHeW9CUDZRU0RwX25hLW1na1VtV2JwNXFEM1pwZHl3UXlHUnpHTDFZYmg0b1U1NGFoaGJXeG9YOFE3Wmp5X2J0bUxHMnRfdUx2Z1dFMGNseUp1MHFKT1BQVWQzMWNpSnNuanM3bVdHTEd2T0Fzd2F5UQ?oc=5",
+   "published": "2026-10-20T20:16:04+00:00"
   },
   {
-   "title": "Google has joined Amazon in attacking Nvidia\u2019s stronghold with AI app developers",
-   "source": "TechCrunch",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOSkRFYm5NWUd5M3dQUzVGWDlhWkxOd3BpRFZCazZfNlVhWktoSTVFVTNoOHJKZDNRLUMtRmdJQ2ZVY3Y5S0plNzl6Q0toR2RtNWZHRlNUOHd6c044YmpmVWE3LWdDMnJHRmU3WkZSdnFSLUExY2diNW5BTUkyQlVlcTFwM0pKUk9WMEVKWC02Nl9jRlFXandQQkprYlAtaG1jYTZNT1RTaHpBRlBQSnFWVVg3V0w?oc=5",
-   "published": "2026-10-20T18:38:24+00:00"
+   "title": "Google reveals top trending Halloween costumes",
+   "source": "KOTA Territory News",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOSUd0Tnd0RG52ZEJhRzFQU0ExaklWZzFNT2lVLURUNTFOSnJrUzM5MF9VVmozaGc2TkVKTVh2VmZRWThkX0tHMzJDSllBelh1UTRKQ2J3LW9ZbE9vNWI2b1c5SXE0SktBTkVkQ2gzUlRuVGpzSWpWbERpWjdmX3F5M3ZERU5DSWF4TF9mYTZlaXY?oc=5",
+   "published": "2026-10-20T20:09:03+00:00"
   },
   {
-   "title": "This Google Feature Sacrifices Your Security So It Can Track You",
-   "source": "All About Cookies",
-   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5nSXN4SDFUUThKckZxMVlhbi0wcTNUV001dWJINkNXd3lrdktGeXJCVTdJT3FuUUJKMzZTWTdWUHhSRUF3ZHhuWkJUY2RZRmFuRTd3TUtYNl9ocVk2X1phNGJDcW1GbXpkQlVpOGxHTzJVWTNNWmVV?oc=5",
-   "published": "2026-10-20T18:20:45+00:00"
-  },
-  {
-   "title": "YouTube starts hiding the dislike button on normal videos",
-   "source": "9to5Google",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9qbkJUb21KMktKWXNBQmZobUhaWUNFcGduNEVpdDgyTklPcDYxeXJDOU5CWWFmUFd4X2xYMnNWWkQwUmNoMVE1QmpZZ0Vva0s3RHZVUnRaaEltbmNOSmhNeVlWelFJMXY2dGhHa09DQTVYWlJ6elZ6RA?oc=5",
-   "published": "2026-10-20T18:10:00+00:00"
-  },
-  {
-   "title": "Cybersecurity Companies: YouTube Channels With The Most Subscribers",
-   "source": "Cybercrime Magazine",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOaFY2eXRNUklDdUFLX0NYQjBxbS1xaEc3OXprQ0lralB4ZldpZGZubnpUNnd1Y3JUUzlPNHB6M3RRWHJOWkhjTU1DTFFJUDlndkFfTGY0TVdTTUo4cUM0VDlqdVRTaFhRZ0VrYlAzbkZzb1dDdlpCdGk4MG1NRmJLX1VLdFdwWXVkM29xSmJkS0xuODdxNDBycHFzem83T2t1SDVF?oc=5",
-   "published": "2026-10-20T18:05:08+00:00"
+   "title": "Gemini's Personal Intelligence is coming to cars",
+   "source": "Ars Technica",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNMjFHQ3NpaWpmdkczclNINjJPZ1I3R0g0OGFodUphVGxKT0lxbUxyQTlCRmhiaTVEeldkR1lnS2IxTnNybWFiakhrU0xIV19UU2l5T0twVGtRSmZ1WDN2eGVmT1lzMkg3aWc4OWdhUXFXbWpzX0hKbDlOOTZOaERBTUh0cGJPS2pQb2tqazh0clk?oc=5",
+   "published": "2026-10-20T20:00:33+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-20T19:10:25+00:00",
+  "run_at": "2026-10-20T20:55:12+00:00",
   "session": {
    "date": "2026-10-20",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-20T19:08:14+00:00"
+    "as_of": "2026-10-20T20:38:46+00:00"
    },
    "earnings:GOOG": {
     "ok": true,
@@ -1413,107 +1413,107 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-16"
+    "as_of": "2026-10-19"
    },
    "news:GOOG": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-20T18:48:47+00:00"
+    "as_of": "2026-10-20T20:52:52+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-20T19:01:00+00:00"
+    "as_of": "2026-10-20T20:49:17+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-20T19:00:00+00:00"
+    "as_of": "2026-10-20T19:52:30+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-20T19:06:36+00:00"
+    "as_of": "2026-10-20T20:52:52+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-20T19:00:00+00:00"
+    "as_of": "2026-10-20T20:51:00+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-20T18:59:39+00:00"
+    "as_of": "2026-10-20T20:13:00+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-20T19:10Z"
+    "as_of": "2026-10-20T20:54Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-20"
    },
    "yahoo:^VXN": {
