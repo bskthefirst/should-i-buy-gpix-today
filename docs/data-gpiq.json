@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T19:10:10+00:00",
+ "generated_at": "2026-10-21T20:55:33+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "24.6 (p63)",
+   "value": "24.4 (p62)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 63.5,
+    "pos": 62.2,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.90",
+   "value": "0.89",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 49.1,
+    "pos": 47.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -69,7 +69,7 @@
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 80.2,
+    "pos": 80.1,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+9.0 pts",
+   "value": "+8.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.5%",
+   "value": "3.4%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 35.0,
+    "pos": 34.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.0%",
+   "value": "+0.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
    "viz": {
-    "pos": 50.0,
+    "pos": 51.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -223,14 +223,14 @@
   }
  ],
  "fund": {
-  "price": 56.6,
+  "price": 56.69,
   "as_of": "2026-10-21",
-  "bar": "provisional",
-  "day_change_pct": 0.84,
+  "bar": "final",
+  "day_change_pct": 1.0,
   "sma50": 57.08,
   "sma200": 55.17,
   "high52w": 59.52,
-  "drawdown_pct": 4.9,
+  "drawdown_pct": 4.8,
   "series": [
    {
     "d": "2026-02-04",
@@ -1308,7 +1308,7 @@
    },
    {
     "d": "2026-10-21",
-    "c": 56.6,
+    "c": 56.69,
     "t": "ok",
     "s": 59
    }
@@ -1323,25 +1323,25 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.90) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 24.6) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 24.4) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-20",
-  "days_total": 747,
+  "end": "2026-10-21",
+  "days_total": 748,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-10-21",
   "baseline": {
-   "n": 726,
+   "n": 727,
    "avg_pct": 1.93,
-   "median_pct": 2.2
+   "median_pct": 2.19
   },
   "bands": [
    {
@@ -1361,19 +1361,19 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 468,
+    "n": 469,
     "avg_pct": 1.28,
-    "median_pct": 1.68
+    "median_pct": 1.67
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.19,
+  "ttm_yield_pct": 10.17,
   "tbill_3mo": null
  },
  "fx": {
-  "usd_krw": 1327.62,
-  "as_of": "2026-10-21T19:10Z"
+  "usd_krw": 1326.64,
+  "as_of": "2026-10-21T20:55Z"
  },
  "distributions": {
   "history": [
@@ -1496,13 +1496,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 723.47,
-  "sma200": 676.48,
+  "price": 725.2,
+  "sma200": 676.49,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 24.62
+  "level": 24.42
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1519,57 +1519,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15700.0,
-  "dca_value": 21383.57,
-  "dca_return_pct": 36.2,
-  "dip_value": 21156.07,
-  "dip_return_pct": 34.75,
+  "dca_value": 21417.58,
+  "dca_return_pct": 36.42,
+  "dip_value": 21189.71,
+  "dip_return_pct": 34.97,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 63,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Some websites go dark as operators address an AI-detected flaw in a web programming language",
-   "source": "WRAL",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNT0FnLUlrSzdOTEFLMlpfdHNnWnRXdlVaSG5BaTd1WldPWDBjRVNiVjZZYlBVckJ2WnFXOV9mMlNEbkdKNHdyOXd4dVpkbFFXOVJOb25wa2xmM2JMaFdRcVY2dVZWWFRKd2hhVnhpQi1EQUNvbGg2NmJqRXl6S3lDbnQ2Y21wUXd4WE5jd0xXc1JJSW5iQm5aRmVTM3VJVFB1dDU4aGlVSnhia2lrVUQtM3FVWm1aSmx6emg4N3ZCaW41d3ptQXdj?oc=5",
-   "published": "2026-10-21T19:06:36+00:00"
+   "title": "How Is AI Impacting Digital Services in Massachusetts?",
+   "source": "GovTech",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQSm9IUWV5dnN4SmVnc1BxQXJRV0dvMzJYeWJnQmgxMU1YSXo4LVRFVzByTl9YaFA1Tnc2S2lYYXVhRmpsVHJpVUFlU2tlUWV2YVUxR1JmTzBuUnJQLWdhRV9xaDhQUjdSQW03d1RlVjBaZXVMdnNpNjN4M0pGMUU0elppTUFMRVhkNHRmcS1ETlBDbW5kc3hv?oc=5",
+   "published": "2026-10-21T20:48:34+00:00"
   },
   {
-   "title": "Axios Live: AI in fintech raises the stakes for consumer trust",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE51bjJ4ZFVnTlNiaDRfYld6bV9JQlIyU2xsclpodnFIeXlFRWtsMERFUUFjNUI4bGI2UEhYcjA0bDVWakJfd2UzRmZISURSYXZodTEwUDhMb1ZQSlo3ckNJSTYwS1J6aDBzZFV6LTFxakxlaXlGZEE?oc=5",
-   "published": "2026-10-21T19:03:22+00:00"
+   "title": "Government websites go dark after AI-discovered flaw sparks security scramble",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNemhoUnNZdUg4Sk9JMjJQU25mTUZSX2lHc1JTNTFpNGlTcWxRRDctcFNCcVZiTUhYQ211YnNjSnRvYTYyS29VNFFKcHE4VGFMcHMxTGNwa3NmVUFNamNnektGaU9BbURibzdIY2hHUlpMbEwtNWhrOG9BenJvYkllVnNfakVVRU5yRzRjdDBjQXc2OEwtS1RwZVZhaWhoRWtlalVmU0xOQm5SbmUyeGVGeGgzUkE2XzRtbFBKdTJnUTJoRWdV?oc=5",
+   "published": "2026-10-21T20:46:47+00:00"
   },
   {
-   "title": "Newforma acquires Lumi AI, will incorporate into its tech",
-   "source": "Construction Dive",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE82VTl6OFZQMzJXTXlMQ2JKQ0hmT1pDOVh6aG1nTXVLZVlaWEpDQWRmWFNmQ2dudlZGMlA1UjBkblRjMFB0dTBGV1ppc2xJVjdBNXdsYU5JSjZQalRUeDFfemh1YTR3Tkk1ak5JOU9KdnZWZG5Xb21Ob3VIOA?oc=5",
-   "published": "2026-10-21T18:54:10+00:00"
+   "title": "Websites scramble to fix software flaw that could put much of internet at risk",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNkkydVV2LUI2LVN4WlU2aWlGcnY1cy1BWmt3c1diNC1SQ3RZYXJ3Q1k4RWlHWm9NY3lQakhWVU1xMnRDSW54dEpvbU5fcUE2SmtpdlBJVjNpYjFBdmJja1hSQnlSU3U5MFJWN3owVHNfU2EwSVVySXhUbGJvUGgzcTNHVjEyc2FUZXF0b0NyMl9MVzVIeVNJbFN1eDZwSUlFZzhYLWZoUVk1QjFpQnRSSFoyTWY2RHRaUWxOLWFSbkw?oc=5",
+   "published": "2026-10-21T20:42:11+00:00"
   },
   {
-   "title": "LexisNexis Legal & Professional GC: If Law Firms Can Use AI to Do the Work, \u2018So Can We\u2019",
-   "source": "Law.com",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNMk9QTW5CaEFEMklTeG9seGRYSXZlMF9SVVBaNHdialpGNGphZmJhcnJOTDV0d0NuemgzREVFNjlSdGdjN29WMk1tMXNwV2Q0SEYyLWdQdW53dXVNRmdLNl9EZFNtTGgzMmhhdEQtNlppc1FZR251V1R2NUpVUjdBbkhuSXdRN2h6UEVTcWxRTExfZ0FMcGRKYmprbHIyQkhfQWNtTG1adUtYWHVmbFFHWmw1TnhsazVvR1QxUkZzS3gxQU1l?oc=5",
-   "published": "2026-10-21T18:50:57+00:00"
+   "title": "Newport News, Va., Will Explore Use Cases With an AI Factory",
+   "source": "GovTech",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQVYzMGtwazlSeS1iT1BDcVA0WHFPVDVHUXZqVkI1UWV0SExNU2xRZjNJNzBSdENVM3ZaUDJmZkhUY080NTlrbjJRVVRDeGYyYjlaUm5WTXk2bHlCQzFlMG0tQ19qNUZIbzlUOGs1bGpXVWhWU1BRclpmZEpOblpCRW9hOFZUR0FTOW5tRUt6TW5rVXlWT1FkVlpVN3BHVG84clEtMlczeG0?oc=5",
+   "published": "2026-10-21T20:39:24+00:00"
   },
   {
-   "title": "A.I. Discovered a Critical Security Flaw Underpinning Websites",
-   "source": "The New York Times",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxObVhkbmJVQVEzWkd2YnJuNGZlRUtDdERWQUkyZVhGRTNiTHJmZjJlWU9lUXpBZmllQWtfelkwdF9kVzRJQXVPcDRSTWR0VnlpMWJEd0VqYkkxTVktUzVXMktnX2FXZEpfREdYMWFQbXlIY3NnZ25sQll5djdRcnJnOHNxZmc1anhfUTc0QzFiOC10aURCSUJKVg?oc=5",
-   "published": "2026-10-21T18:43:33+00:00"
+   "title": "Why this interview with a pastor about AI stuck with me so much",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOWGpiQ0dfN2FNUGFBSExtUU9TOG1fOXp4TlZDWHFsMGJrWXk5WV9zTmJrZE9Ud1ZPWXQ1VENnLTdFV3drMEFDZDl3bXRJLWczQWNzMS0tMjU3LVdLZzZNVHdlUlFvUklHSmJGYVJMcERwT09OWUQ2TXZiUnVCWVBSc2FodnlJTW1TWTlQa2pkQmhMR29aOXRpYmJMd2NjbE82aVpLM3g0aGlvaWNjNTZ0dkRWcVU?oc=5",
+   "published": "2026-10-21T20:39:08+00:00"
   },
   {
-   "title": "How AI\u2019s \u2018top-heavy\u2019 spending problem may be an underrated market risk",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQS2VfS2RKWG03NVpLaWl5NjRNRXp3Yy0wMUhIdEEySWJNVVFwSzVzUXhFRWk0Z1M2V240NFRrYzY1SF9PeGFlaWwybXozOFEyQXFuUTlDTGNSTWN6dFJqRXlMZnlSS3BNR29iRHZxZ1J6SzJPa0tsLWpUakVucXlieTRZQ19pOXk2bUdPVF9yMEVqSGw5b1VJTC1fWTdMSS1NWndxZTRNalBfUkVtUGJiQm53?oc=5",
-   "published": "2026-10-21T18:38:50+00:00"
+   "title": "Meta to issue new class of shares as it tightens AI spending forecast",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPRFFieGdGQjNVTEpWeTlmUG5ZOW5rRjgwSmpnV1RWdTUzRG5fZW1BQmxBdElRdEtfOVYzcWlaMjR1SGJqZWdPR200RzJuV2JZajJMYmhiSmh4VFdYVjdLQXNxRWo1ZEprRWpKQW1vQkhoMm5jT1RKNzJVczV4aUxHdDNWQ0JoSXVOYzN0WDhFMmh4cjg5RWNmZFhtaHlQTlJ0NmVnRlNpQjg?oc=5",
+   "published": "2026-10-21T20:38:08+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-21T19:10:11+00:00",
+  "run_at": "2026-10-21T20:55:34+00:00",
   "session": {
    "date": "2026-10-21",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1585,7 +1585,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-21T19:06:04+00:00"
+    "as_of": "2026-10-21T20:36:20+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": false,
@@ -1611,13 +1611,13 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T19:06:36+00:00"
+    "as_of": "2026-10-21T20:48:34+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T18:02:57+00:00"
+    "as_of": "2026-10-21T20:37:21+00:00"
    },
    "signal:Credit stress (junk-bond spreads)": {
     "ok": false,
@@ -1632,48 +1632,48 @@
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-21"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-21"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-21T19:10Z"
+    "as_of": "2026-10-21T20:55Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-21"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-21"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-21"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-21"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-21"
    }
   },
