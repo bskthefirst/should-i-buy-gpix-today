@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-21T11:00:26+00:00",
+ "generated_at": "2026-10-21T19:10:19+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-5.3% in 5 sessions",
+   "value": "no pullback",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 64.8,
+    "pos": 98.2,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "24% ann. (p1)",
+   "value": "24% ann. (p3)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for NVDA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 0.8,
+    "pos": 2.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "9.5%",
+   "value": "7.7%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
-   "note": "A modest 9.5% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
+   "note": "A modest 7.7% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 19.0,
+    "pos": 15.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.3 (p55), F&G 28",
+   "value": "VIX 16.9 (p45), F&G 31",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 216.47,
-  "as_of": "2026-10-20",
-  "bar": "final",
-  "day_change_pct": -0.29,
-  "sma50": 222.92,
-  "sma200": 203.26,
+  "price": 220.7,
+  "as_of": "2026-10-21",
+  "bar": "provisional",
+  "day_change_pct": 1.95,
+  "sma50": 222.98,
+  "sma200": 203.42,
   "high52w": 239.24,
   "high_label": "52-week high",
-  "drawdown_pct": 9.5,
+  "drawdown_pct": 7.7,
   "series": [
-   {
-    "d": "2026-02-03",
-    "c": 180.34,
-    "t": "neutral",
-    "s": 47
-   },
    {
     "d": "2026-02-04",
     "c": 174.19,
@@ -1217,6 +1211,12 @@
     "c": 216.47,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-21",
+    "c": 220.7,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1224,7 +1224,7 @@
   {
    "label": "Falling-knife zone",
    "direction": -1,
-   "text": "NVDA at $215.32 (-0.5% from here) enters the 10-20% falling-knife band (\u22129 pts)"
+   "text": "NVDA at $215.32 (-2.4% from here) enters the 10-20% falling-knife band (\u22129 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1277,17 +1277,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.27
+  "tbill_3mo": null
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 216.47,
-  "sma200": 203.26,
+  "price": 220.7,
+  "sma200": 203.42,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 23.6
+  "level": 24.4
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1305,61 +1305,61 @@
  },
  "backtest": {
   "start": "2022-10-21",
-  "end": "2026-10-20",
+  "end": "2026-10-21",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 75076.0,
-  "dca_return_pct": 257.5,
-  "dip_value": 74932.31,
-  "dip_return_pct": 256.82,
+  "dca_value": 76543.04,
+  "dca_return_pct": 264.49,
+  "dip_value": 76396.54,
+  "dip_return_pct": 263.79,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 181,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure",
-   "source": "NVIDIA Blog",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBJNE5tbERxR1F1VWQtQUNPNXppNGFmTlZremNiRFNwclFHeWVFVkUwZXdZU1NhSUNtNG5uRUIya0lMNkw0RUExOTFmdVJWc1Q1djRDd1FVV1VlYnpHVzlfdzU0MTNTMDA4WnJ2YWdkMnItTndvYko5NQ?oc=5",
-   "published": "2026-10-21T10:52:30+00:00"
+   "title": "Samsung Electro-Mechanics Will Supply AI Chip Substrates to Nvidia",
+   "source": "SammyGuru",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE02MDM3NUdOZGx0S2k1dktJWVM0MmRkTkd2Q1phdnAyVTVRaG9KYmhnekFaQThfMllRbVNEMUpjWWN5QnhtRlAtOUwtWHIteURYSVVsaS1uQV8ySzRnOXhoMDd3OVEwX1MzV0xfYWE2eFQ3eFQ0MzZJMw?oc=5",
+   "published": "2026-10-21T19:09:28+00:00"
   },
   {
-   "title": "NVIDIA Confidential Computing Expands to Securely Scale Global Infrastructure",
-   "source": "NVIDIA Blog",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQRUtuNl9WRkxzZERuS0l1RkRIbHBKeEw0bGt1WlM4dWJwcklvQzQydklHZmFlNWdVQ3pub0RoSE0zMy1wbjJXYWVTQVgwbTFpOGliMkRSeGxTcGVXX0dxcEQ2U3FCVVhhVDVrUk5SMHYxMldHdzBXc213em1ESVNCME9SMGNLazhfUUM0?oc=5",
-   "published": "2026-10-21T10:49:01+00:00"
+   "title": "Nvidia\u2019s $1.1 Billion KYEC Deal Is the Small Number in a $279 Billion Supply Bet",
+   "source": "TIKR.com",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNS05kZGpwR09zd0JaTDR4OTBGcVRLX2JnZkFzU1QtZ3FidXNieGxBTUJkNF9fbG1xZEgtckJjM3dERFI4VkFTVHoxOFc1MGdoMjJMRXFQNER4QWhMSDFKMUNwcFozOExMendUeTVFb1RGeW4wVl93bkQzVEM1WS1TNWdkeWFTYXBtdzlsdFBrdDc5QmhoUVN6MllLZTR0WWp1Tlp1bmJRdElaS1EwaVllZkRGWUpSTnJYcElVOA?oc=5",
+   "published": "2026-10-21T18:55:30+00:00"
   },
   {
-   "title": "European Leaders Turn to NVIDIA Vera CPUs to Build Local Infrastructure",
-   "source": "NVIDIA Blog",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5FYUwwTU5lNXFTZEhQQUxtWnNRdGRFTGpnRGg1Q1lLSm9BU2R0U3dKMXJDUDZRMWJ3MElyWUtBMHNJZWY2QS12WGwzRGVScXZXb2RIalFyQmNCN2pPcV9NU01CUjZHdG9GcnA1bURLLUwyc1MyMzVESDdMUQ?oc=5",
-   "published": "2026-10-21T10:48:59+00:00"
+   "title": "HUDS Expands Artificial Intelligence System to Reduce Food Waste",
+   "source": "The Harvard Crimson",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9SRm9GejN3NzU3WlZDVFRJTmJETzh6UFBaU3dOSkF6UzBQMkVUOVdqQlozYlhXcXlvdlptVm1NbEJaUWdOcF9ERXRyNVFQMkhjR1ZacTJJdG1fY3NXN0FwT19fV2lwVXVFSTFyenFQcjVURG16Nnc?oc=5",
+   "published": "2026-10-21T18:49:58+00:00"
   },
   {
-   "title": "Nvidia (NVDA) Launches DSX AI Factory Platform to Enhance Efficiency in Europe",
-   "source": "GuruFocus",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQX0dIZEVpelZ4bWNQUWJmMzFVSVVrcEpNOGJ5aWMteFNZdUd1U18wc3IyUjRVVGo1dllxQk9CRjJoYzJZSnpmTjlzZjZpT045S3I5MGlpTFFLSFR6STdxajVkSkNXbTA2UUszQUhhc0owakVnWDZWV0tUVXd4YkxxMnJITXRDZUg2aU9TRVBEOVB6S2JHLUhiaUZUeS1MVFFYUWhwclZtTklnVV9HRWZ6SS15Q1ZWUQ?oc=5",
-   "published": "2026-10-21T10:44:07+00:00"
+   "title": "This is the way to deploy the latest Nvidia technology 'much faster': Nvidia partner",
+   "source": "Fox Business",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1DMEpscXF2R3B6OGN2UGcxRm1veUtVeUxIUTJTRlFMcWhUd1pNTUc2RmtRbUhTUVdqaWNWMi1WYzRIU3lOczVIUjd4NDB1bGhJTnYwZG44ZVAyQlU?oc=5",
+   "published": "2026-10-21T18:45:59+00:00"
   },
   {
-   "title": "NVIDIA and Supply Chain Partners Expand Capacity to Accelerate AI Infrastructure Buildout",
-   "source": "NVIDIA Newsroom",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPbFl2YjlqcF9vQ0s2QkdFMDBxNzdVT29ibDFOOUhxRlZhSDJmY0M4VENxOUNyLVNRdEFEcG54RkdUSHk0X2c4V0xOb1d0UmI3aHdSR0d2V0hRd2lQV0hWcXJfcU5vc0JzcUdOVzFTMl9XQjNaamF6ZTZSdWZuOU15RWVRNnBIMUh4c0ZfVy1JcDhUR0hGczl3UXBmcjc2ekxrVW9YMXdHU3lBYWZBMmxhbE5ScnFYTUhRZ0g1QjBpRmxCQQ?oc=5",
-   "published": "2026-10-21T10:43:02+00:00"
+   "title": "ASML Has Incredible News for Nvidia Stock and Micron Stock Investors",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOVkFJdXAzQlduVjl6alhDSmJkdlc3N1dnUUhRai1jVWNKSU56OFc1U0tfa1NUeW1WejltYmRjV1hHMzJ4dmtCYkpTV21XTTZNaEgwVWdJMWVIS21tTE15S1E2SDItT0pvdU1LaGdEOGdHeHU1azdzbHUyc2VhMUltcXZBV283WHZaLXNmSHFKc0p4MTkwWHBQa3NwNnc2R2hhNEpoQzFpZmV6OVM1cUJNZA?oc=5",
+   "published": "2026-10-21T18:34:40+00:00"
   },
   {
-   "title": "NVIDIA Cloud Partners Scale Across Europe \u2014 Sovereign, Open and Built for Safe AI Agents",
-   "source": "NVIDIA Blog",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOMzc3ZkVrM1VNUndSTEE5NGl6UmRQVGdzUS1yck5nT094Y2ktNW5IZ2J1TjI3S3J6dFNqOXRacUxwR29TY19CeHpmaUFaX1RPaTNVQ0RRY3FoVjFKYVhVbWJ2Smd0TnozRWcyV2hqelBmdFRqeVFYbDBUWGNIcTMyTTQ0TEtvMnJZ?oc=5",
-   "published": "2026-10-21T10:38:56+00:00"
+   "title": "Nvidia marketing executive Laura Fay, who reported to CEO Jensen Huang, has retired after a decade",
+   "source": "Business Insider",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQSmZYWlRRUjR3V2Q4endCM0E2eGVkdkFKY3E4a0NsRllmZjdhMUZ2Rnl0WVVWa3BObVdneGNFMTR3VmcyY0piY2Rwa3hwR1dwdjBBbl9GRU80X3k0MkpkQm5GbmFHNjNGT2hvdlFRLXRWRmNieUdkLUV3anBZOTRiakZSVGNnRlM5MW1PWWg5c1BsSmI0Ny1IQUdNN2NZQjhEUDVqMlhn?oc=5",
+   "published": "2026-10-21T18:30:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-21T11:00:26+00:00",
+  "run_at": "2026-10-21T19:10:19+00:00",
   "session": {
-   "date": "2026-10-20",
-   "bar": "final"
+   "date": "2026-10-21",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-21T10:41:31+00:00"
+    "as_of": "2026-10-21T19:06:04+00:00"
    },
    "earnings:NVDA": {
     "ok": true,
@@ -1385,11 +1385,9 @@
     "as_of": "2026-11-18"
    },
    "earnings:SPCX": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "source": "nasdaq",
-    "first_source_error": "yahoo: curl: (22) The requested URL returned error: 429",
-    "as_of": "2026-11-03"
+    "error": "yahoo: curl: (22) The requested URL returned error: 429"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1397,114 +1395,148 @@
     "error": "yahoo: curl: (22) The requested URL returned error: 429"
    },
    "fred:BAMLH0A0HYM2": {
-    "ok": true,
+    "ok": false,
     "core": true,
-    "as_of": "2026-10-19"
+    "error": "ValueError: no parseable rows for BAMLH0A0HYM2"
    },
    "fred:DGS3MO": {
-    "ok": true,
+    "ok": false,
     "core": true,
-    "as_of": "2026-10-19"
+    "error": "ValueError: no parseable rows for DGS3MO"
+   },
+   "history:GPIQ": {
+    "ok": false,
+    "core": true,
+    "error": "a context series was empty, so stored rows were not re-scored"
+   },
+   "history:GPIX": {
+    "ok": false,
+    "core": true,
+    "error": "a context series was empty, so stored rows were not re-scored"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:57:43+00:00"
+    "as_of": "2026-10-21T19:06:36+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:45:25+00:00"
+    "as_of": "2026-10-21T18:02:57+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:52:30+00:00"
+    "as_of": "2026-10-21T19:09:28+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:49:00+00:00"
+    "as_of": "2026-10-21T18:56:15+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:48:00+00:00"
+    "as_of": "2026-10-21T18:26:09+00:00"
+   },
+   "signal:Credit stress (junk-bond spreads)": {
+    "ok": false,
+    "core": true,
+    "error": "ValueError: no parseable rows for BAMLH0A0HYM2"
+   },
+   "signal:Payout vs safe cash": {
+    "ok": false,
+    "core": true,
+    "error": "ValueError: missing yield inputs"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-21T10:59Z"
+    "as_of": "2026-10-21T19:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    }
   },
   "degraded": [
-   "earnings:TSLA"
+   "earnings:SPCX",
+   "earnings:TSLA",
+   "fred:BAMLH0A0HYM2",
+   "fred:DGS3MO",
+   "history:GPIQ",
+   "history:GPIX",
+   "signal:Credit stress (junk-bond spreads)",
+   "signal:Payout vs safe cash"
   ],
-  "degraded_core": []
+  "degraded_core": [
+   "fred:BAMLH0A0HYM2",
+   "fred:DGS3MO",
+   "history:GPIQ",
+   "history:GPIX",
+   "signal:Credit stress (junk-bond spreads)",
+   "signal:Payout vs safe cash"
+  ]
  }
 }

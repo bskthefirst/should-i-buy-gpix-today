@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-21T11:00:17+00:00",
+ "generated_at": "2026-10-21T19:10:13+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 97.3,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "33% ann. (p10)",
+   "value": "35% ann. (p14)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 10.3,
+    "pos": 14.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "23.7%",
+   "value": "21.4%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 47.4,
+    "pos": 42.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.3 (p55), F&G 28",
+   "value": "VIX 16.9 (p45), F&G 31",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 373.71,
-  "as_of": "2026-10-20",
-  "bar": "final",
-  "day_change_pct": 1.54,
-  "sma50": 361.11,
-  "sma200": 387.26,
+  "price": 385.18,
+  "as_of": "2026-10-21",
+  "bar": "provisional",
+  "day_change_pct": 3.07,
+  "sma50": 362.16,
+  "sma200": 386.93,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 23.7,
+  "drawdown_pct": 21.4,
   "series": [
-   {
-    "d": "2026-02-03",
-    "c": 421.96,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-02-04",
     "c": 406.01,
@@ -1217,6 +1211,12 @@
     "c": 373.71,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-21",
+    "c": 385.18,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1224,7 +1224,7 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 33%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 35%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1272,17 +1272,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.27
+  "tbill_3mo": null
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 373.71,
-  "sma200": 387.26,
+  "price": 385.18,
+  "sma200": 386.93,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 32.8
+  "level": 34.5
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1300,61 +1300,61 @@
  },
  "backtest": {
   "start": "2022-10-21",
-  "end": "2026-10-20",
+  "end": "2026-10-21",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 30646.93,
-  "dca_return_pct": 45.94,
-  "dip_value": 30664.84,
-  "dip_return_pct": 46.02,
+  "dca_value": 31587.55,
+  "dca_return_pct": 50.42,
+  "dip_value": 31606.01,
+  "dip_return_pct": 50.5,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 203,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Elon Musk replies to question about if the Tesla Roadster will be street-legal after reveal",
-   "source": "Supercar Blondie",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9KM3JFbDhXZ3pGZEQ2V3A0a1VleVZCcEpJc20tUlN2NXR3blRzdUFzSmNwQzdrYllWTV9uazZYY2UxZG5UanNhQVRKQnFUTGxNNGM5a2N6dnVjMXpMdVFvdlBmbGZZQ1FjUjhCdE5uSzlwLWhXbW9yUEp1Sm92UQ?oc=5",
-   "published": "2026-10-21T10:48:00+00:00"
+   "title": "A Once-in-a-Generation Opportunity: 1 Artificial Intelligence (AI) Stock to Buy Before it Soars 1,233%, According to Cathie Wood",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNTWhoV290SHFuV281NGI0TG1RUk1PQXFObTRYeHlndWh2OHlOWnlWWEl4d1dnWTJIMVQ5VEd2NldSd1lJckpsVUpWNjV0NmM3clAxUnY3UDJtQVFieGtiTGVySUxuZTlTWFZoamtqejg2Rnk2b0dhODJWNWhDUDBsVy13RVU3akFuYUc0clU4VU5QN2QxT1pFcg?oc=5",
+   "published": "2026-10-21T18:26:09+00:00"
   },
   {
-   "title": "Tesla-SpaceX deal: Wall St says inevitable but Musk says it's not certain",
-   "source": "Yahoo! Finance Canada",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE10R3BnXzZtcWtWbDhpTGM1UnU3YVMyWmxQWE01T0RIdkdWZU1RcXdCSm83NlVDQndoNmFrX3BWRlY3Qm9waGtLVkRKOFB0cnpuNm9aUlYxdEZKVlVEeEhtbWhuM1ROTzdDNWVRS3d0NlNMeWlpZmNkWFpWMHVzbWM?oc=5",
-   "published": "2026-10-21T10:33:31+00:00"
+   "title": "How a SpaceX and Tesla Merger Would Reshape Musk\u2019s AI Empire",
+   "source": "Decrypt",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBSdEhQWl9CTWlsV1ludFJ1U18zX0tiX3ItbGQ0SFk2d1YzVEJfWm45dkNNQmNTLUZHN1NUMWhENmFmem9NQkNmaGlUNlQyVVZieUlYTVhYZkd1OEFHdEhjcWo2dDJ0OWdqQTZKOTB5WTJzQ25keHRqczVtRQ?oc=5",
+   "published": "2026-10-21T18:16:03+00:00"
+  },
+  {
+   "title": "Cold Water: Tesla and SpaceX Merger \u201cWon\u2019t Add Much Value\u201d per Gary Black",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSFA5U0J3N0xybERZUU9KV2Z2aVNDaUdXVmtfZVhvOHlLM2xxM3RyVnY0dzgzcms4a2pnSUxuV0FfMHVBaVEtVkhHeWVLc3lGcUxoN3pRT1h4OTQzT2VfaTRUQlprMmc5a3ByWFpzOEpwUGVKZ1NEckhuNTBoZE5sYWR3dC1YZlhRQ3ZMQW5ub1I3RFdnRm9YY0g0WQ?oc=5",
+   "published": "2026-10-21T18:07:22+00:00"
+  },
+  {
+   "title": "Here's What $10,000 Invested in SpaceX and Tesla Could Be Worth in 2030",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQSGVBeXhGdlRNbi0wcnRIdy15eHdnZ1ZaWGxnQTMwem42RDZuR084SlVkSjJlMXhyRmRmNFhTcnVrY0RFeXJKaklOaHd2TGJJSnNRc3MwNDVGVHJJLWpyOEptR0duVEVOcVVaRkNlNWgxMi1aLTN0YUU3UEwyeVlsVWoyNlpaSXhfamdMRkpIblludHFjRFFIaA?oc=5",
+   "published": "2026-10-21T18:06:00+00:00"
   },
   {
    "title": "Elon Musk Thinks $3.5 Trillion Tesla-SpaceX Mashup Is a Good Idea",
    "source": "Bloomberg.com",
    "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQQ0M2MzA3LVVDM01zMC1MeUJKZ2JadWw0dlRyRHMtMGJwLXNCRjBkOW85Tmd6YU14eUIwWGtaR0JuR0hWcXd4VG5ZRTJXR3hpcks1c1I0QmF3My1XMTFWaWdGUXN0QXp6NWloYzV3LUNuSk1fY2R4endRWlhZQUt3WVhabkpkWWM1UW4ya3Z2Si1qY2R0cG9fZ25pN1VpSXBjUXlTb2dyWDBLYy1CYXJJdmEtNVQ0ckp2Mmc?oc=5",
-   "published": "2026-10-21T10:26:44+00:00"
+   "published": "2026-10-21T17:57:41+00:00"
   },
   {
-   "title": "Why Does Elon Musk Want to Merge SpaceX and Tesla Into a $3.5 Trillion Empire?",
-   "source": "Modern Diplomacy",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQekJoQTcxU1B3ZFpjV091NU84THZQMk8tRFBmNkNkemlPd2M3WjR2M2x5RDdUeG5KeTVyXzBsWjdfeEZUSTU5QVoybV9oSHZCT1FFeDY4ZGxxMnFPWE9RRmNNVUZ4VlVYalU2WHlFTlg2UU9hVjJCS3BnLVk0Nk8zNDhOZXpiN0VBT3dFSkxLNkRyNnc5RmFoU3AxclY3ZTBGVkRQVWh6aWxqalQ0T2UxcVJGbW54UQ?oc=5",
-   "published": "2026-10-21T10:15:04+00:00"
-  },
-  {
-   "title": "Ross Gerber Says SpaceX Could Make $420 Tesla Bid This Week - SpaceX (NASDAQ:SPCX)",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPQ0hwT1FHM18zOU1OSGlhS2RxQ1RQY3BHeFdZbEEtRllHa1NDV3FKQ0JValRhU0phMldhSDlMWGxHT0RZa2FiN3R4WXE2cUJBT25MUkNtWDZTR3dMWFp0TXVaLXRyc1dpdTJEVXVLd1JVU0duUWxSSUVSOWl1NC1PYVcxbThUZW1VaWJhZUlZWGR4emgya3lCeG9rTDJPNDVpT1ZCVTQ1Q1o?oc=5",
-   "published": "2026-10-21T10:00:24+00:00"
-  },
-  {
-   "title": "Rockets, robots and risk: Elon Musk\u2019s $3.6tn gamble to merge Tesla and SpaceX",
-   "source": "Financial Times",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOaXR1cTJEVjBnTUxScTROZnFaMVIwbERzeTA0cmZXOVZVdWpQc3VpdVY3cHNpa0xjQjJwOUR0cmQ2V3JzSG5scjVDMm55VHNGcUxZVXY1NTkxTms4bkhENXdCcXdsN2FMNGNEWGV0SzdaSTB1Q2Fsb3JKZjlsb0c2blJoQm4?oc=5",
-   "published": "2026-10-21T09:50:07+00:00"
+   "title": "\u2018No Question Tesla\u2019s Going to Merge With SpaceX\u2019 \u2014 Kevin O\u2019Leary Says If You Own Tesla Stock, You\u2019ll Own the New Company After Flying Roadster Demo",
+   "source": "Barchart.com",
+   "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNaG1jc2tOSl9UTDFPbnJONi1QU1VoUWpGRUVtUk5HLUFzU3owVFhRdEJoRWlYN0dvaUlxRm1LUFhzNkRaOWdZVm5uaG5wTmwzZnhEM0lGckotd0lPRWgzRk9kQzRaekgwQ19JV05UVVNuRFVFSlpQUWI1TklRdlZHNFZzWlZ4MjVIZFJHU1MtVlhxOHlZT0hTbFc2elpKNzZaQ3dmR29rTWtYX1JkTml2aFc1U0tVallJNEprV0ZBQWlRRkFxaFplX1MycEdWbnVQa0NNSVJYWkFMbmY0azZ5eFVLZmdhY3U4NTZ2aElZUFE1dkVOWlE3OHBsVU1SQ1QyUXY0RVVxaXdLU2xIUF95cA?oc=5",
+   "published": "2026-10-21T17:57:06+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-21T11:00:18+00:00",
+  "run_at": "2026-10-21T19:10:14+00:00",
   "session": {
-   "date": "2026-10-20",
-   "bar": "final"
+   "date": "2026-10-21",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1370,7 +1370,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-21T10:41:31+00:00"
+    "as_of": "2026-10-21T19:06:04+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1378,90 +1378,123 @@
     "error": "yahoo: curl: (22) The requested URL returned error: 429"
    },
    "fred:BAMLH0A0HYM2": {
-    "ok": true,
+    "ok": false,
     "core": true,
-    "as_of": "2026-10-19"
+    "error": "ValueError: no parseable rows for BAMLH0A0HYM2"
    },
    "fred:DGS3MO": {
-    "ok": true,
+    "ok": false,
     "core": true,
-    "as_of": "2026-10-19"
+    "error": "ValueError: no parseable rows for DGS3MO"
+   },
+   "history:GPIQ": {
+    "ok": false,
+    "core": true,
+    "error": "a context series was empty, so stored rows were not re-scored"
+   },
+   "history:GPIX": {
+    "ok": false,
+    "core": true,
+    "error": "a context series was empty, so stored rows were not re-scored"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:57:43+00:00"
+    "as_of": "2026-10-21T19:06:36+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:45:25+00:00"
+    "as_of": "2026-10-21T18:02:57+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:48:00+00:00"
+    "as_of": "2026-10-21T18:26:09+00:00"
+   },
+   "signal:Credit stress (junk-bond spreads)": {
+    "ok": false,
+    "core": true,
+    "error": "ValueError: no parseable rows for BAMLH0A0HYM2"
+   },
+   "signal:Payout vs safe cash": {
+    "ok": false,
+    "core": true,
+    "error": "ValueError: missing yield inputs"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-21T10:59Z"
+    "as_of": "2026-10-21T19:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    }
   },
   "degraded": [
-   "earnings:TSLA"
+   "earnings:TSLA",
+   "fred:BAMLH0A0HYM2",
+   "fred:DGS3MO",
+   "history:GPIQ",
+   "history:GPIX",
+   "signal:Credit stress (junk-bond spreads)",
+   "signal:Payout vs safe cash"
   ],
-  "degraded_core": []
+  "degraded_core": [
+   "fred:BAMLH0A0HYM2",
+   "fred:DGS3MO",
+   "history:GPIQ",
+   "history:GPIX",
+   "signal:Credit stress (junk-bond spreads)",
+   "signal:Payout vs safe cash"
+  ]
  }
 }

@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-21T11:00:30+00:00",
+ "generated_at": "2026-10-21T19:10:22+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-3.8% in 5 sessions",
+   "value": "-4.2% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 75.0,
+    "pos": 72.1,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "22% ann. (p18)",
+   "value": "19% ann. (p6)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 18.3,
+    "pos": 6.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "15.6%",
+   "value": "17.4%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "GOOG sits 15.6% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "note": "GOOG sits 17.4% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 31.2,
+    "pos": 34.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.3 (p55), F&G 28",
+   "value": "VIX 16.9 (p45), F&G 31",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 336.4,
-  "as_of": "2026-10-20",
-  "bar": "final",
-  "day_change_pct": -1.11,
-  "sma50": 340.79,
-  "sma200": 339.36,
+  "price": 329.248,
+  "as_of": "2026-10-21",
+  "bar": "provisional",
+  "day_change_pct": -2.13,
+  "sma50": 340.52,
+  "sma200": 339.42,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 15.7,
+  "drawdown_pct": 17.5,
   "series": [
-   {
-    "d": "2026-02-03",
-    "c": 340.7,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-02-04",
     "c": 333.34,
@@ -1217,19 +1211,30 @@
     "c": 336.4,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-10-21",
+    "c": 329.248,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "GOOG has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
+  },
+  {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "GOOG at $358.69 (+6.6% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "GOOG at $358.69 (+8.9% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 22%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 19%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1277,17 +1282,17 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.27
+  "tbill_3mo": null
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 336.4,
-  "sma200": 339.36,
+  "price": 329.248,
+  "sma200": 339.42,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 21.7
+  "level": 19.0
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1305,61 +1310,61 @@
  },
  "backtest": {
   "start": "2022-10-21",
-  "end": "2026-10-20",
+  "end": "2026-10-21",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 42954.97,
-  "dca_return_pct": 104.55,
-  "dip_value": 43052.71,
-  "dip_return_pct": 105.01,
+  "dca_value": 42041.73,
+  "dca_return_pct": 100.2,
+  "dip_value": 42137.39,
+  "dip_return_pct": 100.65,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 164,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "If Alphabet Does This on Oct. 28, the Stock Could Skyrocket",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPeFlMOFY1SGZCOGprMnZTZjBDYVZNemRFTGoxY0U2d2JIWmoxX2pva21rZTJTakpUcTlicnlMZ19kVl9IY3pHRkNybG84czhITmNwQ2R5R3RMXzN5MWdsNGs2RmtIemFFY2tuSUJXeGtaakF3VlJaRXJVZjRRaTZCTlhPUC1lX2x1bDAycXVKYU1IQ19JV2Rscg?oc=5",
-   "published": "2026-10-21T10:58:36+00:00"
+   "title": "Google Cloud Outage Analysis: October 20, 2026",
+   "source": "ThousandEyes",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPdS1OUzlyN2Y0dHk4RzFwQjlfSFFMY3JnbXJScElmc3poelNBbXJ5em84cldYX3Z2b2xTSWI4bGJYM1A2MU9EVXBLdWJ0TXItLWNlNnZ0ZkhQXzFNM2lOb25OUnBjSDUwZWJ1dXJXTzRoSkgtZXA2bGFwNi1LZGt1c0xBc0w?oc=5",
+   "published": "2026-10-21T19:07:04+00:00"
   },
   {
-   "title": "Uzbekistan approves changes to Latin-based alphabet",
-   "source": "Latest news from Azerbaijan",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9lUHZ0MnY2RlpyQzhvUk0ycjJYV2tmQ0FXZ0I0YzVtaUJXb1BBdmh1MEdsQXJ4UmZraUdaTXFfM3RQZUpIYkRTcUF2M2xPcTJFajhBNGVsU1g0VXNMMFhjdXpYUGI1ZHBJRU55T2Q3WjZrZm93NlcwcDNIeHg?oc=5",
-   "published": "2026-10-21T10:53:33+00:00"
+   "title": "Ex-Google CEO Eric Schmidt Says AI Could Eliminate 20% of Jobs at Large Companies",
+   "source": "Benzinga",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOZml1M2ttTUZQQzBOQTJ0SDNPRU5DR3NOM0xtQlo3dHBHQkE0YVRocjVjeFVuMGNZa1hpd2FIdV9lOFV6NVV6YVozLUxONl95eWFuZGhYdDlmMDJpZzE3Qy13YzM0dUJ1bWc3a3hqeDZPZktJU0xLN1pkbmNpZ21BSFpYV2dfdi1BbUdvVmlTeEhzS2ZIaEkzNWZCSElZbm54dHBPcmd3?oc=5",
+   "published": "2026-10-21T19:02:15+00:00"
   },
   {
-   "title": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure",
-   "source": "NVIDIA Blog",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBJNE5tbERxR1F1VWQtQUNPNXppNGFmTlZremNiRFNwclFHeWVFVkUwZXdZU1NhSUNtNG5uRUIya0lMNkw0RUExOTFmdVJWc1Q1djRDd1FVV1VlYnpHVzlfdzU0MTNTMDA4WnJ2YWdkMnItTndvYko5NQ?oc=5",
-   "published": "2026-10-21T10:52:30+00:00"
+   "title": "OpenAI's latest AI models are coming to Google Cloud and Antigravity",
+   "source": "Ars Technica",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPYmpZWlRoN0xEdnhMZDJxS1NnRVBRX2N0cUc1MFhDOVpjeDZDa29xdmpBVDR2cm1hVDF0b3NFMDRpWnV3NDFLeElBb0hjeTd3VTRmWm9OYTdib1I2dnN6QklNSDlTbXI2dHJVWjBkQ0Q5Nm9OT0M4QS1FRlNoaVRleHJ5TG9kVHhNNTE2dU1SZ0s3cURVX3hwS0FQaWhQVUpUUVl6M1R3?oc=5",
+   "published": "2026-10-21T18:51:42+00:00"
   },
   {
-   "title": "TikTok is shifting advertising to YouTube after Meta says 'no thanks'",
-   "source": "Business Insider",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOQkk3NVpxeFNDZDBVbDRSa2JpNndqcGtqb1ZHd1BOTEgyQW1BbU9ONXpmV2Jsb3h0cVJ4cWcwM1hrTVY3RmkyUWZqRTJ3N0lTcGJ3aFZQZU4zOE01YVR0WmpvMk9yS3NCRGJ4Zm44TWdmTy1DbHJZMU9TZDFtSEhSNUd2dWM0bTlMR3BuNDhvYWYyYmVHSTdJRUZGRkpiNEtSak1B?oc=5",
-   "published": "2026-10-21T10:45:00+00:00"
+   "title": "CPI | OpenAI Strikes Google Cloud Deal in Push Beyond Microsoft",
+   "source": "PYMNTS.com",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSl9yc3dYNDdMZ09wWnlqTFhmbkhyZy12NldHRkZUUzcxZVE2ZVBpY1RzYm1hU282RTdLZEpXeUdPNnN4amo1aXFUQ0dNUGRSTkI1dWMzcDA2NF9UWjhvTjRFaFlVVUpFTVFJY0FxZUt4dV83MjVMUzltWUYyS2VUbUp5Y0g2a1BkLVVuUGpqQ29xZk1qUVE?oc=5",
+   "published": "2026-10-21T18:47:40+00:00"
   },
   {
-   "title": "How AI Startups Compete With OpenAI, Google And Workday",
-   "source": "Forbes",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNVWVRRGpIVVppUkZfakx5UnRacTFHajQxeFl0ZklubklzMzI4d2h2cWItbmNGcFY5V20xR2ROdEtvbmUwMkxyUUtSdG9JM3M2ajlLNUhXajlqeWNmeVVUeFFQVXNGVUhmRDFIb2FJS2RJZklodE51MlBCcThpaDhWZ3dzVmd2bVFZdVROMGVDM1MzTXNFYldOOFZoMWh1aUlGZGdKXzViSHJoRkxwWmgwV2RST016UVBNeTJha1pINzA?oc=5",
-   "published": "2026-10-21T10:40:23+00:00"
+   "title": "Adam Howard SBC Media Day (2026-27)",
+   "source": "Troy University Athletics",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNcUhFbkxLRFdfTWxtSkpIUjhJdHozdkFCazVtZDJMT2N0cGMtWkZzNUhCT1p3TnRMY1NNTGhubzQ5c2tXbEJPQU9YZjFLb3dkVU1CU1VGbzllX0tZUmJFUXVCX3lpbGZuSVZ0S1B2bUlqaWE2WmZ3eW1pYy1RZ2h6N04yaGkwV0Y1MGc3N0dtTXliaTQzRm9RTHln?oc=5",
+   "published": "2026-10-21T18:21:48+00:00"
   },
   {
-   "title": "Details Emerge About Google Discover\u2019s SDF Freshness Algorithm",
-   "source": "Search Engine Journal",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQUnpaU1RxMy1jbkw5ckhRRGZTMmZVaEZ0Ym1aNDh2U1FELWdseFA4TWZpaTctdVd1NzBRTC05Z0N1NWw3MVZDbHNERlRXaW93YUkzemp2bTI5dmQ0dS1OZ0dPZ2U4TmVUaGtTX0ZsVzIwcEF2d3BSdmtELUY3bXRBUnJONTFhaGs1Uk44dnFnZkZmNHpVVXJiX3lqNlZpXzVjWm1PcEdkT2o?oc=5",
-   "published": "2026-10-21T10:38:54+00:00"
+   "title": "Netflix Must Focus On Its Original-Content Roots to Fend off YouTube",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNZHZSSHRNQzFrbEZTbDItYTB4ZERJNFB4dFRyLTg1SU9lUjZXY3VnOFhqel9hSVlac08zTmo1WGx3bklkRmpxRV96MjdXOHd0ekV2V19BQXFpWlc0VjdMRGQ4WlVmQTVidjJwS0lxNVFJZU1qVkZPTzdaX0FFQ0dyaFd6V1FNOEhaOXFicA?oc=5",
+   "published": "2026-10-21T18:20:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-21T11:00:30+00:00",
+  "run_at": "2026-10-21T19:10:23+00:00",
   "session": {
-   "date": "2026-10-20",
-   "bar": "final"
+   "date": "2026-10-21",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1380,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-21T10:41:31+00:00"
+    "as_of": "2026-10-21T19:06:04+00:00"
    },
    "earnings:GOOG": {
     "ok": true,
@@ -1392,11 +1397,9 @@
     "as_of": "2026-11-18"
    },
    "earnings:SPCX": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "source": "nasdaq",
-    "first_source_error": "yahoo: curl: (22) The requested URL returned error: 429",
-    "as_of": "2026-11-03"
+    "error": "yahoo: curl: (22) The requested URL returned error: 429"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1404,126 +1407,160 @@
     "error": "yahoo: curl: (22) The requested URL returned error: 429"
    },
    "fred:BAMLH0A0HYM2": {
-    "ok": true,
+    "ok": false,
     "core": true,
-    "as_of": "2026-10-19"
+    "error": "ValueError: no parseable rows for BAMLH0A0HYM2"
    },
    "fred:DGS3MO": {
-    "ok": true,
+    "ok": false,
     "core": true,
-    "as_of": "2026-10-19"
+    "error": "ValueError: no parseable rows for DGS3MO"
+   },
+   "history:GPIQ": {
+    "ok": false,
+    "core": true,
+    "error": "a context series was empty, so stored rows were not re-scored"
+   },
+   "history:GPIX": {
+    "ok": false,
+    "core": true,
+    "error": "a context series was empty, so stored rows were not re-scored"
    },
    "news:GOOG": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:58:36+00:00"
+    "as_of": "2026-10-21T19:07:04+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:57:43+00:00"
+    "as_of": "2026-10-21T19:06:36+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:45:25+00:00"
+    "as_of": "2026-10-21T18:02:57+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:52:30+00:00"
+    "as_of": "2026-10-21T19:09:28+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:49:00+00:00"
+    "as_of": "2026-10-21T18:56:15+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-21T10:48:00+00:00"
+    "as_of": "2026-10-21T18:26:09+00:00"
+   },
+   "signal:Credit stress (junk-bond spreads)": {
+    "ok": false,
+    "core": true,
+    "error": "ValueError: no parseable rows for BAMLH0A0HYM2"
+   },
+   "signal:Payout vs safe cash": {
+    "ok": false,
+    "core": true,
+    "error": "ValueError: missing yield inputs"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-21T10:59Z"
+    "as_of": "2026-10-21T19:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-20"
+    "bar": "provisional",
+    "as_of": "2026-10-21"
    }
   },
   "degraded": [
-   "earnings:TSLA"
+   "earnings:SPCX",
+   "earnings:TSLA",
+   "fred:BAMLH0A0HYM2",
+   "fred:DGS3MO",
+   "history:GPIQ",
+   "history:GPIX",
+   "signal:Credit stress (junk-bond spreads)",
+   "signal:Payout vs safe cash"
   ],
-  "degraded_core": []
+  "degraded_core": [
+   "fred:BAMLH0A0HYM2",
+   "fred:DGS3MO",
+   "history:GPIQ",
+   "history:GPIX",
+   "signal:Credit stress (junk-bond spreads)",
+   "signal:Payout vs safe cash"
+  ]
  }
 }
