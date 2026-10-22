@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-22T11:00:11+00:00",
+ "generated_at": "2026-10-22T19:10:10+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
-  "tone": "ok",
-  "score": 1.5,
-  "score100": 59,
+  "label": "Better-than-usual entry",
+  "summary": "Heavily-weighted rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for GPIQ, this is a sensible day to deploy it.",
+  "tone": "good",
+  "score": 6.0,
+  "score100": 88,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "24.4 (p62)",
-   "score": 0.0,
+   "value": "29.7 (p93)",
+   "score": 1.5,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
+   "lean": "good",
+   "note": "Nasdaq-100 volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive (about +1pt over the next month, so it carries a 1.5 weight).",
    "viz": {
-    "pos": 62.2,
+    "pos": 92.9,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.89",
+   "value": "0.97",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
+   "lean": "good",
+   "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 47.8,
+    "pos": 66.4,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.46x (p80)",
+   "value": "1.48x (p82)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 80.1,
+    "pos": 82.1,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.6 pts",
+   "value": "+10.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.4%",
+   "value": "6.1%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 34.0,
+    "pos": 61.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -140,21 +140,21 @@
   },
   {
    "name": "Short-term pullback (reversal)",
-   "value": "no pullback",
-   "score": 0.0,
+   "value": "-3.4% in 5 sessions",
+   "score": 2.0,
    "weight": 2.0,
-   "lean": "neutral",
-   "note": "No short-term pullback in QQQ - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.39% next-day excess (t=4.0) in our validation, positive in every era - the strongest edge this tool has, hence its top weight of 2.0."
+   "lean": "good",
+   "note": "QQQ is down 3.4% over the last 5 sessions. Sharp week-scale pullbacks like this have reliably bounced - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.39% next-day excess (t=4.0) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "+0.2%",
+   "value": "-2.6%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "Close to its 50-day average (distributions reinvested). No predictive value either way per the audits - a firm neutral.",
+   "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 51.7,
+    "pos": 28.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.33% (+0.67 1mo)",
+   "value": "3.27% (+0.59 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "bad",
    "note": "Credit spreads widening fast - stress building under the surface. The audit couldn't validate a score on this (those days actually rebounded), but as a plain read of conditions it leans bad.",
    "viz": {
-    "pos": 33.2,
+    "pos": 31.8,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.2% vs 4.3% cash",
+   "value": "10.5% vs 4.3% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 59.1,
+    "pos": 62.1,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "30 (fear)",
-   "score": 0.0,
+   "value": "18 (extreme fear)",
+   "score": 1.0,
    "weight": 1.0,
    "lean": "good",
-   "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
+   "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
    "viz": {
-    "pos": 29.6,
+    "pos": 18.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,21 +257,15 @@
   }
  ],
  "fund": {
-  "price": 56.69,
-  "as_of": "2026-10-21",
-  "bar": "final",
-  "day_change_pct": 1.0,
-  "sma50": 57.08,
-  "sma200": 55.17,
+  "price": 55.075,
+  "as_of": "2026-10-22",
+  "bar": "provisional",
+  "day_change_pct": -2.85,
+  "sma50": 57.03,
+  "sma200": 55.18,
   "high52w": 59.52,
-  "drawdown_pct": 4.8,
+  "drawdown_pct": 7.5,
   "series": [
-   {
-    "d": "2026-02-04",
-    "c": 51.62,
-    "t": "good",
-    "s": 72
-   },
    {
     "d": "2026-02-05",
     "c": 50.92,
@@ -1345,29 +1339,25 @@
     "c": 56.69,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-10-22",
+    "c": 55.075,
+    "t": "good",
+    "s": 88
    }
   ]
  },
  "flips": [
   {
-   "label": "Extreme fear",
-   "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 30) = extreme fear, a contrarian buy zone (+6 pts)"
-  },
-  {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
-  },
-  {
-   "label": "Top-decile premiums",
-   "direction": 1,
-   "text": "VXN above 28.6 (now 24.4) = top decile of its past year (+9 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.97) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.33%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.27%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1407,12 +1397,12 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.17,
+  "ttm_yield_pct": 10.47,
   "tbill_3mo": 4.26
  },
  "fx": {
-  "usd_krw": 1323.08,
-  "as_of": "2026-10-22T11:00Z"
+  "usd_krw": 1326.08,
+  "as_of": "2026-10-22T19:10Z"
  },
  "distributions": {
   "history": [
@@ -1535,13 +1525,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 725.2,
-  "sma200": 676.49,
+  "price": 702.96,
+  "sma200": 676.89,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 24.42
+  "level": 29.69
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1554,61 +1544,61 @@
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-10-21",
+  "end": "2026-10-22",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15700.0,
-  "dca_value": 21417.58,
-  "dca_return_pct": 36.42,
-  "dip_value": 21189.71,
-  "dip_return_pct": 34.97,
+  "dca_value": 20807.43,
+  "dca_return_pct": 32.53,
+  "dip_value": 20586.05,
+  "dip_return_pct": 31.12,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 63,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Tesla drops as spending pullback clouds AI, robotics ambitions",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNU2hUYVoxVEgxUmdpSW1qZ0ZlcTJnRUJPLVhjUS12cExoTDBZbFlfNHVmejZoVFhBZ3VxNTc1NThRVkZnVTNvVUJXYThLcTduSjlGVkVlX0xiTDhNSkNjN09lblZJeVZEWW9BZXRqS05PY2tBRUxzU3NaSFlxdDY2V1JGMHBpbFdzRlIwTlRXQ2twVHN5MEhIQjVIMXJQVzlzWHo5aFo2alM4X1hjSlBEcGVlZ0V3WHhrN2cybWxKTU5Edw?oc=5",
-   "published": "2026-10-22T10:53:26+00:00"
+   "title": "Using AI to re-architect the Cisco DevNet sandbox environment \u2013 Part 1",
+   "source": "Cisco Blogs",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQSEZFVVpfenByOEVRZUdZMXNsUXdrZTB5SjFYNFNncmdwaEc5eGMyalRlbTVleTY1VERNY0k0aEpPY1pUakpYQ21sUTRpc1NKQTZta2x1c2g2RkEtd1R0TjVPMGFwbjZZZ3NHV2p0NjVOSFQzOE8wTThMZzl0WEs1eXBn?oc=5",
+   "published": "2026-10-22T19:06:25+00:00"
   },
   {
-   "title": "Circularity in AI Shows Up in Token Spending Too",
-   "source": "Apollo Global Management",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQU0M5WnpMUFlacmdDQkd4enVDQ2pJSnk1SURwd0hXdWdtWDdXNENXY3o3TTFhTVpGbmJuRjdfMDdGVnFPV3pIUS1lcVJVbDg5VGt4c1prbGcwRHJRclp5QXZfZ29vbWMxNXp5cF85WmdNZFhzeFgyckFMQ2N4S0xpQkc2NnBNR0VCZldfRHlHWWp1enRuSUNuU2N2M2Z2N0s0aU9pZGE4MEtFN1ZxUDNQNUkxZw?oc=5",
-   "published": "2026-10-22T10:52:39+00:00"
-  },
-  {
-   "title": "DeFi tokens lead crypto lower as bitcoin (BTC) price gives up Wednesday\u2019s surge",
-   "source": "CoinDesk",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPSnRoM2Q1NklDRDh6eE5ydHVzV2FNbDlsbzRQeWRMM2RvT2h1U2pYUkNoN0dxRzJYZi1TeF9yd0JWaC1GbkRER1M5OERucFpwY05PbmRnei1uazJFZGpSYzk3WHFSeE80aFFOZS16RGctSTlYNDY4QndEbHlkTlJPaklwQ3F2TnJlcUJBb3FibDljblBYY09GNFFiNl93LURvZHhlRFNsd25kS0NGaVIyZ216Mi1od1JoeHduUzlyTGFiSC13clB3?oc=5",
-   "published": "2026-10-22T10:50:04+00:00"
-  },
-  {
-   "title": "AI-altered photos may create false memories, research suggests",
-   "source": "Click2Houston",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPdFJZVHdlN3ZtMjhkUHdpYzNmT05fVktwYThNZU5RbVY3bTlwLXFjZ0MtS0lxNHlVcFVtc0M2VTAxdnJlY2g3d2FWQ0xzQ0FKMElFbGdIa25fNDIyQXhHVUtwRVVPaWl0SFJVX0tDMFdYdFM0a0oweEU0RjVrV1VRMVdZZTF6Z2lFVzRFd3pFMWhrc2wzVEJHRzNVbG9WaVgwbmZJYzlnUDFGcEMxd1pNLUd5dDc?oc=5",
-   "published": "2026-10-22T10:48:36+00:00"
-  },
-  {
-   "title": "AI Is Making Whistleblowing More Important \u2014 and More Complicated",
+   "title": "No, China Isn\u2019t Killing Its Open AI (Yet)",
    "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQeTBDTlA5dDVqM2xlZEJyS295Q18tMGdvYkhsZGFsaERuV1B3dm5vX0toWWNZeGJmYzVpV2Q4d1IzckUxc3ZNMEhPMG1uVWdWRU5sdmdYRldDWHNFVVYyRWpyRmhYa3A5VTl0YmtNTEF1QkNGa1g0NUtNVXpVeFktZXJRVkNHUlZtMnhHZUZKM2ZLeVh1QmFvbWduU2hDZXF4WnRsVU4xRGlLZW4tTE9XSUU5MFZLTnlzdEFpQWtIYw?oc=5",
-   "published": "2026-10-22T10:30:29+00:00"
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNUHl0M2kza3lCcGNVSmRSQlFKRzJuVjExN1I1SmUzM1h4VjZSdU5SdllBWWFiV1dmR1ZVYl9sRXZlUjEydXhXWW8xT0Vfd0NqSUlFNzlYdzZXR1dQcWwxSkVfcDRFbEl4eG1ZTUhGMmk2dVFOUUZkbkdYYnFjalk4d3pFNDZiZjhRb0V2Q0laV0wzd1U?oc=5",
+   "published": "2026-10-22T19:00:12+00:00"
   },
   {
-   "title": "Introducing Cognizant AI Nexus: helping enterprises govern the cost, quality and results of AI",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQcEtObVpBTnNHRm5KaTFwM2E5YkFXenFnYmFoZEV2dm1tTUlLRmZnUUEzbjhGVlNIWlhTbmxVNXEtaVBsdmRKV3lCSlpCUXI1ZC1Wa0tFMXdiNEhLVEhWSVlxVTRWTXlXNG9yejBoQndZUHB5RHdTR2hqNHdSdDl1VngxS2hEWEJaZG1UclowUGpFM3Q0QlRXOUlERzU5NXBfcldJag?oc=5",
-   "published": "2026-10-22T10:30:00+00:00"
+   "title": "Louisiana court buys AI servers to test how tech can streamline workload",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPd1NjUkxxaEV0Q0I5WTZmX1h5LW45dko5TlAxMmRKRW9BTDNtLU5KeThPY3U1eGZfOUVoSXU1SVRoano0aWgycFRsY0t2TkhQVFh4LVh0VHN2ZTY0VHNTNXJRRmY1WlpRRzNxT1FURElhTFZDbzZoQ1M5ZU1IV0JLUldUSzFrSnpJN2JOOElnUnNFUTFqUUljRXNfSkJMZi1IbURPR2VoNkNEc0ZMSDRfbnlHWnBPV18tSm5QT0ljRQ?oc=5",
+   "published": "2026-10-22T18:58:04+00:00"
+  },
+  {
+   "title": "Worldwide drops for AI stocks send Wall Street toward its worst day since July as oil prices jump",
+   "source": "KTVN",
+   "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNVFRMMVNDSjYtLTUyQWVOZlBSOGhDSnBlTGlSR0tIeTVnQlN6dld0bElGMWZ4eDhOYXljZUdNLTcxS3lZTktad0t1QU9PTjF6U00ySms4Y0dkSEd1b1I5QXR2eHZMUTZFZFcyVk1nQTNHd011dzdkQUtMcXowUW02VHM4REd2cldRbVBvMm5vUW42WXVveVFodVBjdFZobnh0YjRKdm1hQ3VBbUJVbUJsQWEzcThQSEdFekZqUThsS1JiUkx6NlhyTDhjbXNKODRpUlRReHVBSWhMQy1rd2JBelJrUE5leDlNTmU4MmREak0xT1p6RG10Mw?oc=5",
+   "published": "2026-10-22T18:56:14+00:00"
+  },
+  {
+   "title": "$1.1M Grant Targets AI Skills Gap in State Government",
+   "source": "GovTech",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaktxcUpwT3ZqWnUwQmVlVzNNeWluQzRUbllvaUVkUHpQMWZhTmlSLUxnRUVZclNZZ0NVb05Vc2JYeFdzVWJxWWpjSWNCXzViQWtlYTZsVTlCV05ScjZPemFWNTJKV04zU21uQzAxZ0hXT3hDS29TTFFCelNUZkpVTzZZamhaOFduYm1PNmdmWWd6XzBnVjkxS2ZzX01OQ3FIcWc?oc=5",
+   "published": "2026-10-22T18:50:20+00:00"
+  },
+  {
+   "title": "Dykema\u2019s 2026 M&A Outlook Survey: Dealmaker Confidence Slips, AI Moves from Tool to Target",
+   "source": "Dykema",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPWXNDdmNkVmUwa3FqM3E0U0tkVEJxeW9JOWlBSFhuZ1F0SHBpam9wVXNHMEQtemE3XzBEaW5scmtEeU5aX3dlN0tLYndMUEJfV3pub0o0LXpsLW1EM0FsRXFyVDVxRDYwY0dPUVUxTUxSVHVqdTJ6SmJoQ2RybGpudE5lSXctOUF3U1l6WWRHbnNsUmtDaVpBSmxTNGcxV3Fpdm85WGw1akV0QzYxdWxMcElTWlJqbEM0ZUFqUmNqNFNXaVNkWFhSbEVOYw?oc=5",
+   "published": "2026-10-22T18:44:47+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-22T11:00:11+00:00",
+  "run_at": "2026-10-22T19:10:11+00:00",
   "session": {
-   "date": "2026-10-21",
-   "bar": "final"
+   "date": "2026-10-22",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1624,12 +1614,12 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-22T10:44:16+00:00"
+    "as_of": "2026-10-22T19:05:32+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-20"
+    "as_of": "2026-10-21"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1640,60 +1630,60 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-22T10:53:26+00:00"
+    "as_of": "2026-10-22T19:06:25+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-22T10:30:00+00:00"
+    "as_of": "2026-10-22T18:11:18+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-22T11:00Z"
+    "as_of": "2026-10-22T19:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    }
   },
   "degraded": [],

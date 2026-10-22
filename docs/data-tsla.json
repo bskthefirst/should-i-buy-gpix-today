@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-22T11:00:13+00:00",
+ "generated_at": "2026-10-22T19:10:14+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "35% ann. (p15)",
+   "value": "36% ann. (p20)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 15.1,
+    "pos": 20.2,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "21.1%",
+   "value": "23.2%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 42.2,
+    "pos": 46.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.7 (p43), F&G 30",
+   "value": "VIX 20.0 (p82), F&G 18",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 386.47,
-  "as_of": "2026-10-21",
-  "bar": "final",
-  "day_change_pct": 3.41,
-  "sma50": 362.18,
-  "sma200": 386.94,
+  "price": 376.03,
+  "as_of": "2026-10-22",
+  "bar": "provisional",
+  "day_change_pct": -2.7,
+  "sma50": 363.15,
+  "sma200": 386.65,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 21.1,
+  "drawdown_pct": 23.2,
   "series": [
-   {
-    "d": "2026-02-04",
-    "c": 406.01,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-02-05",
     "c": 397.21,
@@ -1217,6 +1211,12 @@
     "c": 386.47,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-22",
+    "c": 376.03,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1224,7 +1224,7 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 35%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 36%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1276,13 +1276,13 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 386.47,
-  "sma200": 386.94,
+  "price": 376.03,
+  "sma200": 386.65,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 34.9
+  "level": 36.3
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1300,61 +1300,61 @@
  },
  "backtest": {
   "start": "2022-10-24",
-  "end": "2026-10-21",
+  "end": "2026-10-22",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 31513.11,
-  "dca_return_pct": 50.78,
-  "dip_value": 31532.09,
-  "dip_return_pct": 50.87,
+  "dca_value": 30661.83,
+  "dca_return_pct": 46.71,
+  "dip_value": 30680.29,
+  "dip_return_pct": 46.8,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 203,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Tesla and SpaceX stocks are moving more in step than at any time since SpaceX's IPO",
+   "title": "Tesla Targets Dallas Cybercab Launch as Regulators Probe Safety",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNVUpWWG14dzNCVVdMN3ZlcHVtY3NCdUFnR0Q4TklaNmpKWUsyM3FablJpcmVpOXp0VE5lU0lRZlpld2Q4azdMR3F4VXdSZ2tBeFByRVBCSXg0dkRyWUZhamh3RjRXa1ZRbF9zVGduYkpXQ2dBQVhiWVJJU0ZFNldzNEdFS3ZVb09kZUN0bW56UVNDejd6cFZXRWlldVc1UQ?oc=5",
+   "published": "2026-10-22T19:03:13+00:00"
+  },
+  {
+   "title": "Tesla, Meta, IBM: 3 earnings call shout-outs that left us thinking",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQN0hXN0VfZEZvaWVHUFU4T09NSUVINjgyZkxOYmdnMW0yVkdsN09VSVBBQnY0WkxjX3VLalZIcGl5ZjVReUpPWnh5eU5TdERUY3kwSnc0LW1CMTV5WWtVM0s0Y2toQ3JhdUNiN28taFY3azMyaHRpRmxYOGgzX3JjWkhsUlFhU19Ucmszd3lHNjFVd2lOUXhXSzRFMHNQV2VTSFNaQWhVMjJMcVd1REhmLVZIZU5qRjJyY0R1TVQyUHN2ckE4?oc=5",
+   "published": "2026-10-22T19:01:38+00:00"
+  },
+  {
+   "title": "Tesla Stock Seen Trading With Evolving Views on Potential SpaceX Merger, UBS Says",
+   "source": "Moomoo",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOTkFIb3pIcXJsTzR1Q1NtQ3p2NzhlRlN4UHFobGRoZmIyd3ZVUHVTemlGY2hTT05waldvTms1b0NwR1k2WDV4TDJXZ2NrTmJBLUNxendzamJtX2c0ZFFSeGRhejl5M19HRVRWWnBLY2ROZDBmVVFXN1dBckhCSW42Um5laklOdllRWmRwZEx5cGpYS0xMblN5SXUxOG1rTmhrcWFnQm1KeW50dkpI?oc=5",
+   "published": "2026-10-22T18:59:12+00:00"
+  },
+  {
+   "title": "Why is Meta stock down today: Shares fall 7% after earnings",
    "source": "Opening Bell Daily",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNUXdFQlA4LWNacVIwZzY3QlloUGNxUHZPVlJTQXN0eWFHQ1dNTXlVTGJwVnlyX0F6Um5Md1kycEhWT2lxOC00ZkplMEJsSGpYZTBJNFR1SUR3em43Y0JTYmVvcS1RZW1RZi1kX1NZalFGQjR1YnVUTFdJOTI3ZzNKWg?oc=5",
-   "published": "2026-10-22T10:46:01+00:00"
+   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9SQlZkdTFSTmJpcEMxTWxSSXFFT0Z1UGo2Nm5EVllLVHR6dVFCTEV4X0JXUjBmSlZZYldTaG5Fa3VTTlBpQ0RiZVNsZG8zYmpEbUdud2NlX1gwbjhuckV5WDFiX3UwWHpTVWF2SVc1eXNxWU44b1ZQeVN3dWw?oc=5",
+   "published": "2026-10-22T18:16:18+00:00"
   },
   {
-   "title": "The biggest hurdle to a SpaceX merger with Tesla isn\u2019t Elon Musk. It\u2019s Tesla\u2019s shareholders",
-   "source": "Fortune",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQc1Ezbm13ak9QSkF3MkdTNmtZYkhLOXQyeUh4SXJzYzdEZk5CeThJLXlrTlpMNVFxSlFKYVBNUDVBV18tS041ODJpWlJBM3pROVNWZm1QUXJaeU9ZVHNLckhFZzBNeGxmR2Q2OW12Y1N0cm8tSmZjV0x2YTNYTUNDX3pyTm1ZcjBydU1Eb2k2eGRjX0k?oc=5",
-   "published": "2026-10-22T10:43:00+00:00"
+   "title": "Tesla: ARK's $4,400 Price Target, Let's Examine (NASDAQ:TSLA)",
+   "source": "Seeking Alpha",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMzNFUjJfZjFtWkJreE5Cd0hrMkljZ2lTaEFqM1hkZHdIV1M5SVZwZS10aFAzWUt1RWdDV1FBLWRTMXBuUkZ6TnBOclEtOFRpVWlkRnRiNURNNTdmTjJ3bWxNeG1fZ25wWVF0SjM4cHZOSkRYbTJqY053LTl2eEdrVk9GUGN1dWt6?oc=5",
+   "published": "2026-10-22T18:10:16+00:00"
   },
   {
-   "title": "Elon Musk says training Tesla's Optimus robot is like raising a toddler",
-   "source": "Business Insider",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNQWl4c2xjeEg3dnhZRDFEYkJVVDVXWTY0S09uTGp2bFVZNnBzRDBzOTJNZmc5TkdIV1RQYXg0cm5EM2hDdGhiV2hQRVRaamE4RkdiZmJSYUhSUTljNnRmaXE5OGd1QWxGaUZsS19RcHhOU2N1aTFtUzVPdDAwUXNrS0s3dm9VbXQzZUFBYmtTanI3MDFq?oc=5",
-   "published": "2026-10-22T10:33:17+00:00"
-  },
-  {
-   "title": "A Tesla-SpaceX Merger Would Make a Daunting Foe \u2014 For Now",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOb1pfMnNhQlRjNER4bDUteDFaUmVJTnFJdG44cEdEMUhYX05vdDVVSEhuR0pGYjFZTDJxRkt5ckFyeW1aYXMwY0NncHpuUFJueng0S3dESmk3RERZSldiNTZFdGxYSllJTzJ3LV9VRzllMDNqYlV5MGkwU2tRTHk5eGEtajZYaU8tRHIxLVhVbDRvMGlZRHJPcDVEQTlqa0xPSzROd2R4N2MzQzQ?oc=5",
-   "published": "2026-10-22T10:28:01+00:00"
-  },
-  {
-   "title": "Elon Musk Thinks $3.5 Trillion Tesla-SpaceX Mashup Is a Good Idea",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQQ0M2MzA3LVVDM01zMC1MeUJKZ2JadWw0dlRyRHMtMGJwLXNCRjBkOW85Tmd6YU14eUIwWGtaR0JuR0hWcXd4VG5ZRTJXR3hpcks1c1I0QmF3My1XMTFWaWdGUXN0QXp6NWloYzV3LUNuSk1fY2R4endRWlhZQUt3WVhabkpkWWM1UW4ya3Z2Si1qY2R0cG9fZ25pN1VpSXBjUXlTb2dyWDBLYy1CYXJJdmEtNVQ0ckp2Mmc?oc=5",
-   "published": "2026-10-22T10:27:50+00:00"
-  },
-  {
-   "title": "Elon Musk\u2019s SpaceX-Tesla merger math doesn\u2019t add up",
-   "source": "Fortune",
-   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOYmR3eGR4WnVtOWhtWVV5Q1BFdktWOUhUMzRtbmdmeG9BZkxKMUpiTXBFazM4Vnk3T184QzFKcVpRSHNSWHRXWFprWTdNdFBIenM1THlYOUN0WG1wQUtQb2xlM3BCcHZhYU9xY0pQaGNNQnZWak1MLUdnVjQ0VEl0SVBkQ0RVR00?oc=5",
-   "published": "2026-10-22T10:27:00+00:00"
+   "title": "Elon Musk Wants Tesla To Double Its Production Capacity by 2030, Does This Even Make Sense?",
+   "source": "autoevolution",
+   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNWVZxYVNGSlRxX3daaEpKYVpfRnkwSFViYm5aYXVtc1EtNjIySjJ0dWFMazd0bmVWUHZVMFh4dzJnazlTUVJOVk02ZFlDUHRqQnlFcHE4UUdndkgxNWMyRWg2N3ZKQk8xSW9ralVEdm1lOE9CbFFGamxjZWpyVF9ZWWFUT3FveENCSUZTUHA2RXRieVRYZTRKNUFQZFRQYkNaRGdNUWNYS1pmaklseV9td3FqSzI1by1JNEdTWDZzZ2NzcWJYODVMcTFENFlhUGFFSlE?oc=5",
+   "published": "2026-10-22T18:02:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-22T11:00:13+00:00",
+  "run_at": "2026-10-22T19:10:15+00:00",
   "session": {
-   "date": "2026-10-21",
-   "bar": "final"
+   "date": "2026-10-22",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1370,7 +1370,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-22T10:44:16+00:00"
+    "as_of": "2026-10-22T19:05:32+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1380,7 +1380,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-20"
+    "as_of": "2026-10-21"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1391,72 +1391,72 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-22T10:53:26+00:00"
+    "as_of": "2026-10-22T19:06:25+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-22T10:30:00+00:00"
+    "as_of": "2026-10-22T18:11:18+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-22T10:46:01+00:00"
+    "as_of": "2026-10-22T19:03:13+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-22T11:00Z"
+    "as_of": "2026-10-22T19:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-21"
+    "bar": "provisional",
+    "as_of": "2026-10-22"
    }
   },
   "degraded": [
