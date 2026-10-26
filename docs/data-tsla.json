@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-10-26T19:10:13+00:00",
+ "generated_at": "2026-10-26T20:25:18+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "own"
  },
  "verdict": {
-  "label": "Worse-than-average zone",
-  "summary": "TSLA sits in its 10-20% drawdown band - the falling knife. This is the one zone in this whole project with era-robust evidence of below-average forward returns: single names in mid-drawdown tend to keep drifting, not bounce. Nothing here says sell; it says this specific dip has historically kept dipping.",
-  "tone": "caution",
-  "score": -1.5,
-  "score100": 41,
+  "label": "No edge either way",
+  "summary": "None of the scored TSLA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 4.5
  },
  "meter": {
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "39% ann. (p31)",
+   "value": "37% ann. (p26)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 31.0,
+    "pos": 25.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "19.5%",
-   "score": -1.5,
-   "weight": -1.5,
-   "lean": "bad",
-   "note": "TSLA sits 19.5% below its 52-week high - the falling-knife band (10-20% down). The one zone in this entire project with era-robust evidence of BELOW-average forward returns (negative in every era, t=-2.6 next-day, t=-1.9 monthly). Single names in mid-drawdown lean momentum, not mean-reversion. Weight -1.5.",
+   "value": "20.1%",
+   "score": 0.0,
+   "weight": 1.0,
+   "lean": "neutral",
+   "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 39.0,
+    "pos": 40.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 18.4 (p68), F&G 27",
+   "value": "VIX 19.4 (p78), F&G 27",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,15 +128,15 @@
   }
  ],
  "fund": {
-  "price": 394.53,
+  "price": 391.62,
   "as_of": "2026-10-26",
-  "bar": "provisional",
-  "day_change_pct": 5.99,
-  "sma50": 364.81,
-  "sma200": 386.14,
+  "bar": "final",
+  "day_change_pct": 5.21,
+  "sma50": 364.76,
+  "sma200": 386.13,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 19.5,
+  "drawdown_pct": 20.1,
   "series": [
    {
     "d": "2026-02-09",
@@ -1214,35 +1214,30 @@
    },
    {
     "d": "2026-10-26",
-    "c": 394.53,
-    "t": "caution",
-    "s": 41
+    "c": 391.62,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
-   "label": "Exiting the knife zone",
-   "direction": 1,
-   "text": "TSLA at $440.89 (+11.8% from here) climbs out of the falling-knife band (+9 pts)"
-  },
-  {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 39%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 37%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-23",
-  "days_total": 750,
+  "end": "2026-10-26",
+  "days_total": 751,
   "backfilled_days": 707,
   "fg_coverage_start": "2025-10-27",
   "baseline": {
-   "n": 729,
+   "n": 730,
    "avg_pct": 2.74,
-   "median_pct": 0.79
+   "median_pct": 0.82
   },
   "bands": [
    {
@@ -1262,9 +1257,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 376,
-    "avg_pct": 2.62,
-    "median_pct": 0.89
+    "n": 377,
+    "avg_pct": 2.63,
+    "median_pct": 0.93
    },
    {
     "tone": "caution",
@@ -1281,13 +1276,13 @@
  },
  "underlying": {
   "symbol": "TSLA",
-  "price": 394.53,
-  "sma200": 386.14,
+  "price": 391.62,
+  "sma200": 386.13,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 38.6
+  "level": 37.3
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1304,62 +1299,62 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-10-26",
+  "start": "2022-10-27",
   "end": "2026-10-26",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 32259.2,
-  "dca_return_pct": 53.62,
-  "dip_value": 32289.71,
-  "dip_return_pct": 53.76,
+  "dca_value": 32021.65,
+  "dca_return_pct": 52.48,
+  "dip_value": 32052.28,
+  "dip_return_pct": 52.63,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 204,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "TSLA Breaks Above Resistance as Barclays Upgrades Tesla Stock Citing Potential SpaceX Merger and Delivery Growth Supports Bullish Outlook",
-   "source": "FXLeaders",
-   "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxQWVlPaHQ5ME5ybXFZU3VjdTA2SFJMd29pRGNCTnYtZXZhajdNeGltaEptS1dycWJlUG5oVWhRWjRqRDd3a0VoNGVqRVN1aUVVLTdXZEI3M3ZBZVE3TGx6em40Qmp6eUQyS25STUJkS2FqY3pXNXJIT2NXaS0zM2l0WmdTMl9sN1lieDJWWkxWYmxHUVpPblEyV25senZTZ2p0cWV6b0Zsdy1LU2J3ZG1sMTV6Ym10eXBzY1F4aDFuY2FGVkVWOXgtakVIcmR5UlotdkxiQU4wSXdpVWhNclRFckRrSzlXcUlEbkFscExaYktyeTVLdWJnQ1BUT3BqQUc4YTB3RlNvRks3UXRD?oc=5",
-   "published": "2026-10-26T19:04:39+00:00"
-  },
-  {
-   "title": "Move Over, Tesla: This Robotics Stock Is the Better Buy",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOS0VlN2llUVU4dEpJMzNvQlhNRmw0OVNLYUpwZFRmTjJIclJncy14NXVVS1F3RHVnMl8zd1Bidk1DLVJhQVpMT2JwUkkzejV5VVhfdjZFNVl6U1BjMzNrdVF3Ul8xTV9QTE1kWEZIN01rS0g5Z3FTVTdkZExxaVp3M3J1UGZMdHM3MFpnaU5ONGhhdw?oc=5",
-   "published": "2026-10-26T18:46:23+00:00"
+   "title": "Tesla Makes Bullish Move, But These Five AI Stocks Lead The S&P 500",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQOWlyMXFWYWEtTGc0dDhUS0JKM0RQVXFqcVByX1Vjc2lIaEgwWEtnbU9qMGVYVURLN29NZDhyQ18xWW9nN2YwWGJwZm1FeDhCUERZeGVVc1c1V1dqcF9oVUZaeHRYekRtTTdhREZRTGFzZ2VxcHV4VGxacnQ2VkdaeURJdXhBUVNLS3ZrMG1qaDZJdmV6Z2tZMw?oc=5",
+   "published": "2026-10-26T20:15:10+00:00"
   },
   {
    "title": "Tesla-SpaceX Merger Hopes Send Bearish Ratings to 11-Year Low",
    "source": "Bloomberg.com",
    "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOVlllQnltNUl1eDZDUkZUb0ZTRVlicnl5R2d0R0dDTkF2clFobzJQSjNkMUxOY0JMTWZ0X1NINk5iU3VVUEw1N3VPWVJtNUtYc0JDTDlaTy1xRWxNaWYtWFdwN1lHV19OZ09sT0ktYnNKOU5TWjI2NENnTC1lcXFLaERubFUwTjNSdHBJaHlLZm9KcHBxTkZKMFNMX2RDWjRPUDRTTzJYaGZWQWJQMjcwNHZn?oc=5",
-   "published": "2026-10-26T18:41:56+00:00"
+   "published": "2026-10-26T20:11:45+00:00"
   },
   {
-   "title": "Scott Galloway on Tesla and SpaceX: \u201cTesla\u2019s the Patient and SpaceX Is the Organ Donor\u201d",
-   "source": "TIKR.com",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPWWJOOGwxZzlyODN2V0VjQXBHbm5fcS1WQzUxWl92X3k2Nl9jeHd1Rm5qNGdwQUx4bVlkYUdXeE9Gam1yNVpNQVBMMEZSaFBnalN5a3JxNzFNc2hEUlZiRHNnUXFrNTdQYmktdXJnQU5lZEs1T1RpNW5Rbm80a00xek4xdHVPTldFWTdtdFN0MmFXdzJwTGhYUG9QWXhONU5XekRrQ0Fsem83Z3NwVlE?oc=5",
-   "published": "2026-10-26T18:40:47+00:00"
+   "title": "Tesla's Full Self-Driving Business Is Growing Fast. But There's a Catch for Investors",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQX3c5QXFmV2ZjQzZrcGxJS0FaVm1WZ21QdE5zdVFKeTd2NVJmMTN6WTdBd3JSTXAzb0hxSGw5NEIxQnhCU0pQN3Q1UjRXaDZxZ252V2ZDUng4ZFdoa0YwZ2NMVU1nVGdRczNmLXZUOW15ZFFLYS1wYzVWVGEtc1B6NUtUQjRoTFNoblp0aElkS1VBRC1ockFrSU85YWhBQ2Z6bi03WjdINDJHTmtvN0trSlZNdlpXN25IUGRhR0E0ZVVwVmI0bWc?oc=5",
+   "published": "2026-10-26T19:51:56+00:00"
   },
   {
-   "title": "Tesla Stock Soars on Wave of Analyst Upgrades",
-   "source": "TradingView",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObXhSOW1jZ1BkSkp4clNmZnZVQ0NJUmZ1Ymp3eHRfTU0yOXpKUlYxakxvZXVEakV4UFV0eDJSWTk4WmViSF9ReTNwQ0o5eUZOYkk1OWJOcHpIY0xXX2wzVHA5bHB0YnRHQjVUOEZNak9KZGNLMGJwTDJzcms1T0ZSUzIzVy1SWWRWRGpEN25IX25rTGJfLXl6QWJqWDZpS196UVVoWVFZdkM?oc=5",
-   "published": "2026-10-26T18:28:54+00:00"
-  },
-  {
-   "title": "Tesla Stock: This Bearish Spread Will Pay Off If The EV Maker Trends Lower",
+   "title": "This Bearish Spread Will Pay Off If Tesla Stock Trends Lower",
    "source": "Investor's Business Daily",
    "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBjTGpZc1RHV2Fjcjd4TlJQT0NlVUNKRHVDVHNzejYzUE1rU0FPY3pTTG9HMnYzTl9JSXgySEVZS243ZzdQcnAwa05oNG0xSUhxRHlWcXYtLVBPOF9FajdTWlRtSFAwMEZ2Ym5Rclg5YkJPX1U?oc=5",
-   "published": "2026-10-26T18:20:23+00:00"
+   "published": "2026-10-26T19:12:02+00:00"
+  },
+  {
+   "title": "Move Over, Tesla: This Robotics Stock Is the Better Buy",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQTnBwcTFnMEMxR1Jocmw3R0JwOVRSbVVmUEFpOHZHT19lZXFVeHc4TC1lLTFUTVFNMWhjaXdyQjFETjliWTBDTWRCc3pnSGVkMjlqcTNGN3hZUHZuMWtwOWNSelhkcXJNMFF1WXN1eUV1aU1VUTNUYlg2VXJ3WnRtam1FdmFFbDA5WHhMdlBuUGFuYjdRTnZPR1d5dw?oc=5",
+   "published": "2026-10-26T19:05:00+00:00"
+  },
+  {
+   "title": "TSLA Breaks Above Resistance as Barclays Upgrades Tesla Stock Citing Potential SpaceX Merger and Delivery Growth Supports Bullish Outlook",
+   "source": "FXLeaders",
+   "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxQWVlPaHQ5ME5ybXFZU3VjdTA2SFJMd29pRGNCTnYtZXZhajdNeGltaEptS1dycWJlUG5oVWhRWjRqRDd3a0VoNGVqRVN1aUVVLTdXZEI3M3ZBZVE3TGx6em40Qmp6eUQyS25STUJkS2FqY3pXNXJIT2NXaS0zM2l0WmdTMl9sN1lieDJWWkxWYmxHUVpPblEyV25senZTZ2p0cWV6b0Zsdy1LU2J3ZG1sMTV6Ym10eXBzY1F4aDFuY2FGVkVWOXgtakVIcmR5UlotdkxiQU4wSXdpVWhNclRFckRrSzlXcUlEbkFscExaYktyeTVLdWJnQ1BUT3BqQUc4YTB3RlNvRks3UXRD?oc=5",
+   "published": "2026-10-26T19:04:39+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-26T19:10:14+00:00",
+  "run_at": "2026-10-26T20:25:19+00:00",
   "session": {
    "date": "2026-10-26",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1370,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-26T19:08:36+00:00"
+    "as_of": "2026-10-26T20:04:05+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1390,77 +1385,77 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-22"
+    "as_of": "2026-10-23"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T18:52:23+00:00"
+    "as_of": "2026-10-26T20:10:30+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T18:48:30+00:00"
+    "as_of": "2026-10-26T20:19:47+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T19:04:39+00:00"
+    "as_of": "2026-10-26T20:15:10+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-26"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-26"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-26T19:10Z"
+    "as_of": "2026-10-26T20:25Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-26"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-26"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-26"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
-    "as_of": "2026-10-26"
+    "bar": "prior_close",
+    "as_of": "2026-10-23"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-26"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-26"
    }
   },
