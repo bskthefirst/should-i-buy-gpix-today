@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-26T11:00:22+00:00",
+ "generated_at": "2026-10-26T19:10:21+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "4 down days",
+   "value": "5 down days",
    "score": 1.0,
    "weight": 2.0,
    "lean": "good",
-   "note": "GOOG has closed down 4 straight sessions. Under the TSLA single-stock framework this earns +1.0 (provisional on GOOG): three down closes tended to bounce the next day on the calibrated name.",
+   "note": "GOOG has closed down 5 straight sessions. Under the TSLA single-stock framework this earns +1.0 (provisional on GOOG): three down closes tended to bounce the next day on the calibrated name.",
    "viz": {
-    "pos": 61.2,
+    "pos": 48.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -55,7 +55,7 @@
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 11.5,
+    "pos": 12.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "20.4%",
+   "value": "21.2%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 40.8,
+    "pos": 42.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 19.4 (p78), F&G 21",
+   "value": "VIX 18.4 (p68), F&G 27",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 317.28,
-  "as_of": "2026-10-23",
-  "bar": "final",
-  "day_change_pct": -1.08,
-  "sma50": 339.58,
-  "sma200": 339.44,
+  "price": 313.94,
+  "as_of": "2026-10-26",
+  "bar": "provisional",
+  "day_change_pct": -1.05,
+  "sma50": 338.99,
+  "sma200": 339.38,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 20.5,
+  "drawdown_pct": 21.3,
   "series": [
-   {
-    "d": "2026-02-06",
-    "c": 323.1,
-    "t": "ok",
-    "s": 56
-   },
    {
     "d": "2026-02-09",
     "c": 324.4,
@@ -1217,10 +1211,21 @@
     "c": 317.28,
     "t": "ok",
     "s": 56
+   },
+   {
+    "d": "2026-10-26",
+    "c": 313.94,
+    "t": "ok",
+    "s": 56
    }
   ]
  },
  "flips": [
+  {
+   "label": "Crash band",
+   "direction": 1,
+   "text": "GOOG 5-session return -7.7% - another -4.3% reaches the validated crash band (+6 pts)"
+  },
   {
    "label": "Top-decile volatility",
    "direction": 1,
@@ -1276,13 +1281,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 317.28,
-  "sma200": 339.44,
+  "price": 313.94,
+  "sma200": 339.38,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 20.6
+  "level": 20.7
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1299,62 +1304,62 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-10-24",
-  "end": "2026-10-23",
+  "start": "2022-10-26",
+  "end": "2026-10-26",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 40197.92,
-  "dca_return_pct": 92.33,
-  "dip_value": 40267.94,
-  "dip_return_pct": 92.67,
+  "invested": 21000.0,
+  "dca_value": 39901.21,
+  "dca_return_pct": 90.01,
+  "dip_value": 40001.71,
+  "dip_return_pct": 90.48,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 164,
+  "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "BTS brings \u2018Merry Go Round\u2019 music video to YouTube",
-   "source": "Big Country News |",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQbTlzbHB4SHBuQnhNVmdPeVA2SXRkbFdnY0dpQk9mT3BJZVNsa2Y5VHFEbGZnLV8tUU1qaWktdjF5VFB1dVRoRU9MNWYzM2k2Y1hBSVIzLW9kM1VtTERtZFlwRVI1c0Q0MzdVSWl2dllMTzQtS3dtQlgyVmowdm8tMFpMdWRITHRtN0l0YTk4VDlHODdw?oc=5",
-   "published": "2026-10-26T10:57:17+00:00"
+   "title": "Vicks overtakes Skyrizi in September pharma TV rankings as Tums tops YouTube",
+   "source": "Medical Marketing and Media",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQdmg0bUhIYUZqaEFMTk1zNGQyUUw4SmdIX0tPTkZGMDg1eXVGNmpWY1NycERjV0NpQUpXOW5SZGQxdWkyWnh3ZUhGS1lEZzNXM0dnRHVoSjVtUkU1cndra2drR2V5RzR5b3o0S2FfRFJMSjhlODFqeGh4bUl3R1ZHbmZEWmJXaXVpU0xCLUxwZm5sZ25na3hjZHlGRndLQmM2TUU2S3RFcW1xTFN0QXc?oc=5",
+   "published": "2026-10-26T19:03:50+00:00"
   },
   {
-   "title": "German intelligence services plan to launch isolated Google cloud \u2014 Anadolu Agency",
-   "source": "UA.NEWS",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPUjBOUG5jTzZ3LU5heVExTE5Ra29pMlVoanNFVjRXZEhTWjdhVlg2dnlpRTFXa1lGaU16RW1PZXI5TE41ZWFKZlk5NWtKZF9RakZ1VEdESVJmQ21LSTRWaEFjdXNieVdlVDJSV0lhd3R0bWNET0dRVVpyWE5udl9vbjdIYmVSUVNZaDBOaXpOR1RkTEtMdUdyRUhwbEptdjBibUZ5ZzFkc09HLWdf?oc=5",
-   "published": "2026-10-26T10:48:29+00:00"
-  },
-  {
-   "title": "German intelligence agencies plan Google cloud system for classified data",
-   "source": "Latest news from Azerbaijan",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPSVdsQ29wS3hGYmVLYWV2WWJMak1QMGZZYzQ5MnhaZ2dpRTdSV3VlMHE3cFlkQi1yRWJtdkNNRE9aN2YzTVU5emRNTGhRX0U2YjBCaFpEeUc4SndhdnQ3RDFvZ2tpZmlDa29qVHV2SnhGUFJXNFBxZ05hWTFMWDdud0V3RGFQX2NnZE5Zaloycmo5UVRJRTJnZ21kSQ?oc=5",
-   "published": "2026-10-26T10:47:26+00:00"
-  },
-  {
-   "title": "Google finally made Pixel VIPs useful, but it's missing these 5 features",
-   "source": "Android Authority",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPcFI5bnA0SGQtQmRYVi1MS3JEWjFlWmlwSW9GbnRyZG5pbjlZbWI0Znd3V3BSMlV6M1VaQjZQRzBUemdqR3VqUEI3d0RRcng0MzhSYlBMRlpxSk1zRkxxaFJJQTFURkNfRWtUQmlGMVRLNThYd1JEUkw5RldieFZ5QXB3?oc=5",
-   "published": "2026-10-26T10:32:17+00:00"
-  },
-  {
-   "title": "Tired of Google\u2019s AI overviews? Here\u2019s how to get rid of them",
-   "source": "PCWorld",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMHpXNjBIZVpNd3kyRnh6WEl2eUJURHhKNTh0aXVSaDlKYnBFYnQzZmpraHIwQlpYSzdma2FhTEdnR1ZZV0p1TU1DclV0TWpDLUQzeF9OLWQ3U3pnT1IyS2FPT2RVb0pCS2xteUxBc3FYSm5jeUgwcXNEWUdpb3NZdG1OVV93czhNUC1lT2F0OWNKTUZMMUR5NlpxcDJYN0VEVWZ0VE93?oc=5",
-   "published": "2026-10-26T10:30:29+00:00"
-  },
-  {
-   "title": "I can't believe I am leaving Google Keep for Capacities for this one feature",
+   "title": "I rearranged my Google Wallet payment methods so tap to pay takes half the time",
    "source": "Android Police",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNclBWSlBDU1ZtNVEyWmVaeFA3R0JNclVzYXZxY3ZybVZQc1NpTmpRZGRpUDhCN1dzUV9UNHR2ZWxJcmU3ZWNVMHMzWWpwb0k2c1A2eU5rVkV3ZmcwR09FMWxxZFFONVRfSmxHTk5Gdk83TjRUTzgwRUJBbGhlQzdUTDhQQTJLNTQyNmFLRl8zNXpqbUdHQUpYYkxKd1ZERWh2X193dDRxUEs4cUE?oc=5",
-   "published": "2026-10-26T10:30:13+00:00"
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNeUx4R2liWTFVWGlMQnNEeVdlMlB2UWQ0TEFXQXFSNnphcEJvMjl0Q0xuSHpmZlRhU0ZCdXIzRkxoNmg2V3hMYlIyb29kX3VRQnNoY1ZaLVREYy1WcFozSllXd2JzNTdDUXJITUJpaEcwWk9PcTVMRF9TdmoxY3dDVlZqREIwWjJhSGc1aV9aSTV0eHM?oc=5",
+   "published": "2026-10-26T19:00:10+00:00"
+  },
+  {
+   "title": "Google Builds a Cloud Runtime for AI Agents",
+   "source": "Virtualization Review",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNWmpBNzQyRG1GUjE2UVhma1VBTUk2TXdDZk94RFhpSkxUTHluQWlNT0NUM0RUc1VTa3FaM0ZQOXl4THBfNnhUeU9fWTVnTlllRzkxOV9nQktJTFl2eDdGMUJEWXBiU21zbWlTdUFvOG9oNkxyd3FWN3cyNjFSZUVoSW1uaHZpc3lWeHZuRWhhWmpFMFh1WnhSRzNtRE5xM0xDdDQ4?oc=5",
+   "published": "2026-10-26T18:53:15+00:00"
+  },
+  {
+   "title": "Here are Nevadans' favorite Halloween costumes according to Google",
+   "source": "Reno Gazette Journal",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQb05ta0d0VTNwelpuN092aEdwc21NVTMtRGQ3QktQVkF3cDJyQ1NXNUEwSHVHcjJqVFI4c0xkQ3VOU2hsQThFbTdZdkIwR2V1ZnZOUUhyLTZob3VwS096TE8tSGFiaTQ0Y1ZJZ2x3Z2s5QVZ4U2ZQMEVGRFIyZHF0Ym84ZlhjazJlSFFHajhGWWJySUFBRlZhS1p2UWNJMElTRmZyNnF2TkdBdGxJNjFBUmtxXzlKMWJZZGpfNHVFSGk4V0U?oc=5",
+   "published": "2026-10-26T18:52:49+00:00"
+  },
+  {
+   "title": "Therapists offer Eagles fans humor and advice in YouTube series",
+   "source": "Audacy",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNOVZCeTlXVVlpOXI3SzFZamVBbGVkWjlzT0NFNDdNZE1Gb3hLZTc1WklpbDF3aUhIRHZnU3ktcVJzbUVLNTdhVWF3TWhHNFJvV25rZ2ZFenp3ZkRxei1VemFUT24xOG5PbmsyUWZsN1NrcTh5RS1YeWxNSjBYWk5qWHNtZHpEcGhj?oc=5",
+   "published": "2026-10-26T18:51:15+00:00"
+  },
+  {
+   "title": "I Like the Fitbit Edge. I\u2019m Still Keeping My Air",
+   "source": "WIRED",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9CcEkwTXF4UHl3U1VreUFqTFA4VVpzQ3I4dThXaEJNY1BicTNlVDJLWUZVTGNUMWVfeW14OHEtMVVXQ0FPelU1ejJCYjctMDZMSmtaeWxYUnppN25V?oc=5",
+   "published": "2026-10-26T18:49:49+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-26T11:00:22+00:00",
+  "run_at": "2026-10-26T19:10:21+00:00",
   "session": {
-   "date": "2026-10-23",
-   "bar": "final"
+   "date": "2026-10-26",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1370,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-26T10:42:01+00:00"
+    "as_of": "2026-10-26T19:08:36+00:00"
    },
    "earnings:GOOG": {
     "ok": true,
@@ -1399,7 +1404,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-22"
+    "as_of": "2026-10-23"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1410,108 +1415,108 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:57:17+00:00"
+    "as_of": "2026-10-26T19:03:50+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:52:14+00:00"
+    "as_of": "2026-10-26T18:52:23+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:46:26+00:00"
+    "as_of": "2026-10-26T18:48:30+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:52:31+00:00"
+    "as_of": "2026-10-26T19:02:01+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:48:28+00:00"
+    "as_of": "2026-10-26T19:03:42+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:45:52+00:00"
+    "as_of": "2026-10-26T19:04:39+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-26T11:00Z"
+    "as_of": "2026-10-26T19:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    }
   },
   "degraded": [

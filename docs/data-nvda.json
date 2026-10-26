@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-10-26T11:00:19+00:00",
+ "generated_at": "2026-10-26T19:10:18+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "Worse-than-average zone",
-  "summary": "NVDA sits in its 10-20% drawdown band - the falling knife. This is the one zone in this whole project with era-robust evidence of below-average forward returns: single names in mid-drawdown tend to keep drifting, not bounce. Nothing here says sell; it says this specific dip has historically kept dipping. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
-  "tone": "caution",
-  "score": -1.5,
-  "score100": 41,
+  "label": "No edge either way",
+  "summary": "None of the scored NVDA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies. Weights come from the TSLA-validated single-stock framework, applied provisionally to NVDA.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 4.5
  },
  "meter": {
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 90.1,
+    "pos": 97.2,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "30% ann. (p14)",
+   "value": "30% ann. (p17)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for NVDA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 13.9,
+    "pos": 16.7,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "11.8%",
-   "score": -1.5,
-   "weight": -1.5,
-   "lean": "bad",
-   "note": "NVDA sits 11.8% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "value": "9.6%",
+   "score": 0.0,
+   "weight": 1.0,
+   "lean": "neutral",
+   "note": "A modest 9.6% off the 52-week high. Note the index funds' 3%+ discount band does NOT transfer: on the calibrated single-stock pass it tested as noise, so no points for small dips here.",
    "viz": {
-    "pos": 23.6,
+    "pos": 19.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 19.4 (p78), F&G 21",
+   "value": "VIX 18.4 (p68), F&G 27",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 210.96,
-  "as_of": "2026-10-23",
-  "bar": "final",
-  "day_change_pct": -0.59,
-  "sma50": 222.48,
-  "sma200": 203.67,
+  "price": 216.17,
+  "as_of": "2026-10-26",
+  "bar": "provisional",
+  "day_change_pct": 2.47,
+  "sma50": 222.3,
+  "sma200": 203.82,
   "high52w": 239.24,
   "high_label": "52-week high",
-  "drawdown_pct": 11.8,
+  "drawdown_pct": 9.6,
   "series": [
-   {
-    "d": "2026-02-06",
-    "c": 185.41,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-02-09",
     "c": 190.04,
@@ -1217,19 +1211,20 @@
     "c": 210.96,
     "t": "caution",
     "s": 41
+   },
+   {
+    "d": "2026-10-26",
+    "c": 216.17,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "NVDA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
-  },
-  {
-   "label": "Exiting the knife zone",
-   "direction": 1,
-   "text": "NVDA at $215.32 (+2.1% from here) climbs out of the falling-knife band (+9 pts)"
+   "label": "Falling-knife zone",
+   "direction": -1,
+   "text": "NVDA at $215.32 (-0.4% from here) enters the 10-20% falling-knife band (\u22129 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1286,13 +1281,13 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 210.96,
-  "sma200": 203.67,
+  "price": 216.17,
+  "sma200": 203.82,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 29.6
+  "level": 30.4
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1309,62 +1304,62 @@
   "estimate": true
  },
  "backtest": {
-  "start": "2022-10-24",
-  "end": "2026-10-23",
+  "start": "2022-10-26",
+  "end": "2026-10-26",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 71466.65,
-  "dca_return_pct": 241.95,
-  "dip_value": 71423.36,
-  "dip_return_pct": 241.74,
+  "invested": 21000.0,
+  "dca_value": 73291.98,
+  "dca_return_pct": 249.01,
+  "dip_value": 73287.28,
+  "dip_return_pct": 248.99,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 181,
+  "dip_buy_days": 182,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Impact of Artificial Intelligence, budget bill and lobbying laws on the agenda",
-   "source": "iPolitics",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOSnNVRi14QVhEQ0UxcXBaWlQwYUR0LVdoY2ptMzVmVXdtVVU5a2YwQmQxMmFFZVRmOHBkcWtOTDRUbzVjSG5sQ28zR3NqSk9fckRURnlOOFVKSjAxLU56RHlsRk9iN3pkbk16M2lEQ3F0UE14cU5FZ2d0WksyaGZTQUlVb0NjNzdJYWZpeGRZU2pOWVM2YlFEaHVUcVNyV20wWTBkbnNfekV3VmhjUHJ4ZnV2cGs?oc=5",
-   "published": "2026-10-26T10:52:31+00:00"
+   "title": "SpaceX Secures Record $40 Billion GPU Lease Deal With Apollo",
+   "source": "Gadget Review",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNNWdVRkMtMTJoMm51WDZ0dHBpcDVvMGlhWm5SUDhvbFJ4Y1QyZ18yNFhSTjNNeWt3Q1RJeEI4YmtaYzJORWRjd0V5M2d5akdmZUJ4ckFfOXA4Q0ZWbEIyTGRUNzN6Sjd4QXAzcmpoUlFKRFIyeERwSDVMUmpNSjZFVmV5UG5mT05XOEtLNDNjcjRCQQ?oc=5",
+   "published": "2026-10-26T19:02:01+00:00"
   },
   {
-   "title": "Lula Pledges to Develop Brazil\u2019s Own Artificial Intelligence",
-   "source": "teleSUR English",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsSHZubDNSaDBVV1RMdzlEWEwwUnB0U3p3ZzlaWGlXSlhwaTNzeU5iU1pSOUJuM2VoZFItQThDTVg3N1FtSk1OQ2hGelNrMWNPcm9aam9lRWEtSGNQNXpLSGtoN3BXZjU3bExvYW10X3B4VlQtNmFob1FB?oc=5",
-   "published": "2026-10-26T10:46:41+00:00"
+   "title": "Nvidia Already Makes Billions Selling AI Chips. Now It Wants $2,000 a Year for Each GPU",
+   "source": "Gadget Review",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxObjdsVlNIZEJlQVRKcWFvSjBFclU4YXl5czg4UlBnNktXcTFDbWp5bnJiQVRVbTBWMmNXSnBmVFBRZFdvOFFCdEdPMWdRMzFfVDVxVW1DZ29hMzFYaTAwU1M3Q3FFNWtKTDdtRzRRal9xZkJwMlVYYnBmQm4zT2V1cjNYc3llM3cxc21RYkxGRXpGd0Njb1JacWF4SjVKeExMSEp6TXlGRnlpcHJoVWlSUTlwVQ?oc=5",
+   "published": "2026-10-26T19:00:08+00:00"
   },
   {
-   "title": "Jefferies sees semiconductor equipment growth through 2028 (NVDA:NASDAQ)",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQTWU5QnpyOXk3cmI4bWJ6cV93VHFpbUI0Mm9fa3RyZGR5OGJEZVFHZnZEUVFqdGpFNEw0WVFCMUhMaUlhTGstdkJPVVgyb0RickRkYklZVm1OUkNLX0lMTEtWck1xYWtyNWRIbVZTaS1aSXVZMUU2X0JwcFZ6NDJ1M0JfRGpsZ1I3azdoUFY4Q1dsMVpzdU1BZlVkTWM?oc=5",
-   "published": "2026-10-26T10:39:31+00:00"
+   "title": "Elon Musk Sends Strong Warning to Nvidia-Backed Stocks",
+   "source": "TradingView",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOYUxrRmplQ3FJWHQ1djhGLVI2SWpzcDhOLXJNak9ZcTdiY1pzUG13c0RYQ1VKUmRRckNxTktVT2YzTVhaMllDQ1ZocTBuYk9YbDNabmlTb2E1LW1vWTI4QUxqY3dDMk9MNGlTaEFxMEYyRkJsTEIwS0ZSbTRYUmhRVjFNUFBFWUp4SW5qcnlPa0pQZnRkbk1ZeGMtNXBnT2Nja0c4ZU5LbmVPUTJ0ZHN5VVN0bk8?oc=5",
+   "published": "2026-10-26T18:40:04+00:00"
   },
   {
-   "title": "As Michael Dell thanks Jensen Huang \u2018with a bunch of history\u2019, Nvidia CEO calls him pride of \u2026",
-   "source": "The Times of India",
-   "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNUkxNc2s4dmQtTEM0WGlHbjQ5WFpQdTU4dEFQVVpYbnhrWE9Ea2lyZkh1RS12d2F3eDVqNFdKLXptUXRZV2JtYlJ4ekg5aHFYd0psLUQ4cUwxQnJxc3pUMzFkYWJsMkI3UTBUdEtiR3NrYlNfdTYyUFJkR3Jqb3NOZ0llNk10ajY3ZHo4ZVo0THNEN19UMUVmT3hrZ2swUjZmbnZPbWNOS0JGU3FIc2NVM2ZybG5WMXc0Z050ZlNnSUU2NmhBamowZE9SVnpHVk42cm1nM1BNMXRfX09pQVRpUDgxbnBhSEhZOTlFZHNLS09JVGltUFlmRWRKUGIxZFExUEJR0gGIAkFVX3lxTE9mbGxuZ3h6cnhlOXdYUmFuWjctYlh3OVFTV2VfY0RMSjhpNjYzOHFRNFZVdFNCcnNVdG1vclRYYjF1enlDa3h0T3RhVFAtT21pa2syaEJmU1NnNi1iMVlteW9sZDB5OXdKdWR5MXlrbjRwb1VkS1BPcVNmWldwSXhlZWpDNFRkYzlCNjY5U3NEc2NnVmlUR2ZwU25VdTVXelVMX25CNF9JMWkweVBVLUdBMzdHNFc2dUZUU1BTZkxRZzdjS2llVHFFQmxZbGJmalJ0ZDRpZjVjdG9LeDVwMFR2THA2ZWFxbDRYZ0pZUWpnYmZuclh5MEUyaUItYUNuMms0anBiYl9ubQ?oc=5",
-   "published": "2026-10-26T10:37:00+00:00"
+   "title": "Entrepreneur wins $50,000 at University of Arkansas at Little Rock artificial intelligence pitch competition - Northwest Arkansas Democrat-Gazette",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQSFkzZHNWZ3dUYVMzcWt5V3oteG1tV01zdGxZRnBTZzc2dFQ2Qmlvb0FVSllzdUY0VWdsR2JlMl95UDBick05SWlveHdrWkZqU0hQbGR4bURSRWZTaXo3WTY0OGtvS1VYdnJUZU9pYldjN1p6QmJKdF8tVlpMNmdlcGJraDlIZmV5dzdjbzBicGx0WVdZZGxIag?oc=5",
+   "published": "2026-10-26T18:40:00+00:00"
   },
   {
-   "title": "The bull case for Nvidia as most S&P 500 stocks slide",
-   "source": "TheStreet",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOcWtBOFBGa0ZEWGRjeXM0aTJQcHRzNjBTanJGeTZybHY0ZmRPVzF5RFk1Q3J6Ulk0S1M0eHVHNmdRT0xkWEU4MFdXVF9hSTdxZjl3R1RwdUdLYmZCN2FpN003bjhpdGJocmN3NHdvY0hlbXpwTS1HbElscG1sUDF3RXFnVXZfWGkxd3lMbA?oc=5",
-   "published": "2026-10-26T10:30:00+00:00"
+   "title": "Elon Musk Just Delivered a Sweeping Blow to Nvidia Investors",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQdFlrYjBrclR0Z1h0LTZJejNtYXRkbWRQb3NkSENTdVlicWxDTWFzRXp4V0pfYWhLX0xQVzc1NVZkUThPOFkzLXBQOXdVV193ZkpPVk9LNXAwQnV3N0VPNE81Zk5wM3YxLVYwRGNQbjFLRzF4N21GdzhTSVFPTUktMDM1cG5RdDBxUEJSOGtOall0UkRNMnBKTg?oc=5",
+   "published": "2026-10-26T18:36:11+00:00"
   },
   {
-   "title": "Honeywell brings AI backed by Nvidia and Dell to Africa\u2019s biggest refinery as Dangote pushes to improve productivity",
-   "source": "Business Insider Africa",
-   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNUnNOYzJ2NUJMX3l6RURMWVljWUhMbzdpeThOazQwX29Zam1tUi1Bd3RXaXVLM3l3emZmSXZ5bzV4WS1iazdkUEkwOXpYSWc2Ry1LX2hUc3REb05WUEtvWGswU010TE1uVHF3QU9xcTQ0Y1duc0V6a1poLS1xSlhpQ09IaEhQU21wUDBDZkpuSF82ZmRmYUUxTnpFeEtVRmxIYmhubXFkSlVRVVVMVWxiQmNEWVAtV0M4bDVHTTBvZF9ZQVB3UWNxd3BHOGF6WWxwNGI1d2JwLUI?oc=5",
-   "published": "2026-10-26T10:26:47+00:00"
+   "title": "Bradshaw: The scoreboard does not need artificial intelligence",
+   "source": "Chicago Tribune",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOQjlDaWNIbldpeVNkSWJ3TldLLWVTQy1oZ1VxYTB3TU9sQ29KcGJLWU85UnAzbDFuSnhzY010SmFRSDNZOGpER2U5RWtXeXhWZHlvMlNZRmFGaURZTUM5MDU1M1A0dG9PcWFYM0dHeDJ5c3hKRUhxeFhMTjYzazEtUENnbXFpZE1fTUFRMnNuUERDQ1liWUJSR1dUMFNYblZSblloV2FJWQ?oc=5",
+   "published": "2026-10-26T18:34:16+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-26T11:00:19+00:00",
+  "run_at": "2026-10-26T19:10:18+00:00",
   "session": {
-   "date": "2026-10-23",
-   "bar": "final"
+   "date": "2026-10-26",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1380,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-26T10:42:01+00:00"
+    "as_of": "2026-10-26T19:08:36+00:00"
    },
    "earnings:NVDA": {
     "ok": true,
@@ -1402,7 +1397,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-22"
+    "as_of": "2026-10-23"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1413,96 +1408,96 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:52:14+00:00"
+    "as_of": "2026-10-26T18:52:23+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:46:26+00:00"
+    "as_of": "2026-10-26T18:48:30+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:52:31+00:00"
+    "as_of": "2026-10-26T19:02:01+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:48:28+00:00"
+    "as_of": "2026-10-26T19:03:42+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T10:45:52+00:00"
+    "as_of": "2026-10-26T19:04:39+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-26T11:00Z"
+    "as_of": "2026-10-26T19:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-23"
+    "bar": "provisional",
+    "as_of": "2026-10-26"
    }
   },
   "degraded": [
