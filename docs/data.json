@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T20:25:13+00:00",
+ "generated_at": "2026-10-27T11:00:09+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "19.4 (p78)",
+   "value": "18.4 (p67)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "good",
-   "note": "S&P 500 volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good.",
+   "lean": "neutral",
+   "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 77.8,
+    "pos": 66.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.97",
+   "value": "0.92",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "good",
-   "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
+   "lean": "neutral",
+   "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 68.6,
+    "pos": 55.6,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,7 +63,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+9.6 pts",
+   "value": "+8.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "27 (fear)",
+   "value": "29 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 26.7,
+    "pos": 29.3,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 2d",
+   "value": "FOMC in 1d",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -1323,24 +1323,24 @@
  },
  "flips": [
   {
-   "label": "Extreme fear",
-   "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 27) = extreme fear, a contrarian buy zone (+6 pts)"
-  },
-  {
    "label": "Real discount",
    "direction": 1,
    "text": "GPIX at $54.75 (-1.8% from here) = 3%+ below the 52-week high with distributions reinvested (+9 pts)"
   },
   {
+   "label": "Extreme fear",
+   "direction": 1,
+   "text": "Fear & Greed at 25 or below (now 29) = extreme fear, a contrarian buy zone (+6 pts)"
+  },
+  {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.97) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.92) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.5 (now 19.4) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.5 (now 18.4) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1389,8 +1389,8 @@
   "tbill_3mo": 4.22
  },
  "fx": {
-  "usd_krw": 1325.36,
-  "as_of": "2026-10-26T20:25Z"
+  "usd_krw": 1327.48,
+  "as_of": "2026-10-27T11:00Z"
  },
  "distributions": {
   "history": [
@@ -1519,16 +1519,16 @@
  },
  "vol": {
   "index": "VIX",
-  "level": 19.45
+  "level": 18.39
  },
  "fomc": {
   "next": "2026-10-28",
-  "days_until": 2,
+  "days_until": 1,
   "imminent": true
  },
  "cpi": {
   "next": "2026-11-10",
-  "days_until": 15
+  "days_until": 14
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1546,44 +1546,44 @@
  },
  "headlines": [
   {
-   "title": "Bitcoin\u2019s next Fed test comes with a hidden problem in America\u2019s inflation data",
-   "source": "Cryptonews.net",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5zTmpta0NHMjdkUlZUMG11UllsTnFJdkRTaEVLT0dkN3haQzJlZF80NWNBWjRtQW5yUklxa3NiZnVyRTk2VzRJWnVFTV9BajY0TDZlRnZCcTVBcjA?oc=5",
-   "published": "2026-10-26T20:19:47+00:00"
+   "title": "Stock Market Today (Oct. 27, 2026): Nasdaq futures edge lower as Wall Street gears up for earnings, Fed meeting",
+   "source": "TheStreet",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxObE5RU1BJQllobHcxTHFzT1B6Wld4R3dPRjZUVzMwMXlnSE1zNUJQU2w5ME1XUW9JaUY1NWpjMTV1aFpGbGI0Y2syVHRpeEgxVzZISmJqcEhOMy1YOURnX3ZIY0Q2b2JETHFDMTJDT1Z6dXRQakxwc2Y1ODk4TXM1aEY3YTFOSEFnWTUwR2pHX1F6RzBZYlhNMEFyUXNwSzZFV25IaFNLLUo1em8?oc=5",
+   "published": "2026-10-27T10:50:43+00:00"
   },
   {
-   "title": "Federal Reserve to announce its latest interest rate move this week. Here's what economists expect.",
-   "source": "CBS News",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQTjc3SWhXX3BBd29iUjJQRC1HZ1k2M1ZzU3RORWEySTQ4TGdaSjdaMjIwNTVUWFJpZW5OZmU4X2JPYlNSOWEzRW1BNHJVRTk3azhSRExhRTRlNG8tNzhsMHhIcUpIZGdScG5jWnNGR1A1VVdpWTVNcDhMYm5kZjFWSzJn?oc=5",
-   "published": "2026-10-26T20:10:30+00:00"
+   "title": "Analysis-Bond investors are thinking less about the Fed and more about AI, deficits",
+   "source": "KFGO",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOT194TkR3MDM2bFY0cHcxZ2ZoWkNmZWpnanFiVEZlZndSTnNaeU1qdmZxWTlCN0hqS1FaT1g1RFdQNm92aW1pWEEzRE5ndHJsWVBkcVJqMmNwdmlsYnZsOHBSUE53SFNhajY0V05ld3FnbmpIeHFEaHlxbmdoc1ozWmItX1JidFU1UkFfLXV2WnI3eEFXMm9adVpRcHBUaVJrNkpXTUxRSnJ3NlhaRTRLYg?oc=5",
+   "published": "2026-10-27T10:46:19+00:00"
   },
   {
-   "title": "El-Sayed campaign disavows PAC ad linking US inflation to Israel",
-   "source": "Jewish Telegraphic Agency",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNVndSamdHQjZ0TFNsSUhEQkprZG9DaHFLT2VZak1kX0o3RVd0a2hBNlZobHR0SnI2RGV4dkFTaDdXVUYtUmtEMklnYloxZi1nRVoyTnpMNUtONENDOXU0czNhMldaSE1lOUxCbDlXU0hxRnFNMWVYTXYwZXZ0WTZveW1PcmxzTGw3cWN4NkthTmM2RENLT0JaWnlWSS1IQ2JmY2lHLTJGRQ?oc=5",
-   "published": "2026-10-26T20:06:18+00:00"
+   "title": "Investor bearishness climbs as inflation and midterms unsettle US markets",
+   "source": "InvestmentNews",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNOHVpX25NTXotRVZINEdBQWFYcW9fMkIwVUlHRWl5RHVHb3IwU3VSSi1mU3dRdnM0eWpMcEQ3RXNDdlRQa2wtZDQ5WVVOZ0FwR21RRjBaeFJEUy1ZWGk2ODN3TWhmQ2Vrc2lObXozdk9seDY0X29QbHJBZnJUVTVqY18yUWk3a2pQd1JaMDVBTThDRmg2dExJTkstczJtOWl6RGh4aVEzZEx6bVpveGV1Ni1IWGxQcFFDY2RxNQ?oc=5",
+   "published": "2026-10-27T10:32:57+00:00"
   },
   {
-   "title": "GE Vernova and ATI shares are soaring, what you need to know",
+   "title": "The dollar is waiting for the Federal Reserve's decision Interest rates and bond yields shape its path",
+   "source": "\u0627\u0644\u0645\u062a\u062f\u0627\u0648\u0644 \u0627\u0644\u0639\u0631\u0628\u064a",
+   "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQbXlNdmwxb0VMVlJoVzEteWlUWkNzcjREWXJLSFVLN0FoREJxVGtFa3J1cGlFVWdyajhRbENYUzBjczVwd2JWajU2aVVIR2FlN0NOMlY3LUtudlUtWFRDQ015R2dZdGM0cW1TeHJfZ21zaTlkRVJaeGN2djJYdkdaeFlQSEtyMFJHMDg3RlRxRm5seF9yeGFfQzJFcFpxSllMR0JsbFQwTnBkSm5Ldk1oUF9hQWFhMWtEZmdGYlRqUldjQ2xUeFZoOGdxVnBnSGtvcHA4bmFaSTVsdWRkN0paUHpycnV4Zw?oc=5",
+   "published": "2026-10-27T10:30:22+00:00"
+  },
+  {
+   "title": "AM Markets Need to Know: U.S.-Canada tariff talks, Anthropic IPO, and mor",
    "source": "TradingView",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYWs4cHZjNGpXaUdLOGZDamE4MVVIOTRhVFJreWpQTkFOVFlUZHg0SElVN04zSUhPY05xcUFiTnZ1LTZ1WE1qZWRxMllmLWxiUmJ0VHdLcHMtRXVuSDE5VHMtMmtIcXd1RzdMV2p2WHg1NThhUks4YVltcERzSlozMG9QWjFqVjczSzZYXzdSX3RoLTJCQ2I0RnZUUHM2Q1c3WldfSVg1bEtEdU5xUEZRejBrWjFHV3dra2psVg?oc=5",
-   "published": "2026-10-26T19:40:45+00:00"
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxONmItdk84UU0tN0FVNm9ncl9BQUtqeXFWVktYbi1JX3hxTXB5dy1paVNQODVzdnJWWXk2MnNfSllzbFpqakk3YTdjbExLUFA3R1F1UTdENVQ2cUszVXJuYno5Vjg4enRJWVhob29xN216ZnNCMHQxZTNXbVV5ZTZjZV9pblpRSUowelppc3VFemtvZTVQaThRdkNOdW9uSGgxYS02dHdJTjVaNjRtVTJremhyQzFSUUtqZlc3b2FVOGVkRGNiLUJUTUpCOUg?oc=5",
+   "published": "2026-10-27T10:10:22+00:00"
   },
   {
-   "title": "Federal Reserve survey: Commodity, diesel prices hamper ag outlook - www.agrinews-pubs.com",
-   "source": "",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQR1hhR3pFSXlKVVlRX1c1U3daejR6cU1seG9MaDlMQVhjYmdkRldydXhxNW5tandwM3h5MFdRQTdMeFJJQnVkVk5IMDJXQlhWUzYxVGN6V2VsakNRb05jQmFFc1RRNHNlNjNpNWFxaFNDQ2UzY1ZRNUpXcmwxZUNXZjVFRW84NURod3ZnYU56NWpGZmZJbHhFZi1tN1c2ZUM3OVpvLVozN3VWVjdjMnpxamI1SEIydw?oc=5",
-   "published": "2026-10-26T19:30:00+00:00"
-  },
-  {
-   "title": "Investment and deposit accounts that may benefit most from Fed rate hikes: How many do you have?",
-   "source": "Chase Bank",
-   "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOdTZkU1pSdWVXZ1BmWms2V19kY19vWTBtcEhMNHVXNWc1SzdQb2pMUVFCZHRMS1hGYUpPckVweldFejl0VWp2eWJ6U1ZkZ3R5a3FFWHh2OURSSnljckF6UkxqZ0o2UHd1ZldYc2NORTZOZHo5TGFsXzlaZVgyUmRkaVpUOUxjWDFvVVFOR05DM3d6bVktSnZ1U1R4Z21mUUZfSnZ5TTVrRVdzVXU4NVRzUDVBblBnVmVUVjVsYUdialhJazVnZDRLR2pKZFpXaVN0ZW0wTU90VFBZMGpPZUJNMWhlWXdrZlNO?oc=5",
-   "published": "2026-10-26T19:13:38+00:00"
+   "title": "US stock futures muted as oil holds near April highs ahead of Fed decision",
+   "source": "Bradenton Herald",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4cFg2enNNYlNJdWhVZjJvd1JIWHN4UEJrclhQZFZtM1FMR1RfeHZJVXhwZUp6OWpLTlJFUzZheWZrMllkczRiM1FtRGZkalRhMld1OTJtQTBXMEtNN3RyT21fTnluMWR0dExJNW42c2lWak5RRjhLaWoxV3h2MjQ?oc=5",
+   "published": "2026-10-27T10:01:08+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-26T20:25:13+00:00",
+  "run_at": "2026-10-27T11:00:10+00:00",
   "session": {
    "date": "2026-10-26",
    "bar": "final"
@@ -1602,7 +1602,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-26T20:04:05+00:00"
+    "as_of": "2026-10-27T10:39:46+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1618,7 +1618,7 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-26T20:19:47+00:00"
+    "as_of": "2026-10-27T10:50:43+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
@@ -1629,7 +1629,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-26T20:25Z"
+    "as_of": "2026-10-27T11:00Z"
    },
    "yahoo:SPY": {
     "ok": true,
@@ -1641,7 +1641,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-10-23"
+    "as_of": "2026-10-26"
    },
    "yahoo:^VIX3M": {
     "ok": true,
