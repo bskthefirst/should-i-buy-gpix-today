@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-10-27T19:10:26+00:00",
+ "generated_at": "2026-10-27T21:29:57+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "Worse-than-average zone",
-  "summary": "GOOG sits in its 10-20% drawdown band - the falling knife. This is the one zone in this whole project with era-robust evidence of below-average forward returns: single names in mid-drawdown tend to keep drifting, not bounce. Nothing here says sell; it says this specific dip has historically kept dipping. Weights come from the TSLA-validated single-stock framework, applied provisionally to GOOG.",
-  "tone": "caution",
-  "score": -1.5,
-  "score100": 41,
+  "label": "No edge either way",
+  "summary": "None of the scored GOOG conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies. Weights come from the TSLA-validated single-stock framework, applied provisionally to GOOG.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-5.1% in 5 sessions",
+   "value": "-5.8% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 66.2,
+    "pos": 61.2,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "22% ann. (p21)",
+   "value": "21% ann. (p14)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 20.6,
+    "pos": 13.9,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "19.9%",
-   "score": -1.5,
-   "weight": -1.5,
-   "lean": "bad",
-   "note": "GOOG sits 19.9% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
+   "value": "20.5%",
+   "score": 0.0,
+   "weight": 1.0,
+   "lean": "neutral",
+   "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 39.8,
+    "pos": 41.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.7 (p59), F&G 32",
+   "value": "VIX 17.5 (p57), F&G 33",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,15 +128,15 @@
   }
  ],
  "fund": {
-  "price": 319.335,
+  "price": 316.83,
   "as_of": "2026-10-27",
-  "bar": "provisional",
-  "day_change_pct": 1.64,
-  "sma50": 338.55,
-  "sma200": 339.33,
+  "bar": "final",
+  "day_change_pct": 0.84,
+  "sma50": 338.5,
+  "sma200": 339.32,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 20.0,
+  "drawdown_pct": 20.6,
   "series": [
    {
     "d": "2026-02-10",
@@ -1214,35 +1214,30 @@
    },
    {
     "d": "2026-10-27",
-    "c": 319.335,
-    "t": "caution",
-    "s": 41
+    "c": 316.83,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
-   "label": "Exiting the knife zone",
-   "direction": 1,
-   "text": "GOOG at $358.69 (+12.3% from here) climbs out of the falling-knife band (+9 pts)"
-  },
-  {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 22%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 21%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-10-26",
-  "days_total": 751,
+  "end": "2026-10-27",
+  "days_total": 752,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-10-27",
   "baseline": {
-   "n": 730,
-   "avg_pct": 3.1,
-   "median_pct": 2.9
+   "n": 731,
+   "avg_pct": 3.09,
+   "median_pct": 2.89
   },
   "bands": [
    {
@@ -1269,9 +1264,9 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 193,
-    "avg_pct": 3.22,
-    "median_pct": 2.25
+    "n": 194,
+    "avg_pct": 3.17,
+    "median_pct": 2.19
    }
   ]
  },
@@ -1281,13 +1276,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 319.335,
-  "sma200": 339.33,
+  "price": 316.83,
+  "sma200": 339.32,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 21.9
+  "level": 21.1
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1304,62 +1299,62 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-10-27",
+  "start": "2022-10-28",
   "end": "2026-10-27",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 40594.97,
-  "dca_return_pct": 93.31,
-  "dip_value": 40689.06,
-  "dip_return_pct": 93.76,
+  "dca_value": 40262.29,
+  "dca_return_pct": 91.73,
+  "dip_value": 40369.88,
+  "dip_return_pct": 92.24,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Ex-Google engineer Nate Soares hasn\u2019t added to his 401(k) in a decade because he's an 'AI kills all humans guy'",
-   "source": "Fortune",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBPS0QyWXN4dXlDR1hfS0I3bEllRG04TjJQSkVrMGhodmVKenNRb2JYZGx6WUg5SWZHbThub3RyVG1CYmdkTTFzNXduczRYd1FrMHV0Y1FPQW52V1UtTGxFY283Z2hwYmc2bEpzemw0SktMSER6T2lBMmk3bw?oc=5",
-   "published": "2026-10-27T19:06:12+00:00"
+   "title": "Futures: Growth Runs, Tesla In Buy Zone; Fed, Google, Microsoft Due",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOOXctSXZneUdSOFNkQzc5bC1BWHgyUmJNS25RYldwUzJpeGwwUjVHTFhGSlZmS2Ytd3oxTEdHbFdrVlRPaG56eGZ1X0FVTmgwYUUwUDlmTlljVEx6V2prWHhyTWdZUXJJWG5oWWtXOUFuckhPZGRZR3p0eWxhRXZFVmhPeFdxVHNMOEJwWThoX2xtZXNwb1pYclVUd0hjVUU2QUNmQWtadndfZnNRNG9Td2FVM0xJeGZHRTFVZkoyQzVDVEFjWGc?oc=5",
+   "published": "2026-10-27T21:22:14+00:00"
   },
   {
-   "title": "Alphabet Earnings To Accelerate The AI Bubble Burst (NASDAQ:GOOG)",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPTUZhTTJ5OXZzZjJtNmFDNTF5THFzSTRKeXJQemFEbUZoMndDSVd2UFp6V3N1QnFYRWhNejN5NW9GbkdhbTBpckRRMXc1eDZVenZWWV9tZUtYNnVoVExMWlBOTUFCcXVfeFBuMlNyV2NaaUdWOXZpUDJzNV93dGZMNlBaYlBRNHNWc3RqMUxBUVNkU19tV2tJ?oc=5",
-   "published": "2026-10-27T18:56:40+00:00"
+   "title": "I paired Google Sheets with Forms to create a versatile tracker in minutes",
+   "source": "Android Police",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQWWNFd013VGtmWVJxanE3Y0N0V0o4ajgzTC1jWVlZdDdZZG9YMHBGRXZWTFFmLS10VF9MMllWcU5nV01HQ1FoalJYOVYySUswY3cyQ2xoYTJBa1owc09VZ0tINnozNDdWVkMySzZ2VVh6TmplOF9YQ050YkdTSGNzT25fV1VrRlRNcG9DelZSdkNueEhtdHB1UFJB?oc=5",
+   "published": "2026-10-27T21:00:10+00:00"
   },
   {
-   "title": "The Keyes Company/Illustrated Properties Joins HouseCanary\u2019s Google Listings Program",
-   "source": "RISMedia",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPVE9Ba28ycHZoRnMyaWtFZzU3emNVYlFteVlQR2xnX2IzQ2RBSU01V3h4aE9KQzZyU042MjBYUXMyalJERnhQQl9HRzhpSFg4eDVKdmkyQi0yREVDc0M0bFVaa2FyQldySVhhT3U5RmQ3R3BDQlo4ZlZsUTBBeFpKQ1BXX05qeFVCRUI4ckpLU0RjRXg3cjRrVlBMUS1JVzZELVpUR1FYUFJHRkE1eDBIUm9md3hsOXVMallNOA?oc=5",
-   "published": "2026-10-27T18:56:15+00:00"
+   "title": "Google earnings checklist: Why YouTube, Search, & Cloud are key",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOR3Zqb3VTd09IZUswdlFZaThRX195NERqY1p2eEN3LUJ4MHBmdy04Tm45SUFFUkVUTVBzRUYzbF9YRVRIRXo2U0M1NUoxUXZWRlNMSDhQRWx0dnR5SnBBZWhhZXdsUkE5dl9xcU9TUE01R3pxcGZpUG1qblZzOTRqMGU5cER0UVZDeHlITmxmalVxdVRFenRXSk5GSmdUSVhCS0QtUi1NajhRdw?oc=5",
+   "published": "2026-10-27T20:52:19+00:00"
   },
   {
-   "title": "Google Nest Wifi router and point get October 2026 update",
-   "source": "9to5Google",
-   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1lWlhibUpuT2IyQVRVWG83b2FjVzBjdTZHT1FweGRqZXBoVWlqV0lrUTNEbDlJZUVMVEN1RHBVTXRxaTlhS0xkUXNZOWNOSTFnUUs4a2V5VWVpX09odjZtMC1uQXY2QzloTnBTdjR5dm9Hdw?oc=5",
-   "published": "2026-10-27T18:31:59+00:00"
+   "title": "Google\u2019s New AI World Model Can Generate Human Voices, Not Just Video",
+   "source": "Gizmodo",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOeTNjS0hDTGMzaEZvSHJBcEcwY2VYUWpLV3kyMEIzaW95RHZOeE5rSjhDRjdwUEU4dFl1TE9DT3N5T0h0M3RLWDliOF9jai0zVWxpVU9pQjlEUGMydEhmNUhmUXk2eTZkb1JSekVxSVU1bmNIcWNXNDBicmpSdG1FSnNHVjBYd3AwUEhaQmVxeU01dHNwck00aGF1dFBHWVU?oc=5",
+   "published": "2026-10-27T20:45:14+00:00"
   },
   {
-   "title": "Google Ads tests ad group-level seasonal adjustments for App campaigns",
-   "source": "Search Engine Land",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOWElIQjlvRnpRWmVmcUw4R3R3NTVLNW9jN2I3YTZyWk1faWVibUgxSE9DUW1mN2tySXVGOFBqbk9qN2sxbzJCc2ota3lwcVF3ZVRjVUlRQlg1eDU3M3IydHNaem1BVTI4c0tmX1ZoazZ4andUMVNKTWttcm00ekc1Vm1mZDlQejFFSUwyN25GVEV5QWhNbGRYWlpiajItelZCZHY2NnlsMkgyZw?oc=5",
-   "published": "2026-10-27T18:31:36+00:00"
+   "title": "Triangle-area town orders Google Fiber to stop work after gas and water line damage",
+   "source": "Raleigh News & Observer",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5GSTlwN0FwNlpMUE1nZGVVZHFHRTR4ZXdSdkt3Zkh1ZFNQUk9vZk5fYzViR3d6d0FxU1RlYVY1NXRGbXd3MDZSaTliOU01dXFKQ2F1X1NCZmZxYmVZU05VNXp4SHN1dkNiLTZzV1ln0gFuQVVfeXFMTjFxNENMcmZnbHczWGo1N051WkREM2JLeHd0Z0I4VEdyd2V3b09lYmFRRTRrT051OXhiYmRPUG9OWXJSdEk4cFJhQlphSWlTWlFkek5VanlLZWtZWEgwNmVXM040Z2hGSThMdmNkc0E?oc=5",
+   "published": "2026-10-27T20:42:54+00:00"
   },
   {
-   "title": "Google's 'Health Guardian' Is Now Available for Fitbits",
-   "source": "Lifehacker",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdWZDdnF0VkxzWnZfVTBEdFpjeXV5V1UyUDE0UU1aMXdGRmtmeW5HaTV1eFI2U2FIaXNZRE1pM2x4Sm5XMWNZeXhfN29uX190Qzd0WmUyb3hraDhfLU5qN3dBMlRkRGtTdTFJMWU0d0l3UExhSXhiei1WNEVoY05nM1pLVENJT0c2V0dZ?oc=5",
-   "published": "2026-10-27T18:30:00+00:00"
+   "title": "Google DeepMind Opens Genie 4 Preview to Testers, With Audio and Two-Minute Scenes",
+   "source": "Northeast Times",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPZzNqdE5TTS12NmlUMWplc0hzYWEtdkVGWXZ3T0xpVzZxMy1QWkpOVWRYU3RLLUlkOHZ0ZTZ0ai1WZ1d3Z0k2clFucGg5TnBMMUdMeWVFVW1Va2tHcmZEUWFkLWFoMUpsdmNZRTdNeEdVaGlBcUFlRE5DLTBJQk1ZZ2NFRUZPRGRyUG5heXZKa0lhd2d5ZlpJMC1qWGx0V19fMDhZS2UwQ2pBQWlGbkxOdDhodw?oc=5",
+   "published": "2026-10-27T20:40:32+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-27T19:10:26+00:00",
+  "run_at": "2026-10-27T21:29:58+00:00",
   "session": {
    "date": "2026-10-27",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1370,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-27T19:03:24+00:00"
+    "as_of": "2026-10-27T21:11:43+00:00"
    },
    "earnings:GOOG": {
     "ok": true,
@@ -1409,113 +1404,113 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-23"
+    "as_of": "2026-10-26"
    },
    "news:GOOG": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-27T19:06:12+00:00"
+    "as_of": "2026-10-27T21:22:14+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-27T19:02:51+00:00"
+    "as_of": "2026-10-27T21:23:21+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-27T18:51:02+00:00"
+    "as_of": "2026-10-27T20:29:00+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-27T19:05:05+00:00"
+    "as_of": "2026-10-27T21:26:46+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-27T19:08:18+00:00"
+    "as_of": "2026-10-27T21:24:14+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-27T18:51:02+00:00"
+    "as_of": "2026-10-27T21:22:14+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-27T19:10Z"
+    "as_of": "2026-10-27T21:19Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-10-27"
    }
   },
