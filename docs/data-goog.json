@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-10-28T11:00:24+00:00",
+ "generated_at": "2026-10-28T19:10:22+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "No edge either way",
-  "summary": "None of the scored GOOG conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies. Weights come from the TSLA-validated single-stock framework, applied provisionally to GOOG.",
-  "tone": "neutral",
-  "score": 0.0,
-  "score100": 50,
+  "label": "Worse-than-average zone",
+  "summary": "GOOG sits in its 10-20% drawdown band - the falling knife. This is the one zone in this whole project with era-robust evidence of below-average forward returns: single names in mid-drawdown tend to keep drifting, not bounce. Nothing here says sell; it says this specific dip has historically kept dipping. Weights come from the TSLA-validated single-stock framework, applied provisionally to GOOG.",
+  "tone": "caution",
+  "score": -1.5,
+  "score100": 41,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-5.8% in 5 sessions",
+   "value": "no pullback",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 61.2,
+    "pos": 81.2,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "21% ann. (p14)",
+   "value": "22% ann. (p17)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for GOOG. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 13.9,
+    "pos": 17.1,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "20.5%",
-   "score": 0.0,
-   "weight": 1.0,
-   "lean": "neutral",
-   "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
+   "value": "19.3%",
+   "score": -1.5,
+   "weight": -1.5,
+   "lean": "bad",
+   "note": "GOOG sits 19.3% below its 52-week high - the falling-knife band (10-20% down, weight \u22121.5) from the TSLA framework, applied provisionally. Mid-drawdown single names tended to keep drifting on the calibrated name, not bounce.",
    "viz": {
-    "pos": 41.0,
+    "pos": 38.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.5 (p57), F&G 34",
+   "value": "VIX 17.2 (p52), F&G 35",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 316.83,
-  "as_of": "2026-10-27",
-  "bar": "final",
-  "day_change_pct": 0.84,
-  "sma50": 338.5,
-  "sma200": 339.32,
+  "price": 321.61,
+  "as_of": "2026-10-28",
+  "bar": "provisional",
+  "day_change_pct": 1.51,
+  "sma50": 338.11,
+  "sma200": 339.26,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 20.6,
+  "drawdown_pct": 19.4,
   "series": [
-   {
-    "d": "2026-02-10",
-    "c": 318.63,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-02-11",
     "c": 311.33,
@@ -1217,14 +1211,25 @@
     "c": 316.83,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-10-28",
+    "c": 321.61,
+    "t": "caution",
+    "s": 41
    }
   ]
  },
  "flips": [
   {
+   "label": "Exiting the knife zone",
+   "direction": 1,
+   "text": "GOOG at $358.69 (+11.5% from here) climbs out of the falling-knife band (+9 pts)"
+  },
+  {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 41% annualized (now 21%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 41% annualized (now 22%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1276,13 +1281,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 316.83,
-  "sma200": 339.32,
+  "price": 321.61,
+  "sma200": 339.26,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 21.1
+  "level": 21.6
  },
  "fomc": {
   "next": "2026-10-28",
@@ -1300,61 +1305,61 @@
  },
  "backtest": {
   "start": "2022-10-28",
-  "end": "2026-10-27",
+  "end": "2026-10-28",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 40262.29,
-  "dca_return_pct": 91.73,
-  "dip_value": 40369.87,
-  "dip_return_pct": 92.24,
+  "dca_value": 40869.73,
+  "dca_return_pct": 94.62,
+  "dip_value": 40978.93,
+  "dip_return_pct": 95.14,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Google Play October 2026 Update: 5 New Features Explained",
-   "source": "TechRepublic",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxON185Tl9xaUFhU2piUk1YY0FXZUo3VDd1R0NhdjM3T3FGRld0UXlDNERCczBpNDZwUWUzX3E1aXZYUlFqLWlpWHo1aFRGWlZ3UlFIbXprWWo5cXl2YkxCR3V4NDdIQURkeVRNcjVseHVLbG5vV3QzZ2RtOW55Ym1kU0JGWVFXZGtBaUZr?oc=5",
-   "published": "2026-10-28T10:53:49+00:00"
+   "title": "\u201cKind of Big News\u201d: How Sonny Side earned Best Ever Food Review Show an Emmy nom",
+   "source": "YouTube Official Blog",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPbWJHdDFPTDhZbGROZVYtUFQ1U2ZqVUUxS0x4bXFEMXdEb2hpNGEtNDJZcTZkTzl3cTZjR2lMWFpjQU9Pek9GVWVnbnJNMlJlaUdKZW1rODdFaWNETWxuV3ljRVBxVF9iaklkOTlBOWU0U19KWndNTW5ITjdmUFNPTnk0UzVEY1lOQThNWjhScDlqZjV5aktoQg?oc=5",
+   "published": "2026-10-28T19:03:16+00:00"
   },
   {
-   "title": "South Korea media commission fines Google and Apple over app payment systems",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcW4xekU2MEFsTlhLV2hTT3luWGVvLVVlb3FWVzJOV3hDX1R2eDFzNVRfQWhCSDFOOE1obl9rblBfSldIYTdwMGlpbmkySzYtYTBZUDZJdXNrUUxjSEw1LVNEUGYwN01obGJOTExsQXdoSm1zMldSS0tUek16cVFqU2I2M2stQXo0eGc0NmNCa1dlV3VBYW0yNGdkYXg0emQ3SFlmbjlmcHQzd0lRZUtJUDlWLWI?oc=5",
-   "published": "2026-10-28T10:49:02+00:00"
+   "title": "Alphabet Is Only Up 3% This Year: Will Today's Earnings Report Make or Break GOOGL Stock?",
+   "source": "24/7 Wall St.",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOODE5WXFjWGtTUkFoVWlabU8tSHp5Vks1eUl0MzRLU0hOcjRTZ3YtSVpFbVByMzhTelFjelBkbUMtSGc2eDVhekhNYVBES05LRFJ6c09XRDI4eFRZYmlPTjF6OUJzbnpwb2ZDZUJqX3ZScFM4cGk0VkhZaDllVG9vWTF6cmZYd084d0JkMWtFTEJyUlZpa0ZJVXVuUkJEMFlHcENIZnhDUElLamF2V25LTThCbVhFVGlmU2tnWTUtMkk0Q1gzUjZiMA?oc=5",
+   "published": "2026-10-28T18:59:54+00:00"
   },
   {
-   "title": "YouTube Is Beating Netflix in the Living Room, but Crypto Bettors Doubt a $12 Billion Ad Quarter for the",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQaGpVREFFQ3dlal9EOTA0WjlpSUNVVFh0bDJYWVVYVFphcWNVNllnaUFfNlh5azhlRW1QblZFbk9JaTh0cWRsVmJGMC05R0tqMDZKa3Z6QXdEbkw4aEVPUmpiMzBTWlZDR19LQTVONkdfMFBGRktxbExnLTlIeW9qLUpqZ1NRd21SZFhCWlN2VkpFMXN0QjFRbVRIeHMxQQ?oc=5",
-   "published": "2026-10-28T10:45:17+00:00"
+   "title": "[YouTube/LIVE] Juventus vs Genoa Live free tv! 28 october 2026",
+   "source": "Vantage Data Centers",
+   "link": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxOMWhKeHlyd09zN0ttdktGb2tramFZM1dHSDBMV1I0aWZvN1pHejQ2bWVSSnN2RnVFaXBNRFJvQ21KZ1N2c052M0xWLXhQX2p6d0VRY3RMMTBsSFl1c3VkdEhiSEw2MjhOY3p4MDJBd3RlUkFBRlRXTUREWEZkZE9DMjFfUGl2Uy13azZQMm12VG1xQXNxbFZNaXlCOTMtRDk4OHU1ZmhENXJxeHBES1NxczFQdmlBQk1WSTlES08wXzBvbnJTRlEwNWtjOEZ1SWk1T3d0ZHl2ZDhjUnpnSVZlYUVVcmh2RE9HcUQwemFiaGlPdE1vaVBkZGZKSVNIN3ZuZTdlVnVHNXJWOHpZX19IWkl0dy0tQVV4RFFkTnhidFY2QVZfeGpCdlpiTVZrNmpySkk4WUJMZnRxM2JQTlp3OXRkUXZvNzhTOFIyT2ctUUEzZw?oc=5",
+   "published": "2026-10-28T18:50:45+00:00"
   },
   {
-   "title": "Google adds Android XR glasses connections to phones through Play services",
-   "source": "MIXED News",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMkdicC1PSmx3Qk5DWENIUE84WnBzdmk1VnJnSlQxSVhRaXE1QkFTakVaRWZKYUpQYmJ6Und4YmV5NmhVWkZOSzBIRUpYZ2Z6dWcwX05ZWVFGM3JLa2JMbHJGN3FBenVVakwzbllaZmItVmt2S2d1UV90eUF4TnV3OGNfOVc2TlZNWFRn?oc=5",
-   "published": "2026-10-28T10:36:27+00:00"
+   "title": "( YOUTUBE LIVE ) Chelsea vs Liverpool Live Free HS Football 2026",
+   "source": "Vantage Data Centers",
+   "link": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxOZVA4TXQtQllSNzA2SGRhQmtad0xyT3hha0NQbHRHb0V6OV9rMjItY25YRDhsRXo3UDVTcVM4QnVhNzlVOENLNWlvUVRPQklWRmxVbVFFcGpVOHoyREtGNWtxRkFxYnQtc01laEVlY09YczFBcHNKeXYtdzlJakVJUlpoNWNBcGZ2bTVkdUo5eUhHNkFUbHBneWFzNktCekxTU3hZa3JDeWNfaXhydlVmZGJSNnY4LVFQSlRYTG1vQlF2bV8xdFV2NWl1SFhDTTVrUUFZYTg4RE5yVzFOSGFxWFNEbklOSTU2OXR6dlVEZnB2RFVaNEpBbWJYcnJDZTFkZ1Z2ZDVoSkdxMjhnZUduWFdGQXZRTjd6azdTSS1yMTVIX09nREdBanYwMWxlQXVqRHk4ZG4xMFBOZFZMbEFOVldEczAtT1A0UWlOeTF0YjhGWUU?oc=5",
+   "published": "2026-10-28T18:49:09+00:00"
   },
   {
-   "title": "How can startup founders start validating a problem? Google it, says Philly early-stage investor",
-   "source": "Technical.ly",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNeVpxdTNfVW5VZTZOOHRLMWdXYmRFSWRlcjE5M1pHNWoyWG9XZXhDd1VBRU1naDVpdldqXy1GZ1NldWdkREhCLVQwRnJkb19MeWVlQlI5WHRKaGUzQnlTSTYyYTllQUQ0NGw2RnUwU3pUZldXVkRscTl6NWZFcUwwZ2U0anltLThvOXpXOWJlUWk5T1dr?oc=5",
-   "published": "2026-10-28T10:33:38+00:00"
+   "title": "Google announces Gemini 4 Carbon, its latest frontier AI model that you can\u2019t use",
+   "source": "Ars Technica",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPRW1ZYWNNNHRHU1pTM1FqNGIxajFURmFRZGlxM3BLaXNWWkl5Vl9lcUtMTmp3SEd4XzEyT1JUZHlzdjNvNWNDbE9NYk9VdUMzUkY2ZHVNalEtVWl4ckFwaTlsWFhjbTRDZURBdktRRGZpWGdheHVlZHlJYUNoS1YxcFphU2JVSFhBZkVZREo1R18yTWYwM0xnU1AzNllLYWZCLWZjNFMteDg2eEd2RXNTSVJ2ZmNsQQ?oc=5",
+   "published": "2026-10-28T18:47:27+00:00"
   },
   {
-   "title": "YouTube: Alphabet's crown jewel worth more than Disney and Netflix (GOOG:NASDAQ)",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZkRBRGVkbzVkalFzQXhqSmRuMlk4bDVkcTN3YzlKWk9zQUgxQklvemVILThPY240dUVjdDdlNFJLT0EyX1J0bVhrOW1rbUhjeXB1OGVoMS1vRFhtd1RIdEd2QmxrUHo5T0ZyQVFLSEJ3eU10bUg3WGh0WXNCX0JXTHlXbkI2MFVxUUYwa1MwVTNPVUlmUVRJbk9MemZ5NnpHbWpKZQ?oc=5",
-   "published": "2026-10-28T10:30:57+00:00"
+   "title": "YouTube",
+   "source": "Paramount Press Express",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5tN2VMWlpDQjJMYlBZczBPY2FRdGRXYnI2MVhRbUJraEtnaFNBanByT2hYMllMMnBTaDZhbFhCM2g4X2c4c0thOVlfODJhQTBtblI1YXl0SjhyLWVCQjV5Mml0M1V0c2NWVGJpdkR1QTZOZjVENlNoSQ?oc=5",
+   "published": "2026-10-28T18:46:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-28T11:00:24+00:00",
+  "run_at": "2026-10-28T19:10:23+00:00",
   "session": {
-   "date": "2026-10-27",
-   "bar": "final"
+   "date": "2026-10-28",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1370,7 +1375,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-28T10:39:16+00:00"
+    "as_of": "2026-10-28T19:05:19+00:00"
    },
    "earnings:GOOG": {
     "ok": false,
@@ -1397,7 +1402,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-26"
+    "as_of": "2026-10-27"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1408,108 +1413,108 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-28T10:53:49+00:00"
+    "as_of": "2026-10-28T19:03:16+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-28T10:58:36+00:00"
+    "as_of": "2026-10-28T19:09:42+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-28T10:42:25+00:00"
+    "as_of": "2026-10-28T19:08:06+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-28T10:48:35+00:00"
+    "as_of": "2026-10-28T19:01:27+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-28T10:49:28+00:00"
+    "as_of": "2026-10-28T18:58:59+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-28T10:58:56+00:00"
+    "as_of": "2026-10-28T18:27:46+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-28T11:00Z"
+    "as_of": "2026-10-28T19:09Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-27"
+    "bar": "provisional",
+    "as_of": "2026-10-28"
    }
   },
   "degraded": [
