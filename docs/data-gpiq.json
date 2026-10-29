@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T20:25:11+00:00",
+ "generated_at": "2026-10-29T11:00:10+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "23.6 (p53)",
+   "value": "23.8 (p55)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Nasdaq-100 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 52.6,
+    "pos": 55.4,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.91",
+   "value": "0.88",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 53.2,
+    "pos": 45.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.42x (p73)",
+   "value": "1.41x (p70)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 73.2,
+    "pos": 70.1,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+3.9 pts",
+   "value": "+4.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 65.9,
+    "pos": 67.7,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -227,7 +227,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 36.0,
+    "pos": 36.5,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,11 +249,11 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 0d",
+   "value": "CPI in 12d",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "Rate decision within 2 days - a volatility event ahead. Not a reason to skip a scheduled buy, but expect a swing either way."
+   "lean": "neutral",
+   "note": "No event risk in the next few days (next CPI 2026-11-10, next FOMC 2026-12-09)."
   }
  ],
  "fund": {
@@ -1350,19 +1350,19 @@
  },
  "flips": [
   {
-   "label": "VIX curve inversion",
-   "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.91) = inverted vol curve, genuine panic (+6 pts)"
-  },
-  {
    "label": "Extreme fear",
    "direction": 1,
    "text": "Fear & Greed at 25 or below (now 36) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
+   "label": "VIX curve inversion",
+   "direction": 1,
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
+  },
+  {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 28.6 (now 23.6) = top decile of its past year (+9 pts)"
+   "text": "VXN above 28.6 (now 23.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1376,7 +1376,7 @@
   "end": "2026-10-28",
   "days_total": 753,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-10-28",
+  "fg_coverage_start": "2025-10-29",
   "baseline": {
    "n": 732,
    "avg_pct": 1.9,
@@ -1411,8 +1411,8 @@
   "tbill_3mo": 4.22
  },
  "fx": {
-  "usd_krw": 1342.27,
-  "as_of": "2026-10-28T20:25Z"
+  "usd_krw": 1337.61,
+  "as_of": "2026-10-29T10:59Z"
  },
  "distributions": {
   "history": [
@@ -1541,16 +1541,16 @@
  },
  "vol": {
   "index": "VXN",
-  "level": 23.57
+  "level": 23.78
  },
  "fomc": {
-  "next": "2026-10-28",
-  "days_until": 0,
-  "imminent": true
+  "next": "2026-12-09",
+  "days_until": 41,
+  "imminent": false
  },
  "cpi": {
   "next": "2026-11-10",
-  "days_until": 13
+  "days_until": 12
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1568,44 +1568,44 @@
  },
  "headlines": [
   {
-   "title": "AI & Tech Brief: Ben Goertzel on AI regulation",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPQWVpYzhsV25TZ3FVNUJONVNQbkt0T2l2WV85YUVNalZJZUlBZURlNG4tSDBfR2JpUkdBUnpVY1lKRGIxd04tNkJUVldha0RMeWNJLWdqelU3RGZnbXJrQlRUR1dUenNBUU9SRjdsLU5UYnB0ODUyanlvSkwwU0h1dVZmOUZsQnNIRFpCbnJQX052YkEycld4d0JNZlFnV1pCUGZ0UXpjRDRiVjZLZDFCNVg5cw?oc=5",
-   "published": "2026-10-28T20:22:46+00:00"
+   "title": "To the editor: Candidate calls for AI oversight",
+   "source": "Toledo Blade",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPc0tUVTZ5VkdjMTJKSnVuY3d5NDZiVW9OaWZtMXV2UzBnSmFValQwekxWWl9pS0EyWXhZLU5fYktiQXJDcTJZNmZtdmVFamVBRXp2ODVOX0gwQXdZdG13S0Nic2otTTJlVG4wcTZ2ZDdMMlBIRk1xZHB4anpaRlZNalQ2eEdqMkotalB4WmZ3Q1dPSmxoUUtGSlVHek1ZSVp4ZEdJM05MSy0zYl8zVUdGMG5aODZGS25Ha2lkYjhGN1BhbldQLUl0LUh2T09iRW9Y?oc=5",
+   "published": "2026-10-29T10:54:21+00:00"
   },
   {
-   "title": "Another major law firm joins race to turn institutional knowledge into AI advantage",
-   "source": "Daily Journal",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQU2p6UmFtUFFnaVl6RVRMWW5CRFg3ZFdBQkkzUXBXQkk5T0xPSnRqbzF4VEFaM2tBT1ExT0xsbnpOLVFmZ3NQVTdHd3NTVldUTkpwU243dW8wRUdJc2N4RGZjUnhYSUJ2UWRkSTl2N01wOGJFOTFraDE1NDJCSXNQQjJ5cDE1SmRvT0hWbTNDbUxyNGxEUGNpSkdoOWZ2SDZRSUc1d2FUcENzUHdOSVo3T19VUUg0T3pITDNwS2VqdWc3aG1BY3pN?oc=5",
-   "published": "2026-10-28T20:18:12+00:00"
+   "title": "Nvidia Stock Slips as Competition Probe Presents New AI Concern",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOQUhtWFVGeXRmbWVsY083ckRJRUYwOHhEYTZ5cURrdlktQXNyVWk2QllyVVZpRGY3cWg0X3JTNU4xWVBjUTZ4M1pRWWJLR1V3c0FYcGsxQWwzd29jYjRETGpHYnhqMFZpMlk4RG81OFU2NUtUZ3JVaEwxY1NYZkVuYUxabUpWRjNyeVJmbg?oc=5",
+   "published": "2026-10-29T10:54:00+00:00"
   },
   {
-   "title": "AI for Science expands to foundations and research institutions",
-   "source": "Anthropic",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNTE8xTmRrRUZtQndpOVdCTUFQQ2ZXSjl5Tk4zeXB0RzhSVzRYaUt3S091Y3FmRnVvT1c0UXhIVW0xZF83R2c1VUwtNjhNUkcxYWI0MFRXWXcxT2ZLdkF6bUd5V0JpTWJla3BzOWNORmdFN0ZTUkplbmZRcjRNdm5GSUVDUXp5QWwxNkRoN3JCVXo?oc=5",
-   "published": "2026-10-28T20:14:19+00:00"
+   "title": "Dagen McDowell: Google is 'cannibalizing' its own business with AI search",
+   "source": "Fox Business",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE4xcEJVb280eDhoaldmQ1dWZ3NEMUVBVXdESGtTOGtHcjBwOENIN3FBblFfTk1WWWFZakQyTjJoajVsRUJnWUg2QXh1YmZodDlvOUNrMWNWcnZpR0k?oc=5",
+   "published": "2026-10-29T10:49:45+00:00"
   },
   {
-   "title": "Cisco AI Defense joins ServiceNow\u2019s Control Tower Alliance",
-   "source": "Cisco Blogs",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPTnBFcDN5NzNyZGRrYy1YSWsyTnlmZDFZNGRKZ1JFT2NhNzlfVVlxaGdySElVSWNGVW9UZE5DZXFvUzhDUGZSZjVfY0hTaUs3ZWotVUxrZWQ3anZEeld6eFdINlNPeDFrRVpUTEhvcWFWV0plU3NMWFptS1NaX2RIRzRIMWVaRkdXdVdIbw?oc=5",
-   "published": "2026-10-28T20:13:18+00:00"
+   "title": "Treasury yields ease after Federal Reserve rate hold",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9tUkpYWmlUR3kwRzB5cTZuejFRaTloS09XeThKc3hXUnVVem12eHNkN0ZnV2VpemJ2N09sZWNkenlUNGhHVUo4RmdxaDFIUFhSU0JmMHlKckhSbXhxWXpMUGNsZ0dWOVVmd25nNnRpTE1lbEpTbWhkNk9VTnRpeGPSAYQBQVVfeXFMUE1seWVoTlViUzNtNmZyRk1NekFwcWN2ZkZSMUhWOUY2UHJQWnVZcTB2d1NPRXNzcmhzWlFGWlNNYUd2RTlEbUR1WEZlLWVCQzhjclZPdjlVX29STXVDVW1GOFVaeVUxeUoxSk9GRkhEeGg4RmlXclBlb1ZGZFgydFl0SjJN?oc=5",
+   "published": "2026-10-29T10:48:54+00:00"
   },
   {
-   "title": "AI tools show promise in hospitals, but experts say integration is key",
-   "source": "Association of Health Care Journalists",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNNUFLZGdZbUN3YTFwOXZsM2laenAyTy1YNWYwYjRnNUlpTVJqOEE0allZYWcyTFhoTFF5bzNqRVB6dEV1MnozVmhxX3VhcEE4allJWWpjT2tZclJxT1VvZ1RIM1VvSXhYYXdkVG1zaHBHYTJobk10S2tyLS1ma1h5RzBXT28xN2ZDOFVjLUVreE5nVlZIcnNMXy1kYnFpUVBMdGROUE14UTVSamh0UDhqSjhn?oc=5",
-   "published": "2026-10-28T20:11:31+00:00"
+   "title": "Cybersecurity experts are using AI to help secure election infrastructure",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMV96c2FnNHlnZDVMU1ByYzZhVjdodm50MlFfTjlBSE9UeFE3cW9sLTBaLWp3NTJnWk44emdEZTJRRGZ1Wnd6WGpFWlRDLXBjTXFtamZyanluNk5XME9TMlVxcDNHTEp2YldlWGtLTVBaMHh1cWtSaFlvY21jOEp1cU14T3lRbXI4bEFFTUViOF9QZ1ZxejV2WjZXcWxkUW1LQm80Rm43S2tjLXFLWWJJR0dvRjVhcnY4NXc?oc=5",
+   "published": "2026-10-29T10:45:09+00:00"
   },
   {
-   "title": "Oracle stock soars as it promises the AI spending will start paying for itself",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNek90TmxXQ012U0s5VFNjRTlYcS14X2RqTkJVWWdfOVJ3QXIxcWw1SVUtTTd0aFZYVTVucVNwczItQUFpeFRoTHRELVpLWEU4a0ZHb29aUHRJSkxOVk1kM1FwN0gxZU9wVzQ3VUpFN1Z5VlpEbGFQWklDUTQzVHA4OVBmQ2piMlNGazQ3WlR5eXRkS3dYc2tmVTlySXdoUDBFNlZfclZJMGY4Y1hmWEJUdDVkUUtlVVZWMDhlcWxOLU52Y3JGaHEwSm52cU0zYl8z?oc=5",
-   "published": "2026-10-28T20:10:56+00:00"
+   "title": "CT touts AI workforce training as technology reshapes jobs",
+   "source": "Hartford Business Journal",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQMy1OZ2pwekpVYkhsV3dBMDg1ZVVuLUR4M2xUcFlxa3dYN1hKRDhXem1MU2R0V2UzaG5NWGpKYkZmUV9xanNBUkU3YnFndFBTZERqdF9oTHVSbHhWc0RSMElXUzlIUGtfWC1tQzhHa0h6MHYtYkJONFpTZ0g5VjU0dlZqeUFsVGZpS2VhODd1dUJORVNObzZ4YkZzWGU?oc=5",
+   "published": "2026-10-29T10:44:45+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-28T20:25:11+00:00",
+  "run_at": "2026-10-29T11:00:10+00:00",
   "session": {
    "date": "2026-10-28",
    "bar": "final"
@@ -1619,12 +1619,12 @@
    "calendar:FOMC": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-28"
+    "as_of": "2026-12-09"
    },
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-28T20:10:42+00:00"
+    "as_of": "2026-10-29T10:40:46+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1640,13 +1640,13 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-28T20:22:46+00:00"
+    "as_of": "2026-10-29T10:54:21+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-28T19:47:57+00:00"
+    "as_of": "2026-10-29T10:48:54+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -1663,7 +1663,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-28T20:25Z"
+    "as_of": "2026-10-29T10:59Z"
    },
    "yahoo:QQQ": {
     "ok": true,
@@ -1681,7 +1681,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-10-27"
+    "as_of": "2026-10-28"
    },
    "yahoo:^VIX3M": {
     "ok": true,
