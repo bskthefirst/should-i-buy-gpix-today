@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T20:25:11+00:00",
+ "generated_at": "2026-10-30T11:00:10+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,7 +17,7 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "25.1 (p65)",
+   "value": "25.2 (p65)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.88",
+   "value": "0.89",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 43.8,
+    "pos": 47.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.41x (p70)",
+   "value": "1.46x (p79)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 70.0,
+    "pos": 79.3,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -96,7 +96,7 @@
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 74.7,
+    "pos": 75.3,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "35 (fear)",
+   "value": "34 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 34.7,
+    "pos": 34.3,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 12d",
+   "value": "CPI in 11d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1352,17 +1352,17 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
-  },
-  {
-   "label": "Top-decile premiums",
-   "direction": 1,
-   "text": "VXN above 28.6 (now 25.1) = top decile of its past year (+9 pts)"
+   "text": "Fear & Greed at 25 or below (now 34) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.89) = inverted vol curve, genuine panic (+6 pts)"
+  },
+  {
+   "label": "Top-decile premiums",
+   "direction": 1,
+   "text": "VXN above 28.6 (now 25.2) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1376,7 +1376,7 @@
   "end": "2026-10-29",
   "days_total": 754,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-10-29",
+  "fg_coverage_start": "2025-10-30",
   "baseline": {
    "n": 733,
    "avg_pct": 1.89,
@@ -1411,8 +1411,8 @@
   "tbill_3mo": 4.18
  },
  "fx": {
-  "usd_krw": 1338.97,
-  "as_of": "2026-10-29T20:25Z"
+  "usd_krw": 1335.1,
+  "as_of": "2026-10-30T10:06Z"
  },
  "distributions": {
   "history": [
@@ -1541,16 +1541,16 @@
  },
  "vol": {
   "index": "VXN",
-  "level": 25.11
+  "level": 25.18
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 41,
+  "days_until": 40,
   "imminent": false
  },
  "cpi": {
   "next": "2026-11-10",
-  "days_until": 12
+  "days_until": 11
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1558,7 +1558,7 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15800.0,
-  "dca_value": 21283.8,
+  "dca_value": 21283.81,
   "dca_return_pct": 34.71,
   "dip_value": 21058.43,
   "dip_return_pct": 33.28,
@@ -1568,44 +1568,44 @@
  },
  "headlines": [
   {
-   "title": "U.S. Stocks Fall as Alphabet Slide Weighs on AI Optimism",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOdVVHMHFyMGd3YVdTZkQ3bklRNHRlQWtYU0VkcU9ibWo0dGVPTm5wcVdibDc5eElXdUZoUEtWWVQwREUyd2RCYlhxV1E2NlBkSGtUQks4Z3U2NzNTbXB6TVEzSVVCc1FpNG1aNE1iOFJiZ2ppdVpYWGdSeERMUDhXQUVZV1cxY1B0OGZnY1RKeU5RSFBPZGJnX29BU21jQ0Rz?oc=5",
-   "published": "2026-10-29T20:18:00+00:00"
+   "title": "Midterm elections, earnings, jobs data loom for AI-wary market",
+   "source": "The Mighty 790 KFGO",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPUVJyZHdTWjk1a2c4R1dKcGhITkN3c0VsOTNFRmdRR21mTGdBQnJXR1gwbTAtemcxRVN5aEhrZk9mOGY0LUx2ekdOZGlPczFLZV9vcDF0UzFXNnJEOG42Q2tUb2FWZ0lkcFFMUmR6VHd3dk8xSl9DMnRCYTZDZmxqeU1YdUY0NjZOOFdjY3NiNm1fMVE?oc=5",
+   "published": "2026-10-30T10:50:17+00:00"
   },
   {
-   "title": "Nasdaq 100 Falls 1.5% as AI Trade Shows New Cracks: Markets Wrap",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQd1B6V3JFX19tOWhyZHVKZzFGZ1k0aXcyNERXb0JrMFNjQVpEaFZMeVMxU1FUVnJpWmFrM3JQbjJ5cXRsU0NBekRsOUM2WEQ2Zlh3MWluWUU2c0poWTk1ZDBGMC13SUtxX1lVdjEtQW1PbWdXRE95ZFJqZ2JmZEwxeW5VbVVORWlzMlJTVHdnZ2NkaWR3?oc=5",
-   "published": "2026-10-29T20:12:43+00:00"
+   "title": "FCA Issues Guidance for Firms on Their Use of AI",
+   "source": "https://www.globalfinregblog.com/",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNSjVPN19scEhBeENsZWlwNjdKdlF0MFRNb3pOOUxxakNMd1dsQ1FMc19hUk96Qzh0SmJYUng3ZWdVMkhWRnhiY0tMWnNWLUNYNktBQjBMSlVlTjlFVFhEWXludGhqQlJJTGFMZE9CeWxKcFpDal9oSU9YTFhIVzVPT3htZUctYVhYaTEzdTdSbThxOGta?oc=5",
+   "published": "2026-10-30T10:40:26+00:00"
   },
   {
-   "title": "Your AI \u2018Agent\u2019 Doesn\u2019t Work for You",
-   "source": "Bank Policy Institute",
-   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5ROFlkYTJQLVM4c0daUk1lU0EzeDVLUjFXOWpNOEsxSTczX0o0RS1BMnBLeXNRdXlrUG9veWRRYlA4Qnl6WElhUWE3RGpIYzdDSUZFSUwtbHRLdVpvaTR3?oc=5",
-   "published": "2026-10-29T20:05:59+00:00"
-  },
-  {
-   "title": "Canada to Take Equity Stake in AI Firm Cohere",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQbEVSWHVMeWdhSEpveGFxMzh1Q0FFUTNpaGRUTWgxbGlBOHlOTkQyZTA3QjVCUXJJY3kwaFRFN3ViQTlXalowMVBKLV9Mci1nWXRoOEhjT053SHdnNklfcDBoWVp0LWgzLVFZeE5EcjlCOUZTak1DRHl0ckd3SGt4Y3dpRTZPVXhMV0VvdXRvSm1DT21CVjNNS1h3?oc=5",
-   "published": "2026-10-29T20:02:34+00:00"
-  },
-  {
-   "title": "Wall Street ends lower as Alphabet revenue miss revives AI capex jitters",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNZS1LektXY2xjaGVlZFhXckZrRFZFelBDOEVKX2tKWVpQVmk4THRhbmlYOEZKV1h3ZHdZOTFPbWFuelU0SENDVlN2U0VHaDhUNGNQRDhVSmZ6d0k4SElZMXlncGhZRnNPRWZxZUMtYnVVQnFWZEEzS1ljaklDcmpVS2FoaVJrc2tQY3cxNEtQRmhVVlJKa3lIdkkyaw?oc=5",
-   "published": "2026-10-29T20:00:31+00:00"
-  },
-  {
-   "title": "Firm that correctly called the AI rally slowdown says here's where to hide out",
+   "title": "Tech scare trade hits Nasdaq futures while crypto reels from its biggest-ever hack",
    "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOMFZkUFhHMjZVN2V2Rm5fcVZ0SUdpR3AwQUdUcHUxZWd4elVFSVBhMWxmaHR5eGl4VFdlakxXbEo4WUZRM0JzVFlDcE9VV3hhdVJoZ0FUazNUejYtNjNTaUJJclFVUE56bjI3QTRIdXk3aDVxaXZqNmxIOFJPQnlBOFM4ZjNaWW0wRDlfOFpYUFBBbHotdEJLUURyQUNjUWlQLXJBczM1ck1TQThVSUh1R1pod3Q?oc=5",
-   "published": "2026-10-29T19:59:53+00:00"
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tMXZKWmdhTXNiUV9GZGxzcUNVLUtxUVZTdFFleUhzVW5WWDFNanZPYlRFS0poWDBjREp4TEtTRTV1U1h2MThVMDI5ZF9YSmx2dnQxRHVMd05STkdFcDJlalppLTY5dVI5anliVDViZjllRmg3ZzlDUGxpb1pDNVHSAYQBQVVfeXFMUDN2REVrN0hQMWtxcjRNalQ4cFB2V1ByQnNQYVR3M1NtV3lwTGtlRE9VdjRmM3dYZmNpZXg0NkJtaTBJUnhkNkJkXzdQSW5wUXlxTnN4T1ZEbE90TklEa1Q5azZIdjZRcno3RGpGUmFpdEg1LWRiendMNWpOaUhpbDd5eEwz?oc=5",
+   "published": "2026-10-30T10:36:55+00:00"
+  },
+  {
+   "title": "AI\u2019s Circular Financing Spreads to Asia, Widening Contagion Risk",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNNFpmZHBNV1FsV2J6X3pyVzNEdzRHMzFPV2FHQ1hwcFZFZlR6WW1FelY2My02Y2RxOWtPWUxtYTNZTVJoT19PTmMzX19FMGx1Y21kSUpsZFNxb01ERDFUMTFNeExvUnpuM2ZqdHdVSXFxTko4OWoyTXRydzVQaVdZRkdaeWNCLW5BcVM5LWR0dTlVanM1emZGc1BGWEY3RUN1M1dVYlVMUlpDVEREZm1j?oc=5",
+   "published": "2026-10-30T10:34:12+00:00"
+  },
+  {
+   "title": "Tech Stocks Poised to Drop After Amazon Adds to AI Spending Fear",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNV2Zzb0JJMTZRSGo0ZFVqNXRDUVRob1U1VWdmc29Cd3VydGRYeWlDWGFiT1VUT2lreFlobHBJYzFQMWVWWmppUlBIRS0taHZscGdtdWNXUi1MS3FHcGtwSlRHSTRkMlVObXNTMXQ4RGE5WHFjNGVCelg4M21sZW8yUXhuR1hrV2NJT0tyM040NmJvclBPY2lQLTlPWXVOLTRLSzNkT1hkS1ZvcF9kYWZVbWFXd0R5WXRnak9VaWp1Vl94OV8xTnM5ZjRudTZSTEZfdTFUcg?oc=5",
+   "published": "2026-10-30T10:30:09+00:00"
+  },
+  {
+   "title": "Strong Earnings Aren\u2019t Strong Enough for the AI Era",
+   "source": "Inc.com",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZFV3MVkzdGVvdHpFX0NwUGVaQVdzelZQNjFDOWwzQ0FFTk5MeVU4QWdfQlUzNzRjY3pLV3FuQzdRa3E1ODR1SHZMR2tvRC0yY0hObkdocWRLRXdjdFBOTXpTUEJVSzR2bkJtbE9VNi1QUUJKM3hzdzE1TG9MT3ViYkFVV19ORV9uTXlz?oc=5",
+   "published": "2026-10-30T10:27:52+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-29T20:25:12+00:00",
+  "run_at": "2026-10-30T11:00:11+00:00",
   "session": {
    "date": "2026-10-29",
    "bar": "final"
@@ -1624,7 +1624,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-29T20:12:32+00:00"
+    "as_of": "2026-10-30T10:40:01+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1640,13 +1640,13 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-29T20:18:00+00:00"
+    "as_of": "2026-10-30T10:50:17+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-29T20:12:43+00:00"
+    "as_of": "2026-10-30T10:55:48+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -1663,7 +1663,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-29T20:25Z"
+    "as_of": "2026-10-30T10:06Z"
    },
    "yahoo:QQQ": {
     "ok": true,
@@ -1681,7 +1681,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-10-28"
+    "as_of": "2026-10-29"
    },
    "yahoo:^VIX3M": {
     "ok": true,
