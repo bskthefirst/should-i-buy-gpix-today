@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-10-30T11:00:21+00:00",
+ "generated_at": "2026-10-30T19:10:22+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
  },
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated single-stock condition is in your favor on GOOG today. Nothing dramatic - and single-stock risk still dwarfs entry timing. Weights come from the TSLA-validated single-stock framework, applied provisionally to GOOG.",
-  "tone": "ok",
-  "score": 1.5,
-  "score100": 59,
+  "label": "Better-than-usual entry",
+  "summary": "Rare validated conditions aligned on GOOG today - the kind of setup that rewarded buyers across the calibrated single-stock history. If you were planning to add, this is a sensible day. (Still one company: size the position accordingly.) Weights come from the TSLA-validated single-stock framework, applied provisionally to GOOG.",
+  "tone": "good",
+  "score": 3.5,
+  "score100": 72,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-12.0% in 5 sessions",
-   "score": 0.0,
+   "value": "-12.9% in 5 sessions",
+   "score": 2.0,
    "weight": 2.0,
-   "lean": "neutral",
-   "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
+   "lean": "good",
+   "note": "GOOG is down 12.9% over 5 sessions - the crash band from the TSLA-validated single-stock framework (5d \u2264 \u221212%, weight 2.0). Applied here provisionally pending a dedicated GOOG pass; the qualitative bet is that sharp single-name washouts bounce.",
    "viz": {
-    "pos": 20.1,
+    "pos": 14.3,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "50% ann. (p98)",
+   "value": "50% ann. (p97)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "GOOG's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on GOOG): elevated single-name chaos tended to mark better entries on the calibrated name.",
    "viz": {
-    "pos": 98.4,
+    "pos": 97.2,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "29.2%",
+   "value": "30.6%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 58.4,
+    "pos": 61.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.2 (p51), F&G 34",
+   "value": "VIX 22.7 (p89), F&G 22",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 282.32,
-  "as_of": "2026-10-29",
-  "bar": "final",
-  "day_change_pct": -12.29,
-  "sma50": 336.93,
-  "sma200": 338.99,
+  "price": 276.5,
+  "as_of": "2026-10-30",
+  "bar": "provisional",
+  "day_change_pct": -2.06,
+  "sma50": 335.7,
+  "sma200": 338.69,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 29.3,
+  "drawdown_pct": 30.7,
   "series": [
-   {
-    "d": "2026-02-12",
-    "c": 309.37,
-    "t": "neutral",
-    "s": 47
-   },
    {
     "d": "2026-02-13",
     "c": 306.02,
@@ -1217,16 +1211,16 @@
     "c": 282.32,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-10-30",
+    "c": 276.5,
+    "t": "good",
+    "s": 72
    }
   ]
  },
- "flips": [
-  {
-   "label": "Crash band",
-   "direction": 1,
-   "text": "GOOG 5-session return -12.0% - another -0.0% reaches the validated crash band (+12 pts)"
-  }
- ],
+ "flips": [],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
@@ -1276,13 +1270,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 282.32,
-  "sma200": 338.99,
+  "price": 276.5,
+  "sma200": 338.69,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 50.4
+  "level": 49.7
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1300,61 +1294,61 @@
  },
  "backtest": {
   "start": "2022-10-31",
-  "end": "2026-10-29",
+  "end": "2026-10-30",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 35581.73,
-  "dca_return_pct": 70.25,
-  "dip_value": 35657.77,
-  "dip_return_pct": 70.61,
+  "dca_value": 34848.21,
+  "dca_return_pct": 66.74,
+  "dip_value": 34922.68,
+  "dip_return_pct": 67.09,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Google DeepMind\u2019s Alexandre Moufarek on AI in Gaming",
-   "source": "AI Magazine",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOVnNiZDlXU3c2WGNSRDlzQXhuWmFSZFRMeld1Q3BiQU81bGtxWWE0MVNPTVEtcmFZYm5VR3dGWXhtRFVPbm8wSl9JcXhFNmdLaXY5R0VaNlc1R1BUMFVjaVZJRy1lODNmWXltbElpVElnNnNSaGZDeG03OTdfZ0pQNWhlT1I1UQ?oc=5",
-   "published": "2026-10-30T10:39:34+00:00"
+   "title": "The Alphabet division that houses Waymo brought in $372 million last quarter\u2014and lost $2.05 billion",
+   "source": "Fortune",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNekdLOGp2bHZlZzdqdWR2MEZaNDFWZ1JrQ1RJV0RUZHN3ZWJFSzRBeEEtMmVjT19OblRKZEwtTWN5YURRSGxKdERaaTNGWUN4elMyX21rUlp4WUJnaDk1RFlUbU42a281VDB1eW1NOU9qUHRCUGJaSGRyTUpHMTA4R19mY3oyRHhLaTlOMVNyMlI0NjBX?oc=5",
+   "published": "2026-10-30T19:06:10+00:00"
   },
   {
-   "title": "Alphabet's Record Selloff Reflects Fear Of AI Spending, While Cloud Demand Says Capex Is Too Small",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPSS1qYnB1OFBqWnZCb05MbXV5WHY4Q1FkYnh6TzZ4T3FsZVpuN0xEQVh4S01ob0RCWEVJUFk2Nm9sNi0tUDlqQVhzQ0xPSGRoZ2owZk9GbzF6ZFdFUVFHMFhRYXdDY0pzdGEtTi1xRXVZajd2aHBDUjZlaEJ4QjhDaUJVem5xLXdfeElwOTJkeVRtR0Q2NHgwQ3dEaVdnMmNad1ItWmdTVlUwSW8wcWN0VlkzZ2JpZjJjenQ2Tmh0ZTJvZEgzc3V4eHln?oc=5",
-   "published": "2026-10-30T10:35:00+00:00"
+   "title": "PSAC Fall 2026 Weekly Highlight 10.29",
+   "source": "psacsports.org",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQMzZsRmlFNDByQ3ZEX3FRYkF3VmFKTXdSZUdqd3dSanB0SmFRek1mc0JfM0ExVnpsbUg0eGhHOWFJWXpQRV82aU9QREJNTGtJLVQ5ZXdnNUxha3dEai0yRkVRbVdXalpaNGtobzg2VGpQWW9IUmlrSlRpTEpvZUN3ZG9valh1WTVxUHVpWW1QakJvbVptWEEzY2FxaHZYajFCTUs1NGxn?oc=5",
+   "published": "2026-10-30T19:00:33+00:00"
   },
   {
-   "title": "Reddit login to become the norm as Google\u2019s AI search cuts traffic",
-   "source": "The Next Web",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1PV2o5U2pVS1pXMzRRaWUxQkRYd2x4NjhMVDZTWXdXaXNNMW95OG8zaDBTRGZsS0V0SDg2cFRULXVnckRFd2llbTZqc1B3YnRKaVotaVBHSXRfdTZWSHhoLTRFSDBtNDdzRVFMNENHanR1SnpNYTloUG9jSUpGSlE?oc=5",
-   "published": "2026-10-30T10:30:18+00:00"
+   "title": "Google's parent company suffers largest stock market wipeout ever",
+   "source": "The National Desk",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQSHZBbzRxSHlGWDlZZjJ5cnUzMUxGNmZGS19OanJuOHlUQXlES0pRWkRvRXNuekZ4aDBHVDJ4WW9CRlBlYUEzcEZqZmV6UERKN1lzM014LVBScmd4Y21teVpSVHllNjRENHp1ZmVTZ0V2VFFKWjZ1SnAyTVptWVZrN1pDWkRObEcxM3VjTmtYOUVUM1poNkU1UEM2RkZqbnhYRV9FN0FwaFdBcnlkMHN1M1puVmt2clVnc0VvcExfS0laSzhhdlNYMXU4NU40VDJwcTRyQ2dyTXNXUDVpV0I0UGVMSTlBT1U?oc=5",
+   "published": "2026-10-30T18:59:28+00:00"
   },
   {
-   "title": "Alphabet suffers a rough day for the ages",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9SZTFITXoxZmltdE4zOHpIcUxYM20wbElja09tZE54cUVRMjNkMlBOYmNnSlVPalNHckpRVVdPMlNHZURRamNXWE1Lc20yRE1kNjNDMHREU1JCV3VxUzNEUHIyRGk4WHY1T2k5ckln?oc=5",
-   "published": "2026-10-30T10:30:00+00:00"
+   "title": "Google Searches Are up 12%, Stock Crashed 10% \u2013 AI Mode Is to Blame",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPTlJqNlk2TmdsSXRmNERsVHpzbk5rWGZ4Ry1LaVVZTklGNFJOUEFjWDVEb25jZGpyS3M0elRkdmFqbGR2TjlKa3JvWlF1Y3RMeFFhVzQxR2wwM05WNV9XQUcwMVE3N3QxNnBhYWU1d1JBSmpTWmNpdU11NUJ4UFk2M3piMFd1dlZ4SmRQRlZtNXluNVNyVGhJcVF3RUpmdw?oc=5",
+   "published": "2026-10-30T18:58:26+00:00"
   },
   {
-   "title": "Proposed Google data center in Roanoke County raises transparency questions",
-   "source": "WSET",
-   "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNQkdVRVRNV3c0dW9NU0hlVm9VZjRBckh2a042RzRzdlh2WFVvUk5ub2d6NUFNU0RuN0xNbElLNWJUVWVIczZ5MmlTZnVRYzV0QWVvXzhxdHZkZ0VJTzZpYWIyVG9Gel9aYXFxdEhwbmhQcHh6b3FBb3hHeXZHWUs4bVVuMjhIczY5TEVkZDgzTTY2SEdfTjZRZHgyR1IwNUh4amo1cFlIcnZRb3NYSUpsOEtDWkhnRDA4UmVaQXYxVzI4SlJ4VnlNS2JSZWUyOEtGRmFpSUEtS1d3NU1MUmxtOGZNNA?oc=5",
-   "published": "2026-10-30T10:26:53+00:00"
+   "title": "Alphabet Stock: Keep Calm and Buy the Dip, Barron\u2019s Says",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9FSDJJcUY4c1h5RV9Xc0tUVVNrak9BaTNXZTVpc2l1STRPWGVYNk5VbnA2aEpaMGV0ejNGY2ZPSmIyaXNKLUNiT1V5MDVJUnR2blBQRGM1Z2JLcFRRbDBRcDk3TWt6V3owQl9ZcHRySDE1emRVQ1E?oc=5",
+   "published": "2026-10-30T18:41:00+00:00"
   },
   {
-   "title": "Dan Loeb\u2019s $783 Million Alphabet, Amazon Bets Face Post-Earnings Selloff - Amazon.com (NASDAQ:AMZN), Alph",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPSk1wdkdHYkxkTUF5S3k4TjFOU3dPWWthSThtQUZRRjZ5a1BUVDljVUZhWXp2cDB3NWM2elNnUzRGTFMwYjlwTGpHVkhKNkpIcmN3ZHNDQlJIZW5iUXQ4V0Zhd3FaV041eVJ6ek50WDdGeWZ5MjBZTjFIeGVGLUsxbXdBSmY5MkpWeHhFLWtBNDFoekZUOVNTS2NNemZmb1NnbHRjVHpOWERMcUNJVkFRU2Q5VmloUHJfWkhlTw?oc=5",
-   "published": "2026-10-30T10:26:13+00:00"
+   "title": "Reddit to force mandatory login as Google traffic drops",
+   "source": "Mashable",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE4zZ25BdUx4UTVrOWFzaTdoVjFWX3U5VVJ3UDdLYXpCRzdYU3YtcFNUc2ItTHRKLVhTQXRlOGVzNjBvVm9ZVjBrd3oxUzUxeXZjOTA0d2d0Q0ptaU1BUkQ5TV9pb1p3S1d1STdyQ3RaTzdTdnc?oc=5",
+   "published": "2026-10-30T18:39:40+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-10-30T11:00:22+00:00",
+  "run_at": "2026-10-30T19:10:23+00:00",
   "session": {
-   "date": "2026-10-29",
-   "bar": "final"
+   "date": "2026-10-30",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1370,7 +1364,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-30T10:40:01+00:00"
+    "as_of": "2026-10-30T19:05:23+00:00"
    },
    "earnings:GOOG": {
     "ok": false,
@@ -1382,7 +1376,7 @@
     "core": false,
     "source": "nasdaq",
     "first_source_error": "yahoo: curl: (22) The requested URL returned error: 429",
-    "as_of": "2026-11-18"
+    "as_of": "2026-11-17"
    },
    "earnings:SPCX": {
     "ok": false,
@@ -1397,7 +1391,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-28"
+    "as_of": "2026-10-29"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1408,108 +1402,108 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-30T10:39:34+00:00"
+    "as_of": "2026-10-30T19:06:10+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-30T10:50:17+00:00"
+    "as_of": "2026-10-30T19:00:40+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-30T10:55:48+00:00"
+    "as_of": "2026-10-30T19:04:00+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-30T10:55:30+00:00"
+    "as_of": "2026-10-30T18:25:30+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-30T10:58:00+00:00"
+    "as_of": "2026-10-30T19:03:12+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-10-30T10:56:23+00:00"
+    "as_of": "2026-10-30T19:00:06+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-10-30T10:06Z"
+    "as_of": "2026-10-30T19:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-29"
+    "bar": "provisional",
+    "as_of": "2026-10-30"
    }
   },
   "degraded": [
