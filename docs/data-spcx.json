@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-11-02T12:00:14+00:00",
+ "generated_at": "2026-11-02T20:10:19+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 98,
+  "sessions": 99,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~98 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~99 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "3 down days",
+   "value": "-5.9% in 5 sessions",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 98 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 99 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 42.3,
+    "pos": 60.9,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -41,7 +41,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "64% ann.",
+   "value": "58% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "36.3%",
+   "value": "34.6%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 36.3% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 34.6% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 72.6,
+    "pos": 69.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "98 sessions",
+   "value": "99 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 98 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 99 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 19.4 (p77), F&G 26",
+   "value": "VIX 21.2 (p87), F&G 23",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -88,15 +88,15 @@
   }
  ],
  "fund": {
-  "price": 134.72,
-  "as_of": "2026-10-30",
-  "bar": "final",
-  "day_change_pct": -6.37,
-  "sma50": 149.56,
+  "price": 138.29,
+  "as_of": "2026-11-02",
+  "bar": "provisional",
+  "day_change_pct": 2.65,
+  "sma50": 149.59,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 36.3,
+  "drawdown_pct": 34.6,
   "series": [
    {
     "d": "2026-06-12",
@@ -685,6 +685,12 @@
     "c": 134.72,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-11-02",
+    "c": 138.29,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -731,13 +737,13 @@
  },
  "underlying": {
   "symbol": "SPCX",
-  "price": 134.72,
+  "price": 138.29,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 63.8
+  "level": 57.7
  },
  "fomc": {
   "next": "2026-12-09",
@@ -755,61 +761,61 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-10-30",
+  "end": "2026-11-02",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 2100.0,
-  "dca_value": 1939.18,
-  "dca_return_pct": -7.66,
-  "dip_value": 1925.96,
-  "dip_return_pct": -8.29,
+  "invested": 2200.0,
+  "dca_value": 2090.57,
+  "dca_return_pct": -4.97,
+  "dip_value": 2077.0,
+  "dip_return_pct": -5.59,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 20,
+  "dip_buy_days": 21,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "SpaceX reportedly in talks to buy EchoStar\u2019s Boost Mobile",
-   "source": "The Next Web",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1CMjB5NnJhdUtUX2o3SHhBcHY5Wl9WQ3I2bUtVSGFNUmttV05ibFBYRUFhRXB4a1BfdXN6bzlZTGtlTDdZSDFDSGZsc0NRcDBKVExsc25PUFdONFR3Zlk1OHE2a3BBdmlUSV9UQk5TUQ?oc=5",
-   "published": "2026-11-02T11:51:14+00:00"
+   "title": "Starlink introduces location-based pricing, with some customers seeing 20 percent increases",
+   "source": "RVtravel",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNaU5ORVBJOWpsdnBxeGNMS2pYZ1lZUzdKUGZMQzVIdl92a0RoUmtJWFBXXzN1VEdxdzB0NnNEdVZSQ2pCSDNPQzYwLWNQbzRqX2NvTldJamxnWmNMVkJBUG8yV1RkYVowTE1yOElFdDJoRjdBaEoxYllrRV95NDhFY2h3?oc=5",
+   "published": "2026-11-02T19:55:29+00:00"
   },
   {
-   "title": "$Pfizer (PFE.US)$$Inovio Pharmaceuticals (INO.US)$$SpaceX (SPCX.US)$$NVIDIA (NVDA.US)$$Micron Technology (MU.US)$",
-   "source": "Moomoo",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNc1VfQnRpdDJ4NGRSclZQUkZZRHc3WHpXOUpnbEc5cVBMQzBZeGJ2a1ZJX0xWcGNMRmgxMlQ4UWN4MFB1R1d4cjh2MENYN2UtdUNFMjZySWpmTWlETGpLZDVFRV92bU9kNlh6NXMtcjBRVWhob1lzUkJGWjhGdG53Zy1tMUFmcl9sOWszZEpYQXZqS3hTOFVrZjlRQkZ4b01ILVdkWHRfZnZiYmE0UXExcmJB?oc=5",
-   "published": "2026-11-02T11:49:30+00:00"
+   "title": "Elon Musk Wants to Take on Verizon, AT&T, and T-Mobile - And Boost Mobile Could Be His Secret Weapon",
+   "source": "Gadget Review",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNTJ1UnVxU2N1MVVHMnI1SGZOa1ZRRjRuckhXQm5SaFBwOEtIcDU5Qlp3LXhtRmQxcnp3ZUVWVjVWUHRnaE9Fa3djYng1c25zdFp2LURnRlI3UmtGcm5Relh1eVUyWXJlc0JtSmROTHJIQW5oVGV6X2tNaUdEd3IxdVl2d1F3WE1QOTM4X3RQZDloLXdmcFZEdVl1N09EcVFndjYwOUdicm9mdjFqMUtGTTV2ZDY0NnpNZ0lZOEhCR1ZrUQ?oc=5",
+   "published": "2026-11-02T19:50:50+00:00"
   },
   {
-   "title": "A $731 Billion Opportunity for SpaceX Stock",
-   "source": "GuruFocus",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOekoySTJOcUp4ZFlKcmd1cG1vU3Yxek1ZTW85M1RWV1R0ZWN4MmVENTNuT3NaSWcwbjk1UjZia0xRNjRoMHAyMlVocEJLTnEwZTR1NmNiX2ZhekNQRDE4VzNiTTZNcXlqRXIwSjZsSkd6czEwekQ4cWpDU0Z5OGdEQTFXbHVZM1pU?oc=5",
-   "published": "2026-11-02T11:48:45+00:00"
+   "title": "Musk\u2019s SpaceX could finally launch its carrier service after buying Boost Mobile",
+   "source": "Digital Trends",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQQTQyaS1ZS2JuR2dOTjViMWRiV2lLQWhHRzJIa0xoYzg0VFAwUmY0Y2FRcWZCcF9MaVdiTFpkYzVQX09MRWZlMkdnZkhycm9CSjFkNE12S0MyLUZibTdrVHlHWWh6VWp5c3E2bmNybmI3NkppLTVCNjNuVzNwTGFNVmtNWkVIYjFOMVhNQTFlMlVlZm5KVnljVzl2WTNraGVFUlR4VUN6cnpWWEtzMzVuYWZvYw?oc=5",
+   "published": "2026-11-02T19:28:25+00:00"
   },
   {
-   "title": "Jim Cramer Sees a Bigger Threat to Telecom Giants as SpaceX Courts Boost Mobile \u2014 \u2018Why Do the Analysts No",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMimAJBVV95cUxQYThkLVJ6V0tFMUVSbmJfZXNPTnRxdWlUU3EyS2pmWFRCcjVUeEY5cUl1VkpzWVlWTWVYREhxX1FlOXJueVJZekJSbXNURko4WllXdDJZcFdXalBYcnlHT0pEQ3pzUWN2dWowYW5CcHZwNmRXLUpDZVNqUXVVYlZYSW5vd0doRVZtc3Q3YllyZ25UOGVDb1VoaDVGSUdrWThKMkZhUXliWnIxSWVrd2JwMWl0aXdMNjFJU3FtYjZyU09rMGZ4djl0cGoyVUJJT28tQVBweXZTbWpaQmY4aFkydTJPM2tFRnFBaUpvcWUzeFZGWi0wdl9tSFhzdGlLdEF5NUtKWm1rUG9zbjBZTXVnSnBjV3hySkFM?oc=5",
-   "published": "2026-11-02T11:47:04+00:00"
+   "title": "Any Florida rocket launches in November? 2 on the schedule so far",
+   "source": "Florida Today",
+   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOVDRWLVJYRVVkRkNBOFgyS0FMcWl6dnM1VmQtbk1uYnJ4NXZkZlUtUmRCaXFVOUU0VXJrZXFGdlZWUFROdmNhdng3TUJYaElXNnhVekdQVmx3b1A0Qk9oYWFZVHlKa2xSQ0JBeXlhMWc3a3hYTXRqTnQtaUdyTlN0dDRNUExzUTBnUGV1Z3FHTU8zMXpoY0x5MWdGTDRMR2M1bGhxWWpIMDJYb0N1MW9sTVZJbUd1ZEZlUk1jS00tTXFhNXFNUjg1NVNWLUkwb2JRNUZFVWk4TkwtYTlQSmNv?oc=5",
+   "published": "2026-11-02T19:26:00+00:00"
   },
   {
-   "title": "Elon Musk\u2019s SpaceX Is In Talks To Buy EchoStar\u2019s Boost Mobile, A Way Around The MVNO Wall Built By AT&T, T-Mobile, And Verizon, Even Amid A Threat Of Litigation",
-   "source": "Wccftech",
-   "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNdzZMZE1kX3N1TFM3NmY5d2tOZVBBQm5YY21kVDhjcjl2NUs1X3hFd1pyclNrTUU0MFVCb1J5TExPWlI1ZkZtWkJfOTlNTU5hUWpoWExLLUlUSHRSb0NqX0RXNXd0d2NlRDFkRU1aeXNIRFdCeENDMktxNmdaOE9ncDdlZ0pocWVBM1lCWVdiX3d6WXlLWWZ1bEdKTXF4WE1LRUF4LXhrdmRvZlU1YTgyeTV1QW8yaE5kZlpVY0lwUzhhazN5NkQySHFqNElxbEtJS0dobHc1ZnVrTGJ1al9tQk1kTDRLdHFvek9GMHlySVM2NlJZV3p5NnFkWVE3UXdUaFY0a1FB0gGLAkFVX3lxTE1GTTN1eWFwREY0VDZPLXZWcm9SdGp5Z2RkV1lXWGpYMnJPcmtER2JPRlBhX0cwRVJITTNGVXVSM1VSWDEyS3NfTTJwTWh3YzJsYTRJdDNoaXc1a2JCdDRleEtSeXBhbzJkc0wxdmV6QVloaVUwc2VyeW5UWlBuaUNKbVl3VjJVOExINUJVMU1vbF83S0FiMHpuME93VDhiakE0bElycFN5OXR6TWh5ZV9hclhVdVRrV2NLTkhkaEs4b0t6Szc0RmtGTlRKS05ycUpwOGE1QUxNR1FDR1hRemUyMFo3dkpvTk0zaWlORW5SWXdjdUt6X1dkdXdqc3BELURsRlJRZVlxc0RLSQ?oc=5",
-   "published": "2026-11-02T11:39:50+00:00"
+   "title": "xAI's Memphis AI data centers face EPA action and a Clean Air Act lawsuit over dozens of methane turbines",
+   "source": "Latin Times",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQUmxzeWN6LU9mVDV1VDdVZkJLd20wb3c0Zl9GM3lrZG9iaUVKNVkxNzdXckp1VVJRalVkWTZ3ck4yM25GVW9IS3U5cFV5VzlJNmFUc2lKbndGcjFHRTZDV3MtdUY0ck5CUm03UHJKUHg5dmotQVRfckdmaVdIRVpRSU1ld01EMFhxS2ZtaG4xblY?oc=5",
+   "published": "2026-11-02T19:05:55+00:00"
   },
   {
-   "title": "Inside Elon Musk\u2019s plan to conquer a new industry",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQM3hVb1R3X1JVWkxpZ04wdUZDLXMyVFdGbXA5OFprUFZUcUM1TkpUTXZMRXNzNXoxWFF4cHBDemFWazhzLUFlcTl5cGgyRzh3UWVYZFVhdmVBUkY4cl8tTm5TeUpKNS1jcnZrMmtuRFplRDNBYVpwSktjUTl3NDgwYi15aU5Eb2swR05TTlhZZ1haUURmNHhuYkZ2bHBERER6blh0eWk5Rnk1QQ?oc=5",
-   "published": "2026-11-02T11:32:41+00:00"
+   "title": "SpaceX looking into buying Boost Mobile or use network: report",
+   "source": "FOX 10 Phoenix",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9ZRXFvUGtLWW1ncjJVUkFmd2podjVIR1JYa1pBVU5NbDdXV2gzQWRyU1ViQ2xCTnRITUlkR2Z4M1ZNcjQxME5QLWVIOFN2ZWNtYWwwNXI5X1hVRFRrS2JlUzQ2VUpGeXVqd1o2QlRxQ3FEZXFPTXFj?oc=5",
+   "published": "2026-11-02T19:03:28+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-02T12:00:15+00:00",
+  "run_at": "2026-11-02T20:10:19+00:00",
   "session": {
-   "date": "2026-10-30",
-   "bar": "final"
+   "date": "2026-11-02",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -825,7 +831,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-02T11:43:46+00:00"
+    "as_of": "2026-11-02T20:08:04+00:00"
    },
    "earnings:SPCX": {
     "ok": false,
@@ -840,7 +846,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-29"
+    "as_of": "2026-10-30"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -851,84 +857,84 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-02T11:57:47+00:00"
+    "as_of": "2026-11-02T20:03:45+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-02T11:47:43+00:00"
+    "as_of": "2026-11-02T19:35:00+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-02T11:51:14+00:00"
+    "as_of": "2026-11-02T19:55:29+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-02T11:21:52+00:00"
+    "as_of": "2026-11-02T19:11:56+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-30"
+    "bar": "provisional",
+    "as_of": "2026-11-02"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-30"
+    "bar": "provisional",
+    "as_of": "2026-11-02"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-02T12:00Z"
+    "as_of": "2026-11-02T20:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-30"
+    "bar": "provisional",
+    "as_of": "2026-11-02"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-30"
+    "bar": "provisional",
+    "as_of": "2026-11-02"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-30"
+    "bar": "provisional",
+    "as_of": "2026-11-02"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-30"
+    "bar": "provisional",
+    "as_of": "2026-11-02"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-10-30"
+    "bar": "provisional",
+    "as_of": "2026-11-02"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-30"
+    "bar": "provisional",
+    "as_of": "2026-11-02"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-10-30"
+    "bar": "provisional",
+    "as_of": "2026-11-02"
    }
   },
   "degraded": [
