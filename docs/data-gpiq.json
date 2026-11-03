@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T12:00:11+00:00",
+ "generated_at": "2026-11-03T20:10:14+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "30.9 (p97)",
+   "value": "30.8 (p96)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "Nasdaq-100 volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive (about +1pt over the next month, so it carries a 1.5 weight).",
    "viz": {
-    "pos": 96.8,
+    "pos": 95.6,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "good",
    "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 69.8,
+    "pos": 70.3,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.46x (p78)",
+   "value": "1.46x (p79)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 78.5,
+    "pos": 78.6,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.3 pts",
+   "value": "+8.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "9.5%",
+   "value": "8.9%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 95.0,
+    "pos": 89.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -140,21 +140,21 @@
   },
   {
    "name": "Short-term pullback (reversal)",
-   "value": "3 down days",
+   "value": "-5.0% in 5 sessions",
    "score": 2.0,
    "weight": 2.0,
    "lean": "good",
-   "note": "QQQ has closed down 3 straight sessions. Short selling streaks like this have reliably bounced the next day - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.39% next-day excess (t=4.0) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
+   "note": "QQQ is down 5.0% over the last 5 sessions. Sharp week-scale pullbacks like this have reliably bounced - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.39% next-day excess (t=4.0) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-5.9%",
+   "value": "-5.3%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 0.8,
+    "pos": 5.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.44% (+0.20 1mo)",
+   "value": "3.43% (+0.33 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 36.0,
+    "pos": 35.8,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.9% vs 4.2% cash",
+   "value": "10.8% vs 4.2% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 67.0,
+    "pos": 66.3,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -227,7 +227,7 @@
    "lean": "good",
    "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
    "viz": {
-    "pos": 18.8,
+    "pos": 19.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,21 +257,15 @@
   }
  ],
  "fund": {
-  "price": 53.11,
-  "as_of": "2026-11-02",
-  "bar": "final",
-  "day_change_pct": -2.17,
-  "sma50": 56.8,
+  "price": 53.415,
+  "as_of": "2026-11-03",
+  "bar": "provisional",
+  "day_change_pct": 0.57,
+  "sma50": 56.74,
   "sma200": 55.26,
   "high52w": 59.52,
-  "drawdown_pct": 10.8,
+  "drawdown_pct": 10.3,
   "series": [
-   {
-    "d": "2026-02-17",
-    "c": 51.38,
-    "t": "ok",
-    "s": 59
-   },
    {
     "d": "2026-02-18",
     "c": 51.76,
@@ -1345,6 +1339,12 @@
     "c": 53.11,
     "t": "good",
     "s": 88
+   },
+   {
+    "d": "2026-11-03",
+    "c": 53.415,
+    "t": "good",
+    "s": 88
    }
   ]
  },
@@ -1357,7 +1357,7 @@
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.44%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.43%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1397,12 +1397,12 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.86,
+  "ttm_yield_pct": 10.79,
   "tbill_3mo": 4.16
  },
  "fx": {
-  "usd_krw": 1345.08,
-  "as_of": "2026-11-03T12:00Z"
+  "usd_krw": 1344.32,
+  "as_of": "2026-11-03T20:10Z"
  },
  "distributions": {
   "history": [
@@ -1525,13 +1525,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 681.09,
-  "sma200": 679.82,
+  "price": 684.93,
+  "sma200": 680.13,
   "above_200d": true
  },
  "vol": {
   "index": "VXN",
-  "level": 30.89
+  "level": 30.76
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1544,61 +1544,61 @@
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-11-02",
+  "end": "2026-11-03",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15900.0,
-  "dca_value": 20260.21,
-  "dca_return_pct": 27.42,
-  "dip_value": 20046.73,
-  "dip_return_pct": 26.08,
+  "dca_value": 20376.56,
+  "dca_return_pct": 28.15,
+  "dip_value": 20161.86,
+  "dip_return_pct": 26.8,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 65,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Enterprises pay $100,000 a day for AI they never ordered",
-   "source": "CSO Online",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxORW9QVm0zemhZeDhuZkRnWUllMDlJZVZlOTgwT0lxcFk5VGVQN1Y3QkR6TVB2NWxHcEVwZHA3TFY4RmFJQWJLZ2l4UkNteVlIeWdHRU1LWVpVNGROaW92d1JaZ3JCR3JzT0dHYU5EY0ZyY1ZIN2l4eFhlZkhveWhKT2pyOW9jcDlEeWNhRl9PcHVKRUhvb2UtVnVVM1pUYUhlelo4?oc=5",
-   "published": "2026-11-03T11:53:29+00:00"
+   "title": "Federal judge: AI child porn charge does not violate First Amendment",
+   "source": "Colorado Politics",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQc29KWC1TMTU4SzRiS2FhdDNhc0ktMzFXclNjTXI3RUdkX0tsRDI2MjUtdThKbENIbGxpMU5TcC00Tld5SHIwNlAxdzNjUk9Gc0t0eWkySkg5WjZCYk15c21MalY5endLU1NEejduUFp4RTB4ZUFubzVkUENkejFZY0E5dng5LXYxYVBYczRJRE41elBXWUlDN2h0cWNCa1pjSVpRUjZzVGw0VWN4ejdBdnRB?oc=5",
+   "published": "2026-11-03T20:03:36+00:00"
   },
   {
-   "title": "AI Fraud Arms Race: Synthetic IDs, Takeovers, and Risk Shifts",
-   "source": "Emerj Artificial Intelligence Research",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQM0pZUTg2b2hja0Jzb0lQdGdWNnBjZGlFZ2Z6QjZ2Vk03TEhJX2psRWt2dFR0LUlCWFVCb0QwSnZ0UXBMWE9weEE3akZYRXJ2djlCZTFqMWNUcXpzUnNTb3BJc3U0ZDVuNjl1VTJyUHlaSlJaRFRwR0JVeEtFSjE1d0x1dw?oc=5",
-   "published": "2026-11-03T11:52:41+00:00"
+   "title": "Google researchers are fighting the company to tell the world what they know about AI",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQYWNrdVBqZDE1MU5SRE1jMEI4Y3VLRnlkYmYteUhFRFRhbGp2UXZpa18tNmlsU3BqWWszRkc0UWl0WE5XbUlZSDBCTDl2R3psX1BCNTkyZUxjaFZuaVlVUU9iTWJoaWdIWGExRXZfSzdYdjIxTll1R010Nnhlb2ZtYktZU21HU1ZzRkhBcm5lb2c2ZnluOWdoMy13S2NqMDNpUVd6MFQ1M255RDdIT2VCTzN6d0ZTVWM?oc=5",
+   "published": "2026-11-03T20:00:39+00:00"
   },
   {
-   "title": "Artificial Intelligence and Teacher Self-Efficacy: From Technology Adoption to AI-Mediated Efficacy Reconstruction",
-   "source": "Frontiers",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNQ0FjQ2ptS29FbUVrUzdfZDZNUXlsTWpQdGVPbEtHdmp4MVVFY3k2MXU4c3lwTWVfamhmbTdKMlpxUWtnUmJUQmoyNk1YWkFGN1lkaTFGM0NENG92OWs3RG4xazVuTmNJSTB0YmFFdGl2ZGczQTIxSmRMVm11OXo3YXRlb1pqX1IxWnVaN1I0RzJyZw?oc=5",
-   "published": "2026-11-03T11:50:50+00:00"
+   "title": "Most AI health equity guidance is general and U.S.-based, Georgetown review finds",
+   "source": "Medical Economics",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOQUxzbWVXWFJ3dXNfcUM2OHJlSDYzX3Y0X1ZCNURWYTQ1RGdzX3NoOF9fc3N2dVJ0ZTlFUDRCOFdfQ0RGdnJWRlZVd0hGeWg5a1IyUmx3RWtPRmRGVUI5M3NPNkxMNmFFYzUtOWcwaEVfdVJBMlF2YnZKMm9HOF9ZYUZ0ZDRZVWVBWU12SHBQSUNVT1pVZGY0WEc1bnhHNDJrXzltb3pWczZ1Qm5DM1prX09rMWYwSE50aEE?oc=5",
+   "published": "2026-11-03T19:55:31+00:00"
   },
   {
-   "title": "AMD Needs a Huge Outlook to Avoid Intel\u2019s Fate as AI Fears Rise",
-   "source": "Bloomberg",
-   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNd1c2MWstT1VvTHRuSWJHdnJucWkwSzBlanBDOGVCelhJS2t0VXV5TlpJREl3OVFfUGtOWDBtLXJ4WGs3S0tlelNLSl9tYUo5RWRGVlB5X2tva2VLaEZJc3V3NmNkX1d1ejNHZC0xSlZrNnI2RHVtckY3Z1Jxb3BCcEdjbkU1QXhKRFVseWkwX0xiaHlMRWdKYm5haWpiWGZVZHYwenZVcFZFNmhfT2dET25Wd3hEYk1JM2NKVGloM291T2JwcVMybmM1OFhGdC0xd3E4?oc=5",
-   "published": "2026-11-03T11:43:17+00:00"
+   "title": "Super Micro to report Q1 earnings as AI trade attempts comeback",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOWEF1SEY2cmRCbHIxUjltS2tKS1k3RVdGWE9QbENHSm5mM3kxZUQ5Y3JBb3BPd0ZYWmM2d2JOLWJfSE05S3FqNmdfSEdtdElnV2tFbi1xaHo5WHJUWTZKNVFjV2xCVEFQcUtNN01vbndPR0x6UXY0dDY1RU1qa1FncU92UzZqdjV4cURJQTdpd2Y4TWxzZy1xSlQ3VXF2NzBmOWpfeVkwa0t1WU9XVG1yY3MxanhnQU9jQlpJYzVhZ00?oc=5",
+   "published": "2026-11-03T19:53:15+00:00"
   },
   {
-   "title": "AI boosts cybersecurity threat detection after PHP vulnerability emerges",
-   "source": "Anadolu Ajans\u0131",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOYTZ1eXRUWE41NUZDTWszQjV0ZXZxUHNZT1hoZ0JmcDFFMzZYNzNnOGFjc1NpU1gtQU03NkpPWHl5cldoNFh5aENFMVU4cF9GeE9yREUwc1JTV25QWU96bVBrXzdOZk80VlVyb3A0VFVaYkE5WVZuYnc4M3M4ZW84SS03RW9rM1VDbkttUkpEMFZaMlhwVnZCMllnNUR3WGwzNXRmMklhb2M5OFh3Nkk3Yg?oc=5",
-   "published": "2026-11-03T11:43:13+00:00"
+   "title": "Google Will Turn Off Search for Schools That Reject A.I.",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPa2ZWRmYyZW9YZng5SmhjYnpjQ213dnRKVjVjNW1rcS1RRFoxVUFKYnl2VlVjMk1abE1kQTE2Qk1Ea09WcHlvMjFNbTREWnhmYXZiTjE5RTY0bUdMZGsyRFRCNDNWQjg0SG90WXlaSVV1d19iV0x4UEVnVlFzS3dyVWZB?oc=5",
+   "published": "2026-11-03T19:49:25+00:00"
   },
   {
-   "title": "What does responsibility mean in the age of AI?",
-   "source": "Gates Cambridge",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQU1NZeDZEVFhqQzllX1JhM3VBaXlsZ0RmSVB5U3Z2SS1aTlNsQmNXMUdzMWxZY214aUhmNnd1YW9HVmRMRHV5eGgweVNFOFJybklPSWpmaFlub0pjVURjYzZVQldzR1Q2Zm5OWm9uWC1QdVF3S2VKNzU1VVByMWk0UTR4aUk4bGpQVU9JdWMzOUNLdEE?oc=5",
-   "published": "2026-11-03T11:43:05+00:00"
+   "title": "Doctors Are Bound to Do No Harm. AI Chatbots Aren\u2019t.",
+   "source": "Spring Health",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPRE5pbWNNREFSenFHVV9kQjJ3SGx5aFMzcFhMVV9ENHNjZDRMQUItNUlCNEljQ3cyS3JxNEc4S0ROeEN4V2NPT2hGcUFFb0NSSl9Hc25QNWo1RmhDUk5pUFhtYWhkeWstMjV3RWZYSXFBdzZXLUtfNC1Ed3Axcml4OWtROWpvclBkblJR?oc=5",
+   "published": "2026-11-03T19:48:26+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-03T12:00:12+00:00",
+  "run_at": "2026-11-03T20:10:14+00:00",
   "session": {
-   "date": "2026-11-02",
-   "bar": "final"
+   "date": "2026-11-03",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1614,12 +1614,12 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-03T11:41:16+00:00"
+    "as_of": "2026-11-03T20:06:11+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-30"
+    "as_of": "2026-11-02"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1630,60 +1630,60 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-03T11:53:29+00:00"
+    "as_of": "2026-11-03T20:03:36+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-03T11:35:00+00:00"
+    "as_of": "2026-11-03T19:31:00+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-02"
+    "bar": "provisional",
+    "as_of": "2026-11-03"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-02"
+    "bar": "provisional",
+    "as_of": "2026-11-03"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-03T12:00Z"
+    "as_of": "2026-11-03T20:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-02"
+    "bar": "provisional",
+    "as_of": "2026-11-03"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-02"
+    "bar": "provisional",
+    "as_of": "2026-11-03"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-02"
+    "bar": "provisional",
+    "as_of": "2026-11-03"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-02"
+    "bar": "provisional",
+    "as_of": "2026-11-03"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-02"
+    "bar": "provisional",
+    "as_of": "2026-11-03"
    }
   },
   "degraded": [],
