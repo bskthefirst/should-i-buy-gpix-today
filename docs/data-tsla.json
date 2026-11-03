@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-03T20:10:17+00:00",
+ "generated_at": "2026-11-03T22:34:30+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 84.5,
+    "pos": 85.3,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "37% ann. (p22)",
+   "value": "36% ann. (p22)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "bad",
    "note": "An unusually quiet tape for TSLA. Quiet periods leaned slightly below average in validation but didn't meet the scoring bar - a lean, not a score.",
    "viz": {
-    "pos": 22.2,
+    "pos": 21.8,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "18.8%",
+   "value": "18.7%",
    "score": -1.5,
    "weight": -1.5,
    "lean": "bad",
-   "note": "TSLA sits 18.8% below its 52-week high - the falling-knife band (10-20% down). The one zone in this entire project with era-robust evidence of BELOW-average forward returns (negative in every era, t=-2.6 next-day, t=-1.9 monthly). Single names in mid-drawdown lean momentum, not mean-reversion. Weight -1.5.",
+   "note": "TSLA sits 18.7% below its 52-week high - the falling-knife band (10-20% down). The one zone in this entire project with era-robust evidence of BELOW-average forward returns (negative in every era, t=-2.6 next-day, t=-1.9 monthly). Single names in mid-drawdown lean momentum, not mean-reversion. Weight -1.5.",
    "viz": {
-    "pos": 37.6,
+    "pos": 37.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 21.0 (p85), F&G 19",
+   "value": "VIX 20.8 (p85), F&G 19",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,15 +128,15 @@
   }
  ],
  "fund": {
-  "price": 397.98,
+  "price": 398.5,
   "as_of": "2026-11-03",
-  "bar": "provisional",
-  "day_change_pct": -1.45,
-  "sma50": 371.4,
+  "bar": "final",
+  "day_change_pct": -1.32,
+  "sma50": 371.41,
   "sma200": 384.93,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 18.8,
+  "drawdown_pct": 18.7,
   "series": [
    {
     "d": "2026-02-18",
@@ -1214,7 +1214,7 @@
    },
    {
     "d": "2026-11-03",
-    "c": 397.98,
+    "c": 398.5,
     "t": "caution",
     "s": 41
    }
@@ -1224,25 +1224,25 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "TSLA at $440.89 (+10.8% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "TSLA at $440.89 (+10.6% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 37%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 36%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-02",
-  "days_total": 756,
+  "end": "2026-11-03",
+  "days_total": 757,
   "backfilled_days": 707,
   "fg_coverage_start": "2025-11-03",
   "baseline": {
-   "n": 735,
+   "n": 736,
    "avg_pct": 2.81,
-   "median_pct": 0.93
+   "median_pct": 0.94
   },
   "bands": [
    {
@@ -1262,9 +1262,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 380,
-    "avg_pct": 2.7,
-    "median_pct": 1.02
+    "n": 381,
+    "avg_pct": 2.71,
+    "median_pct": 1.04
    },
    {
     "tone": "caution",
@@ -1277,17 +1277,18 @@
  },
  "income": {
   "ttm_yield_pct": null,
-  "tbill_3mo": 4.16
+  "tbill_3mo": 4.21
  },
+ "distributions": null,
  "underlying": {
   "symbol": "TSLA",
-  "price": 397.98,
+  "price": 398.5,
   "sma200": 384.93,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 36.6
+  "level": 36.5
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1304,62 +1305,62 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-11-03",
+  "start": "2022-11-04",
   "end": "2026-11-03",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 32473.37,
-  "dca_return_pct": 54.64,
-  "dip_value": 32463.45,
-  "dip_return_pct": 54.59,
+  "dca_value": 32522.79,
+  "dca_return_pct": 54.87,
+  "dip_value": 32515.99,
+  "dip_return_pct": 54.84,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 204,
+  "dip_buy_days": 203,
   "winner": "dca"
  },
  "headlines": [
+  {
+   "title": "Tesla (NASDAQ:TSLA) Shares Down 1.3% - Should You Sell?",
+   "source": "MarketBeat",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPVEk0N0o1OHVWT010b3NUQ1hrZDlnbTNpTUdIQzlkQmJtc3RTUDA0bVBUQk9PUWJyTGFsdmhjS1R0NGVLNlRwb0JUblYwekJPclNDT0daT040X01IX0lzRVFtZUUyWkh1aWhRU1lDVnRkNlNrSlU1RTJpVjFOM3g4bXVKcFNnUnVPWVlJajMwbVZoVzUxbTQ5aG9yNlZiRWFkNnhOVnRodVpQcW9P?oc=5",
+   "published": "2026-11-03T22:30:56+00:00"
+  },
+  {
+   "title": "Elon Musk's SpaceX and Tesla Join Amazon in Opposing OKXICE Tokenized Stocks Plan",
+   "source": "Bitcoin News",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPNmhXX2lRZWVkWDYyRjJCblhvakRhRm5iaHdYOW5BZWwwNWZyaE56dGdmZ09mVlBTYjBtbXl1SEgxbC1tTE0zRVBndVgyYWpxS0I5SFdzWTNsYW4yU2tLay1ESlZNeTc2ZU9MSm84Nkxsd1dqcGtxSGVPUDhhRVJScEJuZVFhZDY2aUxOSDZPLXdEdm45S0R5UWxYTzU?oc=5",
+   "published": "2026-11-03T22:28:08+00:00"
+  },
+  {
+   "title": "'Spiritual sickness': James Talarico blasts Elon Musk, says Tesla success due to taxpayers | RISING",
+   "source": "The Hill",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONXlxb0NWRTdVOFZXVzIxeGhqbDVVZW1CRi1hQnFCQ3BBVHl1VXRGRGhpM3JHSlB6OVdyNVg5Uk5vdkZULUZ0X0J2b1RhOERYYW16R0JFdjB1M3hNRW5COFB5ZGdPd3hXdlJGUDBtbVNRT0c1M3QzdndBR1VwZUdQMnRfQVdMV2hNd3AzdGtkTzEtVnFmeHZZX0stcHYxNHJnVkdPY2tjaGprV2RZZEg1dHMwb0s0Z3d3RnFtVHhrUlhnMkFnTEI0ag?oc=5",
+   "published": "2026-11-03T21:09:00+00:00"
+  },
+  {
+   "title": "Musk\u2019s pay under a SpaceX-Tesla merger: voting control, but no $1 trillion payday\u200b",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQenlkU0tVOVBzcm1oVTFKMjNPUVlJY25RNjBfUXo5OGFPeWg2S01zM0lTa3ZXa216UjhPTVlXdzU1RXU4aWtJVnZ4cmJQX19xV1M1NG5HbWFLYm9ReUp0VUFBMThuS1JHMzJRZGxLZnNmNVlCb0lOQ2tfamowMU9TRnRLZ2l1X1I0Qkk5YWotZ1pIeXVyNHp0MEZ3V2h4ZVpmX2lXMlRqbHlTaU1VQUd1N1NKa3lNa25hdXZuSlBTNUZLVDJfUU1CTE1n?oc=5",
+   "published": "2026-11-03T20:34:40+00:00"
+  },
+  {
+   "title": "Tesla owners can earn up to 12 months of free Full Self-Driving (FSD) via the Referral Program",
+   "source": "Tesla Oracle",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQSnpjNTRJY3R5S3ROOVpsSHRXR2xDMXFrcms0dDE3S3JlajJjR3MxdGxCUG5ncG9xQm5lTUN4bnFLSTJ2b3Z0cXEyMUo2RVVTZDlNLW9qdjJ6cHUxVzhULXU2OElxQVhLWjZ0TkljWHZ1b3I0dDB3YVJZZHFzblpVNWctcXhmY1RueXVwaWdrWXJCd3hIS3FaeFd5WUxrQjVacTh2LUFBWlRVaGpUTGhKNEQ2Z0c5T1ctcUk5Yk8xOWd2M0VsNmFtMDdSWlU?oc=5",
+   "published": "2026-11-03T20:07:56+00:00"
+  },
   {
    "title": "Amazon, Tesla and SpaceX Join 56 Firms Blocking OKXICE Stock Tokens",
    "source": "FinanceFeeds",
    "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNUY5NzBBSm96Z1I2cnVqSW9ESFBSV0Mza21KTFpRaEJVdWdPaWpwaTd0eHpRMEFFUHZRZnFaX0dEQmFzaFM2Y3R1NGtWbWRnSWVhTl9BUWlvQkI4TXhmY21uZjJHdUVraC1kSkdINTN2V3hnX3daLWFkcHBHYUNXUy1qbFYxVXR6ems4aUQ1azZqcmM5eFZR?oc=5",
    "published": "2026-11-03T20:02:12+00:00"
-  },
-  {
-   "title": "SpaceX-Tesla merger could provide 56% voting control for Elon Musk",
-   "source": "The American Bazaar",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOQVM3dl9RYVVDcUwyRTZFQklsRHBkRlR1VHBUT0hibGQxLS0zRDFzQk5xRWU4TU8xYk1aVWtmMmtJTXVNTzMxbERKMTI0OU9OclFWSjVWNGNwal9KUk1lUEF2bl9xbGFuVXpCa1hsTll6QlQ1Nnp4X1RPUkFiVXFxdDVZQjlUR3RWb21KaDlhZm9NQlBRY0NDVEtJVE9FTU51emJacklPbDlhMk1mZjRwXzVrZ3o0NHJ5?oc=5",
-   "published": "2026-11-03T19:12:19+00:00"
-  },
-  {
-   "title": "Elon Musk\u2019s Tesla and SpaceX protest NYSE parent's new plan",
-   "source": "roundtable.io",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOQ1R5LWNaZXJnRWl2c0dLbnFyUXNOM01zeG9EXzVDN0FUTFdGZkVrRWRxcWFtMnhIN3BDdFdWd3JnNV9XVTF1SjVOczE1UlNHM1BndHg2WVlRX2x2RmtyVS1jNURicW5kNU9CZ1ZxYUduTG1TYl9DY09HeDc2SXN4X3c3NFVzNTZZNnNWQlR3?oc=5",
-   "published": "2026-11-03T19:03:33+00:00"
-  },
-  {
-   "title": "Tesla (NASDAQ:TSLA) and SpaceX (NASDAQ:SPCX) Merger Could Give Elon Musk 56% Voting Control",
-   "source": "Stocks Down Under",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9NUzVwd0lrTXFaT0JXbElTblk2ZGRLcVJGZ1ppRUZuTFdvekdYYkNPUDlLWGxhaXRCSHMtOGVoZVljX25OUTUtWW9zWDBINjNVbEdfQS0wYVpacHpBa0pRLWU3MzE4Z1dPYXNFX2laUEZYdDlnaGFGR1VnV21pUQ?oc=5",
-   "published": "2026-11-03T18:56:33+00:00"
-  },
-  {
-   "title": "Tesla, Amazon and Netflix Reject OKX-ICE Tokenized Stock Plans as 56 Companies Push Back",
-   "source": "Coinpedia",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNS0FuUmdMSkJ5U2VWalU1MnVBTjM2OG4wWUxPQzdsdV85ekplYWZPN1B2NVdtVTZtS2RoU3p6RmxzYWlDeERfUFUxelR0bWFuSTdzR3ViRXBOYnlBR1dUVXN3MGpUVnM5VU1lSXoyaTdvNmoxM0xwSW85Z3VjdVE5YmRSb3dvdlRfWEFpTmhFbG5uR0dhc3UyYnlYYlhMblFIdzhvSUNXQ080YWxGQzBscFJ1UVREVjJyWDNsR1NtbDFyQdIBuwFBVV95cUxPWDBYS3dnYS1hdkxsVzhnY1BuLWZ0RmlXNGJYd0NlWHhVVDN0b0QzbkNiaU1HemxHNEtyUjJRZk5NUWNPNGt2T0NEejNYOTV3LXdNREpTa19FQ0RickFFS21ybUtIdFlVWXk4bFVXUGp4R2xwYVpZYnpjaHVRaWNtUWJCTWJvZXc4WXpKblpfajlWTnRMV3JzU0NsRHJ5MDNFYnhieEwzYkVLaFQwX3ZJWWVzY3RCZ1ZYQi1v?oc=5",
-   "published": "2026-11-03T18:53:13+00:00"
-  },
-  {
-   "title": "Amazon, Tesla, Netflix Among Six Firms to Oppose OKXICE Tokenized Stock Platform",
-   "source": "The Crypto Times",
-   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOSU9KWGZFd3VMa21tdXU5WGRMRWI0MHVmbHJfcC1OR1I3OGxvdWhNRTBPdy1sbk9mUFBSVDFfVDlZNi1EZVJpLURTUVZTd1BaTDluVTF2WUE4VGVNa0JZT2RHZ0MzY1J1M3UyQVhXWUJwS2VWQXpXUDNxdldqSG5lR0tzSDVhbDdqSGlpTUpydi15T3AzU1RDbFh2cEtfNVBBSmlKWHNCSHRHTFFDUTFGUUNidi1jQnRs?oc=5",
-   "published": "2026-11-03T18:25:09+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-03T20:10:17+00:00",
+  "run_at": "2026-11-03T22:34:31+00:00",
   "session": {
    "date": "2026-11-03",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1375,7 +1376,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-03T20:06:11+00:00"
+    "as_of": "2026-11-03T22:17:56+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1390,77 +1391,77 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-30"
+    "as_of": "2026-11-02"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-03T20:03:36+00:00"
+    "as_of": "2026-11-03T22:31:20+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-03T19:31:00+00:00"
+    "as_of": "2026-11-03T21:54:19+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-03T20:02:12+00:00"
+    "as_of": "2026-11-03T22:30:56+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-03T20:10Z"
+    "as_of": "2026-11-03T22:34Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    }
   },

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T20:10:12+00:00",
+ "generated_at": "2026-11-03T22:34:27+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "21.0 (p85)",
+   "value": "20.8 (p85)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "good",
    "note": "S&P 500 volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good.",
    "viz": {
-    "pos": 85.4,
+    "pos": 85.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -46,7 +46,7 @@
    "lean": "good",
    "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 70.3,
+    "pos": 69.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,7 +63,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+9.8 pts",
+   "value": "+9.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "good",
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.2%",
+   "value": "3.1%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 32.0,
+    "pos": 31.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "-1.8%",
+   "value": "-1.7%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 35.0,
+    "pos": 35.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 42.3,
+    "pos": 41.8,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -200,7 +200,7 @@
    "lean": "good",
    "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
    "viz": {
-    "pos": 19.2,
+    "pos": 19.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,14 +230,14 @@
   }
  ],
  "fund": {
-  "price": 54.65,
+  "price": 54.68,
   "as_of": "2026-11-03",
-  "bar": "provisional",
-  "day_change_pct": 0.33,
+  "bar": "final",
+  "day_change_pct": 0.39,
   "sma50": 55.88,
   "sma200": 54.32,
   "high52w": 56.67,
-  "drawdown_pct": 3.6,
+  "drawdown_pct": 3.5,
   "series": [
    {
     "d": "2026-02-18",
@@ -1315,7 +1315,7 @@
    },
    {
     "d": "2026-11-03",
-    "c": 54.65,
+    "c": 54.68,
     "t": "ok",
     "s": 66
    }
@@ -1335,7 +1335,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.5 (now 21.0) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.5 (now 20.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1346,13 +1346,13 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-02",
-  "days_total": 756,
+  "end": "2026-11-03",
+  "days_total": 757,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-11-03",
   "baseline": {
-   "n": 735,
-   "avg_pct": 1.63,
+   "n": 736,
+   "avg_pct": 1.62,
    "median_pct": 1.93
   },
   "bands": [
@@ -1373,19 +1373,19 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 537,
-    "avg_pct": 1.22,
+    "n": 538,
+    "avg_pct": 1.21,
     "median_pct": 1.61
    }
   ]
  },
  "income": {
   "ttm_yield_pct": 8.39,
-  "tbill_3mo": 4.16
+  "tbill_3mo": 4.21
  },
  "fx": {
-  "usd_krw": 1344.32,
-  "as_of": "2026-11-03T20:10Z"
+  "usd_krw": 1343.39,
+  "as_of": "2026-11-03T22:34Z"
  },
  "distributions": {
   "history": [
@@ -1508,13 +1508,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 754.21,
+  "price": 754.35,
   "sma200": 729.47,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 21.02
+  "level": 20.83
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1531,57 +1531,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15900.0,
-  "dca_value": 20118.65,
-  "dca_return_pct": 26.53,
-  "dip_value": 19933.98,
-  "dip_return_pct": 25.37,
+  "dca_value": 20129.69,
+  "dca_return_pct": 26.6,
+  "dip_value": 19944.92,
+  "dip_return_pct": 25.44,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 32,
   "winner": "dca"
  },
  "headlines": [
   {
+   "title": "Dollar Rises With US Yields as Focus on Iran Outweighs Election",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPMFQ3WWNUdmpsME9pTGJxOEVCZGZoNkZ0RDV2dFZMcDVRUTAycFRwNUFRNWdwbHBmTHV6SlRhOW96SkFIVlc0cDRpdXRUM3R5MVphNmJDZlpKdGgxV1BHVzRDU0FRRnNFVmMtU1VKM1dXN1I0V19HdHAwcTFPU3JDUHZkRGNQUV9yaHNvTldzVmM5Qi1ZNUhTU0ppb0VINnF1Vm9wTC05WjZlMTU1MnY1czEyRmI?oc=5",
+   "published": "2026-11-03T21:54:19+00:00"
+  },
+  {
+   "title": "Mortgage Rates Climb in October Amid Accelerating Inflation",
+   "source": "Eye On Housing",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQV0JacWxuT2dlaVpHOTgtZERQZXZmNXZFWGN3ZUFLQjF1VlFxeVZONDVwd3E2d3FhN1I3NWUxVDA2amtDQW9JOVg5dFlZUUhsUlZhYWZRRjd3UUI1eGlmaXpFdE84QVd5Z0plV2JMbUtVN0l3a19icEZyd3IzTGpuci12eHk1YmRDc0J5Y0laejZObW15YTVkUg?oc=5",
+   "published": "2026-11-03T21:43:50+00:00"
+  },
+  {
+   "title": "China's Desperate Stock Market Rescue Could Trigger a US Crash",
+   "source": "BeInCrypto",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE01MEdEMlJvMEdDcE9WVVZqWmNHY3FtM1U4M2swZ1dtNi1ydjZEbHQ2WWdCUnNTTFgxQng2V0VRZ1hSQ0NvSDBCSUR3OFg1QS1zVnN0R05UWXJXNHlnY0FuN1A2Y0JaOG1ra0JOV2ZBaw?oc=5",
+   "published": "2026-11-03T21:03:00+00:00"
+  },
+  {
+   "title": "As 2027 housing forecasts darken, here's the data brokers are keeping an eye on",
+   "source": "Mortgage Professional America",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQcUl0bnVsRkIxcDV3Zk5PLVAwWGo3R3N2V3hpdnotSWhIaXdmUk9vaTNWVDN2RF9kWVhmdU1TX3RIQ3hXNTd0SkhtQnV5NFU3TmVjNmdWUTlhc0JDMnh1ajVveGxfR3d6Q0s3OFMxRVExeVB1c0lkRXQ4cDdCeElqdEZkRmVPOXVxOGJSU25TTkdOYlVySE96R0ZCZEo5Y0ZqYjV3c1BZU1RGMmdITFBHdHBPWFZIVkFudFNXSkxDeFhuZHNKR3pYTXd3?oc=5",
+   "published": "2026-11-03T21:02:58+00:00"
+  },
+  {
+   "title": "Minneapolis Fed\u2019s Glaubke receives Federal Reserve System\u2019s Taylor Award",
+   "source": "Federal Reserve Bank of Minneapolis",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQYTZmeGh6YzJRVEtYRjhJN3RSaUFsQ2dVVjBmbG5PMWJ4Q2gxbkhrM0VacUdrLUQydnZoYzNRcGRFNTVVS3JNSm9ieHdEZU9SeVZKMkxrMFRHUkFQNVlHSkVSZnI4TWJKZU82d084ZGJjQkNab2VXU3VRTUpFZUpuVjhtYlY5QkhPYnAwZGJHX3NwSzB5T1Joc2pDZU90bVhOSmt3R0ltc1dTN0RrWVhFWGt6X01yVmV2aExGTw?oc=5",
+   "published": "2026-11-03T20:20:09+00:00"
+  },
+  {
    "title": "3 Stocks That Did Well the Last Time the Fed Raised Rates Aggressively",
    "source": "The Motley Fool",
    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQMUJkcHNUNkJsSlU4NzRMTU16WVdQblFXYVMxQkJnS0tOeXk0c1BtYTRtaFRGelNqLXNFMXVpeHN6LTVtTWpyYS1vd1BETmpNZU0tUHROQUlleFd6Z09kdDhYbW5pM1R1NmhLSmRHTkswZzNVZU4tem9fUmMtVldobnJLWFVWZ3B6aTBYRG9CelNLSXB4eVAydzRSeTF1NkdpeExIUnlxalZXV2pBbkdwYlVSYw?oc=5",
    "published": "2026-11-03T19:31:00+00:00"
-  },
-  {
-   "title": "El Ni\u00f1o could push inflation 1% higher in 2027, Fed study finds",
-   "source": "Mortgage Professional America",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNNFphcU1VNEJNeFlPczlrdml3VkZFZlh0eXJXamxMVkY4Y2VRWlRURnJScXJUdGhfb0ZwU0Fla0x4LXJ0VGt2TmtTUHJWc3RlQjRTbDZpWjJCN3UtQzZEcXpYUUZZT080Q1JuckF4alRGVmtGODZ0Q3BfZk1fYWFnLUNtVkg2Wm90SHJ5VEtDYThWVzBxZFhRNC04RzRqWmhuNzdwVmdMU19LX0FQYThfeWlNOTdfZzJQZ0Rjb1VoNHJqVG4tclZF?oc=5",
-   "published": "2026-11-03T19:11:02+00:00"
-  },
-  {
-   "title": "Franklin Templeton's Perkins sees crypto moving beyond rates",
-   "source": "TheStreet",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQN1l5Z2VDYjludGczOUNyOGVvbnE2TDVMNmNhbThNYUtXNVUzOFNVbl9HNE5vZkVWNWtDRTFMYmhOZFYtWE5mSUJtUGdVblEwWEY5TllZRW5FeHNMVkN6UWxyelpTdHVmeFZYMkRYRTZLT2FFblVkalJpQUxKTUF0WWdFaDh5TWFvSUMxUy1NbGhzenp2QlpiZWtXZGQwYUc0Tnc?oc=5",
-   "published": "2026-11-03T18:49:56+00:00"
-  },
-  {
-   "title": "Morgan Stanley Flags Major Turning Point for Stock Market",
-   "source": "Yahoo Finance Singapore",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWDZFbGlSZkNkODlSQVQ1Y0xyOXgydlA0dXQ1WjBhYk8tWHlRS3k2bmRxeU9xSkZNVHJEWWlqRFFxaXJCUWRITll1QWhzOHUwN2FNVWo3RmN2Qi1TMmxnUEJCREtMMnRWbzhQVUVZQUxSem9iU1g2WFBIbkNpb1ZPX0pYaldYeUVGVkJV?oc=5",
-   "published": "2026-11-03T18:09:19+00:00"
-  },
-  {
-   "title": "Wall Street the Day After: Which Indicators to Watch Closely After the Midterms",
-   "source": "El Cronista",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQM0tvTmw4V0VpVkJDQk1IVWl1WEMxUDB2eEJpV3BKSlktYTVwNG45aVBTUU5ObnV0eEVSNWhIVzFTdm1kMXZGbm4zLUJUb3V0Qm9nSHNpX0xsNVQ0RUpodDFkcU9NWmhWSHB6VFpJS2V6MzBaQ3ZoZkw5Q2EzUkVFd1dEUEFjcXpubnV0YlFCVllZdEtDbktJVUxCSm9oWjFqdC1IRHdpY3kzSnloN011RnAwNlhuUQ?oc=5",
-   "published": "2026-11-03T17:16:25+00:00"
-  },
-  {
-   "title": "Treasuries Fall Amid Oil Price Swings, Strong Job Openings Data",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOSXQ1SWFQdnh5NGNQYnhfRW02amk5VzFIVElYUHp6WS1FWXZqUm5GbU82V3NONmhoWHJhemRxWmY4QUV0ZGFHX1RSOVkyb0lzbDV3ZExTY2tZS0NURHdpcnpld0p0Z0tnajlNTVBCVzlKM3JuUGhEY1NrWGtWM0piWDg0d3ZRUUZsVEJPbUNmTVphVEpHbC1DbmtobnJlU1NxclRpZ3RzYUp4c0RudE5Ud19Qbw?oc=5",
-   "published": "2026-11-03T16:30:34+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-03T20:10:13+00:00",
+  "run_at": "2026-11-03T22:34:28+00:00",
   "session": {
    "date": "2026-11-03",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1597,7 +1597,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-03T20:06:11+00:00"
+    "as_of": "2026-11-03T22:17:56+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1607,41 +1607,41 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-10-30"
+    "as_of": "2026-11-02"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-03T19:31:00+00:00"
+    "as_of": "2026-11-03T21:54:19+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-03T20:10Z"
+    "as_of": "2026-11-03T22:34Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-03"
    }
   },

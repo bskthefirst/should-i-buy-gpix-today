@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-03T20:10:24+00:00",
+ "generated_at": "2026-11-03T22:34:37+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-5.1% in 5 sessions",
+   "value": "-5.2% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 65.9,
+    "pos": 65.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 21.0 (p85), F&G 19",
+   "value": "VIX 20.8 (p85), F&G 19",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,10 +128,10 @@
   }
  ],
  "fund": {
-  "price": 206.8,
+  "price": 206.69,
   "as_of": "2026-11-03",
-  "bar": "provisional",
-  "day_change_pct": 2.35,
+  "bar": "final",
+  "day_change_pct": 2.29,
   "sma50": 221.46,
   "sma200": 204.56,
   "high52w": 239.24,
@@ -1214,7 +1214,7 @@
    },
    {
     "d": "2026-11-03",
-    "c": 206.8,
+    "c": 206.69,
     "t": "caution",
     "s": 41
    }
@@ -1224,7 +1224,7 @@
   {
    "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "NVDA at $215.32 (+4.1% from here) climbs out of the falling-knife band (+9 pts)"
+   "text": "NVDA at $215.32 (+4.2% from here) climbs out of the falling-knife band (+9 pts)"
   },
   {
    "label": "Top-decile volatility",
@@ -1235,14 +1235,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-02",
-  "days_total": 756,
+  "end": "2026-11-03",
+  "days_total": 757,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-11-03",
   "baseline": {
-   "n": 735,
-   "avg_pct": 5.26,
-   "median_pct": 3.36
+   "n": 736,
+   "avg_pct": 5.24,
+   "median_pct": 3.34
   },
   "bands": [
    {
@@ -1255,9 +1255,9 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 211,
-    "avg_pct": 6.7,
-    "median_pct": 4.3
+    "n": 212,
+    "avg_pct": 6.6,
+    "median_pct": 4.12
    },
    {
     "tone": "neutral",
@@ -1276,238 +1276,43 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 0.2515,
-  "tbill_3mo": 4.16
- },
- "underlying": {
-  "symbol": "NVDA",
-  "price": 206.8,
-  "sma200": 204.56,
-  "above_200d": true
- },
- "vol": {
-  "index": "20d realized",
-  "level": 32.7
- },
- "fomc": {
-  "next": "2026-12-09",
-  "days_until": 36,
-  "imminent": false
- },
- "cpi": {
-  "next": "2026-11-10",
-  "days_until": 7
- },
- "earnings": {
-  "next": "2026-11-17",
-  "days_until": 14,
-  "estimate": false
- },
- "backtest": {
-  "start": "2022-11-03",
-  "end": "2026-11-03",
-  "weekly_amount": 100.0,
-  "dip_threshold_pct": 3.0,
-  "invested": 21000.0,
-  "dca_value": 68616.84,
-  "dca_return_pct": 226.75,
-  "dip_value": 68579.5,
-  "dip_return_pct": 226.57,
-  "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 182,
-  "winner": "dca"
- },
- "headlines": [
-  {
-   "title": "Nvidia RTX 5080 Super rumor suggests it's now delayed, as GPU prices go through the roof \u2014 and I'm worried next year is going to be a nightmare for PC gamers",
-   "source": "TechRadar",
-   "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNR3pqcG45THRBLWZNUHBRbWFrTHdBTnhWRmJOZXF4TzZKcnVMOFNReHRaQkdNbmhPMHFpLS1Wb1ZKWExteUVfdlI3VHF5ZEoxZGNtSlNZb0FMNjFTa1M2TXBMaXpTNHgwbWVJdkRvbzhDbFU2ckMzMl94aGdRU2dSMVBuZDM0b2gwbFUwRDdkRFVnVFJoUS1odkFFYzc5V3FQd0pqcmJKZTQ1M3J0N1ZnMmRBNnlJdEtoRmpDUVpXRWR2bGdTdkNjZHB2dE1GNTh1clZDX3hIc1p6LXFWVHF5UHFSRm5XclpxU0w0aklCeElZbkJzUERBUk9JTkQydnZGME5mdU5RRnZWU2N5d1dYX1hnMmhFdw?oc=5",
-   "published": "2026-11-03T20:00:00+00:00"
-  },
-  {
-   "title": "Nvidia Stock Climbs Amid Oil Price Drop",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPSkRBWndlcW94T2ROTWJiRmlkekZxaXdrQ0pZTHJpY01BNmFBeHZORGJ2MG5haXpCaVhwSlZRLXlwSWQzUDRFdDMtNDQzblVIUXloSTlSQTcyb3F2c1JObFExRFQ1YlVxcHhkaVBpNVM5SVZGZVhhUmFJWkJ5UHhFY0tKTTJIUlJnQ0hyc1p4VVBoT2c2VjNBdklMQlRNZkxtNGc?oc=5",
-   "published": "2026-11-03T19:43:30+00:00"
-  },
-  {
-   "title": "NVIDIA Claims AI is Reshaping Chip Factories, Simulation Speeds Up by Up to 35x",
-   "source": "KuCoin",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOOU9UeHQ0TlY3RzdFeGYwVTZGM2piblFBd2dyRUtaOTlGY2dwMlJBRVgzbUc0MGNySldtbnBqZzNfWUJKbjRSMkxTTE9GSXA2S2dZenptdXZuM0g0RjlobDJkSjJ4cHA0VFdWMjBQNUJUWngxZGpERzNCSjBrQmYwb2laalduZ1FZNTNQbUYtMzBtREJ3aTVoR3R3Rm14UDBKNlNzbnZLaUtoZw?oc=5",
-   "published": "2026-11-03T19:35:07+00:00"
-  },
-  {
-   "title": "Artificial Intelligence (AI)-Powered Diabetes Foot Ulcer Monitori",
-   "source": "The National Law Review",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZjFMWnAwR0FtMGtwd3ZhNktBSEJyWkhfVVZYUGlHdlpXTTlIdG40QmhKVkVmaWVDVWR0LS11Wko3NlFkUFUxQk9NWlVNYmxpbFY3MTZ6dUdTakdNc1N2OGNLQlZWbmtKNVF5TTNoQy1VN1dlNll3a1ZRektoQ1VRZnd0dUpRNnlGOERONVd3U3RrVk1KN19BU3plSm9VdVZsOWQ2MlJuNDlsa204eDhTbllB?oc=5",
-   "published": "2026-11-03T19:22:51+00:00"
-  },
-  {
-   "title": "The Artificial Intelligence (AI)-Powered Virtual Nursing Assistan",
-   "source": "The National Law Review",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNaWZQaDEycUd4SnhfblQwdFM4SFdSTE1raDMzY3Q0R2Vka3l2T3hESlZ2MGtJamwteUV2U0x0QVZYdUUySEMtaWF4REtMUFpYYS04d1VQUUtQb1JGVVF5R3c1NnpHeGh2UnhkSHlWMC1iTWVHckdPSE1qSGRvNXVpQmVsVTFJWi1HMlROLTFWcjN0a2JnRXR1Mmk3YkJINDdlSnNkZ2tuYjZRblcy?oc=5",
-   "published": "2026-11-03T19:16:04+00:00"
-  },
-  {
-   "title": "Artificial Intelligence (AI)-Enhanced Chronic Obstructive Sleep A",
-   "source": "The National Law Review",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVmMxSzhIWWhPb0xOUGdDMzFKTElieHlFWWZwQzllaV9WVW92VlNJdTBHb0o2N09fVnRMMTVKcWdVVFc3X21UT1JnN0EtbmVmTWpFZDZDZXF6Y1pLSnA5by1MaDhmMnBHNG16M3BCSmc1VC05Umc3TGs4U2dTX2JiekdNMVF6Ym5JWEc2ajZtSHBSQk8za3doSV9oLUlidFlxclZtMTlnZDNDVGVMYWlLWHNaZw?oc=5",
-   "published": "2026-11-03T19:16:04+00:00"
-  }
- ],
- "health": {
-  "run_at": "2026-11-03T20:10:24+00:00",
-  "session": {
-   "date": "2026-11-03",
-   "bar": "provisional"
-  },
-  "sources": {
-   "calendar:CPI": {
-    "ok": true,
-    "core": false,
-    "as_of": "2026-11-10"
-   },
-   "calendar:FOMC": {
-    "ok": true,
-    "core": false,
-    "as_of": "2026-12-09"
-   },
-   "cnn:fear_greed": {
-    "ok": true,
-    "core": true,
-    "as_of": "2026-11-03T20:06:11+00:00"
-   },
-   "earnings:NVDA": {
-    "ok": true,
-    "core": false,
-    "source": "nasdaq",
-    "first_source_error": "yahoo: curl: (22) The requested URL returned error: 429",
-    "as_of": "2026-11-17"
-   },
-   "earnings:SPCX": {
-    "ok": false,
-    "core": false,
-    "error": "yahoo: curl: (22) The requested URL returned error: 429"
-   },
-   "earnings:TSLA": {
-    "ok": false,
-    "core": false,
-    "error": "yahoo: curl: (22) The requested URL returned error: 429"
-   },
-   "fred:BAMLH0A0HYM2": {
-    "ok": true,
-    "core": true,
-    "as_of": "2026-11-02"
-   },
-   "fred:DGS3MO": {
-    "ok": true,
-    "core": true,
-    "as_of": "2026-10-30"
-   },
-   "news:GPIQ": {
-    "ok": true,
-    "core": false,
-    "items": 6,
-    "as_of": "2026-11-03T20:03:36+00:00"
-   },
-   "news:GPIX": {
-    "ok": true,
-    "core": false,
-    "items": 6,
-    "as_of": "2026-11-03T19:31:00+00:00"
-   },
-   "news:NVDA": {
-    "ok": true,
-    "core": false,
-    "items": 6,
-    "as_of": "2026-11-03T20:00:00+00:00"
-   },
-   "news:SPCX": {
-    "ok": true,
-    "core": false,
-    "items": 6,
-    "as_of": "2026-11-03T20:03:12+00:00"
-   },
-   "news:TSLA": {
-    "ok": true,
-    "core": false,
-    "items": 6,
-    "as_of": "2026-11-03T20:02:12+00:00"
-   },
-   "yahoo:GPIQ": {
-    "ok": true,
-    "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-03"
-   },
-   "yahoo:GPIX": {
-    "ok": true,
-    "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-03"
-   },
-   "yahoo:KRW=X": {
-    "ok": true,
-    "core": false,
-    "as_of": "2026-11-03T20:10Z"
-   },
-   "yahoo:NVDA": {
-    "ok": true,
-    "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-03"
-   },
-   "yahoo:QQQ": {
-    "ok": true,
-    "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-03"
-   },
-   "yahoo:SPCX": {
-    "ok": true,
-    "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-03"
-   },
-   "yahoo:SPY": {
-    "ok": true,
-    "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-03"
-   },
-   "yahoo:TSLA": {
-    "ok": true,
-    "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-03"
-   },
-   "yahoo:^VIX": {
-    "ok": true,
-    "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-03"
-   },
-   "yahoo:^VIX3M": {
-    "ok": true,
-    "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-03"
-   },
-   "yahoo:^VXN": {
-    "ok": true,
-    "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-03"
-   }
-  },
-  "degraded": [
-   "earnings:SPCX",
-   "earnings:TSLA"
-  ],
-  "degraded_core": []
+  "ttm_yield_pct": 0.2516,
+  "tbill_3mo": 4.21
  },
  "distributions": {
   "history": [
+   {
+    "date": "2022-11-30",
+    "amount": 0.004
+   },
+   {
+    "date": "2023-03-07",
+    "amount": 0.004
+   },
+   {
+    "date": "2023-06-07",
+    "amount": 0.004
+   },
+   {
+    "date": "2023-09-06",
+    "amount": 0.004
+   },
+   {
+    "date": "2023-12-05",
+    "amount": 0.004
+   },
+   {
+    "date": "2024-03-05",
+    "amount": 0.004
+   },
+   {
+    "date": "2024-06-11",
+    "amount": 0.01
+   },
+   {
+    "date": "2024-09-12",
+    "amount": 0.01
+   },
    {
     "date": "2024-12-05",
     "amount": 0.01
@@ -1552,5 +1357,232 @@
    }
   ],
   "is_estimate": true
+ },
+ "underlying": {
+  "symbol": "NVDA",
+  "price": 206.69,
+  "sma200": 204.56,
+  "above_200d": true
+ },
+ "vol": {
+  "index": "20d realized",
+  "level": 32.6
+ },
+ "fomc": {
+  "next": "2026-12-09",
+  "days_until": 36,
+  "imminent": false
+ },
+ "cpi": {
+  "next": "2026-11-10",
+  "days_until": 7
+ },
+ "earnings": {
+  "next": "2026-11-17",
+  "days_until": 14,
+  "estimate": false
+ },
+ "backtest": {
+  "start": "2022-11-04",
+  "end": "2026-11-03",
+  "weekly_amount": 100.0,
+  "dip_threshold_pct": 3.0,
+  "invested": 21000.0,
+  "dca_value": 68500.11,
+  "dca_return_pct": 226.19,
+  "dip_value": 68543.02,
+  "dip_return_pct": 226.4,
+  "dip_cash_uninvested": 0.0,
+  "dip_buy_days": 182,
+  "winner": "dip"
+ },
+ "headlines": [
+  {
+   "title": "Nvidia and other Big Tech stocks lift Wall Street and make up for a drop by Apple - Pittsburgh Post-Gazette",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZnpaTEp4YXR0OFlnQm5mVkVVYmlWSUV4T1ZYZlJjd19uZnctMUpWQ2JNZXE0c0NCd0d4cGdvcU1wQUZManllLW9ZMGZjTllsUC1Nai1aTDdiLU5pZlpYWlhMdjFnWFVNMExIYjRQNG82SUx5ZFBvd2w3T3QzSW5Tek4xNDJqNzhxM2I4TkRDSlBpU1YxOXZueDI0Y0xSMUItYlVjSG1tRk1BaEtPV2dN?oc=5",
+   "published": "2026-11-03T22:28:00+00:00"
+  },
+  {
+   "title": "Jensen Huang says Nvidia sees a place for both open and closed AI models",
+   "source": "Mezha.net",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPUGZaYUJnZHRYZk1UT3BoUGNtcnE5Ti1YSGVSUTctSDdFMm1fbXpVSFdiU1ZkSkpIbTRrZ0l0di1LcS1sSUUzbHdSNURDTzBmR0Jsb1V2d0JtazlKVnkzSlhaZFpPN2ZVRlRRQUsxUW5LbVVzSHFBQ3NGTUFPdVJXUjJB?oc=5",
+   "published": "2026-11-03T22:16:45+00:00"
+  },
+  {
+   "title": "Nvidia and other Big Tech stocks lift the US market despite drops for Apple and much of Wall Street",
+   "source": "Clinton Herald",
+   "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQdTRYS2stdWdKdXVWNndNOXZ2UjktRkxGcjJTbDBhVXVQc3I2aHZlM0taN05PbjZTdUd6Zk1GZHdDWGs4VEtzR3N0UFZsNEJKNWdwSWhXb3VBX0pXWkFlMzZPcUhValdjZVI0blE0Mks5NzE3Sk9sdzFpbUktZzViOXNjWjFOM1BKVkdreVNxaEEzc0JmQWl3Y1RlRUhOdUNnc3g5MVlTTXJRVWJKUG9qRExrQUJndlpod3pESWYwcHRtZEtmRGFYa0RRX2RVb05zTGcwLWs2dFlrQ3dISTdyRGFiWXZwR1NtV1U0RjEyQ0o4ZDB5azc1aVYwd1ZlY0dIQ1VqRjVFLW5tZw?oc=5",
+   "published": "2026-11-03T22:01:20+00:00"
+  },
+  {
+   "title": "St. Louis County, Mo., Council Turns to AI for Budget Cuts",
+   "source": "GovTech",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNcXctTDBDNzFKRnZUbnhIZ3U5RVlmemQ4SV95M0dxWHp2NEVSYjlXVThOemhGR1h3Z3QzdGljUkVCeWg3TDJTRFhic1hqWmZVSC1ON2JzREJjTkNLWHFyeWVZaS1mbU1Hb290LVJDMlBiTDR1LUdlNHB3ajFDNk0zV0ItRHNSYUpIaGlDWjRNVGhOdC1NSXZSMnpGMTYzQkJFeTVaTA?oc=5",
+   "published": "2026-11-03T21:40:24+00:00"
+  },
+  {
+   "title": "AMD, Nvidia, and AI rework rendering",
+   "source": "Jon Peddie",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBGWEY1RlNVT0ZmSC1PN2U0dXM3RkJMRDJOSFdmUnRSRWNPYXc4aUVDMFVBLXgxUDNOVXQwOVFKcEY3cVNNQndmWWZaR2RyNFNIVGkyQnYtc0FvRGlyQ0pJanVwTkNKWGxlYk1ILVJPYUxDVVlo?oc=5",
+   "published": "2026-11-03T21:32:43+00:00"
+  },
+  {
+   "title": "GPU Prices Up Again in October, RTX 5090 Now Sells for 262% Over MSRP Worldwide",
+   "source": "TechPowerUp",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxObnRyaFdMMXJOekxfcUw1YnlJSnlYTHlHXzQtZ2pNWG9OQUZnZGRfNUQ5ekdUUDNIX2hGVUdhYWpJX1NhSUtXTHBNTzhSb2R1bzBaSnNKUlBJVzFSVUk2OUwzRi1RVVJhMFZYZVFfN3VaTkZDZV9LLUY2TDJzOElidHFUcE1VWjdiSi0zZUhfOE41eGRBdDhuOWZVTFo5VEl5NGI4Sk5hVTI5aGNETHdlbk5n0gG3AUFVX3lxTE12ZmRDQnZsV29GdUgxUEtERXpGcnFibnpPYk9FSFFiZy10ZmdGbEtvX0NDekN5NnZPcmdOVFRVTVFlSzJHY0tmeVliMVdEbTRMb0lfMFk3MWJUWS1nd0RKMGVCODl5d1JIMkJXTVR2NEFjdXdIaGRGczZRSm9Vb2NVdDVIRFJxV1Z2dzdsRnV6OXNrc1hpaG9pa3ZvRlNIck45U3luY3hDYmQxWVRjS3V4eHZaVld5Zw?oc=5",
+   "published": "2026-11-03T21:01:27+00:00"
+  }
+ ],
+ "health": {
+  "run_at": "2026-11-03T22:34:37+00:00",
+  "session": {
+   "date": "2026-11-03",
+   "bar": "final"
+  },
+  "sources": {
+   "calendar:CPI": {
+    "ok": true,
+    "core": false,
+    "as_of": "2026-11-10"
+   },
+   "calendar:FOMC": {
+    "ok": true,
+    "core": false,
+    "as_of": "2026-12-09"
+   },
+   "cnn:fear_greed": {
+    "ok": true,
+    "core": true,
+    "as_of": "2026-11-03T22:17:56+00:00"
+   },
+   "earnings:NVDA": {
+    "ok": true,
+    "core": false,
+    "source": "nasdaq",
+    "first_source_error": "yahoo: curl: (22) The requested URL returned error: 429",
+    "as_of": "2026-11-17"
+   },
+   "earnings:SPCX": {
+    "ok": false,
+    "core": false,
+    "error": "yahoo: curl: (22) The requested URL returned error: 429"
+   },
+   "earnings:TSLA": {
+    "ok": false,
+    "core": false,
+    "error": "yahoo: curl: (22) The requested URL returned error: 429"
+   },
+   "fred:BAMLH0A0HYM2": {
+    "ok": true,
+    "core": true,
+    "as_of": "2026-11-02"
+   },
+   "fred:DGS3MO": {
+    "ok": true,
+    "core": true,
+    "as_of": "2026-11-02"
+   },
+   "news:GPIQ": {
+    "ok": true,
+    "core": false,
+    "items": 6,
+    "as_of": "2026-11-03T22:31:20+00:00"
+   },
+   "news:GPIX": {
+    "ok": true,
+    "core": false,
+    "items": 6,
+    "as_of": "2026-11-03T21:54:19+00:00"
+   },
+   "news:NVDA": {
+    "ok": true,
+    "core": false,
+    "items": 6,
+    "as_of": "2026-11-03T22:28:00+00:00"
+   },
+   "news:SPCX": {
+    "ok": true,
+    "core": false,
+    "items": 6,
+    "as_of": "2026-11-03T22:06:33+00:00"
+   },
+   "news:TSLA": {
+    "ok": true,
+    "core": false,
+    "items": 6,
+    "as_of": "2026-11-03T22:30:56+00:00"
+   },
+   "yahoo:GPIQ": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-11-03"
+   },
+   "yahoo:GPIX": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-11-03"
+   },
+   "yahoo:KRW=X": {
+    "ok": true,
+    "core": false,
+    "as_of": "2026-11-03T22:34Z"
+   },
+   "yahoo:NVDA": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-11-03"
+   },
+   "yahoo:QQQ": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-11-03"
+   },
+   "yahoo:SPCX": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-11-03"
+   },
+   "yahoo:SPY": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-11-03"
+   },
+   "yahoo:TSLA": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-11-03"
+   },
+   "yahoo:^VIX": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-11-03"
+   },
+   "yahoo:^VIX3M": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-11-03"
+   },
+   "yahoo:^VXN": {
+    "ok": true,
+    "core": true,
+    "bar": "final",
+    "as_of": "2026-11-03"
+   }
+  },
+  "degraded": [
+   "earnings:SPCX",
+   "earnings:TSLA"
+  ],
+  "degraded_core": []
  }
 }
