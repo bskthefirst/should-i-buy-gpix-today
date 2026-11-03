@@ -200,3 +200,23 @@ test('concurrent recorded purchases can be reviewed against latest totals withou
     assert.equal(J.preparePurchase(shared,inputB).applied,false);
   }finally{await f.cleanup();}
 });
+test('an upgraded browser receives all four stocks despite an older projected history copy',async()=>{
+ const f=await fixture();try{
+  const full=state(f.file).profile;Object.assign(full,{sharesGoog:5,costGoog:100,sharesNvda:12,costNvda:200});
+  J.record(full.journal,full,{Gpix:.4,Gpiq:.4,Goog:.06,Nvda:.01},'website');fs.writeFileSync(f.file,JSON.stringify(full));
+  const local=JSON.parse(JSON.stringify(full));local.sharesGoog=local.costGoog=local.sharesNvda=local.costNvda=0;
+  for(const r of local.journal.snapshots){for(const k of ['sharesGoog','costGoog','sharesNvda','costNvda'])delete r[k];if(r.rates){delete r.rates.Goog;delete r.rates.Nvda;}delete r.income;}
+  const b=browser((_,o)=>f.request(o.method,o.body?JSON.parse(o.body):undefined),J.profile(local));
+  b.map.set('retire-sync-v1',JSON.stringify({endpoint:'https://sync.example',token:f.token,revision:state(f.file).revision,dirty:false}));
+  const client=Sync.create({...b.options,apply:p=>b.options.apply({...p,journal:J.merge(b.p.journal,p.journal)})});
+  await client.cycle();assert.equal(client.phase(),'synced');assert.equal(b.p.sharesGoog,5);assert.equal(b.p.sharesNvda,12);assert.equal(b.p.costGoog,100);
+ }finally{await f.cleanup();}
+});
+test('a browser save failure after a successful request is never reported as a network outage',async()=>{
+ const f=await fixture();try{
+  const b=browser((_,o)=>f.request(o.method,o.body?JSON.parse(o.body):undefined));
+  b.map.set('retire-sync-v1',JSON.stringify({endpoint:'https://sync.example',token:f.token,revision:state(f.file).revision,dirty:false}));
+  const messages=[],client=Sync.create({...b.options,apply:()=>{throw new Error('Saved history conflicts.');},status:(text,info)=>messages.push({text,info})});
+  await client.cycle();assert.equal(client.phase(),'error');assert.equal(client.reachable(),true);assert.equal(messages.at(-1).info.connected,false);assert.match(messages.at(-1).text,/could not apply/);assert.doesNotMatch(messages.at(-1).text,/Cannot reach/);
+ }finally{await f.cleanup();}
+});

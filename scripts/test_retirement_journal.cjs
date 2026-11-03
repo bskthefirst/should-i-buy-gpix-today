@@ -236,3 +236,12 @@ test('four-ticker holdings corrections replace totals without inventing purchase
   const p=state(f.file).profile;assert.equal(p.sharesGoog,7);assert.equal(p.costNvda,200);assert.equal(p.journal.purchases.length,0);assert.equal(p.journal.snapshots.at(-1).sharesNvda,8.5);
  }finally{f.cleanup();}
 });
+test('a two-fund projection of a four-stock report merges without losing its stock fields',()=>{
+ const p=profile();Object.assign(p,{sharesGoog:5,costGoog:100,sharesNvda:12,costNvda:200});
+ J.record(p.journal,p,{Gpix:.4,Gpiq:.5,Goog:.06,Nvda:.01},'website');
+ const complete=J.journal(p.journal),old=JSON.parse(JSON.stringify(complete));
+ for(const r of old.snapshots){for(const k of ['sharesGoog','costGoog','sharesNvda','costNvda'])delete r[k];delete r.rates.Goog;delete r.rates.Nvda;delete r.income;}
+ const merged=J.merge(old,complete);assert.deepEqual(merged,complete);assert.deepEqual(J.merge(complete,old),complete);assert.deepEqual(J.merge(merged,old),complete);
+ const explicit=JSON.parse(JSON.stringify(complete));explicit.snapshots[0].sharesGoog=0;assert.throws(()=>J.merge(explicit,complete),/conflicts/);
+ const altered=JSON.parse(JSON.stringify(old));altered.snapshots[0].rates.Gpix=.8;assert.throws(()=>J.merge(altered,complete),/conflicts/);
+});

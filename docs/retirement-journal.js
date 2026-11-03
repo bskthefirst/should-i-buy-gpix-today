@@ -170,12 +170,24 @@
     const tax=gross*(net-oldNet);
     return {shares,payouts,tax,total:income(p,rates)-income(old,old.rates),...deltas};
   }
+  // Older two-fund clients dropped the stock fields from snapshots they received.
+  // Recognize only that strict projection. Explicit stock values never get reconciled silently.
+  function expandedSnapshot(a,b) {
+    const partial=r=>EXTRA_KEYS.every(k=>r[k]==null)&&(!r.rates||['Goog','Nvda'].every(k=>r.rates[k]==null));
+    const complete=r=>EXTRA_KEYS.every(k=>r[k]!=null);
+    const known=r=>JSON.stringify({id:r.id,at:r.at,source:r.source,...Object.fromEntries(BASE_KEYS.map(k=>[k,r[k]])),taxPct:r.taxPct,rates:r.rates?{Gpix:r.rates.Gpix,Gpiq:r.rates.Gpiq}:null});
+    if(known(a)!==known(b))return null;
+    if(partial(a)&&complete(b))return b;
+    if(partial(b)&&complete(a))return a;
+    return null;
+  }
   function merge(a,b) {
     a=journal(a);b=journal(b);
     const records=new Map(a.snapshots.map(r=>[r.id,r]));
     for(const r of b.snapshots) {
-      if(records.has(r.id)&&JSON.stringify(records.get(r.id))!==JSON.stringify(r)) throw new Error('A saved record conflicts with this file.');
-      records.set(r.id,r);
+      if(records.has(r.id)&&JSON.stringify(records.get(r.id))!==JSON.stringify(r)){
+        const full=expandedSnapshot(records.get(r.id),r);if(!full)throw new Error('A saved record conflicts with this file.');records.set(r.id,full);
+      }else records.set(r.id,r);
     }
     const awards=new Map(a.achievements.map(r=>[r.key,r]));
     for(const r of b.achievements) if(!awards.has(r.key)||Date.parse(r.at)<Date.parse(awards.get(r.key).at)) awards.set(r.key,r);

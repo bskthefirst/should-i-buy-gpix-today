@@ -31,7 +31,7 @@
       if(r.status===409)return {conflict:data};
       return data;
     }
-    function accept(data,options={}){const p=J.profile(data.profile);apply(p,options);saved.revision=data.revision;saved.dirty=false;saved.synced=fingerprint(read());saved.lastSyncedAt=saved.lastContactAt||stamp();delete saved.conflict;persist();notify('Synced with Mac mini. Telegram uses this shared record.','synced');}
+    function accept(data,options={}){try{const p=J.profile(data.profile);apply(p,options);saved.revision=data.revision;saved.dirty=false;saved.synced=fingerprint(read());saved.lastSyncedAt=saved.lastContactAt||stamp();delete saved.conflict;persist();notify('Synced with Mac mini. Telegram uses this shared record.','synced');}catch(e){e.syncLocal=true;throw e;}}
     function mark(){if(!saved)return;generation++;saved.dirty=true;persist();if(conflict)notify('Your edits remain on this device. Choose which copy to keep.','conflict');else notify(reachable?'Editing. Your update will save when you leave the fields.':'Saved on this device only. Your edits will sync when the Mac mini connection returns.',reachable?'editing':'offline');}
     async function cycle() {
       if(!saved||busy||editing())return;
@@ -52,7 +52,7 @@
           // Never replace a draft which appeared while the request was in flight.
           if(!saved.dirty&&!editing())accept(data);
         }
-      } catch(e){reachable=false;notify(e.message?.includes('connection key')?e.message:'Saved on this device only. Cannot reach Mac mini. Sync will retry automatically.','offline');}
+      } catch(e){if(e.syncLocal){notify('Mac mini was reached, but this browser could not apply the shared record. '+e.message+' Your browser copy remains saved.','error');}else{reachable=false;notify(e.message?.includes('connection key')?e.message:'Saved on this device only. Cannot reach Mac mini. Sync will retry automatically.','offline');}}
       finally {busy=false;}
     }
     async function connect(config) {
@@ -66,6 +66,7 @@
         else if(values(local)!==values({...remote,forecast:remote.forecast||local.forecast})) choose(data,'Your browser and Mac mini have different numbers. Choose which copy to keep.');
         else {apply({...remote,journal:J.merge(remote.journal,local.journal)});saved.dirty=fingerprint(read())!==fingerprint(remote);saved.synced=fingerprint(remote);if(!saved.dirty)saved.lastSyncedAt=saved.lastContactAt||stamp();persist();notify(saved.dirty?'Connected. Finishing the history sync…':'Synced with Mac mini. Telegram uses this shared record.',saved.dirty?'saving':'synced');}
       } catch(e){
+        if(e.syncLocal){if(previous&&!previous.pending){saved=previous;conflict=previousConflict;}persist();notify('Mac mini was reached, but this browser could not apply the shared record. '+e.message,'error');return;}
         reachable=false;
         if(previous&&!previous.pending){saved=previous;conflict=previousConflict;notify(e.message,conflict?'conflict':'offline');throw e;}
         const dirty=!!saved?.dirty||!!config.keepLocal||!!previous?.dirty;
@@ -85,7 +86,7 @@
           const latest=await request('GET');
           if(version!==generation){notify('Your numbers changed while checking. Choose which copy to keep.','conflict');return;}
           conflict=null;accept(latest,{replaceJournal:true});
-        } catch(e){reachable=false;notify('Cannot reach Mac mini. Your copy remains unchanged. Choose again when the connection returns.','conflict');}
+        } catch(e){conflict=data;if(e.syncLocal)notify('Mac mini was reached, but the shared copy could not be saved here. '+e.message,'conflict');else{reachable=false;notify('Cannot reach Mac mini. Your copy remains unchanged. Choose again when the connection returns.','conflict');}}
         finally{busy=false;}
       } else {conflict=null;delete saved.conflict;saved.revision=data.revision;saved.dirty=true;persist();await cycle();}
     }

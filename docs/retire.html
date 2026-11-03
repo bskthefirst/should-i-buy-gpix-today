@@ -712,8 +712,8 @@
 </div>
 <div id="ctip"></div>
 
-<script src="retirement-journal.js?v=5"></script>
-<script src="retirement-sync.js?v=7"></script>
+<script src="retirement-journal.js?v=6"></script>
+<script src="retirement-sync.js?v=8"></script>
 <script>
 "use strict";
 
@@ -1680,7 +1680,7 @@ function bindAutomaticSync() {
     status:(text,info={})=>{
       $("automatic-sync-status").textContent=text;
       $("automatic-sync-status").dataset.connected=String(info.connected||false);
-      const labels={unpaired:"Saved on this device only",checking:"Checking Mac mini connection",synced:"Synced with Mac mini",editing:"Changes waiting to sync",saving:"Saving to Mac mini",offline:"Offline · saved on this device only",conflict:"Different copies · review required"};
+      const labels={unpaired:"Saved on this device only",checking:"Checking Mac mini connection",synced:"Synced with Mac mini",editing:"Changes waiting to sync",saving:"Saving to Mac mini",offline:"Offline · saved on this device only",conflict:"Different copies · review required",error:"Sync needs attention · browser copy saved"};
       const time=info.lastSyncedAt?new Date(info.lastSyncedAt).toLocaleString(undefined,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}):null;
       $("dashboard-sync-status").textContent=(labels[info.phase]||"Saved on this device only")+(time?" · last synced "+time:"");
       $("dashboard-sync-status").dataset.connected=String(info.connected||false);
