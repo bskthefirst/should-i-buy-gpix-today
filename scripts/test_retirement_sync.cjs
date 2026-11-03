@@ -220,3 +220,11 @@ test('a browser save failure after a successful request is never reported as a n
   await client.cycle();assert.equal(client.phase(),'error');assert.equal(client.reachable(),true);assert.equal(messages.at(-1).info.connected,false);assert.match(messages.at(-1).text,/could not apply/);assert.doesNotMatch(messages.at(-1).text,/Cannot reach/);
  }finally{await f.cleanup();}
 });
+test('badges created while adopting a shared record upload before the browser says synced',async()=>{
+ const f=await fixture();try{
+  const b=browser((_,o)=>f.request(o.method,o.body?JSON.parse(o.body):undefined));
+  b.map.set('retire-sync-v1',JSON.stringify({endpoint:'https://sync.example',token:f.token,revision:state(f.file).revision,dirty:false}));
+  const client=Sync.create({...b.options,apply:p=>{const next=J.profile(p);if(!next.journal.achievements.some(a=>a.key==='test-badge'))next.journal.achievements.push({key:'test-badge',title:'Saved badge',threshold:0,at:new Date().toISOString(),baseline:false});b.options.apply(next);}});
+  await client.cycle();assert.equal(client.phase(),'synced');assert.equal(client.dirty(),false);assert.ok(state(f.file).profile.journal.achievements.some(a=>a.key==='test-badge'));
+ }finally{await f.cleanup();}
+});

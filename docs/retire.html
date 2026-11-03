@@ -669,6 +669,11 @@
   .import-actions { display:flex; gap:10px; margin-top:12px; }
   #telegram-command { width:100%; box-sizing:border-box; min-height:70px; border:1px solid var(--border); border-radius:10px; padding:10px; font:11px monospace; margin-top:12px; }
   @media(max-width:620px) { .journey-grid { grid-template-columns:1fr; }.journey-card{padding:18px;} }
+
+  .badge-toast{position:fixed;bottom:22px;right:22px;z-index:50;display:flex;align-items:center;gap:13px;max-width:380px;padding:15px 16px;background:#f4fff1;border:1px solid #9cbf90;border-radius:17px;box-shadow:0 12px 42px #244a2930}.toast-medal{width:58px;flex-shrink:0}.toast-medal svg{width:58px;height:58px;display:block}.badge-toast small{display:block;font-size:9px;letter-spacing:.12em;font-weight:800;color:var(--brg)}.badge-toast b{display:block;font-size:16px;margin:2px 0}.badge-toast a{font-size:11px;color:var(--brg)}.badge-toast button{align-self:start;background:none;border:0;font-size:22px;color:var(--muted);cursor:pointer;padding:0 0 0 7px}.badge-toast[hidden]{display:none}@media(max-width:620px){.badge-toast{bottom:16px;left:14px;right:14px;max-width:none}}
+  .closest-section{margin:18px 0 4px}.closest-heading{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin:0 2px 10px}.closest-heading h3{font-size:14px;margin:0}.closest-heading span{font-size:11px;color:var(--muted)}.closest-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.closest-card{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px}.closest-medal{width:56px;flex-shrink:0}.closest-medal svg{display:block;width:56px;height:56px}.closest-card>div:last-child{min-width:0;flex:1}.closest-card b{font-size:13px}.closest-card span{font-size:11px;color:var(--muted);display:block;margin-top:5px}.closest-card .goal-track{margin-top:8px}.fun-collection{background:linear-gradient(145deg,#f1f6ee,#f7f5fd);border:1px solid var(--border);padding:20px;border-radius:18px;margin:20px 0}.fun-collection-head{display:flex;align-items:center;justify-content:space-between;gap:15px}.fun-collection-head h3{margin:0;font-size:19px}.fun-collection-head a{font-size:12px}.fun-collection .badges{margin:22px 0 0;grid-template-columns:repeat(4,minmax(0,1fr))}.fun-badge-detail{font-size:11px;color:var(--muted);line-height:1.5;margin:8px 0 0}.fun-setup{display:inline-block;font-size:11px;margin-top:8px}.monthly-checkin{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px}.monthly-checkin p{margin:4px 0 0;color:var(--muted);font-size:12px}.monthly-checkin button{flex-shrink:0}.reward-goals{padding:15px 3px}.reward-goals form p{font-size:12px;color:var(--muted);margin:12px 0}.reward-inputs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}.reward-inputs label{font-size:12px;color:var(--muted)}.reward-inputs input{display:block;width:100%;padding:11px;border:1px solid var(--border);border-radius:9px;font:inherit;font-size:16px;margin-top:5px}.income-collection-title{margin-top:28px!important;font-size:16px}
+  @media(max-width:700px){.closest-grid{grid-template-columns:1fr}.closest-heading{display:block}.closest-heading span{display:block;margin-top:4px}.closest-card{padding:12px}.fun-collection{padding:16px}.fun-collection-head{display:block}.fun-collection-head a{display:inline-block;margin-top:8px}.monthly-checkin{display:block;padding:16px}.monthly-checkin button{margin-top:14px;width:100%}.reward-inputs{grid-template-columns:1fr}.fun-collection .badges{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 </style>
 </head>
 <body>
@@ -712,8 +717,9 @@
 </div>
 <div id="ctip"></div>
 
-<script src="retirement-journal.js?v=6"></script>
-<script src="retirement-sync.js?v=8"></script>
+<script src="retirement-journal.js?v=7"></script>
+<script src="retirement-sync.js?v=9"></script>
+<script src="retirement-badges.js?v=1"></script>
 <script>
 "use strict";
 
@@ -1137,6 +1143,12 @@ const LEVELS = [[10, "green"], [25, "aqua"], [50, "blue"], [100, "violet"], [250
 const BILL_PAL = ["lime", "teal", "indigo", "rose", "aqua", "violet"];
 const costIconKind = name => /lunch|food|meal|dinner|eat|coffee|cafe|snack/i.test(name) ? "fork" : /claude|chatgpt|gpt|\bai\b|openai|gemini|copilot|cursor/i.test(name) ? "sparkle" : "dollar";
 const ICON_PATH = {
+  rocket:`<g fill="none" stroke="#fff" stroke-width="3.4" stroke-linejoin="round"><path d="M53 69L43 59C49 41 62 32 78 32C78 48 69 61 53 69Z"/><circle cx="65" cy="45" r="5"/><path d="M45 54L35 55L32 70L46 65M58 67L57 79L42 82L47 68M40 72L34 78"/></g>`,
+  sun:`<g fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"><circle cx="60" cy="53" r="13"/><path d="M60 30V24M60 82V76M37 53H31M89 53H83M44 37L40 33M80 73L76 69M44 69L40 73M80 33L76 37"/></g>`,
+  scissors:`<g fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"><circle cx="45" cy="66" r="8"/><circle cx="73" cy="66" r="8"/><path d="M50 60L77 32M68 60L41 32"/></g>`,
+  home:`<g fill="none" stroke="#fff" stroke-width="3.3" stroke-linejoin="round"><path d="M33 52L60 31L87 52M40 48V77H80V48M55 77V61H66V77"/><path d="M71 35V28H79V42"/></g>`,
+  music:`<g fill="none" stroke="#fff" stroke-width="3.3" stroke-linejoin="round"><path d="M49 69V37L78 30V62M49 46L78 39"/><ellipse cx="41" cy="70" rx="8" ry="6"/><ellipse cx="70" cy="64" rx="8" ry="6"/></g>`,
+  book:`<g fill="none" stroke="#fff" stroke-width="3.2" stroke-linejoin="round"><path d="M60 42C51 34 42 34 33 37V74C42 71 51 72 60 79C69 72 78 71 87 74V37C78 34 69 34 60 42Z"/><path d="M60 42V79M40 47L51 49M69 49L80 47M40 57L51 59M69 59L80 57"/></g>`,
   sparkle: `<path d="M60 31C61.8 47 67 52.4 83 54C67 55.6 61.8 61 60 77C58.2 61 53 55.6 37 54C53 52.4 58.2 47 60 31Z" fill="#fff"/><path d="M84 30C84.7 36 86.6 38 92.6 38.6C86.6 39.2 84.7 41.2 84 47.2C83.3 41.2 81.4 39.2 75.4 38.6C81.4 38 83.3 36 84 30Z" fill="#fff" opacity=".9"/>`,
   fork: `<g fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M45 33V49M51 33V49M57 33V49"/><path d="M45 49Q51 59 57 49"/><path d="M51 56V77"/><path d="M71 33C65 40 65 54 71 61V77"/></g>`,
   dollar: `<text x="60" y="68" text-anchor="middle" font-size="40" font-weight="800" fill="#fff">$</text>`,
@@ -1199,7 +1211,7 @@ function badgeBackSVG(s, uid) {
     const pts = []; for (let i = 0; i < 32; i++) { const a = i * Math.PI / 16, r = i % 2 ? 52.5 : 58; pts.push((60 + r * Math.cos(a)).toFixed(1) + "," + (60 + r * Math.sin(a)).toFixed(1)); }
     outer = `<polygon points="${pts.join(" ")}" fill="url(#bg${uid})" stroke="url(#bg${uid})" stroke-width="3" stroke-linejoin="round"/>`;
   } else outer = `<circle cx="60" cy="60" r="57" fill="url(#bg${uid})"/>`;
-  const line1 = s.on ? "EARNED" : "UNLOCKS", line2 = s.on ? "✓" : s.months != null ? monthLabel(s.months) : "—", line3 = s.on ? "keep it up" : s.months != null ? "in " + span(s.months) : "not within 40 years";
+  const line1=s.on?"EARNED":"UNLOCKS",line2=s.on?"✓":s.category&&s.category!=="income"?s.value+"/"+s.target:s.configured===false?"SET COST":s.months!=null?monthLabel(s.months):"—",line3=s.on?"keep it up":s.category==="habit"?"months confirmed":s.category==="holdings"?"holdings reported":s.configured===false?"your actual budget":s.months!=null?"in "+span(s.months):"not within 40 years";
   const sz2 = s.on ? 40 : line2.length > 6 ? 17 : 20;
   return `<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
     <defs><linearGradient id="bg${uid}" x1=".9" y1="0" x2=".1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset=".5" stop-color="${c2}"/><stop offset="1" stop-color="${c3}"/></linearGradient>
@@ -1220,8 +1232,8 @@ function iconChip(kind) {
 }
 
 // the badge grid also reacts to the pointer: a gentle 3D tilt and a moving glare
-function setupBadgeTilt() {
-  const grid = $("badges");
+function setupBadgeTilt(gridId="badges") {
+  const grid = $(gridId);
   if (REDUCE || !window.matchMedia("(hover: hover)").matches) return;
   grid.addEventListener("pointermove", e => {
     if (SPIN.drag) return;
@@ -1254,9 +1266,9 @@ function settle(el, v0) {   // a spring toward the nearest front position, start
   };
   SPIN.anim.set(el, requestAnimationFrame(step));
 }
-function setupBadgeSpin() {
+function setupBadgeSpin(gridId="badges") {
   if (REDUCE) return;
-  const grid = $("badges");
+  const grid = $(gridId);
   grid.addEventListener("pointerdown", e => {
     const el = e.target.closest(".bdg-medal"); if (!el || e.button > 0) return;
     cancelAnimationFrame(SPIN.anim.get(el));
@@ -1282,6 +1294,7 @@ function setupBadgeSpin() {
   grid.addEventListener("pointerup", end); grid.addEventListener("pointercancel", end);
 }
 
+let badgeToastTimer=null;const SEEN_FUN_BADGES=new Set();try{for(const key of JSON.parse(localStorage.getItem("retire-badge-celebrations-v1")||"[]"))SEEN_FUN_BADGES.add(key);}catch(e){}
 const PREV_ON = new Map();   // badge id -> was it unlocked at the last update
 function celebrate(id) {
   const el = document.querySelector(`[data-k="bdg-${id}"] .bdg-medal`); if (!el) return;
@@ -1297,21 +1310,22 @@ function celebrate(id) {
 let BADGE_FILTER = "all";
 function applyBadgeFilter() {
   let shown = 0;
-  document.querySelectorAll("#badges .bdg").forEach(card => {
+  document.querySelectorAll("#badges .bdg, #fun-badges .bdg").forEach(card => {
     card.hidden = BADGE_FILTER === "reached" ? card.dataset.reached !== "true" : BADGE_FILTER === "upcoming" ? card.dataset.reached === "true" : false;
     if (!card.hidden) shown++;
   });
   document.querySelectorAll("[data-badge-filter]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.badgeFilter === BADGE_FILTER)));
   $("badge-empty").hidden = shown > 0;
-  $("badge-empty").textContent = BADGE_FILTER === "reached" ? "No income badges reached yet. Your next milestone is shown above." : "You have reached every current income badge.";
+  $("badge-empty").textContent = BADGE_FILTER === "reached" ? "No badges earned yet. Your next milestone is shown above." : "You have reached every current income badge.";
 }
 function nextBadgeHTML(specs, todayNet, purchase) {
   const next = specs.find(s => !s.on), featured = next || specs[specs.length - 1];
   const percent = next ? Math.min(99, Math.floor(next.progress * 100)) : 100;
   // Round the remaining gap up to a cent so a locked badge never says "$0.00 to go".
   const gap = next ? Math.max(.01, Math.ceil((next.threshold - todayNet) * 100 - 1e-9) / 100) : 0;
-  const buy = next && additionalGpixPurchase(next.threshold - todayNet, purchase.price, purchase.annualAmount, purchase.taxPct, purchase.whole);
-  const buyHTML = !next ? "" : buy
+  const waiting=next&&todayNet>=next.threshold-1e-9;
+  const buy = next && !waiting && additionalGpixPurchase(next.threshold - todayNet, purchase.price, purchase.annualAmount, purchase.taxPct, purchase.whole);
+  const buyHTML = !next||waiting ? "" : buy
     ? `<div class="next-badge-buy"><strong>About ${usd2(Math.ceil(buy.cost * 100) / 100)} of GPIX could unlock this badge.</strong><small>${sharesText(buy.shares)} ${purchase.whole ? "whole " : ""}${buy.shares === 1 ? "share" : "shares"} · about ${usd2(buy.monthlyNet)}/month after tax. Uses the past year's payouts and today's share price. Prices and payouts can change.</small></div>`
     : '<div class="next-badge-buy">The GPIX purchase estimate needs current price and dividend data.</div>';
   return `<div class="next-badge-medal" role="progressbar" aria-label="${esc(next ? next.title : "All current badges")}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}" aria-valuetext="${percent}% of estimated monthly income milestone">
@@ -1321,7 +1335,7 @@ function nextBadgeHTML(specs, todayNet, purchase) {
     <div>
       <div class="next-badge-label">${next ? "Your next badge" : "Every current badge reached"}</div>
       <h3>${esc(next ? next.title : "Estimated income milestones reached")}</h3>
-      <div class="next-badge-gap">${next ? usd2(gap) + ' <small>more a month to unlock</small>' : '100% <small>of current badges</small>'}</div>
+      <div class="next-badge-gap">${waiting?'Ready <small>confirm your holdings to unlock</small>':next ? usd2(gap) + ' <small>more a month to unlock</small>' : '100% <small>of current badges</small>'}</div>
       <div class="next-badge-income">${usd2(todayNet)}${next ? " of " + usd2(next.threshold) : " a month"} · estimated monthly income after tax</div>
       <p class="next-badge-note">Uses the past year's average payouts after tax. Progress follows your entered shares, not your planned contributions.</p>
       <div class="next-badge-meta"><span>${next ? (next.months === null ? "Beyond the 40-year forecast" : "Your plan could reach this in " + monthLabel(next.months)) : "All current milestones reached"}</span><a class="text-link" href="#sec-badges">View your badge collection</a></div>
@@ -1359,29 +1373,31 @@ function renderWins(y, p, drift, infl, todayNet, sim) {
     if(existing)existing.small="YOUR MISSION";
     else specs.push({id:"mission",kind:"bill",threshold:e.amount,pal:"aqua",icon:costIconKind(e.name),small:"YOUR MISSION",title:e.name+" covered",goal:false});
   }
-  specs.sort((a, b) => a.threshold - b.threshold);
-  specs.forEach(s => {
-    s.on = todayNet >= s.threshold - 1e-9; s.progress = Math.max(0, Math.min(1, todayNet / s.threshold));
-    s.months = s.on ? 0 : monthsTo(y, p, s.threshold, drift, infl);
-    s.status = s.on ? "Unlocked" : s.months != null ? monthLabel(s.months) + " · " + awayLabel(s.months) : "not within 40 years";
+  const history=JOURNEY.journal.achievements,canonical=J.milestones(journalProfile());
+  specs.sort((a,b)=>a.threshold-b.threshold);
+  specs.forEach(s=>{
+    s.category="income";s.configured=true;s.key=canonical.find(r=>Math.abs(r.threshold-s.threshold)<1e-8&&(r.title===s.title||s.id==="goal"&&r.title.startsWith("Your goal:")))?.key||s.threshold.toFixed(8)+":"+s.title;
+    s.earned=history.find(a=>a.key===s.key)||null;s.current=todayNet>=s.threshold-1e-9;s.on=!!s.earned;s.progress=Math.max(0,Math.min(1,todayNet/s.threshold));s.incomeGap=Math.max(0,s.threshold-todayNet);
+    s.months=s.current?0:monthsTo(y,p,s.threshold,drift,infl);s.status=s.on?"Earned":s.current?"Confirm holdings to unlock":s.months!=null?monthLabel(s.months)+" · "+awayLabel(s.months):"Beyond the forecast";
   });
-  const unlocked = specs.filter(s => s.on).length, next = specs.find(s => !s.on);
-  $("nextbadge").innerHTML = nextBadgeHTML(specs, todayNet, {price: MARKET_CACHE.gpix?.fund?.price, annualAmount: DIST.gpix?.ttm_sum, taxPct: S.taxPct, whole: S.whole});
-  const goalProgress = Math.min(100, Math.max(0, todayNet / S.target * 100));
-  $("overview-stats").innerHTML = `<div><span>Your monthly income estimate</span><b>${usd2(todayNet)}</b><small>After ${S.taxPct}% tax · past year's payouts</small></div>
-    <div><span>Your monthly goal</span><b>${fmt$(S.target)}</b><div class="goal-track" role="progressbar" aria-label="Monthly income goal progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.floor(goalProgress)}"><i style="width:${goalProgress}%"></i></div><small>${goalProgress.toFixed(1)}% of today's goal</small></div>
-    <div><span>Income badges reached</span><b>${unlocked} <span style="display:inline;font-size:15px">/ ${specs.length}</span></b><small>Based on the shares you entered</small></div>`;
-  $("badge-count").textContent = `${unlocked} of ${specs.length} reached`;
-  $("badgesub").textContent = "Each badge is an estimated income milestone. Reached badges can change when shares, payouts, costs, or your goal change. Drag a medal to see its reverse.";
-  const flips = specs.filter(s => s.on && PREV_ON.get(s.id) === false).map(s => s.id);
-  $("badges").innerHTML = specs.map((s, i) => `<div class="bdg ${s.on ? "on" : "off"}" role="listitem" data-reached="${s.on}" data-k="bdg-${s.id}" data-sig="${s.status}" style="--i:${i}" aria-label="${esc(s.title)}: ${s.on ? "unlocked" : s.status}">
-      <div class="bdg-tilt"><div class="bdg-medal"><div class="face f-front">${badgeSVG(s, i)}</div><div class="face f-back">${badgeBackSVG(s, i)}</div></div><div class="bdg-glare"></div></div>
-      <div class="bdg-title">${esc(s.title)}</div>
-      <div class="bdg-sub">${s.on ? "✓ Milestone reached" : s.status}${s.on ? "" : `<span class="bdg-gap">${usd2(Math.max(.01, Math.ceil((s.threshold - todayNet) * 100 - 1e-9) / 100))}/month to go</span>`}</div></div>`).join("");
-  $("badge-announcement").textContent = flips.length ? "Income milestone reached: " + specs.filter(s => flips.includes(s.id)).map(s => s.title).join(", ") + ". Based on your current entries." : "";
-  applyBadgeFilter();
-  specs.forEach(s => PREV_ON.set(s.id, s.on));
-  if (!REDUCE) flips.forEach(celebrate);
+  for(const a of history)if(!a.key.startsWith("fun:")&&!specs.some(r=>r.key===a.key))specs.push({id:"memory-"+history.indexOf(a),key:a.key,title:a.title,threshold:a.threshold,earned:a,on:true,current:todayNet>=a.threshold,category:"income",configured:true,progress:a.threshold?Math.min(1,todayNet/a.threshold):1,kind:"bill",pal:"teal",icon:costIconKind(a.title),small:"EARNED",months:0,status:"Earned",archived:true});
+  const fun=B.catalog(journalProfile(),(()=>{try{return observation().average;}catch(e){return null;}})()).map(r=>({...r,id:"fun-"+r.id,kind:"bill",months:r.category==="income"&&r.target?monthsTo(y,p,r.target,drift,infl):null,status:r.on?"Earned":r.qualifies?"Confirm holdings to unlock":!r.configured?(r.id==="double"?"Record your starting point":"Choose your reward cost"):r.category==="income"&&r.incomeGap===null?"Needs fresh dividend data":r.category==="income"?usd2(Math.ceil((r.incomeGap||0)*100)/100)+"/month to go":r.gap}));
+  const all=[...specs,...fun],unlocked=all.filter(s=>s.on).length,income=[...specs,...fun.filter(s=>s.category==="income"&&s.configured)].sort((a,b)=>a.threshold-b.threshold);
+  $("nextbadge").innerHTML=nextBadgeHTML(income,todayNet,{price:MARKET_CACHE.gpix?.fund?.price,annualAmount:DIST.gpix?.ttm_sum,taxPct:S.taxPct,whole:S.whole});
+  const near=all.filter(s=>!s.on&&s.configured).sort((a,b)=>b.progress-a.progress||(a.threshold||Infinity)-(b.threshold||Infinity)).slice(0,3);
+  $("closest-badges").innerHTML=`<div class="closest-heading"><h3>Your three closest wins</h3><span>Small steps from the record you saved.</span></div><div class="closest-grid">${near.map((r,i)=>`<article class="closest-card"><div class="closest-medal">${badgeSVG({...r,on:false},"near-"+i)}</div><div><b>${esc(r.title)}</b><div class="goal-track" role="progressbar" aria-label="${esc(r.title)} progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(r.progress*100)}"><i style="width:${r.progress*100}%"></i></div><span>${Math.floor(r.progress*100)}% · ${r.category==="income"?r.incomeGap===null?"Fresh dividend data needed":r.incomeGap<=1e-9?"Confirm holdings to unlock":usd2(Math.ceil(r.incomeGap*100)/100)+"/month to go":esc(r.gap)}</span></div></article>`).join("")}</div>`;
+  const goalProgress=Math.min(100,Math.max(0,todayNet/S.target*100));
+  $("overview-stats").innerHTML=`<div><span>Your monthly income estimate</span><b>${usd2(todayNet)}</b><small>After ${S.taxPct}% tax · past year's payouts</small></div><div><span>Your monthly goal</span><b>${fmt$(S.target)}</b><div class="goal-track" role="progressbar" aria-label="Monthly income goal progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.floor(goalProgress)}"><i style="width:${goalProgress}%"></i></div><small>${goalProgress.toFixed(1)}% of today's goal</small></div><div><span>Badges earned</span><b>${unlocked} <span style="display:inline;font-size:15px">/ ${all.length}</span></b><small>Earned badges stay in your collection</small></div>`;
+  $("badge-count").textContent=`${unlocked} of ${all.length} earned`;
+  $("badgesub").textContent="Earned badges stay yours. Income coverage can rise or fall. Income badges use after-tax estimates, not payments received. Drag a medal to see its reverse.";
+  const flips=all.filter(r=>r.on&&(PREV_ON.get(r.id)===false||r.key.startsWith("fun:")&&!SEEN_FUN_BADGES.has(r.key))).map(r=>r.id);
+  const medal=(r,i)=>`<div class="bdg ${r.on?"on":"off"}" role="listitem" data-reached="${r.on}" data-k="bdg-${r.id}" style="--i:0" aria-label="${esc(r.title)}: ${r.on?"earned":r.status}"><div class="bdg-tilt"><div class="bdg-medal"><div class="face f-front">${badgeSVG(r,i)}</div><div class="face f-back">${badgeBackSVG(r,i)}</div></div><div class="bdg-glare"></div></div><div class="bdg-title">${esc(r.title)}</div><div class="bdg-sub">${r.on?"✓ Earned "+recordDate(r.earned.at):esc(r.status)}${r.on&&r.category==="income"&&todayNet<(r.earned?.threshold??r.threshold)?'<span class="bdg-gap">Current estimate is below this milestone</span>':""}</div>${r.detail?`<p class="fun-badge-detail">${esc(r.earned?.detail||r.detail)}</p>`:""}${!r.configured&&r.setup?`<a class="text-link fun-setup" href="${r.setup}">Choose a cost</a>`:""}</div>`;
+  $("badges").innerHTML=specs.map((r,i)=>medal(r,"income-"+i)).join("");
+  $("fun-badges").innerHTML=fun.map((r,i)=>medal(r,"personal-"+i)).join("");
+  $("badge-announcement").textContent=flips.length?"Badge earned: "+all.filter(r=>flips.includes(r.id)).map(r=>r.title).join(", ")+".":"";
+  if(flips.length){const fresh=all.filter(r=>flips.includes(r.id)),toast=$("new-badge-toast");toast.hidden=false;toast.innerHTML=`<div class="toast-medal">${badgeSVG(fresh[0],"toast")}</div><div><small>NEW BADGE EARNED</small><b>${esc(fresh.map(r=>r.title).join(", "))}</b><a href="#sec-badges">See your collection</a></div><button type="button" id="dismiss-badge-toast" aria-label="Dismiss badge celebration">×</button>`;$("dismiss-badge-toast").onclick=()=>{toast.hidden=true;};clearTimeout(badgeToastTimer);badgeToastTimer=setTimeout(()=>{toast.hidden=true;},8000);}
+  for(const r of fun)if(r.on)SEEN_FUN_BADGES.add(r.key);try{localStorage.setItem("retire-badge-celebrations-v1",JSON.stringify([...SEEN_FUN_BADGES]));}catch(e){}
+  applyBadgeFilter();all.forEach(r=>PREV_ON.set(r.id,r.on));if(!REDUCE)flips.forEach(celebrate);
 
   // ---- the cost ladder ----
   if (!costs.length) {
@@ -1639,11 +1655,12 @@ function placeScenPill(instant) {   // a green pill slides under the chosen shar
 }
 
 // Dated reports are saved separately from editable calculator settings.
+const B=RetirementBadges;
 const J = RetirementJournal, JOURNEY_KEY = "retire-journal-v1";
-let JOURNEY = { journal:{snapshots:[],achievements:[]},selectedExpense:null }, JOURNEY_ERROR = "", pendingImport = null;
+let JOURNEY = { journal:{snapshots:[],achievements:[]},selectedExpense:null,badgeGoals:{subscription:null,weekend:null} }, JOURNEY_ERROR = "", pendingImport = null;
 try {
   const raw=JSON.parse(localStorage.getItem(JOURNEY_KEY)||"null");
-  if(raw) JOURNEY={journal:J.journal(raw.journal),selectedExpense:J.expense(raw.selectedExpense)};
+  if(raw) JOURNEY={journal:J.journal(raw.journal),selectedExpense:J.expense(raw.selectedExpense),badgeGoals:{subscription:J.expense(raw.badgeGoals?.subscription),weekend:J.expense(raw.badgeGoals?.weekend)}};
 } catch(e) { JOURNEY_ERROR="The saved history could not be read. Export a backup before replacing browser data."; }
 function persistJourney(next=JOURNEY) {
   if(JOURNEY_ERROR) throw new Error(JOURNEY_ERROR);
@@ -1661,12 +1678,13 @@ function recordCurrentHoldings() {
   let ob=null;try{ob=observation();}catch(e){}
   const next=JSON.parse(JSON.stringify(JOURNEY));J.record(next.journal,S,ob?.rates||null,"website");
   if(ob)J.award(next.journal,J.milestones(journalProfile()),ob.average);
+  B.award({...journalProfile(),journal:next.journal},ob?.average??null);
   persistJourney(next);
 }
 function applySharedProfile(p,options={}) {
   // Choosing shared totals must not merge a rejected purchase into applied history.
   if(options.replaceJournal){localStorage.setItem("retire-conflict-backup-v1",JSON.stringify(journalProfile()));$("export-conflict-backup").hidden=false;}
-  const next={selectedExpense:p.selectedExpense,journal:options.replaceJournal?p.journal:J.merge(JOURNEY.journal,p.journal)};
+  const next={selectedExpense:p.selectedExpense,badgeGoals:p.badgeGoals,journal:options.replaceJournal?p.journal:J.merge(JOURNEY.journal,p.journal)};
   const settings={...S,...p.forecast,holdingsReview:false};
   for(const k of [...J.KEYS,"taxPct","target","costs"])settings[k]=p[k];
   J.commitBrowser(localStorage,{[STORE_KEY]:JSON.stringify(settings),[JOURNEY_KEY]:JSON.stringify(next)});
@@ -1675,7 +1693,7 @@ function applySharedProfile(p,options={}) {
 }
 function bindAutomaticSync() {
   const ids=new Set(["n-sharesGpix","n-sharesGpiq","n-costGpix","n-costGpiq","n-sharesGoog","n-sharesNvda","n-costGoog","n-costNvda","n-target","in-target","n-taxPct","in-tax","n-monthly","in-monthly","in-mix","in-infl","n-homeCost","n-lunchbox","in-lunchbox"]);
-  const editing=()=>ids.has(document.activeElement?.id)||!!document.activeElement?.closest(".costrow,.expense-form");
+  const editing=()=>ids.has(document.activeElement?.id)||!!document.activeElement?.matches(".costrow input,.costrow select,.expense-form input,.expense-form select,#reward-goals-form input,#reward-goals-form select");
   AUTO_SYNC=RetirementSync.create({storage:localStorage,read:journalProfile,apply:applySharedProfile,prepare:recordCurrentHoldings,editing,allowedEndpoint:"https://bills-mac-mini.tailf2c209.ts.net:8443",
     status:(text,info={})=>{
       $("automatic-sync-status").textContent=text;
@@ -1752,10 +1770,15 @@ function renderJourney() {
     if(first) J.record(next.journal,S,ob.rates,"website");
     // Typing previews never award permanent memories. Recorded shares must match.
     if(J.sameHoldings(next.journal.snapshots.at(-1),S)) J.award(next.journal,J.milestones(journalProfile()),ob.average,new Date().toISOString(),first);
+    B.award({...journalProfile(),journal:next.journal},ob.average);
     if(first||next.journal.achievements.length!==JOURNEY.journal.achievements.length) {
       try { persistJourney(next); } catch(e) { error="This browser could not save the history. Download a backup before leaving."; }
     }
   }
+  const checkins=JOURNEY.journal.checkins||[],confirmed=checkins.some(r=>r.month===new Date().toISOString().slice(0,7));
+  $("confirm-month").disabled=confirmed||!!JOURNEY_ERROR||!storageOk;
+  $("confirm-month").textContent=confirmed?"This month confirmed":"Confirm my holdings this month";
+  $("checkin-status").textContent=checkins.length+" of 3 months toward Three-Month Groove · "+checkins.length+" of 12 toward Yearbook.";
   const purchases=JOURNEY.journal.purchases||[];
   $("purchase-history").innerHTML=purchases.length?`<table class="history-table"><thead><tr><th>Purchase date</th><th>Fund</th><th>Shares bought</th><th>Price per share</th><th>Total including fees</th></tr></thead><tbody>${purchases.slice().reverse().map(r=>`<tr><td>${esc(r.date)}</td><td>${r.ticker}</td><td>${sharesText(r.shares)}</td><td>${usd2(r.price)}</td><td>${usd2(r.totalCost)}</td></tr>`).join("")}</tbody></table>`:'<p class="holding-source">No purchases recorded yet. Editing your total holdings does not create a purchase.</p>';
   const rows=JOURNEY.journal.snapshots,last=rows.at(-1),pending=!!last&&!J.sameHoldings(last,S);
@@ -1766,10 +1789,25 @@ function renderJourney() {
   const reference=pending?last:rows.at(-2)||last,diff=ob?J.changes(reference,S,ob.rates):null;
   $("journey-changes").innerHTML=!diff?'<p>'+(error?esc(error):'Your first report sets the starting point. Later updates will show what changed.')+'</p>':`<div class="journey-income">${signedMoney(diff.total)} <small>a month</small></div><p>Since ${recordDate(reference.at)}${pending?" · preview of your unrecorded edits":""}.</p><div class="change-rows"><div><span>Reported share counts</span><b>${signedMoney(diff.shares)}</b></div><div><span>Payout amounts per share</span><b>${signedMoney(diff.payouts)}</b></div><div><span>Tax rate</span><b>${signedMoney(diff.tax)}</b></div></div><p>${J.FUNDS.map(([k,t])=>t+" "+signedShares(diff["delta"+k]||0)+" shares").join(". ")}. These are reported changes, not verified purchases.</p>`;
   const awards=JOURNEY.journal.achievements;
-  $("journey-timeline").innerHTML=awards.length?awards.slice().sort((a,b)=>Date.parse(b.at)-Date.parse(a.at)).map(a=>`<li><b>${esc(a.title)}</b><span>${recordDate(a.at)} · ${a.baseline?"Observed at the starting point":"First recorded"}${ob&&ob.average<a.threshold?" · current estimate is below this milestone":""}</span></li>`).join(""):'<li><b>Your journey starts here</b><span>Record your holdings. The timeline will remember estimated income milestones from that point.</span></li>';
+  $("journey-timeline").innerHTML=awards.length?awards.slice().sort((a,b)=>Date.parse(b.at)-Date.parse(a.at)).map(a=>`<li><b>${esc(a.title)}</b><span>${recordDate(a.at)} · ${a.baseline?"Observed at the starting point":"First recorded"}${ob&&(!a.category||a.category==="income")&&ob.average<a.threshold?" · current estimate is below this milestone":""}${a.detail?" · "+esc(a.detail):""}</span></li>`).join(""):'<li><b>Your journey starts here</b><span>Record your holdings. The timeline will remember estimated income milestones from that point.</span></li>';
   $("holdings-history").innerHTML=rows.length?`<table class="history-table"><thead><tr><th scope="col">Recorded</th>${J.FUNDS.map(([,t])=>`<th scope="col">${t} shares / average</th>`).join("")}</tr></thead><tbody>${rows.slice().reverse().map(r=>`<tr><td>${recordDate(r.at)} · ${esc(r.source)}</td>${J.FUNDS.map(([k])=>`<td>${r['shares'+k]==null?"Not tracked":sharesText(r['shares'+k])+" / "+(r['cost'+k]?usd2(r['cost'+k]):"Not entered")}</td>`).join("")}</tr>`).join("")}</tbody></table>`:'<p class="holding-source">No holdings reports saved yet.</p>';
 }
 function bindJourney() {
+  const goalFields=()=>{for(const key of ["subscription","weekend"]){const g=JOURNEY.badgeGoals?.[key];$("reward-"+key+"-name").value=g?.name||"";$("reward-"+key+"-amount").value=g?.amount||"";}};
+  goalFields();
+  $("reward-goals").addEventListener("toggle",()=>{if($("reward-goals").open)goalFields();});
+  $("reward-goals-form").addEventListener("submit",ev=>{
+    ev.preventDefault();try{const next=JSON.parse(JSON.stringify(JOURNEY)),goals={};
+      for(const key of ["subscription","weekend"]){const name=$("reward-"+key+"-name").value.trim(),raw=$("reward-"+key+"-amount").value.trim();goals[key]=!name&&!raw?null:J.expense({name,amount:Number(raw)});}
+      next.badgeGoals=goals;persistJourney(next);update(YIELDS);AUTO_SYNC?.mark();setTimeout(()=>AUTO_SYNC?.cycle(),0);$("reward-goals-status").textContent="Reward costs saved. Blank pairs leave that reward unset.";
+    }catch(e){$("reward-goals-status").textContent=e.message;}
+  });
+  $("confirm-month").addEventListener("click",()=>{
+    try{const p=journalProfile();let ob=null;try{ob=observation();}catch(e){}
+      J.record(p.journal,p,ob?.rates||null,"check-in");J.checkIn(p);B.award(p,ob?.average??null);
+      persistJourney({...JOURNEY,journal:p.journal});update(YIELDS);AUTO_SYNC?.mark();setTimeout(()=>AUTO_SYNC?.cycle(),0);
+    }catch(e){$("checkin-status").textContent=e.message;}
+  });
   const e=JOURNEY.selectedExpense;
   if(e) { $("expense-name").value=e.name;$("expense-amount").value=e.amount;$("expense-preset").value="custom"; }
   $("expense-preset").addEventListener("change",ev=>{if(ev.target.value!=="custom"){const [name,amount]=ev.target.value.split("|");$("expense-name").value=name;$("expense-amount").value=amount;}});
@@ -1806,7 +1844,7 @@ function bindJourney() {
       $("apply-telegram-import").addEventListener("click",()=>{
         try {
           const p=pendingImport;if(!p)return;
-          const next={selectedExpense:p.selectedExpense,journal:J.merge(JOURNEY.journal,p.journal)};
+          const next={selectedExpense:p.selectedExpense,badgeGoals:p.badgeGoals,journal:J.merge(JOURNEY.journal,p.journal)};
           let rates=null;try{rates=J.observe(p,{GPIX:MARKET_CACHE.gpix,GPIQ:MARKET_CACHE.gpiq,GOOG:MARKET_CACHE.goog,NVDA:MARKET_CACHE.nvda}).rates;}catch(e){}
           J.record(next.journal,p,rates,"import");
           if(JOURNEY_ERROR)throw new Error(JOURNEY_ERROR);
@@ -1877,7 +1915,7 @@ function bindPurchases(){
       const input=purchaseInput(),result=purchasePreparation(),p=result.profile;
       const other=JSON.parse(localStorage.getItem(JOURNEY_KEY)||"null");
       if(other)p.journal=J.merge(J.journal(other.journal),p.journal);
-      const next={selectedExpense:p.selectedExpense,journal:p.journal},settings={...S,sharesGpix:p.sharesGpix,sharesGpiq:p.sharesGpiq,costGpix:p.costGpix,costGpiq:p.costGpiq,sharesGoog:p.sharesGoog,sharesNvda:p.sharesNvda,costGoog:p.costGoog,costNvda:p.costNvda,holdingsReview:false};
+      const next={selectedExpense:p.selectedExpense,badgeGoals:p.badgeGoals,journal:p.journal},settings={...S,sharesGpix:p.sharesGpix,sharesGpiq:p.sharesGpiq,costGpix:p.costGpix,costGpiq:p.costGpiq,sharesGoog:p.sharesGoog,sharesNvda:p.sharesNvda,costGoog:p.costGoog,costNvda:p.costNvda,holdingsReview:false};
       const draft={...input,awaitingReview:false};
       const writes={[STORE_KEY]:JSON.stringify(settings),[JOURNEY_KEY]:JSON.stringify(next),[PURCHASE_DRAFT_KEY]:JSON.stringify(draft)};
       const connection=JSON.parse(localStorage.getItem("retire-sync-v1")||"null");
@@ -1896,10 +1934,12 @@ function bindPurchases(){
 
 function renderSkeleton(yields, meta) {
   $("app").innerHTML = `
+    <aside id="new-badge-toast" class="badge-toast" aria-label="Recently earned badge" hidden></aside>
     <section id="sec-hero" aria-label="Your retirement overview">
     <div class="overview-stats" id="overview-stats"></div>
     <p id="dashboard-sync-status" role="status">Saved on this device</p>
     <section class="card next-badge rv" id="nextbadge" aria-label="Your next income badge"></section>
+    <section class="closest-section" aria-label="Three closest badges" id="closest-badges"></section>
     </section>
 
     <section class="rv" id="sec-holdings">
@@ -2110,7 +2150,10 @@ function renderSkeleton(yields, meta) {
       <button type="button" data-badge-filter="upcoming" aria-pressed="false">Upcoming</button>
     </div>
     <div id="badge-announcement" class="badge-announcement" role="status" aria-live="polite"></div>
-    <div class="badges" id="badges" role="list"></div>
+    <div class="fun-collection"><div class="fun-collection-head"><div><div class="journey-kicker">Small wins. Real progress.</div><h3>Your personal collection</h3></div><a href="#reward-goals" class="text-link">Set your reward costs</a></div><div class="badges" id="fun-badges" role="list" aria-label="Personal badges"></div></div>
+    <div class="monthly-checkin"><div><b>A small habit, once a month.</b><p>Check that your shares and average prices are correct. No purchase required.</p><p id="checkin-status" role="status"></p></div><button type="button" class="journey-button primary" id="confirm-month">Confirm my holdings this month</button></div>
+    <details class="holding-help reward-goals" id="reward-goals"><summary>Choose your subscription and weekend rewards</summary><form id="reward-goals-form"><p>Enter costs you actually pay, in USD per month. Leave both fields blank to keep a reward unset.</p><div class="reward-inputs"><label>Subscription name<input id="reward-subscription-name" maxlength="30" placeholder="Your subscription"></label><label>Monthly subscription cost · USD<input id="reward-subscription-amount" type="number" min="0.01" max="1000000" step="0.01" placeholder="Actual monthly cost"></label><label>Weekend meal reward<input id="reward-weekend-name" maxlength="30" placeholder="Your weekend meals"></label><label>Monthly weekend meal budget · USD<input id="reward-weekend-amount" type="number" min="0.01" max="1000000" step="0.01" placeholder="Your monthly budget"></label></div><button class="journey-button" type="submit">Save reward costs</button><p id="reward-goals-status" role="status"></p></form></details>
+    <h3 class="income-collection-title">Your income milestones</h3><div class="badges" id="badges" role="list"></div>
     <p id="badge-empty" class="badge-empty" hidden></p>
     </section>
 
@@ -2225,7 +2268,7 @@ function renderSkeleton(yields, meta) {
     }, { rootMargin: "-80px 0px -55% 0px" });
     navLinks.forEach(a => navObserver.observe($(a.hash.slice(1))));
   }
-  bindCosts(yields); setupBadgeTilt(); setupBadgeSpin(); renderCostList();
+  bindCosts(yields); setupBadgeTilt(); setupBadgeSpin(); setupBadgeTilt("fun-badges");setupBadgeSpin("fun-badges");renderCostList();
   bindAutomaticSync();
   if ("ResizeObserver" in window) new ResizeObserver(() => placeScenPill(true)).observe(document.querySelector(".scenarios"));
   syncControls();
@@ -2365,8 +2408,8 @@ function update(yields) {
 
   // next dividend, costs and badges
   renderNext(hold);
-  renderWins(y, p, drift, infl, todayNet, sim);
   renderJourney();
+  renderWins(y, p, drift, infl, todayNet, sim);
   renderPurchasePreview();
   renderEarn(y, p, drift, infl, lunch);
   const moved = trackDate(fracMonths(y, p, S.target, drift, infl));

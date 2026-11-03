@@ -61,16 +61,18 @@
     return r;
   }
   function journal(v = {}) {
-    const snapshots = v.snapshots || [], achievements = v.achievements || [], purchases = v.purchases || [];
-    if ([snapshots,achievements,purchases].some(rows=>!Array.isArray(rows)||rows.length>MAX_RECORDS)) throw new Error('The history is too large. Export a backup before adding records.');
+    const snapshots = v.snapshots || [], achievements = v.achievements || [], purchases = v.purchases || [], checkins=v.checkins||[];
+    if ([snapshots,achievements,purchases,checkins].some(rows=>!Array.isArray(rows)||rows.length>MAX_RECORDS)) throw new Error('The history is too large. Export a backup before adding records.');
     const seen = new Set();
     const records = snapshots.map(snapshot).sort((a,b) => Date.parse(a.at) - Date.parse(b.at));
     for (const r of records) { if (seen.has(r.id)) throw new Error('Duplicate record ID.'); seen.add(r.id); }
-    const awards = achievements.map(r => ({ key: text(r.key, 'milestone ID', 300), title: text(r.title, 'milestone title', 120), threshold: number(r.threshold, 'milestone threshold', 1e9), at: date(r.at), baseline: r.baseline === true }));
+    const awards = achievements.map(r => ({ key: text(r.key, 'milestone ID', 300), title: text(r.title, 'milestone title', 120), threshold: number(r.threshold, 'milestone threshold', 1e9), at: date(r.at), baseline: r.baseline === true,...(r.category?{category:['income','habit','holdings'].includes(r.category)?r.category:(()=>{throw new Error('Invalid badge category.');})()}:{}),...(r.detail?{detail:text(r.detail,'badge detail',180)}:{}) }));
     if (new Set(awards.map(r => r.key)).size !== awards.length) throw new Error('Duplicate milestone ID.');
     const buys = purchases.map(purchase).sort((a,b)=>Date.parse(a.at)-Date.parse(b.at));
     if (new Set(buys.map(r=>r.id)).size !== buys.length) throw new Error('Duplicate purchase ID.');
-    return { snapshots: records, achievements: awards, purchases: buys };
+    const visits=checkins.map(r=>{const at=date(r.at);if(r.month!==at.slice(0,7))throw new Error('Invalid confirmation month.');return {month:r.month,at,source:text(r.source,'confirmation source',30)};}).sort((a,b)=>Date.parse(a.at)-Date.parse(b.at));
+    if(new Set(visits.map(r=>r.month)).size!==visits.length)throw new Error('Duplicate monthly confirmation.');
+    return { snapshots: records, achievements: awards, purchases: buys,checkins:visits };
   }
   function profile(v) {
     if (!v || ![1,2].includes(v.schemaVersion)) throw new Error('Choose a retirement holdings file.');
@@ -84,6 +86,7 @@
       return { name: c.name, amount: number(c.amount,'expense price',1e6), times: number(c.times,'expense count',100), per:c.per };
     });
     p.selectedExpense = expense(v.selectedExpense);
+    p.badgeGoals={subscription:expense(v.badgeGoals?.subscription),weekend:expense(v.badgeGoals?.weekend)};
     if (v.forecast != null) {
       p.forecast = {};
       for (const [k,max] of [['monthly',1e6],['gpixPct',100],['inflation',15],['lunchbox',7],['homeCost',1000]]) p.forecast[k] = number(v.forecast[k],k,max);
@@ -190,15 +193,21 @@
       }else records.set(r.id,r);
     }
     const awards=new Map(a.achievements.map(r=>[r.key,r]));
-    for(const r of b.achievements) if(!awards.has(r.key)||Date.parse(r.at)<Date.parse(awards.get(r.key).at)) awards.set(r.key,r);
+    for(const r of b.achievements){const old=awards.get(r.key);if(!old||Date.parse(r.at)<Date.parse(old.at))awards.set(r.key,r);else if(r.at===old.at&&r.title===old.title&&r.threshold===old.threshold)awards.set(r.key,{...r,...old});}
+    const visits=new Map(a.checkins.map(r=>[r.month,r]));for(const r of b.checkins)if(!visits.has(r.month)||Date.parse(r.at)<Date.parse(visits.get(r.month).at))visits.set(r.month,r);
     const purchases=new Map(a.purchases.map(r=>[r.id,r]));
     for(const r of b.purchases) {
       if(purchases.has(r.id)&&JSON.stringify(purchases.get(r.id))!==JSON.stringify(r)) throw new Error('A saved purchase conflicts with this file.');
       purchases.set(r.id,r);
     }
-    return journal({snapshots:[...records.values()],achievements:[...awards.values()],purchases:[...purchases.values()]});
+    return journal({snapshots:[...records.values()],achievements:[...awards.values()],purchases:[...purchases.values()],checkins:[...visits.values()]});
   }
-  function transport(p) { const v=profile(p),purchases=v.journal.purchases; delete v.journal; if(purchases.length)v.journal={purchases}; return v; }
+  function transport(p) { const v=profile(p),purchases=v.journal.purchases,checkins=v.journal.checkins; delete v.journal; if(purchases.length||checkins.length)v.journal={...(purchases.length?{purchases}:{}),...(checkins.length?{checkins}:{})}; return v; }
+  function checkIn(p,at=new Date().toISOString(),source='website'){
+    date(at);const month=at.slice(0,7);if(p.journal.checkins.some(r=>r.month===month))return false;
+    if(p.journal.checkins.length>=MAX_RECORDS)throw new Error('Confirmation history is full.');
+    p.journal.checkins.push({month,at,source:text(source,'confirmation source',30)});return true;
+  }
   function commitBrowser(storage,values) {
     const previous=Object.fromEntries(Object.keys(values).map(k=>[k,storage.getItem(k)]));
     try { for(const [k,v] of Object.entries(values))storage.setItem(k,v); }
@@ -207,5 +216,5 @@
       throw new Error('Browser storage failed. The import could not be saved. Download a backup before reloading.');
     }
   }
-  return {FUNDS,KEYS,number,profile,journal,expense,snapshot,purchase,preparePurchase,income,observe,record,sameHoldings,milestones,award,changes,merge,transport,commitBrowser};
+  return {FUNDS,KEYS,checkIn,number,profile,journal,expense,snapshot,purchase,preparePurchase,income,observe,record,sameHoldings,milestones,award,changes,merge,transport,commitBrowser};
 });

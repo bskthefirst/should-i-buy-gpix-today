@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const J = require('./retirement-journal.js');
+const B = require('./retirement-badges.js');
 const BASE = 'https://bskthefirst.github.io/should-i-buy-gpix-today/';
 const signed = n => (n < -1e-8 ? '−' : '+') + '$' + Math.abs(n).toFixed(2);
 const quantity = n => Number(n.toFixed(6)).toString();
@@ -64,7 +65,7 @@ async function feeds(directory,p={}) {
   return Object.fromEntries(results);
 }
 function card(p,ob,old,celebrations=[]) {
-  const rows=J.milestones(p),next=rows.find(r=>ob.average<r.threshold-1e-9);
+  const rows=J.milestones(p),earned=new Set(p.journal.achievements.map(a=>a.key)),next=rows.find(r=>!earned.has(r.key)&&ob.average<r.threshold-1e-9);
   const lines=['Your weekly dividend journey',money(ob.average)+'/month estimated after '+p.taxPct+'% tax','Based on the past year’s payouts. Latest payout pace, monthly equivalent: '+money(ob.latest)+'.'];
   if(next) {
     const percent=Math.min(99,Math.floor(ob.average/next.threshold*100)),bars=Math.round(percent/10);
@@ -77,7 +78,11 @@ function card(p,ob,old,celebrations=[]) {
   const diff=J.changes(old,p,ob.rates);
   if(diff) lines.push('','What changed since '+old.at.slice(0,10)+'?',signed(diff.total)+'/month in total.','Reported share changes: '+J.FUNDS.map(([k,t])=>t+' '+((diff['delta'+k]||0)<0?'':'+')+quantity(diff['delta'+k]||0)).join(', ')+'.','Share-count effect: '+signed(diff.shares)+'. Payout effect: '+signed(diff.payouts)+'. Tax-rate effect: '+signed(diff.tax)+'.');
   else lines.push('','This is your first comparison. Future digests will explain changes from this baseline.');
-  if(celebrations.length) lines.push('','First recorded this week: '+celebrations.map(r=>r.title).join(', ')+'.');
+  if(celebrations.length) lines.push('','New badges this week: '+celebrations.map(r=>r.title).join(', ')+'.');
+  const personal=B.catalog(p,ob.average),near=B.closest(p,ob.average);
+  lines.push('','Your badge cabinet: '+personal.filter(r=>r.on).length+'/'+personal.length+' personal badges earned. Earned badges stay yours.');
+  if(near.length)lines.push('Three close personal wins:',...near.map(r=>r.title+' · '+Math.floor(r.progress*100)+'% · '+(r.category==='income'?money(Math.ceil(r.incomeGap*100)/100)+'/month to go':r.gap)));
+  const month=new Date().toISOString().slice(0,7);lines.push(p.journal.checkins.some(r=>r.month===month)?'This month’s holdings confirmation is complete.':'Confirm your holdings this month on the website. No purchase needed.');
   const purchases=(p.journal.purchases||[]).filter(r=>old&&Date.parse(r.at)>Date.parse(old.at));
   if(purchases.length) lines.push('','Purchases you recorded since the last comparison:',...purchases.slice(-5).map(r=>r.date+' · '+r.ticker+' '+quantity(r.shares)+' shares @ '+money(r.price)+' · '+money(r.totalCost)+(r.fees?' including '+money(r.fees)+' fees':'')),...(purchases.length>5?['Plus '+(purchases.length-5)+' earlier purchases in your history.']:[]));
   lines.push('',rows.filter(r=>ob.average>=r.threshold-1e-9).length+'/'+rows.length+' current income milestones. Past milestones remain in your timeline.','Saved holdings: '+J.FUNDS.map(([k,t])=>t+' '+quantity(p['shares'+k]||0)).join(' · ')+'.','No brokerage connection. Changes are your reports, not verified trades.','Data: '+ob.at.replace('T',' ').slice(0,16)+' UTC. Future payouts can change.',BASE+'retire.html#sec-journey','Use the connected website to record a purchase, or /holdings to correct your total holdings.');
@@ -126,16 +131,16 @@ async function operate(file,action,args='',dataDir=null) {
   } else if(action==='import'||action==='sync') {
     if(action==='sync') {
       const input=typeof args==='string'?JSON.parse(args):args;
-      input.profile={...input.profile};for(const k of ['sharesGoog','sharesNvda','costGoog','costNvda'])if(input.profile[k]==null)input.profile[k]=p[k];
+      input.profile={...input.profile};for(const k of ['sharesGoog','sharesNvda','costGoog','costNvda'])if(input.profile[k]==null)input.profile[k]=p[k];if(input.profile.badgeGoals===undefined)input.profile.badgeGoals=p.badgeGoals;
       if(input.expectedRevision!==state(file).revision) {const e=new Error('The shared record changed.');e.code='CONFLICT';throw e;}
       args=Buffer.from(JSON.stringify(J.profile(input.profile))).toString('base64url');
     }
     if(args.length>(action==='sync'?3000000:10000) || !/^[A-Za-z0-9_-]+$/.test(args)) throw new Error('Invalid website update. Copy a fresh command from the website.');
-    const incoming=JSON.parse(Buffer.from(args,'base64url').toString('utf8'));for(const k of ['sharesGoog','sharesNvda','costGoog','costNvda'])if(incoming[k]==null)incoming[k]=p[k];
+    const incoming=JSON.parse(Buffer.from(args,'base64url').toString('utf8'));for(const k of ['sharesGoog','sharesNvda','costGoog','costNvda'])if(incoming[k]==null)incoming[k]=p[k];if(incoming.badgeGoals===undefined)incoming.badgeGoals=p.badgeGoals;
     const imported=J.profile(incoming);
     if(action==='import' && raw.updatedAt && Date.parse(imported.exportedAt)<Date.parse(raw.updatedAt)) throw new Error('This website update is older than the bot’s last edit. Copy a fresh update after reviewing the current holdings.');
     validateNewPurchases(p,imported);
-    for(const k of [...J.KEYS,'taxPct','target','costs','selectedExpense']) p[k]=imported[k];
+    for(const k of [...J.KEYS,'taxPct','target','costs','selectedExpense','badgeGoals']) p[k]=imported[k];
     if(imported.forecast)p.forecast=imported.forecast;
     p.journal=J.merge(p.journal,imported.journal); changed=true;
     confirmation='Website update saved. GPIX '+quantity(p.sharesGpix)+' @ '+money(p.costGpix)+'; GPIQ '+quantity(p.sharesGpiq)+' @ '+money(p.costGpiq)+'.\nThe weekly digest now uses these numbers.\n\n';
@@ -145,13 +150,14 @@ async function operate(file,action,args='',dataDir=null) {
   try { ob=J.observe(p,await feeds(dataDir,p)); }
   catch(e) {
     if(!changed) throw e;
-    J.record(p.journal,p,null,action==='sync'?'website':'telegram');
+    J.record(p.journal,p,null,action==='sync'?'website':'telegram');B.award(p,null);
     write(file,{...p,updatedAt:new Date().toISOString(),weekly:raw.weekly});
     return {text:confirmation+'Market data unavailable. Your reported holdings were saved. No income milestone was awarded.'};
   }
   const baseline=p.journal.snapshots.length===0;
   J.record(p.journal,p,ob.rates,action==='sync'?'website':'telegram');
   const newAwards=J.award(p.journal,J.milestones(p),ob.average,new Date().toISOString(),baseline);
+  B.award(p,ob.average);
   let weekly=raw.weekly || {announced:[],comparison:null};
   const pending=p.journal.achievements.filter(r=>!r.baseline&&!weekly.announced.includes(r.key));
   const comparison=action==='weekly'?weekly.comparison:(before.journal.snapshots.at(-1));

@@ -105,12 +105,12 @@ test('weekly summaries celebrate once, compare prior reports, and retain milesto
     await operate(f.file,'baseline','',f.dir);
     await operate(f.file,'holdings','GPIX 100 52 GPIQ 3 56',f.dir);
     let reply=await operate(f.file,'weekly','',f.dir);
-    assert.match(reply.text,/First recorded this week/);assert.match(reply.text,/Share-count effect/);
-    assert.doesNotMatch((await operate(f.file,'weekly','',f.dir)).text,/First recorded this week/);
+    assert.match(reply.text,/New badges this week/);assert.match(reply.text,/Share-count effect/);
+    assert.doesNotMatch((await operate(f.file,'weekly','',f.dir)).text,/New badges this week/);
     await operate(f.file,'holdings','GPIX 1 52 GPIQ 3 56',f.dir);
     await operate(f.file,'weekly','',f.dir);
     await operate(f.file,'holdings','GPIX 100 52 GPIQ 3 56',f.dir);
-    assert.doesNotMatch((await operate(f.file,'weekly','',f.dir)).text,/First recorded this week/);
+    assert.doesNotMatch((await operate(f.file,'weekly','',f.dir)).text,/New badges this week/);
   }finally{f.cleanup();}
 });
 test('the OpenClaw plugin refuses other senders, groups and bot accounts',async()=>{
@@ -244,4 +244,14 @@ test('a two-fund projection of a four-stock report merges without losing its sto
  const merged=J.merge(old,complete);assert.deepEqual(merged,complete);assert.deepEqual(J.merge(complete,old),complete);assert.deepEqual(J.merge(merged,old),complete);
  const explicit=JSON.parse(JSON.stringify(complete));explicit.snapshots[0].sharesGoog=0;assert.throws(()=>J.merge(explicit,complete),/conflicts/);
  const altered=JSON.parse(JSON.stringify(old));altered.snapshots[0].rates.Gpix=.8;assert.throws(()=>J.merge(altered,complete),/conflicts/);
+});
+test('reward costs and monthly confirmations survive an older client update and exports',async()=>{
+ const f=fixture();try{
+  const p=state(f.file).profile;p.badgeGoals={subscription:{name:'Music',amount:15},weekend:{name:'Meals',amount:40}};J.checkIn(p);
+  await operate(f.file,'sync',{expectedRevision:state(f.file).revision,profile:p},f.dir);
+  const old=state(f.file).profile;delete old.badgeGoals;delete old.journal.checkins;old.journal.achievements=old.journal.achievements.map(({category,detail,...r})=>r);
+  await operate(f.file,'sync',{expectedRevision:state(f.file).revision,profile:old},f.dir);
+  const shared=state(f.file).profile;assert.equal(shared.badgeGoals.subscription.amount,15);assert.equal(shared.journal.checkins.length,1);assert.equal(shared.journal.achievements.find(r=>r.key==='fun:subscription').category,'income');
+  const result=await operate(f.file,'export','',f.dir),exported=JSON.parse(fs.readFileSync(result.mediaUrl));assert.equal(exported.journal.checkins.length,1);assert.equal(exported.badgeGoals.weekend.amount,40);
+ }finally{f.cleanup();}
 });

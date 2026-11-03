@@ -87,3 +87,14 @@ The standard schedule is Sundays at 7 p.m. Korea time, using timezone `Asia/Seou
 The service refreshes the public GPIX and GPIQ feeds on each estimate. It rejects stale data, incomplete payouts for owned funds, and reported source failures. A holdings command can still save reported shares during an outage. It does not award income milestones without usable data.
 
 The older Python digest remains available for simple exports and milestone-only deployments. The connected journey uses the shared Node service.
+
+
+## Personal badges
+
+The shared `retirement-badges.js` module defines Eight personal badges: Four Engines, Dollar a Day, Subscription Slayer, Weekend Sponsor, Bills on Autopilot, Three-Month Groove, Yearbook, and Double Take. Income badges use after-tax estimates. Four Engines requires a saved position in every supported dividend ticker. Double Take uses the first positive saved income estimate.
+
+Personal subscription and meal goals use user-entered USD monthly costs. They remain unset until saved. Bills on Autopilot uses the three cheapest distinct saved expenses. Monthly confirmations are explicit, count once per UTC calendar month, and do not require a purchase. Existing reports do not create confirmations retroactively.
+
+Achievements retain their original dates and conditions. Earned badges remain visible after income declines or goal changes. Browser celebration markers prevent repeated reveals on reload. The weekly recap reports new achievements once and shows nearby personal goals. No additional milestone notifications are scheduled.
+
+Deploy `docs/retirement-badges.js` alongside the journal and service modules in the private service directory. `scripts/retirement-badges.js` is the repository development wrapper. The weekly OpenClaw command job runs the service's `weekly` action on Sundays at 19:00 in `Asia/Seoul`.

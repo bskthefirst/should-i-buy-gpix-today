@@ -14,7 +14,7 @@
     return {endpoint:u.href.replace(/\/$/,''),token:v.token};
   }
   function create({storage,fetcher=fetch,read,apply,prepare,status,editing=()=>false,allowedEndpoint=null,now=()=>new Date()}) {
-    let saved=null,busy=false,conflict=null,generation=0,reachable=false,phase='unpaired';
+    let saved=null,busy=false,conflict=null,generation=0,reachable=false,phase='unpaired',followup=false;
     const validate=v=>{const c=connection(v);if(allowedEndpoint&&c.endpoint!==allowedEndpoint)throw new Error('This connection points to an unrecognized server.');return c;};
     try {const v=JSON.parse(storage.getItem(KEY)||'null');if(v)saved={...v,...validate(v)};}catch(e){status('Connection settings could not be read. Reconnect this browser.');}
     function stamp(){return new Date(now()).toISOString();}
@@ -31,7 +31,7 @@
       if(r.status===409)return {conflict:data};
       return data;
     }
-    function accept(data,options={}){try{const p=J.profile(data.profile);apply(p,options);saved.revision=data.revision;saved.dirty=false;saved.synced=fingerprint(read());saved.lastSyncedAt=saved.lastContactAt||stamp();delete saved.conflict;persist();notify('Synced with Mac mini. Telegram uses this shared record.','synced');}catch(e){e.syncLocal=true;throw e;}}
+    function accept(data,options={}){try{const p=J.profile(data.profile);apply(p,options);saved.revision=data.revision;saved.synced=fingerprint(p);saved.dirty=fingerprint(read())!==saved.synced;if(!saved.dirty)saved.lastSyncedAt=saved.lastContactAt||stamp();else followup=true;delete saved.conflict;persist();notify(saved.dirty?'Connected. Saving badges and history to Mac mini…':'Synced with Mac mini. Telegram uses this shared record.',saved.dirty?'saving':'synced');}catch(e){e.syncLocal=true;throw e;}}
     function mark(){if(!saved)return;generation++;saved.dirty=true;persist();if(conflict)notify('Your edits remain on this device. Choose which copy to keep.','conflict');else notify(reachable?'Editing. Your update will save when you leave the fields.':'Saved on this device only. Your edits will sync when the Mac mini connection returns.',reachable?'editing':'offline');}
     async function cycle() {
       if(!saved||busy||editing())return;
@@ -53,7 +53,7 @@
           if(!saved.dirty&&!editing())accept(data);
         }
       } catch(e){if(e.syncLocal){notify('Mac mini was reached, but this browser could not apply the shared record. '+e.message+' Your browser copy remains saved.','error');}else{reachable=false;notify(e.message?.includes('connection key')?e.message:'Saved on this device only. Cannot reach Mac mini. Sync will retry automatically.','offline');}}
-      finally {busy=false;}
+      finally {busy=false;if(followup){followup=false;await cycle();}}
     }
     async function connect(config) {
       if(busy)throw new Error('Wait for the current update to finish.');
