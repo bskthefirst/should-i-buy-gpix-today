@@ -212,3 +212,27 @@ test('purchases still save during a payout feed outage and service replays are i
     close(state(f.file).profile.sharesGpix,52.375);
   }finally{f.cleanup();}
 });
+test('four dividend holdings survive profiles, reports and quarterly income calculations',()=>{
+ const p=profile();Object.assign(p,{sharesGoog:5,costGoog:40,sharesNvda:12.5,costNvda:90});
+ const stock=(ticker,amount)=>({ticker,generated_at:at,fund:{price:100},distributions:{last_amount:amount,ttm_sum:amount*4,last_ex:new Date(Date.now()-75*86400000).toISOString().slice(0,10)}});
+ const fund=ticker=>({ticker,generated_at:at,fund:{price:55},distributions:{last_amount:.4,ttm_sum:4.8,last_ex:at.slice(0,10)}});
+ const feeds={GPIX:fund('GPIX'),GPIQ:fund('GPIQ'),GOOG:stock('GOOG',.2),NVDA:stock('NVDA',.01)};
+ const ob=J.observe(p,feeds);close(ob.average,(p.sharesGpix*4.8+p.sharesGpiq*4.8+5*.8+12.5*.04)/12*.85);
+ close(ob.latest,(p.sharesGpix*.4+p.sharesGpiq*.4+5*.2/3+12.5*.01/3)*.85);
+ J.record(p.journal,p,ob.rates);const roundtrip=J.profile(JSON.parse(JSON.stringify(p)));assert.equal(roundtrip.sharesNvda,12.5);assert.equal(roundtrip.journal.snapshots.at(-1).costGoog,40);
+ const buy=J.preparePurchase(p,{id:'quarterly-buy',ticker:'NVDA',shares:.5,price:100,date:new Date().toISOString().slice(0,10)});close(buy.profile.sharesNvda,13);close(buy.profile.costNvda,(12.5*90+.5*100)/13);
+});
+test('an older two-fund browser cannot erase the new stock holdings',async()=>{
+ const f=fixture();try{
+  const raw=profile();raw.sharesGoog=5;raw.costGoog=40;raw.sharesNvda=12;raw.costNvda=90;fs.writeFileSync(f.file,JSON.stringify(raw));
+  const oldClient=JSON.parse(JSON.stringify(raw));for(const k of ['sharesGoog','costGoog','sharesNvda','costNvda'])delete oldClient[k];oldClient.sharesGpix+=1;
+  await operate(f.file,'sync',{expectedRevision:state(f.file).revision,profile:oldClient},f.dir);
+  const updated=state(f.file).profile;assert.equal(updated.sharesGoog,5);assert.equal(updated.sharesNvda,12);assert.equal(updated.costNvda,90);close(updated.sharesGpix,raw.sharesGpix+1);
+ }finally{f.cleanup();}
+});
+test('four-ticker holdings corrections replace totals without inventing purchases',async()=>{
+ const f=fixture();try{
+  await operate(f.file,'holdings','GPIX 50.5 51 GPIQ 2 54 GOOG 7 100 NVDA 8.5 200',f.dir);
+  const p=state(f.file).profile;assert.equal(p.sharesGoog,7);assert.equal(p.costNvda,200);assert.equal(p.journal.purchases.length,0);assert.equal(p.journal.snapshots.at(-1).sharesNvda,8.5);
+ }finally{f.cleanup();}
+});

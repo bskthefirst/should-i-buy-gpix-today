@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="When can I retire on GPIX + GPIQ income? A live projection of the date when the dividends alone pay the monthly income you want, with your own plan, inflation and Korean tax checks.">
-<title>When can I retire? — GPIX + GPIQ income plan</title>
+<title>When can I retire? — Dividend income plan</title>
 <link rel="alternate" type="application/atom+xml" title="GPIX/GPIQ/TSLA/SPCX/NVDA/GOOG verdict-change alerts" href="feed.xml">
 <style>
   :root {
@@ -689,7 +689,7 @@
 
   <header>
     <div>
-      <div class="kicker">Retirement math · GPIX + GPIQ</div>
+      <div class="kicker">Retirement math · Your dividend portfolio</div>
       <h1>When can I retire?</h1>
       <div class="sub">Turn the shares you own into a clear monthly income plan. See your next milestone and when dividends could cover your goal.</div>
     </div>
@@ -712,8 +712,8 @@
 </div>
 <div id="ctip"></div>
 
-<script src="retirement-journal.js?v=4"></script>
-<script src="retirement-sync.js?v=6"></script>
+<script src="retirement-journal.js?v=5"></script>
+<script src="retirement-sync.js?v=7"></script>
 <script>
 "use strict";
 
@@ -770,10 +770,10 @@ function simulate(y, p, o) {
   const months = [];
   let crossAt = null;
   for (let m = 0; m <= MAX_MONTHS; m++) {
-    const gross = (sg * pg * yg + sq * pq * yq) / 12;
+    const gross = (sg * pg * yg + sq * pq * yq) / 12 + (p.otherMonthlyGross||0);
     const net = gross * netF;
     const target = o.target * Math.pow(1 + infl, m / 12);
-    months.push({ m, portfolio: sg * pg + sq * pq + cg + cq, cash: cg + cq, net, gross, target, cumContrib, cumReinv, cumGrowth, cumTax });
+    months.push({ m, portfolio: sg * pg + sq * pq + cg + cq + (p.otherValue||0), cash: cg + cq, net, gross, target, cumContrib, cumReinv, cumGrowth, cumTax });
     if (crossAt === null && net >= target) crossAt = m;
     if (crossAt !== null && m > crossAt + 24) break;  // simulate a little past the goal
     const npg = pg * (1 + g / 12), npq = pq * (1 + g / 12);
@@ -797,10 +797,10 @@ const monthsTo = (y, p, target, drift, inflation) => simulate(y, p, { target, dr
 // ---- plan, defaults and saving ----
 // Personal purchase records are entered and saved in the browser, not published.
 // costs: what the owner pays every month, so the page can show when the dividends cover each one. "per" is "month" or "week".
-const DEFAULTS = { target: 250, monthly: 1000, gpixPct: 80, taxPct: 15, sharesGpix: 0, sharesGpiq: 0, costGpix: 0, costGpiq: 0, scenario: "base", inflation: 2.5, whole: true, lunchbox: 0, homeCost: 6,
+const DEFAULTS = { target: 250, monthly: 1000, gpixPct: 80, taxPct: 15, sharesGpix: 0, sharesGpiq: 0, costGpix: 0, costGpiq: 0, sharesGoog: 0, sharesNvda: 0, costGoog: 0, costNvda: 0, scenario: "base", inflation: 2.5, whole: true, lunchbox: 0, homeCost: 6,
   costs: [{ name: "Claude", amount: 20, times: 1, per: "month" }, { name: "ChatGPT", amount: 20, times: 1, per: "month" }, { name: "Lunch", amount: 20, times: 4, per: "week" }] };
 const COST_LIMITS = { rows: 12, name: 30, amount: 1e6, times: 100 };
-const LIMITS = { target: [1, 1e6], monthly: [0, 1e6], gpixPct: [0, 100], taxPct: [0, 60], sharesGpix: [0, 1e8], sharesGpiq: [0, 1e8], costGpix: [0, 1e6], costGpiq: [0, 1e6], inflation: [0, 15], lunchbox: [0, 7], homeCost: [0, 1000] };
+const LIMITS = { target: [1, 1e6], monthly: [0, 1e6], gpixPct: [0, 100], taxPct: [0, 60], sharesGpix: [0, 1e8], sharesGpiq: [0, 1e8], costGpix: [0, 1e6], costGpiq: [0, 1e6], sharesGoog:[0,1e8], sharesNvda:[0,1e8], costGoog:[0,1e6], costNvda:[0,1e6], inflation: [0, 15], lunchbox: [0, 7], homeCost: [0, 1000] };
 const STORE_KEY = "retire-settings-v3";
 const freshPlan = () => ({ ...DEFAULTS, costs: DEFAULTS.costs.map(c => ({ ...c })) });   // a copy, so editing the costs never changes the defaults
 let S = freshPlan();
@@ -837,7 +837,7 @@ loadSettings();
 // Leave those costs unknown and ask the user to verify the estimated shares.
 function migrateHoldings(y) {
   if (!legacyBalances) return;
-  for (const [name, px] of [["Gpix", y.pxGpix], ["Gpiq", y.pxGpiq]]) {
+  for (const [name, px] of [["Gpix", y.pxGpix], ["Gpiq", y.pxGpiq], ["Goog", y.pxGoog], ["Nvda", y.pxNvda]]) {
     const dollars = Math.min(1e8, Math.max(0, Number(legacyBalances["start" + name]) || 0));
     const shares = dollars / px;
     S["shares" + name] = S.whole ? Math.floor(shares + 1e-9) : shares;
@@ -872,7 +872,7 @@ const sharesText = v => v.toLocaleString("en-US", { maximumFractionDigits: 8 });
 
 // ================= time: New York and Korea =================
 const NY_TZ = "America/New_York", KR_TZ = "Asia/Seoul";
-const DIST = { gpix: null, gpiq: null };   // the "distributions" block of each data file
+const DIST = { gpix: null, gpiq: null, goog:null, nvda:null };   // the "distributions" block of each data file
 let YIELDS = null;                          // market numbers, kept so the clock can redraw the page
 let MARKET_META = {};
 const zfmt = (ms, tz, o) => new Intl.DateTimeFormat("en-US", { timeZone: tz, ...o }).format(ms);
@@ -922,7 +922,7 @@ function renderNext(hold) {
   NEXT.monthly = total;
   const r = remaining(u.close - Date.now());
   const P = 1 - Math.min(1, (u.close - Date.now()) / (31 * 864e5));   // how much of the month has gone
-  $("nextsub").textContent = `The funds pay a dividend every month. You get it only if you own the shares before the ex-dividend date. The date below is an estimate. It follows the pattern of past months. The fund company announces the real date a few days before.`;
+  $("nextsub").textContent = `GPIX and GPIQ pay monthly. GOOG and NVDA pay quarterly; their individual payouts appear in Holdings. You get it only if you own the shares before the ex-dividend date. The date below is an estimate. It follows the pattern of past months. The fund company announces the real date a few days before.`;
   $("nextbox").innerHTML = `
     <div class="nx-top">
       <div class="nx-ring" aria-hidden="true">
@@ -1653,7 +1653,7 @@ function persistJourney(next=JOURNEY) {
   localStorage.setItem(JOURNEY_KEY,JSON.stringify(next)); JOURNEY=next;
 }
 function journalProfile() {
-  return J.profile({schemaVersion:2,exportedAt:new Date().toISOString(),...Object.fromEntries(["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"].map(k=>[k,S[k]])),forecast:Object.fromEntries(["monthly","gpixPct","inflation","lunchbox","homeCost","scenario","whole"].map(k=>[k,S[k]])),...JOURNEY});
+  return J.profile({schemaVersion:2,exportedAt:new Date().toISOString(),...Object.fromEntries([...J.KEYS,"taxPct","target","costs"].map(k=>[k,S[k]])),forecast:Object.fromEntries(["monthly","gpixPct","inflation","lunchbox","homeCost","scenario","whole"].map(k=>[k,S[k]])),...JOURNEY});
 }
 let AUTO_SYNC=null,syncTimer=null;
 function recordCurrentHoldings() {
@@ -1668,13 +1668,13 @@ function applySharedProfile(p,options={}) {
   if(options.replaceJournal){localStorage.setItem("retire-conflict-backup-v1",JSON.stringify(journalProfile()));$("export-conflict-backup").hidden=false;}
   const next={selectedExpense:p.selectedExpense,journal:options.replaceJournal?p.journal:J.merge(JOURNEY.journal,p.journal)};
   const settings={...S,...p.forecast,holdingsReview:false};
-  for(const k of ["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"])settings[k]=p[k];
+  for(const k of [...J.KEYS,"taxPct","target","costs"])settings[k]=p[k];
   J.commitBrowser(localStorage,{[STORE_KEY]:JSON.stringify(settings),[JOURNEY_KEY]:JSON.stringify(next)});
   S=settings;JOURNEY=next;syncControls();renderCostList();update(YIELDS);
   if(p.selectedExpense){$("expense-name").value=p.selectedExpense.name;$("expense-amount").value=p.selectedExpense.amount;$("expense-preset").value="custom";}
 }
 function bindAutomaticSync() {
-  const ids=new Set(["n-sharesGpix","n-sharesGpiq","n-costGpix","n-costGpiq","n-target","in-target","n-taxPct","in-tax","n-monthly","in-monthly","in-mix","in-infl","n-homeCost","n-lunchbox","in-lunchbox"]);
+  const ids=new Set(["n-sharesGpix","n-sharesGpiq","n-costGpix","n-costGpiq","n-sharesGoog","n-sharesNvda","n-costGoog","n-costNvda","n-target","in-target","n-taxPct","in-tax","n-monthly","in-monthly","in-mix","in-infl","n-homeCost","n-lunchbox","in-lunchbox"]);
   const editing=()=>ids.has(document.activeElement?.id)||!!document.activeElement?.closest(".costrow,.expense-form");
   AUTO_SYNC=RetirementSync.create({storage:localStorage,read:journalProfile,apply:applySharedProfile,prepare:recordCurrentHoldings,editing,allowedEndpoint:"https://bills-mac-mini.tailf2c209.ts.net:8443",
     status:(text,info={})=>{
@@ -1696,7 +1696,7 @@ function bindAutomaticSync() {
       $("disconnect-sync").hidden=!(info.paired||info.pending);
       $("record-holdings").hidden=!!info.paired;
       const remote=AUTO_SYNC?.conflict();
-      if(remote){const p=remote.profile;$("sync-conflict-values").textContent=`This device: GPIX ${sharesText(S.sharesGpix)} at ${usd2(S.costGpix)}, GPIQ ${sharesText(S.sharesGpiq)} at ${usd2(S.costGpiq)}. Mac mini: GPIX ${sharesText(p.sharesGpix)} at ${usd2(p.costGpix)}, GPIQ ${sharesText(p.sharesGpiq)} at ${usd2(p.costGpiq)}. Your other plan settings also follow the selected copy.${PURCHASE_DRAFT&&!PURCHASE_DRAFT.awaitingReview?" Your purchase is saved as a draft. Use Mac mini’s numbers, then review and save the purchase again.":""}`;}
+      if(remote){const p=remote.profile;$("sync-conflict-values").textContent=`This device: GPIX ${sharesText(S.sharesGpix)} at ${usd2(S.costGpix)}, GPIQ ${sharesText(S.sharesGpiq)} at ${usd2(S.costGpiq)}. Mac mini: GPIX ${sharesText(p.sharesGpix)} at ${usd2(p.costGpix)}, GPIQ ${sharesText(p.sharesGpiq)} at ${usd2(p.costGpiq)}. GOOG: this device ${sharesText(S.sharesGoog)} at ${usd2(S.costGoog)}, Mac mini ${sharesText(p.sharesGoog)} at ${usd2(p.costGoog)}. NVDA: this device ${sharesText(S.sharesNvda)} at ${usd2(S.costNvda)}, Mac mini ${sharesText(p.sharesNvda)} at ${usd2(p.costNvda)}. Your other plan settings also follow the selected copy.${PURCHASE_DRAFT&&!PURCHASE_DRAFT.awaitingReview?" Your purchase is saved as a draft. Use Mac mini’s numbers, then review and save the purchase again.":""}`;}
     }
   });
   const schedule=()=>{clearTimeout(syncTimer);syncTimer=setTimeout(()=>AUTO_SYNC.cycle(),500);};
@@ -1720,7 +1720,7 @@ function bindAutomaticSync() {
     try {
       const f=e.target.files[0];if(!f)return;if(f.size>10000)throw new Error("Choose the private connection file from Telegram.");
       const config=JSON.parse(await f.text());
-      await AUTO_SYNC.connect({...config,isEmpty:S.holdingsReview||(!S.sharesGpix&&!S.sharesGpiq&&!S.costGpix&&!S.costGpiq)});
+      await AUTO_SYNC.connect({...config,isEmpty:S.holdingsReview||J.KEYS.every(k=>!S[k])});
     }catch(err){$("automatic-sync-status").textContent=err.message;}
     e.target.value="";
   });
@@ -1729,7 +1729,7 @@ function bindAutomaticSync() {
     history.replaceState(null,"",location.pathname+location.search+"#sec-holdings");
     try {
       const config=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(encoded.replace(/-/g,"+").replace(/_/g,"/")),c=>c.charCodeAt(0))));
-      AUTO_SYNC.connect({...config,isEmpty:S.holdingsReview||(!S.sharesGpix&&!S.sharesGpiq&&!S.costGpix&&!S.costGpiq)}).catch(e=>{$("automatic-sync-status").textContent=e.message;});
+      AUTO_SYNC.connect({...config,isEmpty:S.holdingsReview||J.KEYS.every(k=>!S[k])}).catch(e=>{$("automatic-sync-status").textContent=e.message;});
     } catch(e){$("automatic-sync-status").textContent="This connection link is invalid. Use /retire_connect to get a fresh one.";}
     return true;
   };
@@ -1739,7 +1739,7 @@ function bindAutomaticSync() {
   window.addEventListener("online",()=>AUTO_SYNC.cycle());
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)AUTO_SYNC.cycle();});
 }
-function observation() { return J.observe(S,{GPIX:MARKET_CACHE.gpix,GPIQ:MARKET_CACHE.gpiq}); }
+function observation() { return J.observe(S,{GPIX:MARKET_CACHE.gpix,GPIQ:MARKET_CACHE.gpiq,GOOG:MARKET_CACHE.goog,NVDA:MARKET_CACHE.nvda}); }
 const recordDate=at=>new Date(at).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});
 const signedMoney=n=>(n<-.00000001?"−":"+")+usd2(Math.abs(n));
 const signedShares=n=>(n<0?"−":"+")+sharesText(Math.abs(n));
@@ -1764,10 +1764,10 @@ function renderJourney() {
   const e=JOURNEY.selectedExpense;
   $("expense-progress").innerHTML=!e?'<p>Choose one monthly expense. Your website and Telegram digest will show how close your dividends are to covering it.</p>':!ob?'<p>'+esc(error)+'</p>':`<div class="journey-income">${Math.min(100,ob.average/e.amount*100).toFixed(1)}% <small>of ${esc(e.name)}</small></div><div class="goal-track" role="progressbar" aria-label="Chosen expense coverage" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.min(100,ob.average/e.amount*100).toFixed(1)}"><i style="width:${Math.min(100,ob.average/e.amount*100)}%"></i></div><p>${usd2(ob.average)} of ${usd2(e.amount)}/month after tax. ${ob.average>=e.amount?"Your current estimate covers this expense.":usd2(Math.max(.01,Math.ceil((e.amount-ob.average)*100-1e-9)/100))+"/month left."}</p>`;
   const reference=pending?last:rows.at(-2)||last,diff=ob?J.changes(reference,S,ob.rates):null;
-  $("journey-changes").innerHTML=!diff?'<p>'+(error?esc(error):'Your first report sets the starting point. Later updates will show what changed.')+'</p>':`<div class="journey-income">${signedMoney(diff.total)} <small>a month</small></div><p>Since ${recordDate(reference.at)}${pending?" · preview of your unrecorded edits":""}.</p><div class="change-rows"><div><span>Reported share counts</span><b>${signedMoney(diff.shares)}</b></div><div><span>Payout amounts per share</span><b>${signedMoney(diff.payouts)}</b></div><div><span>Tax rate</span><b>${signedMoney(diff.tax)}</b></div></div><p>GPIX ${signedShares(diff.deltaGpix)} shares. GPIQ ${signedShares(diff.deltaGpiq)} shares. These are reported changes, not verified purchases.</p>`;
+  $("journey-changes").innerHTML=!diff?'<p>'+(error?esc(error):'Your first report sets the starting point. Later updates will show what changed.')+'</p>':`<div class="journey-income">${signedMoney(diff.total)} <small>a month</small></div><p>Since ${recordDate(reference.at)}${pending?" · preview of your unrecorded edits":""}.</p><div class="change-rows"><div><span>Reported share counts</span><b>${signedMoney(diff.shares)}</b></div><div><span>Payout amounts per share</span><b>${signedMoney(diff.payouts)}</b></div><div><span>Tax rate</span><b>${signedMoney(diff.tax)}</b></div></div><p>${J.FUNDS.map(([k,t])=>t+" "+signedShares(diff["delta"+k]||0)+" shares").join(". ")}. These are reported changes, not verified purchases.</p>`;
   const awards=JOURNEY.journal.achievements;
   $("journey-timeline").innerHTML=awards.length?awards.slice().sort((a,b)=>Date.parse(b.at)-Date.parse(a.at)).map(a=>`<li><b>${esc(a.title)}</b><span>${recordDate(a.at)} · ${a.baseline?"Observed at the starting point":"First recorded"}${ob&&ob.average<a.threshold?" · current estimate is below this milestone":""}</span></li>`).join(""):'<li><b>Your journey starts here</b><span>Record your holdings. The timeline will remember estimated income milestones from that point.</span></li>';
-  $("holdings-history").innerHTML=rows.length?`<table class="history-table"><thead><tr><th scope="col">Recorded</th><th scope="col">GPIX shares</th><th scope="col">GPIX average</th><th scope="col">GPIQ shares</th><th scope="col">GPIQ average</th><th scope="col">Reported share change</th></tr></thead><tbody>${rows.slice().reverse().map(r=>{const i=rows.indexOf(r),old=rows[i-1];return `<tr><td>${recordDate(r.at)} · ${esc(r.source)}</td><td>${sharesText(r.sharesGpix)}</td><td>${r.costGpix?usd2(r.costGpix):"Not entered"}</td><td>${sharesText(r.sharesGpiq)}</td><td>${r.costGpiq?usd2(r.costGpiq):"Not entered"}</td><td>${old?"GPIX "+signedShares(r.sharesGpix-old.sharesGpix)+" · GPIQ "+signedShares(r.sharesGpiq-old.sharesGpiq):"Starting point"}</td></tr>`;}).join("")}</tbody></table>`:'<p class="holding-source">No holdings reports saved yet.</p>';
+  $("holdings-history").innerHTML=rows.length?`<table class="history-table"><thead><tr><th scope="col">Recorded</th>${J.FUNDS.map(([,t])=>`<th scope="col">${t} shares / average</th>`).join("")}</tr></thead><tbody>${rows.slice().reverse().map(r=>`<tr><td>${recordDate(r.at)} · ${esc(r.source)}</td>${J.FUNDS.map(([k])=>`<td>${r['shares'+k]==null?"Not tracked":sharesText(r['shares'+k])+" / "+(r['cost'+k]?usd2(r['cost'+k]):"Not entered")}</td>`).join("")}</tr>`).join("")}</tbody></table>`:'<p class="holding-source">No holdings reports saved yet.</p>';
 }
 function bindJourney() {
   const e=JOURNEY.selectedExpense;
@@ -1801,20 +1801,20 @@ function bindJourney() {
       pendingImport=J.profile(JSON.parse(await f.text()));
       const p=pendingImport;$("import-preview").hidden=false;
       const last=JOURNEY.journal.snapshots.at(-1),older=last&&Date.parse(p.exportedAt)<Date.parse(last.at);
-      $("import-preview").innerHTML=`<b>Review incoming holdings</b><p>Exported ${recordDate(p.exportedAt)}. ${older?"This file is older than your latest report. Review the numbers carefully.":""}</p><p>GPIX: ${sharesText(p.sharesGpix)} shares · average ${usd2(p.costGpix)}.<br>GPIQ: ${sharesText(p.sharesGpiq)} shares · average ${usd2(p.costGpiq)}.<br>Tax: ${p.taxPct}%. Goal: ${usd2(p.target)}/month.<br>Chosen expense: ${p.selectedExpense?esc(p.selectedExpense.name)+" · "+usd2(p.selectedExpense.amount):"None"}.<br>${p.journal.snapshots.length} holdings reports. ${p.journal.achievements.length} milestone memories.</p><p>Applying this file replaces current holdings, tax, goal, and expenses. It merges both histories.</p><div class="import-actions"><button id="apply-telegram-import" type="button">Apply this file</button><button id="cancel-telegram-import" type="button">Cancel</button></div>`;
+      $("import-preview").innerHTML=`<b>Review incoming holdings</b><p>Exported ${recordDate(p.exportedAt)}. ${older?"This file is older than your latest report. Review the numbers carefully.":""}</p><p>GPIX: ${sharesText(p.sharesGpix)} shares · average ${usd2(p.costGpix)}.<br>GPIQ: ${sharesText(p.sharesGpiq)} shares · average ${usd2(p.costGpiq)}.<br>GOOG: ${sharesText(p.sharesGoog)} shares · average ${usd2(p.costGoog)}.<br>NVDA: ${sharesText(p.sharesNvda)} shares · average ${usd2(p.costNvda)}.<br>Tax: ${p.taxPct}%. Goal: ${usd2(p.target)}/month.<br>Chosen expense: ${p.selectedExpense?esc(p.selectedExpense.name)+" · "+usd2(p.selectedExpense.amount):"None"}.<br>${p.journal.snapshots.length} holdings reports. ${p.journal.achievements.length} milestone memories.</p><p>Applying this file replaces current holdings, tax, goal, and expenses. It merges both histories.</p><div class="import-actions"><button id="apply-telegram-import" type="button">Apply this file</button><button id="cancel-telegram-import" type="button">Cancel</button></div>`;
       $("cancel-telegram-import").addEventListener("click",()=>{pendingImport=null;$("import-preview").hidden=true;});
       $("apply-telegram-import").addEventListener("click",()=>{
         try {
           const p=pendingImport;if(!p)return;
           const next={selectedExpense:p.selectedExpense,journal:J.merge(JOURNEY.journal,p.journal)};
-          let rates=null;try{rates=J.observe(p,{GPIX:MARKET_CACHE.gpix,GPIQ:MARKET_CACHE.gpiq}).rates;}catch(e){}
+          let rates=null;try{rates=J.observe(p,{GPIX:MARKET_CACHE.gpix,GPIQ:MARKET_CACHE.gpiq,GOOG:MARKET_CACHE.goog,NVDA:MARKET_CACHE.nvda}).rates;}catch(e){}
           J.record(next.journal,p,rates,"import");
           if(JOURNEY_ERROR)throw new Error(JOURNEY_ERROR);
           const other=JSON.parse(localStorage.getItem(JOURNEY_KEY)||"null");
           if(other)next.journal=J.merge(J.journal(other.journal),next.journal);
           const settings={...S,holdingsReview:false};
           if(p.forecast)Object.assign(settings,p.forecast);
-          for(const k of ["sharesGpix","sharesGpiq","costGpix","costGpiq","taxPct","target","costs"])settings[k]=p[k];
+          for(const k of [...J.KEYS,"taxPct","target","costs"])settings[k]=p[k];
           J.commitBrowser(localStorage,{[STORE_KEY]:JSON.stringify(settings),[JOURNEY_KEY]:JSON.stringify(next)});
           S=settings;JOURNEY=next;storageOk=true;syncControls();renderCostList();update(YIELDS);
           if(p.selectedExpense){$("expense-name").value=p.selectedExpense.name;$("expense-amount").value=p.selectedExpense.amount;$("expense-preset").value="custom";}
@@ -1851,7 +1851,7 @@ function renderPurchasePreview() {
   try{
     if(!$("purchase-shares").value&&!$("purchase-price").value)throw new Error("Enter the shares bought and price to preview your new holdings.");
     const {record:r}=purchasePreparation();
-    let added="";try{const rate=observation().rates[r.ticker==="GPIX"?"Gpix":"Gpiq"];added=`<br>Estimated extra income: ${usd2(r.shares*rate*(1-S.taxPct/100))}/month after tax. Uses the past year’s payouts.`;}catch(e){}
+    let added="";try{const rate=observation().rates[J.FUNDS.find(([,t])=>t===r.ticker)[0]];added=`<br>Estimated extra income: ${usd2(r.shares*rate*(1-S.taxPct/100))}/month after tax. Uses the past year’s payouts.`;}catch(e){}
     $("purchase-preview").innerHTML=`${r.ticker}: <b>${sharesText(r.resultingShares)} total shares</b> at an average of <b>${usd2(r.resultingCost)}</b>.<br>Purchase cost including fees: ${usd2(r.totalCost)}.${added}${blocked?"<br>"+esc(blocked):""}`;
   }catch(e){$("purchase-preview").textContent=blocked||e.message;blocked=blocked||e.message;}
   $("save-purchase").disabled=!!blocked||purchaseBusy;
@@ -1877,7 +1877,7 @@ function bindPurchases(){
       const input=purchaseInput(),result=purchasePreparation(),p=result.profile;
       const other=JSON.parse(localStorage.getItem(JOURNEY_KEY)||"null");
       if(other)p.journal=J.merge(J.journal(other.journal),p.journal);
-      const next={selectedExpense:p.selectedExpense,journal:p.journal},settings={...S,sharesGpix:p.sharesGpix,sharesGpiq:p.sharesGpiq,costGpix:p.costGpix,costGpiq:p.costGpiq,holdingsReview:false};
+      const next={selectedExpense:p.selectedExpense,journal:p.journal},settings={...S,sharesGpix:p.sharesGpix,sharesGpiq:p.sharesGpiq,costGpix:p.costGpix,costGpiq:p.costGpiq,sharesGoog:p.sharesGoog,sharesNvda:p.sharesNvda,costGoog:p.costGoog,costNvda:p.costNvda,holdingsReview:false};
       const draft={...input,awaitingReview:false};
       const writes={[STORE_KEY]:JSON.stringify(settings),[JOURNEY_KEY]:JSON.stringify(next),[PURCHASE_DRAFT_KEY]:JSON.stringify(draft)};
       const connection=JSON.parse(localStorage.getItem("retire-sync-v1")||"null");
@@ -1910,7 +1910,7 @@ function renderSkeleton(yields, meta) {
       </div>
       <div id="holdings-notice" class="holdings-notice" role="status"></div>
       <div class="holding-grid">
-        ${[["Gpix", "S&P 500 premium income"], ["Gpiq", "Nasdaq-100 premium income"]].map(([key, name]) => `
+        ${[["Gpix", "S&P 500 premium income · monthly"], ["Gpiq", "Nasdaq-100 premium income · monthly"], ["Goog", "Alphabet Class C · quarterly"], ["Nvda", "NVIDIA · quarterly"]].map(([key, name]) => `
         <article class="holding-fund">
           <div class="holding-title"><b>${key.toUpperCase()}</b><small>${name} · USD</small></div>
           <div class="holding-inputs">
@@ -1924,7 +1924,7 @@ function renderSkeleton(yields, meta) {
       <details class="purchase-entry" id="purchase-entry"><summary>Record a purchase</summary>
         <p class="holding-source">Enter a purchase you already made. The page adds the shares and calculates your new average purchase price.</p>
         <form id="purchase-form" class="purchase-form">
-          <label for="purchase-ticker">Fund<select id="purchase-ticker"><option>GPIX</option><option>GPIQ</option></select></label>
+          <label for="purchase-ticker">Fund<select id="purchase-ticker"><option>GPIX</option><option>GPIQ</option><option>GOOG</option><option>NVDA</option></select></label>
           <label for="purchase-date">Purchase date<input type="date" id="purchase-date" required></label>
           <label for="purchase-shares">Shares you bought<input id="purchase-shares" inputmode="decimal" autocomplete="off" placeholder="For example, 3.5" required></label>
           <label for="purchase-price">Price paid per share · USD<input id="purchase-price" inputmode="decimal" autocomplete="off" placeholder="For example, 56.00" required></label>
@@ -2173,12 +2173,12 @@ function renderSkeleton(yields, meta) {
   slider("in-monthly", "monthly", "n-monthly"); numeric("n-monthly", "monthly", "in-monthly");
   slider("in-lunchbox", "lunchbox", "n-lunchbox"); numeric("n-lunchbox", "lunchbox", "in-lunchbox"); numeric("n-homeCost", "homeCost");
   slider("in-mix", "gpixPct"); slider("in-tax", "taxPct", "n-taxPct"); numeric("n-taxPct", "taxPct", "in-tax"); slider("in-infl", "inflation");
-  for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq"]) numeric("n-" + key, key);
+  for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq", "sharesGoog", "sharesNvda", "costGoog", "costNvda"]) numeric("n-" + key, key);
   document.querySelectorAll("[data-tax]").forEach(b => b.addEventListener("click", () => {
     S.taxPct = +b.dataset.tax; syncControls(); update(yields);
   }));
   $("clear-holdings").addEventListener("click", () => {
-    for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq"]) S[key] = 0;
+    for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq", "sharesGoog", "sharesNvda", "costGoog", "costNvda"]) S[key] = 0;
     S.holdingsReview = false; syncControls(); update(yields);
   });
   $("confirm-holdings").addEventListener("click", () => { S.holdingsReview = false; update(yields); });
@@ -2238,7 +2238,7 @@ function syncControls() {
   set("in-monthly", S.monthly); set("n-monthly", fieldText(S.monthly));
   set("in-lunchbox", S.lunchbox); set("n-lunchbox", fieldText(S.lunchbox)); set("n-homeCost", fieldText(S.homeCost));
   set("in-mix", S.gpixPct); set("in-tax", S.taxPct); set("n-taxPct", fieldText(S.taxPct)); set("in-infl", S.inflation);
-  for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq"]) set("n-" + key, key.startsWith("shares") ? sharesText(S[key]) : fieldText(S[key]));
+  for (const key of ["sharesGpix", "sharesGpiq", "costGpix", "costGpiq", "sharesGoog", "sharesNvda", "costGoog", "costNvda"]) set("n-" + key, key.startsWith("shares") ? sharesText(S[key]) : fieldText(S[key]));
   $("in-whole").checked = S.whole;
   ["in-target", "in-monthly", "in-mix", "in-tax", "in-infl", "in-lunchbox"].forEach(id => paintSlider($(id)));
 }
@@ -2248,38 +2248,39 @@ function renderHoldings(y) {
   const signed = v => (v < 0 ? "−" : "+") + usd2(Math.abs(v));
   const percent = v => (v < 0 ? "" : "+") + v.toFixed(2) + "%";
   const records = [];
-  for (const [key, price] of [["Gpix", y.pxGpix], ["Gpiq", y.pxGpiq]]) {
-    const ticker = key.toUpperCase(), dist = DIST[key.toLowerCase()];
+  for (const [key, price] of [["Gpix", y.pxGpix], ["Gpiq", y.pxGpiq], ["Goog", y.pxGoog], ["Nvda", y.pxNvda]]) {
+    const ticker = key.toUpperCase(), dist = DIST[key.toLowerCase()],quarterly=["Goog","Nvda"].includes(key);
     const shares = S["shares" + key], cost = S["cost" + key];
     const last = dist && Number.isFinite(dist.last_amount) ? dist.last_amount : null;
     const annual = dist && Number.isFinite(dist.ttm_sum) ? dist.ttm_sum : null;
-    const m = holdingMetrics(shares, cost, price, last, annual, S.taxPct);
-    records.push({ ...m, shares, knownCost: cost > 0 || shares === 0 });
-    const gainKnown = cost > 0 || shares === 0;
+    const m = holdingMetrics(shares, cost, price||0, last, annual, S.taxPct);
+    if(!price&&shares>0){m.value=null;m.gain=null;m.gainPct=null;}
+    records.push({ ...m, latestNet:m.latestNet===null?null:m.latestNet/(quarterly?3:1), shares, knownCost: cost > 0 || shares === 0 });
+    const gainKnown = (cost > 0 || shares === 0)&&!!price;
     $("holding-" + key.toLowerCase()).innerHTML = `
       <dl>
         <dt>Total purchase cost (cost basis)</dt><dd>${gainKnown ? usd2(m.basis) : "Price not entered"}</dd>
-        <dt>Share price · ${MARKET_META[key.toLowerCase()]?.priceDate || "backup estimate"}</dt><dd>${usd2(price)}</dd>
+        <dt>Share price · ${MARKET_META[key.toLowerCase()]?.priceDate || "backup estimate"}</dt><dd>${price?usd2(price):"Unavailable"}</dd>
         <dt>Current market value</dt><dd>${usd2(m.value)}</dd>
         <dt>Unrealized gain / loss</dt><dd class="${gainKnown ? m.gain < 0 ? "gain-down" : "gain-up" : ""}">${gainKnown ? signed(m.gain) + (m.gainPct === null ? "" : " (" + percent(m.gainPct) + ")") : "—"}</dd>
         <dt>Annual yield on purchase cost · after tax</dt><dd>${m.yieldOnCost === null ? "—" : m.yieldOnCost.toFixed(2) + "%"}</dd>
       </dl>
       <div class="holding-income">
-        <div class="income-label">Latest monthly dividend after ${S.taxPct}% tax</div>
-        <div class="income-value">${m.latestNet === null ? "Unavailable" : usd2(m.latestNet)} <small>/ month</small></div>
+        <div class="income-label">Latest ${quarterly?"quarterly":"monthly"} dividend after ${S.taxPct}% tax</div>
+        <div class="income-value">${m.latestNet === null ? "Unavailable" : usd2(m.latestNet)} <small>/ ${quarterly?"quarter":"month"}</small></div>
         <p>${last === null ? "Latest distribution is unavailable. No payout is assumed here." : `${sharesText(shares)} shares × $${last.toFixed(5)} × ${(1 - S.taxPct / 100).toLocaleString("en-US", { maximumFractionDigits: 8 })} = ${usd2(m.latestNet)}`}</p>
         <p>${m.averageNet === null ? "Past payout history unavailable" : `Using the past year's average payouts: ${usd2(m.averageNet)}/month or ${usd2(m.annualNet)}/year after tax.`}</p>
         <p>${dist?.last_ex ? "Uses the payout with an ex-dividend date of " + isoDay(dist.last_ex) + ". " : ""}The next payout can change. You qualify only for payouts with an ex-dividend date after you bought the shares.</p>
       </div>
-      <p class="holding-source"><a href="${ticker === "GPIX" ? "data.json" : "data-gpiq.json"}">Yahoo Finance data</a> · ${MARKET_META[key.toLowerCase()]?.asof || "not available"}</p>`;
+      <p class="holding-source"><a href="${ticker === "GPIX" ? "data.json" : "data-"+ticker.toLowerCase()+".json"}">Yahoo Finance data</a> · ${MARKET_META[key.toLowerCase()]?.asof || "not available"}</p>`;
   }
   const completeCost = records.every(r => r.knownCost);
   const total = prop => records.some(r => r.shares > 0 && r[prop] === null) ? null : records.reduce((sum, r) => sum + (r[prop] || 0), 0);
   const latestNet = total("latestNet"), annualNet = total("annualNet");
-  $("holdings-value").textContent = usd2(records.reduce((sum, r) => sum + r.value, 0));
+  $("holdings-value").textContent = records.some(r=>r.value===null)?"Unavailable":usd2(records.reduce((sum,r)=>sum+r.value,0));
   $("holdings-summary").innerHTML = `
     <div><span>Total purchase cost (cost basis)</span><b>${completeCost ? usd2(total("basis")) : "Average prices missing"}</b><small>${completeCost ? "The amount you paid for the shares you own now" : "Enter the average price you paid per share for each fund above."}</small></div>
-    <div><span>Latest monthly dividend after tax</span><b>${latestNet === null ? "Unavailable" : usd2(latestNet)}</b><small>${latestNet === null ? "The latest payouts are unavailable" : won(latestNet) + ". Uses each fund's most recent payout per share. The next payout can change."}</small></div>
+    <div><span>Latest payouts · monthly equivalent after tax</span><b>${latestNet === null ? "Unavailable" : usd2(latestNet)}</b><small>${latestNet === null ? "The latest payouts are unavailable" : won(latestNet) + ". Uses the latest payouts. Quarterly dividends are divided by three for this monthly comparison."}</small></div>
     <div><span>Yearly dividend estimate after tax</span><b>${annualNet === null ? "Unavailable" : usd2(annualNet)}</b><small>Uses the past year's payouts and the shares you own now. This is an estimate, not your actual past income.</small></div>`;
   $("holdings-notice").textContent = S.holdingsReview ? "The previous page saved dollar amounts, so these share counts are estimates. Enter your actual share counts and average prices from your brokerage." : "";
   $("confirm-holdings").hidden = !S.holdingsReview;
@@ -2303,17 +2304,20 @@ function update(yields) {
   saveSettings();
   const y = YIELDS || yields;
   const lunch = lunchPlan();   // money saved by lunchboxes joins the monthly savings
-  const p = { monthly: S.monthly + lunch.extra, gpixPct: S.gpixPct, taxPct: S.taxPct, sharesGpix: S.sharesGpix, sharesGpiq: S.sharesGpiq, whole: S.whole };
+  const otherValue=S.sharesGoog*(y.pxGoog||0)+S.sharesNvda*(y.pxNvda||0);
+  const otherMonthlyGross=(S.sharesGoog*(DIST.goog?.ttm_sum||0)+S.sharesNvda*(DIST.nvda?.ttm_sum||0))/12;
+  const otherMonthlyNet=otherMonthlyGross*(1-S.taxPct/100);
+  const p = { otherValue,otherMonthlyGross,monthly: S.monthly + lunch.extra, gpixPct: S.gpixPct, taxPct: S.taxPct, sharesGpix: S.sharesGpix, sharesGpiq: S.sharesGpiq, whole: S.whole };
   const drift = SCENARIOS[S.scenario], infl = S.inflation;
   const sim = simulate(y, p, { target: S.target, drift, inflation: infl });
-  const startTotal = S.sharesGpix * y.pxGpix + S.sharesGpiq * y.pxGpiq;
+  const startTotal = S.sharesGpix * y.pxGpix + S.sharesGpiq * y.pxGpiq + otherValue;
   const hold = initialHoldings(y, p);
-  const needPot = S.target * 12 / sim.mixNet;                 // in today's prices
-  const progressPct = needPot > 0 ? startTotal / needPot * 100 : 0;
+  const needPot = otherValue + Math.max(0,S.target-otherMonthlyNet)*12/sim.mixNet;                 // in today's prices
+  const progressPct = S.target>0?sim.months[0].net/S.target*100:0;
   const when = sim.crossAt;
   const goalRow = when != null ? sim.months[when] : null;
   const goalThen = goalRow ? goalRow.target : null;            // the goal in the prices of that month
-  const needThen = goalThen != null ? goalThen * 12 / sim.mixNet : null;
+  const needThen = goalThen != null ? otherValue+Math.max(0,goalThen-otherMonthlyNet)*12/sim.mixNet : null;
 
   // hero
   const heroWhen = when === 0 ? "Today" : when != null ? "≈ " + monthLabel(when) : "Not within 40 years";
@@ -2334,7 +2338,7 @@ function update(yields) {
   // control labels
   $("v-mix").textContent = S.gpixPct + "% GPIX / " + (100 - S.gpixPct) + "% GPIQ";
   $("v-start").textContent = fmt$(startTotal) + " in total";
-  $("holdnote").textContent = `${sharesText(hold.sg)} GPIX shares and ${sharesText(hold.sq)} GPIQ shares at today's market prices. Your monthly contribution and reinvested dividends buy additional shares.`;
+  $("holdnote").textContent = `GPIX ${sharesText(hold.sg)} · GPIQ ${sharesText(hold.sq)} · GOOG ${sharesText(S.sharesGoog)} · NVDA ${sharesText(S.sharesNvda)} shares. New savings and reinvested dividends buy GPIX and GPIQ in your selected split. The forecast holds GOOG/NVDA share counts, prices, and annual dividends constant.`;
   document.querySelectorAll("[data-tax]").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.tax === S.taxPct)));
   renderHoldings(y);
   $("v-scen").textContent = SCENARIO_LABEL[S.scenario];
@@ -2344,14 +2348,14 @@ function update(yields) {
   $("savedhint").textContent = storageOk ? (AUTO_SYNC?.connected()?"Connected browsers share your Mac mini’s private record. Offline edits wait here until the connection returns.":"Your numbers are saved in this browser. Connect your Mac mini to share them across devices.") : "This browser blocks saving, so your numbers will reset when you reload.";
 
   // key numbers
-  const todayNet = (hold.sg * y.pxGpix * y.gpix + hold.sq * y.pxGpiq * y.gpiq) / 100 / 12 * (1 - S.taxPct / 100);
+  const todayNet = sim.months[0].net;
   $("stats").innerHTML = `
     <div class="stat"><div class="name">Dividend rate before tax</div><div class="val">${N("st-gross", sim.mixGross * 100, "pct2")}</div>
       <div class="note">GPIX ${y.gpix.toFixed(2)}% × ${S.gpixPct}% + GPIQ ${y.gpiq.toFixed(2)}% × ${100 - S.gpixPct}%</div></div>
     <div class="stat"><div class="name">Dividend rate after tax</div><div class="val">${N("st-net", sim.mixNet * 100, "pct2")}</div>
       <div class="note">This rate pays you, and it also makes the portfolio grow</div></div>
     <div class="stat"><div class="name">Portfolio needed for ${fmt$(S.target)} a month</div><div class="val">${N("st-need", needPot, "usdk")}</div>
-      <div class="note">${fmt$(S.target * 12)} a year ÷ ${(sim.mixNet * 100).toFixed(2)}% (about ${won(needPot)}) at today's prices${needThen != null && infl > 0 && when > 0 ? `. At your goal date it is ${fmt$k(needThen)}.` : ""}</div></div>
+      <div class="note">Includes your GOOG/NVDA value and dividend contribution. Additional income uses the selected GPIX/GPIQ yield (about ${won(needPot)}) at today's prices${needThen != null && infl > 0 && when > 0 ? `. At your goal date it is ${fmt$k(needThen)}.` : ""}</div></div>
     <div class="stat"><div class="name">You add</div><div class="val">${N("st-add", p.monthly, "usd")} a month</div>
       <div class="note">${fmt$(p.monthly * 12)} a year, before reinvested dividends</div></div>
     <div class="stat"><div class="name">Monthly income used in forecast</div><div class="val">${N("st-today", todayNet, "usd2")} a month</div>
@@ -2375,7 +2379,7 @@ function update(yields) {
   const milestones = [...new Set([250, 500, 1000, 1500, 2000, 3000, 5000, S.target])].sort((a, b) => a - b);
   const msRows = milestones.map(level => {
     const months = monthsTo(y, p, level, drift, infl);
-    return { level, months, potThen: months != null ? level * Math.pow(1 + infl / 100, months / 12) * 12 / sim.mixNet : null };
+    return { level, months, potThen: months != null ? otherValue+Math.max(0,level*Math.pow(1+infl/100,months/12)-otherMonthlyNet)*12/sim.mixNet : null };
   });
   const maxMs = Math.max(1, ...msRows.filter(r => r.months != null).map(r => r.months));
   $("msbox").innerHTML = `
@@ -2533,7 +2537,7 @@ const weekdayHoursSince = iso => {
 };
 
 // Read the project's refreshed snapshots without changing saved purchase records.
-const MARKET_CACHE = { gpix: null, gpiq: null };
+const MARKET_CACHE = { gpix: null, gpiq: null, goog:null, nvda:null };
 let refreshingMarket = false;
 const validNumber = v => typeof v === "number" && Number.isFinite(v);
 const dataTimestamp = iso => Number.isFinite(Date.parse(iso));
@@ -2553,15 +2557,15 @@ async function refreshMarket() {
   const button = $("refresh-market");
   if (button) { button.disabled = true; button.textContent = "Checking data…"; }
   try {
-    const results = await Promise.allSettled([fetchFund("data.json", "GPIX"), fetchFund("data-gpiq.json", "GPIQ")]);
+    const results = await Promise.allSettled([fetchFund("data.json", "GPIX"), fetchFund("data-gpiq.json", "GPIQ"),fetchFund("data-goog.json","GOOG"),fetchFund("data-nvda.json","NVDA")]);
     const issues = [], yields = {};
     MARKET_META = { issues };
-    for (const [i, key] of ["gpix", "gpiq"].entries()) {
+    for (const [i, key] of ["gpix", "gpiq", "goog", "nvda"].entries()) {
       const result = results[i], name = key.toUpperCase();
       if (result.status === "fulfilled") MARKET_CACHE[key] = result.value;
       else issues.push(name + ": refresh failed. " + (MARKET_CACHE[key] ? "Showing the previous snapshot." : "Forecast uses backup price and yield estimates."));
       const d = MARKET_CACHE[key];
-      const price = d?.fund?.price || FALLBACK_PRICE[key];
+      const price = d?.fund?.price || (FALLBACK_PRICE[key]||0);
       const raw = d?.distributions;
       const lastValid = validNumber(raw?.last_amount) && raw.last_amount >= 0 && /^\d{4}-\d{2}-\d{2}$/.test(raw.last_ex);
       const annualValid = validNumber(raw?.ttm_sum) && raw.ttm_sum >= 0;
@@ -2569,12 +2573,12 @@ async function refreshMarket() {
       // Compute from per-share payouts, avoiding the feed's rounded yield percentage.
       const rate = annualValid ? raw.ttm_sum / price * 100 : d?.income?.ttm_yield_pct;
       yields[key] = validNumber(rate) && rate > 0 ? rate : FALLBACK_YIELD[key];
-      yields[key === "gpix" ? "pxGpix" : "pxGpiq"] = price;
+      yields["px"+key[0].toUpperCase()+key.slice(1)] = price;
       MARKET_META[key] = { priceDate: /^\d{4}-\d{2}-\d{2}$/.test(d?.fund?.as_of) ? d.fund.as_of : null,
         asof: d ? "updated " + new Date(d.generated_at).toLocaleString("en-US", { timeZone: NY_TZ, month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" }) : "snapshot unavailable" };
       if (d && weekdayHoursSince(d.generated_at) > 30) issues.push(name + ": snapshot is older than expected.");
       if (d && (!lastValid || !annualValid)) issues.push(name + ": distribution data is incomplete.");
-      if (lastValid && Date.now() - Date.parse(raw.last_ex + "T12:00:00Z") > 45 * 864e5) issues.push(name + ": the latest recorded payout is more than 45 days old.");
+      if (lastValid && Date.now() - Date.parse(raw.last_ex + "T12:00:00Z") > (["goog","nvda"].includes(key)?130:45) * 864e5) issues.push(name + ": the latest recorded payout is more than 45 days old.");
       if (d?.health?.sources?.["yahoo:" + name]?.ok === false) issues.push(name + ": the market-data source reported a failure.");
     }
     const fx = MARKET_CACHE.gpix?.fx?.usd_krw || MARKET_CACHE.gpiq?.fx?.usd_krw;

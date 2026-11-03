@@ -2026,6 +2026,11 @@ def build_stock(fund: dict) -> dict:
     own_evidence = fund.get("evidence") == "own"
 
     result = yahoo_chart(ticker, fund["range"], events=True)
+    div_events = sorted(
+        (datetime.fromtimestamp(d["date"], tz=timezone.utc).date(), d["amount"])
+        for d in result.get("events", {}).get("dividends", {}).values()
+    )
+    payouts = distributions_block(div_events, datetime.now(NY).date())
     rows, bar_state = rows_and_state(result)
     mark(f"yahoo:{ticker}", True, as_of=rows[-1][0].isoformat(), core=True, bar=bar_state)
     closes = [c for _, c, _ in rows]
@@ -2562,7 +2567,8 @@ def build_stock(fund: dict) -> dict:
         },
         "flips": flips,
         "report_card": report_card(history, rc_tones, adj_now=adj_now) if history else None,
-        "income": {"ttm_yield_pct": None, "tbill_3mo": tbill},
+        "income": {"ttm_yield_pct": round(payouts["ttm_sum"] / price * 100, 4) if payouts else None, "tbill_3mo": tbill},
+        "distributions": payouts,
         "underlying": {
             "symbol": ticker,
             "price": price,

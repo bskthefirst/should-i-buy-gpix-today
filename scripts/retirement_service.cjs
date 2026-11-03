@@ -8,7 +8,7 @@ const BASE = 'https://bskthefirst.github.io/should-i-buy-gpix-today/';
 const signed = n => (n < -1e-8 ? '−' : '+') + '$' + Math.abs(n).toFixed(2);
 const quantity = n => Number(n.toFixed(6)).toString();
 const money = n => '$' + n.toFixed(2);
-const help = 'Update total holdings, not the number just bought:\n/holdings GPIX 57.71 54.70 GPIQ 3 56.43\nEach pair is total shares and average purchase price in USD. Use your brokerage figures.\n\n/dividends — current progress\n/expense Claude 20 — choose one monthly expense\n/retire_history — reported changes\n/retire_export — private backup\n/retire_connect — connect this browser once\nConnected browsers save automatically. Use Record a purchase after buying shares.';
+const help = 'Update total holdings, not the number just bought:\n/holdings GPIX 57.71 54.70 GPIQ 3 56.43\nEach pair is total shares and average purchase price in USD. GOOG and NVDA are also supported. Use your brokerage figures.\n\n/dividends — current progress\n/expense Claude 20 — choose one monthly expense\n/retire_history — reported changes\n/retire_export — private backup\n/retire_connect — connect this browser once\nConnected browsers save automatically. Use Record a purchase after buying shares.';
 function read(file) { return JSON.parse(fs.readFileSync(file,'utf8')); }
 function write(file,value) {
   const temporary = file + '.' + process.pid + '.tmp';
@@ -23,7 +23,7 @@ function state(file) {
 function validateNewPurchases(saved,incoming) {
   const known=new Set(saved.journal.purchases.map(r=>r.id));
   const added=incoming.journal.purchases.filter(r=>!known.has(r.id));
-  for(const [ticker,key] of [['GPIX','Gpix'],['GPIQ','Gpiq']]) {
+  for(const [ticker,key] of J.FUNDS.map(([k,t])=>[t,k])) {
     const buys=added.filter(r=>r.ticker===ticker);
     if(!buys.length)continue;
     let shares=saved['shares'+key],cost=saved['cost'+key];
@@ -53,9 +53,9 @@ async function locked(file,fn) {
   }
   try { fs.writeSync(fd,JSON.stringify({pid:process.pid}));return await fn(); } finally { fs.closeSync(fd);fs.unlinkSync(lock); }
 }
-async function feeds(directory) {
-  const results = await Promise.all(['GPIX','GPIQ'].map(async ticker => {
-    const name=ticker==='GPIX'?'data.json':'data-gpiq.json';
+async function feeds(directory,p={}) {
+  const results = await Promise.all(J.FUNDS.filter(([k])=>['Gpix','Gpiq'].includes(k)||p['shares'+k]>0).map(([,t])=>t).map(async ticker => {
+    const name=ticker==='GPIX'?'data.json':'data-'+ticker.toLowerCase()+'.json';
     if(directory) return [ticker,read(path.join(directory,name))];
     const res=await fetch(BASE+name,{headers:{'Cache-Control':'no-cache'},signal:AbortSignal.timeout(20000)});
     if(!res.ok) throw new Error('Could not refresh '+ticker+' market data.');
@@ -65,7 +65,7 @@ async function feeds(directory) {
 }
 function card(p,ob,old,celebrations=[]) {
   const rows=J.milestones(p),next=rows.find(r=>ob.average<r.threshold-1e-9);
-  const lines=['Your weekly dividend journey',money(ob.average)+'/month estimated after '+p.taxPct+'% tax','Based on the past year’s payouts. Latest monthly estimate: '+money(ob.latest)+'.'];
+  const lines=['Your weekly dividend journey',money(ob.average)+'/month estimated after '+p.taxPct+'% tax','Based on the past year’s payouts. Latest payout pace, monthly equivalent: '+money(ob.latest)+'.'];
   if(next) {
     const percent=Math.min(99,Math.floor(ob.average/next.threshold*100)),bars=Math.round(percent/10);
     lines.push('',next.title+' · '+percent+'% covered','▰'.repeat(bars)+'▱'.repeat(10-bars),'About '+money(Math.max(.01,Math.ceil((next.threshold-ob.average)*100-1e-9)/100))+'/month left.');
@@ -75,12 +75,12 @@ function card(p,ob,old,celebrations=[]) {
     lines.push('Your chosen expense: '+e.name+' · '+pct.toFixed(1)+'% of '+money(e.amount)+'/month.',ob.average>=e.amount?'Your current estimate covers this expense.':'Remaining: '+money(Math.ceil((e.amount-ob.average)*100-1e-9)/100)+'/month.');
   }
   const diff=J.changes(old,p,ob.rates);
-  if(diff) lines.push('','What changed since '+old.at.slice(0,10)+'?',signed(diff.total)+'/month in total.','Reported share changes: GPIX '+(diff.deltaGpix<0?'':'+')+quantity(diff.deltaGpix)+', GPIQ '+(diff.deltaGpiq<0?'':'+')+quantity(diff.deltaGpiq)+'.','Share-count effect: '+signed(diff.shares)+'. Payout effect: '+signed(diff.payouts)+'. Tax-rate effect: '+signed(diff.tax)+'.');
+  if(diff) lines.push('','What changed since '+old.at.slice(0,10)+'?',signed(diff.total)+'/month in total.','Reported share changes: '+J.FUNDS.map(([k,t])=>t+' '+((diff['delta'+k]||0)<0?'':'+')+quantity(diff['delta'+k]||0)).join(', ')+'.','Share-count effect: '+signed(diff.shares)+'. Payout effect: '+signed(diff.payouts)+'. Tax-rate effect: '+signed(diff.tax)+'.');
   else lines.push('','This is your first comparison. Future digests will explain changes from this baseline.');
   if(celebrations.length) lines.push('','First recorded this week: '+celebrations.map(r=>r.title).join(', ')+'.');
   const purchases=(p.journal.purchases||[]).filter(r=>old&&Date.parse(r.at)>Date.parse(old.at));
   if(purchases.length) lines.push('','Purchases you recorded since the last comparison:',...purchases.slice(-5).map(r=>r.date+' · '+r.ticker+' '+quantity(r.shares)+' shares @ '+money(r.price)+' · '+money(r.totalCost)+(r.fees?' including '+money(r.fees)+' fees':'')),...(purchases.length>5?['Plus '+(purchases.length-5)+' earlier purchases in your history.']:[]));
-  lines.push('',rows.filter(r=>ob.average>=r.threshold-1e-9).length+'/'+rows.length+' current income milestones. Past milestones remain in your timeline.','Saved holdings: GPIX '+quantity(p.sharesGpix)+' · GPIQ '+quantity(p.sharesGpiq)+'.','No brokerage connection. Changes are your reports, not verified trades.','Data: '+ob.at.replace('T',' ').slice(0,16)+' UTC. Future payouts can change.',BASE+'retire.html#sec-journey','Use the connected website to record a purchase, or /holdings to correct your total holdings.');
+  lines.push('',rows.filter(r=>ob.average>=r.threshold-1e-9).length+'/'+rows.length+' current income milestones. Past milestones remain in your timeline.','Saved holdings: '+J.FUNDS.map(([k,t])=>t+' '+quantity(p['shares'+k]||0)).join(' · ')+'.','No brokerage connection. Changes are your reports, not verified trades.','Data: '+ob.at.replace('T',' ').slice(0,16)+' UTC. Future payouts can change.',BASE+'retire.html#sec-journey','Use the connected website to record a purchase, or /holdings to correct your total holdings.');
   return lines.join('\n');
 }
 async function operate(file,action,args='',dataDir=null) {
@@ -91,7 +91,7 @@ async function operate(file,action,args='',dataDir=null) {
     const lines=['Reported holdings history (not verified trades)'];
     rows.slice(-8).forEach((r,i)=> {
       const index=rows.indexOf(r),old=rows[index-1];
-      lines.push(r.at.slice(0,10)+' · '+r.source+' · GPIX '+quantity(r.sharesGpix)+' @ '+money(r.costGpix)+' · GPIQ '+quantity(r.sharesGpiq)+' @ '+money(r.costGpiq)+(old?' · share change '+(r.sharesGpix-old.sharesGpix>=0?'+':'')+quantity(r.sharesGpix-old.sharesGpix)+' / '+(r.sharesGpiq-old.sharesGpiq>=0?'+':'')+quantity(r.sharesGpiq-old.sharesGpiq):' · baseline'));
+      lines.push(r.at.slice(0,10)+' · '+r.source+' · GPIX '+quantity(r.sharesGpix)+' @ '+money(r.costGpix)+' · GPIQ '+quantity(r.sharesGpiq)+' @ '+money(r.costGpiq)+(old?' · share change '+(r.sharesGpix-old.sharesGpix>=0?'+':'')+quantity(r.sharesGpix-old.sharesGpix)+' / '+(r.sharesGpiq-old.sharesGpiq>=0?'+':'')+quantity(r.sharesGpiq-old.sharesGpiq):' · baseline')+' · '+['Goog','Nvda'].map(k=>k.toUpperCase()+' '+(r['shares'+k]==null?'not tracked':quantity(r['shares'+k])+' @ '+money(r['cost'+k]||0))).join(' · '));
     });
     if(p.journal.purchases.length) {
       lines.push('','Purchases you recorded (not verified trades):');
@@ -107,17 +107,17 @@ async function operate(file,action,args='',dataDir=null) {
   const before=JSON.parse(JSON.stringify(p));
   let changed=false,confirmation='';
   if(action==='holdings') {
-    const match=/^GPIX\s+([\d.]+)\s+([\d.]+)\s+GPIQ\s+([\d.]+)\s+([\d.]+)$/i.exec(args.trim());
-    if(!match) return {text:help};
-    [p.sharesGpix,p.costGpix,p.sharesGpiq,p.costGpiq]=match.slice(1).map(Number);
+    const chunks=args.trim().toUpperCase().split(/\s+/);
+    if(!chunks.length||chunks.length%3)return {text:help};const seen=new Set();
+    for(let i=0;i<chunks.length;i+=3){const fund=J.FUNDS.find(([,t])=>t===chunks[i]);if(!fund||seen.has(chunks[i]))return {text:help};if(![chunks[i+1],chunks[i+2]].every(v=>/^\d+(?:\.\d+)?$/.test(v)))throw new Error('Invalid share count or average price.');seen.add(chunks[i]);p['shares'+fund[0]]=Number(chunks[i+1]);p['cost'+fund[0]]=Number(chunks[i+2]);}
     J.profile(p); changed=true;
-    confirmation='Saved your reported TOTAL holdings: GPIX '+quantity(p.sharesGpix)+' @ '+money(p.costGpix)+'; GPIQ '+quantity(p.sharesGpiq)+' @ '+money(p.costGpiq)+'.\nAverage prices describe all shares you hold now. This is not a trade confirmation.\n\n';
+    confirmation='Saved your reported TOTAL holdings: '+J.FUNDS.map(([k,t])=>t+' '+quantity(p['shares'+k]||0)+' @ '+money(p['cost'+k]||0)).join('; ')+'.\nAverage prices describe all shares you hold now. This is not a trade confirmation.\n\n';
   } else if(action==='purchase') {
     const input=typeof args==='string'?JSON.parse(args):args;
     const prepared=J.preparePurchase(p,input,{source:'telegram'});
     p=prepared.profile;changed=prepared.applied;
     const r=prepared.record;
-    confirmation=(changed?'Recorded your reported purchase: ':'This purchase was already recorded: ')+r.ticker+' '+quantity(r.shares)+' shares @ '+money(r.price)+' on '+r.date+'.\nTotal purchase cost: '+money(r.totalCost)+'. Current holdings: '+quantity(p['shares'+(r.ticker==='GPIX'?'Gpix':'Gpiq')])+' shares @ '+money(p['cost'+(r.ticker==='GPIX'?'Gpix':'Gpiq')])+' average. This is not a trade confirmation.\n\n';
+    confirmation=(changed?'Recorded your reported purchase: ':'This purchase was already recorded: ')+r.ticker+' '+quantity(r.shares)+' shares @ '+money(r.price)+' on '+r.date+'.\nTotal purchase cost: '+money(r.totalCost)+'. Current holdings: '+quantity(p['shares'+J.FUNDS.find(([,t])=>t===r.ticker)[0]])+' shares @ '+money(p['cost'+J.FUNDS.find(([,t])=>t===r.ticker)[0]])+' average. This is not a trade confirmation.\n\n';
   } else if(action==='expense') {
     const match=/^(.{1,30})\s+([\d.]+)$/.exec(args.trim());
     if(!match) return {text:'Choose one monthly expense:\n/expense Claude 20\nThe amount is USD per month.'};
@@ -126,21 +126,23 @@ async function operate(file,action,args='',dataDir=null) {
   } else if(action==='import'||action==='sync') {
     if(action==='sync') {
       const input=typeof args==='string'?JSON.parse(args):args;
+      input.profile={...input.profile};for(const k of ['sharesGoog','sharesNvda','costGoog','costNvda'])if(input.profile[k]==null)input.profile[k]=p[k];
       if(input.expectedRevision!==state(file).revision) {const e=new Error('The shared record changed.');e.code='CONFLICT';throw e;}
       args=Buffer.from(JSON.stringify(J.profile(input.profile))).toString('base64url');
     }
     if(args.length>(action==='sync'?3000000:10000) || !/^[A-Za-z0-9_-]+$/.test(args)) throw new Error('Invalid website update. Copy a fresh command from the website.');
-    const imported=J.profile(JSON.parse(Buffer.from(args,'base64url').toString('utf8')));
+    const incoming=JSON.parse(Buffer.from(args,'base64url').toString('utf8'));for(const k of ['sharesGoog','sharesNvda','costGoog','costNvda'])if(incoming[k]==null)incoming[k]=p[k];
+    const imported=J.profile(incoming);
     if(action==='import' && raw.updatedAt && Date.parse(imported.exportedAt)<Date.parse(raw.updatedAt)) throw new Error('This website update is older than the bot’s last edit. Copy a fresh update after reviewing the current holdings.');
     validateNewPurchases(p,imported);
-    for(const k of ['sharesGpix','sharesGpiq','costGpix','costGpiq','taxPct','target','costs','selectedExpense']) p[k]=imported[k];
+    for(const k of [...J.KEYS,'taxPct','target','costs','selectedExpense']) p[k]=imported[k];
     if(imported.forecast)p.forecast=imported.forecast;
     p.journal=J.merge(p.journal,imported.journal); changed=true;
     confirmation='Website update saved. GPIX '+quantity(p.sharesGpix)+' @ '+money(p.costGpix)+'; GPIQ '+quantity(p.sharesGpiq)+' @ '+money(p.costGpiq)+'.\nThe weekly digest now uses these numbers.\n\n';
   } else if(!['weekly','progress','baseline'].includes(action)) throw new Error('Unknown retirement action.');
   // Holdings can still be recorded during a data outage. Income milestones cannot.
   let ob;
-  try { ob=J.observe(p,await feeds(dataDir)); }
+  try { ob=J.observe(p,await feeds(dataDir,p)); }
   catch(e) {
     if(!changed) throw e;
     J.record(p.journal,p,null,action==='sync'?'website':'telegram');

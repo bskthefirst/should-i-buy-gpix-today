@@ -4,7 +4,10 @@
   else root.RetirementJournal = factory();
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
-  const KEYS = ['sharesGpix', 'sharesGpiq', 'costGpix', 'costGpiq'];
+  const FUNDS=[['Gpix','GPIX'],['Gpiq','GPIQ'],['Goog','GOOG'],['Nvda','NVDA']];
+  const BASE_KEYS=['sharesGpix','sharesGpiq','costGpix','costGpiq'];
+  const EXTRA_KEYS=['sharesGoog','sharesNvda','costGoog','costNvda'];
+  const KEYS=[...BASE_KEYS,...EXTRA_KEYS];
   const MAX_RECORDS = 2000;
   function number(v, name, max = 1e8) {
     if (typeof v !== 'number' || !Number.isFinite(v) || v < 0 || v > max) throw new Error('Invalid ' + name + '.');
@@ -26,9 +29,10 @@
   }
   function snapshot(v) {
     const s = { id: text(v.id, 'record ID', 100), at: date(v.at), source: text(v.source, 'record source', 30) };
-    for (const k of KEYS) s[k] = number(v[k], k, k.startsWith('cost') ? 1e6 : 1e8);
+    for (const k of KEYS) if(BASE_KEYS.includes(k)||v[k]!=null)s[k] = number(v[k], k, k.startsWith('cost') ? 1e6 : 1e8);
     s.taxPct = number(v.taxPct, 'tax', 60);
     s.rates = v.rates == null ? null : { Gpix: number(v.rates.Gpix, 'GPIX payout rate', 1e6), Gpiq: number(v.rates.Gpiq, 'GPIQ payout rate', 1e6) };
+    if(s.rates)for(const key of ['Goog','Nvda'])if(v.rates[key]!=null)s.rates[key]=number(v.rates[key],key+' payout rate',1e6);
     s.income = s.rates ? income(s, s.rates) : null;
     return s;
   }
@@ -40,7 +44,7 @@
   }
   function purchaseInput(v) {
     const r = { id:text(v.id,'purchase ID',100), ticker:v.ticker, shares:number(v.shares,'shares bought'), price:number(v.price,'purchase price',1e6), date:purchaseDate(v.date), fees:number(v.fees == null ? 0 : v.fees,'purchase fees',1e6) };
-    if (!['GPIX','GPIQ'].includes(r.ticker)) throw new Error('Choose GPIX or GPIQ.');
+    if (!FUNDS.some(([,t])=>t===r.ticker)) throw new Error('Choose GPIX, GPIQ, GOOG, or NVDA.');
     if (!r.shares || !r.price) throw new Error('Shares bought and purchase price must be positive.');
     return r;
   }
@@ -71,7 +75,7 @@
   function profile(v) {
     if (!v || ![1,2].includes(v.schemaVersion)) throw new Error('Choose a retirement holdings file.');
     const p = { schemaVersion: 2, exportedAt: v.exportedAt ? date(v.exportedAt) : new Date().toISOString() };
-    for (const k of KEYS) p[k] = number(v[k] == null && k.startsWith('cost') ? 0 : v[k], k, k.startsWith('cost') ? 1e6 : 1e8);
+    for (const k of KEYS) p[k] = number(v[k] == null && (k.startsWith('cost')||EXTRA_KEYS.includes(k)) ? 0 : v[k], k, k.startsWith('cost') ? 1e6 : 1e8);
     p.taxPct = number(v.taxPct, 'tax rate', 60); p.target = number(v.target, 'income goal', 1e6);
     if (!p.target) throw new Error('The income goal must be positive.');
     if (!Array.isArray(v.costs) || v.costs.length > 12) throw new Error('Invalid expense list.');
@@ -89,19 +93,21 @@
     p.journal = journal(v.journal);
     return p;
   }
-  function sameHoldings(a,b) { return !!a && !!b && KEYS.every(k => Math.abs(a[k] - b[k]) < 1e-9) && a.taxPct === b.taxPct; }
-  function income(p, rates) { return (p.sharesGpix * rates.Gpix + p.sharesGpiq * rates.Gpiq) * (1 - p.taxPct / 100); }
+  function sameHoldings(a,b) { return !!a && !!b && KEYS.every(k => Math.abs((a[k]||0) - (b[k]||0)) < 1e-9) && a.taxPct === b.taxPct; }
+  function income(p, rates) { return FUNDS.reduce((sum,[key])=>sum+(p['shares'+key]||0)*(rates[key]||0),0)*(1-p.taxPct/100); }
   function observe(p, feeds, now = Date.now()) {
     let latest = 0; const rates = {}, dates = [];
-    for (const [key,ticker] of [['Gpix','GPIX'],['Gpiq','GPIQ']]) {
+    for (const [key,ticker] of FUNDS) {
+      if(['Goog','Nvda'].includes(key)&&!p['shares'+key]){rates[key]=0;continue;}
+      const quarterly=['Goog','Nvda'].includes(key);
       const f = feeds[ticker], generated = Date.parse(f?.generated_at), d = f?.distributions;
       if (f?.ticker !== ticker || !Number.isFinite(generated) || now - generated > 4*86400000 || generated - now > 3600000) throw new Error(ticker + ' market data is unavailable or stale.');
       if (!(number(f.fund?.price,ticker + ' price') > 0)) throw new Error(ticker + ' price is unavailable.');
       if (f.health?.sources?.['yahoo:' + ticker]?.ok === false) throw new Error(ticker + ' market-data source reported a failure.');
-      if (p['shares'+key] > 0 && (!d?.last_ex || now - Date.parse(d.last_ex + 'T12:00:00Z') > 45*86400000 || !Number.isFinite(Date.parse(d.last_ex)))) throw new Error(ticker + ' latest payout is missing or old.');
+      if (p['shares'+key] > 0 && (!d?.last_ex || now - Date.parse(d.last_ex + 'T12:00:00Z') > (quarterly?130:45)*86400000 || !Number.isFinite(Date.parse(d.last_ex)))) throw new Error(ticker + ' latest payout is missing or old.');
       rates[key] = p['shares'+key] === 0 && d?.ttm_sum == null ? 0 : number(d?.ttm_sum,ticker + ' yearly payouts',1e6) / 12;
       const last = p['shares'+key] === 0 && d?.last_amount == null ? 0 : number(d?.last_amount,ticker + ' latest payout',1e6);
-      latest += p['shares'+key] * last * (1-p.taxPct/100); dates.push(generated);
+      latest += (p['shares'+key]||0) * last * (1-p.taxPct/100)/(quarterly?3:1); dates.push(generated);
     }
     return { rates, average: income(p,rates), latest, at: new Date(Math.min(...dates)).toISOString() };
   }
@@ -120,7 +126,7 @@
       return {profile:p,record:existing,applied:false};
     }
     if (p.journal.purchases.length >= MAX_RECORDS) throw new Error('Purchase history is full. Export a backup before adding records.');
-    const key = requested.ticker === 'GPIX' ? 'Gpix' : 'Gpiq';
+    const key = FUNDS.find(([,t])=>t===requested.ticker)[0];
     const at = options.at || new Date().toISOString();
     const r = purchase({...requested,at,source:options.source||'website',previousShares:p['shares'+key],previousCost:p['cost'+key]});
     // Record the starting totals before replacing them. Existing report history stays intact.
@@ -158,10 +164,11 @@
   function changes(old,p,rates) {
     if(!old?.rates) return null;
     const oldNet=1-old.taxPct/100, net=1-p.taxPct/100;
-    const shares=(p.sharesGpix-old.sharesGpix)*old.rates.Gpix*oldNet+(p.sharesGpiq-old.sharesGpiq)*old.rates.Gpiq*oldNet;
-    const payouts=(p.sharesGpix*(rates.Gpix-old.rates.Gpix)+p.sharesGpiq*(rates.Gpiq-old.rates.Gpiq))*oldNet;
-    const tax=(p.sharesGpix*rates.Gpix+p.sharesGpiq*rates.Gpiq)*(net-oldNet);
-    return {shares,payouts,tax,total:income(p,rates)-income(old,old.rates),deltaGpix:p.sharesGpix-old.sharesGpix,deltaGpiq:p.sharesGpiq-old.sharesGpiq};
+    let shares=0,payouts=0,gross=0;const deltas={};
+    for(const [key] of FUNDS){const held=p['shares'+key]||0,previous=old['shares'+key]||0,rate=rates[key]||0,oldRate=previous===0?rate:(old.rates[key]??rate);
+      shares+=(held-previous)*oldRate*oldNet;payouts+=held*(rate-oldRate)*oldNet;gross+=held*rate;deltas['delta'+key]=held-previous;}
+    const tax=gross*(net-oldNet);
+    return {shares,payouts,tax,total:income(p,rates)-income(old,old.rates),...deltas};
   }
   function merge(a,b) {
     a=journal(a);b=journal(b);
@@ -188,5 +195,5 @@
       throw new Error('Browser storage failed. The import could not be saved. Download a backup before reloading.');
     }
   }
-  return {number,profile,journal,expense,snapshot,purchase,preparePurchase,income,observe,record,sameHoldings,milestones,award,changes,merge,transport,commitBrowser};
+  return {FUNDS,KEYS,number,profile,journal,expense,snapshot,purchase,preparePurchase,income,observe,record,sameHoldings,milestones,award,changes,merge,transport,commitBrowser};
 });

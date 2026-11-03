@@ -105,3 +105,11 @@ test('the removed cash input cannot affect a saved plan', () => {
   api.saveSettings();
   assert.equal(JSON.parse(api.storage.get('retire-settings-v3')).startCash, undefined);
 });
+test('existing quarterly stocks contribute income and value without being sold or purchased in the forecast',()=>{
+ const api=load(),otherValue=3500,otherMonthlyGross=2;
+ const basic=api.simulate(market,{...plan,monthly:0},{target:100000,drift:0,inflation:0});
+ const all=api.simulate(market,{...plan,monthly:0,otherValue,otherMonthlyGross},{target:100000,drift:0,inflation:0});
+ close(all.months[0].portfolio-basic.months[0].portfolio,3500);close(all.months[0].net-basic.months[0].net,1.7);
+ close(all.months[1].portfolio-all.months[0].portfolio,all.months[0].net);
+ assert.equal(all.months[1].cumContrib,0);
+});
