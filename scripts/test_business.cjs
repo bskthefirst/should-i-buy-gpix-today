@@ -3,9 +3,9 @@ const B=require('../docs/business-data.js'),Sync=require('../docs/business-sync.
 const now=()=>new Date('2026-10-12T12:00:00Z'),entry=(month,amount,currency='USD')=>({month,amount,currency});
 const save=(b,e)=>B.save(b,e,{now:now(),currentMonth:'2026-10'});
 function storage(){const map=new Map();return {map,getItem:k=>map.get(k)||null,setItem:(k,v)=>map.set(k,v),removeItem:k=>map.delete(k)};}
-async function fixture(){
+async function fixture(overrides={}){
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'business-test-')),token=crypto.randomBytes(32).toString('base64url'),plan=path.join(dir,'plan.json');fs.writeFileSync(plan,'retirement stays untouched');
- const server=createServer({planPath:plan,token});await new Promise(r=>server.listen(0,'127.0.0.1',r));
+ const server=createServer({planPath:plan,token,...overrides});await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const request=(method='GET',body,headers={})=>fetch('http://127.0.0.1:'+server.address().port+'/v1/business',{method,headers:{Authorization:'Bearer '+token,Origin:'https://bskthefirst.github.io',...(body?{'Content-Type':'application/json'}:{}),...headers},body:body?JSON.stringify(body):undefined});
  const fetcher=(_,o)=>request(o.method,o.body?JSON.parse(o.body):undefined);
  const create=(store=storage())=>{store.setItem('retire-sync-v1',JSON.stringify({endpoint:'https://bills-mac-mini.tailf2c209.ts.net:8443',token}));const notices=[];return {store,notices,client:Sync.create({storage:store,fetcher,now,status:(s,m)=>notices.push({s,m})})};};
@@ -81,4 +81,8 @@ test('business tabs refresh shared browser storage without getting stuck offline
   await a.client.save(entry('2026-10',5000));await b.cycle();assert.equal(b.state().phase,'synced');assert.equal(b.state().book.records[0].amount,5000);
   await a.client.cycle();assert.equal(a.client.state().phase,'synced');
  }finally{await f.cleanup();}
+});
+
+test('recovering holdings never replaces an unavailable business record with an empty book',async()=>{
+ const f=await fixture({businessRecoveryPending:true});try{assert.equal((await f.request()).status,503);assert.equal(fs.existsSync(f.file),false);}finally{await f.cleanup();}
 });

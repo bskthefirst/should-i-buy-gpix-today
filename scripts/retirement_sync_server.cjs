@@ -20,7 +20,9 @@ function createServer(config,{dataDir=null}={}) {
     if(bearer.length!==expected.length||!crypto.timingSafeEqual(bearer,expected))return send(401,{error:'Connection key required.'});
     const url=(req.url||'').replace(/^\/retirement-sync(?=\/)/,'');
     if(!['/v1/plan','/v1/business'].includes(url))return send(404,{error:'Not found.'});
-    const business=url==='/v1/business',businessPath=config.businessPath||path.join(path.dirname(config.planPath),'business.json');
+    const business=url==='/v1/business';
+    if(business&&config.businessRecoveryPending)return send(503,{error:'Business records are awaiting recovery. Keep the saved browser copy.'});
+    const businessPath=config.businessPath||path.join(path.dirname(config.planPath),'business.json');
     if(req.method==='GET') {try{return send(200,business?Business.state(businessPath):state(config.planPath));}catch(e){return send(503,{error:'The shared record could not be read.'});}}
     if(req.method!=='PUT')return send(405,{error:'Method not allowed.'});
     if(!/^application\/json(?:;|$)/i.test(req.headers['content-type']||''))return send(415,{error:'JSON required.'});
