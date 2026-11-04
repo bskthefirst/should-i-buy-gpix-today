@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-04T20:10:14+00:00",
+ "generated_at": "2026-11-04T21:25:13+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1002,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-4.2% in 5 sessions",
+   "value": "-4.7% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 71.7,
+    "pos": 68.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "38% ann. (p31)",
+   "value": "39% ann. (p33)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "neutral",
    "note": "Realized volatility mid-range for TSLA's own past year.",
    "viz": {
-    "pos": 30.6,
+    "pos": 32.5,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "21.0%",
+   "value": "21.4%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 42.0,
+    "pos": 42.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.8 (p44), F&G 28",
+   "value": "VIX 20.8 (p85), F&G 27",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,15 +128,15 @@
   }
  ],
  "fund": {
-  "price": 387.07,
+  "price": 385.19,
   "as_of": "2026-11-04",
-  "bar": "provisional",
-  "day_change_pct": -2.87,
-  "sma50": 372.15,
-  "sma200": 384.77,
+  "bar": "final",
+  "day_change_pct": -3.34,
+  "sma50": 372.11,
+  "sma200": 384.76,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 21.0,
+  "drawdown_pct": 21.4,
   "series": [
    {
     "d": "2026-02-19",
@@ -1214,7 +1214,7 @@
    },
    {
     "d": "2026-11-04",
-    "c": 387.07,
+    "c": 385.19,
     "t": "neutral",
     "s": 50
    }
@@ -1229,20 +1229,20 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 38%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 39%) = top decile of its year (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-03",
-  "days_total": 757,
+  "end": "2026-11-04",
+  "days_total": 758,
   "backfilled_days": 707,
   "fg_coverage_start": "2025-11-04",
   "baseline": {
-   "n": 736,
+   "n": 737,
    "avg_pct": 2.81,
-   "median_pct": 0.94
+   "median_pct": 0.95
   },
   "bands": [
    {
@@ -1262,9 +1262,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 381,
-    "avg_pct": 2.71,
-    "median_pct": 1.04
+    "n": 382,
+    "avg_pct": 2.7,
+    "median_pct": 1.07
    },
    {
     "tone": "caution",
@@ -1282,13 +1282,13 @@
  "distributions": null,
  "underlying": {
   "symbol": "TSLA",
-  "price": 387.07,
-  "sma200": 384.77,
+  "price": 385.19,
+  "sma200": 384.76,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 38.0
+  "level": 38.6
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1305,20 +1305,44 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-11-04",
+  "start": "2022-11-07",
   "end": "2026-11-04",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 21000.0,
-  "dca_value": 31589.96,
-  "dca_return_pct": 50.43,
-  "dip_value": 31583.35,
-  "dip_return_pct": 50.4,
+  "invested": 20900.0,
+  "dca_value": 31250.86,
+  "dca_return_pct": 49.53,
+  "dip_value": 31253.81,
+  "dip_return_pct": 49.54,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 203,
-  "winner": "dca"
+  "winner": "dip"
  },
  "headlines": [
+  {
+   "title": "Tesla and SpaceX shares tumble after Democratic Congress sweep",
+   "source": "The Star",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOSl9aMEZwSHNGaG4xaWpOdlJGb1VuTmNxeWhMUWswa2VRN0JIbGxFTnkwVVBvSl9JLUd0Q3hWcG9YM05WRXdURnVVMHRzWmhMT05zbWduSGZEX0lGYlNhaXYzaWFPVmE5UmZTSDY3My1YMFVLNzZGa0xHeFJRNVVyMzlWQVB1a0oyU3ZnRndqMTZoR19qZ1NoVW1aUlNJbEFTck1uQ0ZwdWRkRGZWTFJEc1gtd3Z3UHR5QlpCSHJpaVQ?oc=5",
+   "published": "2026-11-04T21:06:27+00:00"
+  },
+  {
+   "title": "SpaceX and Tesla Stocks Tumble After Elon Musk-Backed Candidates Lose in Texas",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQNUJMNUhfVmg3dHlfRHhVb0tham91N0NObjZjNXl0bWN0Yno0QVdFNFVueHlnNEo2eGJJbTUzajY3cVZ6cnR2TG9vN0VpVVBpcEttSm1sZVgwbmpnTE5JZ2EycUV3ZXY5WVk4VTRZaHpHTTNSVHMtZUl3d0l2UXI0LWZsWTR1dkpmcF9R?oc=5",
+   "published": "2026-11-04T20:52:52+00:00"
+  },
+  {
+   "title": "Elon Musk\u2019s business empire braces for Democratic wave as Texas flips blue",
+   "source": "Automotive News",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1yNjdaZHRPOXc5anZoYkdsMURtY2l4VTczZVE5UzRKam54ZU9CbFE2bmljaU51XzRlUzZqcXVmcExBbW16SHRxUFhFMzY3WEFnMWpQMnRqai1Wa0FlZ2RfNVYtNkR2TWQ4ZTZjVkJRVC10V0E3aldv?oc=5",
+   "published": "2026-11-04T20:48:00+00:00"
+  },
+  {
+   "title": "The Nasdaq-100 Is Outperforming Nvidia, Microsoft, Amazon, Meta Platforms, Alphabet, and Tesla This Year. Here's My Favorite Low-Cost ETF to Buy the Dip.",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPRHVTVGF6UWh0bW5RTmZVRlozWU9KU3J1QURKQXJQMzlRTjA3c0lFQ09HZldGYkNiYkFDYnB5cFVfcWNwempXRl9NUDd5cXpFQy15eEE0OXFGTENYRFVaaVM4dEVzSkhwQ0h0eFRrMDkySHRFUE9hUWxPbjlXVnpsY2VfaGMtVlA4MmhXbmNYQl91cWdxRW9aSg?oc=5",
+   "published": "2026-11-04T20:45:00+00:00"
+  },
   {
    "title": "Tesla Stock Falls 3.2% as Democrats Win Congress",
    "source": "FinanceFeeds",
@@ -1330,37 +1354,13 @@
    "source": "The Motley Fool",
    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxORTY4aVJwMkdGcmJINEFwdnVITnlhWmZiNFRWX0hvcVN6ZHBBTHMtdDRlb2VleGM2QzYyMk5fWG1TZWQ2VEVpMWJEdkZtTHdpeHRtRFo5Q0s5Yk1icXZaZjlUdmxyTkVYRVJmeXo1amVNbUNtNTlkT2ZjZ3BfTXZmeEx5RGRUZVpXYUZFMjZ0VGgxR1pmbGVkcQ?oc=5",
    "published": "2026-11-04T19:20:00+00:00"
-  },
-  {
-   "title": "Tesla, SpaceX Take a Hit as Dems' Sweep Midterms; McDonald's Moves on Revenue | Stock Movers",
-   "source": "marketscreener.com",
-   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxObVViQUp0MkhNdjFUUU1ja0t5d3labFpHejZRWHJRS2V0RkRubXhXWm5mUnlMQUVWSk84U05xN3FPaFpvTnpGTk9ZOGp6LWFUZmZuWTBUS2ZmblJTdjYtcGZhNFI3UTZWT19hMktHRmp2WUd3UlkxaHB0SVpEbmlrZmhGTExibmtUY0t3dk0xUW9jVDRHSllfQ281Q2lYelVZMkdITGdFTkJJam05cHZMdTNUZ1NnajFwaXNJX0N0UTE4SkM4bmMwdjNILXVhUi1zbEhyNGh4VQ?oc=5",
-   "published": "2026-11-04T19:06:16+00:00"
-  },
-  {
-   "title": "Lucid Jumps 12%, Rivian Climbs 6% as Post-Election Rally Lifts EV Stocks; Tesla Slides 3%",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOMTZhdDYtTnhIS3d4d2pwZDJhWFJhZUgyREpmSlNpMXp6a2lGT0ZERHRnOG53WHNGd1pFeGotamJ6MnBDWmU4cW9SOU1TUlN4WHNvbjF6QjhxTUxyUzYwZmYzYzN3ekgzZDRpRnY4bW1lVm5oMGpfUjdMU3dkd0tSU2JjSU4wcjR1TGljcHBnTlk3b1UwYzJlUGQzUnpfYVJHdlVBM3BUVl92ODZ4V2JRSGlnX2VTOWxUQzNpMWdueG5qbDJIX0dF?oc=5",
-   "published": "2026-11-04T19:04:00+00:00"
-  },
-  {
-   "title": "Musk\u2019s Tesla, SpaceX Slide as Democrats Sweep Congress",
-   "source": "Bloomberg",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNYXluMTVwaWh2V3V2RmdIMVNHTlBjaDI4SG83Q2FUM3pjVEc2ZlRqc1VCbjB2bFBzZlFuWUs2MHJtdTVrQVgtcUlGOFJBdF9IS0Zpd25lM3o5WUI4V19aMlFodW1uVGpzNHdzcm5mclpIN25SbHRmMEtZWnNBbEZWTmdKbVRuYnBlbVhCTEUxbXRVcEFzWnk0UXlRcWhkd2FIQXFTcHI1bWc5V1JKZWg4OUlhbmI?oc=5",
-   "published": "2026-11-04T19:00:05+00:00"
-  },
-  {
-   "title": "Was Elon Musk the Midterms\u2019 Biggest Loser? What It Means for Tesla and SpaceX Investors",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNZ0dBckExTHZEV19WS2dEUE1sNU1EcjNqY1VJdzU4cENVZGlFRWcxSzhQaVp5Tzg5NHNUd0YzN1B4SUNsNUg1b3M4QjctdkJrVWoxMGZQYUdlYXV1b0FJcDVDMnhyQWhkNW5nT1hLMnlHaWoydEVMdmRONWR2allBZVFubzB3REt0T1kzVHNMekU1QmRlb2Q5RlQ3SjlFUQ?oc=5",
-   "published": "2026-11-04T18:54:19+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-04T20:10:15+00:00",
+  "run_at": "2026-11-04T21:25:14+00:00",
   "session": {
    "date": "2026-11-04",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1376,7 +1376,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-04T20:04:14+00:00"
+    "as_of": "2026-11-04T21:09:46+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1391,77 +1391,77 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-02"
+    "as_of": "2026-11-03"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-04T20:07:00+00:00"
+    "as_of": "2026-11-04T21:16:29+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-04T19:56:10+00:00"
+    "as_of": "2026-11-04T20:39:38+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-04T19:45:19+00:00"
+    "as_of": "2026-11-04T21:06:27+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-04"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-04"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-04T20:10Z"
+    "as_of": "2026-11-04T21:25Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-04"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-04"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-04"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-04"
+    "bar": "prior_close",
+    "as_of": "2026-11-03"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-04"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-04"
    }
   },
