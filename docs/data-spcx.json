@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-11-04T12:00:20+00:00",
+ "generated_at": "2026-11-04T20:10:18+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 100,
+  "sessions": 101,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~100 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~101 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-4.9% in 5 sessions",
+   "value": "-7.9% in 5 sessions",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 100 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 101 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 67.4,
+    "pos": 47.3,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -41,7 +41,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "59% ann.",
+   "value": "61% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "33.2%",
+   "value": "36.7%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 33.2% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 36.7% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 66.4,
+    "pos": 73.4,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "100 sessions",
+   "value": "101 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 100 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 101 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 20.8 (p85), F&G 24",
+   "value": "VIX 16.8 (p44), F&G 28",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -88,15 +88,15 @@
   }
  ],
  "fund": {
-  "price": 141.31,
-  "as_of": "2026-11-03",
-  "bar": "final",
-  "day_change_pct": 3.62,
-  "sma50": 149.68,
+  "price": 133.7388,
+  "as_of": "2026-11-04",
+  "bar": "provisional",
+  "day_change_pct": -5.36,
+  "sma50": 149.59,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 33.2,
+  "drawdown_pct": 36.7,
   "series": [
    {
     "d": "2026-06-12",
@@ -697,6 +697,12 @@
     "c": 141.31,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-11-04",
+    "c": 133.7388,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -744,13 +750,13 @@
  "distributions": null,
  "underlying": {
   "symbol": "SPCX",
-  "price": 141.31,
+  "price": 133.7388,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 58.8
+  "level": 60.8
  },
  "fomc": {
   "next": "2026-12-09",
@@ -768,61 +774,61 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-11-03",
+  "end": "2026-11-04",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 2200.0,
-  "dca_value": 2137.66,
-  "dca_return_pct": -2.83,
-  "dip_value": 2123.79,
-  "dip_return_pct": -3.46,
+  "dca_value": 2023.13,
+  "dca_return_pct": -8.04,
+  "dip_value": 2010.0,
+  "dip_return_pct": -8.64,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 21,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Nicole Junkermann SpaceX: 3 Launches in 6 Days [2026] - tech-insider.org",
-   "source": "",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQZThseGprV3Z6ZnVvSm00bFVFRjktT3pVSDBVek1kYmdPMEhFLUNFZWFQUEREZzZJektwa2c1cmpUMjdsTnlnY0kweWFkNjhqNHItb3J2SG1qekIzb0ZUZ0EteWVRUUpaLWo4cGNjR01kbzJGUVZrbFRSUDRlZllBWGV2YzRVcGt1VVoyTnB5SWp6enczRjlRTG53RHQ?oc=5",
-   "published": "2026-11-04T11:50:48+00:00"
-  },
-  {
-   "title": "Tesla, SpaceX Stocks Are Down. It\u2019s the Midterms.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPaXVobkwzVDRpalM0UkhUYmZZVThhX29ETG8wS1RfdVpOcDlNUzdZTmZObWY0TnE0aGlUUGlmSi1sdmIwZ3lMYURJYU5xRTNjdU5QbFlxOW91VE9oMUpqWjZIOXJUdE5PeWJKcENSV2tWanhpQTNQbEpreThRTXFiNktTWlBPRmpJTlBERjMwRXE?oc=5",
-   "published": "2026-11-04T11:41:00+00:00"
-  },
-  {
-   "title": "SpaceX or Micron: If I Could Only Own One for the Next 5 Years, It Would Be This",
+   "title": "Why SpaceX Stock Is Down Today",
    "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTkY5NDBCRXpwZGtFUzM5YkFSRUNvNVByYUF1Uk1zVUtzUmtESTQ4WU8zbEs5WXZGLW54N3VveW1EeTZvaXFoY3Vzc0JiVk1TQTNGanF2SU04cEtqT2VPX0hZcUVoVDV6SUt4ZXl1TUlOaHI5ZXBNaGRXb1JZX3VBQldmWlZrY1ZORHoyWngyeXZuRGZIWU5BZw?oc=5",
-   "published": "2026-11-04T11:38:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1SelJ1RFp3bFM1U3pPN1RDQi1EdzcteGROTXlDbEtVTmM0c2lWS0ZUdFY3NnI5WnBjWkVybHRjQXdhSmhaUjdZd2IzMmQwOTgwOVBiMmMtUllQemtwS00zMmk1cjBjMGFfbllpTGlPdUMwNjZEOWFQZTN5MEhuZw?oc=5",
+   "published": "2026-11-04T19:55:00+00:00"
   },
   {
-   "title": "Prediction: This Will Be SpaceX's Stock Price by the End of 2027",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNNjZoOENpTWNPMktrajE4Q1ZwZkFrdkFRRU45NHBJTENOcGlkR1hYc0JYejZ1V3VpOXBRWjluaWtKQ0I2WDVqSVVocEhycXQ3T25vVzFJNGl4R2d1dmdUaF9MOWRQM3BFNDNsNUlnY2tOVHkzb05VQUotXzNOVkYtNnJBN1VrbmlqR3Fic1B0enEtSmxsWERUNndlaXFSN09h?oc=5",
-   "published": "2026-11-04T11:20:00+00:00"
+   "title": "Musk\u2019s Tesla and SpaceX decline after Democratic Midterm sweep",
+   "source": "Teslarati",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZnpTYWpVVTlQUEZjNXdSSFRqUXJVZEJRbjd3TFVfWHZOc2lqcXJ3QUlzZktDSGpjU2tTWFhnRUI3ektweUh1UktTWF9STkVnMVhmSkZzTlpLcHZPSVdmSFdTX0pHaDVEVTdSQUw5TWFCVk1TblAzR3lBXzJlWXBiQTRVTV9pb1dxdXQxb3pOcFBNSjJzNXJEQw?oc=5",
+   "published": "2026-11-04T19:39:12+00:00"
   },
   {
-   "title": "Elon Musk Was Rejected by America's Three Biggest Phone Carriers, Now He Wants to Buy His Way In",
-   "source": "www.techtimes.co.uk",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQWFJOV2hvb3UzMWxxamNaWDN4SndOUFljVlM1VU5oa285UDFGcjNFSzFnRE4yVTJVdzJfV3ZIa3p0dEk3UTZ2VTE2NmpFbTdQTll1YjFuQWstQUsxQ0c0bjZHYkZKM2pzZnFFTjJ6QlVzbU03bzN6WmFzcGEzT2wzN18zYWVNQjFvU193bWRsQQ?oc=5",
-   "published": "2026-11-04T11:16:55+00:00"
+   "title": "Watch SpaceX Ups Challenge to US Mobile Carriers With Qualcomm Deal",
+   "source": "Bloomberg",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNdnY5RURlTWJOZVJ6YUlpdlNxTHViSTRob3c1N1VkZEJKR0k2cC1TSU9yOTVsUEVTSFhScjFvWVhSdUtOZmVIQzEyMTB3ODBRb1ZzdFdLc3VOMG1KQUpyUEhoWXdtS2ljeExkYXhIdjR3eG1RZ3U3cnlqc1hhWVl0cm1vWFVKSUN5aHQyaXZ6c3hRSG05WHd2SUwzOGlCcENZODVubVlUTklubnlwM0xYbQ?oc=5",
+   "published": "2026-11-04T19:31:16+00:00"
   },
   {
-   "title": "SpaceX Rents Nvidia GPUs to Anthropic at About $5.27 an Hour",
-   "source": "FourWeekMBA",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPeW1EeGZ0ZWxELUxpR2pCTjU1T3NKeVp0bEx4Z2ZjamJNWE5LQ05sN2Ezcm5fbE1rN1k4RTVNRU8yR3c0RlZ5WHMyaklaZjlDa0U1WlVkcnVqd3NsU0pWMEhmVVlPMGFQNk02ZGpkV0pnNFNSZjM2Tmo4c2hsLW0tbnppeFRoYlZmdlV2NlFtMU4?oc=5",
-   "published": "2026-11-04T11:12:08+00:00"
+   "title": "SpaceX to build its own 5G network for Starlink Mobile, starting in 2027",
+   "source": "Telecompetitor",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxObWFIRGM2UzNhcjRIT1U3ZnJWYkVJWEdIMXVnTUlDZmRQeExUWTNIczc2ckFwRVY1aXE4anVLUWJjUlF1Uk5fblFvRzBjYzJjY09Wak5XYVBaN2I4S2NvS3p4Nl9kQ1NkSXc4SEU1U0F0SWFkMm1UWDFGaGZPRE1yMWdkaWhlU3ZITEZvTXBaRXFZOF9BeV9HRTVHXzRuMkFKNVFDMUV3?oc=5",
+   "published": "2026-11-04T19:30:44+00:00"
+  },
+  {
+   "title": "SpaceX partners with Qualcomm to take on Verizon, AT&T and T-Mobile",
+   "source": "Firstpost",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPaW0zdUdpU1pPR0E4LXU2MVQ5bURzNlhtMXI2LU1INTBiOC1Rc1VHa2xEVDR5cXQzWXo5M3BJSjEtVnh1SnpBZ19YT3RELWpwbmFGNF9BcjMza3dtanZEREhhRFlIcjdsRVF0TzFiQVRuUlVzNHpYUEZGY1d1WDNQQlBfVTBrWU05MTBPODJwWUdVbk5id01kblZCemYzVk8zVkpaVFVDcDNhUmZYZTZB?oc=5",
+   "published": "2026-11-04T19:27:04+00:00"
+  },
+  {
+   "title": "Tesla, SpaceX, and AI Stocks Suffer as Democrats Take Congress",
+   "source": "Gadget Review",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPM1JtN1NLZjludFZLbU1MUDNJNUZ1Si0tUlJFa3ZrbXZkSVhrckxJWGtQYkJPc0hkVVcyMDZzY2hDSlhzeU05YmVNa0s1bVp1bjVrVk1iZHd5VkYyQnAyamxmdGVZTjRFR1ZmcDMxa0w4dGRvNzZXaUZGQmRyc09PajdnV2Vvc0RhXzhuaVBraGpMNkk?oc=5",
+   "published": "2026-11-04T19:25:54+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-04T12:00:21+00:00",
+  "run_at": "2026-11-04T20:10:19+00:00",
   "session": {
-   "date": "2026-11-03",
-   "bar": "final"
+   "date": "2026-11-04",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -838,7 +844,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-04T11:40:16+00:00"
+    "as_of": "2026-11-04T20:04:14+00:00"
    },
    "earnings:SPCX": {
     "ok": false,
@@ -853,7 +859,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-02"
+    "as_of": "2026-11-03"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -864,84 +870,84 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-04T11:56:09+00:00"
+    "as_of": "2026-11-04T20:07:00+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-04T11:42:01+00:00"
+    "as_of": "2026-11-04T19:56:10+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-04T11:50:48+00:00"
+    "as_of": "2026-11-04T19:55:00+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-04T11:43:52+00:00"
+    "as_of": "2026-11-04T19:45:19+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-03"
+    "bar": "provisional",
+    "as_of": "2026-11-04"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-03"
+    "bar": "provisional",
+    "as_of": "2026-11-04"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-04T11:59Z"
+    "as_of": "2026-11-04T20:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-03"
+    "bar": "provisional",
+    "as_of": "2026-11-04"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-03"
+    "bar": "provisional",
+    "as_of": "2026-11-04"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-03"
+    "bar": "provisional",
+    "as_of": "2026-11-04"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-03"
+    "bar": "provisional",
+    "as_of": "2026-11-04"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-03"
+    "bar": "provisional",
+    "as_of": "2026-11-04"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-03"
+    "bar": "provisional",
+    "as_of": "2026-11-04"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-03"
+    "bar": "provisional",
+    "as_of": "2026-11-04"
    }
   },
   "degraded": [
