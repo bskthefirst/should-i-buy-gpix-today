@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-05T12:00:21+00:00",
+ "generated_at": "2026-11-05T20:10:20+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-10.7% in 5 sessions",
+   "value": "no pullback",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 28.4,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "27.9%",
+   "value": "28.9%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 55.8,
+    "pos": 57.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.6 (p41), F&G 35",
+   "value": "VIX 24.0 (p91), F&G 21",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 287.3,
-  "as_of": "2026-11-04",
-  "bar": "final",
-  "day_change_pct": 3.25,
-  "sma50": 332.01,
-  "sma200": 337.99,
+  "price": 283.28,
+  "as_of": "2026-11-05",
+  "bar": "provisional",
+  "day_change_pct": -1.4,
+  "sma50": 330.89,
+  "sma200": 337.77,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 28.0,
+  "drawdown_pct": 29.0,
   "series": [
-   {
-    "d": "2026-02-19",
-    "c": 303.56,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-02-20",
     "c": 314.9,
@@ -1217,16 +1211,16 @@
     "c": 287.3,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-05",
+    "c": 283.28,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
- "flips": [
-  {
-   "label": "Crash band",
-   "direction": 1,
-   "text": "GOOG 5-session return -10.7% - another -1.3% reaches the validated crash band (+12 pts)"
-  }
- ],
+ "flips": [],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
@@ -1271,7 +1265,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 0.2993,
+  "ttm_yield_pct": 0.3036,
   "tbill_3mo": 4.21
  },
  "distributions": {
@@ -1331,8 +1325,8 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 287.3,
-  "sma200": 337.99,
+  "price": 283.28,
+  "sma200": 337.77,
   "above_200d": false
  },
  "vol": {
@@ -1355,61 +1349,61 @@
  },
  "backtest": {
   "start": "2022-11-07",
-  "end": "2026-11-04",
+  "end": "2026-11-05",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 36006.32,
-  "dca_return_pct": 72.28,
-  "dip_value": 36045.11,
-  "dip_return_pct": 72.46,
+  "dca_value": 35502.51,
+  "dca_return_pct": 69.87,
+  "dip_value": 35540.75,
+  "dip_return_pct": 70.05,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 162,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Google to disable its AI tools by default for students",
-   "source": "Plataforma Media",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNM1lONmNFeW5JcnE4eGdvN3o0bmRrNjVqcHlxQ05BN3FLVC00NkJRZ3huTXVMX0RMQkJ1TTdBR09iNVI5R2RhazJoSWxuS05HR2hMbDM0TDE4S0JOZ2dUYVlRYWtJYWlTTVBEX3lYa3JBYThhNWJQMjFPWW1USzFYV2QyVTZQQ2x5cm5hcEE5X3RDQlY0bDFXMHhXNHpQclFnRk00?oc=5",
-   "published": "2026-11-05T11:57:58+00:00"
+   "title": "Google\u2019s Gemini Omni 1.2 Flash makes 15-second AI videos for less",
+   "source": "The Next Web",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQa1JDYUlOV0Nnemd6amVZSnBiQy15RFRIdHVfcVhGbGoyZkZlTExNd3dUNXpwZ2lnVk9UejdnTmtGR0hBMkU0dkpjdEFmNmItdEs1REVHUHJoeHlfbk1ydjkzdWh4NWxUNVE2aGxqdVBMNmpFWlZqa0lQRFMzWG0wcnFSQXBQcWVHS2VN?oc=5",
+   "published": "2026-11-05T20:04:07+00:00"
   },
   {
-   "title": "SpaceX could match Google\u2019s lifetime data-center buildout in 1.5 years, analysts say",
-   "source": "Mezha.net",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQWEpmdFQ4SzI2dWFqcGFOZzR1dUE5VHFYSGsyVzVyVHllanVMQldaQ2lvcHhBUklKb1IzV2wtaGVxeGdZdXp1VWdhZlR0TXVXMjJadWdRUHRwYjNoZTh2M1h2dC1DUzNMWElNbWlWZlg4SEJNZW5mTUVXX01zY21rWFZNTQ?oc=5",
-   "published": "2026-11-05T11:48:28+00:00"
+   "title": "Environmental groups sue Hermantown, Google, over data center review",
+   "source": "KAXE",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQZFRRaFNBZUl5TUN1amFWbW52OGlMOUNKR1VpRFJMbWl4QlZ1Y1IyQ1RhQTI5a0h4YmJ4aWdaRmRwQjlGUW9INUlqa0VtYW9oQjk0WVpFVmJxc3hFWG1uQkVPajZkaUVrTEUzdl83eXZYM3NRNmNXc3pmQnYzNUFEOWhYM1ctcXRNc3ZvZWtMd2VCRnVRSjliUmlUSVlHVU5MQW1fS2pMQVdyT2dLREE?oc=5",
+   "published": "2026-11-05T19:51:30+00:00"
   },
   {
-   "title": "SERP Data Providers Say Google Is Throttling Goto Result Links",
-   "source": "Search Engine Journal",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNNDlQWDVBMjlfQWpZOVJjWG9ETEh3VDFuRWRhTHBqS3U0Vnh3MHhGS0pvWWUzV28wcmtCMWFaMlBnSWxCeS1VYWFUbVNGdDU4bEVDM1B0Y2tCdjZBdDFYZ3FNYVZGc21oaXA3RDBubkNnUFRUdFQxM01WRlRNZEhUR2RuQmZndw?oc=5",
-   "published": "2026-11-05T11:48:21+00:00"
+   "title": "Warby Parker Seemingly Spilled The Beans On Google's Android XR Smart Glasses Launch",
+   "source": "Engadget",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQQkZTU05XbVFDZXNMNmswUmdvd1p5QXZMR2pTZTRxcFd2M2w1QmdnM2Y0OUhXNDdZNlQzNlVrYXdKUEp2aURiOFBDdzJDQjM4SmFQdWZlTXpfd3RhYUFkLWptX1JWaVlMTDRucC1pM21heTZIYUptZ3V4MlZlTnRPa1JBRFk4VDNLazRPME83SDdhaU5VRlp6REdBOTRiVTBRNWR1RjFEZnFud1VmRUh6S296NTczYTRN?oc=5",
+   "published": "2026-11-05T19:39:01+00:00"
   },
   {
-   "title": "Google AI Researchers Want Google to Remove Contract Clauses They Say Could Silence AI Warnings",
-   "source": "Yahoo Tech",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNMEs0Z0Q0WHVWNTA3SXpwSTZKSUZ0bXVab3VoWFNIUkZER0FvM0JTUm1rS09VaTEyaV9UT01WMEIzR0dYTWdjeGlhNV9wUWM0OFJWQjNrWk95YjB4NHkwZHp0c3VhNUlLNjN1anQ2Z0I4bHMyYUZQb2JMUkNOQUduM1pBSlVzRnYzSDNGSWt4dW82YXRV?oc=5",
-   "published": "2026-11-05T11:43:01+00:00"
+   "title": "Google could take stake in TeraWulf\u2019s $19B AI project",
+   "source": "Yahoo Finance Singapore",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNdWl3c1VITm1BbzM0SkNlLWVrXzhXSlJCYUlqQmlpNFNNcG9PZTlWcVU0QkFYZzhpc2dmZnpGUkk3M01sOS13MEVobXAxdHN4VkRrM042SWZoTWh0SXlsLUlmVmsxVk1admU4X3plRUVqdFo3N3ExRUdGaUxsNm5yaVlDcFZybElG?oc=5",
+   "published": "2026-11-05T19:35:47+00:00"
   },
   {
-   "title": "Google Will Cut Off Search Access for Students At Schools That Reject AI",
-   "source": "WhoWhatWhy",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOVFptNHpMdjh5SGtXaS1MdDlYcGdVWS1RSDFVa0cyYWRPWVlYWGNYMXZpZ0kxZWU1RmRKdzBkdHFsMXJ0TXFOLVNXMUJBQVM5Y01mcWxIZlVfcW9LTTBNZ05tSjNaUGZBc2gwWkZsZ1RZbjNGMUJSaWcwSjZEcGR1bThxT2FpeU1uWnh6a0NmSDlyZzFWdU1PVHlxd25lV1VYVmFVRFJtM3Y4NEVBbVFR?oc=5",
-   "published": "2026-11-05T11:32:05+00:00"
+   "title": "Parents Sue Google Over A.I. Safety Risks on School Chromebooks",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOQUtIZ3lxajZKZXl4SEUxN2lzbV9xemZJYl9FXzVPTkZ0dGNSZVhFRXpZUHRMTUVpb3A5WERhaXdEYmM5T1QtMHBVdjJZLTE1U1V2UkI0N1ZvUkN2S1ZHVFlfUW9hazhRaEtLMTJ6Wkt6eEV0N3RFVnp5N3VSQU9wYjh1cnZVaWJVWXZtdmZLRTF1UEVlUENOUmdB?oc=5",
+   "published": "2026-11-05T19:27:58+00:00"
   },
   {
-   "title": "Google Pixel phones get better with age, but only if you use these 4 apps to match new features - How-To Geek",
-   "source": "",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQYzdhRGNCNm8tZE9mN3JJZ3h4ajlfVWpNZkloTjNjbjlOdDZaSjN6dWJwUlNwbjltMERpM1BBX2FHakpMUEJyTTZOWUhfNW1OdU5BVkZka3EzbF9SakV0M1E5SldqMHJVclNJakhFelE3UVBrQldCSDZGTVo1TThSdm1taDlYUWVMV04yQ1BvOEVmQVBmRi1BUndEUEpFTFQyVTlN?oc=5",
-   "published": "2026-11-05T11:31:16+00:00"
+   "title": "What Anthropic's IPO could mean for Amazon and Google",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPTXd6NEY2WG1OWVdrbGg5Ty1ROXgwdHZXNlBzd2J1VXBfWVNlSGFsdVBKNHVYMTNTYURkdkZram9lVHhDdmV6MnZqZ0lqOEQtU2diY1czeXBWbEc5al9NUEZ5M1NVYVM5MC0yUHV2VkJLWVZZNDVVZUh0YU43cThrSUw2ejlFOG9jZGpZZlZkdmdQaC12d056LU9QbFljcEQtOEdzZF9qUXJsSTJhWGNRcWJ3?oc=5",
+   "published": "2026-11-05T19:27:16+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-05T12:00:21+00:00",
+  "run_at": "2026-11-05T20:10:21+00:00",
   "session": {
-   "date": "2026-11-04",
-   "bar": "final"
+   "date": "2026-11-05",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1425,7 +1419,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-05T11:41:16+00:00"
+    "as_of": "2026-11-05T20:07:12+00:00"
    },
    "earnings:GOOG": {
     "ok": false,
@@ -1452,7 +1446,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-03"
+    "as_of": "2026-11-04"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1463,108 +1457,108 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-05T11:57:58+00:00"
+    "as_of": "2026-11-05T20:04:07+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-05T11:56:00+00:00"
+    "as_of": "2026-11-05T20:01:00+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-05T11:20:00+00:00"
+    "as_of": "2026-11-05T19:00:00+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-05T11:56:45+00:00"
+    "as_of": "2026-11-05T20:04:21+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-05T11:58:00+00:00"
+    "as_of": "2026-11-05T20:01:16+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-05T11:53:34+00:00"
+    "as_of": "2026-11-05T19:35:34+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-05T12:00Z"
+    "as_of": "2026-11-05T20:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    }
   },
   "degraded": [

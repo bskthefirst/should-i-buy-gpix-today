@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-11-05T12:00:15+00:00",
+ "generated_at": "2026-11-05T20:10:16+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
   "kind": "stock",
   "name": "SpaceX",
   "ipo": "2026-06-12",
-  "sessions": 101,
+  "sessions": 102,
   "too_young": true,
   "validated": false,
   "evidence": null
  },
  "verdict": {
   "label": "Too young to score - context only",
-  "summary": "SpaceX has ~101 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
+  "summary": "SpaceX has ~102 sessions of trading history. Nothing can be validated on that, so nothing scores and the buy score pins at 50. This page is context, not signal, until enough history accumulates to test (percentile signals arrive mid-2027). For a single company, position sizing matters far more than timing anyway.",
   "tone": "neutral",
   "score": 0.0,
   "score100": 50,
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-6.4% in 5 sessions",
+   "value": "-13.4% in 5 sessions",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX has traded for 101 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
+   "note": "SPCX has traded for 102 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 57.3,
+    "pos": 10.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -41,7 +41,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "60% ann.",
+   "value": "65% ann.",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "35.7%",
+   "value": "41.1%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 35.7% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 41.1% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 71.4,
+    "pos": 82.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -64,15 +64,15 @@
   },
   {
    "name": "Trading history",
-   "value": "101 sessions",
+   "value": "102 sessions",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SpaceX has traded 101 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
+   "note": "SpaceX has traded 102 sessions since its 2026-06-12 IPO. What unlocks as history accumulates: 200-day average arrives ~March 2027; 1-year signals (52-week high, vol percentile) arrive June 2027. Until then this page is context, not signal."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 16.6 (p41), F&G 35",
+   "value": "VIX 24.0 (p91), F&G 21",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -88,15 +88,15 @@
   }
  ],
  "fund": {
-  "price": 135.92,
-  "as_of": "2026-11-04",
-  "bar": "final",
-  "day_change_pct": -3.81,
-  "sma50": 149.63,
+  "price": 124.585,
+  "as_of": "2026-11-05",
+  "bar": "provisional",
+  "day_change_pct": -8.34,
+  "sma50": 149.33,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 35.7,
+  "drawdown_pct": 41.1,
   "series": [
    {
     "d": "2026-06-12",
@@ -703,6 +703,12 @@
     "c": 135.92,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-11-05",
+    "c": 124.585,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -750,13 +756,13 @@
  "distributions": null,
  "underlying": {
   "symbol": "SPCX",
-  "price": 135.92,
+  "price": 124.585,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 59.5
+  "level": 64.6
  },
  "fomc": {
   "next": "2026-12-09",
@@ -774,61 +780,61 @@
  },
  "backtest": {
   "start": "2026-06-12",
-  "end": "2026-11-04",
+  "end": "2026-11-05",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 2200.0,
-  "dca_value": 2056.13,
-  "dca_return_pct": -6.54,
-  "dip_value": 2042.79,
-  "dip_return_pct": -7.15,
+  "dca_value": 1884.66,
+  "dca_return_pct": -14.33,
+  "dip_value": 1872.43,
+  "dip_return_pct": -14.89,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 21,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "James Talarico says he'll 'work with anyone' in Texas \u2014 including Elon Musk",
+   "title": "SpaceX Stock Tumbles. A 6-Gigawatt AI Data Center Is Drawing Bac",
+   "source": "GuruFocus",
+   "link": "https://news.google.com/rss/articles/CBMitwJBVV95cUxQR3hiWlExWDJ3RzdhSHI0S3RydWhUYkNrcGl1bjcxQ2RDZUJBRnVGc0RZT093TVpGdG5iOWxDanV3V09nX1hyd1lod3ZrcTgwenF0Mk1wcTVhZVk1Nm1JVjQ0Sy1hVjlWRTY2bWFxOUZpdmtRRmU0WjZxZV9faFVzYjJkUjh6N3BVMHFWT1Y3Y2RjaUI5dTVZdVZJQlV2bWVyR2hEdFlsajZtWG1iTXBRSTJKQVR1al9CejBsZXhiaS1ZYzRzd1dBdk1MSlN2d05zWVpBczNZck5TVjRYS2RRc1FVdzFDX0NZaXU0LU9PR0EtWlUxZ2hwVVF4YVNDYmExRmJOZjVFdVdMb2gweTJzT0dvWl9jUDBWSWFwRjlJTkQ5ZUxjLXpnYmpMeU5pOU5VWTJ4M0lsdw?oc=5",
+   "published": "2026-11-05T20:01:16+00:00"
+  },
+  {
+   "title": "Why Tesla and SpaceX shares are falling after US midterms",
+   "source": "Latest news from Azerbaijan",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPdExPdWFWWXpTbmVnV3ZBVy1ja3dzLTFjTU1PVmVkN19RSUc3M0lqdE5KVkRSX0d3VXBFMFFCR0p0Z3BoUkMzaG5oZjFQMDZkZl9IU3RVempfQ2p1SXZQTEVaaWE4eTRtdlVtX2VCWHZfcUliRFBjWHBSUjIzb29ONDRWdEw?oc=5",
+   "published": "2026-11-05T19:58:46+00:00"
+  },
+  {
+   "title": "SpaceX Is Bringing Starlink Down to Earth With Qualcomm",
+   "source": "Hackster.io",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNc3hJYlNXWlpBcDZ1ZlV6VWwwSktyR3BVdFhBQzJNaUZJS2dyLWVuY0FZZFFMWWctd1Q1SXhRWkFka1NiWjFzMnE5WVhKMHBDdm10dXVyd0diMU94bHVKRFRKNDNEYnJ4amFxa3p5ODZjdldEdDFlYlVKRmx3bjFHalVjcV94SnF0UHB0bDVDenJkU05hRDczaHpOVDB2dw?oc=5",
+   "published": "2026-11-05T19:35:34+00:00"
+  },
+  {
+   "title": "The 'Musk Selloff' Deepens as Tesla and SpaceX Combine for $450 Billion Two-day Wipeout",
+   "source": "Moomoo",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQWlZRYnUyekhHUFZJNXNUMkkyWHJ6V3I2M3MzVkZyLW4zUWVrN0RqejhXS0p0NEllYk5jUDVVakx3MUw1aWh1NnN5eUl2M0FsU3E1WkRSWXJKRTM4UUlZQWlWUmdrV19xcC1xZkhUYlJjQW82cHpmQnliVnRQLTcwbVdIVDQ4LXB5eXkzbWtielQ0SXRwTnZCdndPREYwLXNZU0E?oc=5",
+   "published": "2026-11-05T19:33:02+00:00"
+  },
+  {
+   "title": "SpaceX Stock Tumbles. A 6-Gigawatt AI Data Center Is Drawing Backlash",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPeXIyejQ3T2hqTF9Zelhacmhicm1Ma3NsMEFPWVNSRlJsSVJvVmg5OXJVT0dwcm0zVkFKdk1MQkxxNWMyWDkzekxJdmF6YU1DbllTWk5wSlVRa1UyVXV3UWotSkUxaDBaelFlOGN4aWtYUWwyZXZPNk4yZU5sNUlkblZEV0JHRGRRZ0hKTTZMQk53d3FjS3ZuS1B4OA?oc=5",
+   "published": "2026-11-05T19:32:57+00:00"
+  },
+  {
+   "title": "Investors are dumping shares of Elon Musk's companies after the blue wave election",
    "source": "Business Insider",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPNWRMRFdjaHRlYWVqeVgyTU8tbTZNNjhIbkp2bEo4bVJsMjlmV1RUWmVuZE5fRm1Gd2lreERtc0ZBejNkY2VyM1R2TnNzVnlJYzFiQnhrMHB4X2oxY1pnQWNBamR2MTFWNjlZOG1Ib2hLcmVRMldRcXVSY2tqamRpT2U5SWxjR2dIUGZvVWdxaXRqTmpLYXkyRXVzQllBU1RRZ2Y0Ug?oc=5",
-   "published": "2026-11-05T11:58:00+00:00"
-  },
-  {
-   "title": "Elon Musk's SpaceX lenders sell pieces of $40 billion chip deal",
-   "source": "Billionaires.Africa",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQc2wwMUdOWDlPdXRGLWpMV3pPRkJxNldDTnhJZWlMUFBNdE9XcDBOZ3VjdDhDeG42bW90STNadFVVaVI5RnE0enFLckJkb0kzMndsWEpNeW1KVW9qcFNZdXhmYVRKdXp3b19TaGlPUHhNOXZFWFBfcDdWczVHWnVmY0h4Skd2NDQtQ0VDTWQwOGNwcnB3YnQyV0hZbE9xOS1MTkxXRGJLdF8?oc=5",
-   "published": "2026-11-05T11:56:19+00:00"
-  },
-  {
-   "title": "SpaceX Stock Today Has These 2 Positives. The Stock Is Still Falling.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeDVOMkthXzBuVFYzclMyTUVLWWs1TmFvT2dETWRPMjFKTkVtQzM4d1Ryb1J4NDJSNUtON0Uzel8tS3JTQ3VveFNTY3V0WTlnZTNTdnhSelllamZWVmV6NlQxczVoUHVVLXc5RjRia0oxY3VGZmNxUU1yLVVjWUtoMEJSWQ?oc=5",
-   "published": "2026-11-05T11:51:03+00:00"
-  },
-  {
-   "title": "SpaceX could match Google\u2019s lifetime data-center buildout in 1.5 years, analysts say",
-   "source": "Mezha.net",
-   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQWEpmdFQ4SzI2dWFqcGFOZzR1dUE5VHFYSGsyVzVyVHllanVMQldaQ2lvcHhBUklKb1IzV2wtaGVxeGdZdXp1VWdhZlR0TXVXMjJadWdRUHRwYjNoZTh2M1h2dC1DUzNMWElNbWlWZlg4SEJNZW5mTUVXX01zY21rWFZNTQ?oc=5",
-   "published": "2026-11-05T11:48:28+00:00"
-  },
-  {
-   "title": "SpaceX plans to build more data center compute than Google's entire lifetime capacity in just 1.5 years \u2014 analysts say target is realistic, SpaceX to build staggering 10 gigawatts of compute in 2027 alone",
-   "source": "Tom's Hardware",
-   "link": "https://news.google.com/rss/articles/CBMi8gJBVV95cUxNeklOLXBSWVZyb2JITFRDS01CU29FdV94VmRwbEQzaE51LUJISHpfZTU3b29IdWowYm5YblJ3dHgwS3ZFanFWU0drcXNMODlYdFRvWWw4bzdhQVNwYndqNFE4OHZoTFA5eUJ0NnQtUHdkd0I5MnN2Vm82NWc2b0wtT1ZrdXZxVGRwMWxELWVYMEdBUVgtYklHdnoyeHBTV2tOZC1tdEs3d3NOaktycFJaZ19GaGo1Z3VmOWI3Vk9EZERueDF5MGRieXdqODduazRsbndXVklTb2FvX21Ta1pwX3FnUEFQbGFkVm1YbmlXWVVoQi14bWxQRmlncEpFT1JQcFlsQWlSMkNlcVFtRmNRNDBoQ21LTmUzYlNYSjBhSU5LeXB1TDd4R3FVak9KMWRiQjBFZmFoZExNVnVjcVFFU1hzU0hPLUZSdXpQVWtQQW43bVhncFRzb3dwUFVzMjl1a25jVUJtMDlQcWI2emtnRVFB?oc=5",
-   "published": "2026-11-05T11:30:00+00:00"
-  },
-  {
-   "title": "SpaceX Stock Rises. Buying Boost Mobile Won't Fulfill Musk's Wireless Ambitions.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNczdQRHlJNzVkVmdtUktabDYtbHZTVk5IS0VySUp5ZGxjeDg1UkU1Ym80eHlNQklsN2pnWHNnUWJzeW5UeVRqeW83cll1aTN5SEE5NjlmcWNjSkxFMmZ6eExLZVVNWXU1QlV4Z196dHZaSWRmRWpHeEFrd2lGMG0xeEdKVVFnZFVo?oc=5",
-   "published": "2026-11-05T11:27:59+00:00"
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTi15NUt3OWJlcTlscTNDcUd0RnpGMXpIVDh3bVNWcHFWVDdjVFcxNEJuMlZvMTd3WjR3V1VIVVhvaVQ4c21ubEZtWDVnVk41OGtLYi1IUkRSb0t0cWFONk5mdmNmV2lldXhHZzR2LV8zb19tdGNCazBqMnNDYXNraGxjT3BzNVNoa0hLNTlTUjFZQQ?oc=5",
+   "published": "2026-11-05T19:29:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-05T12:00:15+00:00",
+  "run_at": "2026-11-05T20:10:16+00:00",
   "session": {
-   "date": "2026-11-04",
-   "bar": "final"
+   "date": "2026-11-05",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -844,7 +850,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-05T11:41:16+00:00"
+    "as_of": "2026-11-05T20:07:12+00:00"
    },
    "earnings:SPCX": {
     "ok": false,
@@ -859,7 +865,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-03"
+    "as_of": "2026-11-04"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -870,84 +876,84 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-05T11:56:00+00:00"
+    "as_of": "2026-11-05T20:01:00+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-05T11:20:00+00:00"
+    "as_of": "2026-11-05T19:00:00+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-05T11:58:00+00:00"
+    "as_of": "2026-11-05T20:01:16+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-05T11:53:34+00:00"
+    "as_of": "2026-11-05T19:35:34+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-05T12:00Z"
+    "as_of": "2026-11-05T20:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-04"
+    "bar": "provisional",
+    "as_of": "2026-11-05"
    }
   },
   "degraded": [
