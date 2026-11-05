@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-04T21:25:10+00:00",
+ "generated_at": "2026-11-05T12:00:09+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
-  "tone": "ok",
-  "score": 1.0,
-  "score100": 56,
+  "label": "No edge either way - buy on schedule",
+  "summary": "None of the rare conditions this tool watches for are present. If it's your scheduled buy day, buy - waiting for a better day costs more than it saves, on average.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "20.8 (p85)",
+   "value": "16.6 (p41)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "good",
-   "note": "S&P 500 volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good.",
+   "lean": "neutral",
+   "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
    "viz": {
-    "pos": 85.0,
+    "pos": 41.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "1.10",
-   "score": 1.0,
+   "value": "0.88",
+   "score": 0.0,
    "weight": 1.0,
-   "lean": "good",
-   "note": "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight.",
+   "lean": "neutral",
+   "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 100.0,
+    "pos": 45.9,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+8.0 pts",
+   "value": "+3.7 pts",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
+   "lean": "neutral",
+   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 99.7,
+    "pos": 64.5,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "27 (fear)",
+   "value": "35 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 27.3,
+    "pos": 34.8,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 6d",
+   "value": "CPI in 5d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1316,8 +1316,8 @@
    {
     "d": "2026-11-04",
     "c": 55.49,
-    "t": "ok",
-    "s": 56
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1330,12 +1330,17 @@
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 27) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 35) = extreme fear, a contrarian buy zone (+6 pts)"
+  },
+  {
+   "label": "VIX curve inversion",
+   "direction": 1,
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.88) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.5 (now 20.8) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.5 (now 16.6) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1349,7 +1354,7 @@
   "end": "2026-11-04",
   "days_total": 758,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-11-04",
+  "fg_coverage_start": "2025-11-05",
   "baseline": {
    "n": 737,
    "avg_pct": 1.6,
@@ -1384,8 +1389,8 @@
   "tbill_3mo": 4.21
  },
  "fx": {
-  "usd_krw": 1340.78,
-  "as_of": "2026-11-04T21:25Z"
+  "usd_krw": 1343.38,
+  "as_of": "2026-11-05T12:00Z"
  },
  "distributions": {
   "history": [
@@ -1508,22 +1513,22 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 766.82,
+  "price": 766.81,
   "sma200": 729.91,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 20.83
+  "level": 16.61
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 35,
+  "days_until": 34,
   "imminent": false
  },
  "cpi": {
   "next": "2026-11-10",
-  "days_until": 6
+  "days_until": 5
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1533,7 +1538,7 @@
   "invested": 15900.0,
   "dca_value": 20286.16,
   "dca_return_pct": 27.59,
-  "dip_value": 20111.65,
+  "dip_value": 20111.66,
   "dip_return_pct": 26.49,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 32,
@@ -1541,44 +1546,44 @@
  },
  "headlines": [
   {
-   "title": "Friday\u2019s jobs report looms as Fed weighs December move on interest rates",
-   "source": "Scotsman Guide",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNbHA2eWVMUkdVLVpTRzVjZDAzQS1tUHNDNzEycFpWTEY0R0szd0U5a1VCd3VXV3l2aWJDX0pFaVBrMTJ2X2dNdVJNTGc4Y09wNEgzZXg4ZEQ1Y3MycUtjaEVTM2gwX0syYXNYa0pUQmFvTi1rdjg0MXNLcWhmcjluSHZORG9hZERJcVNFLW1uMUV3ci1IT3JxWV9DNzQ2Zw?oc=5",
-   "published": "2026-11-04T20:39:38+00:00"
+   "title": "OKC's economic growth is masking the strain from inflation, economists warn",
+   "source": "The Oklahoman",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQaUdhX014QkxuWFhjYjF5dGRwVFUyN0VUSk1MOTY2WnhzMm5YM3A0QWtUbG8xSGpQTG5sVnZ2VXNEbjgxSmZCWlB2UzFXN3h5ckkzZmRYRDRQdUpObi1GWHRZVTBLc0VqODZfWGE1bll4UEVYUURYSlVZcGZ2S2x5UWRGeHF2UDhFd0J5dllRMkszZzJMUnIzQ0V1dGpwQlBhWTl1UVBiTnZwMzRZYmRwaTh5LWo4bldqWm9QaXpzRkVSMVpWWFRUS1laaFVMdmQ3Q2ZhUA?oc=5",
+   "published": "2026-11-05T11:20:00+00:00"
   },
   {
-   "title": "What\u2019s Likely to Change for the U.S. Economy After Democrats\u2019 Resounding Victory in the Midterms?",
-   "source": "Investopedia",
-   "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQY3pVQkJ3cjVJM3V3R2k3R2dxXzlfeUZ0VktHYXJUTTdKMHJhdmxhWExCR0J2aDlXSnBScjZ1WnJhRVB5V1o0eGF1S0YwZ1N3WnVIOUd5MU9UUVh0bzFpQjdjSndlbWpXc1lFcXVLYXdIc2h6Y2hhdUN2MXJBNUs4OFdKUkFod2JocXBKU010dHlWd1pxb19VQVB2Q1h2VE13SFdtTjNEQktmRy1qWTNaRGdVZEJfY2c1MThfV1NMeXVwZDhyLXVPNEhiM2EyZkRNMXVicktqMVNDV0k5eWxxQU51MA?oc=5",
-   "published": "2026-11-04T20:33:07+00:00"
+   "title": "Trump's bid to remove Lisa Cook faces fresh hurdle after Democrats' Senate win | Hindustan Times",
+   "source": "Hindustan Times",
+   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQT2ZPVUFTN1hZcTc4aGZHU2s1dmFCWUQ2ZGlza0pjNmpFakpWMWh5LXEyTU8tZTEtWEVkXzE1dGFIeGtrdk1MWVdXbGZwNTJMWnhmWXNKMFk4THJwejFQTmhvWHpTbFdBRFRydU9LbFFtck9oendNTzNfXzlwcDJURFNfVGZ5OFY3UHlwQS1OblRCVGxFOWFtT0ZnT0kxbTZPcFZLRGFZOEJGNkpocWh4SWVzRW5ldjFlYnlibDMwUWJvMVJkN1o0RnVvajFTeGtDSmw2eTZRVnBTc2s2VDNrTNIB5gFBVV95cUxOZmRPajJHWHdOc0FLQ1ptVlFVOFpqeld2VFR6REFQMnQ3cDQ5WGRTTDByaWV1NWllYU10bGJXUEhvWEpyZ0ZmRGZ5ZlIzLVhxb0dzODhtcm1aa1NRSkhEd1VFZTlVdThXM25RaGVwOWk3Slk0Q0dsZVBpQjdISkVFM2xvckhZaEVjWjdtS0VGLVBTdzBXMFp3OFVXUVdFRzNaWG9DZms5bFQ1WGtmZkM5QTlJRV9nS3NSMktZUFdTXzh1QVh1VkJ3NEVFSVcyTWpxUG9nYldGNUNlc00tTGx6cUh6aVAyUQ?oc=5",
+   "published": "2026-11-05T11:10:14+00:00"
   },
   {
-   "title": "Election stiffens the Fed's guardrails, but independence risks remain",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdkp0QllhLXhJSURNNS1INjdNbjZfRFpWdjFrWHRuc09GeTRFOWlEV0JrQ2tRaExoYTB0R2NFVUtNQVl4bmtuZ0FaUFU5cUtMc2FwWWN1amVNR2xFcjZBTGZwdi0xUGsyRFJOOFhpYUo1OWNrLXJZUkdyeE5QZ3dpcmtpV09faUpwejZHdm9NRGN3dTZxR1NhMkdFdHRtMVZqNUZ5ZTkwRDdiQVlMcGxMUy1B?oc=5",
-   "published": "2026-11-04T20:32:57+00:00"
+   "title": "Are Investors Expecting Too Much from the Stock Market?",
+   "source": "Morningstar",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOTTVqbUgyWFNLOGRlc1VnRjh5d0diSVpqS1dSUE4zZTkwUFRQQjFWT29RZzVOU2txMWFhZzYyc2dudjBzVTRNS3BDZEpNd3FWMkV4dVowRFU1OHN1TGZVX2hmWXk1WkV3Y184aklpaUM3bTZMblEtZFlrMDVwR0dxN2VNY3I3YTRB?oc=5",
+   "published": "2026-11-05T11:05:07+00:00"
   },
   {
-   "title": "The Economic Drivers of Republicans' Rout at Polls",
-   "source": "Newsmax",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYzA5MXJta1B2NnJkSUZ6bjVUUHlGNlp3VzBNNmhTMXhINUZicWpBNDVpYVczUTFQVEotLTNZUTg3MEZiSGI0aEV2TVNCZms2dmQ5cXcxWDlzM2dQemFWVmM0WUhzMlFGLXp0bXVQTDRITzladXhLSjl0Z05OdmZ5RGFuS2xCRktvdG1HTFBCb1g1WjY5aWJaMA?oc=5",
-   "published": "2026-11-04T20:20:10+00:00"
+   "title": "Why inflation shock has some savers talking I Bonds and TIPS",
+   "source": "Detroit Free Press",
+   "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOd3FEcy1JdnVNRjVWeld6M2JBT0cyRHZPTTRIT1pqT093QndKWkQtZXExMmNaRElTVDFaenhLX0tuQmJSNExyT3c2eVE2a19OS3JxWE8tX2l5dkk3Ti1GQTZRdENpcmo5M25xSnN0VkhJZlZ3OUxYc2pJdnhublJINmFqSDNUN3pnSW1UTFk2VVZOX29vMHJQZWtCWENIQ25kT1RmT0tUUHNvaDk4Tzl2YTFrbGc3eEhVTVNhbUY0N0pNaHZVUXhBdE5FSm5DS1Q3Skp6QkNlbnNkcVBMXy1HNUMyODJfR25PcHc?oc=5",
+   "published": "2026-11-05T11:04:00+00:00"
   },
   {
-   "title": "Conservative US Supreme Court justices Thomas and Alito in spotlight after Democratic landslide",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQMDVYRXNneFQxQ09sNE1LRkU2a2RmdWlkcHl4QmxWYnpYUUxCNThGejlvY1E1U0RoaTlEZkZkRjdlaDlIbzlubDZlMjBnWGRKbngwQXNqS1FtRzQ2by1Zd0xFWnBwdWpDY1BLbFFraEFOV08zTUgtTkRLTnRLN0tiQ2hpcjQ4amdJaWdLcExGSVF4Vk9Kc1REdTh2eVdHVTFPYzA2UzV2THBnUmhTYUdwTHVXc3ZpcGVtS3J0N2ZOUF9YMnRkajZMTjY3aw?oc=5",
-   "published": "2026-11-04T19:56:10+00:00"
+   "title": "The Fed Needs a Better Way to Talk About Interest Rates",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPSncyUnJBc25zajNQclpteVFGV3A0bGZtR3JwMEVnYUdOcXZ4eUkyZGNLdG1DcGlZeUJ2dV9ub3lFZDNjTkY3bjZCNkIxTDhtdTBLQTdOcDRQWFprbFp4aVQ3OU1JMWh5bENiMEk1d05DeG0yLWpSTHBSdUI1OW96UzRsekpIU09LVV9GX0tKWS01bWNicV9DYWhPVkZweWhBZWVETUFHbG9BQQ?oc=5",
+   "published": "2026-11-05T11:00:21+00:00"
   },
   {
-   "title": "Swearing-in ceremony for incoming Federal Reserve Chair Kevin Warsh",
-   "source": "The Lufkin Daily News",
-   "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNendQOWJkUlBGcW1fVUczcE1fcWliMllGVVhpZTZHcjY4VjRzdmVGNWhHQmtKdlVxVWE5MjRXQ0tfbjdFZ0pJLVJ4a0dJRjV0bDFFX0x3Mjhza0wyM0hRazlGLWR0cFJBWFBtY3VacGJhclItUjhBY0xjb2ZmVEg4LVFEa3VtTE5oeTM3LW40TUpITFUyejhQdm1Dc2h1ekFOM19HMUE5N0VRdkNVNUs5RUd3UjNwUGtrcnFKTy1wYmEtbzFGNVBwNkdoamlaa1RNUXp4YmM0QzBmWUYtdTZzTmQwVWF4UFNyeEhzT0xFMV9jNnFXNUl5Zg?oc=5",
-   "published": "2026-11-04T19:55:53+00:00"
+   "title": "Inflation, tariffs and a voter revolt: The midterm verdict on Trump\u2019s economy",
+   "source": "WTOP News",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPdWI3OGRhNXRSUTVTZkYway1xei16NjQ4dF90eDlfa2V2ZnNtYmk0VkFJNmR3M0dwdERFcGVvSTZvTVZjSGhQZklNOU1yTDRFX2FWLS1YYnR4MzlOUUJpeEtUV01sc2JHWGcyQTNkWDdROWhydjlSTl9yd3BNTkhSRDViSEUwRzhIUjZIaEVwakhCNjJueThFY3FObGRuZHZSRnYySGNhdzhTbGg2Znc?oc=5",
+   "published": "2026-11-05T09:45:32+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-04T21:25:10+00:00",
+  "run_at": "2026-11-05T12:00:10+00:00",
   "session": {
    "date": "2026-11-04",
    "bar": "final"
@@ -1597,7 +1602,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-04T21:09:46+00:00"
+    "as_of": "2026-11-05T11:41:16+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1613,7 +1618,7 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-04T20:39:38+00:00"
+    "as_of": "2026-11-05T11:20:00+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
@@ -1624,7 +1629,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-04T21:25Z"
+    "as_of": "2026-11-05T12:00Z"
    },
    "yahoo:SPY": {
     "ok": true,
@@ -1636,7 +1641,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-11-03"
+    "as_of": "2026-11-04"
    },
    "yahoo:^VIX3M": {
     "ok": true,
