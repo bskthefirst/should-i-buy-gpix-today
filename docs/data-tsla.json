@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-11-06T12:00:14+00:00",
+ "generated_at": "2026-11-06T20:10:17+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "own"
  },
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated single-stock condition is in your favor on TSLA today. Nothing dramatic - and single-stock risk still dwarfs entry timing.",
-  "tone": "ok",
-  "score": 2.0,
-  "score100": 62,
+  "label": "No edge either way",
+  "summary": "None of the scored TSLA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 4.5
  },
  "meter": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "3 down days",
-   "score": 2.0,
+   "value": "-9.1% in 5 sessions",
+   "score": 0.0,
    "weight": 2.0,
-   "lean": "good",
-   "note": "TSLA is down 14.8% over 5 sessions - the vol-scaled crash band. In 16 years of TSLA history these days averaged +0.9pt next-day excess (t=2.2) and +11pt over the next quarter, positive in every era at every horizon - the strongest single-name edge this tool found, hence the 2.0 weight.",
+   "lean": "neutral",
+   "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 1.5,
+    "pos": 39.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "56% ann. (p85)",
+   "value": "60% ann. (p88)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "good",
    "note": "Realized volatility elevated vs TSLA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
    "viz": {
-    "pos": 85.3,
+    "pos": 88.1,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "29.8%",
+   "value": "25.8%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 59.6,
+    "pos": 51.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 28.2 (p98), F&G 20",
+   "value": "VIX 24.8 (p93), F&G 23",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 343.69,
-  "as_of": "2026-11-05",
-  "bar": "final",
-  "day_change_pct": -10.77,
-  "sma50": 372.07,
-  "sma200": 384.32,
+  "price": 363.5901,
+  "as_of": "2026-11-06",
+  "bar": "provisional",
+  "day_change_pct": 5.79,
+  "sma50": 372.24,
+  "sma200": 383.89,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 29.8,
+  "drawdown_pct": 25.8,
   "series": [
-   {
-    "d": "2026-02-20",
-    "c": 411.82,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-02-23",
     "c": 399.83,
@@ -1217,6 +1211,12 @@
     "c": 343.69,
     "t": "ok",
     "s": 62
+   },
+   {
+    "d": "2026-11-06",
+    "c": 363.5901,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1224,7 +1224,12 @@
   {
    "label": "Top-decile volatility",
    "direction": 1,
-   "text": "20-day realized vol above 61% annualized (now 56%) = top decile of its year (+9 pts)"
+   "text": "20-day realized vol above 61% annualized (now 60%) = top decile of its year (+9 pts)"
+  },
+  {
+   "label": "Crash band",
+   "direction": 1,
+   "text": "TSLA 5-session return -9.1% - another -2.9% reaches the validated crash band (+12 pts)"
   }
  ],
  "report_card": {
@@ -1277,13 +1282,13 @@
  "distributions": null,
  "underlying": {
   "symbol": "TSLA",
-  "price": 343.69,
-  "sma200": 384.32,
+  "price": 363.5901,
+  "sma200": 383.89,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 56.2
+  "level": 59.6
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1301,61 +1306,61 @@
  },
  "backtest": {
   "start": "2022-11-07",
-  "end": "2026-11-05",
+  "end": "2026-11-06",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 27883.93,
-  "dca_return_pct": 33.42,
-  "dip_value": 27886.56,
-  "dip_return_pct": 33.43,
+  "dca_value": 29498.44,
+  "dca_return_pct": 41.14,
+  "dip_value": 29501.23,
+  "dip_return_pct": 41.15,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 203,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Tesla logo in the middle of South Korea\u2019s flag ... Musk celebrates being \u201cNo. 1 in the Korean market\u201d",
-   "source": "\ub9e4\uc77c\uacbd\uc81c",
-   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBWMk5oZU1fQ0gwaFhidmNCRmNodVkwM3gzTC1IcEd1Ny1XWWM3MGxsd2xaS3FYdG9RbzZsTVd0eW9mRk5sWXpOcVU4b05yVk9WUGV3?oc=5",
-   "published": "2026-11-06T11:39:57+00:00"
+   "title": "Elon Musk Pardon Petition Gains Traction With Tesla Influencer Support - Tesla (NASDAQ:TSLA), SpaceX (NAS",
+   "source": "Benzinga",
+   "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQT1dxWlRGSTJRdVJGVUVPcmhRLVhzR0pDcmJndXFOTjR4RzlMejRsVlotaUhPemNITHNWeWRXZWpXX3drMWZFcXFlOUx2WDUyeVhWaHhabGw0aURuSzJxdnFDenVPXzJ2SlFLcUtIYndRR3Q0ODY1aUhSd3dYYkk1ZVpMVnVjc1lyaC11X3NsM1JmUWUxeXZaTm5uY3JndmpUUkdES0VOdmE1aWMxeU95Nm10aUhjeW42NTZJVXM4d0hhVjZyTlhKQ1ZzdEJhRlFVNFZncEw0NzNwYTY3XzY2X2NLejhjQQ?oc=5",
+   "published": "2026-11-06T19:35:50+00:00"
   },
   {
-   "title": "Tesla Cybertruck production discontinued: Elon Musk faces fresh setback after spending $446 million backin",
-   "source": "The Economic Times",
-   "link": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxNa3J5Q0p5TFZqMTlpcEFuZmQ2ckFsQVc3ay1NaDNFVFRvM2o4WHpXVnVSb0tsdEVHUms1N1c4NGEwWU9ka3ZmSTZPNjdRTzNwMGtOYmE4RXd4NnZyTjhDb1c4RWM2OHZnX3JpOFpyXzl3Xzh0TDBFVGNsS0hhNXUzNjNPTDZjSTdlUmw2WXRCR0FrcDA4ZDNCN3BhR3ZZY0dWcGZKSFcweDBydjd2dGlsQnBnYl9zaXhDdXcxWGludlZlbC16VkxjMmVhdGlNRzFoSFJRS2RRRHBXT2htUG9ydnY5UHNJRjBXODdURUhnWWIxbWFoZV84ZmdIV2U2ZEFMeHhMVXFHTzlnX3U1cXA0aXBEbktzRlVIREdKdzZsOVk3QUdIUXdqbdIBrgJBVV95cUxNTnF5T3pQMnp2UWlfR1kwa0RMb0VaWEdIQTRWSkJFNXhCVllORXZFNEU1R3BvckFUNXVob0FQR1JXUTIyN0RMc0UxVWRsUHpHR0V2elNZVnN3akl5ZVZBY2VNRzVQTnE2aDd0bEwxUkJaOG5vcmotaC1TVXp1cjBzWGhZbmFZVmsxM0dCOUh4RFVqNnBiY05obGg0bHpQV19aaXBCWkEyN2NNTFpDNGpyWU8ybTVWMDgwWVNTbUcxeUlNS3JjR1lUM09QRGdobWN6UGp3QllPYmlUczY3SUZ5NGxhMmlZaDJwYVBaSWdINmh2Vmd0dWtDVXRPZXNnVEN6MzRfTjVVYUtsX1UtS2FjMk1EXzZkeXBmMFEzck9aUnNISmN1ODd5WTkzTnZ4dw?oc=5",
-   "published": "2026-11-06T11:36:22+00:00"
+   "title": "Tesla to Cut Cybertruck Production After Sales Plunge: Elon Musk Expected to Sell 250,000 a Year, but Barely Reached 20,000 in 2025",
+   "source": "Revista Merca2.0",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQT0hiZl9VSHo5V2ZrSGlCODdOV0RGdDk5ei00d21GOTJFeUlSSkMyb3dVZjA4d01TTmdiZ3hKY0NGQXpjdWZUejBkRVU1b2o5MUZrOHJNbzJDNS1wSS12bEpxUWw1VXIwZGVudmFCWmw1Y3dxRnR6LWtGckxfQjR5aTNDT1kzd1JLQnlRaEV5WEFEaUFHbmFvckdFYnlPNXByNGd2WVB0c205Z1FYYnRaYTgzczMtNzZFU2diUzFVd00ySnJKOHVIMHVUMHN1SFd0NXRoUUdUek5VNDVFVUxwNklqdWFzT1E?oc=5",
+   "published": "2026-11-06T19:34:15+00:00"
   },
   {
-   "title": "Elon Musk\u2019s TSLA, SPCX Rejecting OKXICE Tokenized Stocks",
-   "source": "Cryptonews",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPeTNCNlJHdTY5Y3ZXZEJQbzlpNlo5c3c4YmczR2NkVjNDYW1icDZzQlNGUHFXQVpCSVdQRG5uWGtZQzNvVDlyN3ZsNnRNZ2ZEVVY4UFJOdEw1azZ4RGdhWm4wei12em5XSU4yWlp1S0gxdklNRW5PbFh3dzVSblQtRQ?oc=5",
-   "published": "2026-11-06T11:34:13+00:00"
+   "title": "Tesla Brand Slips 22%, Loses $474M After Midterms [2026]",
+   "source": "shattered.io",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNZmszSjNuZGZRNVFiN2RRc004SVpyN2hWQi0xQ3ZxRC1LS3cwNHJRSFlBU3RtQXZCYkFTVkEta2paTUtMWUd3eF9faWpPUlV3enBpUWlocHotZHkybXJuZmVZcEZicE04dzl3T3AzVnVVbXozQ3AxRl9xd3BCcHhIcWNLLVc?oc=5",
+   "published": "2026-11-06T19:33:33+00:00"
   },
   {
-   "title": "Tesla, Inc. $TSLA Holdings Increased by Westside Investment Management Inc.",
-   "source": "MarketBeat",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQcmVKZGVIaFp4UGJEWWNJWVdaYjdLU1pIVWZmaGpuYlFwbEpJU1ZZRjdHenlyTnV2SXNyYUw1dVlxVHFPWlNUZ2UtMF9TZk10UlFGaUVsaU1BSmY0UWFiWnJKY1R1UlVGUDIwN0RXdUZHeUlGbXlXRmhJblJVc0ZwTVp5LXNwQWx4S1dWUTkwQW0wdzlrR00zNnZ6ZGw1aU1Sem9hZlVOUXk2Y0JfZ1MxRjc5RE92U3hrSTlva2RaalAzal9NTElMeGY4R1E?oc=5",
-   "published": "2026-11-06T11:33:05+00:00"
+   "title": "Elon Musk's longtime backer exits Tesla after 13-fold gain",
+   "source": "Yahoo Finance Singapore",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOYnp5WlBEaWQzMHhXN1BwdV9TekJzOW84cTdTV2VzOGRFMDlHcG44SzF0MldKbVdmQmNpbUJObWtpd2Rzb2pCRDBQbXR1RmF4RDdGV3ZGMmFRNnlCY080SjRsMjFsbjhFcndIMk9xcGJYT0hvajNRdDhEX3NrR0JyclgzYmdCUTRj?oc=5",
+   "published": "2026-11-06T19:27:53+00:00"
   },
   {
-   "title": "Tesla to Wind Down Cybertruck Production in Texas Next Year, Elon Musk Says",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPRGdvX0pvbXJYRDkwem1xU0pQQVpPaFZlemVSdUFkTFdQMU5iNDVGTDJOLVd6RzNDcmFvaG1ReXhobE5UbmFlTzYxNmt4bjJ2MDlaSEtZa181Q3dnb3BTSl9CdURSWWo2ODRiQzBGa2FnMURLTzV2Q09LRVRKVTUzb1NMV0ZtNk9vYjBGY0NMR2xnWWg0ajlVVjgxQ0xmU1hKdU85Y2JsTTg1UzhBVmpz?oc=5",
-   "published": "2026-11-06T11:31:52+00:00"
+   "title": "Tesla Brand After Midterms: 3.3% Dip, 486K Sales [2026] - https://tech-insider.org/",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQSHlHQ0pwWDdRWk81MnhlMURWQXNOYjJxWGlxdzJOWl9Eb0FCZzJjbVhldjBjbDB6eE5IU3RfQklqcXR6cndIeFVOR2xRY3NsNkNaclBrOEs4dmFiNVNPVDEtdFJ3b0ZkUEtTZzU1SUxINHc0eHg4Mm5pVWQ2ZWJ6QXBsWWgwZTNUMzRZ?oc=5",
+   "published": "2026-11-06T19:08:05+00:00"
   },
   {
-   "title": "Billionaire Elon Musk loses $79.7bn in a day as Tesla sinks",
-   "source": "Billionaires.Africa",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNSTY1b2d4aUFoakhoTXBtNmZ0YW85bDRlREpQT0hiM2dVcGRPRnA3ZENweWRSMmhwVW92NmhfVFFHWWVrVnN0NU9OU2FvWnFKSUxqT0ZLUmMwdkFSR2F3LW0yNWllWC1iVVNKaHJoVlVIcjljX2xPaEdfVzdwa19HWTdkUGdsaWgwa0Nva1BzYkdUcDB0OFViSTZSZnlqVFR2c0xPT2FEN2pJQThKV1c3NGFxeDZIVHF5RHg1aWVEVElUWFpo?oc=5",
-   "published": "2026-11-06T11:31:05+00:00"
+   "title": "Elon Musk\u2019s \u2018ugliest car of all time\u2019 axed",
+   "source": "NT News",
+   "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNcnFOb3NQVzExU1o3MDlMa2JuN1RXaGZOUDFWTzU2VVJSN2Q5RThiRllvSUtwVnBWd3Bid0FNYU1WeEJGWmRZeWJ4bEt3RXdhVHFoU3k5ZFBfZnB3MnZELUpBRDVhbWF4RVVfTVktLXNLQU43T2pQMi1VbXpYek1QX1FFTlpRUFEzbHR0Y3l2UUtqckw3Ym9ZVlhXd0xodFNvVklGZG95VHlhV0dIZ0pYS3duTWZNVmZ6cXZCM1dsUlZweTZaSml4dVFnYTJJaXpBVUVoMkNqcl9zNzlsSllycDJEMEhnWFc2UjNwYWQxeGVXMktZMEE?oc=5",
+   "published": "2026-11-06T18:49:56+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-06T12:00:15+00:00",
+  "run_at": "2026-11-06T20:10:18+00:00",
   "session": {
-   "date": "2026-11-05",
-   "bar": "final"
+   "date": "2026-11-06",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1371,7 +1376,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-06T11:40:31+00:00"
+    "as_of": "2026-11-06T20:06:03+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1381,7 +1386,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-04"
+    "as_of": "2026-11-05"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1392,72 +1397,72 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T11:49:35+00:00"
+    "as_of": "2026-11-06T20:08:31+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T11:17:06+00:00"
+    "as_of": "2026-11-06T19:44:42+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T11:39:57+00:00"
+    "as_of": "2026-11-06T19:35:50+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-05"
+    "bar": "provisional",
+    "as_of": "2026-11-06"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-05"
+    "bar": "provisional",
+    "as_of": "2026-11-06"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-06T12:00Z"
+    "as_of": "2026-11-06T20:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-05"
+    "bar": "provisional",
+    "as_of": "2026-11-06"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-05"
+    "bar": "provisional",
+    "as_of": "2026-11-06"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-05"
+    "bar": "provisional",
+    "as_of": "2026-11-06"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-05"
+    "bar": "provisional",
+    "as_of": "2026-11-06"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-05"
+    "bar": "provisional",
+    "as_of": "2026-11-06"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-05"
+    "bar": "provisional",
+    "as_of": "2026-11-06"
    }
   },
   "degraded": [
