@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T22:26:11+00:00",
+ "generated_at": "2026-11-09T12:00:08+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -23,7 +23,7 @@
    "lean": "good",
    "note": "S&P 500 volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive (about +1pt over the next month, so it carries a 1.5 weight).",
    "viz": {
-    "pos": 94.9,
+    "pos": 94.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "-4.3%",
+   "value": "-3.9%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 14.2,
+    "pos": 17.5,
     "labels": [
      "\u22126%",
      "+6%"
@@ -167,13 +167,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "7.8% vs 4.2% cash",
+   "value": "8.6% vs 4.2% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 36.8,
+    "pos": 44.2,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "22 (extreme fear)",
+   "value": "25 (extreme fear)",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
    "viz": {
-    "pos": 22.1,
+    "pos": 24.8,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,11 +222,11 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 4d",
+   "value": "CPI in 1d",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "No event risk in the next few days (next CPI 2026-11-10, next FOMC 2026-12-09)."
+   "lean": "bad",
+   "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but expect a swing."
   }
  ],
  "fund": {
@@ -1339,11 +1339,11 @@
   "end": "2026-11-06",
   "days_total": 760,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-11-06",
+  "fg_coverage_start": "2025-11-10",
   "baseline": {
    "n": 739,
-   "avg_pct": 1.58,
-   "median_pct": 1.89
+   "avg_pct": 1.6,
+   "median_pct": 1.92
   },
   "bands": [
    {
@@ -1357,32 +1357,28 @@
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
     "n": 127,
-    "avg_pct": 2.1,
+    "avg_pct": 2.14,
     "median_pct": 2.68
    },
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
     "n": 541,
-    "avg_pct": 1.17,
-    "median_pct": 1.54
+    "avg_pct": 1.19,
+    "median_pct": 1.57
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 7.85,
+  "ttm_yield_pct": 8.59,
   "tbill_3mo": 4.17
  },
  "fx": {
-  "usd_krw": 1363.65,
-  "as_of": "2026-11-06T21:59Z"
+  "usd_krw": 1345.82,
+  "as_of": "2026-11-09T12:00Z"
  },
  "distributions": {
   "history": [
-   {
-    "date": "2024-10-02",
-    "amount": 0.347
-   },
    {
     "date": "2024-11-04",
     "amount": 0.343
@@ -1474,10 +1470,14 @@
    {
     "date": "2026-09-01",
     "amount": 0.397
+   },
+   {
+    "date": "2026-10-01",
+    "amount": 0.397
    }
   ],
-  "ttm_sum": 4.189,
-  "last_ex": "2026-09-01",
+  "ttm_sum": 4.586,
+  "last_ex": "2026-10-01",
   "last_amount": 0.397,
   "next_ex_estimate": "2026-12-01",
   "upcoming": [
@@ -1508,12 +1508,12 @@
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 33,
-  "imminent": false
+  "days_until": 30,
+  "imminent": true
  },
  "cpi": {
   "next": "2026-11-10",
-  "days_until": 4
+  "days_until": 1
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1521,54 +1521,54 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 15900.0,
-  "dca_value": 19507.47,
-  "dca_return_pct": 22.69,
-  "dip_value": 19339.66,
-  "dip_return_pct": 21.63,
+  "dca_value": 19643.75,
+  "dca_return_pct": 23.55,
+  "dip_value": 19463.44,
+  "dip_return_pct": 22.41,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 32,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Unemployment rate dips to 4.1% as surge in hiring shatters expectations",
-   "source": "CFO Dive",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNNWpGSEVpanIyQld5blVjUWtCejFhUmhFSmdwUkhiSUd5REwxRDlyMDdxMXBBRldqT1VnVkZLLU9VZXNTZXJ3NE1LR0g3SlBoWnZLQXRwVlJpcVh1M1dYMHBfcHdLQTg4R3hlSl9id1YyTFBpMUdFZGNtV09fWm1qTWtPVE03NGlQQzdjNGF1b3JDdFBQaUhUNkVUN3A5VmxfUlpQdUNvemIwck1IcDc5cExLejlEY0VJZ2tkdV9B?oc=5",
-   "published": "2026-11-06T21:58:13+00:00"
+   "title": "US Stock Futures Rise, Dow Futures Lead Gains As Wall Street Eyes Inflation Data, AI Earnings \u2014 NVDA, TSLA, CRWV In Focus",
+   "source": "Stocktwits",
+   "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOam5yVUVCSWdROGNXQzViSTcyRVlWTXBTWXVGQVVPSkhQdjZTMUhtdl92Y0t5WjQ3UFNqLWNTY0lMQ09yTlVzS0lTZkxORjlfTVBRN2N5SHZDcElKVkhIaGJySkFCMFNEY0FxUVpjclh0aDhVVnlxcnU2T2dCcG5FcWwweFVjUUZFUENVcU15dnJlak9KTF9la3h4cmMtWS14UTFPblZ0cW1SbFJGclBTRDZFLVJHRERXMkZJOVpndHY2ZlFrWTBKX2tiMk4xay1kcnM4Qk5HYXBOZVZ0dmZ4RUFkRVN4VXlfVmsyZ2N3cFZidjhfOE9tNXhlZ1J2c0diM2UyelY2MGplNkE?oc=5",
+   "published": "2026-11-09T11:46:18+00:00"
   },
   {
-   "title": "As tech swoon roils market, US inflation data on tap",
-   "source": "TradingView",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOTEdQRFVQTXp1ZHdnTmZDS2ZwV3VsRXVjV1Z1aUJFbVBIN0c3c2l6Q01pZ2tRTTRTSW1fR3hiRkw4TWZUMFBXQTZtZUZZQ2pCWWZ1OGd4YW04VWNlc0p4WVk5bDAyLXBadTZKRk94SlUyQ0RGTktqb0FiZy1OMUcxWVhpYTFPUGxyZUlKRWJoZE5zdnh0MGhsSUxsWUVGWGdnT09oVkdFM3hBZjhJaUloQ0ttVzFDQkVsYVBZSjNB?oc=5",
-   "published": "2026-11-06T21:52:08+00:00"
+   "title": "Gold trades near $4,100 as focus turns to US inflation and Fed speeches",
+   "source": "FXStreet",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQaGtxdFc5Z2EzT2ZqUlhJQXM2alBIaFVxS0lZbVMwQ2l0aVE5eFdlVmVEal8xTVRGR2R0RkI3dUNFN1htekptY0NCM1FvYUxiWUd6U3lYQ25pbG9nWnA2YmZ2eXY2eVdIVnl5QlBPS1AzaXJXWXdLeE5IekFmNjVpUUFjWUdpa1FYTU5sd3ZuMmRZUXdnaTRKb3VvdFZFdkVhN19VbXhKOFBXckwteFY3b1p6Yw?oc=5",
+   "published": "2026-11-09T11:26:48+00:00"
   },
   {
-   "title": "U.S. adds 165,000 jobs as unemployment rate falls to 4.1% - Honolulu Star-Advertiser",
-   "source": "",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMHVRSGcyTzBzTDFuMFpOZ01PQVN1eTVEZVNRY2xZMW5DNXVNcF9PcG83Y2llNWVmWkxGSFpUMFk2Y3BoUDBvbEFXaTBfZVJkdnR1d3Zhb1Q0dk8zTjZaQVBvbElSRk1zcmlqazB5YWNiYjBnZTFGZ3ctTkVsQnV6cGlHZU9hWkhmdlFUbXV2aDdnYlVhaXQtM29DQ0k3dUdOa2syZTRfVjlxUGJ1Y0lVaA?oc=5",
-   "published": "2026-11-06T21:22:30+00:00"
+   "title": "London's FTSE 100 climbs as miners gain on firmer gold prices",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPTS1VbXpNM1ZmZ25GUlRCcng4aFVvbG91N2diSWpkMjZ4ZjdRQmR2RnpZaGo5b3ZkVXotUVVjS2Vtc3p1TERVZTZZLUdhRXlQYXBvMVdQX3hlVDZXM3ZUdkxFWWFkaXRra0pyQ1BPWm9xSGxnYVVCQkJYNVkyT0ZzR2VTckhDVm1mZld0ZHVKR1ZucU05NWcxalk0NGN5b1RFeUdaMQ?oc=5",
+   "published": "2026-11-09T11:22:48+00:00"
   },
   {
-   "title": "U.S. employers added a surprising 165,000 jobs in October; unemployment rate dipped to 4.1% - Pittsburgh Post-Gazette",
-   "source": "",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNNWxlTUEwakpxZjZzU0g4VURMODRxWWJWejlTcHNWSU02NzVIY0xaR2tRdjRvaTVYdlFzVk03S28yZTRkYWZRdEptMmpyMGtiREs0dnVNeW5kYWd2Z2JDT3c5M1RyWGhFcXpwZk56ZGlYWjhCbXVOd3R4ek9EZDdWOUFwaFFBNU1WcjVhZm1HZ0dwcWp1VHlHVVA2X1RMVjVQdWJPeHY5ZnZ0NUFG?oc=5",
-   "published": "2026-11-06T21:15:32+00:00"
+   "title": "Tech set to still sway US stock market's course despite AI-driven swoon",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNOXdISHo5SVE3RnA1bXZ4V05tYlAzSk5ZcUgwRUpycnVmOHlPeHQwbURpeHF2am5xQjU3ZVhMY0tweVVndXNjMUVpQUdCcXEyZlg5a1ZFVW9TNkkxdGJLaGllT3ZiM3pqLUxYVnRaNDVWZG1USmItMlJkU0pnc3Z0U2Zwd0l3UnowbDQ0UVN5cEJDQU9nS3FxbDFEc2RJRjV3NkpSeEdUNDEwWXJIUkVwR2ZB?oc=5",
+   "published": "2026-11-09T11:21:29+00:00"
   },
   {
-   "title": "Hammack Says Dollar Remains World\u2019s Leading Reserve Currency",
-   "source": "www.tokenpost.com",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE02TjZkZ2VZZ04xamNDVThwUm9QaVFEZk5NVGhWTVc5cEE2T1R0ZWVTd2RCbUtIaUhwV21tQXdkSUVDMmFIY2VTODZQWlBSQU1uc0VQcnlkaElDZmM?oc=5",
-   "published": "2026-11-06T21:04:26+00:00"
+   "title": "For Trump\u2019s Fed Ambitions, a Democratic Senate Poses the Biggest Hurdle Yet",
+   "source": "WSJ",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQOEN2SVIzQmppcXREV0sxNE0tejFxYkt4VGpxemtVbVV4R0ZPTVFyVWV0azNTLUxCSkxUQWxxN1plZEpfZ1ZCRHUwNGhJV0k3c2owTWVRaEpfb3JMN09jV01jTkNJcmNidl9FTFhid1JsUmw4ZnVXSjVDRXZzWlM0NnRmRnEybjc5MG1Hb09KQXRsM1lFR0FVUThGVUZjdTZLd2lUZDl2WTB0UQ?oc=5",
+   "published": "2026-11-09T11:20:19+00:00"
   },
   {
-   "title": "US Stock Rout Pauses as Dip Buyers Offer Support: Markets Wrap",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOX2RxUlFvNmxoUFFUd2pmeUk3MTJoSkNvTkxwOS1TUlNFd1hDZkNZZ0huMHIxQXhDeWtpWVdVcmJGcDQwdVcwMFJTaHg2Q040OTBCZm5Ja2doTnpQcTh1OFFSdDNucHFXVzFRR2EyTEJfa3BRWDFUY19lcFNNXzRmR2F2UEw4dlVOUW1xSnFqNmI1Wmtr?oc=5",
-   "published": "2026-11-06T21:04:04+00:00"
+   "title": "Crypto week ahead: 5 things that could affect Bitcoin price this week",
+   "source": "Crypto News",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5ncElPb3RtU21EdFNrY2dkSC1CWkx4VzhJSkl3Yl9PZ1J1bDNSTHRWc3BNY0RhR05DNWZjQkVNRWNWTzBMcXp1WmRGdjZDNUczT1kxaHBWLUFuNXlVdElqd3hNUUdTOVpJRHlVSFFabnhiUWc?oc=5",
+   "published": "2026-11-09T11:15:30+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-06T22:26:12+00:00",
+  "run_at": "2026-11-09T12:00:09+00:00",
   "session": {
    "date": "2026-11-06",
    "bar": "final"
@@ -1587,7 +1587,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-06T22:06:57+00:00"
+    "as_of": "2026-11-09T11:41:46+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1603,7 +1603,7 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T21:58:13+00:00"
+    "as_of": "2026-11-09T11:46:18+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
@@ -1614,7 +1614,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-06T21:59Z"
+    "as_of": "2026-11-09T12:00Z"
    },
    "yahoo:SPY": {
     "ok": true,
@@ -1625,7 +1625,7 @@
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
+    "bar": "prior_close",
     "as_of": "2026-11-06"
    },
    "yahoo:^VIX3M": {

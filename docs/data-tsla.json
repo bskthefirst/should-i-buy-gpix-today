@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T22:26:14+00:00",
+ "generated_at": "2026-11-09T12:00:13+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 25.6 (p95), F&G 22",
+   "value": "VIX 25.6 (p95), F&G 25",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -120,11 +120,11 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 4d",
+   "value": "CPI in 1d",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "No event risk in the next few days (CPI 2026-11-10, FOMC 2026-12-09). (Earnings date unavailable today - neither Yahoo nor Nasdaq answered.)"
+   "lean": "bad",
+   "note": "CPI print within 2 days - a market-wide volatility event. Expect a swing either way."
   }
  ],
  "fund": {
@@ -1238,7 +1238,7 @@
   "end": "2026-11-06",
   "days_total": 760,
   "backfilled_days": 707,
-  "fg_coverage_start": "2025-11-06",
+  "fg_coverage_start": "2025-11-10",
   "baseline": {
    "n": 739,
    "avg_pct": 2.78,
@@ -1292,12 +1292,12 @@
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 33,
-  "imminent": false
+  "days_until": 30,
+  "imminent": true
  },
  "cpi": {
   "next": "2026-11-10",
-  "days_until": 4
+  "days_until": 1
  },
  "earnings": {
   "next": null,
@@ -1320,44 +1320,44 @@
  },
  "headlines": [
   {
-   "title": "Elon Musk announces Tesla will wind down Cybertruck production at Texas factory to make room for Cybercab",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOVjkzMUd6c1NiUkIzNFFNNk1BcDFyZDFKdGw5dTBWNzB5X3FxUkFCZ19aYnVPZVpNT0Yzd3p5V3hycXVCejNfeHJncGhuLVpHSDA1aVRSdS11bnlqWEpNc0Q4bXJCVjVFN21fdWN2NUVPZ1RXNWRVV3dISGo2d25IbVJ5ZmdXZ1NTMUozUVlKUUdqRkZUV1E?oc=5",
-   "published": "2026-11-06T22:00:00+00:00"
+   "title": "Tesla, Inc. $TSLA Stock: University of Texas Texas AM Investment Management Co. Reduces Holdings",
+   "source": "MarketBeat",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQTTNBUGlWMEppZEVtaVk5SWRQYThFZHZfYlBKVDBkTjc5LURjM0JIMndYZ05vZWdIbFVpS29JUFBjek9oMXR0VlkxdEFWNnNkcEdZenB1Z1VDbmYzb3BZa2NQTXQ4Vl9xR014WmEyM05BaUtFU0JoSnpSUFZRekFWR2UxMzNpanFJU3Y2VE1faWprN0ZBQ3VIdHc5ZHZpM0JYbUZJNlRaTHVrQ1VOY1ZIMXhLVVRnbThGSDl6RnU0amFQMkNNZVl3Q1ZhczFrMkVDV01mRmU0Yy1wa1VXQTR1V3BiSlNsNjg?oc=5",
+   "published": "2026-11-09T11:53:01+00:00"
   },
   {
-   "title": "Elon Musk once said the Cybertruck would be Tesla\u2019s \u2018best product ever.\u2019 Now he\u2019s winding down production",
-   "source": "Fortune",
-   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOQ2lXTktpTlozT3hmbktnSlluVl9QU3Y3UUY5eG5uRk8xRjVRdm1tOHhac2t4XzZhRkE4dHhMWkpkb1gtQ3I2a2lRb0ZrYi1aS1FhdnBIMkJZYUhDVGUwVFRVRVFHMWt1ZTFSenc1Y3JJNTdVRzV5ZHdjTHA1MEFkN3ZrMEJGNTZVRTZDLTVfNkx6TVFHTzB6MGhZWVhpd3Y0cmdqdWZfRTBEejlpQ2VIbWRWNXZXbHJOMm9Vcnh6aGd0WEt6bVRUVnpkUlRUTE5ISHFILXdMbw?oc=5",
-   "published": "2026-11-06T21:59:00+00:00"
+   "title": "US Stock Futures Rise, Dow Futures Lead Gains As Wall Street Eyes Inflation Data, AI Earnings \u2014 NVDA, TSLA, CRWV In Focus",
+   "source": "Stocktwits",
+   "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOam5yVUVCSWdROGNXQzViSTcyRVlWTXBTWXVGQVVPSkhQdjZTMUhtdl92Y0t5WjQ3UFNqLWNTY0lMQ09yTlVzS0lTZkxORjlfTVBRN2N5SHZDcElKVkhIaGJySkFCMFNEY0FxUVpjclh0aDhVVnlxcnU2T2dCcG5FcWwweFVjUUZFUENVcU15dnJlak9KTF9la3h4cmMtWS14UTFPblZ0cW1SbFJGclBTRDZFLVJHRERXMkZJOVpndHY2ZlFrWTBKX2tiMk4xay1kcnM4Qk5HYXBOZVZ0dmZ4RUFkRVN4VXlfVmsyZ2N3cFZidjhfOE9tNXhlZ1J2c0diM2UyelY2MGplNkE?oc=5",
+   "published": "2026-11-09T11:46:18+00:00"
   },
   {
-   "title": "Elon Musk Announces Cybertruck Will Officially Be Discontinued After Years of Controversy, Lawsuits and Low Sales",
-   "source": "People.com",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQbFNCLVI3Y0F0YUhHOHJsZk5qd1RlbTJtWEVfMnNwN1FqalBZenRSMFJCWFlXcEdoa1B2UmYwRC03emduQkE0RnhQZlJpWFgzaDIzS3BFSHlDMXJlQXlwLVAxd0pzSmZ6XzB2bG1kNUc1bGZTeV9uaERCb3JTcHA5d3BRbW5QYUF6VWwyRXZ1Q1prYVBvMG1LMWRn?oc=5",
-   "published": "2026-11-06T21:46:42+00:00"
+   "title": "Tesla, Inc. $TSLA Stock Holdings Cut by Fulcrum Asset Management LLP",
+   "source": "MarketBeat",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOV2dlQm5GYnNpbFVtbzJGVVZrUUlfMS1BX2trMUlpTGthbHp0T04wcnJ1MzFHTkt4TjhDUFVCSHJ0bEotVmt4N0VxcGJvMF8xTFU2YUdFVGRXZUF6RjA1Sjg3SVk3ZDFTMG1jd2FVbWRWQVdwWk5NbXVEREY1S3NVTnp5RDJXMzFjNkVKa0lQNzA3UXRWYzZlNFFqUzQzODRWeVdfOEhQSVU0b3kwWnpBYkY2ckpJSnFUd3FVN3hJRmJCdTZN?oc=5",
+   "published": "2026-11-09T11:38:45+00:00"
   },
   {
-   "title": "Elon Musk\u2019s Very Bad, No Good Week Continues; Admits Defeat On The Cybertruck",
-   "source": "BroBible",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPZHhBT1RtTFR5cnVHQTV2RUpkdUJTUnZiSm9HczRyR1RaWURCdDdhR21pMDJJVGxVMkFKYS0zSEU1TFkzVWFlWEJhTUNiNnhxLUJMdVFWSm04TnJvN09RUHBVSXVnbjBSbTFfX25tdHhUTWJQSkQ2VjgzUlZkbWFrc214b1JlUE1EeW1vMVRpVQ?oc=5",
-   "published": "2026-11-06T21:38:39+00:00"
+   "title": "Elon Musk Says Tesla Will Refund Deposits To A \u2018Lot Of People\u2019 As Cybertruck Production Winds Down \u2013 Robotaxi Makes San Antonio Debut",
+   "source": "Stocktwits",
+   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQVC03NHlEd081TVVoQkJKY1IybnppOWRFZnhaMExUTGtYQTBNbVZabFFyaWtOUm5mdzFpbWM5UGtNTXN0NVN3bnNqUVpTR0ZlWXZja1hoOU1HVXpYTXQ2dnFLZWFDUUMtWDVwWjB0S0VOVjgyeTRTS3VGcFZENVExXzlNZm45andyZ2hlVjdMMldmVkFjSkJtWVpCSzREN3JVcHphbjA1UjJ0SktucXM4N2RoRVNUR2Myc19NdE41MkJPbVllZ1cyTnFVLW9LZTRLVDQyNk9HeFhreko1WC1JbkJhTkNBMUZfY2VQODQ4NA?oc=5",
+   "published": "2026-11-09T11:36:10+00:00"
   },
   {
-   "title": "Tesla Jumped 4% the Morning Musk Killed the Cybertruck, and Investors Know What Replaces It",
-   "source": "24/7 Wall St.",
-   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPOUp6ZXJOWmo2c3FrdnJUUnFfWVhjd21KdG5zTzV0a2gwUWhCRTNleTlITkwtbVFEX1dhQW40dTFBNWJ5QXVZeUJUaUVtUTl3N2xsOTEtTXlaN0ZWOWhrM1lKQ3hUcENSMTFWeW00dEVHaWg3S2NkM3ZseXBTenJ4MzdEY1JPZTUtS01ZOGdNSENnU0ItcWhEVGg5WjJ1OU5wUTZiX3luWmF6RExfenRYblQxa29xQlQ3dWtiZzB1OUxoRTlfOVZhQ2FUWnJadw?oc=5",
-   "published": "2026-11-06T21:27:00+00:00"
+   "title": "Barclays Adds Nio, XPeng and Rivian in Q3, Cuts Tesla, Lucid, and GM and Shares",
+   "source": "Electric Vehicles",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaXVHWDJzWnRaTnNmYUlLT2VDSlUyRFJtVHlqdlRxY0dhakVnVld0bUJobzJwQ21uY0hleHBKcUJ1NndiMGhDWFZBTzljRTdFTW9iWmNSR3Jsa042Sk5zRV92Rm0wTHE0WWhMVERnRHU4TDA0b182aU9oR3Boc3BHZk5nMEViV0xBSzNPTEk3QU9jekNKRnZ4QmMtS1RkT1ZqSTBPd1prQmxxcXd4YlE?oc=5",
+   "published": "2026-11-09T11:34:00+00:00"
   },
   {
-   "title": "Elon Musk\u2019s Revenue Guidance From the Baron Conference Is How High?",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNUmNBOVZudDlZREhxOTBldFJEbEI4Wlg4M3ZSdGlPSlNPa25YZDE5UXVoWl9nWU16V3htR2hBcmU3ZVBZaENHbF9QdDcyZFZoVHhpeDFMUll3bURFaUFPd1pIZDlxNjJtZG94WEpCLXpDeFVSdktVZGxrTnJiOTBObzNETDE?oc=5",
-   "published": "2026-11-06T21:20:00+00:00"
+   "title": "TSLA Stock Slips Overnight As Cybertruck Makes Way For Cybercab \u2014 Terafab Reportedly Eyes 1M Wafers Monthly",
+   "source": "Stocktwits",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPa2lGSS1Ic1RBWGtXLUIwNjlEVlp4ZG1KZG9ERzAtQjRJVjYwdElpdzZhVTdtY21GTi1MRkZYZjROcUZyaGJ6VWQzLVBHTFBCYXBCTlQ3R25uSm5za0J6Mjk5Nk85cjhHN0NQcEljZ2gxYUoyQnJUMEpOenNObnVJZG5rMm1pekdlOFhlYzdoT0hDNlJlNUxjazZaM2ZKcTJmdlhjOWZOemdvQWUtQTR5TzlaSGIwRnJVbmJ0U0RweGk3X0RMQU5ZY193?oc=5",
+   "published": "2026-11-09T11:29:55+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-06T22:26:15+00:00",
+  "run_at": "2026-11-09T12:00:14+00:00",
   "session": {
    "date": "2026-11-06",
    "bar": "final"
@@ -1376,7 +1376,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-06T22:06:57+00:00"
+    "as_of": "2026-11-09T11:41:46+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1397,19 +1397,19 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T22:17:40+00:00"
+    "as_of": "2026-11-09T11:47:45+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T21:58:13+00:00"
+    "as_of": "2026-11-09T11:46:18+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T22:00:00+00:00"
+    "as_of": "2026-11-09T11:53:01+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -1426,7 +1426,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-06T21:59Z"
+    "as_of": "2026-11-09T12:00Z"
    },
    "yahoo:QQQ": {
     "ok": true,
@@ -1449,7 +1449,7 @@
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
+    "bar": "prior_close",
     "as_of": "2026-11-06"
    },
    "yahoo:^VIX3M": {

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T22:26:18+00:00",
+ "generated_at": "2026-11-09T12:00:15+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
@@ -72,7 +72,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 25.6 (p95), F&G 22",
+   "value": "VIX 25.6 (p95), F&G 25",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -80,11 +80,11 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 4d",
+   "value": "CPI in 1d",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "No event risk in the next few days (CPI 2026-11-10, FOMC 2026-12-09). (Earnings date unavailable today - neither Yahoo nor Nasdaq answered.)"
+   "lean": "bad",
+   "note": "CPI print within 2 days - a market-wide volatility event. Expect a swing either way."
   }
  ],
  "fund": {
@@ -725,7 +725,7 @@
   "end": "2026-11-06",
   "days_total": 103,
   "backfilled_days": 49,
-  "fg_coverage_start": "2025-11-06",
+  "fg_coverage_start": "2025-11-10",
   "baseline": {
    "n": 82,
    "avg_pct": -0.7,
@@ -772,12 +772,12 @@
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 33,
-  "imminent": false
+  "days_until": 30,
+  "imminent": true
  },
  "cpi": {
   "next": "2026-11-10",
-  "days_until": 4
+  "days_until": 1
  },
  "earnings": {
   "next": null,
@@ -800,44 +800,44 @@
  },
  "headlines": [
   {
-   "title": "Starlink Has Wiped Out 83% of Viasat's US Subscribers - BASENOR",
-   "source": "Tesla Accessories",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOaWNpVlhxOVdVR3NSTVp2RlhHOTVSS0xoOFB5R2tBdWkwaXIwYXh0eXEweFhvNmExOTNmQm1KTmJhX1BpYVVoMzE2cm51WC0tMVlEcEtfUmRIREFXdWxjS0Q4UDFzRTNMbHJfYl9rX0JHMmZNQk5KTDEtSTBQYkIxUFYyT2tNSTE5OFJxSVZLTQ?oc=5",
-   "published": "2026-11-06T22:06:48+00:00"
+   "title": "T-Mobile, for one, isn't taking the SpaceX threat lightly at all",
+   "source": "PhoneArena",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQZDJmektteE1WSjlYT0R3TG55WC1oZndjS3J1dWxNckNDT2xpRXVNdGlBT08xUFB1eG1KMzFXSHFXM3BhelFnZWZQcWhMYVVzNlM2Wmgtc0xYOGZSVkNReWdrRkt2QzhRU2stMHRmT25TUXZ0MWY4ZElwU0RTLVJ0TkNya2JvYWFrYlNOalItMVZiTThTUXU4aGdR?oc=5",
+   "published": "2026-11-09T11:46:44+00:00"
   },
   {
-   "title": "Falcon 9 to launch from California on classified mission for U.S. Space Force",
-   "source": "Spaceflight Now",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNRXR1ZXZvaTFNWDhwZE9QQWxZZ3diWXVMNWlWSDRock5Uc3FMcW9lLW03WnpWMW03aVRYSG5kWHVUME9fcmtvV09KX0pOWGNQN0s4NEVPQi15OVJobmVoQnN2cTlkMnhnWlJ2OFdFRzVUX0E0SHQwX1A5Qzc1MnV5SmFDNjZmZmIzejZrSmNwYk45QmNDQk1xRURrRGROWl8tTk1nUmdTQ0V2akR1NEZER0E0V1BRZw?oc=5",
-   "published": "2026-11-06T22:00:39+00:00"
+   "title": "Google exec Don Harrison steps down from SpaceX board",
+   "source": "Telecompaper",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQM0ZTeThZWFJMZnFWX3hoTUVnRFNKV2tWSE5WVFlXeGR5NktGVEhEWnRBbzhNR2JQTzdYUnVKX3AzekhER2VMbEVpTUdiVXl6ZWo2amFtMjUtRXU4UUxralcyMWFNeVAwRVVCNldkem9SRkhXRks1ZWpaRXhxZUNncGFicXNSVEMyX3pRSXlac3IzQVRNZjdDN1E4MzU?oc=5",
+   "published": "2026-11-09T11:43:24+00:00"
   },
   {
-   "title": "SpaceX Director Resigns From Board One Day After US Election",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQWNtaG5kQTlLMHJoRXhBaGM1QkJSQlE0Rnctdk96WDFQQmJOZ1ZVZlQyYlNlNHkxdVZ6aGh0bk5wRV92VUFvV2pJN1dMNGcxdXdTdlFnY3FiRXFXMkVoTVF0Sk1RSmd6QWhmaVRzdWFOQkxTQWp3blNfZWpHWXFvSE83X2R0UlVRTG5zZXFqa2k2eUxPdDZyNEp2M2Jmd2UwRHFfcDhUM3dRdWxTbWQ1Yg?oc=5",
-   "published": "2026-11-06T21:50:35+00:00"
+   "title": "First-Ever Starship Double-Catch Means Rocket Flying Over Populated Texas, Expect Sonic Booms",
+   "source": "autoevolution",
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQNGltQWJnY1BaTUpDTVRvWm4xbk5HaVVoMjBVZ0htNVdOVlp4NXlWOE81a3RjZGZBRjVuSDZHNG5DNmkyWTVLejVUc2IyNllkX1RoSmpBV2F3OHh4RkdEN05QSTFJTVhucVd6Wmczb3MzVHN0MzJPajRpSThFMFRSd3NfUVYyY3ZiZWI2ci1vZk43VE10cHBVa3BhUzRYWFNRMUdxVjhSV2w0b0Z4c3hybk05SjE5bFZKSVZ3QWNTTFo0cm1MeGh1MGxJQUE5TDFYNHF0a213?oc=5",
+   "published": "2026-11-09T11:41:56+00:00"
   },
   {
-   "title": "Elon Musk opens the door for a big SpaceX acquisition",
-   "source": "MarketWatch",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPTE9Sc3VRajM0c3ktNUViLWFNVndCQWNNRldQRTNma3I1WDF2emFvcjRJNlNNTldwVFRua3pVa0F0YjM4MFZGeFhDN3o4aG5mdW1rbVRZTGotaWtRNTN2TE1QWWxXeExrY2pJcVFjRFZHeU40MENlRmcxZ1ZORzNBQWtMRGZKUDk4MklQdDJ4TkJOdWg2eHFyWW1jV0w?oc=5",
-   "published": "2026-11-06T21:45:00+00:00"
+   "title": "Brussels Airlines takes flight with Starlink - Economy Class & Beyond -",
+   "source": "",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxONnJnU3oyemY0UGZfNF9YNGMxZkc3Q0djc091Y3p3Wk5EWHBZWVNVU3JwMkJtN2NLZW9qMjlaVHVjMnhmTzMwVUl0VWlGZkNfSlpRXzdCYkxYOWJqcG5HNDB2YVMwUDNyTmJXQWx0b3pTR3FkOHJsbFdCRTBSTy1adnltc0Frc2J2c2pLZUk2dXV5MVdmNGprLTVQQ0FmU2Jkczd3QmFn?oc=5",
+   "published": "2026-11-09T11:34:19+00:00"
   },
   {
-   "title": "Starlink Now Offering Wi-Fi 7 'Router 4' for New Residential Plan Sign-Ups",
-   "source": "PCMag UK",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNWHVqeXByekk5bUNQcW9uandTd01hOE5oQ1REMWQ2cTFhd1Rjb2hWMlY2YU9Ya2kzN3hKMUxOQVNTLUhIZHpIREhKbUptNDZQcmhvdTJNSzRVZWlPMkZlcW41MHZwM1FYZzcwYzBRWTd3QnhOZ1VKWDdkcnpyVTZvSmxwX3RYdlJlVTRibTQtNTFaQXJJa0RjMG80ZUNUZG01Q1VEWG1Sb1k4dFlzeEF6Mw?oc=5",
-   "published": "2026-11-06T21:41:52+00:00"
+   "title": "SpaceX Eyes Nov. 13 For Starship-Super Heavy Dual-Catch Flight Test",
+   "source": "Aviation Week",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNbFBxdzV3R0ktekU5bWRsSXVvcmtKRjNrbGZMRFBnazhpQkpPTU1CWXgydzNPa1l1TVRXZG5WT0lJRThONWpEMlU3UWpCazhWNlIxeTRzc0NBMDM3a3VvZk9wSlcyNDM4VTVrekhacGtqb2JsWHpjd3RLNVo4MWVKZXZDUVRsX1k2ZlNidUdZMHFIMWFOS082RXVKQnc2LVZSejRZbGlWSVNqSVZQWTN2WEF0NUhITGdEQ0pkNg?oc=5",
+   "published": "2026-11-09T11:26:40+00:00"
   },
   {
-   "title": "SpaceX Plans Starship Flight 15 Launch with New Recovery Attempt, Ticker SPCX",
-   "source": "GuruFocus",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOQk5HSV9Kd25WMHZ1cVNRS2RtRTAwTGgyYnlyNUFNUjBOYnZ6SGlGVDh2dmNVT3lmYlBMUkpKUWxVbDkxZXkyYlRrSkVoQzFoN2RrSVdSTnJCNTFWYWVLdWpFSXV2THBoTVBxcnRkMmlPTkJMRU5rOE9DODFIbjFDazFKSXlCTURUbTUxVVZodnR1V2g2bERWQ3c0S3VhYk5WWTgyMjFyUU9HckM4d0dCbFcwdzlQZw?oc=5",
-   "published": "2026-11-06T21:36:22+00:00"
+   "title": "Elon Musk SpaceX Telecom Acquisition",
+   "source": "Coinpedia",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOT1U2NnNqU0gzUndZZkJOTlhFOUh0dTRhR1dnTHF6MWZhRXNfdzE3b3BsVTkyR01uc2ZWOTV5ZWVyd2stNzVhcl9NaWs5aFBweURYMldjVEVhdVlhMWpqMXlTTVhNd0NMb0JNMUNHRXBkNWo4QVNfQURFTm1aOWNRa2pGeDlRR1XSAYcBQVVfeXFMTk9VNjZzalNIM1J3WWZCTk5YRTlIdHU0YUdXZ0xxejFmYUVzX3cxN29wbFU5MkdNbnNmVjk1eWVlcndrLTc1YXJfTWlrOWhQcHlEWDJXY1RFYXVZYTFqajF5U01YTXdDTG9CTTFDR0VwZDVqOEFTX0FERU5tWjljUWtqRng5UUdV?oc=5",
+   "published": "2026-11-09T11:23:43+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-06T22:26:18+00:00",
+  "run_at": "2026-11-09T12:00:15+00:00",
   "session": {
    "date": "2026-11-06",
    "bar": "final"
@@ -856,7 +856,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-06T22:06:57+00:00"
+    "as_of": "2026-11-09T11:41:46+00:00"
    },
    "earnings:SPCX": {
     "ok": false,
@@ -882,25 +882,25 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T22:17:40+00:00"
+    "as_of": "2026-11-09T11:47:45+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T21:58:13+00:00"
+    "as_of": "2026-11-09T11:46:18+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T22:06:48+00:00"
+    "as_of": "2026-11-09T11:46:44+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-06T22:00:00+00:00"
+    "as_of": "2026-11-09T11:53:01+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -917,7 +917,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-06T21:59Z"
+    "as_of": "2026-11-09T12:00Z"
    },
    "yahoo:QQQ": {
     "ok": true,
@@ -946,7 +946,7 @@
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
+    "bar": "prior_close",
     "as_of": "2026-11-06"
    },
    "yahoo:^VIX3M": {
