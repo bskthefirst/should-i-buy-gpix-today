@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-09T20:10:13+00:00",
+ "generated_at": "2026-11-09T22:12:08+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
-  "tone": "ok",
-  "score": 1.5,
-  "score100": 59,
+  "label": "Better-than-usual entry",
+  "summary": "Heavily-weighted rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for GPIQ, this is a sensible day to deploy it.",
+  "tone": "good",
+  "score": 3.0,
+  "score100": 69,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "29.1 (p90)",
-   "score": 0.0,
+   "value": "34.0 (p99)",
+   "score": 1.5,
    "weight": 1.5,
    "lean": "good",
-   "note": "Nasdaq-100 volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good.",
+   "note": "Nasdaq-100 volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive (about +1pt over the next month, so it carries a 1.5 weight).",
    "viz": {
-    "pos": 89.6,
+    "pos": 99.2,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.95",
+   "value": "0.96",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 62.9,
+    "pos": 63.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.45x (p75)",
+   "value": "1.33x (p49)",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
+   "lean": "neutral",
+   "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 74.9,
+    "pos": 48.8,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-6.8 pts",
+   "value": "-1.9 pts",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
+   "lean": "neutral",
+   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 0.0,
+    "pos": 17.9,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "9.7%",
+   "value": "9.8%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 97.0,
+    "pos": 98.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-5.6%",
+   "value": "-5.7%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 3.3,
+    "pos": 2.5,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 67.1,
+    "pos": 67.0,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "31 (fear)",
+   "value": "32 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 31.5,
+    "pos": 31.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,14 +257,14 @@
   }
  ],
  "fund": {
-  "price": 52.985,
+  "price": 52.93,
   "as_of": "2026-11-09",
-  "bar": "provisional",
-  "day_change_pct": 3.37,
+  "bar": "final",
+  "day_change_pct": 3.26,
   "sma50": 56.37,
   "sma200": 55.25,
   "high52w": 59.52,
-  "drawdown_pct": 11.0,
+  "drawdown_pct": 11.1,
   "series": [
    {
     "d": "2026-02-24",
@@ -1342,27 +1342,22 @@
    },
    {
     "d": "2026-11-09",
-    "c": 52.985,
-    "t": "ok",
-    "s": 59
+    "c": 52.93,
+    "t": "good",
+    "s": 69
    }
   ]
  },
  "flips": [
   {
-   "label": "Top-decile premiums",
-   "direction": 1,
-   "text": "VXN above 29.1 (now 29.1) = top decile of its past year (+9 pts)"
-  },
-  {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.95) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.96) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 31) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 32) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1373,14 +1368,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-06",
-  "days_total": 760,
+  "end": "2026-11-09",
+  "days_total": 761,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-11-10",
   "baseline": {
-   "n": 739,
-   "avg_pct": 1.8,
-   "median_pct": 2.09
+   "n": 740,
+   "avg_pct": 1.78,
+   "median_pct": 2.08
   },
   "bands": [
    {
@@ -1400,19 +1395,19 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 481,
-    "avg_pct": 1.1,
-    "median_pct": 1.6
+    "n": 482,
+    "avg_pct": 1.07,
+    "median_pct": 1.59
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.88,
-  "tbill_3mo": 4.17
+  "ttm_yield_pct": 10.89,
+  "tbill_3mo": 4.19
  },
  "fx": {
-  "usd_krw": 1339.75,
-  "as_of": "2026-11-09T20:10Z"
+  "usd_krw": 1341.12,
+  "as_of": "2026-11-09T22:11Z"
  },
  "distributions": {
   "history": [
@@ -1535,13 +1530,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 679.305,
+  "price": 679.35,
   "sma200": 681.17,
   "above_200d": false
  },
  "vol": {
   "index": "VXN",
-  "level": 29.11
+  "level": 34.02
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1558,57 +1553,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 16000.0,
-  "dca_value": 20312.52,
-  "dca_return_pct": 26.95,
-  "dip_value": 20099.55,
-  "dip_return_pct": 25.62,
+  "dca_value": 20291.54,
+  "dca_return_pct": 26.82,
+  "dip_value": 20078.79,
+  "dip_return_pct": 25.49,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 66,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Cisco AI Defense to Add Anthropic\u2019s Claude Mythos for AI Red Teaming",
-   "source": "Cisco Blogs",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQVHRrczdESHBGSFFjdElKV2pWODJEQ0xrbENTX2gyMUJMa1BIYWVBeHJsbWhMTjEzeTk0Z3d2WWpnYkxxcXp2TmVhbUNNZjQ1bUp4Vlg0T01meVZnQVB0TU9fdF85Z2VoN1pjVTBjZWQ3QllpTFBqUVVEbkVMb01fZ3JFbFF1RC1hWnpucFB5d3Z4LVZaY3hhVHJ3?oc=5",
-   "published": "2026-11-09T20:04:20+00:00"
+   "title": "Georgia College Students Use AI to Solve Problems for Burgeoning Town",
+   "source": "GovTech",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPMml0VEhoZ2VqMVU5c21IV21YWmZQWGp2Q1hIejdueUxaV2phbHY5TElMbktEbXZwaS10cklra3lweGNRRWZCbGwtSUtXTTc0bkhsazYxcWE1cHg3YWR4SkNaTm9vemNTWEM2MVZnWnhnZURzNkpYaXVYYW1rVkJoS3o1TnpzSWZIOHowYzhSRVQ2eUNYT3F4bnVxUENhYkJrNjVhM2xxTzdvbGdHMXN0d0FVNA?oc=5",
+   "published": "2026-11-09T22:09:59+00:00"
   },
   {
-   "title": "Moving Fast and Staying in Control in the Agentic AI Era",
-   "source": "Cisco Blogs",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOUmxDMXRqNGlhRWlJdmJoWE0zdlFNQXh5c2Z0Zkw5b2hCMHhNcDQ5czRfMENTdjBlMl83NERZWUxpcldkOWc3eVREM05LR3NZWnBlc3k2OENyaHlaWExDU2trSEZTdmlqVUMtMlpZSllhUlRPLUZsOWpJYldJNm9FcGYyQW5QcTRMSHR2cmZR?oc=5",
-   "published": "2026-11-09T20:04:20+00:00"
+   "title": "AI & Tech Brief: Nvidia\u2019s post-scandal slump",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOZU55MXdGTDF1UEtzZjRWU1R4ajZJdjNVSDZkT3pPY1FvM3FXZndwVjdoNGhpV2hORHBIMDFDeUJ1MHpOZVpuaHJ1NWFFOVhWc3FqQmlhNmVkZnpvQlN6aWpxMkVUdjctZzVMekdYQUxUQXVnTXliUG0tUkZLYzhlak5VbnV2RS1UbWRha0NVRFVSelVQbDhVRWdQMENDbGdaRk9WVFRDcnF5dHBJdWZpamJ5UQ?oc=5",
+   "published": "2026-11-09T22:04:31+00:00"
   },
   {
-   "title": "Dynamic model routing: The new SD-WAN for the AI era",
-   "source": "Cisco Blogs",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQVmowLWNSYlowNEdTUE54OUJJY1N6TXhlOE5OZzNyN3J6UWR4SEZNWFg3S2JYRmd4c210Y0V6NlhTLVAxNHR1WlZ5TVVybDlpbGpYMlFYVHBteUI5SzB0bmVfQ0djcjVNN2U2ZE1RaFZibEZEdFNrYTdZdmlEZlVuVS1aZmJnMHJWNGdEbU5CRQ?oc=5",
-   "published": "2026-11-09T20:04:20+00:00"
+   "title": "Insight Enterprises fast tracks AI deployment",
+   "source": "Channel Dive",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQTHk1VXVYTTRzLXhCamg2UTE4Q2JkVHRGZTVEVnhkU3cxZkktVVVGeHpVMXBrTTNSVUM1VDdpeDM1RVdWNHZ6dzRxM1VhaV9CWlFfX1BDM0s1d2g3RDA0ZUhzUlVPWHZFdDZxYWdXNzBlRVJMV0s2VF9tMmtnTk1Qd2o1cXVOcWcyejFmLW9MUHdpQms?oc=5",
+   "published": "2026-11-09T22:01:03+00:00"
   },
   {
-   "title": "Agentic AI demands a stronger, more assured network foundation",
-   "source": "Cisco Blogs",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQT2FodHhqUWdpdlk4aHY4SVZUMjhLUjJRbFF5OUt5X3dWb0pCVzExX25jbTNKRWJBZl9YaGFnRXVyQjZWTWliLTdYMlE0eDhXQ1d2R2NCVW9pV241YXBqMzVTaXYxUHFueFVRMzRNelVWbk02TDNJS2pOLUFLS0Vmc1pnRG9jaE53eVdXcnFOMTh3SHFRUTBuTWVYWFQ?oc=5",
-   "published": "2026-11-09T20:04:20+00:00"
+   "title": "Military-made AI tool helped thwart World Cup bomb threat",
+   "source": "Federal News Network",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNX0hudUNqTHZ1a05FRTE2M19obVktZ3pHMGNwRlRxXzVDVVo1ejlLaDJZQjZHT2FWanozQ2RSZmYzSkVvQklMX1BuSFJNUi0ycXlvNVlBLW5ZRTQ1TlJrWnFya2g3WEZIT2JDSlh2b0psaTlQNXh4VjJPTVFIa3liek9JUXVLd2NPeG9wUjVqV0c2czVmNWV6NW01Y2VjcUVIZFd6djJ3TFdQc3JDZGhYTFE1M2QtVFR1dXRodHVR?oc=5",
+   "published": "2026-11-09T21:58:34+00:00"
   },
   {
-   "title": "Hospitals write off $132B as AI fails to move the needle with finances",
-   "source": "Healthcare Dive",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPY2xTZ3hTc3p2aENTSFA0eExzVDN4OU9uZXNOTUFXMlJxQ1lRcXZWdXN2U3VlNEJ0NkFmTncxNFF2dDd6Q20wUERKQVBGQlFIOTMwYlZkcUUyUy1pLUxpbldpRm1IMkMxQTZuSmRqa2psa0JUUVlPdXRQLUsxYkNEbFg4dmpSQTE1M0YzdDlxN1FvQ015SlJqLTQzSmtMc1ZDckVjS2ppMXN0Zw?oc=5",
-   "published": "2026-11-09T20:00:57+00:00"
+   "title": "Silicon Valley\u2019s Trump-era playbook is falling apart. A major shift is underway.",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQZWRzQnpKeWZ1UnFjYmlMRXJUTjZzTk9VRUNnU1BNS1VnN2t1RWo0bGJqbUo1dTFER3BfQmdBWml4eklMVm9wUllwTTk2NWZ1aDdQamtqeUZiTXBGUENpMUlZb0w2bkhCVUlxemUxZnBYalViZ2FJeHRfRHlQRi0yTHJPY3g1NG5EVUl4ZU9IVlN5TWNMZzlRVHNZMFhOVFJ5Wm85ZXZjUV84dG1jYV8w?oc=5",
+   "published": "2026-11-09T21:56:40+00:00"
   },
   {
-   "title": "Jensen Huang Is Only Billionaire Loser In Top 10 Richest Monday Amid Scandal\u2014Down $9 Billion",
-   "source": "Forbes",
-   "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQbjFSRlRKMXIzd3E4NnZ0dWRPbXlXZXUwN3duRnBHRUU5TmFHQzhWX2p0SnREdk1zME9KX1JWaEgwSHM3YTU4QnNmUm5NT2YzR2JMMUpsSDE2dVVrb2FxRm12RGNLaHhYYTYyM011VVVUYVNwSTBjQ1lGZV9Jb2g1ZWt0aTdXZGJUTVVhRkNvN1I0dzJsMS16S1BINHZtdXUzOUViUGJjMXlCTVBDT3hDVVY0QmMwWTRYZnZvc0o4VGlfbHpHaER3RWpjRjlsRmw1X2djUm1tVmZRcTBQcEJj?oc=5",
-   "published": "2026-11-09T19:54:00+00:00"
+   "title": "Vermont hospitals embrace AI as questions about oversight remain",
+   "source": "WCAX",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQQ0VQX0wxcVBvRmE0ZW1JS1hxUm5Ya2FyLUNtSDdUVmR2S2Vud2F0SnJpbDlGR3N6dloxZTBXYlhJM0RMQllocnRRcXNyWGhjVU1xa1l2bEJXcGlKbXBtSGkzVlNYZHYtZ1hIcTZEV1BaY2FWSlBOVkxMRE9qZ1FrWlFFbVA3b1hPYkNta0dHbDRpTnFyMFZwR3BB?oc=5",
+   "published": "2026-11-09T21:55:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-09T20:10:14+00:00",
+  "run_at": "2026-11-09T22:12:09+00:00",
   "session": {
    "date": "2026-11-09",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1624,7 +1619,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-09T20:06:00+00:00"
+    "as_of": "2026-11-09T21:53:16+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1634,66 +1629,66 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-05"
+    "as_of": "2026-11-06"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-09T20:04:20+00:00"
+    "as_of": "2026-11-09T22:09:59+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-09T20:07:00+00:00"
+    "as_of": "2026-11-09T21:57:03+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-09"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-09"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-09T20:10Z"
+    "as_of": "2026-11-09T22:11Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-09"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-09"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-09"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-09"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-09"
+    "bar": "prior_close",
+    "as_of": "2026-11-06"
    }
   },
   "degraded": [],
