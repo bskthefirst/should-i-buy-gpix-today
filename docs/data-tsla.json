@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-10T12:00:13+00:00",
+ "generated_at": "2026-11-10T20:10:15+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-6.4% in 5 sessions",
+   "value": "-5.3% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 57.5,
+    "pos": 64.8,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "61% ann. (p90)",
+   "value": "61% ann. (p89)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "good",
    "note": "Realized volatility elevated vs TSLA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
    "viz": {
-    "pos": 89.7,
+    "pos": 89.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "22.8%",
+   "value": "22.9%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 45.6,
+    "pos": 45.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 378.05,
-  "as_of": "2026-11-09",
-  "bar": "final",
-  "day_change_pct": 5.54,
-  "sma50": 372.72,
-  "sma200": 383.51,
+  "price": 377.4801,
+  "as_of": "2026-11-10",
+  "bar": "provisional",
+  "day_change_pct": -0.15,
+  "sma50": 372.91,
+  "sma200": 383.22,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 22.8,
+  "drawdown_pct": 22.9,
   "series": [
-   {
-    "d": "2026-02-24",
-    "c": 409.38,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-02-25",
     "c": 417.4,
@@ -1217,6 +1211,12 @@
     "c": 378.05,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-11-10",
+    "c": 377.4801,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1225,11 +1225,6 @@
    "label": "Top-decile volatility",
    "direction": 1,
    "text": "20-day realized vol above 61% annualized (now 61%) = top decile of its year (+9 pts)"
-  },
-  {
-   "label": "Crash band",
-   "direction": 1,
-   "text": "TSLA 5-session return -6.4% - another -5.6% reaches the validated crash band (+12 pts)"
   }
  ],
  "report_card": {
@@ -1282,13 +1277,13 @@
  "distributions": null,
  "underlying": {
   "symbol": "TSLA",
-  "price": 378.05,
-  "sma200": 383.51,
+  "price": 377.4801,
+  "sma200": 383.22,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 61.2
+  "level": 61.1
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1306,61 +1301,61 @@
  },
  "backtest": {
   "start": "2022-11-10",
-  "end": "2026-11-09",
+  "end": "2026-11-10",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 30777.99,
-  "dca_return_pct": 46.56,
-  "dip_value": 30768.13,
-  "dip_return_pct": 46.51,
+  "dca_value": 30731.59,
+  "dca_return_pct": 46.34,
+  "dip_value": 30721.74,
+  "dip_return_pct": 46.29,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 203,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Tesla Cybertruck is EV pickup market's latest casualty",
-   "source": "marketscreener.com",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNdDdkbUtiVDZIblpDbjhrclBTYTFlSkl2SHo2eFVNMU42Xzhtb19NTjg3OHEtQUltT2JvTG5PMWdiVlp1MEhwcVFPQUQ4eUotOVpfdzFGWHprbEJYQlVySmdCS2pRdGNIVUh1d3VVQ1AySnhVa014a3NLRzJkeWYxWi1PSXJaRlNtVnJ3dkVJXzNIMEpNeU1pOGxmWHdLbXBGNlRrMThRMXlqMms?oc=5",
-   "published": "2026-11-10T11:01:28+00:00"
-  },
-  {
-   "title": "Tesla, Inc. $TSLA Stock Purchased by Kestra Investment Management LLC",
-   "source": "MarketBeat",
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOWlJQeWVvVHExcGdTczRJTmlfa0Fic0lmUVZJeDNUMmRLNlpTSUtOY0lmRlgzZXdjZkNTR0cxaXdIa1J1Qnc3OE52QjRMdFcwRTVQczBOeEZBVWlkSU40M3JzWExDNm5ya2hHTGdxeHJWTm9YNnRLXzZzNllsY2k5OVdWLXZDWklwMDFTcng3eHZIVXhlMnZCSHI2MUFLelRZdXJhV3pYRkJkYm5ucXU0M0xhcTk1MFhDN0lUYW1yV1NPYW5JMUE?oc=5",
-   "published": "2026-11-10T10:51:57+00:00"
-  },
-  {
-   "title": "What Triggered The Move In Tesla Stock?",
-   "source": "Trefis",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQb280WGRiYmxfRE9qWFhheUE2TUlTLWNaTnphTXZYWGZyZTFuX0tuVDg4VG02TXFaaVktQ29OTEl3RWZqLTF1MHJ0TUl2VEJIMElNOTIzVUdJQzgyR3JHQVd3YUNhTmpHM2JlenM4SmtSSmctLTNQUG9wN0FVVWxZejFCV3FCMlFaYWlhVGRvcER5dzFHMFBDcGpGdTVTdjB6?oc=5",
-   "published": "2026-11-10T10:48:28+00:00"
-  },
-  {
-   "title": "Retirement Systems of Alabama Acquires 219,977 Shares of Tesla, Inc. $TSLA",
-   "source": "MarketBeat",
-   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOaXRZc0Q5UEdBMW42RFViRmkweV83cFRYTjA0VEZaM0dlYUhRdDJTcWZ4bFJDMjhWZUxxTlpManJrNEpJRTlSTHpFcjhNZmx3Yndkb292d292MHlyWFRMdXd3eV9hTzlzTHZLX0ZZTWw4bC1Xc045NHFGLTRfUmdGMWs4Z0c1bEhjUHZzNmQ5enB3UTJlWVJ5SGhPR1JHWFhsb3BKQ1J1dGdzU3hZOVZPaUpCbTl2dWd0RVRILVJHWi0tNl96UzVMUC1QQQ?oc=5",
-   "published": "2026-11-10T10:44:58+00:00"
-  },
-  {
-   "title": "Interesting News for SpaceX Stock and Tesla Stock Investors",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQUEhETUs1c3F6RkdDREdFLWxHQmtIaUlkMXBubGVrcEVJUHZmMGtXcDFzdGdtQ1BOTngxYmNqZDdrYjR5Zm1zNXVuQktEQWVPcW8ySWt6a241TnF1NHZ0N1VoMllJZUlrR2hIN053VUFvMGxMek9EOFFEVjBWTjVoUDJ1dTFNZ0QtdDdLMDlIcUx3aUJzN2VYQ3Z6RVFBUnl3SW1SYQ?oc=5",
-   "published": "2026-11-10T10:34:00+00:00"
-  },
-  {
-   "title": "Tesla stops taking orders for Cybertruck except for the Cyberbeast, increases price by $7,500",
+   "title": "SpaceX unveils Starlink Mini 2 satellite broadband terminal with built-in battery and Wi-Fi support",
    "source": "Tesla Oracle",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQYXRoYTJjY2dkVHJ6NEgwOEZnWklEMWdMbkRBT0JsZjBDa2hBLTB4ODJrTk5TMDdvdlZwNlZkMVZvbjNxRU9PdWJ5cjJiaVhRREVjYmY1eHczSngxSGIzT3I5RTNscFM5YmUwVXRZal9OWGxVMzhCakZDMXVyZVNzTVYwTXJLTnR6b2pZYlRZc2wyd0hyWHBoalVtMERnUnhFOW9ZUmlHQm80U0s1OXZRV1BLSGJYUVpYOGU3TW1GR0ZXYzFRTENVZE5B?oc=5",
-   "published": "2026-11-10T08:59:54+00:00"
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQVEFGMUo2bmFsZlpnUjBTUksyYmpKa1hONzNqYmVsS01iNjZCWmhFSUxuSEFYSU5uOUJ0YjktcWxhY3pNMEc2M1hDUU9NUjRLcFh6azJFM004eHdkOExnLXRlNGw3eXRhNFRnX0ZwQUZYaUdUWVJRMEZGUnMzbUw5aFlIMWxlMDBmdEU0TWJJTHVMNXlRb2UtNVNzaXJaUUQwRmtTd0lXNV85R3JVVE9VU1AtVGxCcjd3d2ZTWFVvdDZFeFVrSGViaWFLOUpDYk5hOFNHbXh3?oc=5",
+   "published": "2026-11-10T19:25:24+00:00"
+  },
+  {
+   "title": "Tesla Stock (NASDAQ:TSLA) Slips as a Surprising Feature Infuriates Model Y Drivers",
+   "source": "TipRanks",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQZi0xeWRWUndOck0tVlBxdWlGcnNPMkxURkNpVEJBMlNPd2otUkJOd1RYeDFfXzNMb2E1STdDWDN0ZW02NGlEZTBjdzhBWFlaQ3VMeF80cWoyaWM5RkNkczkwNW14anRNSUVFVmxnOGU4S2ZrUk5aUXE2VkNOZlREVnhKSDhkY08tMmlDUFRVbERtUUQ3OGl0Y0VHWlRSaVJFdDVGSHVsd3VaQUZUR0E?oc=5",
+   "published": "2026-11-10T18:04:05+00:00"
+  },
+  {
+   "title": "Tesla Bull Predicts Democrats Will \u201cBlock Autonomy,\u201d a Bigger Risk Than Data Centers",
+   "source": "TIKR.com",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNMXJUUkplQURHNDR6dHotZEtwZk1MSll0b0JYV1hnNkZ1XzRCaExBNnV5ZUh4SlA4YlZUb1FDWW1rZzV0N0JsVy00WHU1ZEVfVlE5QkViNlZEQlBJNzB0WWtIQ0JaeE8xbVl0c05JNU9pQjZ0ZHVnNkZ4MlBRak9RYmV5WVpqbE9YRWdiX1JYLS0wb2pZT3NsclluV2NuOUpyVWtNc0FlRmlONHMx?oc=5",
+   "published": "2026-11-10T17:29:06+00:00"
+  },
+  {
+   "title": "Elon Musk Claims the Cybertruck Is Actually Selling So Well That Tesla Will Have to Return Deposits",
+   "source": "AOL.com",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObWhvcGxtQkxLb3NNSGZQbGVTY2V0eU5iMWtRWlNJcFY1SW5LektPaU5Hdk9LQkQyV1lKYkxjZ3kxWmJfNkFlNjhWUnVuWVkyVHowUm9YS2xMWU5BdVdTWk10dlhMbG5PVWJMb01lUjNDYzJYRFVSdUVEb1ZpQVRJOGNsaEZKdkU?oc=5",
+   "published": "2026-11-10T17:13:12+00:00"
+  },
+  {
+   "title": "Lucid Jumps 8% on $1.75 Billion Liquidity Boost Despite Q3 Miss; Rivian Dips, Tesla Little Changed",
+   "source": "24/7 Wall St.",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPUTgtcmkxY3hoekQzVzhzMUF5Z1ZQVWY0N1RuYVNUN0EwclpHSUhOTl9vYVNEQ2xMcmdhNmtmbjNJc2JzaWhoTXJJSEhyZXU0WDc0RHY3eHdzVmlfSXRMSy1qWk9ZVUxad1kyakJGdzF1bnZwNUdXMEdYMTF4eXliMWdDMWVlRTBFYlBNT0ZzcHNISUtPcS1lMy1XQXhvUDZZYVV5QUUzNWFHeXNwdUQzTWkxZ1pFbEhxX2wwWTdOTkptTFJNWWtJdTl4UXplMUVIZmxHdg?oc=5",
+   "published": "2026-11-10T16:55:00+00:00"
+  },
+  {
+   "title": "Tesla slims Cybertruck offerings to only its most expensive trim",
+   "source": "Teslarati",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNRTZ4QzZDUlpsTndtaDJaMDc3LXJCRXozUHZrSXlFWFZtMnh6T1FIUVNTY21rTS1lOEZmVFRYRy1ncVlCR2w4Si10Um9GVENUYm15cUhLR1hxLVZhb2RrQ2hLT2ZhY2hfSWRXTUhFeVJnLW94OEg0ZV9wR1M3NVFlRUhjYm84dw?oc=5",
+   "published": "2026-11-10T16:52:30+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-10T12:00:14+00:00",
+  "run_at": "2026-11-10T20:10:15+00:00",
   "session": {
-   "date": "2026-11-09",
-   "bar": "final"
+   "date": "2026-11-10",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1376,7 +1371,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-10T11:40:31+00:00"
+    "as_of": "2026-11-10T20:06:03+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1386,7 +1381,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-06"
+    "as_of": "2026-11-09"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1397,66 +1392,66 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-10T11:53:29+00:00"
+    "as_of": "2026-11-10T20:06:49+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-10T11:56:37+00:00"
+    "as_of": "2026-11-10T20:02:28+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-10T11:01:28+00:00"
+    "as_of": "2026-11-10T19:25:24+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-10T11:59Z"
+    "as_of": "2026-11-10T20:09Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:^VXN": {
     "ok": true,

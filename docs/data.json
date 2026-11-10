@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T12:00:09+00:00",
+ "generated_at": "2026-11-10T20:10:09+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -23,7 +23,7 @@
    "lean": "good",
    "note": "S&P 500 volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good.",
    "viz": {
-    "pos": 79.8,
+    "pos": 79.9,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.96",
+   "value": "0.95",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 63.8,
+    "pos": 62.7,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-2.3 pts",
+   "value": "-2.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Realized S&P 500 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 13.8,
+    "pos": 13.7,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "3.4%",
+   "value": "3.9%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 34.0,
+    "pos": 39.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "-1.8%",
+   "value": "-2.3%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 35.0,
+    "pos": 30.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.42% (+0.27 1mo)",
+   "value": "3.34% (+0.23 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 35.5,
+    "pos": 33.5,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -167,13 +167,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "8.4% vs 4.2% cash",
+   "value": "8.5% vs 4.2% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 42.2,
+    "pos": 42.7,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -200,7 +200,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 33.2,
+    "pos": 33.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,21 +230,15 @@
   }
  ],
  "fund": {
-  "price": 54.54,
-  "as_of": "2026-11-09",
-  "bar": "final",
-  "day_change_pct": 2.21,
-  "sma50": 55.71,
-  "sma200": 54.35,
+  "price": 54.2399,
+  "as_of": "2026-11-10",
+  "bar": "provisional",
+  "day_change_pct": -0.55,
+  "sma50": 55.67,
+  "sma200": 54.36,
   "high52w": 56.67,
-  "drawdown_pct": 3.8,
+  "drawdown_pct": 4.3,
   "series": [
-   {
-    "d": "2026-02-24",
-    "c": 52.76,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-02-25",
     "c": 53.12,
@@ -1318,6 +1312,12 @@
     "c": 54.54,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-10",
+    "c": 54.2399,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
@@ -1325,7 +1325,7 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.96) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.95) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1340,7 +1340,7 @@
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.42%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.34%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1380,12 +1380,12 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.41,
+  "ttm_yield_pct": 8.46,
   "tbill_3mo": 4.19
  },
  "fx": {
-  "usd_krw": 1338.91,
-  "as_of": "2026-11-10T11:59Z"
+  "usd_krw": 1342.06,
+  "as_of": "2026-11-10T20:09Z"
  },
  "distributions": {
   "history": [
@@ -1508,13 +1508,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 752.69,
-  "sma200": 730.7,
+  "price": 748.485,
+  "sma200": 730.98,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 19.92
+  "level": 19.94
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1527,61 +1527,61 @@
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-11-09",
+  "end": "2026-11-10",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 16000.0,
-  "dca_value": 20178.15,
-  "dca_return_pct": 26.11,
-  "dip_value": 19993.85,
-  "dip_return_pct": 24.96,
+  "dca_value": 20067.12,
+  "dca_return_pct": 25.42,
+  "dip_value": 19883.84,
+  "dip_return_pct": 24.27,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 33,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Bitcoin Price Forecast: Can US Inflation Prevent BTC from Falling Below $75,000?",
-   "source": "Investing.com",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZ1N6VEQ5eXU5Q3ZyTFhxTEhhT056Q2N4bVhzNzU3S1JhdkZJRDg4NS1ZWTVkbm0tYU55WDZvUXhGdkVyTUpxYmpKNTY3Y2hmLVRqcWVCLTYtb013LXFKY3Ftbm9sSUtoellLLURxV0VUZlNnNEZCdkNleVJjbGVpY0oyVm00VVBybXlpUlB5N0hoLWhjYlJmeWtLcTN6VkFBUmd4MVBaVWNBSXFTdTJxaDM5Wk9lUzF3dE16QnFn?oc=5",
-   "published": "2026-11-10T11:56:37+00:00"
+   "title": "Fed to raise rates once more in December as inflation risks stay high: Reuters poll",
+   "source": "WTVB",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOV1QzYWZmQ0xmU09sOWhQc3J0UUZiUnZTY3dmeFFHMnI4VUdPMEtaR0g2c1lPak9SdVk0VnNiNFRmX3FkWWtsSG1MZW5rQTNrbEFEaDhmR1dVdHh6S0s1X2FVQ3Y4U3lOa2F1N25DeGtCYnduUEpkNkhoSmVUekVZN0NmbVlLZ2RXVVNxNmZEdXltWHFjZFhMV1JGazJLc08zRDdqeUpITjhMTjBCMzlOUXdwdw?oc=5",
+   "published": "2026-11-10T20:02:28+00:00"
   },
   {
-   "title": "Fed\u2019s Waller Backs Big Rate Increase if Inflation Remains Stubborn",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQcnkyaTJSVi1WalJBUXpRVGRkRFItRllvTTg1R1dLVVV3Z1h5MnYwaUd3c2NkTXpKNmZRbjhod1NpT2w1SGphU0FDMzB0blhYSEdBdlhnc0ZjdjNxN0NlZWdWbGhXRzJCZDZ1b0NmR2VIVDFWaWJyX196WXJtWUUzRm9nOTFtRnFVWG1EV0NFQ3NFWm5zTzRIS2ZTLXR2UQ?oc=5",
-   "published": "2026-11-10T11:56:00+00:00"
+   "title": "An overzealous Fed is quickly becoming the biggest risk to stocks in 2027",
+   "source": "MarketWatch",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYi1IaUYwY2pINjIwQXU0QmZTWkxSdFRkWlRfYXNaU3M5ak03TWtlcHVISU1XaldLVnBJTnVTdEtmRUd5MF9Sb3ZpZzRod0p0TklaZHQtUUkxcDlGaFhjdnV3cC1wRERscmJUTUxWaG90Yi1tTzlOWXYzY3hpekR5SFQ0Tk5PWk9KVU9zcXpENjNYY2d0SnVSeXdqdzFfYkt2eHhJeDc5Y3h5QTJmMEpNNVFvbURuUjQ?oc=5",
+   "published": "2026-11-10T19:52:00+00:00"
   },
   {
-   "title": "S&P 500 Futures Muted With All Eyes on U.S. Inflation Data After Waller\u2019s Rate Warning",
-   "source": "Barchart.com",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQNnRBVzctM1RjWUItekZ2dDB2Q0JubDAwdk9vb29VU1l6XzUtQUZKNGhlSzVzdk1qNlBSUVBhYlo1Si05d1pfOUNScWNKbVREcGFpUDdFM0xqXzkxUlkzTnpUd3RiZlVVczF1T2pSS3dfb2hERC04Y2lQakVlS1psLU9MZFBnODhESGFrRTh3NXNrT042d0ZkSGFnZGFiZU5CRlNaUVk1UFA5TV9SdW5yekpaYkN3VHB2bDBMcWRtWHB4bXVkMzVz?oc=5",
-   "published": "2026-11-10T11:32:23+00:00"
+   "title": "Wall St retreats as hot inflation data, Fed comments fuel rate worries",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSEE5eGJXT1lYRVFJMUpWb2VCTENjZ2hBNWk0QWl5QVZBNmJ4TFBodVUtRVRzV0JubVE0NFJYRFlmYkpuc0tlbTBValFhV0ppcGdYNEZERXV4ZnhLZUJKTF9fUzZEeHM3cDRwdmlMdUVIUWlERHprb3lKakQ1S1gzSmI5LVZYWWx2cTBjVC1sVEc1OG8tOS0ta0k5VQ?oc=5",
+   "published": "2026-11-10T19:45:44+00:00"
   },
   {
-   "title": "TSX futures muted before US inflation data, oil slips",
-   "source": "marketscreener.com",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOckV3THMxamduSTRNODhoSjZ2cTJNVkd4LXVaRUJ4WXJjMlRVMHBNQlJWMjgzSXlCeWZtMDNhdXF6NE1xYzlseWEzX1k5aFZwX0NfRXZselBrUEl6WXpSQlZkeEU5RkZuMzhtQWpUMlY0Ni11TjExdVE4dkdkMDFMNEFCMUxvQ0ljVUhZcnJ3dmZhcF8xVjZSa19MVjRhWVItWUt5aS1sNFY?oc=5",
-   "published": "2026-11-10T11:27:04+00:00"
+   "title": "Inflation pace slowed in October, but prices remain high",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQM25fYU9hcVFpT3NodjRRd0FCUzBOekllM1RISk1QdWhuTWlFVTRPaGNUTDRtQTRhX1J6RWpFMGZqVElqeVp0VUlPWVR0WmExcnBta2Z2cTZsdE5IN3hxVXNJcDBncU1nbWF4NzdoWUc0dkpBQUlYakVBSUNwaWNobmVsLWJtVkpMNE43NUNUZG9vdEpHODFRa0RaUF96WmZVQWc?oc=5",
+   "published": "2026-11-10T19:39:21+00:00"
   },
   {
-   "title": "Bitcoin (BTC) price slips as ETF outflows mount ahead of U.S. CPI data: Crypto Markets Today",
-   "source": "CoinDesk",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYUNGeTZzR0JTUjFjc3FxVENCUUpCTDM1Z19fX0tFejdLMno0aFN1SS04SEh0bG9IN3F0cWpBMUpYTEYwWDNjUG56c2NLclNncTFjYmRIMGg5M3QxcTd2Y2U5Y3p2UmJoNnJyOUZ1cXRtQTc0SFdTU2RSZG92a1dyRDJHY3h3WXR3c0xFNWNqaW02ejVOYkg5VllvUmo1dUVvS2xNNUxtYjI?oc=5",
-   "published": "2026-11-10T11:24:10+00:00"
+   "title": "Fed\u2019s Schmid calls for tighter policy to control inflation",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSWgwVnFZc09kallhZXpCMDJQTDc0N1NWaXdrYTBfTTFxRWF6UXdxelY4amhqSXdkWVFZZlp3MTgzbEJQMDlGN1dablNvSlY3YmVUdDd4YUdQSHhMV0c1LVJnaS1IX0doeVo3c2hOQVFiNDZHSnpsUzdYZWV6Q1JTaHpLSjc3WUd0WFNiUE5JV0h5aWFoMklwNEJVc0k?oc=5",
+   "published": "2026-11-10T19:34:01+00:00"
   },
   {
-   "title": "Gold slips as investors assess hawkish Fed comments, await U.S. inflation data By Investing.com",
-   "source": "Investing.com",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOSTZ3dHpzT1dDUFZDVUpCbGROTVJZRVQyZ3U3Sm5SVkFqLXlDMjFUV2VGS0ZXUFZXVlR2T2lra2I1T2pSRXIwdzY5UVpySWd4REs0bkZhallYVDRmcWM2cFZyNVJQNURwdVoxS3dlTXp4cWRYa3VaOFRFdllmc0FrWGl2azMxNjl4SEkxeE84enFQajhIazJaVGhfYndsemloWlFBblRIWUk3T1VlTXFudzlTc2gzTms?oc=5",
-   "published": "2026-11-10T11:12:56+00:00"
+   "title": "Economic and monetary policy outlook",
+   "source": "Federal Reserve Bank of Dallas",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE15eU9IVk90bGxVVFFuMUM5TU1zQ0pORHFjMEptYUJBbUdMSGx6VVE1RnVZZW9KeVc1Yy1XeDJUZnpWckQ1WmgxbzZpTndwUWhiNjhTeEtCdmQ1M1pOM0FTMkpiNFR2NWtnVm03cw?oc=5",
+   "published": "2026-11-10T19:30:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-10T12:00:09+00:00",
+  "run_at": "2026-11-10T20:10:10+00:00",
   "session": {
-   "date": "2026-11-09",
-   "bar": "final"
+   "date": "2026-11-10",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1597,12 +1597,12 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-10T11:40:31+00:00"
+    "as_of": "2026-11-10T20:06:03+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-06"
+    "as_of": "2026-11-09"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1613,36 +1613,36 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-10T11:56:37+00:00"
+    "as_of": "2026-11-10T20:02:28+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-10T11:59Z"
+    "as_of": "2026-11-10T20:09Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    }
   },
   "degraded": [],

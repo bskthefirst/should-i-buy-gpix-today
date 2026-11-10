@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T12:00:10+00:00",
+ "generated_at": "2026-11-10T20:10:10+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.96",
+   "value": "0.95",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 63.8,
+    "pos": 62.7,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-6.9 pts",
+   "value": "-7.0 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "9.8%",
+   "value": "10.6%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 98.0,
+    "pos": 100.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-5.7%",
+   "value": "-6.5%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 2.5,
+    "pos": 0.0,
     "labels": [
      "\u22126%",
      "+6%"
@@ -171,13 +171,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.42% (+0.27 1mo)",
+   "value": "3.34% (+0.23 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit markets calm - no stress.",
    "viz": {
-    "pos": 35.5,
+    "pos": 33.5,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "10.9% vs 4.2% cash",
+   "value": "11.0% vs 4.2% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 67.0,
+    "pos": 68.1,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -227,7 +227,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 33.2,
+    "pos": 33.1,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,21 +257,15 @@
   }
  ],
  "fund": {
-  "price": 52.93,
-  "as_of": "2026-11-09",
-  "bar": "final",
-  "day_change_pct": 3.26,
-  "sma50": 56.37,
+  "price": 52.43,
+  "as_of": "2026-11-10",
+  "bar": "provisional",
+  "day_change_pct": -0.94,
+  "sma50": 56.28,
   "sma200": 55.25,
   "high52w": 59.52,
-  "drawdown_pct": 11.1,
+  "drawdown_pct": 11.9,
   "series": [
-   {
-    "d": "2026-02-24",
-    "c": 51.96,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-02-25",
     "c": 52.6,
@@ -1345,6 +1339,12 @@
     "c": 52.93,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-10",
+    "c": 52.43,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
@@ -1355,9 +1355,14 @@
    "text": "VXN above 29.0 (now 29.0) = top decile of its past year (+9 pts)"
   },
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "QQQ 5-session return -1.9% - another -1.1% = short-term reversal (+12 pts)"
+  },
+  {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.96) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.95) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1367,7 +1372,7 @@
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.42%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.34%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1407,12 +1412,12 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.89,
+  "ttm_yield_pct": 11.0,
   "tbill_3mo": 4.19
  },
  "fx": {
-  "usd_krw": 1338.91,
-  "as_of": "2026-11-10T11:59Z"
+  "usd_krw": 1342.06,
+  "as_of": "2026-11-10T20:09Z"
  },
  "distributions": {
   "history": [
@@ -1535,8 +1540,8 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 679.35,
-  "sma200": 681.17,
+  "price": 672.26,
+  "sma200": 681.4,
   "above_200d": false
  },
  "vol": {
@@ -1554,61 +1559,61 @@
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-11-09",
+  "end": "2026-11-10",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 16000.0,
-  "dca_value": 20291.54,
-  "dca_return_pct": 26.82,
-  "dip_value": 20078.79,
-  "dip_return_pct": 25.49,
+  "dca_value": 20099.86,
+  "dca_return_pct": 25.62,
+  "dip_value": 19889.12,
+  "dip_return_pct": 24.31,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 66,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "The AI Boom and the Price of Permission",
-   "source": "Haver Analytics",
-   "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9mclZfU0kyU2Nia2lYU0c1Ti1pZnQ4ckg3bmJ4amFzc3g2OXpua1NoT0pGX3dsZHlwR2puYWo0bUktVks3czBqVi1uTjJjR0lrYkFhYjB0MXpweHNUWEgxdmJmUHA5Qm9LQ2VJdHA3VDlJUVlEXy1RN3hn?oc=5",
-   "published": "2026-11-10T11:53:29+00:00"
-  },
-  {
-   "title": "Anthropic sets price range of $70 to $78 in upcoming IPO as AI lab marches towards Nasdaq",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRndodzlpaTVnaEdjdDBCMHNyQlVjclVGb0tXV0xEdkU4YUIxbE83eTdHUFpRN1VYQ3UybWRYckJ4Q0s5UlhZSHRILXgzN0g4MHRveHVrbUlfZnhvcV85dWs3WjI0Y1VPeXBaakY1RTlJazBsZ2NPeFBEcGVLcHRtNXl3UzZ3ZzRDN1JEcUV4dWRMN0NhY1E?oc=5",
-   "published": "2026-11-10T11:40:11+00:00"
-  },
-  {
-   "title": "Venture Global raises profit forecast, expands push into AI data center power infrastructure",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOVl9mcWxjYm5sNjJ4eHdTaWRVVFdrdlhhOFZYXzJXb3BUNU9uNUxhNkUwMHQ1OTZ3eWRqeVNQeUtwMXRXNHVfLTJsd29neUY4Q2FVVzJSdkI4NnpsM2ltdVFxanBVZzVEczRjOEFBZGpRV1V6clJuQ2JPb3J3cXQ4bEVCUHlnN1dkSlZPNDl4SVdKVHUxVTR0YW82c0RXNG83Z095NncyNVY4MTFtVnU3czVCajRnemd6U0xmVGFaM2ZhSzhlYVVF?oc=5",
-   "published": "2026-11-10T11:37:43+00:00"
-  },
-  {
-   "title": "Emergency Room AI Identifies PTSD Risk Through Patient Stories",
-   "source": "U.S. News & World Report",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOWnJ6Z1cwV1VubzFDcXBZOTIyWm5ZVGNBSm85YUxLaGgxN3pBQ2Ewa1F5djhmN3pNQThqVUJrT2Z6aDJxZXQxOHV4a3BwVFVZb2J5eGMzNUhGeXhETmtWQnlTcVpBUTRSRVFMcGgwX18xQ2QtWlpFNzE2ZFJnWmF4V05JZHFPblNsN3NBSzZUcUNkbEQ4Ql9xS3BMb2pMMUwzU1g0el9Qb0g0V0dFVGlCdGdNMTQxam80UGJtbGVPRQ?oc=5",
-   "published": "2026-11-10T11:36:54+00:00"
-  },
-  {
-   "title": "Column | How to protect your brain from AI chatbots",
+   "title": "AI & Tech Brief: Nvidia\u2019s Capitol Hill fallout",
    "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPaFM0ODE1Z2QzbThTMHhxdVZVWWF1bW5SemxodjBkT0VfbVU0UW5yeW1vS2tCbXdKZVdjdHJIMVo0cU5tS1NucHhGRmt0OHZnZmVqVDA2ZlVMY0hfR3FfQVp6Q0pwV0VTajlHT3VDMWR1d0dVM3dPMW9SQ2hObzZOOWx2bFRxRkRFc05JNnlnQ2hYMzVadGx3NEJvcGl3RFNGa0xkaldlT3NCZGNLUE01VDlmTEdRUVJtY1BwR3M1WlZpMnN4?oc=5",
-   "published": "2026-11-10T11:34:44+00:00"
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNQ3o0a0V0VVNQTGUyRDdoY1ZCd0hSZkpfS0NOSjlTWlo0V3VDbEh6Vm96R01VSHFIaWhJT2ZKRDRSekdPYXNjRkhTZlVzNmd4dFgwTnhwMTh1U3loZmlYYXI0aEdhMW81N0tPWEhYVk8zTGQzeWc1RnhrMERNVzREdHVFX2FOTTB4dEJXbXp5Ml96V0FFX2RtNC04QVMwZW1QZUMxWDdWelU2dlkzbVJvMXY5VEJLUQ?oc=5",
+   "published": "2026-11-10T20:06:49+00:00"
   },
   {
-   "title": "Consumers Have an Awkward Relationship With AI Agents So Far",
-   "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPcUY0WWU2YmdBcWd2RTVzM2J3OG9XdkFXM3lDd3hEM2ZIbWVFdDVzMGJWblk2c29xVDdJOWs1WGVHWGY3ek4wNzhvREtxTGdFWjhHeWpnVlFJWlQzXzVmT0lNTlpETlNsNHl4WHRMcXpWYnl4bDNKWlZ4bWZwSE5VVTE1czlJd3U3Y3d0YVU1YUtsaUpwRWFZdnFFbi13LW9tVFlYVDJHREhQZldKQzB3ZzBlblg?oc=5",
-   "published": "2026-11-10T11:29:52+00:00"
+   "title": "Berkeley school district to consider blocking Google search after tech giant\u2019s AI \u2018ultimatum\u2019",
+   "source": "Berkeleyside",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNWHd5VHJkOFpZbnlRMXByWkxxWU9Vb0RES0JITlZDY1hpTkVXRzB5VHNxdkZhZWpXX2Z2c21HbldMdFYwVlRNY2pIa256YTZlMXdCQ012QUN2Y1A5OWpuZWFMSXNfU0xBOWx6T21DNmNPVFNhQVNVT2Y0al8wbDd6VGE3Y05xd0YtTkJsdy1jM1hTYVlqUU9pcUZwdENySUt0THctWGUzVHloWGRRNmpvOENrTU44M0ZjU3UwQmQwRVdPam1qcEhFMnlB?oc=5",
+   "published": "2026-11-10T20:05:23+00:00"
+  },
+  {
+   "title": "AI in Texas Schools: Student Safety, Learning and Policy",
+   "source": "Texas 2036",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE8tZ01Pa0dVblI5U29rT1Q3SmhvNE81eGprY2pHdEN1U0VpX0p4VmZzNV9seGdiTi1qdVRoUENOV3hmVG1ZbHNhaTN6OUc3dw?oc=5",
+   "published": "2026-11-10T19:57:05+00:00"
+  },
+  {
+   "title": "EXCLUSIVE: Anthropic eyes $1.4 trillion IPO valuation in test of Wall Street's AI fervor",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNaUtnS210c1pKNVpEZXJ1V1JpdUdyZ0h5OGh2SzVCXzJaVGRwaDZnb0NQZUxFS0ZFWmxwbU53ZlJtdlBkOWplZHdaNkloU0xwV3hvdlpjNnh0R1FISXdMOExfc09JckJqTWxjSWlZSjZpN0RWR1kyRUF6YUlXN0dqSm5XQU5TUmFmbWpFbGlzT3FZRllaMGU4cld0cDlsaFVYY0IzV2ZNYmwxYW0yd1FDaw?oc=5",
+   "published": "2026-11-10T19:55:19+00:00"
+  },
+  {
+   "title": "Denver, Aurora schools to get $350K for AI tool",
+   "source": "Denver Gazette",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNeFFSRnplbTZoLUtwLU9faThDZExjRExCNGJCdUJiZm8yTFZYV1hfOEEycUJXbHAtTTBZbWpIckJHTDRmaHVPTHhZcmhiMk1UWmVURExScmxPemtNeDljVkJkdUJORmdJcVNTVXViT2J4bkN2OVVHMkE5QllMMzRheEFjTFItLV95NXE1OGtXcUc?oc=5",
+   "published": "2026-11-10T19:54:40+00:00"
+  },
+  {
+   "title": "Oracle CFO: AI data center returns justify massive spending",
+   "source": "CNBC",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOb095UHhMUGtIdlZKYnBHRnNmamRwUWlWSjVwdHhid3VGOEpwdlR6RFhXRFQzdDhtTHVvM1dZTnotVTNwa3gzTkRmQkt2TEVTM1F3T1NxbVlkbGZJM3hjVm1lSDMxQjBUNDJ1T2tqb045emo5d0NrVW4tVk9RMVRGN1JpeUU1Q0NWUGI1aExCQ0JYWGVUQ3F1dEhpbHV3elJ4dVF3?oc=5",
+   "published": "2026-11-10T19:51:14+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-10T12:00:11+00:00",
+  "run_at": "2026-11-10T20:10:11+00:00",
   "session": {
-   "date": "2026-11-09",
-   "bar": "final"
+   "date": "2026-11-10",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1624,12 +1629,12 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-10T11:40:31+00:00"
+    "as_of": "2026-11-10T20:06:03+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-06"
+    "as_of": "2026-11-09"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1640,54 +1645,54 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-10T11:53:29+00:00"
+    "as_of": "2026-11-10T20:06:49+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-10T11:56:37+00:00"
+    "as_of": "2026-11-10T20:02:28+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-10T11:59Z"
+    "as_of": "2026-11-10T20:09Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-09"
+    "bar": "provisional",
+    "as_of": "2026-11-10"
    },
    "yahoo:^VXN": {
     "ok": true,
