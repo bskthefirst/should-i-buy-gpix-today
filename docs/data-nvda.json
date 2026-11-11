@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-11T12:00:17+00:00",
+ "generated_at": "2026-11-11T20:10:19+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-18.3% in 5 sessions",
+   "value": "-12.7% in 5 sessions",
    "score": 2.0,
    "weight": 2.0,
    "lean": "good",
-   "note": "NVDA is down 18.3% over 5 sessions - the crash band from the TSLA-validated single-stock framework (5d \u2264 \u221212%, weight 2.0). Applied here provisionally pending a dedicated NVDA pass; the qualitative bet is that sharp single-name washouts bounce.",
+   "note": "NVDA is down 12.7% over 5 sessions - the crash band from the TSLA-validated single-stock framework (5d \u2264 \u221212%, weight 2.0). Applied here provisionally pending a dedicated NVDA pass; the qualitative bet is that sharp single-name washouts bounce.",
    "viz": {
-    "pos": 0.0,
+    "pos": 15.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,7 +49,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "51% ann. (p100)",
+   "value": "53% ann. (p100)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "29.4%",
+   "value": "26.9%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 58.8,
+    "pos": 53.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 19.5 (p76), F&G 34",
+   "value": "VIX 17.4 (p56), F&G 37",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 168.89,
-  "as_of": "2026-11-10",
-  "bar": "final",
-  "day_change_pct": -5.47,
-  "sma50": 218.0,
-  "sma200": 204.54,
+  "price": 174.79,
+  "as_of": "2026-11-11",
+  "bar": "provisional",
+  "day_change_pct": 3.49,
+  "sma50": 217.14,
+  "sma200": 204.47,
   "high52w": 239.24,
   "high_label": "52-week high",
-  "drawdown_pct": 29.4,
+  "drawdown_pct": 26.9,
   "series": [
-   {
-    "d": "2026-02-25",
-    "c": 195.56,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-02-26",
     "c": 184.89,
@@ -1217,6 +1211,12 @@
     "c": 168.89,
     "t": "good",
     "s": 72
+   },
+   {
+    "d": "2026-11-11",
+    "c": 174.79,
+    "t": "good",
+    "s": 72
    }
   ]
  },
@@ -1265,7 +1265,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 0.3079,
+  "ttm_yield_pct": 0.2975,
   "tbill_3mo": 4.24
  },
  "distributions": {
@@ -1349,13 +1349,13 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 168.89,
-  "sma200": 204.54,
+  "price": 174.79,
+  "sma200": 204.47,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 51.0
+  "level": 53.4
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1373,61 +1373,61 @@
  },
  "backtest": {
   "start": "2022-11-11",
-  "end": "2026-11-10",
+  "end": "2026-11-11",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 54722.73,
-  "dca_return_pct": 160.58,
-  "dip_value": 54706.81,
-  "dip_return_pct": 160.51,
+  "dca_value": 56634.41,
+  "dca_return_pct": 169.69,
+  "dip_value": 56617.94,
+  "dip_return_pct": 169.61,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Nvidia hires leading US law firm to investigate Jensen Huang\u2019s relationship",
-   "source": "The Guardian",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPVE0zY21CWUpFX2xVMEZJRll3dzgxc19BYXFXLWxxWnk1eF9uSmtEZU5KVDVqZ29KOEVxdUJpdWlJU3IzQzNfUDVubHV3bzA2WFJwRC02eTdHcWZSb2FJX19JY2hsdHlzdHhlMmZMd2JGN080UnJ0R2lERXdocVowRkd5UlAzODVvclJ3eGVRbW5lZWVuaVpKT2tlNkFCWjdZbHVOVGd3a2E5VlhtNjJUbDRURDlVT0thaGtNWXYtMGtLdw?oc=5",
-   "published": "2026-11-11T11:52:00+00:00"
+   "title": "Who is Alice Huang? The woman at the center of Nvidia\u2019s scandal remains elusive",
+   "source": "AP News",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNWWN4Um5UWHU3MHROUmJ2YlMtSW05bmNXSFI3TkVFajJrODcydUlDa015MWdnN1FkVnBiZWNZUlZPUUs4NGRkN1MzLXRCZHZ1cnNVc3ZqUXVCYklscFJ0WWVHUlY2Z2VCV1VKN1BMTU1KRzlpNWM5STBQZm05NldlaTdBd1Y2T0xaQzNKOWo1T2laZmc?oc=5",
+   "published": "2026-11-11T20:01:00+00:00"
   },
   {
-   "title": "'Daily Show' Desi Lydic reacts to Nvidia CEO's affair with alleged Chinese spy",
-   "source": "Mashable",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPZVZGNG1KWGJfVl9PMHFtOFhjUXFVWWluMUUyTjY5RjlmcnBfbld6LTExWC1ZcEM3UkRGamNMZHBlSktmWlRvWHN1SzRWSDB2WGFUTXJIZmE5WC1XbWNkeS1BWk5tOVhkQW13Q3lXM3NLOVJrWm5PbzFlTDFsSnBZcA?oc=5",
-   "published": "2026-11-11T11:49:28+00:00"
+   "title": "The Debate - Undone by a honey trap? Nvidia's Jensen Huang at heart of China spy scandal",
+   "source": "France 24",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOdVZHR0xucHp5VXVmOXJHNUtzeVgza3FzQkN2aU55MlU2T2h0N00tUzhNcjFCLXF1SjU4R0w2UmpfdklGejluWWMxNGFPLV9vbEp2OFhURjVUc0lMZmpSQVpPTUkzTEhwbGFkX1F5LXJfdlZoLTNCcm03TTRKQ19KdFlxX0dIaXJEbm1mMXE2V25DLXdic0l1RnFtSldwdFBaYjFYa21VRHNBd0VPTkF5NTQ4UHFhWmZQbjYwRnZSM1VHY25pNDZBMXB6UQ?oc=5",
+   "published": "2026-11-11T19:32:29+00:00"
   },
   {
-   "title": "Tesla Stock Thrives on Key-Man Drama. Nvidia Might Not Be So Lucky.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1pT2tuZE1GekpnV012aXltMkVZVVE5Y0kxamZ4Ukd1Nzk1NXFHTjBDTG1rNmpCSHg5dzUzUXA2TWk3d1FBMVluWUVadDdCeTUzVU5zTDdFMXBqQWhHQzZxWHEyQ1dfenl1clB2OV85SVFEMHF1WnJqWUtjb2tZRWM?oc=5",
-   "published": "2026-11-11T11:47:00+00:00"
+   "title": "A Chinese spy, a chip war and Trump's indifference: How Nvidia became caught in an international scandal",
+   "source": "Le Monde.fr",
+   "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPYWR1ai1tUTVoYXdQSE43a1VtQURndVpWbzk1WnFIS21wcjNhOFhxcmpFSHV6Nm52ZWNkWTQyTGdRYlM3TFcwRXJrOE8tN01DUFlwTnFqYUhETjlBRUFzZFNqRm9GSUtDQWkwSXRnLWJ2ZG9OUEFLV29GaVpkTThPZHdrY0hucGJBZ0lqdHZ2cVNqbGpYTlpVOFJreko3YUlfaTRvdlo4X1JQWTJHZXVraTZHVVRPUUZfQm1vcmIxOU9Xbk11STQtalBFM1UxMFlGdkxuMU1pbWxXaE9CYzg5dUw1TmhNaUNUM3R4TzVTbmxtQkp5YnhvNHNqVnJJeTFC?oc=5",
+   "published": "2026-11-11T19:30:07+00:00"
   },
   {
-   "title": "Scoop: Commerce Department received national security warning on Nvidia CEO affair",
-   "source": "Axios",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5NTWlEVTREeTZ0V3J5d1VBblV3Q1JiV0tqTWJUSGVJQ2MxSElWWHpVVG9lTkxKR3ctY2RDVHJUaTdWak1oS2lGSGhPbUJ6MU9CZ2xJdGY1Ui0zQy1uaFliV3c1MXprY3RDejF2eXp2WWc2WWJRSTZiOEljZw?oc=5",
-   "published": "2026-11-11T11:37:33+00:00"
+   "title": "Nvidia Hires Former Federal Prosecutor Joon Kim to Investigate CEO Jensen Huang",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQUl9Gb0ZxWjFHSWNaU1cwdTJ6UGpzbXotSDVZb1NieUF6QjEwWnE0TjJINDJQOXVkOHZYdzNyWVN5VUFsRDVSYVE5SEVNaWRHd1BBOERuZk5uUXJKMmh5Zld2UjVWeEllYzVHNnRSekZWcGNOOXRXVDVhR3MySEN1US16T212ckFGWjdiMi1rY3JhaGRVWHpTVUZRSjdnSHFt?oc=5",
+   "published": "2026-11-11T19:29:46+00:00"
   },
   {
-   "title": "RBC's Amy Wu Silverman on what options are saying about Nvidia",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNSVQ2WVRkRkozMWY1Wm9ONTlvUi1RN1hMV0cwN3MxNExlTW1XNmJ0ekdwUlNQSWxxTVY3RUxpRHdHb1RIZ3ZVdDJqaU9YeVkwcC13X2xtNGFkaWFMbERuY2xlQkMyLXNPQ3RGN09mM2luV2tZUXNWZGRERk1KbzJzQTE1emt6eXJJRmZZcDhWVEh2MGdoNUlvOHFxVXBMajNDTHgyMllVdw?oc=5",
-   "published": "2026-11-11T11:33:53+00:00"
+   "title": "Nvidia Just Had Its Worst 5 Days Since 2022, Worse Than the DeepSeek Crash",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOMGdRMmFFcVRvRWM4UFdEMFdlZEJGSFVlZDQ5Mm5DQXkwcHBrMllRcF9MS29rSXhlTG44bTRCV011Q3VkZ0lsdHNrNm9sbFA4Tm5PWHN0Y3MtVDBEdS1hMkNRMGtTRFQ1RVdUUHlxRkx6Ti1TcW9Xbk95RjhQRlFMZzdTNEVZdUlqWTR5cXFrLWtVZw?oc=5",
+   "published": "2026-11-11T19:27:37+00:00"
   },
   {
-   "title": "Is Nvidia a Bad-News Buy or a Stock to Avoid?",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOY09KR29vYk9peGxISkVsMXBWeWJLX0I5TkVHNlptNlUwYkJzUGZicTFrMWF3NnpyTkdsTUVlT3lfTF9qYktkdE45dk5kYkNUb2wzQWVsZU9FeTdjMUhBZHFSSk1KVDVCOVg0OF9nU1BaOEU5eEVHYnRfeFc5R3k1ekE2RlRDdmptOERCdXFpT2Q?oc=5",
-   "published": "2026-11-11T11:30:00+00:00"
+   "title": "The Debate - Nvidia's Jensen Huang at heart of China spy scandal",
+   "source": "France 24",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQNHJidDJ5TmotQkhqdkR4clVnWHR4aXdSOUR4Z2psNnlJQXlGcDhzVkNnYUVOclgwMWtGU0hOd0JMZUJYcGQ1MFo4anRTX2NtbFRiSHB4SVVHWnoxNXhCTV9OMGQ1Vy1DaTRvMVVpbHpfTDRuOFJnLXZtbXp0WmRSeFlET21rQ2ZvblpMdnkwbzg3cFpianBzMmFaLXQzTm1aa3ZCRDlpeWtqOTU1?oc=5",
+   "published": "2026-11-11T19:23:56+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-11T12:00:18+00:00",
+  "run_at": "2026-11-11T20:10:19+00:00",
   "session": {
-   "date": "2026-11-10",
-   "bar": "final"
+   "date": "2026-11-11",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1443,7 +1443,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-11T11:39:31+00:00"
+    "as_of": "2026-11-11T20:04:28+00:00"
    },
    "earnings:NVDA": {
     "ok": true,
@@ -1476,90 +1476,90 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:48:17+00:00"
+    "as_of": "2026-11-11T19:56:34+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:42:53+00:00"
+    "as_of": "2026-11-11T19:54:37+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:52:00+00:00"
+    "as_of": "2026-11-11T20:01:00+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:54:24+00:00"
+    "as_of": "2026-11-11T19:59:06+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:47:00+00:00"
+    "as_of": "2026-11-11T19:55:13+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-11T12:00Z"
+    "as_of": "2026-11-11T20:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:^VXN": {
     "ok": true,

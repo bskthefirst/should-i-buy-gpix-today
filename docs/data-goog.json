@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-11T12:00:19+00:00",
+ "generated_at": "2026-11-11T20:10:22+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "51% ann. (p98)",
+   "value": "52% ann. (p100)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "GOOG's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on GOOG): elevated single-name chaos tended to mark better entries on the calibrated name.",
    "viz": {
-    "pos": 98.4,
+    "pos": 99.6,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "28.5%",
+   "value": "26.9%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 57.0,
+    "pos": 53.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 19.5 (p76), F&G 34",
+   "value": "VIX 17.4 (p56), F&G 37",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 284.92,
-  "as_of": "2026-11-10",
-  "bar": "final",
-  "day_change_pct": -0.38,
-  "sma50": 327.64,
-  "sma200": 337.07,
+  "price": 291.37,
+  "as_of": "2026-11-11",
+  "bar": "provisional",
+  "day_change_pct": 2.26,
+  "sma50": 326.83,
+  "sma200": 336.85,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 28.6,
+  "drawdown_pct": 27.0,
   "series": [
-   {
-    "d": "2026-02-25",
-    "c": 313.03,
-    "t": "neutral",
-    "s": 50
-   },
    {
     "d": "2026-02-26",
     "c": 307.15,
@@ -1217,6 +1211,12 @@
     "c": 284.92,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-11",
+    "c": 291.37,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
@@ -1265,7 +1265,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 0.3018,
+  "ttm_yield_pct": 0.2952,
   "tbill_3mo": 4.24
  },
  "distributions": {
@@ -1325,13 +1325,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 284.92,
-  "sma200": 337.07,
+  "price": 291.37,
+  "sma200": 336.85,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 51.1
+  "level": 52.3
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1349,61 +1349,61 @@
  },
  "backtest": {
   "start": "2022-11-11",
-  "end": "2026-11-10",
+  "end": "2026-11-11",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 35780.56,
-  "dca_return_pct": 70.38,
-  "dip_value": 35846.13,
-  "dip_return_pct": 70.7,
+  "dca_value": 36590.56,
+  "dca_return_pct": 74.24,
+  "dip_value": 36657.61,
+  "dip_return_pct": 74.56,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Google's $10 million plan to buy Spirit's data and use it to train AI cleared one of its last big hurdles",
-   "source": "Business Insider",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQS0JtQlhvcWxTWUNhVmdST1c5OE1QQkFIUHZmUGpLaDFNcGo5LWpiWGh4Zzh1NDBMNlN5MW5uTGQydUZNYjhESTc5YjF3RnJrem1jWk9mM3hhM0dZSl9LVlRrc1EtdE91QUF5TTlKTGtXdk55QzRpSWJ3WmEzNUk0LUZtN0FCdzRrSDVYdE1pWQ?oc=5",
-   "published": "2026-11-11T11:54:00+00:00"
+   "title": "Google gooses Python AI performance by\u2026 removing Python",
+   "source": "Adafruit",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQWld4VUJiUGtJME5PMXhiT0IxanR0Q1VUVVNoLXdXREQtZkRXVURyZkJkRDkyeWVMdklWUUxuRXBmYUhqcnl2aE9jSzB4YS1fOGo3QjUtSWlWSFVwal9LZUxZSkdfRFpUVWhrQ1V3Z0ZrZFRwNVRfSEtnb3BQVy1pNFZBeWZ0WDJkNGtId1V0SDV5cmRVdlUw?oc=5",
+   "published": "2026-11-11T20:08:22+00:00"
   },
   {
-   "title": "YouTube Rattles Hollywood With Record Viewers as Netflix Rushes to Sign Its Stars",
-   "source": "La Voce di New York",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNYVh1MmNNMlpsc1JOWkJtNGFwaGdCdUFKZzkxMkxFRXhqTnhCc2pBUDFSYTlqVW92bWFNVW5DcGtDY2MtaTJIeWh5d0FneUV5M3hEM3AyZi1zSW1hUVFIblp3OUdweWdmelpjMzFRRm96NzlLNWRIVF95bnZqUjl4MjVFWVZ3MnJfd1ZKYmk0SDlqU1NaYk9YWnJ5cWFPYkdLMnV6MlBJNk10RWg0YXdmOFpsRU5xOEJ1LUx1U1FDN3MySVJQWDlTXw?oc=5",
-   "published": "2026-11-11T11:33:36+00:00"
+   "title": "Google\u2019s Utah Deal Puts Geothermal Power on the Data Center Map",
+   "source": "Data Center Frontier",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQczhYM0Zid2JoU3gtN0JUTjhJQlVUN0lOQXFXWm84NXl3T1Rad2tJWm55SjFQN2ZfZkdON3MtZnY3U0hHOG1uRHZyWFBMWXQ0YlNIcTFOTE81b2VSZjBUVm5ZWFdYZm93b0FuaGROU0FlV2pKd3Z6UGMxRmplZmRidzBaUVA3UUM1VEtVRXNFaEtTaEtLV3ZSZjJxRmJxbGNjWVBtQVdac041VEEzZU5zUlVGaUVTLVN0MUYyVXJ3?oc=5",
+   "published": "2026-11-11T20:04:03+00:00"
   },
   {
-   "title": "Google MVNO service brings back multi-network capability",
-   "source": "SDxCentral",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOODRmOFRVbmEyMGxmTmRPQUJLUUdJd2x3c05ZY1NHNEtKVzV6M0xYajVUMFZ1QjhtcHFPVDBGOFViREc3aExDWGFTZ2h6UkVmcWtmR2J2WUFOMXZUSHFZamFKOC1fUWhVV1NGU3JRREFpQ2FjYjNxcjkwWGFacHFXem9qUHp4R0ZrMFpXYm0yc1NaS0k?oc=5",
-   "published": "2026-11-11T11:32:16+00:00"
+   "title": "Google Brings The Gemini App To Apple CarPlay",
+   "source": "Engadget",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQNWN6ejFpcTNfcG1XSnlZMWZLWnNvMi1zS2xYMy1NNXRTYXNuNElsakhMamFiNGgxUmxHN2pQR1ZBZVlTdC02OExoZ1NyZUg3ZHdoVDVucUV6LW1Wc1hVVktid1NZNndSNUNvb3RObDZwd25MNFdSZWpKMTl3bnBVZ2I5WjVDZw?oc=5",
+   "published": "2026-11-11T19:54:55+00:00"
   },
   {
-   "title": "Google gooses Python AI performance by... removing Python",
-   "source": "The Register",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQUnNpMF9YeGVTYTJNX2k2SWU1ek92QnltR09Oa2NMbWZsbHFPN1VmVkVqRnNDSVZ2d0lvSWtHX25YSjNueTJfN25FdkNfU1AtU3lwUjZ2ekpQWGl0OW1Fa0pGSzh4NEZFMWFmYllPeXRMeEVRMFloZEFWb2VNWW1Hbm91LS03d3FRV2RhU2hDWXRoc1Z0NnJRWFlxdE9wenpTNENxLS1rTkpFSWVD?oc=5",
-   "published": "2026-11-11T11:30:00+00:00"
+   "title": "Nvidia, Google agent sandboxes meet within CNCF",
+   "source": "TechTarget",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPYkVVdm9UWTVOOXRJU1Z6Q2ZOTllCZVJDaGloS1FEWkVGSzlSdnlud0dJSGowYWpBeHRZeE1pV19odm45VHZvSTF5bDJwdWpORVltaWtjZmNpU1dNMnFJczhmTjlfaHJaa29OZzF1VzFYWTlaY3ZLcmNqYVl5RG1Yb3o0T1djeWZ1Q3VwMEhiOA?oc=5",
+   "published": "2026-11-11T19:52:30+00:00"
   },
   {
-   "title": "AAPL vs GOOGL",
-   "source": "Quantisnow",
-   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE4zd2ZENzY3U183Rll3T09GZVRRMWtVa2Q0b2FxQUpXd2VjMXVoazJ2c1Rza1I5TGFwRUdLcThrNEN1LUh1Y2tzMDRMVXZJUzJnU3NXcFF0aVdvMFZU?oc=5",
-   "published": "2026-11-11T11:19:23+00:00"
+   "title": "Google Search Expanding AI Overview Definitions By Default",
+   "source": "Search Engine Roundtable",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE84UmozcXRiRUJablpWOS1aS1lJYmJSc2o3YV9VV2VKbGlXcUJLVHBaQ2dTUjBicFZfNXg2Vm96NGdpNEJKM3RiOWZOSEhTQVhydDJqTDJ6Y21sR1p1RGVFaTI0R2tEZ2RFRElCVTR3TTVPUTl0bnpR?oc=5",
+   "published": "2026-11-11T19:51:00+00:00"
   },
   {
-   "title": "Claude Meetings Brings Anthropic\u2019s AI Into Google Meet Calls",
-   "source": "Technology Org",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONDNTelZkSllwN0tJcG1US1lhUkNmT1Zvb2doM3ZPMElTS1oxbHVlQlM4WmloUEtqNHoxeV9seFdJWWRXNW92TFZTRFZMX0NQQ0lXRmJLRmZ3emtEQndaSUprNmJGQ2lEazlxZXJJQjRNQXktcWZxdmRpUHhOVVVLSE14VTRLMGhKenFuX0ZvcURLUHpZd2RFSA?oc=5",
-   "published": "2026-11-11T11:18:00+00:00"
+   "title": "Google Says Gemini App Rolling Out on Apple CarPlay Starting Today",
+   "source": "MacRumors",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE40YXU0UHU0R25YbjZ6dno0TjA4bzlPcHdtWXB0bEtDQ001LUp6Zm9DQkxwQlo5LXBibjlfX3N0NjEwYUtacWhIb2Q2bllQa0J1S0FyZ0N3VWx0MTVuU2d5WWdQM21iUERuNWNGM1czRXRRUms?oc=5",
+   "published": "2026-11-11T19:50:14+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-11T12:00:19+00:00",
+  "run_at": "2026-11-11T20:10:22+00:00",
   "session": {
-   "date": "2026-11-10",
-   "bar": "final"
+   "date": "2026-11-11",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1419,7 +1419,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-11T11:39:31+00:00"
+    "as_of": "2026-11-11T20:04:28+00:00"
    },
    "earnings:GOOG": {
     "ok": false,
@@ -1457,102 +1457,102 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:54:00+00:00"
+    "as_of": "2026-11-11T20:08:22+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:48:17+00:00"
+    "as_of": "2026-11-11T19:56:34+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:42:53+00:00"
+    "as_of": "2026-11-11T19:54:37+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:52:00+00:00"
+    "as_of": "2026-11-11T20:01:00+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:54:24+00:00"
+    "as_of": "2026-11-11T19:59:06+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T11:47:00+00:00"
+    "as_of": "2026-11-11T19:55:13+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-11T12:00Z"
+    "as_of": "2026-11-11T20:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-10"
+    "bar": "provisional",
+    "as_of": "2026-11-11"
    },
    "yahoo:^VXN": {
     "ok": true,
