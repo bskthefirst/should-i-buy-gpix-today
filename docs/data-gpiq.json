@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T20:10:09+00:00",
+ "generated_at": "2026-11-11T21:36:18+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -23,7 +23,7 @@
    "lean": "good",
    "note": "Nasdaq-100 volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good.",
    "viz": {
-    "pos": 86.9,
+    "pos": 86.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.90",
+   "value": "0.91",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
    "viz": {
-    "pos": 50.5,
+    "pos": 52.3,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -69,7 +69,7 @@
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 79.7,
+    "pos": 79.6,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-8.3 pts",
+   "value": "-8.1 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -117,13 +117,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "8.2%",
+   "value": "8.3%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 82.0,
+    "pos": 83.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -148,13 +148,13 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-3.9%",
+   "value": "-4.0%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 17.5,
+    "pos": 16.7,
     "labels": [
      "\u22126%",
      "+6%"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 64.7,
+    "pos": 64.8,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -227,7 +227,7 @@
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 37.4,
+    "pos": 37.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,14 +257,14 @@
   }
  ],
  "fund": {
-  "price": 53.8455,
+  "price": 53.78,
   "as_of": "2026-11-11",
-  "bar": "provisional",
-  "day_change_pct": 2.25,
-  "sma50": 56.25,
+  "bar": "final",
+  "day_change_pct": 2.13,
+  "sma50": 56.24,
   "sma200": 55.25,
   "high52w": 59.52,
-  "drawdown_pct": 9.5,
+  "drawdown_pct": 9.6,
   "series": [
    {
     "d": "2026-02-26",
@@ -1342,7 +1342,7 @@
    },
    {
     "d": "2026-11-11",
-    "c": 53.8455,
+    "c": 53.78,
     "t": "ok",
     "s": 59
    }
@@ -1352,12 +1352,12 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VXN above 29.0 (now 28.6) = top decile of its past year (+9 pts)"
+   "text": "VXN above 29.2 (now 28.6) = top decile of its past year (+9 pts)"
   },
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.90) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.91) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1373,14 +1373,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-10",
-  "days_total": 762,
+  "end": "2026-11-11",
+  "days_total": 763,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-11-11",
   "baseline": {
-   "n": 741,
-   "avg_pct": 1.77,
-   "median_pct": 2.06
+   "n": 742,
+   "avg_pct": 1.76,
+   "median_pct": 2.03
   },
   "bands": [
    {
@@ -1400,19 +1400,19 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 483,
-    "avg_pct": 1.05,
-    "median_pct": 1.58
+    "n": 484,
+    "avg_pct": 1.04,
+    "median_pct": 1.57
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 10.71,
+  "ttm_yield_pct": 10.72,
   "tbill_3mo": 4.24
  },
  "fx": {
-  "usd_krw": 1336.96,
-  "as_of": "2026-11-11T20:10Z"
+  "usd_krw": 1338.89,
+  "as_of": "2026-11-11T21:36Z"
  },
  "distributions": {
   "history": [
@@ -1535,8 +1535,8 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 691.38,
-  "sma200": 681.72,
+  "price": 690.38,
+  "sma200": 681.71,
   "above_200d": true
  },
  "vol": {
@@ -1558,57 +1558,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 16000.0,
-  "dca_value": 20642.51,
-  "dca_return_pct": 29.02,
-  "dip_value": 20426.08,
-  "dip_return_pct": 27.66,
+  "dca_value": 20617.4,
+  "dca_return_pct": 28.86,
+  "dip_value": 20401.24,
+  "dip_return_pct": 27.51,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 66,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Workday says millions of job applicants can't sue as a group over AI screening",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPbk0xNFh5Vk5TZmEySEQzMGxMOGM5c2dRRTRxYXV1dkI2UXpNWHhiZTZ0Y29qQ21PSXhVQk51WGlaVGNzZE04Y2pET2Q4SnluVHFYelNJYnJNMlVHSEhfZGI0SEFQMmNCajY3aGZadWEtTFhrY0pkaTdRYk5ZWC1MQUhQd05RdXdmcFJDSUxFUmJBWkxVWlFsTXNWbVJPbGVuU19Db0Y5bUVtRk9mY2tBckgydkt0UVlockI3Sk5jTQ?oc=5",
-   "published": "2026-11-11T19:56:34+00:00"
+   "title": "AI Trade Gets a Boost on Fresh Signs of Demand",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQWGNBck1UY0RNWmxkV1pfeS13djhvTXRlTkZJWnFQWkxCd0lEQVJ6VXV1TE5wYUNZLU5aclhDM2ZHUlcwcXFMS0ZRQThtbXR1aDhXTXJjUGxob292YTNRQ08zUjlMWHFoR2lKelpnYWI4RF9JNlRUdm5Zcmt5MzlTQ1FxWFhiVDNlMVF0QURaUTgxWDJ6UmRpal9ubkFLRk5DY2c?oc=5",
+   "published": "2026-11-11T21:33:04+00:00"
   },
   {
-   "title": "Three States Where the AI Boom Could Slow After the Midterms",
+   "title": "AI will drive a 1.7M job boost, with big changes ahead for IT",
+   "source": "CIO Dive",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1sRVMtU1FZYU9hRTFXcWNKay1ZV09kZ25pSG9EUXd2Ty1xSndzY3AtRzh5VFNJb3lhcWxrUFd6WlRrRXZ0eXhqcEhwUmJzMjJtekJINVdEaWtnX0F2d0h1Tmk3T1lsMkstNFFtaG5B?oc=5",
+   "published": "2026-11-11T21:28:45+00:00"
+  },
+  {
+   "title": "NextNRG Announces Nasdaq Delisting Determination; Trading to Be Suspended at Market Open on November 12, 2026",
+   "source": "markets.businessinsider.com",
+   "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNaWFqalNpTE42T1FpbmVmSzRVb1dzcXEyZm52aUtpeTZPeXBYNjN5VXpyVjN1NVROTmdwd0tfYUFvdHUtb1JJWFZaM000OF93dkFGazlhRmM0MEhYTjVvVElScjZGRkE5ZTRqalY2enZEd3k0YWc4dnBJbndEU0tvOS01aE5PSHE0SWJJaGd3Y3F0bVVfTEk5M2lQUGJ3YXg5N1dFeG9YejNNN2VsQ0wxTDQ0TlR0WmhkYUVzN1dTTFF5NUhsbXNzNVlxeTh2VV95b0lHVTJZX2s4aVdlZG9fQkZfU3d2bFFDSzBEMERrUW9JandoN1laeFhR?oc=5",
+   "published": "2026-11-11T21:25:48+00:00"
+  },
+  {
+   "title": "U.S. Stocks Rise as CoreWeave Update Eases Some AI Worries",
    "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVjJNZXJQSnpTYlhIWDFIdUE2SGpidG9TaERuZUJwUHdmdFh6R0R3WGtrTjdVQ3F1UVBwT0sxS29IZEVOUWdmempJRkdYZm9RazRwZXAtVGRGSVRDUGhGN2VfcHEyRGdfWW51SEQ5MDlMMEtFWXV3QjF6bXJ4WU4xTW42UGdYc1RURFotN2Q1LURXUm56NFJoaV83T05IUQ?oc=5",
-   "published": "2026-11-11T19:56:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOSTdqZ1N4YjN6SEVTUTJHa3k1eTFDVFpTT0JhTGV2dHgyNHl2RHBPVlR1WEVZSWpVQTJhVElFRUxySzFKWWNIQUNuN0FYRURrUUJkQy1tZHBRNGRhMjZwd0Z5ZWhMQmphdU1OSThhNVFfdTA3RFJTcEQxWjBLWjJzWTdfYVlZdktJbHhuUVFGMHlsUjA1QWQtcTdYd0o1TGhia2Jj?oc=5",
+   "published": "2026-11-11T21:23:00+00:00"
   },
   {
-   "title": "TeraWulf Stock Rises With AI Infrastructure Stocks After CoreWeave Earnings",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOU2Z0Y1ZVSF9peEFCTjlUd2Z6THREYXUyaExVRENIWTZPRUhVc1JaZ3l5Z200SXBUZzVhUG9fZU5nM0pKVXp1eV9GYXNBdlVRT2ZLRDJZQzU1NDRGbEJreDR3QThIcF9obWdlY2E2MnAtM0RieXFoWUpxVnVfcjdzdTdmdE9lQVAzVk5oNXo0N1dhc21FbnF1VlpTOUhiSUU3dXJabXFkNmVPcko4OWRnbmM0MWY3b1k1Q0dJem1jbVgxOG05XzZSYVJnVGtISzBuNUE?oc=5",
-   "published": "2026-11-11T19:50:07+00:00"
+   "title": "Hedge Funds Just Turned Against AI Stocks for the First Time Since 2023. Should You Follow Them?",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPMkotaFcyMGtPQjZqSmkxUEEwVFJGQXNqbU4wdmMzMnhIdzRXN3hpQmRhMnlrSTVCN25EczNJdGJ5bllYRl9zUXBfcHk5Rzg2YWdTdV9CUmd6SDctUjU5SEE2ZERuOXRDUTFVZXN0bHpLMVlYRFdxUWs5aXBSNGZKQWk0VzBuN1NUT2hndGVIQUpmdlN1dW9JaGxCX25MdDhjNnduNjEtWHp1MGQtLXRoNWdJdEZScVQyMmdRMGs5VE95R3F1ZXh5S3RXeWFrREJGeElN?oc=5",
+   "published": "2026-11-11T21:23:00+00:00"
   },
   {
-   "title": "Stocks climb as CoreWeave results ease AI spending concerns",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNUVZoWU1fQUd2Y1M2Qnl1T2JaMTkwaXBkaDIwWjVHejZoQmdDUnVzUVlSWDVsWW1pVDRVcXQ2ZTdrRTRiMDdMNWJDS3Atem91bUpDMnFLUkZ6NjhjaTliYWV1ODRLMnk0Slh3Wk5wNGtHTDhvaEZpTFIyUlVpQ2tNdTUyb2ZLbEZGOHlTZWRJNzVScUpIS3V5a1FacGwzby00RURBa2htZFFqZmw3Z2pRS2NDWQ?oc=5",
-   "published": "2026-11-11T19:48:05+00:00"
-  },
-  {
-   "title": "United Airlines bans personal AI agents from booking flights",
-   "source": "USA Today",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPam9nX3ZHVTBOc1JBNkFnQzVzSVlXNTJqMk9PUV91eTB1TWtMLURjOEk2SV82Z3hvaTZSRDF4UnJwMGh4SjNYWWNlbGN6VzNfTGdtY2pEaWlJOWtPbHVMRjFOR2xoTjhSekMyUnQ1TXdsUi1hMGZVYmt6TTBXVkIzcGM4OFNMclJrbXNYbVdzaDZSV0pxZElHU3YxTEpXWDFzR05VMUEtbTREUQ?oc=5",
-   "published": "2026-11-11T19:48:00+00:00"
-  },
-  {
-   "title": "Is the AI Trade Over? 1 Defensive Stock to Buy Instead",
-   "source": "Cabot Wealth Network",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWXZOMkpLamw5M3hzOGVGdlV3QXE5OFBhQU9nRmkzRGgyYTV5a1UzWFA5OGZMRXllcGtTSXhKQ1VDNXFFTmtsNHJULVAyeW5yZEtNS3NBN3lyaXE5YkVfVTA5MHdLNDc1OU1kbzFmb3M2aDhObXQ5VzlaWUdVUzc5aUZjd2RfakxKRFpldDRmM2NSZ042?oc=5",
-   "published": "2026-11-11T19:47:11+00:00"
+   "title": "Oilfield Risk: When Agentic AI Errs, It\u2019s a Blowout\u2014Misra",
+   "source": "Hart Energy",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxONzN2N0RlWWFfcDdKLWU3NFpSRTZnejZTY0F6UV9sSHpsSlpGZEVuRDZoa3FZTENHb012SHRYdXMxZ0h3UEVXNTN4MVNBRkVDMlRuak1vX1dtQVpxcklvY012cllWak93NzlDYmJ1bUhXZjZBRjh0TEdMUGJaVTBMakJfRjFnUWZjMFc3dlFtNHN5eTlFS0psaFpaSEU1Y0hoS2k4SGN2enZmVzYxM1kxWG9NQjc4NDNTNGdv?oc=5",
+   "published": "2026-11-11T21:20:35+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-11T20:10:10+00:00",
+  "run_at": "2026-11-11T21:36:18+00:00",
   "session": {
    "date": "2026-11-11",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1624,7 +1624,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-11T20:04:28+00:00"
+    "as_of": "2026-11-11T21:20:01+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1640,53 +1640,53 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T19:56:34+00:00"
+    "as_of": "2026-11-11T21:33:04+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-11T19:54:37+00:00"
+    "as_of": "2026-11-11T21:10:38+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-11"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-11"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-11T20:10Z"
+    "as_of": "2026-11-11T21:36Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-11"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-11"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-11"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-11"
    },
    "yahoo:^VXN": {
