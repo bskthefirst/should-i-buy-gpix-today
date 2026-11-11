@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T21:25:10+00:00",
+ "generated_at": "2026-11-11T12:00:08+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "29.0 (p89)",
+   "value": "28.6 (p87)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "good",
    "note": "Nasdaq-100 volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good.",
    "viz": {
-    "pos": 89.2,
+    "pos": 86.9,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.96",
+   "value": "0.94",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 65.7,
+    "pos": 60.7,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.45x (p76)",
+   "value": "1.47x (p80)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 76.0,
+    "pos": 79.7,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,7 +90,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-6.9 pts",
+   "value": "-7.3 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "33 (fear)",
+   "value": "34 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 33.5,
+    "pos": 33.9,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,11 +249,11 @@
   },
   {
    "name": "Event calendar",
-   "value": "CPI in 0d",
+   "value": "FOMC in 28d",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "CPI print within 2 days - the biggest single-day volatility event most months. Not a reason to skip a scheduled buy, but expect a swing."
+   "lean": "neutral",
+   "note": "No event risk in the next few days (next CPI 2026-12-10, next FOMC 2026-12-09)."
   }
  ],
  "fund": {
@@ -1350,24 +1350,24 @@
  },
  "flips": [
   {
-   "label": "Top-decile premiums",
-   "direction": 1,
-   "text": "VXN above 29.2 (now 29.0) = top decile of its past year (+9 pts)"
-  },
-  {
    "label": "Short-term pullback",
    "direction": 1,
    "text": "QQQ 5-session return -1.5% - another -1.5% = short-term reversal (+12 pts)"
   },
   {
+   "label": "Top-decile premiums",
+   "direction": 1,
+   "text": "VXN above 29.0 (now 28.6) = top decile of its past year (+9 pts)"
+  },
+  {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.96) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.94) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 33) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 34) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1381,7 +1381,7 @@
   "end": "2026-11-10",
   "days_total": 762,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-11-10",
+  "fg_coverage_start": "2025-11-11",
   "baseline": {
    "n": 741,
    "avg_pct": 1.77,
@@ -1416,8 +1416,8 @@
   "tbill_3mo": 4.24
  },
  "fx": {
-  "usd_krw": 1341.95,
-  "as_of": "2026-11-10T21:25Z"
+  "usd_krw": 1334.1,
+  "as_of": "2026-11-11T12:00Z"
  },
  "distributions": {
   "history": [
@@ -1546,16 +1546,16 @@
  },
  "vol": {
   "index": "VXN",
-  "level": 28.97
+  "level": 28.57
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 29,
-  "imminent": true
+  "days_until": 28,
+  "imminent": false
  },
  "cpi": {
-  "next": "2026-11-10",
-  "days_until": 0
+  "next": "2026-12-10",
+  "days_until": 29
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1573,53 +1573,53 @@
  },
  "headlines": [
   {
-   "title": "Great Lakes AI Week highlights promise, pitfalls of technology",
-   "source": "Toledo Blade",
-   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNb1R1YnJaRVFtX2pDU1UyTURLekNuaTdvSmd0VVFZWUFaMV9HQzVoWGlWYWJJSFJqQVBaTkdHX1JxWnZuc0JfXzZRV0lnbTh4c0ZCMFQzTEVfcG1MOGpNUDVHSWhjTW10ZlNRTmxVMC1qMmdzZmJNQ0xzX1ZYUTVNMDBEQjZlYlE4OWdMYkdPRW5id0xSU0djanBsWFF5MDhJNjVDcm5zRDFyN1hlNFNxTkYtYTIwRk81clZGN1JpYkcxbno4YlF1aHVoUVNMdw?oc=5",
-   "published": "2026-11-10T21:22:17+00:00"
+   "title": "AI Bulls Return on CoreWeave, Anthropic and OpenAI Buzz",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbDVyVXJLM0xoWXpxLVcxOElGUThIVndBSU9MekRDTF8wc0pBcnpHZER2V0VKSlhnQnJBdjZSZF9aM1pTcXVoSGhEalNMTUNxaDMxbUNVTk5ONGJQS1ZHRmRtWVhiOEI1QzNTNEdQWFpSZnR2bkgyTUJ1T1lRN0U1ajNiLXhmc2JWMnpkczFHaXZmTXlmaVBhS0dMVVZ6UkhrQzVicGZya19ZMnBu?oc=5",
+   "published": "2026-11-11T11:48:17+00:00"
   },
   {
-   "title": "U.S. Stocks Slip on Inflation, AI Worries",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNZXg5OElsSk43aE5LclhWNmdybnZ4TXNaSzdRM2NKUnpGVVh5Y2FpdFlvejhrYklGa3VmM3hFYlFsWnBzSFZtVVBtMjFYeVRFRDFiU1U4dXRIYmF2aTZDWU1vWUlJUDM3Zk9VdEtKWnNsb2lDYzRUaFpLWU03YmN1cGdYMFktcmtCb3cw?oc=5",
-   "published": "2026-11-10T21:21:00+00:00"
+   "title": "Workday Seeks To Decertify 15,000-Applicant AI Age Discrimination Case",
+   "source": "Forbes",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPUE1Mekx6VW9xamNpT1lKRUR0UWR3M0xzc05GaTFpQjRMb25hcEM0Z1NHSy12SXJIRHJyTEE3U2Z4ZVBWSjRmVW9FQjRLcEl6ZVJfVGZyZjF4dkVUY0tRUlhpQzhTLUFUeWRpTXd3NS1HLTlfN2EwdkxlbkZiWWRtVS1jRFNYdERiZ3IzdjAzM3MyUHJFZlhCeTNIRjJQc25HLTBTMGdUVDd2WF9ILTk5empCdjN4cDZiWUZIeDR1RjRLclE?oc=5",
+   "published": "2026-11-11T11:47:37+00:00"
   },
   {
-   "title": "AI use is now universal in higher education. Why are universities failing to adapt?",
-   "source": "Phys.org",
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1yUjhwbmZjZW5EenF3S2pNd0RueHM1RldxamZSODhzOWFIWEJ4V24wX25NWjJLZHFJb2NCb2NlbmU2RERzdnMxaGdfQ1NkT1dpX2FYV25Jek9VT0V3R05rSjRVMXJXT1ppZjd6ZjFrTnZtMW1MckE?oc=5",
-   "published": "2026-11-10T21:20:08+00:00"
-  },
-  {
-   "title": "Governor's 2027 preview touches Alexandria's asks on housing, solar, and AI, but not transit or school funding",
-   "source": "The Alexandria Brief",
-   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNMzNjb3lnaGxoOS1nYlNYbUU2RnNXX0xGRjZ6bEs4TUVIMXJUV0tWMFU2UVJ2NjItSFJsUmVNa0pUMzFLdURoVnRKUWNNY3ZhUk1PeTVvSlNNRDFxM0tZMF80LXFvOHl2WmotbXVRZUs1UzB2dGJsU2VlcWd2NGJUWV9Ea0NWVUhCWmp3MDhqc2FFcENHQUpRNHJDWFJnSzRrTFhPWHFLanpYSVJDSm8zZDBMMXgxNm5ySUpUOVY3RUswdWtQWHBGNFZ2QUIyYkhDMUxMVA?oc=5",
-   "published": "2026-11-10T21:14:45+00:00"
-  },
-  {
-   "title": "CoreWeave beats quarterly revenue estimates as AI demand defies growing doubts",
+   "title": "COMMENTARY: Morning Bid: Jumbo Fed hike hits radar",
    "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYW16c2FCODY2R0c2NmhNcXU4aldCVDlBZDNRR3l6M0hxNmI0WUd3VjZRdmwxZGx2bTlOQ2VVSUZrdTlQemxiY2I4b2tMdGs2Qm4xNEo4UDBlaDJ2S3VzZzNOZF9QTFZ3X1NuRDFwVWM4N0h1endtYVFJVUpiNHVGdmU0X19sTmhzR3c3bVdVdUJ2WTJIZURmYVlGUkRJWWsxM3hfLXp6YzB6dnQxbWhQSnR0bXhpbjFWTVdNbA?oc=5",
-   "published": "2026-11-10T21:13:20+00:00"
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTTlFNjVidGtEa2NTMGcyZ0VaUnhIQ003dnFtaHFKZG80bVlpdk91dlZwN0I1VU84ZWF4RXNjY1YyMmE3cHhweUhsNmxkeVluOF9nR3BMcy1Ec2dHckN4aEJlT3kweGd3WEdFZmlhRzJqODlTY28xb1VtUVE1LXhlM0lzcU1RQUtZX3RWS0dVVVlFTEpmZ3hn?oc=5",
+   "published": "2026-11-11T11:42:18+00:00"
   },
   {
-   "title": "Hochul launches new institute for AI safety amid regulatory push",
-   "source": "Times Union",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNMzVKY1FYZHJBZ0Ftc0ZpdmFlemh1d3FRUzREd2IyeDJma0FJSVZyZGt5Z3ZvTS1Db3N1bUYwbGZCTVRyUUpHelZyeXdBNDJRQ1VyMHFsT0NuV1BFb0x0TDBjbFc0Z0dNRVd5dnkwTDZjYWdmUlhJQzJrVldDbGgtcU9pRE1qNWp6TnZ4Tk5TSEw0a0ZudVA2M0xESDVnclZreUE?oc=5",
-   "published": "2026-11-10T21:11:22+00:00"
+   "title": "CoreWeave Boosts the AI Trade. These Power Stocks Are the Big Winners.",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQS1RLdVRKeVVmV1pVZ1RVTW1QYnBsZHZId1c5bnpBOWlybGZkVTFnVUlkdXY0U3FUandTRmFnUUh3cVhoUE81RXI2cU5zMDY2RmNBRmhPQ2dVWG14TklaOXVudmd0YUlSdmUxMWJGU0hZSVE2QW40TW1GZFJlZlJ4NHdTVHBwdw?oc=5",
+   "published": "2026-11-11T11:39:00+00:00"
+  },
+  {
+   "title": "AI Doubts Collide With Anthropic\u2019s Mega IPO",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOaG1NdG1KVDBRVnB6RGFlNEFldVlSa0JzWEZNOGFHR3ptNWxQMDN0UmdVX3RGSjk4dk5LRFRsMTZHYVIxT2NpYnZYUzdtUGJ4emlHZ2p6NXFQQS11Zm8xNWdRbk0yMkI4VWMyNlVsQmJHem5RanNVZ1BSd05YaDVNSFRFLUJFS21JNWY2MU92LW41QXpjMnhNVVR6WHlZdw?oc=5",
+   "published": "2026-11-11T11:38:29+00:00"
+  },
+  {
+   "title": "Editorial: AI Week needs advocacy agenda",
+   "source": "Toledo Blade",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRWx1Qm5nZFUyRjR6VV91TlhCb2FkaDd5OWVHY3k5NWVodjJaamxMekluX1UxbnJhWUFadVhSVDIzcERpZTRjQk5lMzRaLTAzUGozYjhFMTJrd2t1MHhHV253UHlDU015djBScFlvSHI0RXBoRVB2aGxRZ0Q4R2JfVVVGZjl5b3VXaWN2RTI2cTQ1Q1Q2V0pvbTd6MlFKZ002M1pUbUN0Z2xtbVN0NGxneGI5Z2swWGJw?oc=5",
+   "published": "2026-11-11T11:37:58+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-10T21:25:11+00:00",
+  "run_at": "2026-11-11T12:00:09+00:00",
   "session": {
    "date": "2026-11-10",
    "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "as_of": "2026-11-10"
+    "error": "the typed-in CPI list ends 2026-12-10 - add the next schedule"
    },
    "calendar:FOMC": {
     "ok": true,
@@ -1629,7 +1629,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-10T21:12:13+00:00"
+    "as_of": "2026-11-11T11:39:31+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1645,13 +1645,13 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-10T21:22:17+00:00"
+    "as_of": "2026-11-11T11:48:17+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-10T21:23:51+00:00"
+    "as_of": "2026-11-11T11:42:53+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -1668,7 +1668,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-10T21:25Z"
+    "as_of": "2026-11-11T12:00Z"
    },
    "yahoo:QQQ": {
     "ok": true,
@@ -1686,7 +1686,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-11-09"
+    "as_of": "2026-11-10"
    },
    "yahoo:^VIX3M": {
     "ok": true,
@@ -1698,10 +1698,12 @@
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-09"
+    "as_of": "2026-11-10"
    }
   },
-  "degraded": [],
+  "degraded": [
+   "calendar:CPI"
+  ],
   "degraded_core": []
  }
 }
