@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-12T12:00:21+00:00",
+ "generated_at": "2026-11-12T20:10:20+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -49,7 +49,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "52% ann. (p100)",
+   "value": "53% ann. (p100)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "27.1%",
+   "value": "25.6%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 54.2,
+    "pos": 51.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 17.5 (p56), F&G 37",
+   "value": "VIX 18.6 (p67), F&G 41",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 290.63,
-  "as_of": "2026-11-11",
-  "bar": "final",
-  "day_change_pct": 2.0,
-  "sma50": 326.81,
-  "sma200": 336.85,
+  "price": 296.405,
+  "as_of": "2026-11-12",
+  "bar": "provisional",
+  "day_change_pct": 1.99,
+  "sma50": 326.06,
+  "sma200": 336.65,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 27.2,
+  "drawdown_pct": 25.7,
   "series": [
-   {
-    "d": "2026-02-26",
-    "c": 307.15,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-02-27",
     "c": 311.43,
@@ -1217,6 +1211,12 @@
     "c": 290.63,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-12",
+    "c": 296.405,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
@@ -1265,7 +1265,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 0.2959,
+  "ttm_yield_pct": 0.2901,
   "tbill_3mo": 4.24
  },
  "distributions": {
@@ -1325,13 +1325,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 290.63,
-  "sma200": 336.85,
+  "price": 296.405,
+  "sma200": 336.65,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 52.1
+  "level": 52.9
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1349,61 +1349,61 @@
  },
  "backtest": {
   "start": "2022-11-14",
-  "end": "2026-11-11",
+  "end": "2026-11-12",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 36194.33,
-  "dca_return_pct": 73.18,
-  "dip_value": 36258.36,
-  "dip_return_pct": 73.48,
+  "dca_value": 36913.53,
+  "dca_return_pct": 76.62,
+  "dip_value": 36978.84,
+  "dip_return_pct": 76.93,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Google Cloud Signs Deal for 10 Million Liters of Sustainable Aviation Fuel to Tackle Shipping Emissions",
-   "source": "ESG Today",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQbmdyX05MMDM5ZFhwRmdCUEtVREtTYzBKaVFRMEVDeFg4TFhzQndrNDBZYXpQVzVOTHZ4N2t1cXhtckhWcnJaOUppZS1XcHVqUFRFOU9DTTdZS3diY3dKN3c0YXA5OVppM3V3MjZmbEN0WGpqbFBCUmZKUXJJOFNoamNNMjdzTG5oVklnVTI4bEd3R3ZrZm8wdVkwWUJtMzhQSDhQaWZWajZxRUdWekFISTJmUnJtZEpUazQ3MFR2czJtWWJWR2lGaA?oc=5",
-   "published": "2026-11-12T11:51:02+00:00"
-  },
-  {
-   "title": "Calendar Invites and Live Proxies: Inside a Google Session Hijacking Campaign",
-   "source": "The Hacker News",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9ReUVzeXB6YlRFcEtkaVNBckc4ZXVyZi1ON1pHM3RqVTZFUGI4X0s5SFJiZ2s4NEZDdUlQcnNrQmdtWnhTNUZhNExKSHg4M1B3VFp5MkQzTWo5dnAzNUtVcGtlTi1YRWN4RTllYzU3THV3ZkhTRVE5T3htWFA?oc=5",
-   "published": "2026-11-12T11:51:00+00:00"
-  },
-  {
-   "title": "Institutional Flow in Alphabet (GOOGL): 69% of the Options Money Is in Calls",
-   "source": "Moomoo",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOSWRNQ0lNWEJTYk91WlpFbUdlcDluaDV6TGtGdEpuNGVsbHlSRkdJWmp1emVUSl82aUJMNHpSVlo2Nkl0QUJGQmlmTERFb2FraE1qMmxCbXVyUGJwek9OTjBrU2F2eGZIVWJqb2ttTmY0SXFLVnhTOWo2bWlBLVg4SVpNWldrejBmRlZEVXdTYW10ZEk2eER0V253Q3Y4Ymx6ZG9Jdk1uYVVxTFFGbHdNcmlGOTM?oc=5",
-   "published": "2026-11-12T11:30:43+00:00"
-  },
-  {
-   "title": "The Pixel Tag is the best Android tracker you can buy, with one annoying mistake - How-To Geek",
+   "title": "Google's Gemini 4 Hydrogen outscores the bigger Argon just four weeks after its launch - the-decoder.com",
    "source": "",
-   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1MR29TcUtmNGYzdlMyVEw0aWVUbWJrU1pub19PbC03ckZPcHozdzJ1d3dSYlhwLVlSZE54cHRmQWNXUjNLanJMRmxick8zY0VVTWxSamxCYVdSNmRtOG8w?oc=5",
-   "published": "2026-11-12T11:30:15+00:00"
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQTmh1dmJNRjlxdXc3eHVTTHlkb0NxX3d6YWJGQ21MOThka0tOUlFaMUlsZHlWQ2xFd3E4WE1ORzFPeFl6NDdsV1ktZlppd2ZHRUpVSnIxRVFkenNJWDdKbXRaaFcxNkJqVkhVX19zSkV1YnZtd2htMWRhOUNaUFNjUmN3ZHdaWFBHRTYxc1ZxYzJoQ1ZoakdSb0hmTXlUb0NZUFNQbDByQThGVzhTNnY0?oc=5",
+   "published": "2026-11-12T20:03:58+00:00"
+  },
+  {
+   "title": "Google retools Kubernetes for agentic workloads",
+   "source": "SiliconANGLE",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOc0djd3VKLU5PVkdybDlSMkJaTnB3R2RGY21fM1E1d0tyekg5NFh1NUpKdEtMUmRzeVpfSGRRTEtrUDN4VlJmMmlweEhUTm9SQzZnUVUtaFMwUmpqQUVWb1JlQnEtYkk5OXhOQkpWX05RY0J5ZkhaMmhSNzJqNGl6dXN6RGNrb2xVSEpJWHMyZTVxQ2pOd0ZYVzlyYXpVbkR4WGxR?oc=5",
+   "published": "2026-11-12T20:01:00+00:00"
+  },
+  {
+   "title": "Publishers face Google AI ad labels in California, South Korea and Vietnam",
+   "source": "PPC Land",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNOTNiUG1UUHpiLUNLQmZxb0xNZ2lIbXBiNXpzbXNRc2UxREtzSVdES05VRE9HOEZmalV3YTUyUkI2MmY4LWtRS3lWNWNiT2FTcFMxTkM2TzhnaWNWOGpqNE5NS1owb0tiUXVfc2pGdjdpcExXZTVxR2VpZnlucF9JUlp1eVdQVU1HYTZ3WFY1d0E3M3hCaHc?oc=5",
+   "published": "2026-11-12T19:51:44+00:00"
+  },
+  {
+   "title": "YouTube Returns to Billboard Charts in 2027 After Streaming Dispute",
+   "source": "Law Commentary",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQbVY1V3h4OWs0Wmtlck96cGNQMFNzUEtoLWtNY1BpeU0zbnNzY2V0MXZEbDhBWGRRRmtKdHItNXRtRmNvbEVMM3NyeHdUZkdxYWtsT2dnWXJTUmtUTkNrcjd6RWxvalNaVl90MlNBd1BZS1VrTzhaX051Si1RczhuS19jeXNUeGw5NGk5WlVWTQ?oc=5",
+   "published": "2026-11-12T19:47:20+00:00"
+  },
+  {
+   "title": "Google steers Chrome users to Gemini for product details and reviews",
+   "source": "PPC Land",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOUEhZZ3ItbURZOU9BNXR6RHdjbXJleFF0eEhrQTZvSm41SVhEcG5FanUtR0dua0JjRFdZUGFfTVowLXN3QVJlZmoyRG1wNm41Q2NDMnJla3ItQ3dOTEdDOG5qVXAtaDAzZ21oM3p6aS1pNmlHdHgzQTNRTm5zU1BHcjdzbXdUU2ZjQU53OFlfVQ?oc=5",
+   "published": "2026-11-12T19:41:44+00:00"
   },
   {
    "title": "Google Agrees to Privacy in Spirit Airlines Data Sale",
    "source": "WSJ",
    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQlpUUkJkNWF5Yk1IX2NRdURubEF3NkExb2Y3dlVXUGxsUHNGZnVhLUtBdVNpdi1tdmZRX3M5TUVjSG1FNzVfbkxUb0h4dWIxaDF1dVM2Z3JPSzB0YnRwOUFzN0k3YktoS1VCWkY3SWdtUUlxaDBiMjFFOW9BbldZZnU0d2FTVXdIYkhaNzFUOWtDOHlxTUJBeXB4MlNmZw?oc=5",
-   "published": "2026-11-12T11:30:10+00:00"
-  },
-  {
-   "title": "5 tricks I use to search through my massive 60,000 Google Photos library",
-   "source": "Android Police",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQYVRnVzhTaGIzN1QwcDUwS3gybW1HNTVxckFhNDN5T3c5RHpweklJNk9wMGlaWWFGUkpnZVJNM1RfdU1MMnNjR0tTSy1KbXlIMzZUeEZlMHFwZHlvQTU2aFYzMGx5TGs5NTh2RUt0eTVXbjljNmdGb0JrMlZyMGxpSkg5bzJMbTYwa0RWZGluOA?oc=5",
-   "published": "2026-11-12T11:30:10+00:00"
+   "published": "2026-11-12T19:40:55+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-12T12:00:22+00:00",
+  "run_at": "2026-11-12T20:10:21+00:00",
   "session": {
-   "date": "2026-11-11",
-   "bar": "final"
+   "date": "2026-11-12",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1419,7 +1419,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-12T11:42:01+00:00"
+    "as_of": "2026-11-12T20:07:56+00:00"
    },
    "earnings:GOOG": {
     "ok": false,
@@ -1446,7 +1446,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-09"
+    "as_of": "2026-11-11"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1457,108 +1457,108 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-12T11:51:02+00:00"
+    "as_of": "2026-11-12T20:03:58+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-12T11:58:14+00:00"
+    "as_of": "2026-11-12T20:08:22+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-12T11:30:00+00:00"
+    "as_of": "2026-11-12T19:30:54+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-12T11:53:15+00:00"
+    "as_of": "2026-11-12T20:02:46+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-12T11:53:49+00:00"
+    "as_of": "2026-11-12T20:00:00+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-12T11:55:17+00:00"
+    "as_of": "2026-11-12T18:24:15+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-12T12:00Z"
+    "as_of": "2026-11-12T20:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-11"
+    "bar": "provisional",
+    "as_of": "2026-11-12"
    }
   },
   "degraded": [
