@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-16T20:10:10+00:00",
+ "generated_at": "2026-11-16T21:53:07+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
   "label": "Better-than-usual entry",
   "summary": "Heavily-weighted rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for GPIX, this is a sensible day to deploy it.",
   "tone": "good",
-  "score": 4.5,
-  "score100": 78,
+  "score": 3.5,
+  "score100": 72,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "23.6 (p89)",
+   "value": "22.9 (p88)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "good",
    "note": "S&P 500 volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good.",
    "viz": {
-    "pos": 88.9,
+    "pos": 88.1,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "1.01",
-   "score": 1.0,
+   "value": "1.00",
+   "score": 0.0,
    "weight": 1.0,
    "lean": "good",
-   "note": "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight.",
+   "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 77.5,
+    "pos": 73.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+0.4 pts",
+   "value": "-0.3 pts",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
    "viz": {
-    "pos": 36.9,
+    "pos": 31.2,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "30 (fear)",
+   "value": "31 (fear)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 30.2,
+    "pos": 31.0,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,10 +230,10 @@
   }
  ],
  "fund": {
-  "price": 53.735,
+  "price": 53.73,
   "as_of": "2026-11-16",
-  "bar": "provisional",
-  "day_change_pct": -1.67,
+  "bar": "final",
+  "day_change_pct": -1.68,
   "sma50": 55.57,
   "sma200": 54.38,
   "high52w": 56.67,
@@ -1315,22 +1315,27 @@
    },
    {
     "d": "2026-11-16",
-    "c": 53.735,
+    "c": 53.73,
     "t": "good",
-    "s": 78
+    "s": 72
    }
   ]
  },
  "flips": [
   {
+   "label": "VIX curve inversion",
+   "direction": 1,
+   "text": "VIX/VIX3M ratio at 1.00 (now 1.00) = inverted vol curve, genuine panic (+6 pts)"
+  },
+  {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.7 (now 23.6) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.7 (now 22.9) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme fear",
    "direction": 1,
-   "text": "Fear & Greed at 25 or below (now 30) = extreme fear, a contrarian buy zone (+6 pts)"
+   "text": "Fear & Greed at 25 or below (now 31) = extreme fear, a contrarian buy zone (+6 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1341,13 +1346,13 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-13",
-  "days_total": 765,
+  "end": "2026-11-16",
+  "days_total": 766,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-11-17",
   "baseline": {
-   "n": 744,
-   "avg_pct": 1.58,
+   "n": 745,
+   "avg_pct": 1.57,
    "median_pct": 1.91
   },
   "bands": [
@@ -1361,8 +1366,8 @@
    {
     "tone": "ok",
     "label": "Mild tailwind (score 56\u201368)",
-    "n": 128,
-    "avg_pct": 2.11,
+    "n": 129,
+    "avg_pct": 2.07,
     "median_pct": 2.68
    },
    {
@@ -1379,8 +1384,8 @@
   "tbill_3mo": 4.32
  },
  "fx": {
-  "usd_krw": 1335.7,
-  "as_of": "2026-11-16T20:10Z"
+  "usd_krw": 1335.42,
+  "as_of": "2026-11-16T21:52Z"
  },
  "distributions": {
   "history": [
@@ -1503,13 +1508,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 740.2,
+  "price": 739.95,
   "sma200": 732.16,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 23.56
+  "level": 22.91
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1526,57 +1531,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 16100.0,
-  "dca_value": 20120.54,
-  "dca_return_pct": 24.97,
-  "dip_value": 19973.4,
-  "dip_return_pct": 24.06,
+  "dca_value": 20118.67,
+  "dca_return_pct": 24.96,
+  "dip_value": 19971.55,
+  "dip_return_pct": 24.05,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 34,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Chase bank outage: confirmed facts and AI-attack claims",
-   "source": "Kingy AI",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5mVzJZSXNpMlRQeDcyU3hUTi1BREZGRmFMMk41ajNtSEVWOEdUMHBjQkwzLWZyV1FHcDlQNVBsRDRYNV9RWjZ2S1M5S3lSOXczeWoxbHNWVFllNFp4Ylp3bnZ6bGFrbUJ2WHBoVFQ5RUlLcGstTWhJY09lSQ?oc=5",
-   "published": "2026-11-16T20:05:58+00:00"
+   "title": "Astera Labs, Navitas Semiconductor, MACOM, Vishay Intertechnology, and Ambiq Micro shares plummet, what you need to know",
+   "source": "StockStory",
+   "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQb2VaNkdVQXpSYU44dmY5aXY2N25CeW8yQjRNRVZjSW4wd3h1RXBCTWtncWpwRDlER1FJY082ZkI4MHpVdWh2NUs2bHRvOHVVNFk5emlTTVNyMUszcGJ5S1B4VW10dE1oZXJRcTR1NWlmdTAxVUQyTWNzaEEzdWhaR0hIVHNSbjFiT1FRX1lKeUI0LWhpdkxudkg0MlJvakI2UWNJSjdpVld1dHRydGxiN3c3ZGlyaEZHbnl2OEphNmdkdmdtQ1JidFNIa2NlSG1VTm91aWNIbURIZk1BRGpEb2dTT21xcmc3c3c1XzVHWU9ZYmUxTVJsbk9kZFpXeVFKbFRTLWVrWnM?oc=5",
+   "published": "2026-11-16T21:38:11+00:00"
+  },
+  {
+   "title": "Warsh says Fed examining whether AI will boost or jolt US economy",
+   "source": "CFO Dive",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNb1IxWERCQnUxYUVCbXB5NUs1WnREUkxraFR4UHZ4cnp4ODVEdFdmelEzejNMNkdaa1k0TkF2UWtrN0ZwaFFyTS1GME5veEY3N2FNbzFWZ2tkTlVWUTV3MWhweWdNVTNKb1BZSnI1S05PQjJDNmJQcEJhSmgzN0tLUnZUNE5uTHNuR0xxa2trMU9rTk9DcGtTY1hOT1JWUjg?oc=5",
+   "published": "2026-11-16T21:38:07+00:00"
+  },
+  {
+   "title": "Fed Decision And Inflation Data Cast Shadow Over Malaysia Equities As KLCI Steadies Above 1,610",
+   "source": "Foreign Policy Journal",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPUGNNbUtDY3p1SU9QTlkwZmZQRVh3al9wTUdNSGJrWDIyeFh4eXhucG9wSHlsWm5qYWE0ZDdic3FkV1E2N0pCOGEtRXNDQWFseTdJZUpJVG1tU0oyZEpSU1hxTG0xXy1TSXc5bGs2MjQyRF9DREFVVUdLMTR1S1pIM2dDQ1hzNkhhWmNkSXdlZVdBSVBEc2VLYkhENlVWVlJnc1IxejFybG9UUWdaX2lOdGpLdUdTUDRRWDlBRVdKWjIzS1VqTUM4OHlDRkdQUnE2MWhNS0NSbmNhZE0?oc=5",
+   "published": "2026-11-16T21:32:00+00:00"
   },
   {
    "title": "Productivity and Jobs Task Force Conference",
    "source": "Federal Reserve Bank of San Francisco",
    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOa29BVU9nZnZzQlctVXprcU5DV2dPYklndHM1aTFMWktWRlVpQ080bmtJUW1pSjVSamhRSENSWVM0SHZhWWxwQV9FZThuaU9vRVdFOUttNDRtRUxJOFRkOWJ2d0xxbFczQi15cVd6S3J0U2xLODRXUGRuTTZ4V2I4ckJqRUlkTzk1ZENqVk42V1dJazFSdFI1Ymx0VlM?oc=5",
-   "published": "2026-11-16T20:05:26+00:00"
+   "published": "2026-11-16T21:25:55+00:00"
   },
   {
-   "title": "Fed's Hammack backs slow hikes as inflation broadens",
-   "source": "FXStreet",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPLW1LRFJYNWp5bGJScXZJVXdpRi1WZ2xHUjFfZEVUOW43Q2xpVnh4dzB4R3U2UzlycVoyemlpQVU5dFlxcVozMjFDZ2lyUHZNSXRCM3djNEx3ZlFZelI5bEZVNGJRSmNBY0ZaendFSElDU3l4UkpYQmhUZUlURlFOWWh5VFhWVnhLVFNnNVgtVEZ6MVBVcVMyMEpR?oc=5",
-   "published": "2026-11-16T19:48:25+00:00"
+   "title": "Fed Chairman Highlights Economic Uncertainty of A.I. Boom",
+   "source": "The New York Times",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBBYTdqekVHWUZKSGtDNktJaDFJZTgxX3VmdW9qVUphVVl2SjdUSUtyd2kzUVhoUnhVVm5kOTgxY2h3MmlqdUplcmQ3WDNjVEYxRGN4aUVFUFBUcWdsZWVWTzJNX2ZoNV85MWxxMEJDZ213ZFlZTEpSWkFUR3ZGdw?oc=5",
+   "published": "2026-11-16T21:08:30+00:00"
   },
   {
-   "title": "Warsh says AI could lift growth, cost jobs or disappoint and hit stocks as the Fed studies three scenarios",
-   "source": "MLQ.ai",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOSlhGVUd6MTBSOEk2eXBtZGlGc0psMk5EYWxPeGNSWmRoOVRfb0VMbVRiS3RXQ0ZyNzdoMkJnbFZlMTNmVDhiSk96VjlDejdzTDVyS0pZU2w0TGlZbDhsUlZ4SmxDRk9VUnhaVDlPSlBTUWpLWU1tQXl5dU4teTA0TUZMa0p2M29leU5WOEpKdWxjdlcxOFpkMmVzRFViajZfazlGM1hMZXpITjAzMzhwaWhjZVZtaWk5SWxSVDhxNmRwRENH?oc=5",
-   "published": "2026-11-16T19:47:10+00:00"
-  },
-  {
-   "title": "Cleveland Fed's Hammack says more rate hikes are needed to lower inflation",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQX0x5S1lkWTV0ajFmeXcwQ2lNcWJHSXFjakVRbFVkbDN4enJyNl8yQ3F0eHdyOEhzSHViSnQyZHV4cmNDdW5XVUIycy1wZV96RzJKTkRQN2wxejFDRlF0aFVlTjhoOVlZS1MyVlRRQlR4MGxPR0pxUDVxRWRsOExHNklaUTdlSVFnY0ZCTl9rY3piRnFEdWExam5PeFU2WUdyamh1X3lYNmh3UmRTUElxdQ?oc=5",
-   "published": "2026-11-16T19:46:04+00:00"
-  },
-  {
-   "title": "Fed's Warsh says emerging technologies to have 'significant impact,' but there are risks",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQjBEWTRZekl4NlZXbUFpUW93VUNEU3JOUkVnZFk5VDAyRFBNRXYyTGNCREVZRFNEd2JEdWY4VmxsUGtxdnAwQnhZSlFiX3p2WWRHVU1iS1dIbXpDel8waEpsT25wdjFhTHlPNG8xMnJWdHdtc09aMnBDa2I5MGN3SkVjendsRWFOTUxvdnZrMmFKdDN6RmV3OXRISEdERjhuSEpDYmQ4dkVldmx2dENTcGRZR0NuVk9xYk85OTJCVmRteEk?oc=5",
-   "published": "2026-11-16T19:41:07+00:00"
+   "title": "Wall Street Has Bad News for Your Wallet",
+   "source": "U.S. News & World Report",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOa3AyenpEMTYxZ1V2UDhSdW9QTDdNQktMQk1OeWRsYWRoLW1nTjRPd194cDdZYVYwdlhtaElweUpwb3pUbk04YkdTcTJ1WHRtVWM0U3ZRVFoyc1ZjMG5qMWk1eldmSjRDb3ZoZTZwRXN4c0pKRTFOSF9sZVBzWnpnSl9KZFEyd1lEZGJvZ2hnTVZJRHIyaUx2RGJWWDhubUh0VVFaT2pmaEE4OWI5dGJhMzFldkdyWkg3QTlfZGRVVQ?oc=5",
+   "published": "2026-11-16T21:04:29+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-16T20:10:10+00:00",
+  "run_at": "2026-11-16T21:53:08+00:00",
   "session": {
    "date": "2026-11-16",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1592,7 +1597,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-16T20:07:21+00:00"
+    "as_of": "2026-11-16T21:34:42+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1602,41 +1607,41 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-12"
+    "as_of": "2026-11-13"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-16T20:05:58+00:00"
+    "as_of": "2026-11-16T21:38:11+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-16T20:10Z"
+    "as_of": "2026-11-16T21:52Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    }
   },

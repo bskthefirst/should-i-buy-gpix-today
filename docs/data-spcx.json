@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T20:10:17+00:00",
+ "generated_at": "2026-11-16T21:53:14+00:00",
  "rules_version": 4,
  "ticker": "SPCX",
  "asset": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "no pullback",
+   "value": "-3.3% in 5 sessions",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
    "note": "SPCX has traded for 109 sessions - far too few to validate anything. On TSLA (16 years of history) sharp pullbacks reliably bounced, but single names differ and nothing may be assumed to transfer. Context only until enough history exists to test.",
    "viz": {
-    "pos": 85.9,
+    "pos": 77.9,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Distance from high since IPO",
-   "value": "34.2%",
+   "value": "35.0%",
    "score": 0.0,
    "weight": 0,
    "lean": "neutral",
-   "note": "SPCX is 34.2% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
+   "note": "SPCX is 35.0% below its high since the June 2026 IPO. A real 52-week high won't exist until June 2027, and no drawdown band has been validated on this stock. Context only.",
    "viz": {
-    "pos": 68.4,
+    "pos": 70.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -72,7 +72,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 23.6 (p89), F&G 30",
+   "value": "VIX 22.9 (p88), F&G 31",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -88,15 +88,15 @@
   }
  ],
  "fund": {
-  "price": 139.06,
+  "price": 137.36,
   "as_of": "2026-11-16",
-  "bar": "provisional",
-  "day_change_pct": -0.04,
-  "sma50": 148.73,
+  "bar": "final",
+  "day_change_pct": -1.26,
+  "sma50": 148.69,
   "sma200": null,
   "high52w": 211.39,
   "high_label": "high since IPO",
-  "drawdown_pct": 34.2,
+  "drawdown_pct": 35.0,
   "series": [
    {
     "d": "2026-06-12",
@@ -748,7 +748,7 @@
    },
    {
     "d": "2026-11-16",
-    "c": 139.06,
+    "c": 137.36,
     "t": "neutral",
     "s": 50
    }
@@ -758,14 +758,14 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2026-06-12",
-  "end": "2026-11-13",
-  "days_total": 108,
+  "end": "2026-11-16",
+  "days_total": 109,
   "backfilled_days": 49,
   "fg_coverage_start": "2025-11-17",
   "baseline": {
-   "n": 87,
-   "avg_pct": -1.24,
-   "median_pct": 3.18
+   "n": 88,
+   "avg_pct": -1.29,
+   "median_pct": 3.07
   },
   "bands": [
    {
@@ -785,9 +785,9 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 87,
-    "avg_pct": -1.24,
-    "median_pct": 3.18
+    "n": 88,
+    "avg_pct": -1.29,
+    "median_pct": 3.07
    }
   ]
  },
@@ -798,13 +798,13 @@
  "distributions": null,
  "underlying": {
   "symbol": "SPCX",
-  "price": 139.06,
+  "price": 137.36,
   "sma200": null,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 75.2
+  "level": 75.3
  },
  "fomc": {
   "next": "2026-12-09",
@@ -826,20 +826,20 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 2400.0,
-  "dca_value": 2301.51,
-  "dca_return_pct": -4.1,
-  "dip_value": 2287.86,
-  "dip_return_pct": -4.67,
+  "dca_value": 2274.59,
+  "dca_return_pct": -5.23,
+  "dip_value": 2261.11,
+  "dip_return_pct": -5.79,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 23,
   "winner": "dca"
  },
  "headlines": [],
  "health": {
-  "run_at": "2026-11-16T20:10:18+00:00",
+  "run_at": "2026-11-16T21:53:14+00:00",
   "session": {
    "date": "2026-11-16",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -855,7 +855,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-16T20:07:21+00:00"
+    "as_of": "2026-11-16T21:34:42+00:00"
    },
    "earnings:SPCX": {
     "ok": false,
@@ -875,19 +875,19 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-12"
+    "as_of": "2026-11-13"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-16T20:09:30+00:00"
+    "as_of": "2026-11-16T21:50:49+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-16T20:05:58+00:00"
+    "as_of": "2026-11-16T21:38:11+00:00"
    },
    "news:SPCX": {
     "ok": false,
@@ -898,65 +898,65 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-16T19:17:00+00:00"
+    "as_of": "2026-11-16T21:39:13+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-16T20:10Z"
+    "as_of": "2026-11-16T21:52Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-16"
    }
   },
