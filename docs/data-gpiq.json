@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T21:25:10+00:00",
+ "generated_at": "2026-11-16T12:00:14+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.90",
+   "value": "0.94",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
+   "lean": "good",
+   "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 51.0,
+    "pos": 59.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.53x (p84)",
+   "value": "1.52x (p84)",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Tech options pricier than usual relative to the broad market. Intuition says that's a contrarian buy signal - the audits found the opposite: rich tech fear premiums preceded weaker returns. So this reads bad, not good.",
    "viz": {
-    "pos": 84.0,
+    "pos": 83.6,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 26d",
+   "value": "FOMC in 23d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1357,7 +1357,7 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.90) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.94) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1376,7 +1376,7 @@
   "end": "2026-11-13",
   "days_total": 765,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-11-13",
+  "fg_coverage_start": "2025-11-17",
   "baseline": {
    "n": 744,
    "avg_pct": 1.75,
@@ -1411,8 +1411,8 @@
   "tbill_3mo": 4.32
  },
  "fx": {
-  "usd_krw": 1336.54,
-  "as_of": "2026-11-13T21:25Z"
+  "usd_krw": 1334.68,
+  "as_of": "2026-11-16T12:00Z"
  },
  "distributions": {
   "history": [
@@ -1541,16 +1541,16 @@
  },
  "vol": {
   "index": "VXN",
-  "level": 29.44
+  "level": 29.38
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 26,
+  "days_until": 23,
   "imminent": false
  },
  "cpi": {
   "next": "2026-12-10",
-  "days_until": 27
+  "days_until": 24
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1568,44 +1568,44 @@
  },
  "headlines": [
   {
-   "title": "Tech Stocks Fall as Next Week Brings Big Tests for the AI Trade",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdk9KSVZ5ZlN6RFNmNnlQVEZmYzB4RkxuXzVlaGEzMDdoZ1REdGkxNnhJdW9CMmszTEtpWGlWMUZUTkNLV3FSdll5S0ZiT29JWS1FZHVuSDJpeGxfQjNoUmZPOHdFcFJWUFlSQzdhN085Mld6ZDRJLU1jODF1dmRkQ0hKSWcxTGp4dUF5eENRTkYyLWYtZktxM2VmSnNBN2l2MUVTNHFLU3BzR00?oc=5",
-   "published": "2026-11-13T21:19:59+00:00"
+   "title": "A tale of two AI conferences",
+   "source": "Politico",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQTEhKNUIzSGhHc1dtb1V1QmdKZi1FY2ExN2wwVEVNSF83QVhMekxWVmQ3S01Ec01NYUd1by1PdFRqdnRhNTVIU0tGSUFMM2s1eVB6VFRhZVpONDducUhMV2VDOFRvWGRiWklEU2lHYVZhRmx6WjI0V2Ryd2VwMXV3ODBtRXlyQzlvQVl6ZmYtNHpSRmppOEU2Z3Z3LW1nanh2VEQ1WkpBT2o?oc=5",
+   "published": "2026-11-16T11:55:00+00:00"
   },
   {
-   "title": "White House task force says companies deserve liability relief for AI-fueled cyberattacks",
-   "source": "Cybersecurity Dive",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOeV9JbFpvNHlvWjJORm54aVlWbVM1Y2dnTmtSY1NNRlB1RXlLNmhVZWJUbWw1YW9WNnhFaUlqQ250Q1NiOHZKZDBabE5VNVRPM0ZORm9Xa1F6ZkRId2FqXzBlM2RYRUc3UVR5ZmsyVlA3TVJfU3pOay1oZ19mUHJSRDA0Rld6RjJtWkowaUtpcnhrZlJYMHY2RWI5OFpHdw?oc=5",
-   "published": "2026-11-13T21:11:18+00:00"
+   "title": "Buncombe students complete Mark Cuban Foundation's AI bootcamp at UNC Asheville",
+   "source": "WLOS",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOM2hXMnFMWTJoclFrRFlrN29neVJkczEtQzZXbjZtb2tvel8zdmM4aS1LeXN1TEhHR2p1R3dwVHdwdEZLZTZRWXkyaDU2UEtpaWlrb1MyOVhOTHNZQWxxUU9rVVN5X2ZmTTh4WTlQNlRWdG9BM2psSm0xSUtVMW5KQVoyTm9mZ0FXeG5KNzlEQjRkZUxlZ0t0MXRDazg2RXNnMnBBc2ZMLTE4WWp3a09XbDBIRnROZjg?oc=5",
+   "published": "2026-11-16T11:54:19+00:00"
   },
   {
-   "title": "Amex Trendex: 83% of Consumers Say AI Is Making Scams Harder to Spot",
-   "source": "American Express",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWjVodWd1OHJKWFdsUHp4MDlmY1hBSHkydFh4SFZTQnp6OTJVMHVDYlg2b01Ma0VOclNSWTBwVUdVVkVEb016M19FVlFBVFlpV1dFRVJwMjh1UHZiUHpmLUlXTURCMFZydlJJT2luSkZBVXZOdzBZMXRlZWZFMFlkVmdiVjgtZ2Y2ODRBUVlTeXU4QVV4Y21N?oc=5",
-   "published": "2026-11-13T21:10:27+00:00"
+   "title": "Former regulator: We\u2019re in an AI bubble that could burst by 2028 | CNN Business",
+   "source": "CNN",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOeHdwa3JZWXRJVzB6aHllNnlRZnk0cVFtOU9SaUR5TktaTmFwTkMyRjVqTW1DcTIwdl9OSDhYXzJtMmo1cVJwNXhmX3NVUmo5bS1oRG9BX1hVbmw3czIyZlNaM2dqTVlVemZGR283LUtsc1hFVTVJSEFHTENQTGlwRFhPS0xhYU5mRFFHdUJfYVViQjQ?oc=5",
+   "published": "2026-11-16T11:54:00+00:00"
   },
   {
-   "title": "Meet NIVA: The nuclear industry\u2019s own AI tool -- ANS / Nuclear Newswire",
-   "source": "American Nuclear Society",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQbkUwa0JxVFFIRTFJQ05JYi0tdUYxVEJXcnJWN0xaSkxsbDNaSnZlM2NTU0t2RTZJRHRsVmhuekJQTzF6VDlTcVZWbUQwRC0yMTBSX3lIdUZzQ3VJMlZGNWRkcGFsRk8tNFZJc2tScHN0emtNbTh3bU5saWhsNExWTUxNNFVtbFJxOEE?oc=5",
-   "published": "2026-11-13T21:09:26+00:00"
+   "title": "Welcome to 'Grandthropic', the Day the Gaming and AI Industries Get Tested",
+   "source": "Business Insider",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxONHZ3VXF6MzBwQ2JXMkxrSm5vcWtnaFlJa19WY3Z1N3lMdDIyMzQwTUJMaFFFMWRKS2NoSEdUWDlENldNY2RteXdKOUNEdWUzbS1Fb3lfckpOWXdvTGxLUUdvUkxjc2VCeGZfUXQ0cTRxYUZrVm1SNmZWR0taR1VqZmZvTQ?oc=5",
+   "published": "2026-11-16T11:44:00+00:00"
   },
   {
-   "title": "Quantifying the state of AI power development post-midterms",
-   "source": "Latitude Media",
-   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOUUlHSG0ySkRfU1JmLXBLZjRCSjNHYzQ0eWdicnJrc1ZrcVd3WW9zNWdSQ05BcEZacW9LNnNWTERfSUk4S2g2VUNXZHFlcXVTU3ZIMlVXOEN2Q1ZjRFNYTnBobDlubmxBX0x1TEVLMTRXSjFqb0JTb3JxZWhxUmZvX0ZDbnpGRG9JWDJjNUx6c3RmRzVJQzY5S0V6TQ?oc=5",
-   "published": "2026-11-13T21:07:49+00:00"
+   "title": "Regulating AI will being a top priority for congressional Democrats in the new year",
+   "source": "NPR",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPTTBVZDJ4ZEZTT3MyalZsY3kxdDdnRGhka2ctS1pmMzFBV2xWV0M1aHQ5NVZpdUdQUHZhUVVyRjBmNmhNbXVMYU16NkpyQ0NjdDhuQ2hIX2N3ZnJ2cFJocVAxV21iSlF3ZjFGNmxMVjd4c3dLYzNTTjcwNGlXbFVmaTREY0tmSFZSOTZ2clNPN1poTHVLY29IbmJFM2NHWGdQRFZEUmpsTXlBNzdMZWZZY0ktb3o2STMyWGVzVFUzVU1MeGNBYnhr?oc=5",
+   "published": "2026-11-16T11:38:50+00:00"
   },
   {
-   "title": "Evolus Reports Inducement Grants Under Nasdaq Listing Rule 5635(c)(4)",
-   "source": "Yahoo Finance",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNRGJqMzh0eFRmU2V1bWxxVkl6b2pRa3cwd1hLUl8zOU5VNnMtQm1CVGFrZGk0QTZkdXpHZk9jcmlocWlIVmQ4ZWxVcEp6eGQtRzdkV3FsNVFaRVV6bkNFazN5dUFhTl9qMXdXcDJDQlg5MEdJMW9OQTV5bTNDaUlSZ2ZSZ1VzMWMxN1RFQVVFc1VtXzhwOUpVV3kzY0Y0VGJDenh0b1BB?oc=5",
-   "published": "2026-11-13T21:05:00+00:00"
+   "title": "With Anthropic IPO, Dario Amodei Becomes AI\u2019s Leading Pitchman",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPYXJwMmxnNFdIVGVKMTR2VUdUa3NXT0I2eUFpNTRsUHBkdVQyTzFmMFUycXVRMlVFckRJalFhOHR6TmI0X1RCZnNibHNvM29pbDJSdTBUcEdQejFQWEJpRHRacWs0eVJSQmRlQWVEOTRGbjNPUXdwUUVmWE9JRzBlLWdZSVhGUk1kZ2hNVkxYSUR1cDYydkNKOGx3N1FJTi1uUWltY190VEdhVFJXZFF4RWZLYUx2d1paN2FlRmJRNVNPRTA?oc=5",
+   "published": "2026-11-16T11:37:30+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-13T21:25:11+00:00",
+  "run_at": "2026-11-16T12:00:15+00:00",
   "session": {
    "date": "2026-11-13",
    "bar": "final"
@@ -1624,7 +1624,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-13T21:11:52+00:00"
+    "as_of": "2026-11-16T11:43:16+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1640,13 +1640,13 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-13T21:19:59+00:00"
+    "as_of": "2026-11-16T11:55:00+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-13T21:22:22+00:00"
+    "as_of": "2026-11-16T11:38:40+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -1663,7 +1663,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-13T21:25Z"
+    "as_of": "2026-11-16T12:00Z"
    },
    "yahoo:QQQ": {
     "ok": true,
@@ -1681,7 +1681,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-11-12"
+    "as_of": "2026-11-13"
    },
    "yahoo:^VIX3M": {
     "ok": true,

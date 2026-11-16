@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T21:25:09+00:00",
+ "generated_at": "2026-11-16T12:00:14+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "18.7 (p70)",
+   "value": "19.3 (p75)",
    "score": 0.0,
    "weight": 1.5,
-   "lean": "neutral",
-   "note": "S&P 500 volatility mid-range for the past year. Premiums ordinary.",
+   "lean": "good",
+   "note": "S&P 500 volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good.",
    "viz": {
-    "pos": 69.6,
+    "pos": 75.0,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "0.90",
+   "value": "0.94",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "Normal upward-sloping VIX curve. No unusual near-term fear.",
+   "lean": "good",
+   "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 51.0,
+    "pos": 59.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-3.6 pts",
+   "value": "-3.0 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Realized S&P 500 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 3.3,
+    "pos": 8.4,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 26d",
+   "value": "FOMC in 23d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1335,7 +1335,7 @@
   {
    "label": "VIX curve inversion",
    "direction": 1,
-   "text": "VIX/VIX3M ratio at 1.00 (now 0.90) = inverted vol curve, genuine panic (+6 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 0.94) = inverted vol curve, genuine panic (+6 pts)"
   },
   {
    "label": "Extreme fear",
@@ -1345,7 +1345,7 @@
   {
    "label": "Top-decile premiums",
    "direction": 1,
-   "text": "VIX above 23.7 (now 18.7) = top decile of its past year (+9 pts)"
+   "text": "VIX above 23.7 (now 19.3) = top decile of its past year (+9 pts)"
   }
  ],
  "report_card": {
@@ -1354,7 +1354,7 @@
   "end": "2026-11-13",
   "days_total": 765,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-11-13",
+  "fg_coverage_start": "2025-11-17",
   "baseline": {
    "n": 744,
    "avg_pct": 1.58,
@@ -1389,8 +1389,8 @@
   "tbill_3mo": 4.32
  },
  "fx": {
-  "usd_krw": 1336.54,
-  "as_of": "2026-11-13T21:25Z"
+  "usd_krw": 1334.68,
+  "as_of": "2026-11-16T12:00Z"
  },
  "distributions": {
   "history": [
@@ -1513,22 +1513,22 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 754.21,
+  "price": 754.37,
   "sma200": 731.92,
   "above_200d": true
  },
  "vol": {
   "index": "VIX",
-  "level": 18.7
+  "level": 19.3
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 26,
+  "days_until": 23,
   "imminent": false
  },
  "cpi": {
   "next": "2026-12-10",
-  "days_until": 27
+  "days_until": 24
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1546,44 +1546,44 @@
  },
  "headlines": [
   {
-   "title": "Gold faces weekly rout as high US yields fuel Fed rate hike bets",
-   "source": "www.tmgm.com",
-   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNQ0V6RjhsdTZwRXA4SW9ScTZyUWFveGFsbXJIbE1sS2VFV1F4QW5CUUtvaGMtYXpFQkRLYXRtMjAzVEFyYVh2SGNadUI1LTYyNG51ZHNwWk9aSklBX3RkUlVBajcxMFpWb3NSM25WWnc1TzRDR3BZendvVmhIcVpGMlRnRlU4RjQweXNjdWdfU2hQbEkwSjhBaUJBSzh1dHlRWlI3OElLdHBUZzVmLUJaeUF2MGlteTRGVlRMRjV5S3Y2eTF0eE1lQ09B?oc=5",
-   "published": "2026-11-13T21:22:22+00:00"
+   "title": "Arvind Krishna wins reelection to New York Fed board",
+   "source": "The American Bazaar",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQcGNrcWNKQnNJT0xjS09QUWRENzNiaEV6VWd1ZlVUdjdjVWNCNk1WT3R6N1hNUGlCemR3TzdyMFhId2Q2NU1UWV9Na19XTG4tQTBzODVuWnQxT3NFQUc0MGdzQXMwR3lRaWIyRWsyNmRRX2VzaVFESnYxQ0RPdm1OWVF6N3BkXzRYLTZ3Zkt1Ympvem1NVkRJOW5tX3RqMTNEWVRod29QQQ?oc=5",
+   "published": "2026-11-16T11:38:40+00:00"
   },
   {
-   "title": "Ethereum Price Forecast: ETH stays below $2,000, pressured by inflation and AI decline",
-   "source": "www.tmgm.com",
-   "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPbTl3NGJPZm5tcjRncEFRcXFpNVExd0ZNd01UVHptNkRqSGxMUTFNTkFPYjVyNVEyNFZRanI3cWVrdHI5N1A1THRkX0hiNk52cTc4RXFoZjJYemF0WUZGUGtiYkJENW5nblRrSGxkeVdfTXZ2WlFYdkpSZGYyT3dtbUpNVF9WdVFicGFwVDZRajBRRGVCSi1MZkdYcHhzOXowVUI2UVVrNW9ZbTRWUlI3ODdyaU9fRVZfaGN5ZWt6VFlqX0VCRlZHT0tPc1lnTDJMUmc4WGtKcUlDTURQUV9fTXZETQ?oc=5",
-   "published": "2026-11-13T21:22:22+00:00"
+   "title": "Nvidia Earnings, Anthropic IPO and Federal Reserve Outlook Among Five Key Market Events This Week",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZWw1cTVJckJKUEE4LTlkZzBHSkVIRnVWaXRsV3FfTmprX3Z1Qk45RE1hS0g0SFkyLXliV0VOUDRtekVjOUdRbGhkU2Zfamg0LXpzTFFnVEVxbldfOXUtVG9DQmY1WnRodWg2QTdvcXd5eVV6OTlzaEptMEY5eDFRODFZWTNBWV91UjJzR1FkeVNfc0Jvcm0yNHZTbXNyOU1iN2Vvdg?oc=5",
+   "published": "2026-11-16T11:27:39+00:00"
   },
   {
-   "title": "Producer prices surge at 6.5% annual pace as Fed officials signal hike",
-   "source": "CFO Dive",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNT1ZyUks0YXZnclR2YklfV0Z0OUZnVV9BX3BweS1yMkQxSF9hMzRROUVkUl9FYV9GUmFVd2FRVXl6aVBjVEo2bmY1S1cxam9NeVVoVWRCM3R2ZEZBY0NEVjlMZEtPLXVRN29zOVhJTHdyeGVYdHRmMkNPVGhELXpQTFJsREJsbzBuay1qa2s4a1lLZUJnaVUwMGxKUDhjRU5leVhwclk4Nm1rcUFJb2Y0U29B?oc=5",
-   "published": "2026-11-13T21:18:33+00:00"
-  },
-  {
-   "title": "Kevin Warsh\u2019s Plan to Remake the Fed: Fewer Rate Votes, More Deliberating",
-   "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPWWREYWtpWllac2NUdW9FOW1tdXZrTS1FclFzZnA4TEhkOEFJQ0liTEZZdElXbU5BUHMtTnNVME1zYUVpWHY5VXZmM0Z4YWRMY0U4YzVFdldTOEhEQUpSSnluaXNNM2VVVlQ0YnNXR0hUNHRhM1gwSWhtZXl3QlB2QXR5aUVXajZBTTlRdDhB?oc=5",
-   "published": "2026-11-13T21:01:00+00:00"
-  },
-  {
-   "title": "AI risks are the biggest threat to the financial system, Fed survey finds",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOd1luSGcydUl6NE15cEcydlNhSnRuNjNjVHdMQldrQjRYcXpLZ3FfbnNrWndndDNTaUowRWJ6NDg0dUdaN084LW00YU4tNEhPTXh6Ymx3WVFpZk5MQTgwVFpMX1o4cFdXT2lCQi1xSzlncG9mUkpDa0xTUF9BY2E3cXVnS2fSAYoBQVVfeXFMTmZFcVNQMElxVkdHNTFNMVBOYTg0SGVKNm5ISHM5N3pGUUxKSE5Za2ZuMmZNb3RnY0FpVWxNbWtIdXFIdm0wOWVIa3FXWVJJaVhhTHBzOVpJbzVnY2VGZk04WE5aRHVBdjdkRlVpSm1VQXo1ckRPRTV4aDNjNGJNeGlhSXZ4ZEhIa1dR?oc=5",
-   "published": "2026-11-13T21:00:12+00:00"
-  },
-  {
-   "title": "Fed Sees Risks Tied to Elevated Asset Prices Partly Driven by AI",
+   "title": "Tech Stocks Slide as Nvidia, Anthropic Tests Await: Markets Wrap",
    "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPWjhJdzBDdFpRc3VSX0ZSNFV1SFRJS2JhYXpKMlU5Mm1ZNEVsN2o1Mno3TkNrQ2lBYlVoOVdsUVZJS2JDVUhCLXdyMG1tNG1ldGFLV0dqUWZxMzJWWWxYaDUzYWdiWXJILUxNdnlEOFgtWWI0V0s2VVFmMmxPZm5vekpwM1BBZlVGZDYyd2E3OW5lNVZWOF9MY05MdmtFb2gxRVQxN2FCZVh6djhXSG5uS3d4Y3VyQQ?oc=5",
-   "published": "2026-11-13T21:00:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOU3BQd2lUam5YX1RGekdqV203U1BmRzNUQnlhem10ajRycVpfTUYzRWtOM2h1ZDd5M2tvUnNXeG1VOHRGTEl4VkJsSUhuQk41UlcyNU1EZDJaSTNTd2NvM3lDUDV5NU95SUtxSHZaZEpjSnMxRGgtamUtb0lYWUtHMTFZZDBLblVaeXhVTEhSa2ZPeF9y?oc=5",
+   "published": "2026-11-16T11:17:23+00:00"
+  },
+  {
+   "title": "Stocks\u2019 Next Headache? The Fed Could Raise Rates Well Into 2027",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaVRqdWxHZTVJYU9nTnNEUFFBZWVVaG11UTdUYmdzUHFSMjVWYTY0b2o0NG5OTE9mcTZ5M3dQc2swdXE0aGpsTnk0THVka0poUi1uMTdfMkF3TGtWTGgtYU9KZm5DdjBrOWp3RDd6bmpFejdwVWxyb3pEYWxjZzFKTk5MME10LTdf?oc=5",
+   "published": "2026-11-16T11:00:00+00:00"
+  },
+  {
+   "title": "Rate-Hike Odds Surge Past 90% as Gold Falls Below $3,900 to More Than One-Year Low",
+   "source": "BigGo Finance",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBUYTlqSjRSLVdSVWktZl9xaHQ5VFNMVnJmX2EyNkI2WjE5M0czSWp2SUozT2tFaHB5OWpEcmpzRDloQW9kZkx1dEpSbVFSUGtSekJpUDlyUlpNcmphRzNmYUVlaGhlbVhGdDhQTGZ4dXVOcE9kUGc?oc=5",
+   "published": "2026-11-16T10:55:00+00:00"
+  },
+  {
+   "title": "RSM\u2019s U.S. outlook for 2027: Growth amid rising risks",
+   "source": "The Real Economy Blog",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPRElMMnNJQXNwaUpiVGZTOTgwSnFmekI1ekhGYUhMb3lvSjBRWTZjMlVndkhuM2Z0eXFTV1VVR21MbDJ3eFhQUjRTQklWOWF4d1BWVWhjRU9PT01Wb0VWd181NTFYVHh3MndUQzdLam05TUo3QW5lV250YWVxVGpub05YcXliSGoz?oc=5",
+   "published": "2026-11-16T10:50:12+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-13T21:25:10+00:00",
+  "run_at": "2026-11-16T12:00:14+00:00",
   "session": {
    "date": "2026-11-13",
    "bar": "final"
@@ -1602,7 +1602,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-13T21:11:52+00:00"
+    "as_of": "2026-11-16T11:43:16+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1618,7 +1618,7 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-13T21:22:22+00:00"
+    "as_of": "2026-11-16T11:38:40+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
@@ -1629,7 +1629,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-13T21:25Z"
+    "as_of": "2026-11-16T12:00Z"
    },
    "yahoo:SPY": {
     "ok": true,
@@ -1641,7 +1641,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-11-12"
+    "as_of": "2026-11-13"
    },
    "yahoo:^VIX3M": {
     "ok": true,
