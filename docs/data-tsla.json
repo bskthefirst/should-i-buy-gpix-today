@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-16T12:00:17+00:00",
+ "generated_at": "2026-11-16T20:10:15+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1004,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 100.0,
+    "pos": 98.9,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "61% ann. (p88)",
+   "value": "61% ann. (p89)",
    "score": 0.0,
    "weight": 1.5,
    "lean": "good",
    "note": "Realized volatility elevated vs TSLA's own past year. Only the top decile scores, but the direction of the evidence says turbulent tapes have been better entries.",
    "viz": {
-    "pos": 88.1,
+    "pos": 89.3,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "20.3%",
+   "value": "23.0%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 40.6,
+    "pos": 46.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "TSLA regime",
-   "value": "uptrend",
+   "value": "downtrend",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "TSLA above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "bad",
+   "note": "TSLA below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 19.3 (p75), F&G 39",
+   "value": "VIX 23.6 (p89), F&G 30",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 390.22,
-  "as_of": "2026-11-13",
-  "bar": "final",
-  "day_change_pct": -1.82,
-  "sma50": 374.74,
-  "sma200": 382.73,
+  "price": 377.45,
+  "as_of": "2026-11-16",
+  "bar": "provisional",
+  "day_change_pct": -3.27,
+  "sma50": 375.21,
+  "sma200": 382.47,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 20.3,
+  "drawdown_pct": 23.0,
   "series": [
-   {
-    "d": "2026-03-02",
-    "c": 403.32,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-03-03",
     "c": 392.43,
@@ -1217,6 +1211,12 @@
     "c": 390.22,
     "t": "neutral",
     "s": 50
+   },
+   {
+    "d": "2026-11-16",
+    "c": 377.45,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
@@ -1225,6 +1225,11 @@
    "label": "Top-decile volatility",
    "direction": 1,
    "text": "20-day realized vol above 61% annualized (now 61%) = top decile of its year (+9 pts)"
+  },
+  {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "TSLA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
   }
  ],
  "report_card": {
@@ -1277,13 +1282,13 @@
  "distributions": null,
  "underlying": {
   "symbol": "TSLA",
-  "price": 390.22,
-  "sma200": 382.73,
-  "above_200d": true
+  "price": 377.45,
+  "sma200": 382.47,
+  "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 61.0
+  "level": 61.2
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1300,62 +1305,62 @@
   "estimate": false
  },
  "backtest": {
-  "start": "2022-11-14",
-  "end": "2026-11-13",
+  "start": "2022-11-16",
+  "end": "2026-11-16",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 20900.0,
-  "dca_value": 31564.17,
-  "dca_return_pct": 51.02,
-  "dip_value": 31549.84,
-  "dip_return_pct": 50.96,
+  "invested": 21000.0,
+  "dca_value": 30635.49,
+  "dca_return_pct": 45.88,
+  "dip_value": 30627.29,
+  "dip_return_pct": 45.84,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 203,
+  "dip_buy_days": 204,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Tesla Stock Price Prediction 2026, 2027, 2030\u20132040: How Much Further Can TSLA Climb?",
-   "source": "Coinpedia",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQVk5UTVZjU3FhRnozU09VOTk5SHdISVJsNDljR0RCcDhsV3FMOUZSVENsRE1VVjUtUm12OUNKMmtVRjFZSmNsYllINUVHaWRUYzI4RFNVanl3M2dQUjdzQV9zdjBYNjc2WWk2NHlqZE1jRk9sVGQyUER3VDJib0c4R2xuM2NVUdIBiwFBVV95cUxOZXVkQjFrcHVsaWVmeVlhNlNRTlNvZ0l6eGdqdzNRRF93TW9abzkxeGRJYzRwWHVIbWo1OFM2S2xIQ1lIc2R0R0dQSkJCbWdrRFh1QnV2QkgzU25DM1JjdUhkWjVqVmFBNWhkZlB6OXdZcnRvenhmaFdTaThRNGM1WGM0TS0xak42SHBv?oc=5",
-   "published": "2026-11-16T11:29:10+00:00"
+   "title": "You Can Now Buy A Tesla Cybercab \u2014 But It'll Probably Cost More Than You Think",
+   "source": "BGR",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5YVW1pdlJiaXZRLXBFWC1aMEFpT2NMLVBVYVZySUtKMUVUWDlhWUNMaS03WGJBOU1rUXlfZXlILXd4TU8zT1ZHRk9rTmVxVjBkRS1XeUhHUU1EV29fcFVEYU40YXBZUUJ5TE5UcFoxMldMXzduTTNnN2dYemNwZw?oc=5",
+   "published": "2026-11-16T19:17:00+00:00"
   },
   {
-   "title": "Tesla, Inc. $TSLA Stock: Intech Investment Management LLC Cuts Holdings",
-   "source": "MarketBeat",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQMEdiV2JoNW5CejZSR0IyVWNXaHg0ckRBV0xwV1A1Sy1HSkc1SDBNSjNOUHVLcFh5RXo0NGVDc0VEMmJjUlk3M0pvMlFoUXA1RDZJdExtWF9tWGljb3picjB3VnJ4VU5SZWlyb2FGTVlIRndOMl9iUzB4UzRscmZ6LVhKeGpaZkc4NTdiNEEwZ1Y1eUNPVTctTmF6S3V3Nkt3dUZpbUYzMlZ1bEVhSXVRQnIxTVhld0JGV1k4WlIzdTBYSDh6TmNB?oc=5",
-   "published": "2026-11-16T11:23:33+00:00"
+   "title": "Tesla Cybercab: $29,990, a $299 Monthly Fee and the Head-Shaving Bet Between Elon Musk and MKBHD",
+   "source": "www.trendingtopics.eu",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1DdENCVE1EMUtoMmxLbDYzeURVRHY1Z0d3VEdrODVQdF9jVHBobUtfMVJPLVgzSzZObV9Pci1Obm8tSmJhQm9LVTM2T0J1M3RwZ05ic3lSek5fMWJ1N0xFV2FqX1hGaDN3LXRmMF9ESnJsaHhNTlc4dw?oc=5",
+   "published": "2026-11-16T19:07:20+00:00"
   },
   {
-   "title": "Tesla, Inc. $TSLA Shares Newly Acquired by White Pine Capital LLC",
-   "source": "MarketBeat",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPWTYzV19UYXdTS1JWNFJ3ODlwN3hUdWdyS29maVg3cEZaYURhTmlabWVDVE9nMi1FWGZrdXdjcUxZYTN1V0Vrb3FxYnYwd2gyOXdzeVFQTWJQeEtwajJ1XzlfRmZ1SW4xQXlSWEZYWFVqVThYRzNoUXpseXoxbHlUUU9lRnBFMWhQcFg1RXpJci10WEwyaGpjendFd0MzWVVvc3c2R0NUMDZGbXBrc1hVSW5vZ21ILXI4NWF2VXZCOWY?oc=5",
-   "published": "2026-11-16T11:15:28+00:00"
+   "title": "Tesla goes all-in on the Cybercab with upcoming \u20ac3B Berlin Gigafactory expansion",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNamxkQTFxNUFFMEo1M3EyQmZxWEFsZDdZSU50bEdyMzcxb1E5SHQyRzV3TXJydEFjSHN5VHFSeVR6U2ZabTJvTFg2c1JjTlhkYW85cjBleGg2dV9PMVZGVjhWajNnNXBFanBBa2d5cDFsbkNhQjQ3eGRrd1dpTDRaOGR5RjBEcnBJTW9SQVVxbFJXMVZlbWlFWGpvSQ?oc=5",
+   "published": "2026-11-16T18:21:14+00:00"
   },
   {
-   "title": "JPMorgan reiterates Tesla stock rating on robotaxi progress",
-   "source": "Investing.com India",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOYnpDZFE0SXFKRHhsbi04ckROWEJwUDJacWNqNW5tNWJMazB1Y3ZUeWRZQTF4TjR4VGd6Z3ZKY2VsNVFiV1lzcDlSVVhmaVYwOE1SRWIyb1dRSFB2aS1ZeHhvZVc2Q3RsOGRJdjNZbE1RM3B2OGxick5zdFlBZG9wS1RYVkdYUEdvSnctTmxtQWVxV1p0MmdHYmk2Q0JFVlU2cjdWc2RBeEFQcVhMd2hnb0llczEtRWpST1dVQg?oc=5",
-   "published": "2026-11-16T11:05:17+00:00"
+   "title": "XPeng Rallies 5% on Q3 Results and Strong Q4 Delivery Outlook; Nio Falls 4%, Tesla Slides 3%",
+   "source": "24/7 Wall St.",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPQWNIc0IzYUVGTEN6SFRJV1BYNFE0bmVOSU9KWFpLOWMwaVVyLUtiWUo4aWFQVlU5WHRVV0hZTDZySFphLTlEdGU3OWRsRzVlbkNkNTEyVHpPVE5iLVp4M19hcVQ2Qi1QZFVYWGE0aTFqWW94ZW91Z1lrMnRWMENRTFEwNlUweGtPVHQ1anEwb20zZ3hibkp4eFhzQUl6MmRCdVNSQ3RZMlpnLUJodld4aDFEaDBZVEJGanZlZVltUnpXQ2ZVTEpoZERpOA?oc=5",
+   "published": "2026-11-16T17:55:00+00:00"
   },
   {
-   "title": "Will All Your Electricity Come From the Sun? Elon Musk Calls It \u201cObvious\u201d",
-   "source": "BeInCrypto",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9CNWxhT2hmR3RiMmRmU1ZBSmVVMlJLd2VkMlNUcWdjQTREQnllQ3oyU1RfeHN4NUYzamV3ckRqU0NkMGNxZTZvQmp2YWMxckcyME0yRTBraXgwUWR1a2xudkx6Y19oRVE0RzJpY1NNSWY?oc=5",
-   "published": "2026-11-16T10:21:43+00:00"
+   "title": "Tesla (TSLA) Opens Cybercab Purchases to Select Customers for Personal Use",
+   "source": "Blockonomi",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNYXI2SEZYbXNrdV9vaDU3dVpFZ1RJSFJ3aXpBMW1tV3VDWXJ3MDNodGdrMmhfdmRUOHlxLUJrQUtRM0h6SlU4M3VzSXZIX2s2a1hRRkRBaC1YYzhxTDhfY1dNbHA0ZEpHT0Z1SWZaX09xWXNYaG42S3JobVRjMDBmN25LOTFzS1FqOVp2SVFiU1Y1MkdWaHNXNFhoUS0?oc=5",
+   "published": "2026-11-16T17:51:41+00:00"
   },
   {
-   "title": "Marques Brownlee calls Elon Musk's bluff and pays $30K to order a Tesla Cybercab only to find some stunning details",
-   "source": "Supercar Blondie",
-   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPbTJqUUZhTlQ4aDhRUkFlSGlvQW16V2lqU2RrRVFYd1FjX1ZoT05nSnAtcmd1Ui1GT0kya196dmtQdVA4MDNtb1pPVzcwLUNjbG1qeEwwR0sybDFvbWZQYVhIN1NjbnJBSnFjV1NVSk9FclpRSldOemtfNGh3dUx0eHhrQThISk1KZXhsRFln?oc=5",
-   "published": "2026-11-16T09:47:00+00:00"
+   "title": "The $299 Trap: Tesla Stock (NASDAQ:TSLA) Slips with Cybercab Surprise",
+   "source": "TipRanks",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMl90dEdya2hGLUxpU0twNGk4bTBXdW9KUUtGaXhydHVabkcwMzYtQUotTW1WTFZXczZOVUFqUnk2N1hMQjFHNzFuUTFlV2YzaGFhZzFoQllfV1lldldPU181Q2lyZGFDLVFsZzBHZ0tFWERiMFhlbE15ZjJ2UFdUZlZvb0dnUmFMZGRpd3FRZnpkb1Vwb08zMlpn?oc=5",
+   "published": "2026-11-16T17:38:25+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-16T12:00:18+00:00",
+  "run_at": "2026-11-16T20:10:15+00:00",
   "session": {
-   "date": "2026-11-13",
-   "bar": "final"
+   "date": "2026-11-16",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1371,7 +1376,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-16T11:43:16+00:00"
+    "as_of": "2026-11-16T20:07:21+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1381,7 +1386,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-12"
+    "as_of": "2026-11-13"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1392,72 +1397,72 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-16T11:55:00+00:00"
+    "as_of": "2026-11-16T20:09:30+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-16T11:38:40+00:00"
+    "as_of": "2026-11-16T20:05:58+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-16T11:29:10+00:00"
+    "as_of": "2026-11-16T19:17:00+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-13"
+    "bar": "provisional",
+    "as_of": "2026-11-16"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-13"
+    "bar": "provisional",
+    "as_of": "2026-11-16"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-16T12:00Z"
+    "as_of": "2026-11-16T20:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-13"
+    "bar": "provisional",
+    "as_of": "2026-11-16"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-13"
+    "bar": "provisional",
+    "as_of": "2026-11-16"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-13"
+    "bar": "provisional",
+    "as_of": "2026-11-16"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-13"
+    "bar": "provisional",
+    "as_of": "2026-11-16"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-13"
+    "bar": "provisional",
+    "as_of": "2026-11-16"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-13"
+    "bar": "provisional",
+    "as_of": "2026-11-16"
    }
   },
   "degraded": [
