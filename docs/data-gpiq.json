@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-17T20:10:11+00:00",
+ "generated_at": "2026-11-17T22:42:10+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
   "label": "Better-than-usual entry",
   "summary": "Heavily-weighted rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for GPIQ, this is a sensible day to deploy it.",
   "tone": "good",
-  "score": 7.0,
-  "score100": 94,
+  "score": 6.0,
+  "score100": 88,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,7 +17,7 @@
  "signals": [
   {
    "name": "VXN vs its own past year",
-   "value": "36.6 (p99)",
+   "value": "34.4 (p99)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "1.04",
+   "value": "1.02",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight.",
    "viz": {
-    "pos": 84.9,
+    "pos": 79.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.38x (p60)",
+   "value": "1.35x (p51)",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 60.3,
+    "pos": 50.6,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-0.1 pts",
+   "value": "-2.1 pts",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
+   "lean": "bad",
+   "note": "Realized Nasdaq-100 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 32.2,
+    "pos": 15.8,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -117,7 +117,7 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "12.1%",
+   "value": "11.5%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
@@ -148,7 +148,7 @@
   },
   {
    "name": "GPIQ vs 50-day average",
-   "value": "-7.8%",
+   "value": "-7.1%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -194,13 +194,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "11.3% vs 4.3% cash",
+   "value": "11.2% vs 4.3% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 69.6,
+    "pos": 68.6,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "24 (extreme fear)",
-   "score": 1.0,
+   "value": "25 (fear)",
+   "score": 0.0,
    "weight": 1.0,
    "lean": "good",
-   "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
+   "note": "Fear is the dominant mood - a mild contrarian positive, though short of the <=25 extreme that scores.",
    "viz": {
-    "pos": 24.2,
+    "pos": 25.2,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -257,14 +257,14 @@
   }
  ],
  "fund": {
-  "price": 51.0895,
+  "price": 51.44,
   "as_of": "2026-11-17",
-  "bar": "provisional",
-  "day_change_pct": -1.26,
-  "sma50": 55.92,
-  "sma200": 55.22,
+  "bar": "final",
+  "day_change_pct": -0.58,
+  "sma50": 55.93,
+  "sma200": 55.23,
   "high52w": 59.52,
-  "drawdown_pct": 14.2,
+  "drawdown_pct": 13.6,
   "series": [
    {
     "d": "2026-03-04",
@@ -1342,13 +1342,18 @@
    },
    {
     "d": "2026-11-17",
-    "c": 51.0895,
+    "c": 51.44,
     "t": "good",
-    "s": 94
+    "s": 88
    }
   ]
  },
  "flips": [
+  {
+   "label": "Extreme fear",
+   "direction": 1,
+   "text": "Fear & Greed at 25 or below (now 25) = extreme fear, a contrarian buy zone (+6 pts)"
+  },
   {
    "label": "Extreme credit stress",
    "direction": 1,
@@ -1358,22 +1363,22 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-16",
-  "days_total": 766,
+  "end": "2026-11-17",
+  "days_total": 767,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-11-17",
   "baseline": {
-   "n": 745,
-   "avg_pct": 1.74,
-   "median_pct": 1.99
+   "n": 746,
+   "avg_pct": 1.72,
+   "median_pct": 1.98
   },
   "bands": [
    {
     "tone": "good",
     "label": "Better-than-usual entry (score \u2265 69)",
-    "n": 111,
-    "avg_pct": 3.51,
-    "median_pct": 3.36
+    "n": 112,
+    "avg_pct": 3.41,
+    "median_pct": 3.31
    },
    {
     "tone": "ok",
@@ -1392,12 +1397,12 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 11.28,
-  "tbill_3mo": 4.32
+  "ttm_yield_pct": 11.2,
+  "tbill_3mo": 4.34
  },
  "fx": {
-  "usd_krw": 1335.11,
-  "as_of": "2026-11-17T20:09Z"
+  "usd_krw": 1334.7,
+  "as_of": "2026-11-17T22:39Z"
  },
  "distributions": {
   "history": [
@@ -1520,13 +1525,13 @@
  },
  "underlying": {
   "symbol": "QQQ",
-  "price": 652.52,
-  "sma200": 682.57,
+  "price": 656.95,
+  "sma200": 682.59,
   "above_200d": false
  },
  "vol": {
   "index": "VXN",
-  "level": 36.56
+  "level": 34.44
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1543,57 +1548,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 16100.0,
-  "dca_value": 19854.42,
-  "dca_return_pct": 23.32,
-  "dip_value": 19647.27,
-  "dip_return_pct": 22.03,
+  "dca_value": 19990.63,
+  "dca_return_pct": 24.17,
+  "dip_value": 19782.06,
+  "dip_return_pct": 22.87,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 67,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "AI in Education: Where Human Judgment Still Matters",
-   "source": "Solutions Review",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNX0VNQzE5Q2d3b1hQMm1Ja21lTm9pUUVWdmVmNk9BN0ZrUC1qVjBhY0cxU25FSDAwTGdGX0FON3FxMHF2TDVkbF92SG9nYlhiNUdjRFRLMy1rUFZEMlYzdE0zQmJnQ3g2dDZ6MHBBMi1ianVVTnpfNHZSbW9jeTN4cWxoM0toZTJlY1NoV1JrLUxBNHhlQWpqSGZuNERCdw?oc=5",
-   "published": "2026-11-17T20:07:57+00:00"
+   "title": "Exclusive: Donald Trump Jr. signals investors underestimated AI pushback",
+   "source": "Axios",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9MSnVFZXRKYXU2MkNWbXZqT1V0X3ItQjdoellKb2VyN3BrZFlOb1dUb1NWM0U4ZGlpYndWVVhmZThlTmVWbnZsbFRCaWdxNTJTd2kxZXhubC0tSF9VcjNOYXBDMDZEZWNPR2tGZFVB?oc=5",
+   "published": "2026-11-17T22:36:49+00:00"
   },
   {
-   "title": "Apollo CEO Marc Rowan on investing in AI chips",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOcmQwWExxNXoxd3hQeWVvYjZrXzhneUVGV0RFZW9RZ2VvOHNGdTgzZ2VWRFpKTFlSQWwyeENFUFlLdW5pUVBrN1Z5YnpLdklqdFRjeHVzQnpoZDNWZ2czNU5jcG9TNTA2RjJ2NFFPeGJQdTRiQm1aSkQ2RlN4cThIekFWSndYWGtwSTZLNU1mdFhYZFE?oc=5",
-   "published": "2026-11-17T20:01:44+00:00"
+   "title": "AI & Tech Brief: Israel\u2019s AI ambitions",
+   "source": "The Washington Post",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPdERwSW9fX1VYbEFqaHlCdXBMalNtV19PdUk5eFBfMGNHUmJnU0pSVnpQWjNTTmdzOVRmM3dndm1ZQmZnblBuMi1ldjJ1VUZodFdXS045WTcwa2JOdTRoME9ETUlaSVlvYnZ1UXZ6M3pWUGJ2SFAtVTZfbjkxQVN2YkpVZ1FZZ1ViX2t5RmhHVklMZTZuOHl2MW4zYk5QRXhNRkhRbEV0ZjRidG8?oc=5",
+   "published": "2026-11-17T22:34:53+00:00"
   },
   {
-   "title": "UH to predict invasive beetle spread with AI",
-   "source": "University of Hawaii System",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBuUjFFOVo1MnVOR3JGUkFHaU1xUzhVQUFlTVMwcDVJNHpybk1NUDJUck1yVW9UZmFUSlBhY2F3TE9tVWQ1ZnAtNXhNcXEzdGhBQXdwNzN0QzFzV0hUY1ZTUUZkeE56MDV1NUlPdWozdzJXQlVOTGdVTzIweVRqUQ?oc=5",
-   "published": "2026-11-17T20:00:37+00:00"
+   "title": "Baltimore students sue after AI gun detector mislabeled bag of chips as a firearm",
+   "source": "Courthouse News Service",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPYnNMdTdNcjVBbGhrYnBxOVNmY0c0dkVnWktZQS1UYlBpZGJlVzlDa1RHUWcyQVFfMEpYN2pBNUtBc0NnS2dLQjBRZERlRlpIVzNHcmx3Zk5wY05ZNkNLeFlRMHF5YVE1UzJqd1NpOVVrT0NVWEJiSTdiN2dkRldGaGV5MXJkR2tLaERNMHhXTHVud2pkNTM5RFR0OXBoUDN0MXV6VXF4X0lLbmVxSGxjdzktVQ?oc=5",
+   "published": "2026-11-17T22:33:46+00:00"
   },
   {
-   "title": "Build full-stack Android apps with Gemini in Google AI Studio",
-   "source": "Google for Developers Blog",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOckRKc192RjhrUEFoOXUxTE11eTFBY082ZXZTZGxxdDRlZlp3aXg3R2tmUVJqRWFncjEyd2U2dWwwOTR0dnZ0dUs0Zm0wU1BzX01zMGF6cjdfTmpwbjhISHI1d1BiRTRHLWdmd0FmTGkxTzVKbjJ2TXJWODV1VFhYLS1PdzRZelZZeTJlS3lwNEEwRElIXzZIRjJkUTE?oc=5",
-   "published": "2026-11-17T19:58:32+00:00"
+   "title": "What Goes on in Our Brains When We See an AI Face",
+   "source": "Nautilus | Science Connected",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQSmhQaWlvTVFzTDU5aHVZLUFTdlRNN0ROc2I4Z21TZE1FdVpNb2duUjAxbS0xRVNCXzZwV3Y2WF9GVExEM1kteHpHeHI1UElFaEtzZ1hCZGVDLXEtN0Q1UUpTYmJTSHJDdGtPbm5VTVFWamNpMzVpM1gzNU50aXU4OA?oc=5",
+   "published": "2026-11-17T22:31:23+00:00"
   },
   {
-   "title": "Microsoft jabs at OpenAI and Anthropic, touting cheaper, customizable AI models of its own",
-   "source": "GeekWire",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQX0pCVkNJTDc2MENyM3Y1Q0hJRzRyQkg3U2NxVGp1eXRzd2RsM1JNa1BlSkxQckZuSFVLZk1lMmZwdHJPN00xTWVQZi1rUURyTnQzNTlISXhVX1RMalNPMXhZLVpWVXc5eVQzcmZSYlVrY2psVERzN1MzMzY3TElCbUFNWkhBS1dSeklnOGVMVkdSSnVjeUxMUGxmbWFhOGlWWVN4SEtwQ2RhRUFUVG9mNF93UC1XQjczcnBR?oc=5",
-   "published": "2026-11-17T19:57:51+00:00"
+   "title": "What are we willing to have AI do for us? Meet The Human-AI Risk-Reward Matrix (HARRM)",
+   "source": "Ipsos",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOS0t4bjVaT0lWZzhQNEYzbWpQLU81b0lJYjlOZ2V4Q1Q5UEFzVkt6bjg3NGxFaHhtOUd3NU1pMDZkYkZSZURUeDNMOVpGOUpkRW1maGtmNF9ScGFPUFRWeHVQQldrbUYxeVVVUF9wVGQyUWFWMllFcVd0cHBuVlV6YjJCV3F0clA4aXFVZzBkSDNsZS1MbGxISmE3SlViOG1wMFE?oc=5",
+   "published": "2026-11-17T22:30:14+00:00"
   },
   {
-   "title": "The AI edge in real estate investment",
-   "source": "UBS",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNZmUxV3E1aEFPYlBEcEQzZ1ZONHpLTDZIU3pVZFF4b1VaUjlXYnAydTVUbzRiWVpFU1VrWjQ4d1ZfaG1GOWN2dUxCd1BxckRvd1RtRnA1UEJUTVlFdFlwSkFrd3llQ09QREtlMW8yQWk5dkJDLXBFaTJUem9yYzZVNWhRd1JPTlM0WGpNNWd2cGZIVmJ0NDZ0YW1UVU1IY05PVTlHcVktWjNBY3VzR3c?oc=5",
-   "published": "2026-11-17T19:56:43+00:00"
+   "title": "Child Fatality Task Force discusses AI protections, funding for school health personnel",
+   "source": "EdNC",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPQUdEQkxoazdxRjd3TzJiS1otczVNOHFuSk9MSmlfc2pLaEtZVWs4a05KeUhtVVpKU0hWYkxHeVl2UU1NMnRkdG5xdUJJRVZUNy1RTDdPY2NVdHc4anNPMHBHYWFZYzhHdnVhUXFwNFFWcGtRZ0VZNXFPSTRDZ1FaNnpTalhFX2FVRkltQXgyS1JOc21VUU5CSlJDUHpTYVczVFBSV0J0eDlpZS1n?oc=5",
+   "published": "2026-11-17T22:30:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-17T20:10:11+00:00",
+  "run_at": "2026-11-17T22:42:11+00:00",
   "session": {
    "date": "2026-11-17",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1609,7 +1614,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-17T20:08:00+00:00"
+    "as_of": "2026-11-17T22:24:08+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1619,65 +1624,65 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-13"
+    "as_of": "2026-11-16"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-17T20:07:57+00:00"
+    "as_of": "2026-11-17T22:36:49+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-17T20:00:00+00:00"
+    "as_of": "2026-11-17T22:08:00+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-17"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-17"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-17T20:09Z"
+    "as_of": "2026-11-17T22:39Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-17"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-17"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-17"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-17"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-17"
    }
   },
