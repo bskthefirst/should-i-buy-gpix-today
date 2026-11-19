@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T20:10:32+00:00",
+ "generated_at": "2026-11-19T22:29:50+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
@@ -26,13 +26,13 @@
  "signals": [
   {
    "name": "Short-term pullback (reversal)",
-   "value": "-7.7% in 5 sessions",
+   "value": "-8.2% in 5 sessions",
    "score": 0.0,
    "weight": 2.0,
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 48.9,
+    "pos": 45.1,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "53% ann. (p98)",
+   "value": "53% ann. (p99)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "GOOG's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on GOOG): elevated single-name chaos tended to mark better entries on the calibrated name.",
    "viz": {
-    "pos": 98.4,
+    "pos": 99.2,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "31.6%",
+   "value": "32.0%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 63.2,
+    "pos": 64.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 27.7 (p98), F&G 20",
+   "value": "VIX 28.4 (p98), F&G 19",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,15 +128,15 @@
   }
  ],
  "fund": {
-  "price": 272.71,
+  "price": 271.02,
   "as_of": "2026-11-19",
-  "bar": "provisional",
-  "day_change_pct": -2.32,
-  "sma50": 320.74,
-  "sma200": 335.18,
+  "bar": "final",
+  "day_change_pct": -2.93,
+  "sma50": 320.7,
+  "sma200": 335.17,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 31.7,
+  "drawdown_pct": 32.1,
   "series": [
    {
     "d": "2026-03-06",
@@ -1214,7 +1214,7 @@
    },
    {
     "d": "2026-11-19",
-    "c": 272.71,
+    "c": 271.02,
     "t": "ok",
     "s": 59
    }
@@ -1224,20 +1224,20 @@
   {
    "label": "Crash band",
    "direction": 1,
-   "text": "GOOG 5-session return -7.7% - another -4.3% reaches the validated crash band (+12 pts)"
+   "text": "GOOG 5-session return -8.2% - another -3.8% reaches the validated crash band (+12 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-18",
-  "days_total": 768,
+  "end": "2026-11-19",
+  "days_total": 769,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-11-19",
   "baseline": {
-   "n": 747,
-   "avg_pct": 2.67,
-   "median_pct": 2.7
+   "n": 748,
+   "avg_pct": 2.64,
+   "median_pct": 2.69
   },
   "bands": [
    {
@@ -1264,15 +1264,15 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 210,
-    "avg_pct": 1.67,
-    "median_pct": 1.65
+    "n": 211,
+    "avg_pct": 1.58,
+    "median_pct": 1.64
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 0.3154,
-  "tbill_3mo": 4.33
+  "ttm_yield_pct": 0.3173,
+  "tbill_3mo": 4.34
  },
  "distributions": {
   "history": [
@@ -1331,13 +1331,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 272.71,
-  "sma200": 335.18,
+  "price": 271.02,
+  "sma200": 335.17,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 53.0
+  "level": 53.3
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1359,57 +1359,20 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 33772.9,
-  "dca_return_pct": 61.59,
-  "dip_value": 33833.56,
-  "dip_return_pct": 61.88,
+  "dca_value": 33563.61,
+  "dca_return_pct": 60.59,
+  "dip_value": 33623.89,
+  "dip_return_pct": 60.88,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 163,
   "winner": "dip"
  },
- "headlines": [
-  {
-   "title": "YouTube\u2019s Next Big Bet Isn\u2019t Virality. It\u2019s Habit\u2014At Least Based on the Newly Announced Creator Shows",
-   "source": "Inc.com",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPN3JFUGtZeC1oYnNXQU1tQ2NrSHJXamtlM2ZKWVBxenB2NFd1SHRQcFdyX0RwcU04V3U4UklaSXZudl9iSmY0UlpIblpDeU4xUExTUldtYXhIemRtRWhVZjZmc28wazFhZHk1aWw1RzhHSC14OWlMdjFFVVp6R3RRNGd3azVReTVRT2pidjMtaTBJbUo5TTk4bQ?oc=5",
-   "published": "2026-11-19T20:06:34+00:00"
-  },
-  {
-   "title": "Google is disrupting itself with its embrace of artificial intelligence",
-   "source": "The Seattle Times",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPczFfTHdRRTgxQWVxSGJJaV9xMC1scmlkd3J5Mk5ta0gzVWVOcDFmWGhBNHRmeUZDQkNLQjhaQTVRVVJUOUNDMEdtcDJ6OGVvQlVVOFZHZk9CdjkyaW1ad3MzS3hUMFBLRmFDcTFLOS1IN0tfcndnX2NDTTE0UlZqMFpqUUpYNENzb1J5MGZuNUhUWXQ0YUhVOEdsaHJTMGN5WDNzZ1o4c2VJeTRrMHk4?oc=5",
-   "published": "2026-11-19T20:06:28+00:00"
-  },
-  {
-   "title": "Google is putting AI chats right on the homepage",
-   "source": "The Verge",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBIZ3RvSEdxdTBURnV2TmJ0NWVSYUlUaDI4RDZ6a3F0bUlhX2NaUk5hdUZGVERPLVlTY1g5NnBCcnhFQ0tXTkdTZ3hBX1FFOWpCZ1hINkNNamlOTGtRckZva3pYVVVMS0N0OFRVZ2dXRGwxQTNjenlmQw?oc=5",
-   "published": "2026-11-19T20:05:06+00:00"
-  },
-  {
-   "title": "Bessemer's Byron Deeter calls Anthropic IPO a 'Google moment'",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZUNSSzhOR0FTc2VLRl9zUkJvaXF1eGJmSks4bDFTcEZ5VXZZOHF3RG1tRDVWVlVxdVhfSEV4bl9XLXlWTFQtRlc2V2c1TUw5czI5ZU5QdHVfT09uREVScjBwT1pMVWdNUWgwQU5mZEJoMG5QX1BIRXJrdzRqZWt1N0ZSeWNhdi01ZEpuOWc2RWlLTTEyVS1Iak5uamY3Z0s2QnJv?oc=5",
-   "published": "2026-11-19T20:03:53+00:00"
-  },
-  {
-   "title": "21 Alternative Search Engines You Can Use Instead of Google",
-   "source": "Search Engine Journal",
-   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOUWdFUFNDUHNqTjQxbmxFUzRXV256RGYwLUllTGprUmltUkNtS3pFYlhiY2YtVGFkcF9IZks0Znc4MENYYkpsSERieXQyeVJ0QkNtV1htZ3RpcTNSZHl5bFBxQjkzT1FXZ0R0Z3ViQ05UMDBsMVVuenI1UTI3Mlk1RlFBNUJjNzc1akpoQVlwR1hibERSMGZETEFVQ0s0THROSE80QVRB?oc=5",
-   "published": "2026-11-19T20:00:05+00:00"
-  },
-  {
-   "title": "Google to spend $10 million on water projects across Arkansas",
-   "source": "Talk Business & Politics",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQazJhMFVydndHMXNWWkdhRXUwMDlrM0c2Tnh2WnVjWndfa3BnNHU4Ulo3eTFVaklfQnBhWXk1M0V4TjEzcnlROWdJdjV2eVlFLVUzZ2t2eV93WmhLWWRGdkxDSVBXYmh1cGh6NkpRVmZTNFhtWi1NUGNMajVjZU5vZlNiZi1zU2ZfdVZrejNuM0JuOEdSYjUtSE53?oc=5",
-   "published": "2026-11-19T19:57:24+00:00"
-  }
- ],
+ "headlines": [],
  "health": {
-  "run_at": "2026-11-19T20:10:33+00:00",
+  "run_at": "2026-11-19T22:29:58+00:00",
   "session": {
    "date": "2026-11-19",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1425,7 +1388,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-19T20:02:54+00:00"
+    "as_of": "2026-11-19T22:10:15+00:00"
    },
    "earnings:GOOG": {
     "ok": false,
@@ -1455,113 +1418,107 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-17"
+    "as_of": "2026-11-18"
    },
    "news:GOOG": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-11-19T20:06:34+00:00"
+    "error": "HTTPError: HTTP Error 503: Service Unavailable"
    },
    "news:GPIQ": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-11-19T20:02:28+00:00"
+    "error": "HTTPError: HTTP Error 503: Service Unavailable"
    },
    "news:GPIX": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-11-19T19:56:15+00:00"
+    "error": "HTTPError: HTTP Error 503: Service Unavailable"
    },
    "news:NVDA": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-11-19T20:08:52+00:00"
+    "error": "HTTPError: HTTP Error 503: Service Unavailable"
    },
    "news:SPCX": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-11-19T19:43:02+00:00"
+    "error": "HTTPError: HTTP Error 503: Service Unavailable"
    },
    "news:TSLA": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-11-19T19:34:37+00:00"
+    "error": "HTTPError: HTTP Error 503: Service Unavailable"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-19T20:10Z"
+    "as_of": "2026-11-19T22:16Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    },
    "yahoo:^VXN": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-19"
    }
   },
@@ -1570,7 +1527,13 @@
    "earnings:GOOG",
    "earnings:NVDA",
    "earnings:SPCX",
-   "earnings:TSLA"
+   "earnings:TSLA",
+   "news:GOOG",
+   "news:GPIQ",
+   "news:GPIX",
+   "news:NVDA",
+   "news:SPCX",
+   "news:TSLA"
   ],
   "degraded_core": []
  }
