@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-23T12:00:13+00:00",
+ "generated_at": "2026-11-23T20:10:08+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
   "label": "Better-than-usual entry",
   "summary": "Heavily-weighted rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for GPIX, this is a sensible day to deploy it.",
   "tone": "good",
-  "score": 7.0,
-  "score100": 94,
+  "score": 5.0,
+  "score100": 81,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "35.9 (p100)",
+   "value": "27.4 (p97)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "S&P 500 volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive (about +1pt over the next month, so it carries a 1.5 weight).",
    "viz": {
-    "pos": 99.6,
+    "pos": 96.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "1.16",
+   "value": "1.06",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight.",
    "viz": {
-    "pos": 100.0,
+    "pos": 90.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+9.3 pts",
+   "value": "-4.4 pts",
    "score": 0,
    "weight": 0,
-   "lean": "good",
-   "note": "Options pricing far more turbulence than the S&P 500 is delivering - the call-selling engine is well paid right now. A read only: the scored versions of this gap era-flipped in the audits.",
+   "lean": "bad",
+   "note": "Realized S&P 500 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 100.0,
+    "pos": 0.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "10.2%",
+   "value": "6.4%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 100.0,
+    "pos": 64.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -113,21 +113,21 @@
   },
   {
    "name": "Short-term pullback (reversal)",
-   "value": "7 down days",
-   "score": 2.0,
+   "value": "no pullback",
+   "score": 0.0,
    "weight": 2.0,
-   "lean": "good",
-   "note": "SPY has closed down 7 straight sessions. Short selling streaks like this have reliably bounced the next day - the market pays whoever provides liquidity into them. Validated era-robust in our backtest (+0.21% next-day excess (t=3.6) after the signal fires) - the strongest edge this tool has, hence its top weight of 2.0."
+   "lean": "neutral",
+   "note": "No short-term pullback in SPY - this check pays only after 3 straight down closes or a 3%+ five-session drop, roughly 25-35 days a year. When it fires, next days averaged +0.21% next-day excess (t=3.6) in our validation, positive in every era - the strongest edge this tool has, hence its top weight of 2.0."
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "-8.4%",
+   "value": "-4.5%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 0.0,
+    "pos": 12.5,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.52% (+0.25 1mo)",
+   "value": "3.76% (+0.36 1mo)",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "Credit spreads moderately elevated but well short of the 5% panic band.",
    "viz": {
-    "pos": 38.0,
+    "pos": 44.0,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -167,13 +167,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "9.2% vs 4.3% cash",
+   "value": "8.8% vs 4.3% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 48.1,
+    "pos": 44.3,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "13 (extreme fear)",
+   "value": "17 (extreme fear)",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
    "viz": {
-    "pos": 12.5,
+    "pos": 16.6,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,21 +230,15 @@
   }
  ],
  "fund": {
-  "price": 50.3,
-  "as_of": "2026-11-20",
-  "bar": "final",
-  "day_change_pct": -3.38,
-  "sma50": 55.3,
+  "price": 52.4262,
+  "as_of": "2026-11-23",
+  "bar": "provisional",
+  "day_change_pct": 4.23,
+  "sma50": 55.24,
   "sma200": 54.37,
   "high52w": 56.67,
-  "drawdown_pct": 11.2,
+  "drawdown_pct": 7.5,
   "series": [
-   {
-    "d": "2026-03-09",
-    "c": 51.81,
-    "t": "good",
-    "s": 72
-   },
    {
     "d": "2026-03-10",
     "c": 51.74,
@@ -1318,14 +1312,25 @@
     "c": 50.3,
     "t": "good",
     "s": 94
+   },
+   {
+    "d": "2026-11-23",
+    "c": 52.4262,
+    "t": "good",
+    "s": 81
    }
   ]
  },
  "flips": [
   {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "SPY 5-session return -2.5% - another -0.5% = short-term reversal (+12 pts)"
+  },
+  {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.52%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.76%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
@@ -1365,12 +1370,12 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 9.15,
+  "ttm_yield_pct": 8.77,
   "tbill_3mo": 4.34
  },
  "fx": {
-  "usd_krw": 1346.62,
-  "as_of": "2026-11-23T12:00Z"
+  "usd_krw": 1341.89,
+  "as_of": "2026-11-23T20:10Z"
  },
  "distributions": {
   "history": [
@@ -1493,13 +1498,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 689.81,
-  "sma200": 732.76,
+  "price": 721.645,
+  "sma200": 732.91,
   "above_200d": false
  },
  "vol": {
   "index": "VIX",
-  "level": 35.89
+  "level": 27.35
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1512,61 +1517,61 @@
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-11-20",
+  "end": "2026-11-23",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
-  "invested": 16100.0,
-  "dca_value": 18834.34,
-  "dca_return_pct": 16.98,
-  "dip_value": 18696.61,
-  "dip_return_pct": 16.13,
+  "invested": 16200.0,
+  "dca_value": 19730.48,
+  "dca_return_pct": 21.79,
+  "dip_value": 19586.93,
+  "dip_return_pct": 20.91,
   "dip_cash_uninvested": 0.0,
-  "dip_buy_days": 34,
+  "dip_buy_days": 35,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "U.S. Futures Rally as Tech Stocks Bounce After Brutal Selloff; PCE Inflation Data Awaited",
-   "source": "Barchart.com",
-   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZ1NYWnE2QWFRQXo5ZVdVMmVDWlJXLVRFcXhLWnM5ck5IOEdKY0tOT0NtV29pRGZrc1pfd2RUUU1tN0FtaUJLSzNmSEVOdndfdlFQN2R1UVlHa0ZtSDRDb2gwdmNOdlNCX3VVNTBmUjlzZU5IRzNnQzgwWERHS18zRmt2VndyTk1CNngtRU1lc29kMnhxcmhsbE1INVpVSzFkRmNuc2J3VnU4TGNPWjF5Qkxsb1dsNHFDSjVkYUo0M3U4YUZzTmIwSVk4RQ?oc=5",
-   "published": "2026-11-23T11:32:56+00:00"
+   "title": "Reuters: Fed\u2019s Cook Says Rate Hikes Needed To Lower High Inflation",
+   "source": "RV PRO",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQY2twdW9YMWY4V3dVVXVrUDIyZVNaNmdKR2ViTWZJR1RZZGwtNk9iSFFhOGlvNmNGOU00TmtlOTJtRWR3SFdNRllmVExEb2Y5S1ktNFNNcmFWb0J3b0MyMVM0Z3VjNjk0UGdxZlFacWJlTktSR25LYlBmLWxTYXJud19aNkd3ODVGZmlqeA?oc=5",
+   "published": "2026-11-23T20:06:39+00:00"
   },
   {
-   "title": "Australian Dollar gives back some early gains as US Dollar bounces back",
-   "source": "www.tmgm.com",
-   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPOWxiT0pCZGFZVk1nRFhWaDhBcW0xRlplYkZobHJrWjJmT1pOTGVOazg1WTBSQTExNVI1SExfSDBDVmJOdF9xX2xVc2ZMd2RMTktXSWQyV25TYzhXdEd6bFBqY0lOZTE3dklOZ2dqSXltSkVWWHZ6UFhuTnJPU1NzRlhQVGU0OGFxRFloN200ZGZVa1lXT3E1NlBWSHd3Y3k0RlRQMjBoWnpqY0NhNUd6ZWZrbWFjY2ltZmVreF9Yd0lUV1JuenVIMlZDWUk3RFdHOWdr?oc=5",
-   "published": "2026-11-23T11:31:02+00:00"
+   "title": "Why has gold fallen a third since its January record? The war, inflation and a Fed that turned to hikes",
+   "source": "Nacionale",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNMGNnZ3YtS0lraFlPR2c3dGR1Mm5vWGZJYVJ0blM4Y015RXFjU3NLeW1UakJ2ajhvWFZhUTM2V2hIOEtJYkpQZnMtQldnUXBVcVllTmdJVC1DbGRISHdkUVJoX3RjOTdRU1pjdEhFUWxLeUx1NmtvY0J2NmRoR01yd1VWbjRzV2dqQU11dEtySEZHa010WHN3ZGFacmt4c1cwcGpIN0lmME9Bb2R5RHNVd0VSMW0tdl9ONUNhN0JEU3pHZw?oc=5",
+   "published": "2026-11-23T19:48:26+00:00"
   },
   {
-   "title": "BTC price gains 12% from $55K: Three things to know in Bitcoin this week",
-   "source": "TradingView",
-   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOX01fRVN4OU8xM050TVh1OW1tU2dfYWE1clh1U2ZuSlRTcHF1cU5lRmZUUGwzWlZpWmZmM1Ftc2Nyc296Umt0NFpkcnpRQXZHU3Jnb1ByS1V3NTRxbkJ3SjR5NGxMYWxWalZxYzNtZEhxLWh5OE9UYnBBQm9UTlh3T2JPNkVsZnhBUUdUQWVEMUQ1YlB5NGVSWFNORHNpS2tONkVnbEQ4UmJSbXY2UTB3bTluanpLVVhMd1cxMlBUQWRwYTZFajdyQldzZy1SZw?oc=5",
-   "published": "2026-11-23T11:20:57+00:00"
+   "title": "Apple rises as robust inflation and Fed talk keep risks from higher Treasury yields in focus",
+   "source": "Traders Union",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQM05hZVVidmtYQy1BMXU5cy1UZXVab3FFQUE5cmlXUENIRHRSYldzNGFJS1RVWEdZSXVWVUpfdVg5TzdFcDJ1SjA2Z01SQVRWWnpZUVBqYnF4cWRndEtfWm55b19KZ2lQMzZ5SXBqYnU1ZzBmbHBEZzZadXRzdHdBY0drSUx5TWxhZWs1YUhMTC0wX1Ux?oc=5",
+   "published": "2026-11-23T19:32:32+00:00"
   },
   {
-   "title": "Ackman Urges Fed to Raise Inflation Target to 3 Percent",
-   "source": "cwibc.co.id",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAzYzhKdU9UYkwzYllFLUFIX2E5MFpObGdlLVVHQngycmtnbktXeDNya1RGZ3B6M0d2aE1SdHEta0I5eFJIVElPTVRiR1o3cGVWdDdFbXFuWU1lSzBFcTBYVXJRdGpWcmFKTkF6NQ?oc=5",
-   "published": "2026-11-23T11:19:34+00:00"
+   "title": "US Stock Selloff Revives Question of a Fed \u2018Put,\u2019 This Time Under Warsh",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOamhQcGtONXo1SHNRdHRjWHRPZ3gzaHJCUTdNbW1BdUJ3ZUhLTjZ6X1F2dVo3SDdmZHZlWFIwMHVOX3RSZ3lFaE9vRzFDdUE0YlhFbXVTOWxuM2J3dkVwYjE0VE5JV0ZIaHNVLVp3d1dIMGxlX3JvVTNkNnRsRldmeUsyVk9IYldqbTFsU3RZUXpWclpybnhaei1CU2U5WDdQb1ZfcHpZdm5TdldRUlVfMVNnV0dDMG56eWRfNEhCbw?oc=5",
+   "published": "2026-11-23T19:31:19+00:00"
   },
   {
-   "title": "Trump Blames Democrats for $6 Trillion Stock Market Rout Since Midterm Elections: \u2018If They Don\u2019t Change",
-   "source": "Benzinga",
-   "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOaFp1blhIU2p3bEFuVlhvejhFam82YVNBTWVOZjhCM1hfVEJfTXZicElEM1pzeE12eG9INGMwOWcyT1Y1S0NwSlJmVWpwNnRpT1R4TjBNZWRpdEkwNG95UGdnVl9SMW5VWElRR2d5ZzFVTWJRWklCdXFTVi1uU0x6WG8zNHRZb2IyTjBZQ015ZmFIR0tkSXVKeE4zakRhYmY3TzU1OEFOc0duRnRUeDVqMHRFY0lETzhjc1VOUmhrVkpxVGl6ZHFlc3FnTjh5TGV3bEh3VXBQd0VGR2VIdzhLLXJVeEpNSVg3b290TFpNMFFXOWJ2c2ZBSktZZkJxZDFsZ2t2WndZSWVsSW1oWWc?oc=5",
-   "published": "2026-11-23T11:11:04+00:00"
+   "title": "US stock market today: Nasdaq Composite surges 6.5% as Nvidia jumps 30%",
+   "source": "Beinsure",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVkhhLWZsSzRjYjY0NlU1ZDM3ckpSS19QcFFhMVNGYnB6LUpvbVFqYU03ZS16ZHdMa19oT3RMZmlITFFzcEpNc1lEd1VHT3RkVU5wSEU1ekVUcEkwZ19ldDY0emQ3ZTdGZ1l2ZE5wamZOWlBaUGwxZFRhQ0dxOEJ3ZmJsTkRtVFFtcDVCckxXYkN6UQ?oc=5",
+   "published": "2026-11-23T19:24:42+00:00"
   },
   {
-   "title": "Market Minute: RSM\u2019s U.S. rates outlook for 2027",
-   "source": "The Real Economy Blog",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNkVhOTR2MWxDeHZFcnl5ZC1vTFluc1hXZE53UlB5OGpCRUtGazNpSnBqY2RnTmdyUl95ZjhYdlBVQVNTaXJ0MVRHZmlqMURPeXVmdkI0RVFZWE5BQzBqYW9hdmFFdmRZTmlQRE5ZWlBKUzdrVzRUTDZoZDRWX1hSZUxR?oc=5",
-   "published": "2026-11-23T11:00:36+00:00"
+   "title": "Texas jobs up 1.1% in 2026, says Federal Reserve Bank of Dallas",
+   "source": "Texas Public Radio | TPR",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQY2VPaWZtLTRGTHJjanU0aE1rX2RzS0s3NzFaM1lZMjV3M29mOE9hV1RzVG9TYXR6WGZOenQydHlEXzF2WU8zanY0UGlkTTVNNVZCbGRQNnF3WFVjQWVWQ2pJTDZrTGU5eXhtU2lyX0dLYXBzd0VXaTNvWlJ1NjRDYjgtOF93ZnpsZ3RtSTRDQ3MwbEhFWU5pM3RKY09xQWZnUFgxcURDYjM0T2dicFU4?oc=5",
+   "published": "2026-11-23T19:06:48+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-23T12:00:13+00:00",
+  "run_at": "2026-11-23T20:10:09+00:00",
   "session": {
-   "date": "2026-11-20",
-   "bar": "final"
+   "date": "2026-11-23",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1582,12 +1587,12 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-23T11:43:46+00:00"
+    "as_of": "2026-11-23T20:04:07+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-19"
+    "as_of": "2026-11-20"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1598,36 +1603,36 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-23T11:32:56+00:00"
+    "as_of": "2026-11-23T20:06:39+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-20"
+    "bar": "provisional",
+    "as_of": "2026-11-23"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-23T12:00Z"
+    "as_of": "2026-11-23T20:10Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-20"
+    "bar": "provisional",
+    "as_of": "2026-11-23"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-20"
+    "bar": "provisional",
+    "as_of": "2026-11-23"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-20"
+    "bar": "provisional",
+    "as_of": "2026-11-23"
    }
   },
   "degraded": [
