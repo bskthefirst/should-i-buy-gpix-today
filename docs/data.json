@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T20:10:09+00:00",
+ "generated_at": "2026-11-24T22:14:07+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "27.2 (p96)",
+   "value": "26.4 (p95)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "S&P 500 volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive (about +1pt over the next month, so it carries a 1.5 weight).",
    "viz": {
-    "pos": 96.5,
+    "pos": 94.9,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "1.05",
+   "value": "1.03",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight.",
    "viz": {
-    "pos": 86.3,
+    "pos": 83.7,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,7 +63,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-4.6 pts",
+   "value": "-5.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "7.1%",
+   "value": "6.8%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 71.0,
+    "pos": 68.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "-5.1%",
+   "value": "-4.7%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 7.5,
+    "pos": 10.8,
     "labels": [
      "\u22126%",
      "+6%"
@@ -167,13 +167,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "8.8% vs 4.3% cash",
+   "value": "8.8% vs 4.4% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 45.2,
+    "pos": 44.3,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -200,7 +200,7 @@
    "lean": "good",
    "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
    "viz": {
-    "pos": 16.6,
+    "pos": 17.4,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,14 +230,14 @@
   }
  ],
  "fund": {
-  "price": 52.045,
+  "price": 52.25,
   "as_of": "2026-11-24",
-  "bar": "provisional",
-  "day_change_pct": -0.85,
-  "sma50": 55.17,
+  "bar": "final",
+  "day_change_pct": -0.46,
+  "sma50": 55.18,
   "sma200": 54.37,
   "high52w": 56.67,
-  "drawdown_pct": 8.2,
+  "drawdown_pct": 7.8,
   "series": [
    {
     "d": "2026-03-11",
@@ -1315,7 +1315,7 @@
    },
    {
     "d": "2026-11-24",
-    "c": 52.045,
+    "c": 52.25,
     "t": "good",
     "s": 81
    }
@@ -1325,7 +1325,7 @@
   {
    "label": "Short-term pullback",
    "direction": 1,
-   "text": "SPY 5-session return -2.3% - another -0.7% = short-term reversal (+12 pts)"
+   "text": "SPY 5-session return -1.9% - another -1.1% = short-term reversal (+12 pts)"
   },
   {
    "label": "Extreme credit stress",
@@ -1336,12 +1336,12 @@
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-23",
-  "days_total": 771,
+  "end": "2026-11-24",
+  "days_total": 772,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-11-24",
   "baseline": {
-   "n": 750,
+   "n": 751,
    "avg_pct": 1.52,
    "median_pct": 1.89
   },
@@ -1363,19 +1363,19 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 547,
-    "avg_pct": 1.14,
+    "n": 548,
+    "avg_pct": 1.13,
     "median_pct": 1.54
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.84,
-  "tbill_3mo": 4.32
+  "ttm_yield_pct": 8.8,
+  "tbill_3mo": 4.37
  },
  "fx": {
-  "usd_krw": 1341.64,
-  "as_of": "2026-11-24T20:10Z"
+  "usd_krw": 1340.56,
+  "as_of": "2026-11-24T22:10Z"
  },
  "distributions": {
   "history": [
@@ -1498,13 +1498,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 715.95,
-  "sma200": 733.02,
+  "price": 718.78,
+  "sma200": 733.04,
   "above_200d": false
  },
  "vol": {
   "index": "VIX",
-  "level": 27.21
+  "level": 26.36
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1521,57 +1521,57 @@
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 16200.0,
-  "dca_value": 19586.89,
-  "dca_return_pct": 20.91,
-  "dip_value": 19444.39,
-  "dip_return_pct": 20.03,
+  "dca_value": 19664.05,
+  "dca_return_pct": 21.38,
+  "dip_value": 19520.97,
+  "dip_return_pct": 20.5,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 35,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "US stock market today: Nasdaq and S&P 500 fall as Nvidia and AI stocks slide, Dow gains",
-   "source": "Beinsure",
-   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWXhISFVWZllNX2ItSVRiWFVqSDFNQzloY29ZNGJjR04wa2lyRWx5Q1Nibjk1SGEzOHNMN0FrU2RiLV9JNW8yQjdHa25EZWRYLXliQzc2RDh5YWRUUHlWX1FRcHpNZmJySFJXM0t1d0lRd1RsSGNpSWF5NTJjNjV4UHR3?oc=5",
-   "published": "2026-11-24T20:08:45+00:00"
+   "title": "Futures Fall After NVDA, ANT Lead AI Retreat; Inflation Data Due",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOZ1pxUXlOYnQzSVRGaGRVLWxzNXdsV0ZQS18tLTk4NEk5VTBlUmVUb0VTT2tLaGFYa01wOVFBUHhBRkx5XzdPV1hDYkxtcE1mU1VCOXNYNWZ3S0pLZEJkbnBOUExWaXJwWFpwWTBncGxpb2JtQkh1RnJjVGdSalBtU2NGT1VrQjNxV3RQb3FTVmYxenJvYUpsLVF5WVNoZGRPdk1jSWtQdHk5ZVFpQTZyakdnQXNrQl8xYWs0N2g2eEQ?oc=5",
+   "published": "2026-11-24T22:06:00+00:00"
   },
   {
-   "title": "Most Fed Regional Boards Wanted to Raise Rates in October",
+   "title": "Stubborn Inflation Could Pose a Bigger Threat to Markets Than AI Worries",
+   "source": "Barron's",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQa3FoY0YzbWhuWFh0ZTgyaC1MTTMxaEtUNUZ4T0lxanE2bWItUzhnSk1vUkxLWHZTX3BYRUJLTVg0cFRMc0ZzeUt2UGZQQ09qV2E3Vi02dG5qX0JxclFSOUtaaGgyY1F3TVBneHlZT1ZvSjJhZHh0Sm1JTF9DLUlHUEM4cE9kc3VoUjVsS25sU1UtR1oyVlVjd0Y3aEMteE5PQWwtOWQ2bS1WazZMc1dUVWhkTU4?oc=5",
+   "published": "2026-11-24T22:05:00+00:00"
+  },
+  {
+   "title": "Bond Traders Rush to Hedge Risk of Fed Hikes Stalling Economy",
    "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNWFNldmpiMGd5YzhHM3NRMXFQbmV5ZkE1ZkVXR3liN3RmVHhLdlF2TExubnJJeEM0Vm5NTHJpMlpBSlFZemt6YURLM3I1TFBrcWQzSUtUUGNEX3FiZ2dUZWlCZnl4c0w2SFZQYklPeExXTHNWdVlGYUltbEdvaWJuYUZTSHVRRHA0Rk5rQUN5T0dMVHFnek9vZlEzdlpxYUpEQ3I0ZDJmaUtGQ1VL?oc=5",
-   "published": "2026-11-24T19:36:40+00:00"
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTks3ZzVpZ2RhN2hxV1hPSlJ2T3c2ZGZrVWtKRktucmtOR3QtaWNHQ2drajdHQS1wT3BQbTJzQnBDZmhWaTgwZU1kWUxvd0w4YUVPdGVwTlZjWnNLT2tib053VjJCTno3dVZvM1Q5SGktcUp6QVV4cVotOGd5bVRSQ1AxOHBGUjViMVVCQ05KNHRLSlpxNENRM25KYTZUYnJlUHc5bnhYUzVwdnRfNmxxdmxR?oc=5",
+   "published": "2026-11-24T21:30:00+00:00"
+  },
+  {
+   "title": "U.S. Treasury Yields Mixed Ahead of Fed's Preferred Inflation Gauge, GDP Data -- Update",
+   "source": "marketscreener.com",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNN1NpdW9kT3hRdGNEeDg5dG1aZ2QxMjV0UkdUandNWFZDbkFqYnBoMHl4STJKd3RRenRCQ1lvZDhUTWxnbGp2cjRMWXl4YkpEUDZwX1paOWZiWWlBb1gxNW8yQmNWM0NxOVAtdWVyOVB0anI5eW1LLUx3ZW5jVVVWNHJWZkw3WnhpS3A5RkxlYi1rOE01aVJEVmN6cHhIWDZYWUdMS3RPY1VUenFpNjQxcWw3MVJaaXVmTVdiMk5OSXhfejB5RXpRT3VCeFhQeEhq?oc=5",
+   "published": "2026-11-24T21:27:27+00:00"
   },
   {
    "title": "Treasuries Advance as Cheaper Oil Alleviates Inflation Concerns",
    "source": "Bloomberg.com",
    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPZHlvYnhRbW9lUElIUUR4bnJSWUVBaEJhcl8yZHVmWHYtNlBjcHlBQk5uTTNNenloU1YwMVFzSUZqaWl3anZnR2R2RlR6MlQ4YTNqb0Y0TUdsUGgtUjdvenRkYS1fTVJIcVZhRE04UkRYSWZhUnlEcDV4TnNHMFRHU1pSQXFqN0Vybk1nQVRqVDdYeTg1MEY1RGR4MGZSMHN5STRQVnduS1NlVlA5RV9Xekw2Yjc?oc=5",
-   "published": "2026-11-24T18:52:39+00:00"
+   "published": "2026-11-24T20:29:45+00:00"
   },
   {
-   "title": "Market Power, Technological Change, and the Post-pandemic Labor Share Decline",
-   "source": "Federal Reserve Bank of Boston",
-   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOcDJEZW9BdHhrZlRNcUw4czFLM2M4b1lQZWdacXBycElZY3ZOeGk1UDFuT3FPQlRzNG9ZMVRIem14SDBDR2lyZVpLLVJsQmVlYkFUSWowa3cxcWpubkpwZjQzdmJrZDJlZXdyQWt6UlE3OW9CVTlSaldCdGJRV0lNRC02dUZkTzgxYkNDV0JaUWdwTWtZTGo2Q3hMQi1hWUNQNVpOdUlKNE9sMGczNEJiemZVNUpNdDExN3pHWmpCcVFWZlFLRjJaT0R3eVh6UTNu?oc=5",
-   "published": "2026-11-24T18:37:06+00:00"
-  },
-  {
-   "title": "Canadian Dollar advances as BoC Governor flags persistent inflation risks",
-   "source": "www.tmgm.com",
-   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNNldVTmN3dkM3ZEdzTF84ZHFIczdsbGk5UGJ4SXEtN29oaGl0M1lLaDlxRG1JdU5PTFgteWVqakEtaGFjWG9wSUNZNi1LUjRwbnV6ejBOeW52X1B6X1BYU0E4b0d6ZFh0WmRZckNmY0FyT1Bnekk1Sk9BeTJ1c3NnMncyS1RCZ0xsSXlxTjVKWGtsYzBwWlAzZjJoc0ZnakFCX2V6RzJoc0JJbWJKV0dlR3FrcDhKQXVWc1doSGE2bnJicTBabW1ueUpTVUFEb2l6LXJablpR?oc=5",
-   "published": "2026-11-24T18:30:28+00:00"
-  },
-  {
-   "title": "Forex Today: Australian inflation leads a busy pre-Thanksgiving US docket",
-   "source": "FXStreet",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbkJMQlcwSjgzdkstMjRGcDd6OGRDT1dsWXFGcVMzU01HTktEeDdFT1Z1WXgzWFZIbkV6Z1dka3JCbE9NLXhWbnVFVFd1OGRBVjdTSTczZGNvejZucS0tRTR6NmxzRG1rTi1YT1dPaG5XWXZkUTVBUWloeGlrSnc1V01VeFdpdHprdUVKTzJ6cTFCamN5WndNdWIwZXhsc1dtNU00dUhGSGtBWkxYSzRWNm81NnVGQQ?oc=5",
-   "published": "2026-11-24T18:20:48+00:00"
+   "title": "Amazon stock declines while higher inflation and Fed signals boost Treasury yields",
+   "source": "Traders Union",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdWwxTW5IUFNRc01yMjBHeldQeDhUeUJjUC1idHF0bVJmWE04UkJkbWJyT1hiZmppWUd1NGpua1kzZl85bXRIMTFOZVh3VEZaMWl5cktCS1M3VEF3UXpFbjI5b21TWjMyOVZoZUlfQkVSU0tDTGlJNmVHOXRmLXA2clN4eXE?oc=5",
+   "published": "2026-11-24T20:25:31+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-24T20:10:09+00:00",
+  "run_at": "2026-11-24T22:14:07+00:00",
   "session": {
    "date": "2026-11-24",
-   "bar": "provisional"
+   "bar": "final"
   },
   "sources": {
    "calendar:CPI": {
@@ -1587,7 +1587,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-24T20:06:57+00:00"
+    "as_of": "2026-11-24T21:48:23+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1597,41 +1597,41 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-20"
+    "as_of": "2026-11-23"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T20:08:45+00:00"
+    "as_of": "2026-11-24T22:06:00+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-24"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-24T20:10Z"
+    "as_of": "2026-11-24T22:10Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-24"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-24"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
+    "bar": "final",
     "as_of": "2026-11-24"
    }
   },
