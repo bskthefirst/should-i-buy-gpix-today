@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T21:25:17+00:00",
+ "generated_at": "2026-11-24T12:00:18+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "1.41",
+   "value": "1.04",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight.",
    "viz": {
-    "pos": 100.0,
+    "pos": 86.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Tech fear premium (VXN/VIX)",
-   "value": "1.26x (p24)",
+   "value": "1.36x (p55)",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 24.0,
+    "pos": 54.6,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -200,7 +200,7 @@
    "lean": "neutral",
    "note": "GPIQ yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 69.8,
+    "pos": 70.0,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "17 (extreme fear)",
+   "value": "16 (extreme fear)",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
    "viz": {
-    "pos": 16.9,
+    "pos": 15.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 16d",
+   "value": "FOMC in 15d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1398,11 +1398,11 @@
  },
  "income": {
   "ttm_yield_pct": 11.32,
-  "tbill_3mo": 4.34
+  "tbill_3mo": 4.32
  },
  "fx": {
-  "usd_krw": 1341.48,
-  "as_of": "2026-11-23T21:25Z"
+  "usd_krw": 1342.53,
+  "as_of": "2026-11-24T12:00Z"
  },
  "distributions": {
   "history": [
@@ -1531,16 +1531,16 @@
  },
  "vol": {
   "index": "VXN",
-  "level": 36.32
+  "level": 36.31
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 16,
+  "days_until": 15,
   "imminent": false
  },
  "cpi": {
   "next": "2026-12-10",
-  "days_until": 17
+  "days_until": 16
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1558,44 +1558,44 @@
  },
  "headlines": [
   {
-   "title": "U.S. Stocks Jump as Huang Return Triggers AI Rally",
+   "title": "Agentic AI is spending your clients' money - and CFOs can't see it",
+   "source": "InvestmentNews",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOby1lQWxKTklWLTkxMVFfcTlIODgtRkU0R2Fpek12VlVFLUNLSlZfU0tCR085cEVnUnM0V3NxZXZvR2R1MWpUVnVNV1VGTGZwRmZEUkxpN2tXV3EwYkpua2c4OUpBdDY0SkNMMVF0Z1owNXVPZ3lGcmQ5WlZrbXVTRkZkNGJaekZJQUVWQVRqUWxhZnRDSXlZVlVBYUE3U1JoNDhEMXRLeFhTNmV6Ry1jejlhcGRWdw?oc=5",
+   "published": "2026-11-24T11:38:01+00:00"
+  },
+  {
+   "title": "Nasdaq Futures Plunge as Nvidia-Fueled Rally Fades",
+   "source": "Barchart.com",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQNWE2cE9KZkxXcDVOdUVXLXlzRi1MMUl1TFpaTy1GR1d6NUJqcmlOWFljcUdndDEtanU5NUNHZFhjT2swM05sQ00wTi1EVHd0aEtvOEdhZXhGeFQ4bURIcFU0aUdyVHJDSzY5TzctRTF5OXJ2aTg4VVJqZWxXZHk5c1VmWXBlbDRaX1FiMVhLbTB5M2pRLWxXRGxn?oc=5",
+   "published": "2026-11-24T11:35:07+00:00"
+  },
+  {
+   "title": "Huang\u2019s Return Hits the Reset Button for AI Bets",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOaGs4SDdIR0lmclpsRmgzQm1XRmRZQkY5QmdUcEZwOXhQOWc2RkpxYXVBbTJfcG83REtMbXI2Q1ByNUdRVzg2VGhHZ3RRXy01RWtEb2RKU0hfSTZQRTVncjNKNlpHa2RpeE9ES2w4X1JLNVVJVU85dFU0UVNiQ2FQSzhBdVh1SnJ5bVNYMjZOejlPSUZtUzY0bWkzaUozZmZiZ1pyNg?oc=5",
+   "published": "2026-11-24T11:33:33+00:00"
+  },
+  {
+   "title": "Nvidia Embodies George Soros\u2019 Reflexivity Theory in AI Era",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNnpJem5SZVFLU0hQVl82bUlmRk5IZEc1S25ka3Q2YU1oUXJEYzRVQVU2akJ5NXo5OG1hRUdMcU1lbjFxazZibjR5WHdzcHFmbXIyY1VsWHpab1BSamdUaGs0WWtwaTRvSVJaSnVYVUEzMzRSWGxpaGhTa194WjJNMEktQ3dXWGpVNUlOd2ljSi16YzMwVlotakdYMEVKWklkckFNcE9IZWIyZVdES0FIZw?oc=5",
+   "published": "2026-11-24T11:30:10+00:00"
+  },
+  {
+   "title": "AI Build-Out Is Far-Reaching for U.S. Economy",
    "source": "WSJ",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQajZxMGxpSnJMTmhqWXc3Qk5kcWpab1VMbThnTXRmMHdOLWE1S2YtbUxKdUFQbkpxSElxRWZPRzJHa0NxcUJXbzhVQWZKX1NiVHpFYnBSRHQ4MzFLNTJnZWVjVEw4QzdxbWZtRFlhZnQzM0R1WU5DSGtJVVpZdU5XZFphQl9vUG9MTUI1VXpCS3JITVFQNjR5cA?oc=5",
-   "published": "2026-11-23T21:22:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOWXJIN0VIQ2ZibWJMN1h6NXByNFhEdUxQUkxtWmw5Vm4xVWQ1RUt3QWM4S3YxSHZYY0owSjZuZmdjQld4VG8zRV9sZ21EYXIwakhSTVZOMjZZSC1vOHA2ekhIRzlKeDZJOWZ5Vnl0cDdtMDkyVTdvSkNTR2FsQ180b2ZyWGJLT1ZCUjIzb1NjNnh4ZkdiSmc?oc=5",
+   "published": "2026-11-24T11:26:15+00:00"
   },
   {
-   "title": "The AI industry's favorite lender is back in business",
-   "source": "Fortune",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOMk9iY3ZMczVndlUtYlN4d3lna244M0JlSEZKYTNDbi1DRHZfUDlJY0xxbnFFUnU0RFpqdTZDb2tiRFdUdEhKQ0FaYzVfVWhGRDFFeEVzaVpVYUh5NEszemgwSmVwUHRkb1hIZGtYMmdUNEhoUS1LTUJJQm9qV0lZUE1fek5yQUd4dHg2Nk5TMnU?oc=5",
-   "published": "2026-11-23T21:21:00+00:00"
-  },
-  {
-   "title": "CrowdStrike Needed an AI Boost. It\u2019s Spending $44 Billion On It.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOMXp1STlpUER4eTFwVkNSOTJUOWpscmdUdW9wSWtaSkhWZlM2b3VJZjZtUjVGaVdJOThraXZfVjhfcjlBQXpDTGtOZUpLaWM3bGFVNEY3MVJuazdkNlU2bVNsMnBTaWhiSkNmVjA5d3dEYmsyLUtmd2ZXdUJkRUR6WHc5LVplZw?oc=5",
-   "published": "2026-11-23T21:19:00+00:00"
-  },
-  {
-   "title": "US states sue SpaceX over Grok AI\u2019s creation of child sexual abuse material",
-   "source": "Al Jazeera",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQTFFieDlnaXIxeGhqTDYtdDhwNEFyMnNJM29SY3poc2F6R3VIek9OeXJad2dKU3ZiZ1hhZ3BIRW9vX1RVaS05ZFJCcnlEbWdsS3NzRkJtVGIxTENDdzJDSk90NE1ySDNuSF9IYlVsOVpmcGRYRnZwLWJMSUdMY0d3WUFvblRNN3BrWmRoY1JqQzctM2ItcDF0S1V1cVd3dzhmU213d0F0UDdHX0hySEFRRXIyWUJmM3BlWW1Z0gHAAUFVX3lxTE9OWFJXNU4tM0gxYzRpdDBWelp4Tm5uZlF1SUVGQVA2MXc1aldsSVJYOXhCeHNnTFBUcm1odVpaSUNKTmw5OVhMVFhJX2JLb3J1TG9IVG1oTTZIZ2FzZXBpZzMzbng3UU8yMUpnUDFYWk5FMnpaVlhOZU5QVVVPaHZjUklmVU13dFppdFd0aWpjcDk0TUFaclBQZXhGSndwYTdWNUtkRGlfTDZjSVhEcEFCM3pfX1djOWhFSmMzZTk0NQ?oc=5",
-   "published": "2026-11-23T21:17:59+00:00"
-  },
-  {
-   "title": "FEMA Seeks AI Tools for Fraud-Risk Proof of Concept",
-   "source": "MeriTalk",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOeGhvRE43VE0xVVJsWE54emlFYi1GMk5sZE1DOVpQUlA0QmRIV1BrLTZOeVhEYXpUbHZ1RzU1RVlxblJNY1J4SExrZTlwOGtQeTlCNGZtQ2NyamE3OXkzSUdudlA2YmFZcmZ3WG44eVdWNkZBbDlVb0dwT0xGTmVWUEhJS243SFJxYVQzdV8yWQ?oc=5",
-   "published": "2026-11-23T21:12:13+00:00"
-  },
-  {
-   "title": "AI Unlocked: 4 Essential Things to Know This Week, November 23",
-   "source": "SHRM",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPbGw5YURwQUFpbWozbDllNUY2aWFTUmpnU3NHbE1SRS1rTUFaYk5FX01kdURRQUJoX1hKbXBwNHpFR2RxUHFfTEVjZENkb0tJSE10VmRrLXEzZFM2bUc2TkxreG5vYTNFaUpOWC1TSFJDc1ByM01KSWg0dHI2MUdZdXEwSjB6NXI5MEpDYURjcW5JbXZJU3ZXaFdKTXVPVWNvNEZfWVZwQmdfNDdicVpJ?oc=5",
-   "published": "2026-11-23T21:08:36+00:00"
+   "title": "German economy minister urges industry to seize AI opportunity",
+   "source": "Reuters",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOemI0SEZ3NEEzNTVYYzBfWUxlemJ3cWdDNUh3WnMzSWpmVHUyaHpubXBSYWlwalY1dWpqbnNkbEl2RGVRWlpLR2x2WkJWdzBsLTRIT3JVOW5YNXpKdVdld3FqNUVkS0oyMjJBTS1iMzZQRk1uMTV0YUpsTlFSc0FuRG9WeVZPTHJKeE1FR1JpdUMyTl90cVVlZFpzdjJhS2pJY0kzekZ6V3Z0QQ?oc=5",
+   "published": "2026-11-24T11:25:45+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-23T21:25:18+00:00",
+  "run_at": "2026-11-24T12:00:19+00:00",
   "session": {
    "date": "2026-11-23",
    "bar": "final"
@@ -1614,7 +1614,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-23T21:09:52+00:00"
+    "as_of": "2026-11-24T11:42:16+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1624,19 +1624,19 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-19"
+    "as_of": "2026-11-20"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-23T21:22:00+00:00"
+    "as_of": "2026-11-24T11:38:01+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-23T21:18:10+00:00"
+    "as_of": "2026-11-24T11:42:24+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -1653,7 +1653,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-23T21:25Z"
+    "as_of": "2026-11-24T12:00Z"
    },
    "yahoo:QQQ": {
     "ok": true,
@@ -1671,7 +1671,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-11-20"
+    "as_of": "2026-11-23"
    },
    "yahoo:^VIX3M": {
     "ok": true,

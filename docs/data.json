@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T21:25:16+00:00",
+ "generated_at": "2026-11-24T12:00:18+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "35.9 (p100)",
+   "value": "26.6 (p95)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "S&P 500 volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive (about +1pt over the next month, so it carries a 1.5 weight).",
    "viz": {
-    "pos": 99.6,
+    "pos": 95.3,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "1.41",
+   "value": "1.04",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight.",
    "viz": {
-    "pos": 100.0,
+    "pos": 86.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "+3.9 pts",
+   "value": "-5.3 pts",
    "score": 0,
    "weight": 0,
-   "lean": "neutral",
-   "note": "Implied and realized volatility roughly in line - the call-selling engine earns its normal keep.",
+   "lean": "bad",
+   "note": "Realized S&P 500 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 65.9,
+    "pos": 0.0,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -173,7 +173,7 @@
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 44.2,
+    "pos": 44.4,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "17 (extreme fear)",
+   "value": "16 (extreme fear)",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
    "viz": {
-    "pos": 16.9,
+    "pos": 15.7,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -222,7 +222,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 16d",
+   "value": "FOMC in 15d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1371,11 +1371,11 @@
  },
  "income": {
   "ttm_yield_pct": 8.76,
-  "tbill_3mo": 4.34
+  "tbill_3mo": 4.32
  },
  "fx": {
-  "usd_krw": 1341.48,
-  "as_of": "2026-11-23T21:25Z"
+  "usd_krw": 1342.53,
+  "as_of": "2026-11-24T12:00Z"
  },
  "distributions": {
   "history": [
@@ -1498,22 +1498,22 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 722.51,
+  "price": 722.29,
   "sma200": 732.91,
   "above_200d": false
  },
  "vol": {
   "index": "VIX",
-  "level": 35.89
+  "level": 26.62
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 16,
+  "days_until": 15,
   "imminent": false
  },
  "cpi": {
   "next": "2026-12-10",
-  "days_until": 17
+  "days_until": 16
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1523,7 +1523,7 @@
   "invested": 16200.0,
   "dca_value": 19754.37,
   "dca_return_pct": 21.94,
-  "dip_value": 19610.65,
+  "dip_value": 19610.64,
   "dip_return_pct": 21.05,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 35,
@@ -1531,44 +1531,44 @@
  },
  "headlines": [
   {
-   "title": "The Last Time the Fed Kept Raising Rates, the S&P 500 Fell 25%. History Says Long-Term Investors Still Came Out Ahead.",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNRUZCbjZNS2NMWjhiM3ZGdmxTYkQyWEZVMnEza1kyQWFhVGMyT25RWGlkV1lJUDI4UE4tbGZwb1BrYWhRd1JCTWpaNkVQVWlWY3U0eEd2Q1R0OUhIZ1RTLTl5bDVrSm1WRk5zVGp4VE1jYi1IUHY2MzhpWGlNZ2JxTnFVV3hnalJSaGFONmdWVERxZEl4WFFGMWZNV1ZnWEhMcV9TV0NMYWdsZTAta2FFYmxRd09iUk5oMlRKYllVaVg1YVUzRTNDYzVqUktHRF9GQ0p3eEZXeDFNMlpS?oc=5",
-   "published": "2026-11-23T21:18:10+00:00"
+   "title": "Federal Reserve weighs AI boom risks as inflation concerns grow",
+   "source": "Traders Union",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOMXdOZXNIbkhiekJubVhQYVdHeVBQdnpSRDg2YzhFUTVwMmEyLTVCdVVMeE1SeWVQRXdpc3RNQXY4b1JKMEc3cmlVbVhKeUpFU2txd0JjYzJOeGF1NE5ZWkNyVkRDQXgxWW93WDRCWk5aT0EzcnpIM3JQRFptaWVjbndialRGVlpBYkg3dUtMLVdqclBCbDNB?oc=5",
+   "published": "2026-11-24T11:42:24+00:00"
   },
   {
-   "title": "Williams keeps December Fed hike in play as inflation seen above 2% until 2028",
-   "source": "investingLive",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPT21KZlBRVXNFNHZOV0dpelNDaDN0aXhJSjhVRXNlbE83SldfdUFmU2RKakFGNk9UMXJfbUJUb1B4N2hKNWRINm9nSzBFV3A4bEZRMWExaC0tMGFkZ2YyczlfZUZScmw2UmFvTDdJU0VTNVJIWWRqV191SmZtZFU5YnZXbXJjYlljdVlncWk4UXdJOTItNXAtR2NnSVlIcV92dEFLRHZ5cUNzejQxNjgxc2xnNnFrVFdkU0E?oc=5",
-   "published": "2026-11-23T21:06:53+00:00"
+   "title": "How the Federal Reserve Bank stays connected to you",
+   "source": "The Commercial Appeal",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQcmo0S19pN1Fmb0pUc0NrM0g2ekFEV1lmNFhwbUVrSVVqY0hhRjJDcHo4SE0zSW5YR3lSaGZLcnFhMGdMZ2ZXMlA4WUR0Z3BHdUY2eURodjVUYkpuaUhXdW5IemZkS21NTHZ0STJnRUMtNzZXY1RRY193TW94WDZNb2VxUDE3cnhpM0x0Zl9XMHBMM0M4cU1xZkRubXhZMGdGbkpTWlhmNjA1Nk1yN3U0MVU3RUh6dEZHd2JzV0o0T1M5LWlVdzNN?oc=5",
+   "published": "2026-11-24T11:09:00+00:00"
   },
   {
-   "title": "Fed has 'work to do' to lower inflation, Williams says",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNa3lvbHFTMGFKUm9paUJYVzFoQzd1QnQtSzAtTlZmSlFyRW5Sc1hic3p2MVV0VWVrYjFkNDdQZlFTUWMzZGFueG5yMTVMcGhLWUxwQi16Ujk5b2ppMVRWTGowaHlMZDQ4Z19xbWpCQTRFVzFHSHhxeW9kbG80OTVtSEZsb3REX29FRFFPR0xzTnFjYXh6?oc=5",
-   "published": "2026-11-23T21:06:23+00:00"
+   "title": "AI boom looms over Warsh's Fed as inflation worries grow",
+   "source": "The Lufkin Daily News",
+   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPOF94LVZoLUg4ZnJMSmU3U2hWNFhkSG5Dbl9WNWV5ejEwa2VmTjBrQVZpOV8tajdoR2dtUkZIeFlhYlJ2OERzSzJ5dDl5YmlMVFpoNmk4Q2E5aGxnc21pZW4xVVZMMkd3TGFGVklLRTNnZVFrQnFQSW9ucUVmVXdIM0JKdHQtWjFJbmtESWZvRkhTRHN0dVptcFh3ZTRfRWp1R0ExS1VqWmxpVEpkN3FUa0dBN1dTUm94VlhESE55eUU1cGJ3MW15SzItUURVbFM5eWh6aGl2cUFqVk5nTmJ1ZFNxRWRfdS0xSldz?oc=5",
+   "published": "2026-11-24T11:08:45+00:00"
   },
   {
-   "title": "US Stock Selloff Revives Question of a Fed \u2018Put,\u2019 This Time Under Warsh",
+   "title": "Treasuries Advance as Cheaper Oil Alleviates Inflation Concerns",
    "source": "Bloomberg.com",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOamhQcGtONXo1SHNRdHRjWHRPZ3gzaHJCUTdNbW1BdUJ3ZUhLTjZ6X1F2dVo3SDdmZHZlWFIwMHVOX3RSZ3lFaE9vRzFDdUE0YlhFbXVTOWxuM2J3dkVwYjE0VE5JV0ZIaHNVLVp3d1dIMGxlX3JvVTNkNnRsRldmeUsyVk9IYldqbTFsU3RZUXpWclpybnhaei1CU2U5WDdQb1ZfcHpZdm5TdldRUlVfMVNnV0dDMG56eWRfNEhCbw?oc=5",
-   "published": "2026-11-23T21:01:19+00:00"
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPZHlvYnhRbW9lUElIUUR4bnJSWUVBaEJhcl8yZHVmWHYtNlBjcHlBQk5uTTNNenloU1YwMVFzSUZqaWl3anZnR2R2RlR6MlQ4YTNqb0Y0TUdsUGgtUjdvenRkYS1fTVJIcVZhRE04UkRYSWZhUnlEcDV4TnNHMFRHU1pSQXFqN0Vybk1nQVRqVDdYeTg1MEY1RGR4MGZSMHN5STRQVnduS1NlVlA5RV9Xekw2Yjc?oc=5",
+   "published": "2026-11-24T11:01:45+00:00"
   },
   {
-   "title": "More work needed to bring inflation to target, NY Fed's Williams says",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQTZDeDBxeFlpMmdTcExQa2pwRURJUVlnNXdLanlIMHc3b2hZREJkcUt1Q3R6ekhwTHBpeHZONE1QcXV2VjVncEl2M0RrY0JFaEZMb1dRM0Z5YVNxLW9YLTRCOUlaQTI4ei1RTGpPV2w0ZGo4X0NrMVU3bGFtd0cyQ0FmVFV3NjBkTGdDTUpMd2tGSllTeFZMU3YwdExQbWJLb094SGhrWXI?oc=5",
-   "published": "2026-11-23T21:00:13+00:00"
+   "title": "Gold Holds Gain After Nvidia\u2019s Rehiring of Huang Sparks Rally",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmx6UDZKMVladVJKQ1lxa3lSaU1BR3h2VGcwUVpJNW8yVmpyaTIxTTctWUZ2VV9ZX1ppbDNhTEIyYVBrckJ1Sm1YMUZBLWVXLXZFMkNnRXJoMWZndzhwcHVmYWRWSjlHRUJVWUhIZnl3QnZrYWJWU1dIWTF1Mm1pYzV0YlFxWE9RU1NyazhrbU56a1hGTDJ4RTY3ZkVZVFRWaTdsa2Jrdm02d3NyRWNYbEZR?oc=5",
+   "published": "2026-11-24T10:58:15+00:00"
   },
   {
-   "title": "Fed's John Williams indicates higher interest rates likely 'over time' to address inflation",
-   "source": "CNBC",
-   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNTEpFREZWNnVpcVBFY3pxbHBnbkFJTWRxZjlBOHNLdFkxb1JEVWdUX2VfWlJhU0dwZEFJc0RUY2w2THFBaWVjbkxpSGRubWxQdHdSYWJFdmc2VVhUX0F1S1gwYXYxcUlsQUY0T0pIQnhhNkNFRXFCWHA3M2xVZWRITtIBhgFBVV95cUxNN0wxOFpVd01FWG9EWlppMC02d1RtcG5wZ1V1a3N1bklHZGFHWDYzUk80cnMwa00yblpXZUdfQV9SMk1fVVRrM0c0OWZuSDlGWjQtN0hUWW1mMTNHVTZObmhSeTllcDZIUE85S2duamlXdE5hNExsamtsaDU2LUJveEF0Q1ZIQQ?oc=5",
-   "published": "2026-11-23T21:00:01+00:00"
+   "title": "As it Focuses on Inflation, Fed's Employees Get Real-Life Lesson in Watching Pay Not Keep Pace",
+   "source": "Credit Union Daily",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPdy02a2VoYnNoM2tqX2M4UVNMbVlUTEVNelcyZ2kzdFk5eEloSmpXYmt2dmtDV1VCSzBvYTNnakhoRHJFcmxZVzgzS3Q5RWkydUJnMC1Ubkc2dHBLV2pGTlFnQXEyWGpXRVBXa0c2d1lBUjd5VnlfdEpHbHdRbGd2TzJBY3k3Nmw4QnVmcXRmM1RtZS1GaHR0S004NGRoZFFjNjIxdWdpTzNsMU1IOEd6TlVkZGxYSDQ?oc=5",
+   "published": "2026-11-24T10:51:11+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-23T21:25:17+00:00",
+  "run_at": "2026-11-24T12:00:18+00:00",
   "session": {
    "date": "2026-11-23",
    "bar": "final"
@@ -1587,7 +1587,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-23T21:09:52+00:00"
+    "as_of": "2026-11-24T11:42:16+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1597,13 +1597,13 @@
    "fred:DGS3MO": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-19"
+    "as_of": "2026-11-20"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-23T21:18:10+00:00"
+    "as_of": "2026-11-24T11:42:24+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
@@ -1614,7 +1614,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-23T21:25Z"
+    "as_of": "2026-11-24T12:00Z"
    },
    "yahoo:SPY": {
     "ok": true,
@@ -1626,7 +1626,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-11-20"
+    "as_of": "2026-11-23"
    },
    "yahoo:^VIX3M": {
     "ok": true,
