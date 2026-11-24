@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-24T12:00:27+00:00",
+ "generated_at": "2026-11-24T20:10:23+00:00",
  "rules_version": 4,
  "ticker": "GOOG",
  "asset": {
   "kind": "stock",
   "name": "Alphabet",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 95.9,
+    "pos": 93.6,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "59% ann. (p100)",
+   "value": "58% ann. (p99)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "GOOG's realized volatility is in the top decile of its own past year. The TSLA-validated framework scores this +1.5 (provisional on GOOG): elevated single-name chaos tended to mark better entries on the calibrated name.",
    "viz": {
-    "pos": 99.6,
+    "pos": 99.2,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "29.9%",
+   "value": "31.0%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 59.8,
+    "pos": 62.0,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 26.6 (p95), F&G 16",
+   "value": "VIX 27.2 (p96), F&G 17",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 279.53,
-  "as_of": "2026-11-23",
-  "bar": "final",
-  "day_change_pct": 5.88,
-  "sma50": 317.95,
-  "sma200": 334.62,
+  "price": 274.945,
+  "as_of": "2026-11-24",
+  "bar": "provisional",
+  "day_change_pct": -1.64,
+  "sma50": 316.62,
+  "sma200": 334.37,
   "high52w": 399.04,
   "high_label": "52-week high",
-  "drawdown_pct": 29.9,
+  "drawdown_pct": 31.1,
   "series": [
-   {
-    "d": "2026-03-10",
-    "c": 306.93,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-03-11",
     "c": 308.42,
@@ -1217,6 +1211,12 @@
     "c": 279.53,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-24",
+    "c": 274.945,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
@@ -1265,7 +1265,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 0.3077,
+  "ttm_yield_pct": 0.3128,
   "tbill_3mo": 4.32
  },
  "distributions": {
@@ -1325,13 +1325,13 @@
  },
  "underlying": {
   "symbol": "GOOG",
-  "price": 279.53,
-  "sma200": 334.62,
+  "price": 274.945,
+  "sma200": 334.37,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 58.6
+  "level": 58.5
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1349,61 +1349,61 @@
  },
  "backtest": {
   "start": "2022-11-25",
-  "end": "2026-11-23",
+  "end": "2026-11-24",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 34712.16,
-  "dca_return_pct": 65.3,
-  "dip_value": 34768.32,
-  "dip_return_pct": 65.56,
+  "dca_value": 34142.8,
+  "dca_return_pct": 62.58,
+  "dip_value": 34198.03,
+  "dip_return_pct": 62.85,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 163,
   "winner": "dip"
  },
  "headlines": [
   {
-   "title": "Google\u2019s Expansion Of Personal Intelligence Will Change SEO",
-   "source": "Search Engine Journal",
-   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQUWwtaS1vQjRoVnpnU3J6RHktOHpEaHgtSUlrblFlU05ScmZsbm5YeHhIaVh1RVZsXzZXQWRsdk1QZ3NOZXRxb1ZTVDFPdFJXLWJLa3FNRXNISkJUQVpGUFZBc1JndXlXT19JWjNDUnlhM011WmxRSHBBY1pWSHBuaTB4VGFnclE2VUdxN3JVeGw0dXd6QzBRUTdWT2xPeUU1N0hrbA?oc=5",
-   "published": "2026-11-24T11:55:13+00:00"
-  },
-  {
-   "title": "TVP tops Polish viewing rankings as YouTube grows on TV screens",
-   "source": "Broadband TV News",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQM2U1ZkhDbmhvMWkwZ2NjUm05Sks4azl6em95QWplWUhnd0lIbDA1aGg4MUlkTFlVMS1UYXdycmM5d1d5U05kbFpXRm81Tm1lZUg1cGR5SldJeUxOdWdJVng3YWIzcDllNFB3bmIxRFBBcGlPUmJMWVZYTlJ6Q1dhc2Z5ZUZYWDF2VU9hN3dlcWpONURrR3JOMnRsMzhJTU5RTXhhdVBzTVhQTDA?oc=5",
-   "published": "2026-11-24T11:43:20+00:00"
-  },
-  {
-   "title": "Not Apple. Not Microsoft. This Is the \"Magnificent Seven\" Stock I\u2019d Buy for a 10-Year Hold.",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOekl6QVNuQk1uTWRCejZPWVBCZGduTXZuZUdkaElNVVMwMEZtWXN0WFh2aHg4WTBQUnZKYWZ6cVBzREN1aXdOX3lmUmQ2em9XZlBwWnQwdE5RcDQyM01qZm1FX0dvLS11cTd6RmEzOVk2U1pHdUpTUHFRbE80RnFaQWdjZndNUE9pcHZoYmtfejlSZXRXRjZOb0gtcms3QWh5ZGc1MDl6NDRlTGtEbkF3bllsWTRxLTJSd3Z6S2xJOF9iaWgxWU9B?oc=5",
-   "published": "2026-11-24T11:42:01+00:00"
-  },
-  {
-   "title": "Someone just gave Fitbit Air the notifications Google left out",
-   "source": "Gadgets & Wearables",
-   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOZU55SG5uYWM4VFcxaXR4NW1rUnpyRkRUb1J4bmtpSnFhV3l1dlpkVExqdXFobDlqS08yMDRfOV9zMXZocUZzNVNxM1dPNF9sVC1xNkNQY2MyOVZaSFVuWHpMR1dIS19VWGVNVFNRQm5UVWRuUTc5Z0Rmdjg2TGZxc2ZIdi1BMkRJNXYtbG5vTnExUG9McGc?oc=5",
-   "published": "2026-11-24T11:32:57+00:00"
-  },
-  {
-   "title": "4 Pixel features I wish Google hadn't abandoned - How-To Geek",
+   "title": "Neighbors describe living near Google data center - Lancaster Eagle-Gazette",
    "source": "",
-   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1sdWpELVl5cThPYTFYaVVRcXVPNEJxZGxVRGd1dnBRbHFnTTJhNTd0bmxhaVU0WTFFWlBzdUtzNTVsV3MwaTVhZDdMSnBoYXJuNks1UGVFQWdNcXdfcm5COGxkNDhkQS1WeHBmUTVRd1kwM3Z3MHNfZ1Q0SQ?oc=5",
-   "published": "2026-11-24T11:30:15+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNSFdKeGdTNXYxZzFYREFPZkFrR1pFTzJpUU9GNHk4SnZ2OEE0U3lhd1JTY2N2ZkRET0ZDZFFoMVlkTFI1enF1cDMzUk5vNmlnMzN1MnpVLTVYdl9UTk9BMG5yaWpUT2daOUl6M21DRTJpV1RtVzVkN0pWZi1hUWszYmM3T0xhSGVlZlVXeXRZTi1PRGlpUzVuRVNyc1N2SlVXdEV5WWVGRVFyVXlEN1BfSWNxT3BSWDBQSDBJTF93eTI2aDlfckVEOA?oc=5",
+   "published": "2026-11-24T20:03:28+00:00"
   },
   {
-   "title": "Google is \u2018poisoning\u2019 search results. Can marketers still trust their ranking data?",
-   "source": "The Drum",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNcmk2OWVJM1g0TkJUOVZ4N2h3eW9FV3ZNRWlqMHFrS3F6Xzc3WU51QzVuQU5uSTlLUk9haDJhRV9WajY5blB4WGVuUXdGZU5oSWh5NWt2cFVYc1hMSFBiQkVuM2Yxc2swVWNWRGlCbGFoMFdLTkJzbmZFWklIdUFRYjhNUFp0YlYtNGNmQnNDd1Yxb2tMdGppclQtOVFGdDdDeFVNYjRva2pEaFRYNHVZMC14SXF0UmJUc3BzVQ?oc=5",
-   "published": "2026-11-24T11:28:14+00:00"
+   "title": "What A Billboard Network Knows About Measuring Search Ads That PPC Teams Forgot",
+   "source": "Search Engine Journal",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPdTJKZXRpa2JNM3hVV0wtZ013bzYwX3I0MktIa0xPa3V5dUtQYnpvc1BLb2J1aXlyQmZ4RG1lOEJPVzA1Q2dJSE96WUJhc0ZkbGFKcFotVDJaV3BhQmtlQXZjVGNaTDBZbFlRYmpYLWFaTnFUOWI4QnlIeWpiandDcG05ZGYyS2tjZ0MyU1M2VjdWdmVmLThHb05DdFJVeU82NzVRb0RzekR2Vk5uZDM2U2prbVNiMFpXRzlua2hqUUg?oc=5",
+   "published": "2026-11-24T20:00:04+00:00"
+  },
+  {
+   "title": "Chicago investor bets on Fulton Market offices with $18 million purchase",
+   "source": "Crain's Chicago Business",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNMHRHRVFKUkFENHhxNzVVN0YzNzVJZERkLU5sLXlOVHlwRERxUmRuVi1oSkRYOTNUSXhGUXF4YXhCaVdlWm5Vc18zSk4xSnhNZWhhSDFRUGoybmRvbmk1WWFKRGlaZEw3S3JOeF9OWmJyS1hwOUxONkVKMXNGOEtwZDlrY3RzNUhNVEozYk1VaWZjaDlldUpmT09xRQ?oc=5",
+   "published": "2026-11-24T19:57:42+00:00"
+  },
+  {
+   "title": "Shareholders Are Bankrolling AI Giants They Can\u2019t Control",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTHY0Smx1bjJWTEVqZFZSRURQMzBjSThrSU1udmhGbzU5NG95dXhOQUlndWlVTDNYZ21jNXRFQnA0Z2EwbkxweDN6TkZHbThwbm5wWmdscDN0Q0MwXy1CNEFPMjRFc2JUZDBDUWlBa1FVdC1zRkFvdWZXSFVMM1ZMaFRtWU9PM0x3d05fT1FHRmtBczR1a2NQU2lPbmJKWXVuUWEwekpOV2hmSHQzTVV4dFNpSEhmanVZQWpJVGlxS3RNYUk?oc=5",
+   "published": "2026-11-24T19:53:45+00:00"
+  },
+  {
+   "title": "Google breaks down the most searched Thanksgiving recipes",
+   "source": "KSDK",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOWDNabVZQeW1DTy1QOWRWUjQ2OGl0X3BQZU5zV0V3emRrTHpxRG5aRmRhNHRXTjlFZVQ5dEZ3ZVFHbnZGSlZsYjJSR19sRGtGbjhYamswejlvdk9tcW00TnJBeG1ydE9XaEVkYmZ5cFUwQ1F0X0tJVTA4QmpockJIa3RvM0pfdUs4OTNYbEdlNFlERzdmNVRIN2tSUzVkRzg2OXdEUDkwa0tSbk5obFAwaGhGd2lxS2YwcjJnamQ1dzlhblNOcXVWa2dVLWpUU3lm?oc=5",
+   "published": "2026-11-24T19:49:05+00:00"
+  },
+  {
+   "title": "Wayne County stops Google data center construction over permit",
+   "source": "Crain's Detroit",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOeHhLclJwRHROTG45dm5SUF94dFFTOVhxMWNrZzE1THVwMVVjeVQ3MnJNR29HYWt5dl8tLVJWT1lhQlNUQzVIZFI1ZzlycDY5V2FvOVBIdHY2NDgyZmJGdGRGWHBIQUZuZE5wTWY2M0Vaa2VpUnAwdllkSDFwdFB2TGZqakI1aWk0Sm81X1RPMWNhLWE0b2xHWV9DLVdRTWxQV2xGbmJQYw?oc=5",
+   "published": "2026-11-24T19:48:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-24T12:00:27+00:00",
+  "run_at": "2026-11-24T20:10:24+00:00",
   "session": {
-   "date": "2026-11-23",
-   "bar": "final"
+   "date": "2026-11-24",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1419,7 +1419,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-24T11:42:16+00:00"
+    "as_of": "2026-11-24T20:06:57+00:00"
    },
    "earnings:GOOG": {
     "ok": false,
@@ -1444,7 +1444,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-20"
+    "as_of": "2026-11-23"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1455,102 +1455,102 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:55:13+00:00"
+    "as_of": "2026-11-24T20:03:28+00:00"
    },
    "news:GPIQ": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:38:01+00:00"
+    "as_of": "2026-11-24T20:06:53+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:42:24+00:00"
+    "as_of": "2026-11-24T20:08:45+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:54:51+00:00"
+    "as_of": "2026-11-24T20:00:00+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:41:32+00:00"
+    "as_of": "2026-11-24T20:02:31+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:22:54+00:00"
+    "as_of": "2026-11-24T19:41:15+00:00"
    },
    "yahoo:GOOG": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-24T12:00Z"
+    "as_of": "2026-11-24T20:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:^VXN": {
     "ok": true,

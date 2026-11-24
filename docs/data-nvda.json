@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-24T12:00:25+00:00",
+ "generated_at": "2026-11-24T20:10:19+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 100.0,
+    "pos": 85.3,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,7 +49,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "126% ann. (p100)",
+   "value": "128% ann. (p100)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "31.0%",
+   "value": "36.4%",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
+   "lean": "good",
+   "note": "A 35%+ drawdown - the deep-value zone. Validation showed +13pt over the next quarter on average, but the effect was era-fragile (t=1.1) and narrowly missed the scoring bar. Reads good; scores nothing.",
    "viz": {
-    "pos": 62.0,
+    "pos": 72.8,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 26.6 (p95), F&G 16",
+   "value": "VIX 27.2 (p96), F&G 17",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 165.05,
-  "as_of": "2026-11-23",
-  "bar": "final",
-  "day_change_pct": 31.48,
-  "sma50": 206.08,
-  "sma200": 203.24,
+  "price": 152.04,
+  "as_of": "2026-11-24",
+  "bar": "provisional",
+  "day_change_pct": -7.88,
+  "sma50": 204.88,
+  "sma200": 203.05,
   "high52w": 239.24,
   "high_label": "52-week high",
-  "drawdown_pct": 31.0,
+  "drawdown_pct": 36.4,
   "series": [
-   {
-    "d": "2026-03-10",
-    "c": 184.77,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-03-11",
     "c": 186.03,
@@ -1217,6 +1211,12 @@
     "c": 165.05,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-24",
+    "c": 152.04,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
@@ -1265,7 +1265,7 @@
   ]
  },
  "income": {
-  "ttm_yield_pct": 0.3151,
+  "ttm_yield_pct": 0.342,
   "tbill_3mo": 4.32
  },
  "distributions": {
@@ -1349,13 +1349,13 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 165.05,
-  "sma200": 203.24,
+  "price": 152.04,
+  "sma200": 203.05,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 126.2
+  "level": 128.2
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1373,61 +1373,61 @@
  },
  "backtest": {
   "start": "2022-11-25",
-  "end": "2026-11-23",
+  "end": "2026-11-24",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 51589.81,
-  "dca_return_pct": 145.67,
-  "dip_value": 51576.72,
-  "dip_return_pct": 145.6,
+  "dca_value": 47523.26,
+  "dca_return_pct": 126.3,
+  "dip_value": 47511.2,
+  "dip_return_pct": 126.24,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 182,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Opinion | Nvidia proves nobody knows anything about the stock market",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTi03OVRQelFBa2FKOS1ray10bDRKZUtnekpoQl9qdjBXOUNrR2FVMFZ1OElzaE4xRlp4RDBBTGdhTmt3TVVYY3ZkdmtOTDM4cnJhdk9vUDlqM1haSGxLV29ySHFzLVk5OHBMY2wzRHZNaFpoUzdEQURVTWMtWXE5WmR3MFl3NVVOZHBmOGxwdnN1cjFRNkVYVnJ6TG02STNzWFJQMW1SRTdOZw?oc=5",
-   "published": "2026-11-24T11:54:51+00:00"
+   "title": "Nvidia board joins Jensen Huang under scrutiny after re\u00adin\u00adstating embattled CEO",
+   "source": "Spectrum News",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOa2JUZEllV1N3S3E4SVZlX0pVb1VhRFhMUjUxanpyZU1NLXBvNTAzN0trc2Q5NlB3YUtRelZBRHNCcU9zenk2eHd2dk1uME5JOHlPSDgxYWFhMVZOV3l3MG1uZnVmZXZ4c19tWk1RYXFDLVdWN0R0RTl2WDRjc1NPRTdSWjRzWWJOR2tuRHNLckpHNjZPU3VTaUtB?oc=5",
+   "published": "2026-11-24T20:00:00+00:00"
   },
   {
-   "title": "Nvidia slips as investors assess risks surrounding Huang's return as CEO",
-   "source": "Reuters",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOREIyb09ET2cwa3ZHekpYQnpBWFo5YlBseEduVVpKTUJsM3UzWXhCVHk2SFlNempwczc3NFpjWWtsLTBuQzkwX01DSWowcUFhaVVxOVZrNEh1YXJLcHJwenRhc3VyQWVkSW1zRll3NXRKTWhlTnhwZ1Y3RXhaNl9wakY0OGNid0x4RkdjNThHSGZMdVVVYTgxV2xZZDR5NVZzNXk3RXczTU1RUThya1JrRFV5Wnp3a3V3bzVDaWljbnlWN20t?oc=5",
-   "published": "2026-11-24T11:53:42+00:00"
+   "title": "Nvidia's Reinstatement of Jensen Huang Sends a Clear Message to the AI Industry: Corporate Ethics Are Meaningless When Profits Are at Stake",
+   "source": "Futurism",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOX2dpTGRUZHFfeVpORzBmMS1WYjhNOVRJeTN4cVpWRkU1TWg0YjN0VFZUQmplWjVOd24zMnRMS1VsU3Vld19EQ2lyd0NyWXRBUXFqMGJEYk5rME4wRTByY0RXYndSWGdQNml3WVV4bURrVnlNYlp0YWtWbDdIRXRybmhRTVlldEVpTWYxc3NIRkRPV0hNU2lZQUh3WW9xZw?oc=5",
+   "published": "2026-11-24T19:49:29+00:00"
   },
   {
-   "title": "Trump takes credit for Jensen Huang returns to Nvidia, says its good for the economy",
-   "source": "NPR",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOekZLUTJsemhUVXl5ZkM5ZUNCaTBRcXZQQnFVVms1azA5dk9GN0Y2c0tVbzloNEtCbEFRRlJfaTdyd1RqQVlKZ0FfWnpYdEVzbmdrbkxMX0gxRkRMN0hucGZ0ZU5fMVVjUVRxTG5vQzIxMzhFc19kX2g3OHFXejlXNVpJekVrQnJtbVhlVDFJX2Z0cnlQYXl5SVFBY2JTTGx4eHNXVVpyNjdJaUJScEh4T2Z0QkRlQzQ2UlJfM0VaRHowNHo1cHIw?oc=5",
-   "published": "2026-11-24T11:42:24+00:00"
+   "title": "Jensen Huang tells Nvidia employees he's in therapy in first all-hands since his comeback",
+   "source": "Business Insider",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNWlpNUkhpcHdfV2F0ZE9xYmhHLS1jaVNveDcxMmRjWlE3VnR2ZnBVcThBaVlZcUxHSGJhVDROVE1tT3VZNUFMR0JhNVdpYTQxZ0RfOTJCcnctXzh2NmlPNUNwY3FOXzVtSDJON2t3U1BwdzA1SjZORVBEX2RHeWNjSjZSZlAwUWRvd3N3dUswdnh3M2Y2RlY5MmEyanR3ZGJfelZPT28zUkg5Zw?oc=5",
+   "published": "2026-11-24T19:46:00+00:00"
   },
   {
-   "title": "Trump\u2019s Nvidia intervention rewrites the rules of American business",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdEQ0TzJnb3dObHlVcTJCUXd0RmRPbXAyaUJlbHc4VjZpZlBYZFo1TkVMZWVKOWNFaEZ3X2EzeURMY2Jjd2dkaDQ0WnNxWjVKcXhGcWRhUnB0TnVzMmJsUkFwR3FITWwzQUViREczNzU4U1UtR3hSM0VmcGhGaFJpVUpLbGJRX1Fsejc1QzJvSVNMWlJ0b195OE5WNWVDY0ZtZFBQa1dNQlNEblI1dnU1bVlRSQ?oc=5",
-   "published": "2026-11-24T11:39:52+00:00"
+   "title": "Watch Trump's Nvidia Push is 'Crony Capitalism,' Says Rep.-Elect Killin",
+   "source": "Bloomberg.com",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxORFgzT0cwMVoxSmhXRFJyS3B6ZnVnZ1FadWpGa2hBdkZNNU1SblBrbnBGY1ZQMzYxMHZkU0tSdUJXclBLSkJ3VFl0VWRXRjRVZVJlekJMRkQzWmZFbVJtXzMycUVESkZoa0gwa09GTG52VzRlWXNjSUtUUjVYd0J0VzQzSVE5SDlwS2ZyemIwZFFKZHBLNTF2SmQ3N1R1VW95d1FEX0hxMnMtdw?oc=5",
+   "published": "2026-11-24T19:45:53+00:00"
   },
   {
-   "title": "The \u2018epic\u2019 buying of retail investors paid off after Nvidia\u2019s 31% stock surge, says strategist",
-   "source": "MarketWatch",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQbk1MamZHY3Z2ajdkTDdSTDlFZlNBZTRUMzRDVHJYOS1lLWpxTFdMRjdLTUc2ZVZraUZ3ZmdfaS1UUG5EWTdJNlVTZV9uVEl0b2lueF9HeTdyLW5ZUWI3UnR2NjBBcmx0XzlyNmNWWnZQZG1IdlRpaFJGcTd6NWphWWRCUHpSVmNIdnVRXzVyYlZHak1XUjZrZGhDcUZETERlZG45M3pkN3hiNnFIT1FzS3NyQWw3VEMzTGZMalM1YTJIUTZsYnBlSldpQjI?oc=5",
-   "published": "2026-11-24T11:39:00+00:00"
+   "title": "Nvidia slips as investors assess risks surrounding Huang\u2019s return as CEO",
+   "source": "Mecklenburg Times",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNS3VZb3JNS1dIUnFZcnY5ZzBOaURTUnBacFN3WTR6Z2Y0aExmbnlTcHA4MUthdXJGcldNaFRzTnJ5bVRYM0hjN3FhX05nVjFrdHhCZWtFdEQxOWFzTEZVandnVmtWV0tzVHJrNlJqWkNvN0JEeW5wcTYwVFFqcDNqVmVpMHVPTDY4b1NYc1hUS2ppMVh3ZWdxMG9yRDRTV3d6ZGVnMjJ3eDRWTXc0NGxr?oc=5",
+   "published": "2026-11-24T19:45:08+00:00"
   },
   {
-   "title": "Trump administration assured Nvidia Huang wasn't facing criminal charges, sources say - ABC News",
-   "source": "Breaking News, Latest News and Videos",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPM1pfZWlMUm5INU9nRHZhcHpiYmNneHZFZGFqSzBJNE92ZXlVVDdhTS1CUFUzZ2lPb2Vxa2d4ODd1aXVFNEJGYXRReEMxZUF5bkJCQVVXbms3YS1pTEJta3lEYXliQ2tmbmt1ZVZSOUJVMWNka2VOOU9XRHZvb3J4NzJ1REF2N0RKNEI3TGR3ZmtabjBndF93ODJlMXNXOEx2Yzk0SEx0TUhPdTDSAbABQVVfeXFMT0FwUXkxdzVqM2VwVUZxZnVLZlRVaEd5b1g4SnZoUXZuNjR3YkZqS2M3dUZpWVZhV3FrUmZFM3djUVhzX2tjZDF4bjQ2VndwdUhYRnI4QnVfZXdlSjZWaE53SGphVE16SS14eG5ib2VxcktUeDNkUjJpbnUtMTJNZnQ1SzlQand4M09mYjlBbU5OWG8tWHB0SVY5NktSb3F6S1lwLXc4QnVrS1VwTEFkaEI?oc=5",
-   "published": "2026-11-24T11:38:22+00:00"
+   "title": "Smugglers used a hair dryer to fool a Commerce inspection. Nvidia\u2019s board asks America to trust its paperwork",
+   "source": "Fortune",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQS1NlLUdEd3Q5bVMtdjh3aTVVYmo4cnE4cHdEcWljcEl4OUhMSFhQb3lXUThIR2tHMGNMYVhIOTNUQWVvUkFxNDRDZ0lLZUFPU1oxNTJIazJrbXZ0QWY3S015bmtXVEFpU0d1WkszZS05NFpjVDcxQWYwNHVrNkNKYTMwcXJUejQ3eHNOUWJKM0xBdktUbUhN?oc=5",
+   "published": "2026-11-24T19:43:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-24T12:00:26+00:00",
+  "run_at": "2026-11-24T20:10:20+00:00",
   "session": {
-   "date": "2026-11-23",
-   "bar": "final"
+   "date": "2026-11-24",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1443,7 +1443,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-24T11:42:16+00:00"
+    "as_of": "2026-11-24T20:06:57+00:00"
    },
    "earnings:NVDA": {
     "ok": false,
@@ -1463,7 +1463,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-20"
+    "as_of": "2026-11-23"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1474,90 +1474,90 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:38:01+00:00"
+    "as_of": "2026-11-24T20:06:53+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:42:24+00:00"
+    "as_of": "2026-11-24T20:08:45+00:00"
    },
    "news:NVDA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:54:51+00:00"
+    "as_of": "2026-11-24T20:00:00+00:00"
    },
    "news:SPCX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:41:32+00:00"
+    "as_of": "2026-11-24T20:02:31+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:22:54+00:00"
+    "as_of": "2026-11-24T19:41:15+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-24T12:00Z"
+    "as_of": "2026-11-24T20:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:^VXN": {
     "ok": true,

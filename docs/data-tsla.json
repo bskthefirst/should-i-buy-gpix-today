@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-24T12:00:20+00:00",
+ "generated_at": "2026-11-24T20:10:15+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1002,
+  "sessions": 1003,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "74% ann. (p98)",
+   "value": "73% ann. (p98)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "TSLA's realized volatility is in the top decile of its own past year. In validation, these days averaged +0.35pt next-day excess (t=1.7) and +15.5pt over the next quarter, positive in every era - chaos has been the single-name buyer's friend. Weight 1.5.",
    "viz": {
-    "pos": 98.4,
+    "pos": 98.0,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "21.3%",
+   "value": "22.1%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 42.6,
+    "pos": 44.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 26.6 (p95), F&G 16",
+   "value": "VIX 27.2 (p96), F&G 17",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 385.46,
-  "as_of": "2026-11-23",
-  "bar": "final",
-  "day_change_pct": 11.46,
-  "sma50": 376.17,
-  "sma200": 381.53,
+  "price": 381.54,
+  "as_of": "2026-11-24",
+  "bar": "provisional",
+  "day_change_pct": -1.02,
+  "sma50": 376.66,
+  "sma200": 381.36,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 21.3,
+  "drawdown_pct": 22.1,
   "series": [
-   {
-    "d": "2026-03-10",
-    "c": 399.24,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-03-11",
     "c": 407.82,
@@ -1217,6 +1211,12 @@
     "c": 385.46,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-24",
+    "c": 381.54,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
@@ -1271,13 +1271,13 @@
  "distributions": null,
  "underlying": {
   "symbol": "TSLA",
-  "price": 385.46,
-  "sma200": 381.53,
+  "price": 381.54,
+  "sma200": 381.36,
   "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 74.4
+  "level": 72.9
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1295,61 +1295,61 @@
  },
  "backtest": {
   "start": "2022-11-25",
-  "end": "2026-11-23",
+  "end": "2026-11-24",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 31159.96,
-  "dca_return_pct": 48.38,
-  "dip_value": 31142.47,
-  "dip_return_pct": 48.3,
+  "dca_value": 30843.08,
+  "dca_return_pct": 46.87,
+  "dip_value": 30825.76,
+  "dip_return_pct": 46.79,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 202,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Tesla, Inc. $TSLA Holdings Lifted by Steward Partners Investment Advisory LLC",
-   "source": "MarketBeat",
-   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOX21xbS1QOE9ha2MzYjZQc0lpMjczMG1rSjZIVVVfaVBaSjdpcFlKSHdtYjlkT084ZkU1ek9CV0VROURvQ203bXNvdkFIV1lxSTI1Y0ZMOEtKODhNNnpERGhsdFAzMkRWUm9Oal9mQ1BtZENQS0RCVWYyclNvWXZuX2JQd014a1ZoSFBhdU9ZdGVCTElrbXBvTUp4TjlTVkwzXzBYSjlVM3Zkd05ZNVJwYmFGRTc1dHkyTkllTU52cmVGTzEzRTM5WGZ1d0ZwZlNS?oc=5",
-   "published": "2026-11-24T11:22:54+00:00"
+   "title": "Elon Musk once again promises Tesla\u2019s new autonomous driving is better than humans",
+   "source": "Fast Company",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPSkZqc3EtVFU2WlRqaFdSU053WVpmdkVXNHd6T19PV1N5TkVvNTl2TTdsMFZSZTFOR2FlR3AwRmVLYmpMRTlXbGRwM3RlRUFBOEFRUy1Zazd5NTE4M3VXUTJ4bDlhMXY4b0ZNQmlXanNhZFJFeGVzRmNsbUU4cnIyQW5EUmt0Ri1hZkNtaFNfTzBoZHRTdmZLNHVoZXRkQjRTeWFTeWxHUUJzNzItSGZwQ3p6QlBiR0ZHQXc?oc=5",
+   "published": "2026-11-24T19:41:15+00:00"
   },
   {
-   "title": "Tesla, Inc. $TSLA Stock Position Raised by State Board of Administration of Florida Retirement System",
-   "source": "MarketBeat",
-   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNeWZrVzBnSk96ajJKVnZETVoyXzEwamZFVXRmT1gwZWJ0LV9TMnNjdTNOc1ZfdEVuN1gzRnptNko0S2Q5TjhqcUJiYkVaSnRxVHpaLW94aTFhWHBBUEZEUzdPVWJVazM2OERnQW1yeHhKS0FyeE1EM3Voc0NNeXNPbGhwd2lwQjhZZXJzeEZhUkYyTktETDFDNzlpRnlnQURVUVBFSzkxSUQtdXJFZmt3VHRlN0hFbEk1dmQwMlllM2p5QkFDZnBzNFVlVlFfNlR3LTJkb3JUVkNzaVlJaXBOODlPOUJFRGZ3NWVSQUU0SXE?oc=5",
-   "published": "2026-11-24T11:10:49+00:00"
+   "title": "Tesla, Inc. : RBC reaffirms its Buy rating",
+   "source": "marketscreener.com",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNajBGcWRiZkdET1gtdWxSZVcwVzZXclJGVlc0WVFMSXlHT3NwbUhOZzhSSGNOZlYxX3Z4WTU3aXpBbHJZZWU2VEtUNXhZQzdoWHVxVWxCQ3I4V3FOazJjYnlOSnd4akV1d3kzZjBsQV8tcm93YkV2UGxLNm1FZ0c5azNNU2NoUkc5RTA1czFibDJpVGNNMVE?oc=5",
+   "published": "2026-11-24T19:31:44+00:00"
   },
   {
-   "title": "Should You Trim Or Add To Your Tesla Position?",
-   "source": "Trefis",
-   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNM1FHQVpQVnc3eEYxVnQwYTlqenBrbXduLUR4Yk1vWDI1dkZ5WFpwVTl1MlZjQU1XUDE0d1VxT2NITjNSNGxUZEZaOWtLOFFTZEVNSUJvZTM2ZkNLbGUzOXprM2R0eVVIQzh1NVpEQ2taT08yUUNxejBCWTJtdC05Y1paQTV1RE5tTl9QZ3BITFZDdjdkNUpJdkJWZzl2ZGE3c0tDM1BMMjlXUQ?oc=5",
-   "published": "2026-11-24T10:42:17+00:00"
+   "title": "If SpaceX and Tesla Merge, History Says One Group of Shareholders Usually Wins. Here\u2019s Which Side to Be On.",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNRXRCWGV4d01mUlgyY0xha1dsd1dVUXdQcGI2Nk5LTEZuTHljRi1vUXFhdHV5aDh6eWU0RTNmZUJXczhmMTJjZWhpM0R6eHFRVVM3Zkt1Rzc4NWM5VUxuR1VlT0hmS1M5MXN0MGVqUnpjRF9FMzVxa0dEODdlU28zclNvcVYyLWNFa1dUNERZNGVoWXgxU0wtd1VDLUNVM1NWRzQ4NEtPWWpxcVYzdGtZaXZyS1dvVWFoV21Ebmc3bmcyR081QVlTSWJOSWc4R3M2LWZGZ2lIT1ZjOFVITVFVVw?oc=5",
+   "published": "2026-11-24T18:59:54+00:00"
   },
   {
-   "title": "Brad Gerstner Just Bought $680 Million of Tesla. His Range: \u201c$420 a Share and Let\u2019s Call It $520 or $550\u201d",
+   "title": "Musk Says Tesla Is Getting Ready to \u201cReturn to Growth Mode.\u201d Here\u2019s What Analysts Expect",
    "source": "TIKR.com",
-   "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOem9jckZZTmZMV1otT3psSGloZUV4TVRHTlBKSkd2TEZULUk4a3NnWEp4Zk94eFFIMU1kSjhZam9MSE1nYlFnOHF4ZFlGNTNqUzRZdEozOENwN1llQnlaalctcW9NOFFOZW1DM3AyOUtjQUlkUmt3aEZUUldPUXVJRHpXLVU1aU9COHN0bFFzdHRCVUhBNTNkTElQVlhPclFNNEdFa2U3WXdvNElySjRnSzE3ZTNyTlMxSmVuSHRnZ2RGTXEzdUVHYUFFaUhLZmQ4VnpKMkp2bGN2a1BiSWNtaFZRVGZjSW1qdkI2Ul9jcXFQTWc5Rnc?oc=5",
-   "published": "2026-11-24T10:40:10+00:00"
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQZFliVTM5SGNReDBkbXgxd3AxXzg5YzNnbUJuMWZNajlhQ3pmZXBMaldmZ0NJY3pYd2p1bUNBZ0ZBaUtGUlYxRHRIYWRzOE9pRC03X0ZhcmlyZEVqcWdFc3ZKTWN4Y01HelNFNWczUEFNWmdMU0xiQmJINXNPRHc0aHhvaWFTSHhzYjA2MVUzbmpWdlNnNjRkLWtORQ?oc=5",
+   "published": "2026-11-24T18:25:10+00:00"
   },
   {
-   "title": "Self-driving race: Mercedes wins German approval ahead of Tesla",
-   "source": "Seeking Alpha",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNT0R5RUk3Slkyd3NtbkM1S0dWTlFJMnU3VWs2X25mSXlQYXpMSHMxbkIwUURvdDNkZ1ZlcWJUUnNjOHhSTTh6bTRJREJyN2NXbEpKODdrQ0ZWckFsZGdRY2xzci02bDE0SmtkcVpMWExQOEJiQUFWWGVSQ21LZGJrS1ZTYlZTYVk4U0N4bjZaeHVGOWpuekE5eWhBeVZkSUs4S1E?oc=5",
-   "published": "2026-11-24T10:16:19+00:00"
+   "title": "New Analyst Forecast: $TSLA Given $430 Price Target",
+   "source": "Quiver Quantitative",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNazF0RUp4QkRrMjFQMy1vYXA0eTRwZ2s1X1ZpZDE0dmNJcGpHTWQ1LVd0WFZTcjlwd2lWSmlnczZzXzk4UVBKaWFXTUVwMnR2TkpIOHhNYkZFaGJjQ1Itbk5MbUtGYVQ2NUoybGJUc0JZQndqN1pYY3U3aDNrTlRWbXhUTTl1V0pTVl9MdEZjT1Y3OVNC?oc=5",
+   "published": "2026-11-24T18:21:00+00:00"
   },
   {
-   "title": "TSLA Nov 2026 357.500 call (TSLA261123C00357500) Stock Price, News, Quote & History",
-   "source": "Yahoo! Finance Canada",
-   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1iSlRrR2Y0YnBNTEZSV21oSVFWUVFFZmFzUklQZ3NpSjMzb3ZOOVBnRnhYcXFkV1JXcTlzUmd2eFJBUW5JWXRZa094Tnp6SzBILVVVYko3TURFSV9YSUR5a1J1Rjhadw?oc=5",
-   "published": "2026-11-24T09:46:12+00:00"
+   "title": "Tesla\u2019s Robotaxi Business Could Generate $3-4B In Annual Recurring Revenue By 2027-End, Says Seaport Global",
+   "source": "Yahoo Finance",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNNmVUamhIUTZBNzgySFREbHhzT1lURGtKOEMwLTUyUThxeGxRc29qdi1INlpzVkVmVWp0S0RNSFBRTVB5NmRfUHFseHJ1dDM5amNpQzVOWWpfb0xBSG5QUEIwUW5lNl9sT1VBNDRpU2NiN1VLWTZ4Z3ZHSWZ5N2FEZngzSGh3LTE4aWQ1MTBVaEhwdHY2T3Jxc2o1R19DZm9mRzcyWUhn?oc=5",
+   "published": "2026-11-24T18:16:13+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-24T12:00:21+00:00",
+  "run_at": "2026-11-24T20:10:15+00:00",
   "session": {
-   "date": "2026-11-23",
-   "bar": "final"
+   "date": "2026-11-24",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1365,7 +1365,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-24T11:42:16+00:00"
+    "as_of": "2026-11-24T20:06:57+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1375,7 +1375,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-20"
+    "as_of": "2026-11-23"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1386,66 +1386,66 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:38:01+00:00"
+    "as_of": "2026-11-24T20:06:53+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:42:24+00:00"
+    "as_of": "2026-11-24T20:08:45+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-24T11:22:54+00:00"
+    "as_of": "2026-11-24T19:41:15+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-24T12:00Z"
+    "as_of": "2026-11-24T20:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-23"
+    "bar": "provisional",
+    "as_of": "2026-11-24"
    },
    "yahoo:^VXN": {
     "ok": true,
