@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-25T12:00:13+00:00",
+ "generated_at": "2026-11-25T20:10:16+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "own"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 100.0,
+    "pos": 96.2,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "21.5%",
+   "value": "22.1%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "neutral",
    "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
    "viz": {
-    "pos": 43.0,
+    "pos": 44.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 26.4 (p95), F&G 13",
+   "value": "VIX 27.7 (p97), F&G 15",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 384.68,
-  "as_of": "2026-11-24",
-  "bar": "final",
-  "day_change_pct": -0.2,
-  "sma50": 376.73,
-  "sma200": 381.37,
+  "price": 381.51,
+  "as_of": "2026-11-25",
+  "bar": "provisional",
+  "day_change_pct": -0.82,
+  "sma50": 377.2,
+  "sma200": 381.15,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 21.5,
+  "drawdown_pct": 22.1,
   "series": [
-   {
-    "d": "2026-03-11",
-    "c": 407.82,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-03-12",
     "c": 395.01,
@@ -1217,10 +1211,22 @@
     "c": 384.68,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-25",
+    "c": 381.51,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
- "flips": [],
+ "flips": [
+  {
+   "label": "Short-term pullback",
+   "direction": 1,
+   "text": "TSLA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
+  }
+ ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
@@ -1271,8 +1277,8 @@
  "distributions": null,
  "underlying": {
   "symbol": "TSLA",
-  "price": 384.68,
-  "sma200": 381.37,
+  "price": 381.51,
+  "sma200": 381.15,
   "above_200d": true
  },
  "vol": {
@@ -1295,61 +1301,61 @@
  },
  "backtest": {
   "start": "2022-11-25",
-  "end": "2026-11-24",
+  "end": "2026-11-25",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 21000.0,
-  "dca_value": 31096.91,
-  "dca_return_pct": 48.08,
-  "dip_value": 31079.45,
-  "dip_return_pct": 48.0,
+  "dca_value": 30840.65,
+  "dca_return_pct": 46.86,
+  "dip_value": 30823.33,
+  "dip_return_pct": 46.78,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 202,
   "winner": "dca"
  },
  "headlines": [
   {
-   "title": "Billionaire Elon Musk Gains $28 Billion for Every $100 Billion Tesla Shareholders Are Underpaid",
-   "source": "CEOWORLD magazine",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPS3pJcWV2WV9MdmZIdTZteGF2X3VRMXBDUjQ1alVlSlN4U21qcTg3bnZJUktWYUtOdEhZY0JUY1dNQjlCSUF6TTFNbmpVRmEtelNDWEpSbDhBTTZaTXZ6eEU5c3QtTDgwZlVzYlhZTmpGLTFLUms2NEpoRXd0c3NVb1NPMTN1YWE3Sk4ySTQxb0I5OHh2WnF6UERVM1BVclZ5WnlyU05zeTZrckR6cG9JOGFBMXFETHhvcE9MN1ZhdmZILWNr?oc=5",
-   "published": "2026-11-25T11:04:01+00:00"
+   "title": "Italy becomes the 12th European country to approve FSD (Tesla Assisted Driving), watch the first impressions",
+   "source": "Tesla Oracle",
+   "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNT0FFMzByenhTY2Z5VExSajhaWWo4RlQ3Ri1FU09KZzI0cWlhbHNHbi1FUHVtWEtBS0ZMN3lOcG9HYzY2eG95QTJyNmJTZG9oVmhMTDhHTTRWa3lienhoSmI2OUxSeWhyQWsyd2NWQU93d19uNVFlTFA0SC1HRmVPN3pScTd3UUxKRUp6TUtzMHlEOUdkN0FDY2JKWm9HNXZYMloxa1pDZ1dKa0dmSFNHdWNHWVVuWTdUNEFPMWRybFNHdWltM0VES2FFcVQ1bkc2TXE2dFdNX09rbFViNEE?oc=5",
+   "published": "2026-11-25T20:08:31+00:00"
   },
   {
-   "title": "Tesla\u2019s FSD Version 15 Is an Improvement. How That Helps the Stock.",
-   "source": "Barron's",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1UU1UtSWRicDJWa2RlR0RIQkxoa2xJUElVaTdaYTRsWFgyeVFPczVZTXhZdzVvdVp6X0JEa0xJRFRnT29vUWpEa21weElaaHVsRTJ5S3c1V2FQLUZseW5NWUpHeG5mVzJQZ1FyUFFiS2g?oc=5",
-   "published": "2026-11-25T10:43:00+00:00"
+   "title": "SPCX stock and the Tesla merger: 3 forces that depend on unset terms",
+   "source": "qz.com",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE13Y2pOTjk0UlJETDV6RVZ6WUhaX0ZHMzJWMjFLbEVlcjVaQ2JZdGNDZ0NyeXpibzItMkhpeEVHWmZ4bXpua3liNjdhRVhSWnF0WGdjUGRJZHpDSk0?oc=5",
+   "published": "2026-11-25T20:03:37+00:00"
   },
   {
-   "title": "American billionaire Elon Musk's SpaceX, Tesla name five directors for $3.5 trillion merger",
-   "source": "Billionaires.Africa",
-   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNU0ZxOFlpQ2tFMFpIRHpNNkxMVjJpUVp5YlZlOURfbzJjZmNBSWJnWVJxLVg3cVdSc0dlV0Q4YTg2bFlTQl9xTHhBM1BBTDloMzlxaDVNbS1SRy11cFdCWnFYS2g2M1p3Qld0NEFaSXowZWlleU9KYVpGRWNEQnN1NmM3QkNLR0dWOGxhelktQWRVWWJsemRRZklwSTBVTDRMaUhzcmM5UUsyRDRORmFJUDRYYUVZS0RpOFRTdFRHejZvZ2FuU0kwWWVWRGc?oc=5",
-   "published": "2026-11-25T10:29:22+00:00"
+   "title": "Tesla (NASDAQ: TSLA) Sits Three EU Votes Short Of FSD Approval As Regulatory Meeting Gets Pushed Back Again",
+   "source": "Foreign Policy Journal",
+   "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNN1ZERWlfeDkxNmtVMzM2YW5FNkxVNE54ZFhWcW1XdGNFcGp2Ylg4WWFHS3hNY2JUVHVmZEJyeW5PWGRfVFhEX0t4OUc2ek1QaDg5LTBrMlEtNDBudXlFX1ZieVh0ZnMxTHNEMWxvM1IxWkowalVLTHdHVVdDVmZoVHc3QlF5Ny1OMWNDZE9PRWJPLUVMZDV2bVpDQkZEeTdSZXpVaS1HcnI4bHFJV2FiQjh5Z1ZzWFRPRm5pLTNKQnpDNUhwemp5bzllcHdHYURkNEQtWlVoZGxqSVdmT3VvT1VFeGpBZ2to?oc=5",
+   "published": "2026-11-25T19:55:00+00:00"
   },
   {
-   "title": "Tesla Faces Delay to Secure EU-wide Approval for Assisted Self-driving Tech",
-   "source": "marketscreener.com",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOU1dMSVRvWGQ2NWJYYVJsOGVWZWZQX1hJZkdzb3d5UTFtQkJYb3pBSHRvaHpUYnIxb2Q2WlcyNm1SQWFwZGhLNXo3VE9YcGx2TkJWMWZ1THBNWF9nS0pnR2VjdUV5VmZKTVRUQjMwR2h5VU5fV2p0aTRIZ2JsWlJqQ2xqaVZGWkEzUmhOWmF6Q19OS1M4eFVLcDFrQWk4X0Zfc3F3bmdkd3ZUSG82aGJxanMxU0lIUUhyQlpvRWlQNFM5VHNGNlk0?oc=5",
-   "published": "2026-11-25T10:06:51+00:00"
+   "title": "TSLA Nov 2026 395.000 call (TSLA261125C00395000) Stock Price, News, Quote & History",
+   "source": "Yahoo! Finance Canada",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5YOVV5MnB6aXNCRm50Zl8weE84bG5kTDdCUGNoNkk3SW9ESTdiZkxBOTlkclF2dTVmSFFSbHJENFZueE0waWNTZUpZcE5mclduUVhfRk0yWDYwT1RRYkg3SFNtTTd0QQ?oc=5",
+   "published": "2026-11-25T18:44:43+00:00"
   },
   {
-   "title": "Elon Musk Says Grok Makes Tesla Road Trips More Fun - BASENOR",
-   "source": "Tesla Accessories",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPbnIyR2c5Q2NvLXNzcWRtY0hSeTQzQllIS3B4SWJxdWFlY3RlWDd6TTRwaGJWelVJbmlxdDJROXNxUVFfOHRjekM5d1d4S2U4V1M5UWtsdlhybkRnd0VOR2VZc2d3T2lpMlhPdzNEaHpRVXl5UFlzbXZubUZqTENFaTB1ZnFLWldFbHFSY2JaRQ?oc=5",
-   "published": "2026-11-25T10:05:36+00:00"
+   "title": "Elon Musk\u2019s Tesla turns to friendly robots to save its Australian chairwoman",
+   "source": "The Age",
+   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQcjRiWHp3MDBNRHZZS3NCZWJZa3VUZDdFdDdYcU5HbmpiYUVEbVExQ1NwZkt4bUtBUWFPd2xpVGRZOS1fSEs2R2lXSS1fNDI1SEFuc2xMMlpNUW5PaFVpamtGeWhwS2VQSVZVb1hWaTFTY2JHWTZGVnRCTGhLSVBab19SYVBwNFhZc2VOOHZFd0k5ZDE4ektwRldUSVlRZjJGVkEzMEZrM1lPUlNqU3F5Z3YwZWw1SjBraUVPMlRWeWcwYlp4QndBSUJfdUN1NEJKclF4QVZlLVROZw?oc=5",
+   "published": "2026-11-25T18:00:00+00:00"
   },
   {
-   "title": "21,827 Tesla, Inc. $TSLA Shares Sold by EP Wealth Advisors LLC",
-   "source": "MarketBeat",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPaEwxZldVUktqdzVkcWg4ZmR5STh6eTBJNEgxeHZRZ1dWSlcyc3JuaTJmWm1WZlRKV1RvSWFEbjR6MGxLTHkzUGNDN0hVNElNSWgzT0FCUldkLTk0LUZZZDBCSkMzQUEwZDZ5MTlWOUtoelR6T0xxU1hGQks5cWFVUFFFMGZRbmJwZElDV191anRSQVlOSzBTS2JTcHVTQ3laVHZfY2hvTFNldUhLZlBTM1pXWUwxQWhJNTE4?oc=5",
-   "published": "2026-11-25T09:20:21+00:00"
+   "title": "SpaceX Stock Price Forecast: Merger Agreement With Tesla as Soon as Year-End, Shares Poised to Rebound to $132",
+   "source": "TradingKey",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQMU9UMHZVaTRLanRTdWk4ODlCd0RuSEQtVjVQRDlMV0wzV0VwM2g2WmR3TUdhbS1tVVZTbmxVTzRTUnUwb0JIYWRjdUczd0tYM3g5VnZ6c2x5U3RXLUNDY04xZGRUdmpwX19RbzRpT0xHdzdxdGRSYVl4dlA0emVjeVphVDc5dllkbmhod3lwbXd5YVZkckdLVHFrXzZxcTdicGFMcTJQQUJjVDhkbURMNWNLTUJzT1FVUUtmU05yRnlCcHR6Mk1JYThYS2tPdU1vemRF?oc=5",
+   "published": "2026-11-25T17:56:02+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-25T12:00:14+00:00",
+  "run_at": "2026-11-25T20:10:17+00:00",
   "session": {
-   "date": "2026-11-24",
-   "bar": "final"
+   "date": "2026-11-25",
+   "bar": "provisional"
   },
   "sources": {
    "calendar:CPI": {
@@ -1365,7 +1371,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-25T11:40:16+00:00"
+    "as_of": "2026-11-25T20:06:04+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1375,7 +1381,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-23"
+    "as_of": "2026-11-24"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1386,66 +1392,66 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-25T11:50:02+00:00"
+    "as_of": "2026-11-25T20:02:01+00:00"
    },
    "news:GPIX": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-25T11:45:33+00:00"
+    "as_of": "2026-11-25T19:53:48+00:00"
    },
    "news:TSLA": {
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-25T11:04:01+00:00"
+    "as_of": "2026-11-25T20:08:31+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-24"
+    "bar": "provisional",
+    "as_of": "2026-11-25"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-24"
+    "bar": "provisional",
+    "as_of": "2026-11-25"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-25T10:06Z"
+    "as_of": "2026-11-25T20:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-24"
+    "bar": "provisional",
+    "as_of": "2026-11-25"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-24"
+    "bar": "provisional",
+    "as_of": "2026-11-25"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-24"
+    "bar": "provisional",
+    "as_of": "2026-11-25"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-24"
+    "bar": "provisional",
+    "as_of": "2026-11-25"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
-    "bar": "final",
-    "as_of": "2026-11-24"
+    "bar": "provisional",
+    "as_of": "2026-11-25"
    },
    "yahoo:^VXN": {
     "ok": true,
