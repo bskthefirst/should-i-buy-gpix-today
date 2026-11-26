@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T20:10:08+00:00",
+ "generated_at": "2026-11-26T21:25:08+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "26.8 (p95)",
+   "value": "28.3 (p98)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "S&P 500 volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive (about +1pt over the next month, so it carries a 1.5 weight).",
    "viz": {
-    "pos": 95.3,
+    "pos": 97.6,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "1.02",
+   "value": "1.08",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight.",
    "viz": {
-    "pos": 79.8,
+    "pos": 94.0,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,13 +63,13 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-4.9 pts",
+   "value": "-3.4 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
    "note": "Realized S&P 500 swings exceed what options are pricing - call selling underpaid in this tape. A read only: the scored versions of this gap era-flipped in the audits.",
    "viz": {
-    "pos": 0.0,
+    "pos": 5.2,
     "labels": [
      "underpaid \u22124",
      "overpaid +8"
@@ -1374,8 +1374,8 @@
   "tbill_3mo": 4.36
  },
  "fx": {
-  "usd_krw": 1343.27,
-  "as_of": "2026-11-26T20:10Z"
+  "usd_krw": 1343.04,
+  "as_of": "2026-11-26T21:25Z"
  },
  "distributions": {
   "history": [
@@ -1504,7 +1504,7 @@
  },
  "vol": {
   "index": "VIX",
-  "level": 26.8
+  "level": 28.29
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1531,10 +1531,16 @@
  },
  "headlines": [
   {
-   "title": "Bitcoin Recovery at Risk as Strong GDP Fuels Fed Rate Hike Bets",
+   "title": "US Inflation Hits 3.8%: Will the Fed Raise Interest Rates Again in December?",
+   "source": "CryptoRank",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPckJoTzRUZlhpcnZBcjBQUDdDWGEzMmdPOGJVVjZLOFFmaDZOY0pJN1I1MGo3VEgyb1l2eE9RRzFhOFM0ekNfV3VqdE01UHBxX0pQMGtqT1JJTWZLbEE5czVWYXpOSm93bGxCWVRuNU1QSmh4d0NBdUVGWTVuNFcxc0FMY0NCZHJXa1lBRGp4Ym42U3FJckFBQjFGZzlPMEwwYnphal9sa1UwQ05lNTlMRA?oc=5",
+   "published": "2026-11-26T21:11:03+00:00"
+  },
+  {
+   "title": "Bitcoin\u2019s recovery hinges on a US economic slowdown without a recession",
    "source": "Cryptonews.net",
-   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5BaDZJVFBJNEZ0WThncVpKbnkyQjlqTTlUYTA3MFI5WHExUkJZY09SMlNFMTBWTHBqbFE1Q0tsUTVtN040ZjBzVmRlZkNmeXdpeUNGY21LWDI?oc=5",
-   "published": "2026-11-26T20:07:53+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5NVHVJeU5TRmJjcFNVc3FTNWVBcGJrbUdsOWVhUjdXQzVxM1NrUXpudHNWcWRKX3J5d3NReHZKWXphcG1fRXMtOUliU1JuNnktalBESjZsRDU?oc=5",
+   "published": "2026-11-26T21:08:31+00:00"
   },
   {
    "title": "Tom Lee Says Wall Street Has Already Bottomed, Points to VIX Spike Echoing 2018",
@@ -1556,19 +1562,13 @@
   },
   {
    "title": "Stocks, Nasdaq Futures Climb as AI Trade Rebounds: Markets Wrap",
-   "source": "Bloomberg.com",
+   "source": "Bloomberg",
    "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeEQtTUQwY0ZyTEpubU1fOUV6eVQzR2llam9uaF9UUnQ5LVNvcWJFT0dRYW9NRHM2cDQtYkpaOF9rS1ZuVE8zaDhmYWk0S1IzdU1sOER5aWJLOTQteFZFTjRkMUJwUTdta0ZnemNITTBEa1VVb1c1MGJkUnZoMFRKNDZjM1d6SDBqZ1g2NDZTenZfSEZK?oc=5",
    "published": "2026-11-26T18:07:43+00:00"
-  },
-  {
-   "title": "Tech billionaire takes his case against red tape to the Federal Reserve",
-   "source": "The Washington Post",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPSVZoU0stTElBY1VHVk93NWpGbjZQeEFTQll0TXZBUE82dGVpMmVEOGpKbldjRGcxZERvTUl6SHF4eDRUdHV0Sm1YVVpLcWF5X0txSldhaWZMcFFJa2l4blpIVFk2M2p5N2NrbHFwYzY1Vm9YWTFOTFJkaFFwb2ZaQk9HczlteC1kQzQ0YlB4S2Qza2lvS0RkZllMT25pdmRDcXB3WUVna1poWDlXeE56VGFIeHFMS3ltNWZjTEt3cjM?oc=5",
-   "published": "2026-11-26T18:00:00+00:00"
   }
  ],
  "health": {
-  "run_at": "2026-11-26T20:10:09+00:00",
+  "run_at": "2026-11-26T21:25:09+00:00",
   "session": {
    "date": "2026-11-25",
    "bar": "final"
@@ -1603,7 +1603,7 @@
     "ok": true,
     "core": false,
     "items": 6,
-    "as_of": "2026-11-26T20:07:53+00:00"
+    "as_of": "2026-11-26T21:11:03+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
@@ -1614,7 +1614,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-26T20:10Z"
+    "as_of": "2026-11-26T21:25Z"
    },
    "yahoo:SPY": {
     "ok": true,
@@ -1625,8 +1625,8 @@
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "provisional",
-    "as_of": "2026-11-26"
+    "bar": "prior_close",
+    "as_of": "2026-11-25"
    },
    "yahoo:^VIX3M": {
     "ok": true,
