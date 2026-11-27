@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-11-27T12:00:32+00:00",
+ "generated_at": "2026-11-27T20:10:18+00:00",
  "rules_version": 4,
  "ticker": "TSLA",
  "asset": {
   "kind": "stock",
   "name": "Tesla",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "own"
  },
  "verdict": {
-  "label": "Mild tailwind - fine day to buy",
-  "summary": "A validated single-stock condition is in your favor on TSLA today. Nothing dramatic - and single-stock risk still dwarfs entry timing.",
-  "tone": "ok",
-  "score": 1.5,
-  "score100": 59,
+  "label": "No edge either way",
+  "summary": "None of the scored TSLA conditions are present. Unlike the index funds, this page can't add \"any day is fine\": that logic was proven on diversified indexes, not single companies.",
+  "tone": "neutral",
+  "score": 0.0,
+  "score100": 50,
   "weights_max": 4.5
  },
  "meter": {
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. This check pays after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0). The thresholds are TSLA-specific: at roughly 3x index volatility, the index's -3% band would fire a third of all days and tested as noise here.",
    "viz": {
-    "pos": 93.8,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,13 +49,13 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "73% ann. (p98)",
+   "value": "75% ann. (p98)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "TSLA's realized volatility is in the top decile of its own past year. In validation, these days averaged +0.35pt next-day excess (t=1.7) and +15.5pt over the next quarter, positive in every era - chaos has been the single-name buyer's friend. Weight 1.5.",
    "viz": {
-    "pos": 98.0,
+    "pos": 98.4,
     "labels": [
      "quiet year",
      "p90+ scores"
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "22.4%",
-   "score": 0.0,
-   "weight": 1.0,
-   "lean": "neutral",
-   "note": "A 20-35% drawdown - past the falling-knife band, short of deep value. 16 years of history show no reliable edge either way in this no-man's-land.",
+   "value": "18.3%",
+   "score": -1.5,
+   "weight": -1.5,
+   "lean": "bad",
+   "note": "TSLA sits 18.3% below its 52-week high - the falling-knife band (10-20% down). The one zone in this entire project with era-robust evidence of BELOW-average forward returns (negative in every era, t=-2.6 next-day, t=-1.9 monthly). Single names in mid-drawdown lean momentum, not mean-reversion. Weight -1.5.",
    "viz": {
-    "pos": 44.8,
+    "pos": 36.6,
     "labels": [
      "at the high",
      "\u221250%"
@@ -104,15 +104,15 @@
   },
   {
    "name": "TSLA regime",
-   "value": "downtrend",
+   "value": "uptrend",
    "score": 0,
    "weight": 0,
-   "lean": "bad",
-   "note": "TSLA below its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
+   "lean": "good",
+   "note": "TSLA above its own 200-day average. Descriptive only - the fund audits showed below-200-day is not a buy signal, and no regime band was validated on the single-stock pass either. The lean just reads the tape."
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 26.8 (p95), F&G 18",
+   "value": "VIX 23.8 (p88), F&G 25",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 380.14,
-  "as_of": "2026-11-25",
+  "price": 400.0,
+  "as_of": "2026-11-27",
   "bar": "final",
-  "day_change_pct": -1.18,
-  "sma50": 377.17,
-  "sma200": 381.15,
+  "day_change_pct": 5.22,
+  "sma50": 377.84,
+  "sma200": 381.0,
   "high52w": 489.88,
   "high_label": "52-week high",
-  "drawdown_pct": 22.4,
+  "drawdown_pct": 18.3,
   "series": [
-   {
-    "d": "2026-03-12",
-    "c": 395.01,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-03-13",
     "c": 391.2,
@@ -1217,27 +1211,33 @@
     "c": 380.14,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-27",
+    "c": 400.0,
+    "t": "neutral",
+    "s": 50
    }
   ]
  },
  "flips": [
   {
-   "label": "Short-term pullback",
+   "label": "Exiting the knife zone",
    "direction": 1,
-   "text": "TSLA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
+   "text": "TSLA at $440.89 (+10.2% from here) climbs out of the falling-knife band (+9 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-25",
-  "days_total": 773,
+  "end": "2026-11-27",
+  "days_total": 774,
   "backfilled_days": 707,
   "fg_coverage_start": "2025-11-28",
   "baseline": {
-   "n": 752,
-   "avg_pct": 2.76,
-   "median_pct": 0.94
+   "n": 753,
+   "avg_pct": 2.75,
+   "median_pct": 0.93
   },
   "bands": [
    {
@@ -1264,9 +1264,9 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 170,
-    "avg_pct": -4.03,
-    "median_pct": -4.77
+    "n": 171,
+    "avg_pct": -4.01,
+    "median_pct": -4.71
    }
   ]
  },
@@ -1277,13 +1277,13 @@
  "distributions": null,
  "underlying": {
   "symbol": "TSLA",
-  "price": 380.14,
-  "sma200": 381.15,
-  "above_200d": false
+  "price": 400.0,
+  "sma200": 381.0,
+  "above_200d": true
  },
  "vol": {
   "index": "20d realized",
-  "level": 72.9
+  "level": 75.4
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1301,23 +1301,60 @@
  },
  "backtest": {
   "start": "2022-11-28",
-  "end": "2026-11-25",
+  "end": "2026-11-27",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 30522.02,
-  "dca_return_pct": 46.04,
-  "dip_value": 30504.29,
-  "dip_return_pct": 45.95,
+  "dca_value": 32116.61,
+  "dca_return_pct": 53.67,
+  "dip_value": 32097.96,
+  "dip_return_pct": 53.58,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 202,
   "winner": "dca"
  },
- "headlines": [],
+ "headlines": [
+  {
+   "title": "TSLA Stock Clocks Best Week In 18 Months: Tesla Reportedly Eyes Buying German Toolmaker Amid Cybercab, Optimus Scaling Plans",
+   "source": "TradingView",
+   "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQVC1tZGxwVzdhWjJCRC1UT01QMXFMdTFnR2xPQ29XWmpfNUpOeXJVeHU3bkMydTZIdDVxZWYyUFU1ZmdzV2ZNaUVkMjhRclExcnVfelRhZGZEWTRhdFUwT1ZJUFIweGNqamNDTG9OSExMR1lwUGRZd1FRRDFpY1A1T0xVYl83YVVZUTFxLWpLLXFxMGhpUE83SW1nd2VSLVVaOWRBWm1xWWt3Ty13aXhaLVJaUHJwOFpJWHFIbWpQN2c3T3Bfem8wLXFlZ29nM0IxMjRzLXJBM0k3SHV2ZjczWjNQZGcyM1lQUUNHcVgyT0lJU3ZzYmV3aHduQ3lKOWxYY1BXYXNUbDVaMWU5RzBjNw?oc=5",
+   "published": "2026-11-27T19:55:54+00:00"
+  },
+  {
+   "title": "Tesla expands Dallas, TX, Robotaxi geofence by 83% just days after Cybercab launch, watch user reviews, more",
+   "source": "Tesla Oracle",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNMXlVbF9lbHptN3NMRGpnZzRraEZ4X0YtWUdmVVlwSEllNFhJbFJuZUxwWnFQa2RiZ1Z5YjRBOFVWc3VDSGRoUWtiOTNBVjRfbzBIUlh6dUVvc0RDdVJOQ2lvTDZIXzNCWWVqMDRHV01EYlRPVXpNdm9qanU4eGQwNjJsUEJKdFFNRTctXzZOWW9iM0pDM0RiZjdRNlBjTHBQbG9rUVZyNVhWM2tYMkhfYWh6ZzZsZ0RSNDhUenZVbEs1SEJQUFF2SEtR?oc=5",
+   "published": "2026-11-27T19:48:45+00:00"
+  },
+  {
+   "title": "Tesla Stock Rallies Despite Lingering Concerns for Investors",
+   "source": "FinanceBuzz",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9hMXVQdjY4ay01bVhkam1vbEY2Vy1tT0Y0WnpMWjRvNEozYVY4S2RONjloLUZib2kxQjdBaVJmbGhfQUZyRFdybXhXUUZqN2V2Nm0teVNNM1FpdnZPVDc5NHRsbS1IQlltUmhWb1RVUWZQT1Ns?oc=5",
+   "published": "2026-11-27T19:43:00+00:00"
+  },
+  {
+   "title": "What To Do After Bullish Market Move; Tesla Leads 7 New Buys",
+   "source": "Investor's Business Daily",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxORUw2UENCSElIblk0WmtuRDBlTTg4UE5OWWlHcmpWanQ4TFpyX0tRRWxSRnNyNHA4ZkhBOWlVWkFOeVFsNWRqOE5mUG1icVVEeF9YQ0RWN1FEMUtjYjBiSmJrSHQtUWpqNGFqdUhtd1l6eGpaZzU1YnNQY0VWcTNlelBCNlhrSFYzajloem02ODd2YXpmZFZWVmNtLXhoWFVQMnJnSF9FY2xKNzYwRWhxS1cwVHJPdFF5LVJxVjJIQ1VLMjlmclpXVERoQzY1VFI1NWNZ?oc=5",
+   "published": "2026-11-27T19:14:00+00:00"
+  },
+  {
+   "title": "\u2018Superfan\u2019 Elon Musk Says \u2018China Is Cool\u2019 as Tesla Boosts Production in Shanghai: \u2018The More the US and China Cooperate, the Better Off Both Will Be\u2019",
+   "source": "Barchart.com",
+   "link": "https://news.google.com/rss/articles/CBMikgJBVV95cUxOTnZsYnpoTVZaRDBEVkdrTXEzTjZkblVFaXlqZ0s1aGlvMFEwZEhIU2VaN3pjVTAtR3oyazBFeVk1LWRBMi1CSG1sdVA1UTJQcU9WdDVRVnZzMXU2VG9UNGhpTm5mZ3JqaWlXMXE2M3RjNTBRRGlPNmVFZ0ZtTXdvNXJmUEZNcVhPZUJGa2NwUFZrUkkwalJ2ZUFKWDJxRmEwOURlazJRYkJzZTJnZGdpWHQxWU1oR2lLUkVucHc0YmpWS09iaUZ4bl9iWlZ5NjFpNlJncklUSDdUU2hjdG9RVmJvLU1meTRSMjY2V3dQckpuMXRtSTdwVEE5VFViZi1YaldiQ0NpcDJVSmRidzRRb2ln?oc=5",
+   "published": "2026-11-27T18:30:03+00:00"
+  },
+  {
+   "title": "Elon Musk to End Cybertruck: Used Demand for Tesla EV Picks Up",
+   "source": "Benzinga",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPUEJZSFpnN3NScnhxNllFMzVoVUltSUVKYXV3WkFGZ0lwbnZOOUlvOWNmSnRhd1JLanRDaEJieUJvNWZPbFhuQnFmeDIzazQtV0JYQ3RNeldld0FvN2RMX1JzTVhZbkRxUHpUQUhIV2xkbDFLZUI2UlotaW1lRUJ1SUhqbjhUd0tpbEI3WFRRaTZsdXZzVURuejJCWndheXNLNmZVMWxRNWFuT2VhY2NWbzUwWmJwTWF3MGp6dUp0VkIxeWVn?oc=5",
+   "published": "2026-11-27T18:17:46+00:00"
+  }
+ ],
  "health": {
-  "run_at": "2026-11-27T12:00:42+00:00",
+  "run_at": "2026-11-27T20:10:19+00:00",
   "session": {
-   "date": "2026-11-25",
+   "date": "2026-11-27",
    "bar": "final"
   },
   "sources": {
@@ -1334,7 +1371,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-27T11:41:16+00:00"
+    "as_of": "2026-11-27T19:52:33+00:00"
    },
    "earnings:TSLA": {
     "ok": false,
@@ -1344,7 +1381,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-24"
+    "as_of": "2026-11-26"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1352,66 +1389,69 @@
     "as_of": "2026-11-24"
    },
    "news:GPIQ": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-11-27T20:05:02+00:00"
    },
    "news:GPIX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-11-27T19:58:40+00:00"
    },
    "news:TSLA": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-11-27T19:55:54+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-27T12:00Z"
+    "as_of": "2026-11-27T20:10Z"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-26"
+    "bar": "provisional",
+    "as_of": "2026-11-27"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:^VXN": {
     "ok": true,
@@ -1422,10 +1462,7 @@
   },
   "degraded": [
    "calendar:CPI",
-   "earnings:TSLA",
-   "news:GPIQ",
-   "news:GPIX",
-   "news:TSLA"
+   "earnings:TSLA"
   ],
   "degraded_core": []
  }

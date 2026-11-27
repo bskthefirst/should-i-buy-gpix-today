@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-27T12:00:13+00:00",
+ "generated_at": "2026-11-27T20:10:15+00:00",
  "rules_version": 4,
  "ticker": "GPIX",
  "verdict": {
-  "label": "Better-than-usual entry",
-  "summary": "Heavily-weighted rare conditions aligned today - the kind of setup that has historically rewarded buyers. If you have cash earmarked for GPIX, this is a sensible day to deploy it.",
-  "tone": "good",
-  "score": 5.0,
-  "score100": 81,
+  "label": "Mild tailwind - fine day to buy",
+  "summary": "A validated rare condition is in your favor today. Nothing dramatic, but no reason to wait either.",
+  "tone": "ok",
+  "score": 2.5,
+  "score100": 66,
   "weights_max": 8.0
  },
  "meter": {
@@ -17,13 +17,13 @@
  "signals": [
   {
    "name": "VIX vs its own past year",
-   "value": "26.8 (p95)",
-   "score": 1.5,
+   "value": "23.8 (p88)",
+   "score": 0.0,
    "weight": 1.5,
    "lean": "good",
-   "note": "S&P 500 volatility in the top decile of its past year - the one vol band two independent backtests found reliably positive (about +1pt over the next month, so it carries a 1.5 weight).",
+   "note": "S&P 500 volatility elevated vs the past year - option premiums are rich, so the call-selling engine is well paid. Only the top decile scores, but the read is good.",
    "viz": {
-    "pos": 95.3,
+    "pos": 87.8,
     "labels": [
      "calm year",
      "p90+ scores"
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "1.02",
-   "score": 1.0,
+   "value": "1.00",
+   "score": 0.0,
    "weight": 1.0,
    "lean": "good",
-   "note": "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight.",
+   "note": "VIX curve flattening - near-term stress building toward the inversions that mark genuine panics. Reads good for a contrarian buyer; points only come at full inversion (1.00+).",
    "viz": {
-    "pos": 79.8,
+    "pos": 74.9,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -63,7 +63,7 @@
   },
   {
    "name": "Are call-sellers overpaid?",
-   "value": "-4.9 pts",
+   "value": "-8.6 pts",
    "score": 0,
    "weight": 0,
    "lean": "bad",
@@ -90,13 +90,13 @@
   },
   {
    "name": "Discount from 52-week high",
-   "value": "7.0%",
+   "value": "5.5%",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
    "note": "A real 3%+ discount from the 52-week high - measured with distributions reinvested, so payouts don't masquerade as discounts. The one discount band that held up in both audits (+0.7-0.9pt over the next month, hence its 1.5 weight).",
    "viz": {
-    "pos": 70.0,
+    "pos": 55.0,
     "labels": [
      "at the high",
      "\u221210%"
@@ -121,13 +121,13 @@
   },
   {
    "name": "GPIX vs 50-day average",
-   "value": "-4.9%",
+   "value": "-3.2%",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "Below its 50-day average (distributions reinvested). Shown for the curious - the audits found no predictive value either way in this line, so the read is a firm neutral.",
    "viz": {
-    "pos": 9.2,
+    "pos": 23.3,
     "labels": [
      "\u22126%",
      "+6%"
@@ -144,13 +144,13 @@
   },
   {
    "name": "Credit stress (junk-bond spreads)",
-   "value": "3.72% (+0.42 1mo)",
+   "value": "3.77% (+0.63 1mo)",
    "score": 0.0,
    "weight": 1.0,
-   "lean": "neutral",
-   "note": "Credit spreads moderately elevated but well short of the 5% panic band.",
+   "lean": "bad",
+   "note": "Credit spreads widening fast - stress building under the surface. The audit couldn't validate a score on this (those days actually rebounded), but as a plain read of conditions it leans bad.",
    "viz": {
-    "pos": 43.0,
+    "pos": 44.2,
     "labels": [
      "2% calm",
      "6% crisis"
@@ -167,13 +167,13 @@
   },
   {
    "name": "Payout vs safe cash",
-   "value": "8.8% vs 4.4% cash",
+   "value": "8.7% vs 4.4% cash",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
    "note": "GPIX yields comfortably more than cash - the normal state of affairs.",
    "viz": {
-    "pos": 44.6,
+    "pos": 43.2,
     "labels": [
      "no edge over cash",
      "+10 pts"
@@ -194,13 +194,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "18 (extreme fear)",
+   "value": "25 (extreme fear)",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
    "viz": {
-    "pos": 17.9,
+    "pos": 24.8,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -230,21 +230,15 @@
   }
  ],
  "fund": {
-  "price": 52.125,
-  "as_of": "2026-11-25",
+  "price": 52.98,
+  "as_of": "2026-11-27",
   "bar": "final",
-  "day_change_pct": -0.24,
-  "sma50": 55.12,
+  "day_change_pct": 1.64,
+  "sma50": 55.07,
   "sma200": 54.36,
   "high52w": 56.67,
-  "drawdown_pct": 8.0,
+  "drawdown_pct": 6.5,
   "series": [
-   {
-    "d": "2026-03-12",
-    "c": 50.98,
-    "t": "good",
-    "s": 94
-   },
    {
     "d": "2026-03-13",
     "c": 50.69,
@@ -1318,30 +1312,41 @@
     "c": 52.125,
     "t": "good",
     "s": 81
+   },
+   {
+    "d": "2026-11-27",
+    "c": 52.98,
+    "t": "ok",
+    "s": 66
    }
   ]
  },
  "flips": [
   {
-   "label": "Short-term pullback",
+   "label": "VIX curve inversion",
    "direction": 1,
-   "text": "SPY has fallen 2 straight sessions - one more down close = short-term reversal (+12 pts)"
+   "text": "VIX/VIX3M ratio at 1.00 (now 1.00) = inverted vol curve, genuine panic (+6 pts)"
+  },
+  {
+   "label": "Top-decile premiums",
+   "direction": 1,
+   "text": "VIX above 24.5 (now 23.8) = top decile of its past year (+9 pts)"
   },
   {
    "label": "Extreme credit stress",
    "direction": 1,
-   "text": "Junk-bond spreads at 5.00% (now 3.72%) = extreme credit stress (+6 pts)"
+   "text": "Junk-bond spreads at 5.00% (now 3.77%) = extreme credit stress (+6 pts)"
   }
  ],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-25",
-  "days_total": 773,
+  "end": "2026-11-27",
+  "days_total": 774,
   "backfilled_days": 706,
   "fg_coverage_start": "2025-11-28",
   "baseline": {
-   "n": 752,
+   "n": 753,
    "avg_pct": 1.5,
    "median_pct": 1.88
   },
@@ -1363,19 +1368,19 @@
    {
     "tone": "neutral",
     "label": "No edge either way (score ~50)",
-    "n": 549,
-    "avg_pct": 1.11,
+    "n": 550,
+    "avg_pct": 1.1,
     "median_pct": 1.53
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 8.82,
+  "ttm_yield_pct": 8.68,
   "tbill_3mo": 4.36
  },
  "fx": {
-  "usd_krw": 1335.03,
-  "as_of": "2026-11-27T12:00Z"
+  "usd_krw": 1333.22,
+  "as_of": "2026-11-27T20:10Z"
  },
  "distributions": {
   "history": [
@@ -1498,13 +1503,13 @@
  },
  "underlying": {
   "symbol": "SPY",
-  "price": 716.7,
-  "sma200": 733.16,
+  "price": 728.32,
+  "sma200": 733.34,
   "above_200d": false
  },
  "vol": {
   "index": "VIX",
-  "level": 26.8
+  "level": 23.81
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1517,23 +1522,60 @@
  },
  "backtest": {
   "start": "2023-10-27",
-  "end": "2026-11-25",
+  "end": "2026-11-27",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 16200.0,
-  "dca_value": 19617.0,
-  "dca_return_pct": 21.09,
-  "dip_value": 19474.28,
-  "dip_return_pct": 20.21,
+  "dca_value": 19938.78,
+  "dca_return_pct": 23.08,
+  "dip_value": 19793.71,
+  "dip_return_pct": 22.18,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 35,
   "winner": "dca"
  },
- "headlines": [],
+ "headlines": [
+  {
+   "title": "Federal Reserve and CFPB Set New $76,300 Consumer Protection Thresholds for 2027",
+   "source": "FF News",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORm5JSWNpUW1Eclg0ME9OUk9YQU41SEZ1b1pxSkV2VlhxZnNsWWlZMDFGRC1CWTNiOTBobEpBWU5ua2RhZkYwcjc4QnF1V2cwZzdMYmNzd0Izbk9hZFZpMGdkZW45RHJRXzdZTzl2Zk5HbFJjVmdIc1ZIMzFCVW1RUk9ycGduRlk3WjJzVXdOTE9pOXJkWlVsRDVIa25aYUQ2clozVjBRcFNsYWNlMDA3R2hMWQ?oc=5",
+   "published": "2026-11-27T19:58:40+00:00"
+  },
+  {
+   "title": "USD to EUR Forecast: Can the US Dollar Reach Parity With the Euro in 2027?",
+   "source": "CryptoRank",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNc1ZWb18tWkhPYlVnQzA1N1FzazE2dHMwSlBjMGxORGI3VFJrQVBUR2tsQXZra3BUMmIyaVBhV1g2UGE3VEhfM21MMjFGOGZEU3N3S0tfVUkwdE5qRFJiMmZhdUFFZU5MZWlrbUEzOU5xWFFmMFFkZWNTSThIcXFFNlU2NHhQQ0lsZ0l2dDRhalFvMXExZ1NtUUhrM2ZFOGNibHZoSFZZTEM2MWtUVTBV?oc=5",
+   "published": "2026-11-27T19:46:30+00:00"
+  },
+  {
+   "title": "Inflation is squeezing Americans so bad grocery bills are reason Black Friday shoppers cut back",
+   "source": "Fortune",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNa3doN0lsQmtPZ2VxQlZGS3hlNTlHbnd1ZVN3V3ZfOXR6SEwtUEpfcmFXUEUzdVlPa2FvSWc2cEl3QktMRnJUZ0F2Vm1lTVV6eE1QSVlWUHhHcU12VndYSzRrU3J3NEFRd2M0ODFNcHA3OUN1eEhDT2oyMUROcV9lWEV3Y3dsT1FsbjZmYmU3dnhtY001M1czUENaNDRkVzN0Tl9oRTBKZmdOSDlueEFqemxRcy11QnF5SDJhSV9WYzZRZW9DMDhNZnFDZjU?oc=5",
+   "published": "2026-11-27T19:37:00+00:00"
+  },
+  {
+   "title": "Economic Rundown: Stronger Growth, a Brighter Consumer Outlook, and Stubborn Cost Pressures",
+   "source": "Small Business & Entrepreneurship Council",
+   "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBzUFNwaWVpRm01alQyUTgtdWthTmFJZW05a3R5SVhSLW5TblFDaXZZSHlscG5Za250Q3Y0MFR0WlBrY3pKbGNUV3Z3Z093VmtSU3c?oc=5",
+   "published": "2026-11-27T18:54:24+00:00"
+  },
+  {
+   "title": "Interview with Lars Peter Hansen",
+   "source": "Federal Reserve Bank of Richmond",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQbE82cnFoaXBCZHpHYXlaa2lucF9yU1dyRWd0aVlYUGpPREhOcldiTWU1Vnp3RWE4aE9GUmtBd2xXVWZPRFlvcXJPd0ZWczBPZER0cGpiY0ZlRFA1TmJtUjFKMzdJVjlWalMxeUdZR0w2TUFadXhGSjctdTg5dW5hYUpPY1k?oc=5",
+   "published": "2026-11-27T18:49:43+00:00"
+  },
+  {
+   "title": "Rising inflation is setting consumers up for a holiday squeeze",
+   "source": "Scripps News",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNcGNDdUdNbHdEOHg4d21Hc0hDNFl4OGsxZUVtd0xPV3NUQ2M2dDh4RURzSE5QY01ndEVGVzRxbm10b1lDTU1nc0hHS080S2k2WWtTOGZCQlIyY0NBZWR3LXRFUnZfRHhHWmtHS0EtRV9aeGtob01JSUtEajlndk50MU1GMXA0a01QalhqbWtYanVZSTVwVkxIeHFhekhZY2dwMGlkSHJYeEhndWc?oc=5",
+   "published": "2026-11-27T18:41:43+00:00"
+  }
+ ],
  "health": {
-  "run_at": "2026-11-27T12:00:22+00:00",
+  "run_at": "2026-11-27T20:10:15+00:00",
   "session": {
-   "date": "2026-11-25",
+   "date": "2026-11-27",
    "bar": "final"
   },
   "sources": {
@@ -1550,12 +1592,12 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-27T11:41:16+00:00"
+    "as_of": "2026-11-27T19:52:33+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-24"
+    "as_of": "2026-11-26"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1563,43 +1605,43 @@
     "as_of": "2026-11-24"
    },
    "news:GPIX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-11-27T19:58:40+00:00"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-27T12:00Z"
+    "as_of": "2026-11-27T20:10Z"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-26"
+    "bar": "provisional",
+    "as_of": "2026-11-27"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    }
   },
   "degraded": [
-   "calendar:CPI",
-   "news:GPIX"
+   "calendar:CPI"
   ],
   "degraded_core": []
  }

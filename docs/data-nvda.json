@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-27T12:00:54+00:00",
+ "generated_at": "2026-11-27T20:10:22+00:00",
  "rules_version": 4,
  "ticker": "NVDA",
  "asset": {
   "kind": "stock",
   "name": "Nvidia",
   "ipo": null,
-  "sessions": 1003,
+  "sessions": 1004,
   "too_young": false,
   "validated": true,
   "evidence": "tsla_framework"
@@ -32,7 +32,7 @@
    "lean": "neutral",
    "note": "No qualifying pullback. Scores after 3 straight down closes (+1.0) or a 12%+ five-session drop (+2.0) \u2014 thresholds from the TSLA validation (high-vol single name), applied here provisionally. The index's milder \u22123% band is not used.",
    "viz": {
-    "pos": 92.7,
+    "pos": 100.0,
     "labels": [
      "\u221215% in 5d",
      "flat"
@@ -49,7 +49,7 @@
   },
   {
    "name": "Realized volatility vs its past year",
-   "value": "127% ann. (p100)",
+   "value": "128% ann. (p100)",
    "score": 1.5,
    "weight": 1.5,
    "lean": "good",
@@ -72,13 +72,13 @@
   },
   {
    "name": "Distance from 52-week high",
-   "value": "37.6%",
+   "value": "37.1%",
    "score": 0.0,
    "weight": 1.0,
    "lean": "good",
    "note": "A 35%+ drawdown - the deep-value zone. Validation showed +13pt over the next quarter on average, but the effect was era-fragile (t=1.1) and narrowly missed the scoring bar. Reads good; scores nothing.",
    "viz": {
-    "pos": 75.2,
+    "pos": 74.2,
     "labels": [
      "at the high",
      "\u221250%"
@@ -112,7 +112,7 @@
   },
   {
    "name": "Market backdrop (VIX & fear)",
-   "value": "VIX 26.8 (p95), F&G 18",
+   "value": "VIX 23.8 (p88), F&G 25",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -128,22 +128,16 @@
   }
  ],
  "fund": {
-  "price": 149.3,
-  "as_of": "2026-11-25",
+  "price": 150.49,
+  "as_of": "2026-11-27",
   "bar": "final",
-  "day_change_pct": -3.91,
-  "sma50": 203.65,
-  "sma200": 202.87,
+  "day_change_pct": 0.8,
+  "sma50": 202.28,
+  "sma200": 202.68,
   "high52w": 239.24,
   "high_label": "52-week high",
-  "drawdown_pct": 37.6,
+  "drawdown_pct": 37.1,
   "series": [
-   {
-    "d": "2026-03-12",
-    "c": 183.14,
-    "t": "caution",
-    "s": 41
-   },
    {
     "d": "2026-03-13",
     "c": 180.25,
@@ -1217,27 +1211,27 @@
     "c": 149.3,
     "t": "ok",
     "s": 59
+   },
+   {
+    "d": "2026-11-27",
+    "c": 150.49,
+    "t": "ok",
+    "s": 59
    }
   ]
  },
- "flips": [
-  {
-   "label": "Short-term pullback",
-   "direction": 1,
-   "text": "NVDA has fallen 2 straight sessions - one more down close = pullback signal (+6 pts)"
-  }
- ],
+ "flips": [],
  "report_card": {
   "horizon_days": 21,
   "start": "2023-10-27",
-  "end": "2026-11-25",
-  "days_total": 773,
+  "end": "2026-11-27",
+  "days_total": 774,
   "backfilled_days": 711,
   "fg_coverage_start": "2025-11-28",
   "baseline": {
-   "n": 752,
-   "avg_pct": 4.56,
-   "median_pct": 3.01
+   "n": 753,
+   "avg_pct": 4.52,
+   "median_pct": 3.0
   },
   "bands": [
    {
@@ -1264,14 +1258,14 @@
    {
     "tone": "caution",
     "label": "Worse-than-average zone (score \u2264 44)",
-    "n": 132,
-    "avg_pct": 6.7,
-    "median_pct": 6.01
+    "n": 133,
+    "avg_pct": 6.42,
+    "median_pct": 5.96
    }
   ]
  },
  "income": {
-  "ttm_yield_pct": 0.3483,
+  "ttm_yield_pct": 0.3455,
   "tbill_3mo": 4.36
  },
  "distributions": {
@@ -1355,13 +1349,13 @@
  },
  "underlying": {
   "symbol": "NVDA",
-  "price": 149.3,
-  "sma200": 202.87,
+  "price": 150.49,
+  "sma200": 202.68,
   "above_200d": false
  },
  "vol": {
   "index": "20d realized",
-  "level": 127.2
+  "level": 127.5
  },
  "fomc": {
   "next": "2026-12-09",
@@ -1379,23 +1373,60 @@
  },
  "backtest": {
   "start": "2022-11-28",
-  "end": "2026-11-25",
+  "end": "2026-11-27",
   "weekly_amount": 100.0,
   "dip_threshold_pct": 3.0,
   "invested": 20900.0,
-  "dca_value": 45745.87,
-  "dca_return_pct": 118.88,
-  "dip_value": 45640.63,
-  "dip_return_pct": 118.38,
+  "dca_value": 46110.49,
+  "dca_return_pct": 120.62,
+  "dip_value": 46004.41,
+  "dip_return_pct": 120.12,
   "dip_cash_uninvested": 0.0,
   "dip_buy_days": 181,
   "winner": "dca"
  },
- "headlines": [],
+ "headlines": [
+  {
+   "title": "When the Founder Is the Risk",
+   "source": "Directors & Boards",
+   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE11RXVINHhBRWF3WndEWjFWX053MlJyS2VlS0JiV1BvV3ZQYVR5M1RMWkNSS2RyZjBfLTJncWY5RzdJR2pYT0JZbVBsNXZBODdUSlZDaktYckhYX25HM1FZTVI0TFNUdGc1YkJKMU9JTGVHWm9WRm85RDFUOWpqZw?oc=5",
+   "published": "2026-11-27T20:00:26+00:00"
+  },
+  {
+   "title": "Restricted NVIDIA Chips Were Installed At A Chinese Data Center Linked To Alice Huang",
+   "source": "Engadget",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOWtYOThKWWFkTmR1eF9BUnF5OXhjU0hGZDh0NDNDOTNESWtYNWtxWVBEb1BLN21OLVBVYkRGcTlzenVOM2lkRkE2TzlBeE5IR1lCZjJ0bjdoam1CaklfTEJKY3ZKakhrelI2eDFlQXZONktnNWpXdWZCRkNSTXZxX1BpeTF1d29MN2VMeHBhaFNCaUJ3d3I3dU1xNlp5VVpuMEhGWVVTcUxxMHhDMDJzbGFfSEdETlRVT0xJ?oc=5",
+   "published": "2026-11-27T19:45:23+00:00"
+  },
+  {
+   "title": "Nvidia, Micron, and Sandisk Trade at Half the S&P 500\u2019s Forward P/E. They Are All Genius Buys.",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNZDhySGlxeXBaWE1ncDJVOE9IUDg4aUthNFhndVJpVVdDYlZVUEthUTdmNUlsWkU4bFBqZUtZS2xqQWw0OWNEWG5yTFNSMVZrVXJ0MUl5eU4yY21ZR2h3NXo0VnhrRmZTdURoSzdHR0hjSjlla2FKT1VFaWlMUTh5SmRJbU0zRm1qTVBxWE5jUnd2N0IxZUthLTEtRVFDYWJOd3M0UXlnSVhMOG5ONEZJNi13VEgtZlFrV3ZncDE1NktubmhoQzdXYnl0R1pNUy1OM3FV?oc=5",
+   "published": "2026-11-27T19:38:02+00:00"
+  },
+  {
+   "title": "LG Chairman Koo Kwang-mo Takes His Nvidia Robotics Deal to Tennessee",
+   "source": "Observer",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOOXh3bzdKNFVyTzFPTlJiYUlfZDEySXpTN2MtNEpaai1RSGFNQ0tkV0hOcGswUmVoLU5BaFI2bU4wWjJCVlBmZlRkbklBR0hOYy1VUTBmUUpTanpvZkoxaDVfNk5rMzRlSElHcjY4MG1xeG5UYlNpSUZkV3FjZ3BWOFA5NA?oc=5",
+   "published": "2026-11-27T19:28:26+00:00"
+  },
+  {
+   "title": "Should You Buy Nvidia Stock Before CEO Jensen Huang Testifies in Front of Congress on Dec. 1 and Dec. 3?",
+   "source": "The Motley Fool",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOLXRieWlpNzJqdWQ3RVRNQk5WUXBUSUY5WE5oNHdRNXNCekJFc1pWcEViZE95RFRzbDFKWTdDc29VbXNRTTBobDVGQnFnOXg0NFVLRzQ4NUVTeHFmT2NNRkM2WjFVYmxvQTg1UnpRU0R4OGNjbGZIUVpTT2R2VU5DdzFyb1RUYkY4VTBXM0NaTmpGM2h4OUMwVkZiRVFWaS12eEhLUGRrQVVkVDcyODl4ZlQ5dElBRDd6U3ROa2hzS3ZJNm9semJQZkk5ajBsUGVGbnhKajR6ZE1xdUtZ?oc=5",
+   "published": "2026-11-27T19:28:09+00:00"
+  },
+  {
+   "title": "Nvidia Blackwell Chips Turn Up at China Site Tied to Alice Huang",
+   "source": "Bloomberg",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOajRDYnpkT2kwWEdlR2REeG93cnBZdkdsYmo3dTFmaVp3enZYN3Jid0RYVWZwNXJvcE00OG5FNjdwd0MzQXpFV1gzeUxkdnhxTVNoaGVNRmpnRllMTGY4emNtNW9VYnc4RWZVX0I2WExQNy1Ha21aV0FNWWVUb0FacnFLM01rUWRudjBCdGJpbGxCVUx3dl9KMEtZb0pyYURCTG1iWW5xUmNpaDlnc0lsMVpldmV6QQ?oc=5",
+   "published": "2026-11-27T19:18:51+00:00"
+  }
+ ],
  "health": {
-  "run_at": "2026-11-27T12:01:03+00:00",
+  "run_at": "2026-11-27T20:10:23+00:00",
   "session": {
-   "date": "2026-11-25",
+   "date": "2026-11-27",
    "bar": "final"
   },
   "sources": {
@@ -1412,7 +1443,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-27T11:41:16+00:00"
+    "as_of": "2026-11-27T19:52:33+00:00"
    },
    "earnings:NVDA": {
     "ok": false,
@@ -1434,7 +1465,7 @@
    "fred:BAMLH0A0HYM2": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-24"
+    "as_of": "2026-11-26"
    },
    "fred:DGS3MO": {
     "ok": true,
@@ -1442,88 +1473,93 @@
     "as_of": "2026-11-24"
    },
    "news:GPIQ": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-11-27T20:05:02+00:00"
    },
    "news:GPIX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-11-27T19:58:40+00:00"
    },
    "news:NVDA": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-11-27T20:00:26+00:00"
    },
    "news:SPCX": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-11-27T19:55:18+00:00"
    },
    "news:TSLA": {
-    "ok": false,
+    "ok": true,
     "core": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "items": 6,
+    "as_of": "2026-11-27T19:55:54+00:00"
    },
    "yahoo:GPIQ": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:GPIX": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-27T12:00Z"
+    "as_of": "2026-11-27T20:10Z"
    },
    "yahoo:NVDA": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:QQQ": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:SPCX": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:SPY": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:TSLA": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:^VIX": {
     "ok": true,
     "core": true,
-    "bar": "prior_close",
-    "as_of": "2026-11-26"
+    "bar": "provisional",
+    "as_of": "2026-11-27"
    },
    "yahoo:^VIX3M": {
     "ok": true,
     "core": true,
     "bar": "final",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-27"
    },
    "yahoo:^VXN": {
     "ok": true,
@@ -1535,12 +1571,7 @@
   "degraded": [
    "calendar:CPI",
    "earnings:NVDA",
-   "earnings:TSLA",
-   "news:GPIQ",
-   "news:GPIX",
-   "news:NVDA",
-   "news:SPCX",
-   "news:TSLA"
+   "earnings:TSLA"
   ],
   "degraded_core": []
  }
