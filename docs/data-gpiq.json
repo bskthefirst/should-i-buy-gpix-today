@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T21:25:09+00:00",
+ "generated_at": "2026-11-27T12:00:23+00:00",
  "rules_version": 4,
  "ticker": "GPIQ",
  "verdict": {
@@ -40,13 +40,13 @@
   },
   {
    "name": "VIX term structure (1mo/3mo)",
-   "value": "1.08",
+   "value": "1.02",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "VIX curve inverted - genuine panic. The backtest evidence on this band is mixed, but it fires rarely and coincides with real panics, so it keeps a modest 1.0 weight.",
    "viz": {
-    "pos": 94.0,
+    "pos": 79.8,
     "labels": [
      "0.70 calm",
      "1.10 panic"
@@ -69,7 +69,7 @@
    "lean": "neutral",
    "note": "Tech vol priced normally relative to the broad market. The audits found rich tech premiums preceded weaker returns, so this only turns interesting at the extremes.",
    "viz": {
-    "pos": 53.8,
+    "pos": 53.6,
     "labels": [
      "cheap tech vol",
      "rich tech vol"
@@ -221,13 +221,13 @@
   },
   {
    "name": "Fear & Greed index",
-   "value": "15 (extreme fear)",
+   "value": "18 (extreme fear)",
    "score": 1.0,
    "weight": 1.0,
    "lean": "good",
    "note": "Extreme fear across market internals - a contrarian extreme. Honesty note: CNN publishes only ~1 year of testable history, so its 1.0 weight rests mostly on principle.",
    "viz": {
-    "pos": 15.0,
+    "pos": 17.9,
     "labels": [
      "extreme fear",
      "extreme greed"
@@ -249,7 +249,7 @@
   },
   {
    "name": "Event calendar",
-   "value": "FOMC in 13d",
+   "value": "FOMC in 12d",
    "score": 0,
    "weight": 0,
    "lean": "neutral",
@@ -1361,7 +1361,7 @@
   "end": "2026-11-25",
   "days_total": 773,
   "backfilled_days": 706,
-  "fg_coverage_start": "2025-11-26",
+  "fg_coverage_start": "2025-11-28",
   "baseline": {
    "n": 752,
    "avg_pct": 1.63,
@@ -1396,8 +1396,8 @@
   "tbill_3mo": 4.36
  },
  "fx": {
-  "usd_krw": 1343.04,
-  "as_of": "2026-11-26T21:25Z"
+  "usd_krw": 1335.03,
+  "as_of": "2026-11-27T12:00Z"
  },
  "distributions": {
   "history": [
@@ -1530,12 +1530,12 @@
  },
  "fomc": {
   "next": "2026-12-09",
-  "days_until": 13,
+  "days_until": 12,
   "imminent": false
  },
  "cpi": {
   "next": "2026-12-10",
-  "days_until": 14
+  "days_until": 13
  },
  "backtest": {
   "start": "2023-10-27",
@@ -1551,46 +1551,9 @@
   "dip_buy_days": 68,
   "winner": "dca"
  },
- "headlines": [
-  {
-   "title": "Why California\u2019s Universities Are Setting Up Their Own AI Data Centers",
-   "source": "The Santa Barbara Independent",
-   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPVVZMbUpkeGNHSmo5S3BTX3cxOHJxRExjUE1wY1JJT3oxMnJJMm43TXp0RXAxb0lhT01PSWFiREZMNm0tRXc0LWZ5QkJaT1dSMnVlMGRlc1BPaEpQT19Rc1gxUF9HRm9WalJWX1VYTW5UazhUNlJyMnl5bXFhWjBrZnRrV0Z6LUxhUkNfUUFPVEt2QVVkR29xV1Jra2liUEtOWDBBend6enVyZFNTbkE?oc=5",
-   "published": "2026-11-26T21:13:06+00:00"
-  },
-  {
-   "title": "The Nasdaq Composite Is in a Correction, but These 3 Dividend Stocks Are Near 52-Week Highs. Here's Why They're Still Worth Buying Right Now.",
-   "source": "The Motley Fool",
-   "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxPMmlyUHI0N2tiME92bUNJQnJMZUE5eFFQOWVYZFhOUHVBeTNaR1FPY2V1dE5tX3lYUmFXQlRqbzE4MTZHNjNmZkNIdWVnZUphOXcyNjZVSC03bXZuWnhYbzR6ZUxfY0lzQWNzQzJWWG1aT1dOSlczQk5rbzVycTRQM2hnTnlfVW04aXF6djBEck1uSWNqbWJZMm9nWlpUMUNaaHZJOE91ZXFRbVNwakM2S3VBQTNCUnFseWxRcjlsdU12SUMteGZwcTgyNUdERG5Qd3BsVWFqVXJOLVRuLU9QcGpHMnJuYUNEU0psY1lYMVl3SmtIUVpXS3ZlRFgyN0xoRWdLVVpOc3pQWEM5UVE?oc=5",
-   "published": "2026-11-26T21:13:02+00:00"
-  },
-  {
-   "title": "NVIDIA, Jensen Huang\u2019s Comeback, and Cancer: How AI Is Transforming Oncology",
-   "source": "Oncodaily",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1WOVVfVmZNVjZrcDBnbzRhRHVxRlVkQjdPUlF2SldtRXNLZF9nbVRTNDh2b0hDTWt4UGJFZ1dXSExHeTE4WUVvMldoQ1RGaVBpQXdGU2VNanc2Y3FDa01BcmNWckhDYWk1THdWcVVPUjVQMTlyUzRlVGRUWEU?oc=5",
-   "published": "2026-11-26T21:07:25+00:00"
-  },
-  {
-   "title": "UK DSIT Publishes Baseline Evaluation of AI Research Resource Supercomputing Programme",
-   "source": "CASRAI",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPOFczcGZKN0Fldl9kdjZRSzdSdTRKdnBGY25uWFY3RkdsZWdnV2RkSEVOeGZFN25jMXhYR1c0YUYyNmlCejRhVTA2eGlyZFN3UEo0NndvSXF4MTFkbVJ2WEdIRTFuNTdrNElUY01PeTl5TUNaTnM3ci1wRGJNVWI1ZEl2VmZkNEFqVmppaHFmcVlhZjZOb1Z4dA?oc=5",
-   "published": "2026-11-26T21:05:36+00:00"
-  },
-  {
-   "title": "From Cassette Tapes to Humanoids: TDK Chases Demand for Sensors in Data Centers, Robots",
-   "source": "Bloomberg",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOVUx0VnQtMktySjRnREJFSjhwSjl0Mk9kNXVFQ1FqV1hwZmM5WUJwdmNITDZpaHU1WER2akJ3b1FWbVRtSnpqQTU0MGRpQWNYMTl0aW54YlpQdl9NcVEzR19Fc1cxLXlQamJ6VFBzNVY2Mnozd29JRDQwX1pna25XREFMa25YSHNyTHNVVjlBZk5IcUd3LUo4dnRRWlVIcXNnOEpONzc3dlBzdlBSTWZGcA?oc=5",
-   "published": "2026-11-26T21:00:00+00:00"
-  },
-  {
-   "title": "Denver may have solved its permitting application issues by integrating AI technology",
-   "source": "CBS News",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNd2ZsVEFyTkVqdnBqUTROM2NlZ2lHYzF2eW11bDM5X1hxeDdNdWFic0ktSGhKQmwyTGhsblhIVFM2cGE3MjJQRFJ2RGpMbHkzaEs1Yl9iaG0wZmd0MERoTVloM3dncXZlNWs1M25IZGFaVGxEYkZ3bjJrRFotc1JyejQyM3BsZ3JpREhfR2VORFdPaHQ3QkpMTEh4a0VRTGlSd0xjQjVOUFY1ZS02?oc=5",
-   "published": "2026-11-26T20:55:06+00:00"
-  }
- ],
+ "headlines": [],
  "health": {
-  "run_at": "2026-11-26T21:25:10+00:00",
+  "run_at": "2026-11-27T12:00:28+00:00",
   "session": {
    "date": "2026-11-25",
    "bar": "final"
@@ -1609,7 +1572,7 @@
    "cnn:fear_greed": {
     "ok": true,
     "core": true,
-    "as_of": "2026-11-26T01:59:59+00:00"
+    "as_of": "2026-11-27T11:41:16+00:00"
    },
    "fred:BAMLH0A0HYM2": {
     "ok": true,
@@ -1622,16 +1585,14 @@
     "as_of": "2026-11-24"
    },
    "news:GPIQ": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-11-26T21:13:06+00:00"
+    "error": "HTTPError: HTTP Error 503: Service Unavailable"
    },
    "news:GPIX": {
-    "ok": true,
+    "ok": false,
     "core": false,
-    "items": 6,
-    "as_of": "2026-11-26T21:11:03+00:00"
+    "error": "HTTPError: HTTP Error 503: Service Unavailable"
    },
    "yahoo:GPIQ": {
     "ok": true,
@@ -1648,7 +1609,7 @@
    "yahoo:KRW=X": {
     "ok": true,
     "core": false,
-    "as_of": "2026-11-26T21:25Z"
+    "as_of": "2026-11-27T12:00Z"
    },
    "yahoo:QQQ": {
     "ok": true,
@@ -1666,7 +1627,7 @@
     "ok": true,
     "core": true,
     "bar": "prior_close",
-    "as_of": "2026-11-25"
+    "as_of": "2026-11-26"
    },
    "yahoo:^VIX3M": {
     "ok": true,
@@ -1682,7 +1643,9 @@
    }
   },
   "degraded": [
-   "calendar:CPI"
+   "calendar:CPI",
+   "news:GPIQ",
+   "news:GPIX"
   ],
   "degraded_core": []
  }
